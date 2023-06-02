@@ -44051,6 +44051,7 @@ MonoBehaviour:
   popupType: 2
   imgSummonCountProgress: {fileID: 471542255}
   txtSummonCount: {fileID: 1255277203}
+  txtGradeLevel: {fileID: 0}
   btnGetReward: {fileID: 1045347116}
 --- !u!1 &1032416027
 GameObject:
@@ -59308,16 +59309,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1430916484}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04d2674c4251ac4419777fc86fe8d36b, type: 3}
+  m_Script: {fileID: 11500000, guid: 7df692c72ab4f9544909cab47876d34d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   stageIdx: 0
   upgradeLevelIdx: 0
   traningLevelIdx: 0
-  gold: 0
+  gold: 99999999
   bone: 0
   gem: 0
-  coal: 0
+  coal: 999999
   clearTicket: 0
   dungeonKeys:
     keys: 00000000010000000300000004000000
@@ -59336,11 +59337,11 @@ MonoBehaviour:
     rewardEvent: 
     unlock: 
   pahseCountOriginalValue: 0
-  currentMonster: {fileID: 0}
+  currentMonster: {fileID: 1089423845}
   curMonsterType: 0
   prevMonsterType: 0
   isSpacialMonsterHunting: 0
-  isBossMonsterChllengeEnable: 0
+  isBossMonsterChllengeEnable: 1
 --- !u!1 &1431111860
 GameObject:
   m_ObjectHideFlags: 0
@@ -121731,6 +121732,7 @@ MonoBehaviour:
   unionGradeLevel: 0
   curLotteryCount: 0
   totalLotteryCount: 0
+  totalDrawCount: 0
 --- !u!4 &6590210662459880413
 Transform:
   m_ObjectHideFlags: 0

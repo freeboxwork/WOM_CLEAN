@@ -1,0 +1,60 @@
+{
+    "data": [
+        {
+            "questType": "allComplete",
+            "questName": "일일 퀘스트 모두 완료",
+            "targetValue": 1,
+            "rewardType": "bone",
+            "rewardValue": 1000
+        },
+        {
+            "questType": "showAd",
+            "questName": "광고 보기",
+            "targetValue": 1,
+            "rewardType": "dice",
+            "rewardValue": 1000
+        },
+        {
+            "questType": "clearDungeon",
+            "questName": "던전 클리어",
+            "targetValue": 1,
+            "rewardType": "coal",
+            "rewardValue": 1000
+        },
+        {
+            "questType": "useSkill",
+            "questName": "스킬 사용",
+            "targetValue": 3,
+            "rewardType": "gem",
+            "rewardValue": 1000
+        },
+        {
+            "questType": "summonUnion",
+            "questName": "유니온 소환",
+            "targetValue": 3,
+            "rewardType": "clearTicket",
+            "rewardValue": 10
+        },
+        {
+            "questType": "progressStage",
+            "questName": "스테이지 진행",
+            "targetValue": 3,
+            "rewardType": "gem",
+            "rewardValue": 1000
+        },
+        {
+            "questType": "killGoldBoss",
+            "questName": "금광 보스 처치",
+            "targetValue": 3,
+            "rewardType": "gem",
+            "rewardValue": 1000
+        },
+        {
+            "questType": "takeGoldPig",
+            "questName": "황금 돼지 잡기",
+            "targetValue": 3,
+            "rewardType": "gem",
+            "rewardValue": 1000
+        }
+    ]
+}

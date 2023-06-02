@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c567acacca68a794eac9de7dd2c38c70, type: 3}
+  m_Name: urlDatas
+  m_EditorClassIdentifier: 
+  url_Datas:
+  - name: CUSTOM TYPE DATA SHEET
+    url: https://docs.google.com/spreadsheets/d/101MDn8hJlg89ZEdgD3JqRDIVx9IaUi8MtTY1mhsE-90/edit#gid=0
+  - name: GAME DATA SHEET
+    url: https://docs.google.com/spreadsheets/d/1gsiAKac3UtyWZNIKr3T-RxqNeR6ZfgjRdC4_VC_49gA/edit?usp=sharing
+  - name: PROCESS FLOW
+    url: https://drive.google.com/file/d/1aNoBMGWbqcRNPFShxJaDvt4aZEFfXV5e/view?usp=sharing
+  - name: LOAD DATA SHEET
+    url: https://docs.google.com/spreadsheets/d/1pAQqh2KcdMaDiI4B16aE3hltGNlbZQWzyq-W1XuqiQw/edit?usp=sharing
+  - name: CSV TO JSON
+    url: https://www.convertcsv.com/csv-to-json.htm

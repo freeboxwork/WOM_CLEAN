@@ -1,0 +1,63 @@
+{"data":[
+ {
+   "depthId": 0,
+   "damage": 150,
+   "damageRate": 1,
+   "criticalChance": 0,
+   "criticalDamage": 0,
+   "speed": 50,
+   "goldBonus": 0,
+   "bossDamage": 0,
+   "name": "Beetle00",
+   "spawnTime": 4.5
+ },
+ {
+   "depthId": 1,
+   "damage": 150,
+   "damageRate": 2,
+   "criticalChance": 0,
+   "criticalDamage": 0,
+   "speed": 50,
+   "goldBonus": 0,
+   "bossDamage": 0,
+   "name": "Beetle01",
+   "spawnTime": 4.5
+ },
+ {
+   "depthId": 2,
+   "damage": 150,
+   "damageRate": 4,
+   "criticalChance": 0,
+   "criticalDamage": 0,
+   "speed": 50,
+   "goldBonus": 0,
+   "bossDamage": 0,
+   "name": "Beetle02",
+   "spawnTime": 4.5
+ },
+ {
+   "depthId": 3,
+   "damage": 150,
+   "damageRate": 8,
+   "criticalChance": 0,
+   "criticalDamage": 0,
+   "speed": 50,
+   "goldBonus": 0,
+   "bossDamage": 0,
+   "name": "Beetle03",
+   "spawnTime": 4.5
+ },
+ {
+   "depthId": 4,
+   "damage": 150,
+   "damageRate": 16,
+   "criticalChance": 0,
+   "criticalDamage": 0,
+   "speed": 50,
+   "goldBonus": 0,
+   "bossDamage": 0,
+   "name": "Beetle04",
+   "spawnTime": 4.5
+ }
+]
+}

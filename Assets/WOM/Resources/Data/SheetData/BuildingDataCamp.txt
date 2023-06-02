@@ -1,0 +1,29 @@
+﻿{
+   "data":[
+ {
+   "level": 0,
+   "upgradeCount": 0,
+   "reward": null
+ },
+ {
+   "level": 1,
+   "upgradeCount": 100,
+   "reward": "Rare_8"
+ },
+ {
+   "level": 2,
+   "upgradeCount": 300,
+   "reward": "Hero_8"
+ },
+ {
+   "level": 3,
+   "upgradeCount": 500,
+   "reward": "Legend_8"
+ },
+ {
+   "level": 4,
+   "upgradeCount": 1000,
+   "reward": "Unique_8"
+ }
+]
+}

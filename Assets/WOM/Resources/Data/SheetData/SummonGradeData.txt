@@ -1,0 +1,29 @@
+{
+  "data": [
+    {
+      "level": 0,
+      "count": 100,
+      "rewardUnionIndex": 0
+    },
+    {
+      "level": 1,
+      "count": 300,
+      "rewardUnionIndex": 16
+    },
+    {
+      "level": 2,
+      "count": 500,
+      "rewardUnionIndex": 24
+    },
+    {
+      "level": 3,
+      "count": 1000,
+      "rewardUnionIndex": 32
+    },
+    {
+      "level": 4,
+      "count": 0,
+      "rewardUnionIndex": 40
+    }
+  ]
+}

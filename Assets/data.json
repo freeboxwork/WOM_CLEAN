@@ -1,0 +1,12 @@
+{
+    "skillType": 0,
+    "level": 1,
+    "saveDataUnions": [
+        {
+            "unionId": 20,
+            "level": 2,
+            "equipSlotId": 1,
+            "isEquip": false
+        }
+    ]
+}

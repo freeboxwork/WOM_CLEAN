@@ -1,0 +1,82 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - monster
+  - monster_normal
+  - monster_gold
+  - monster_boss
+  - monster_evolution
+  - monsterDungeon
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: BackGround
+    uniqueID: 326555537
+    locked: 0
+  - name: WorldEffects
+    uniqueID: 3804208599
+    locked: 0
+  - name: Shadow
+    uniqueID: 3252033679
+    locked: 0
+  - name: Monsters
+    uniqueID: 4233588257
+    locked: 0
+  - name: Goods
+    uniqueID: 348848675
+    locked: 0
+  - name: Insects
+    uniqueID: 4267736641
+    locked: 0
+  - name: Castle
+    uniqueID: 1201207303
+    locked: 0
+  - name: Effects
+    uniqueID: 3951863921
+    locked: 0
+  - name: CoverEffects
+    uniqueID: 2635661689
+    locked: 0
+  - name: UI
+    uniqueID: 3010399889
+    locked: 0
+  - name: UI_Elements
+    uniqueID: 486736821
+    locked: 0

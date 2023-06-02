@@ -1,0 +1,503 @@
+{"data":[
+ {
+   "level": 1,
+   "currencyAmount": 100,
+   "monsterHP": 1000
+ },
+ {
+   "level": 2,
+   "currencyAmount": 200,
+   "monsterHP": 1500
+ },
+ {
+   "level": 3,
+   "currencyAmount": 300,
+   "monsterHP": 2000
+ },
+ {
+   "level": 4,
+   "currencyAmount": 400,
+   "monsterHP": 2500
+ },
+ {
+   "level": 5,
+   "currencyAmount": 500,
+   "monsterHP": 3000
+ },
+ {
+   "level": 6,
+   "currencyAmount": 600,
+   "monsterHP": 3500
+ },
+ {
+   "level": 7,
+   "currencyAmount": 700,
+   "monsterHP": 4000
+ },
+ {
+   "level": 8,
+   "currencyAmount": 800,
+   "monsterHP": 4500
+ },
+ {
+   "level": 9,
+   "currencyAmount": 900,
+   "monsterHP": 5000
+ },
+ {
+   "level": 10,
+   "currencyAmount": 1000,
+   "monsterHP": 5500
+ },
+ {
+   "level": 11,
+   "currencyAmount": 1100,
+   "monsterHP": 6000
+ },
+ {
+   "level": 12,
+   "currencyAmount": 1200,
+   "monsterHP": 6500
+ },
+ {
+   "level": 13,
+   "currencyAmount": 1300,
+   "monsterHP": 7000
+ },
+ {
+   "level": 14,
+   "currencyAmount": 1400,
+   "monsterHP": 7500
+ },
+ {
+   "level": 15,
+   "currencyAmount": 1500,
+   "monsterHP": 8000
+ },
+ {
+   "level": 16,
+   "currencyAmount": 1600,
+   "monsterHP": 8500
+ },
+ {
+   "level": 17,
+   "currencyAmount": 1700,
+   "monsterHP": 9000
+ },
+ {
+   "level": 18,
+   "currencyAmount": 1800,
+   "monsterHP": 9500
+ },
+ {
+   "level": 19,
+   "currencyAmount": 1900,
+   "monsterHP": 10000
+ },
+ {
+   "level": 20,
+   "currencyAmount": 2000,
+   "monsterHP": 10500
+ },
+ {
+   "level": 21,
+   "currencyAmount": 2100,
+   "monsterHP": 11000
+ },
+ {
+   "level": 22,
+   "currencyAmount": 2200,
+   "monsterHP": 11500
+ },
+ {
+   "level": 23,
+   "currencyAmount": 2300,
+   "monsterHP": 12000
+ },
+ {
+   "level": 24,
+   "currencyAmount": 2400,
+   "monsterHP": 12500
+ },
+ {
+   "level": 25,
+   "currencyAmount": 2500,
+   "monsterHP": 13000
+ },
+ {
+   "level": 26,
+   "currencyAmount": 2600,
+   "monsterHP": 13500
+ },
+ {
+   "level": 27,
+   "currencyAmount": 2700,
+   "monsterHP": 14000
+ },
+ {
+   "level": 28,
+   "currencyAmount": 2800,
+   "monsterHP": 14500
+ },
+ {
+   "level": 29,
+   "currencyAmount": 2900,
+   "monsterHP": 15000
+ },
+ {
+   "level": 30,
+   "currencyAmount": 3000,
+   "monsterHP": 15500
+ },
+ {
+   "level": 31,
+   "currencyAmount": 3100,
+   "monsterHP": 16000
+ },
+ {
+   "level": 32,
+   "currencyAmount": 3200,
+   "monsterHP": 16500
+ },
+ {
+   "level": 33,
+   "currencyAmount": 3300,
+   "monsterHP": 17000
+ },
+ {
+   "level": 34,
+   "currencyAmount": 3400,
+   "monsterHP": 17500
+ },
+ {
+   "level": 35,
+   "currencyAmount": 3500,
+   "monsterHP": 18000
+ },
+ {
+   "level": 36,
+   "currencyAmount": 3600,
+   "monsterHP": 18500
+ },
+ {
+   "level": 37,
+   "currencyAmount": 3700,
+   "monsterHP": 19000
+ },
+ {
+   "level": 38,
+   "currencyAmount": 3800,
+   "monsterHP": 19500
+ },
+ {
+   "level": 39,
+   "currencyAmount": 3900,
+   "monsterHP": 20000
+ },
+ {
+   "level": 40,
+   "currencyAmount": 4000,
+   "monsterHP": 20500
+ },
+ {
+   "level": 41,
+   "currencyAmount": 4100,
+   "monsterHP": 21000
+ },
+ {
+   "level": 42,
+   "currencyAmount": 4200,
+   "monsterHP": 21500
+ },
+ {
+   "level": 43,
+   "currencyAmount": 4300,
+   "monsterHP": 22000
+ },
+ {
+   "level": 44,
+   "currencyAmount": 4400,
+   "monsterHP": 22500
+ },
+ {
+   "level": 45,
+   "currencyAmount": 4500,
+   "monsterHP": 23000
+ },
+ {
+   "level": 46,
+   "currencyAmount": 4600,
+   "monsterHP": 23500
+ },
+ {
+   "level": 47,
+   "currencyAmount": 4700,
+   "monsterHP": 24000
+ },
+ {
+   "level": 48,
+   "currencyAmount": 4800,
+   "monsterHP": 24500
+ },
+ {
+   "level": 49,
+   "currencyAmount": 4900,
+   "monsterHP": 25000
+ },
+ {
+   "level": 50,
+   "currencyAmount": 5000,
+   "monsterHP": 25500
+ },
+ {
+   "level": 51,
+   "currencyAmount": 5100,
+   "monsterHP": 26000
+ },
+ {
+   "level": 52,
+   "currencyAmount": 5200,
+   "monsterHP": 26500
+ },
+ {
+   "level": 53,
+   "currencyAmount": 5300,
+   "monsterHP": 27000
+ },
+ {
+   "level": 54,
+   "currencyAmount": 5400,
+   "monsterHP": 27500
+ },
+ {
+   "level": 55,
+   "currencyAmount": 5500,
+   "monsterHP": 28000
+ },
+ {
+   "level": 56,
+   "currencyAmount": 5600,
+   "monsterHP": 28500
+ },
+ {
+   "level": 57,
+   "currencyAmount": 5700,
+   "monsterHP": 29000
+ },
+ {
+   "level": 58,
+   "currencyAmount": 5800,
+   "monsterHP": 29500
+ },
+ {
+   "level": 59,
+   "currencyAmount": 5900,
+   "monsterHP": 30000
+ },
+ {
+   "level": 60,
+   "currencyAmount": 6000,
+   "monsterHP": 30500
+ },
+ {
+   "level": 61,
+   "currencyAmount": 6100,
+   "monsterHP": 31000
+ },
+ {
+   "level": 62,
+   "currencyAmount": 6200,
+   "monsterHP": 31500
+ },
+ {
+   "level": 63,
+   "currencyAmount": 6300,
+   "monsterHP": 32000
+ },
+ {
+   "level": 64,
+   "currencyAmount": 6400,
+   "monsterHP": 32500
+ },
+ {
+   "level": 65,
+   "currencyAmount": 6500,
+   "monsterHP": 33000
+ },
+ {
+   "level": 66,
+   "currencyAmount": 6600,
+   "monsterHP": 33500
+ },
+ {
+   "level": 67,
+   "currencyAmount": 6700,
+   "monsterHP": 34000
+ },
+ {
+   "level": 68,
+   "currencyAmount": 6800,
+   "monsterHP": 34500
+ },
+ {
+   "level": 69,
+   "currencyAmount": 6900,
+   "monsterHP": 35000
+ },
+ {
+   "level": 70,
+   "currencyAmount": 7000,
+   "monsterHP": 35500
+ },
+ {
+   "level": 71,
+   "currencyAmount": 7100,
+   "monsterHP": 36000
+ },
+ {
+   "level": 72,
+   "currencyAmount": 7200,
+   "monsterHP": 36500
+ },
+ {
+   "level": 73,
+   "currencyAmount": 7300,
+   "monsterHP": 37000
+ },
+ {
+   "level": 74,
+   "currencyAmount": 7400,
+   "monsterHP": 37500
+ },
+ {
+   "level": 75,
+   "currencyAmount": 7500,
+   "monsterHP": 38000
+ },
+ {
+   "level": 76,
+   "currencyAmount": 7600,
+   "monsterHP": 38500
+ },
+ {
+   "level": 77,
+   "currencyAmount": 7700,
+   "monsterHP": 39000
+ },
+ {
+   "level": 78,
+   "currencyAmount": 7800,
+   "monsterHP": 39500
+ },
+ {
+   "level": 79,
+   "currencyAmount": 7900,
+   "monsterHP": 40000
+ },
+ {
+   "level": 80,
+   "currencyAmount": 8000,
+   "monsterHP": 40500
+ },
+ {
+   "level": 81,
+   "currencyAmount": 8100,
+   "monsterHP": 41000
+ },
+ {
+   "level": 82,
+   "currencyAmount": 8200,
+   "monsterHP": 41500
+ },
+ {
+   "level": 83,
+   "currencyAmount": 8300,
+   "monsterHP": 42000
+ },
+ {
+   "level": 84,
+   "currencyAmount": 8400,
+   "monsterHP": 42500
+ },
+ {
+   "level": 85,
+   "currencyAmount": 8500,
+   "monsterHP": 43000
+ },
+ {
+   "level": 86,
+   "currencyAmount": 8600,
+   "monsterHP": 43500
+ },
+ {
+   "level": 87,
+   "currencyAmount": 8700,
+   "monsterHP": 44000
+ },
+ {
+   "level": 88,
+   "currencyAmount": 8800,
+   "monsterHP": 44500
+ },
+ {
+   "level": 89,
+   "currencyAmount": 8900,
+   "monsterHP": 45000
+ },
+ {
+   "level": 90,
+   "currencyAmount": 9000,
+   "monsterHP": 45500
+ },
+ {
+   "level": 91,
+   "currencyAmount": 9100,
+   "monsterHP": 46000
+ },
+ {
+   "level": 92,
+   "currencyAmount": 9200,
+   "monsterHP": 46500
+ },
+ {
+   "level": 93,
+   "currencyAmount": 9300,
+   "monsterHP": 47000
+ },
+ {
+   "level": 94,
+   "currencyAmount": 9400,
+   "monsterHP": 47500
+ },
+ {
+   "level": 95,
+   "currencyAmount": 9500,
+   "monsterHP": 48000
+ },
+ {
+   "level": 96,
+   "currencyAmount": 9600,
+   "monsterHP": 48500
+ },
+ {
+   "level": 97,
+   "currencyAmount": 9700,
+   "monsterHP": 49000
+ },
+ {
+   "level": 98,
+   "currencyAmount": 9800,
+   "monsterHP": 49500
+ },
+ {
+   "level": 99,
+   "currencyAmount": 9900,
+   "monsterHP": 50000
+ },
+ {
+   "level": 100,
+   "currencyAmount": 10000,
+   "monsterHP": 50500
+ }
+]
+}

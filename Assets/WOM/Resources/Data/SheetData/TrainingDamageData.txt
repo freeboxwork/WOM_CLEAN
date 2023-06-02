@@ -1,0 +1,6009 @@
+{"data":[
+ {
+   "level": 0,
+   "salePrice": 0,
+   "value": 10,
+   "unitName": ""
+ },
+ {
+   "level": 1,
+   "salePrice": 100,
+   "value": 20,
+   "unitName": ""
+ },
+ {
+   "level": 2,
+   "salePrice": 150,
+   "value": 30,
+   "unitName": ""
+ },
+ {
+   "level": 3,
+   "salePrice": 200,
+   "value": 40,
+   "unitName": ""
+ },
+ {
+   "level": 4,
+   "salePrice": 250,
+   "value": 50,
+   "unitName": ""
+ },
+ {
+   "level": 5,
+   "salePrice": 300,
+   "value": 60,
+   "unitName": ""
+ },
+ {
+   "level": 6,
+   "salePrice": 350,
+   "value": 70,
+   "unitName": ""
+ },
+ {
+   "level": 7,
+   "salePrice": 400,
+   "value": 80,
+   "unitName": ""
+ },
+ {
+   "level": 8,
+   "salePrice": 450,
+   "value": 90,
+   "unitName": ""
+ },
+ {
+   "level": 9,
+   "salePrice": 500,
+   "value": 100,
+   "unitName": ""
+ },
+ {
+   "level": 10,
+   "salePrice": 550,
+   "value": 110,
+   "unitName": ""
+ },
+ {
+   "level": 11,
+   "salePrice": 600,
+   "value": 120,
+   "unitName": ""
+ },
+ {
+   "level": 12,
+   "salePrice": 650,
+   "value": 130,
+   "unitName": ""
+ },
+ {
+   "level": 13,
+   "salePrice": 700,
+   "value": 140,
+   "unitName": ""
+ },
+ {
+   "level": 14,
+   "salePrice": 750,
+   "value": 150,
+   "unitName": ""
+ },
+ {
+   "level": 15,
+   "salePrice": 800,
+   "value": 160,
+   "unitName": ""
+ },
+ {
+   "level": 16,
+   "salePrice": 850,
+   "value": 170,
+   "unitName": ""
+ },
+ {
+   "level": 17,
+   "salePrice": 900,
+   "value": 180,
+   "unitName": ""
+ },
+ {
+   "level": 18,
+   "salePrice": 950,
+   "value": 190,
+   "unitName": ""
+ },
+ {
+   "level": 19,
+   "salePrice": 1000,
+   "value": 200,
+   "unitName": ""
+ },
+ {
+   "level": 20,
+   "salePrice": 1050,
+   "value": 210,
+   "unitName": ""
+ },
+ {
+   "level": 21,
+   "salePrice": 1100,
+   "value": 220,
+   "unitName": ""
+ },
+ {
+   "level": 22,
+   "salePrice": 1150,
+   "value": 230,
+   "unitName": ""
+ },
+ {
+   "level": 23,
+   "salePrice": 1200,
+   "value": 240,
+   "unitName": ""
+ },
+ {
+   "level": 24,
+   "salePrice": 1250,
+   "value": 250,
+   "unitName": ""
+ },
+ {
+   "level": 25,
+   "salePrice": 1300,
+   "value": 260,
+   "unitName": ""
+ },
+ {
+   "level": 26,
+   "salePrice": 1350,
+   "value": 270,
+   "unitName": ""
+ },
+ {
+   "level": 27,
+   "salePrice": 1400,
+   "value": 280,
+   "unitName": ""
+ },
+ {
+   "level": 28,
+   "salePrice": 1450,
+   "value": 290,
+   "unitName": ""
+ },
+ {
+   "level": 29,
+   "salePrice": 1500,
+   "value": 300,
+   "unitName": ""
+ },
+ {
+   "level": 30,
+   "salePrice": 1550,
+   "value": 310,
+   "unitName": ""
+ },
+ {
+   "level": 31,
+   "salePrice": 1600,
+   "value": 320,
+   "unitName": ""
+ },
+ {
+   "level": 32,
+   "salePrice": 1650,
+   "value": 330,
+   "unitName": ""
+ },
+ {
+   "level": 33,
+   "salePrice": 1700,
+   "value": 340,
+   "unitName": ""
+ },
+ {
+   "level": 34,
+   "salePrice": 1750,
+   "value": 350,
+   "unitName": ""
+ },
+ {
+   "level": 35,
+   "salePrice": 1800,
+   "value": 360,
+   "unitName": ""
+ },
+ {
+   "level": 36,
+   "salePrice": 1850,
+   "value": 370,
+   "unitName": ""
+ },
+ {
+   "level": 37,
+   "salePrice": 1900,
+   "value": 380,
+   "unitName": ""
+ },
+ {
+   "level": 38,
+   "salePrice": 1950,
+   "value": 390,
+   "unitName": ""
+ },
+ {
+   "level": 39,
+   "salePrice": 2000,
+   "value": 400,
+   "unitName": ""
+ },
+ {
+   "level": 40,
+   "salePrice": 2050,
+   "value": 410,
+   "unitName": ""
+ },
+ {
+   "level": 41,
+   "salePrice": 2100,
+   "value": 420,
+   "unitName": ""
+ },
+ {
+   "level": 42,
+   "salePrice": 2150,
+   "value": 430,
+   "unitName": ""
+ },
+ {
+   "level": 43,
+   "salePrice": 2200,
+   "value": 440,
+   "unitName": ""
+ },
+ {
+   "level": 44,
+   "salePrice": 2250,
+   "value": 450,
+   "unitName": ""
+ },
+ {
+   "level": 45,
+   "salePrice": 2300,
+   "value": 460,
+   "unitName": ""
+ },
+ {
+   "level": 46,
+   "salePrice": 2350,
+   "value": 470,
+   "unitName": ""
+ },
+ {
+   "level": 47,
+   "salePrice": 2400,
+   "value": 480,
+   "unitName": ""
+ },
+ {
+   "level": 48,
+   "salePrice": 2450,
+   "value": 490,
+   "unitName": ""
+ },
+ {
+   "level": 49,
+   "salePrice": 2500,
+   "value": 500,
+   "unitName": ""
+ },
+ {
+   "level": 50,
+   "salePrice": 2550,
+   "value": 510,
+   "unitName": ""
+ },
+ {
+   "level": 51,
+   "salePrice": 2600,
+   "value": 520,
+   "unitName": ""
+ },
+ {
+   "level": 52,
+   "salePrice": 2650,
+   "value": 530,
+   "unitName": ""
+ },
+ {
+   "level": 53,
+   "salePrice": 2700,
+   "value": 540,
+   "unitName": ""
+ },
+ {
+   "level": 54,
+   "salePrice": 2750,
+   "value": 550,
+   "unitName": ""
+ },
+ {
+   "level": 55,
+   "salePrice": 2800,
+   "value": 560,
+   "unitName": ""
+ },
+ {
+   "level": 56,
+   "salePrice": 2850,
+   "value": 570,
+   "unitName": ""
+ },
+ {
+   "level": 57,
+   "salePrice": 2900,
+   "value": 580,
+   "unitName": ""
+ },
+ {
+   "level": 58,
+   "salePrice": 2950,
+   "value": 590,
+   "unitName": ""
+ },
+ {
+   "level": 59,
+   "salePrice": 3000,
+   "value": 600,
+   "unitName": ""
+ },
+ {
+   "level": 60,
+   "salePrice": 3050,
+   "value": 610,
+   "unitName": ""
+ },
+ {
+   "level": 61,
+   "salePrice": 3100,
+   "value": 620,
+   "unitName": ""
+ },
+ {
+   "level": 62,
+   "salePrice": 3150,
+   "value": 630,
+   "unitName": ""
+ },
+ {
+   "level": 63,
+   "salePrice": 3200,
+   "value": 640,
+   "unitName": ""
+ },
+ {
+   "level": 64,
+   "salePrice": 3250,
+   "value": 650,
+   "unitName": ""
+ },
+ {
+   "level": 65,
+   "salePrice": 3300,
+   "value": 660,
+   "unitName": ""
+ },
+ {
+   "level": 66,
+   "salePrice": 3350,
+   "value": 670,
+   "unitName": ""
+ },
+ {
+   "level": 67,
+   "salePrice": 3400,
+   "value": 680,
+   "unitName": ""
+ },
+ {
+   "level": 68,
+   "salePrice": 3450,
+   "value": 690,
+   "unitName": ""
+ },
+ {
+   "level": 69,
+   "salePrice": 3500,
+   "value": 700,
+   "unitName": ""
+ },
+ {
+   "level": 70,
+   "salePrice": 3550,
+   "value": 710,
+   "unitName": ""
+ },
+ {
+   "level": 71,
+   "salePrice": 3600,
+   "value": 720,
+   "unitName": ""
+ },
+ {
+   "level": 72,
+   "salePrice": 3650,
+   "value": 730,
+   "unitName": ""
+ },
+ {
+   "level": 73,
+   "salePrice": 3700,
+   "value": 740,
+   "unitName": ""
+ },
+ {
+   "level": 74,
+   "salePrice": 3750,
+   "value": 750,
+   "unitName": ""
+ },
+ {
+   "level": 75,
+   "salePrice": 3800,
+   "value": 760,
+   "unitName": ""
+ },
+ {
+   "level": 76,
+   "salePrice": 3850,
+   "value": 770,
+   "unitName": ""
+ },
+ {
+   "level": 77,
+   "salePrice": 3900,
+   "value": 780,
+   "unitName": ""
+ },
+ {
+   "level": 78,
+   "salePrice": 3950,
+   "value": 790,
+   "unitName": ""
+ },
+ {
+   "level": 79,
+   "salePrice": 4000,
+   "value": 800,
+   "unitName": ""
+ },
+ {
+   "level": 80,
+   "salePrice": 4050,
+   "value": 810,
+   "unitName": ""
+ },
+ {
+   "level": 81,
+   "salePrice": 4100,
+   "value": 820,
+   "unitName": ""
+ },
+ {
+   "level": 82,
+   "salePrice": 4150,
+   "value": 830,
+   "unitName": ""
+ },
+ {
+   "level": 83,
+   "salePrice": 4200,
+   "value": 840,
+   "unitName": ""
+ },
+ {
+   "level": 84,
+   "salePrice": 4250,
+   "value": 850,
+   "unitName": ""
+ },
+ {
+   "level": 85,
+   "salePrice": 4300,
+   "value": 860,
+   "unitName": ""
+ },
+ {
+   "level": 86,
+   "salePrice": 4350,
+   "value": 870,
+   "unitName": ""
+ },
+ {
+   "level": 87,
+   "salePrice": 4400,
+   "value": 880,
+   "unitName": ""
+ },
+ {
+   "level": 88,
+   "salePrice": 4450,
+   "value": 890,
+   "unitName": ""
+ },
+ {
+   "level": 89,
+   "salePrice": 4500,
+   "value": 900,
+   "unitName": ""
+ },
+ {
+   "level": 90,
+   "salePrice": 4550,
+   "value": 910,
+   "unitName": ""
+ },
+ {
+   "level": 91,
+   "salePrice": 4600,
+   "value": 920,
+   "unitName": ""
+ },
+ {
+   "level": 92,
+   "salePrice": 4650,
+   "value": 930,
+   "unitName": ""
+ },
+ {
+   "level": 93,
+   "salePrice": 4700,
+   "value": 940,
+   "unitName": ""
+ },
+ {
+   "level": 94,
+   "salePrice": 4750,
+   "value": 950,
+   "unitName": ""
+ },
+ {
+   "level": 95,
+   "salePrice": 4800,
+   "value": 960,
+   "unitName": ""
+ },
+ {
+   "level": 96,
+   "salePrice": 4850,
+   "value": 970,
+   "unitName": ""
+ },
+ {
+   "level": 97,
+   "salePrice": 4900,
+   "value": 980,
+   "unitName": ""
+ },
+ {
+   "level": 98,
+   "salePrice": 4950,
+   "value": 990,
+   "unitName": ""
+ },
+ {
+   "level": 99,
+   "salePrice": 5000,
+   "value": 1000,
+   "unitName": ""
+ },
+ {
+   "level": 100,
+   "salePrice": 5050,
+   "value": 1010,
+   "unitName": ""
+ },
+ {
+   "level": 101,
+   "salePrice": 5100,
+   "value": 1020,
+   "unitName": ""
+ },
+ {
+   "level": 102,
+   "salePrice": 5150,
+   "value": 1030,
+   "unitName": ""
+ },
+ {
+   "level": 103,
+   "salePrice": 5200,
+   "value": 1040,
+   "unitName": ""
+ },
+ {
+   "level": 104,
+   "salePrice": 5250,
+   "value": 1050,
+   "unitName": ""
+ },
+ {
+   "level": 105,
+   "salePrice": 5300,
+   "value": 1060,
+   "unitName": ""
+ },
+ {
+   "level": 106,
+   "salePrice": 5350,
+   "value": 1070,
+   "unitName": ""
+ },
+ {
+   "level": 107,
+   "salePrice": 5400,
+   "value": 1080,
+   "unitName": ""
+ },
+ {
+   "level": 108,
+   "salePrice": 5450,
+   "value": 1090,
+   "unitName": ""
+ },
+ {
+   "level": 109,
+   "salePrice": 5500,
+   "value": 1100,
+   "unitName": ""
+ },
+ {
+   "level": 110,
+   "salePrice": 5550,
+   "value": 1110,
+   "unitName": ""
+ },
+ {
+   "level": 111,
+   "salePrice": 5600,
+   "value": 1120,
+   "unitName": ""
+ },
+ {
+   "level": 112,
+   "salePrice": 5650,
+   "value": 1130,
+   "unitName": ""
+ },
+ {
+   "level": 113,
+   "salePrice": 5700,
+   "value": 1140,
+   "unitName": ""
+ },
+ {
+   "level": 114,
+   "salePrice": 5750,
+   "value": 1150,
+   "unitName": ""
+ },
+ {
+   "level": 115,
+   "salePrice": 5800,
+   "value": 1160,
+   "unitName": ""
+ },
+ {
+   "level": 116,
+   "salePrice": 5850,
+   "value": 1170,
+   "unitName": ""
+ },
+ {
+   "level": 117,
+   "salePrice": 5900,
+   "value": 1180,
+   "unitName": ""
+ },
+ {
+   "level": 118,
+   "salePrice": 5950,
+   "value": 1190,
+   "unitName": ""
+ },
+ {
+   "level": 119,
+   "salePrice": 6000,
+   "value": 1200,
+   "unitName": ""
+ },
+ {
+   "level": 120,
+   "salePrice": 6050,
+   "value": 1210,
+   "unitName": ""
+ },
+ {
+   "level": 121,
+   "salePrice": 6100,
+   "value": 1220,
+   "unitName": ""
+ },
+ {
+   "level": 122,
+   "salePrice": 6150,
+   "value": 1230,
+   "unitName": ""
+ },
+ {
+   "level": 123,
+   "salePrice": 6200,
+   "value": 1240,
+   "unitName": ""
+ },
+ {
+   "level": 124,
+   "salePrice": 6250,
+   "value": 1250,
+   "unitName": ""
+ },
+ {
+   "level": 125,
+   "salePrice": 6300,
+   "value": 1260,
+   "unitName": ""
+ },
+ {
+   "level": 126,
+   "salePrice": 6350,
+   "value": 1270,
+   "unitName": ""
+ },
+ {
+   "level": 127,
+   "salePrice": 6400,
+   "value": 1280,
+   "unitName": ""
+ },
+ {
+   "level": 128,
+   "salePrice": 6450,
+   "value": 1290,
+   "unitName": ""
+ },
+ {
+   "level": 129,
+   "salePrice": 6500,
+   "value": 1300,
+   "unitName": ""
+ },
+ {
+   "level": 130,
+   "salePrice": 6550,
+   "value": 1310,
+   "unitName": ""
+ },
+ {
+   "level": 131,
+   "salePrice": 6600,
+   "value": 1320,
+   "unitName": ""
+ },
+ {
+   "level": 132,
+   "salePrice": 6650,
+   "value": 1330,
+   "unitName": ""
+ },
+ {
+   "level": 133,
+   "salePrice": 6700,
+   "value": 1340,
+   "unitName": ""
+ },
+ {
+   "level": 134,
+   "salePrice": 6750,
+   "value": 1350,
+   "unitName": ""
+ },
+ {
+   "level": 135,
+   "salePrice": 6800,
+   "value": 1360,
+   "unitName": ""
+ },
+ {
+   "level": 136,
+   "salePrice": 6850,
+   "value": 1370,
+   "unitName": ""
+ },
+ {
+   "level": 137,
+   "salePrice": 6900,
+   "value": 1380,
+   "unitName": ""
+ },
+ {
+   "level": 138,
+   "salePrice": 6950,
+   "value": 1390,
+   "unitName": ""
+ },
+ {
+   "level": 139,
+   "salePrice": 7000,
+   "value": 1400,
+   "unitName": ""
+ },
+ {
+   "level": 140,
+   "salePrice": 7050,
+   "value": 1410,
+   "unitName": ""
+ },
+ {
+   "level": 141,
+   "salePrice": 7100,
+   "value": 1420,
+   "unitName": ""
+ },
+ {
+   "level": 142,
+   "salePrice": 7150,
+   "value": 1430,
+   "unitName": ""
+ },
+ {
+   "level": 143,
+   "salePrice": 7200,
+   "value": 1440,
+   "unitName": ""
+ },
+ {
+   "level": 144,
+   "salePrice": 7250,
+   "value": 1450,
+   "unitName": ""
+ },
+ {
+   "level": 145,
+   "salePrice": 7300,
+   "value": 1460,
+   "unitName": ""
+ },
+ {
+   "level": 146,
+   "salePrice": 7350,
+   "value": 1470,
+   "unitName": ""
+ },
+ {
+   "level": 147,
+   "salePrice": 7400,
+   "value": 1480,
+   "unitName": ""
+ },
+ {
+   "level": 148,
+   "salePrice": 7450,
+   "value": 1490,
+   "unitName": ""
+ },
+ {
+   "level": 149,
+   "salePrice": 7500,
+   "value": 1500,
+   "unitName": ""
+ },
+ {
+   "level": 150,
+   "salePrice": 7550,
+   "value": 1510,
+   "unitName": ""
+ },
+ {
+   "level": 151,
+   "salePrice": 7600,
+   "value": 1520,
+   "unitName": ""
+ },
+ {
+   "level": 152,
+   "salePrice": 7650,
+   "value": 1530,
+   "unitName": ""
+ },
+ {
+   "level": 153,
+   "salePrice": 7700,
+   "value": 1540,
+   "unitName": ""
+ },
+ {
+   "level": 154,
+   "salePrice": 7750,
+   "value": 1550,
+   "unitName": ""
+ },
+ {
+   "level": 155,
+   "salePrice": 7800,
+   "value": 1560,
+   "unitName": ""
+ },
+ {
+   "level": 156,
+   "salePrice": 7850,
+   "value": 1570,
+   "unitName": ""
+ },
+ {
+   "level": 157,
+   "salePrice": 7900,
+   "value": 1580,
+   "unitName": ""
+ },
+ {
+   "level": 158,
+   "salePrice": 7950,
+   "value": 1590,
+   "unitName": ""
+ },
+ {
+   "level": 159,
+   "salePrice": 8000,
+   "value": 1600,
+   "unitName": ""
+ },
+ {
+   "level": 160,
+   "salePrice": 8050,
+   "value": 1610,
+   "unitName": ""
+ },
+ {
+   "level": 161,
+   "salePrice": 8100,
+   "value": 1620,
+   "unitName": ""
+ },
+ {
+   "level": 162,
+   "salePrice": 8150,
+   "value": 1630,
+   "unitName": ""
+ },
+ {
+   "level": 163,
+   "salePrice": 8200,
+   "value": 1640,
+   "unitName": ""
+ },
+ {
+   "level": 164,
+   "salePrice": 8250,
+   "value": 1650,
+   "unitName": ""
+ },
+ {
+   "level": 165,
+   "salePrice": 8300,
+   "value": 1660,
+   "unitName": ""
+ },
+ {
+   "level": 166,
+   "salePrice": 8350,
+   "value": 1670,
+   "unitName": ""
+ },
+ {
+   "level": 167,
+   "salePrice": 8400,
+   "value": 1680,
+   "unitName": ""
+ },
+ {
+   "level": 168,
+   "salePrice": 8450,
+   "value": 1690,
+   "unitName": ""
+ },
+ {
+   "level": 169,
+   "salePrice": 8500,
+   "value": 1700,
+   "unitName": ""
+ },
+ {
+   "level": 170,
+   "salePrice": 8550,
+   "value": 1710,
+   "unitName": ""
+ },
+ {
+   "level": 171,
+   "salePrice": 8600,
+   "value": 1720,
+   "unitName": ""
+ },
+ {
+   "level": 172,
+   "salePrice": 8650,
+   "value": 1730,
+   "unitName": ""
+ },
+ {
+   "level": 173,
+   "salePrice": 8700,
+   "value": 1740,
+   "unitName": ""
+ },
+ {
+   "level": 174,
+   "salePrice": 8750,
+   "value": 1750,
+   "unitName": ""
+ },
+ {
+   "level": 175,
+   "salePrice": 8800,
+   "value": 1760,
+   "unitName": ""
+ },
+ {
+   "level": 176,
+   "salePrice": 8850,
+   "value": 1770,
+   "unitName": ""
+ },
+ {
+   "level": 177,
+   "salePrice": 8900,
+   "value": 1780,
+   "unitName": ""
+ },
+ {
+   "level": 178,
+   "salePrice": 8950,
+   "value": 1790,
+   "unitName": ""
+ },
+ {
+   "level": 179,
+   "salePrice": 9000,
+   "value": 1800,
+   "unitName": ""
+ },
+ {
+   "level": 180,
+   "salePrice": 9050,
+   "value": 1810,
+   "unitName": ""
+ },
+ {
+   "level": 181,
+   "salePrice": 9100,
+   "value": 1820,
+   "unitName": ""
+ },
+ {
+   "level": 182,
+   "salePrice": 9150,
+   "value": 1830,
+   "unitName": ""
+ },
+ {
+   "level": 183,
+   "salePrice": 9200,
+   "value": 1840,
+   "unitName": ""
+ },
+ {
+   "level": 184,
+   "salePrice": 9250,
+   "value": 1850,
+   "unitName": ""
+ },
+ {
+   "level": 185,
+   "salePrice": 9300,
+   "value": 1860,
+   "unitName": ""
+ },
+ {
+   "level": 186,
+   "salePrice": 9350,
+   "value": 1870,
+   "unitName": ""
+ },
+ {
+   "level": 187,
+   "salePrice": 9400,
+   "value": 1880,
+   "unitName": ""
+ },
+ {
+   "level": 188,
+   "salePrice": 9450,
+   "value": 1890,
+   "unitName": ""
+ },
+ {
+   "level": 189,
+   "salePrice": 9500,
+   "value": 1900,
+   "unitName": ""
+ },
+ {
+   "level": 190,
+   "salePrice": 9550,
+   "value": 1910,
+   "unitName": ""
+ },
+ {
+   "level": 191,
+   "salePrice": 9600,
+   "value": 1920,
+   "unitName": ""
+ },
+ {
+   "level": 192,
+   "salePrice": 9650,
+   "value": 1930,
+   "unitName": ""
+ },
+ {
+   "level": 193,
+   "salePrice": 9700,
+   "value": 1940,
+   "unitName": ""
+ },
+ {
+   "level": 194,
+   "salePrice": 9750,
+   "value": 1950,
+   "unitName": ""
+ },
+ {
+   "level": 195,
+   "salePrice": 9800,
+   "value": 1960,
+   "unitName": ""
+ },
+ {
+   "level": 196,
+   "salePrice": 9850,
+   "value": 1970,
+   "unitName": ""
+ },
+ {
+   "level": 197,
+   "salePrice": 9900,
+   "value": 1980,
+   "unitName": ""
+ },
+ {
+   "level": 198,
+   "salePrice": 9950,
+   "value": 1990,
+   "unitName": ""
+ },
+ {
+   "level": 199,
+   "salePrice": 10000,
+   "value": 2000,
+   "unitName": ""
+ },
+ {
+   "level": 200,
+   "salePrice": 10050,
+   "value": 2010,
+   "unitName": ""
+ },
+ {
+   "level": 201,
+   "salePrice": 10100,
+   "value": 2020,
+   "unitName": ""
+ },
+ {
+   "level": 202,
+   "salePrice": 10150,
+   "value": 2030,
+   "unitName": ""
+ },
+ {
+   "level": 203,
+   "salePrice": 10200,
+   "value": 2040,
+   "unitName": ""
+ },
+ {
+   "level": 204,
+   "salePrice": 10250,
+   "value": 2050,
+   "unitName": ""
+ },
+ {
+   "level": 205,
+   "salePrice": 10300,
+   "value": 2060,
+   "unitName": ""
+ },
+ {
+   "level": 206,
+   "salePrice": 10350,
+   "value": 2070,
+   "unitName": ""
+ },
+ {
+   "level": 207,
+   "salePrice": 10400,
+   "value": 2080,
+   "unitName": ""
+ },
+ {
+   "level": 208,
+   "salePrice": 10450,
+   "value": 2090,
+   "unitName": ""
+ },
+ {
+   "level": 209,
+   "salePrice": 10500,
+   "value": 2100,
+   "unitName": ""
+ },
+ {
+   "level": 210,
+   "salePrice": 10550,
+   "value": 2110,
+   "unitName": ""
+ },
+ {
+   "level": 211,
+   "salePrice": 10600,
+   "value": 2120,
+   "unitName": ""
+ },
+ {
+   "level": 212,
+   "salePrice": 10650,
+   "value": 2130,
+   "unitName": ""
+ },
+ {
+   "level": 213,
+   "salePrice": 10700,
+   "value": 2140,
+   "unitName": ""
+ },
+ {
+   "level": 214,
+   "salePrice": 10750,
+   "value": 2150,
+   "unitName": ""
+ },
+ {
+   "level": 215,
+   "salePrice": 10800,
+   "value": 2160,
+   "unitName": ""
+ },
+ {
+   "level": 216,
+   "salePrice": 10850,
+   "value": 2170,
+   "unitName": ""
+ },
+ {
+   "level": 217,
+   "salePrice": 10900,
+   "value": 2180,
+   "unitName": ""
+ },
+ {
+   "level": 218,
+   "salePrice": 10950,
+   "value": 2190,
+   "unitName": ""
+ },
+ {
+   "level": 219,
+   "salePrice": 11000,
+   "value": 2200,
+   "unitName": ""
+ },
+ {
+   "level": 220,
+   "salePrice": 11050,
+   "value": 2210,
+   "unitName": ""
+ },
+ {
+   "level": 221,
+   "salePrice": 11100,
+   "value": 2220,
+   "unitName": ""
+ },
+ {
+   "level": 222,
+   "salePrice": 11150,
+   "value": 2230,
+   "unitName": ""
+ },
+ {
+   "level": 223,
+   "salePrice": 11200,
+   "value": 2240,
+   "unitName": ""
+ },
+ {
+   "level": 224,
+   "salePrice": 11250,
+   "value": 2250,
+   "unitName": ""
+ },
+ {
+   "level": 225,
+   "salePrice": 11300,
+   "value": 2260,
+   "unitName": ""
+ },
+ {
+   "level": 226,
+   "salePrice": 11350,
+   "value": 2270,
+   "unitName": ""
+ },
+ {
+   "level": 227,
+   "salePrice": 11400,
+   "value": 2280,
+   "unitName": ""
+ },
+ {
+   "level": 228,
+   "salePrice": 11450,
+   "value": 2290,
+   "unitName": ""
+ },
+ {
+   "level": 229,
+   "salePrice": 11500,
+   "value": 2300,
+   "unitName": ""
+ },
+ {
+   "level": 230,
+   "salePrice": 11550,
+   "value": 2310,
+   "unitName": ""
+ },
+ {
+   "level": 231,
+   "salePrice": 11600,
+   "value": 2320,
+   "unitName": ""
+ },
+ {
+   "level": 232,
+   "salePrice": 11650,
+   "value": 2330,
+   "unitName": ""
+ },
+ {
+   "level": 233,
+   "salePrice": 11700,
+   "value": 2340,
+   "unitName": ""
+ },
+ {
+   "level": 234,
+   "salePrice": 11750,
+   "value": 2350,
+   "unitName": ""
+ },
+ {
+   "level": 235,
+   "salePrice": 11800,
+   "value": 2360,
+   "unitName": ""
+ },
+ {
+   "level": 236,
+   "salePrice": 11850,
+   "value": 2370,
+   "unitName": ""
+ },
+ {
+   "level": 237,
+   "salePrice": 11900,
+   "value": 2380,
+   "unitName": ""
+ },
+ {
+   "level": 238,
+   "salePrice": 11950,
+   "value": 2390,
+   "unitName": ""
+ },
+ {
+   "level": 239,
+   "salePrice": 12000,
+   "value": 2400,
+   "unitName": ""
+ },
+ {
+   "level": 240,
+   "salePrice": 12050,
+   "value": 2410,
+   "unitName": ""
+ },
+ {
+   "level": 241,
+   "salePrice": 12100,
+   "value": 2420,
+   "unitName": ""
+ },
+ {
+   "level": 242,
+   "salePrice": 12150,
+   "value": 2430,
+   "unitName": ""
+ },
+ {
+   "level": 243,
+   "salePrice": 12200,
+   "value": 2440,
+   "unitName": ""
+ },
+ {
+   "level": 244,
+   "salePrice": 12250,
+   "value": 2450,
+   "unitName": ""
+ },
+ {
+   "level": 245,
+   "salePrice": 12300,
+   "value": 2460,
+   "unitName": ""
+ },
+ {
+   "level": 246,
+   "salePrice": 12350,
+   "value": 2470,
+   "unitName": ""
+ },
+ {
+   "level": 247,
+   "salePrice": 12400,
+   "value": 2480,
+   "unitName": ""
+ },
+ {
+   "level": 248,
+   "salePrice": 12450,
+   "value": 2490,
+   "unitName": ""
+ },
+ {
+   "level": 249,
+   "salePrice": 12500,
+   "value": 2500,
+   "unitName": ""
+ },
+ {
+   "level": 250,
+   "salePrice": 12550,
+   "value": 2510,
+   "unitName": ""
+ },
+ {
+   "level": 251,
+   "salePrice": 12600,
+   "value": 2520,
+   "unitName": ""
+ },
+ {
+   "level": 252,
+   "salePrice": 12650,
+   "value": 2530,
+   "unitName": ""
+ },
+ {
+   "level": 253,
+   "salePrice": 12700,
+   "value": 2540,
+   "unitName": ""
+ },
+ {
+   "level": 254,
+   "salePrice": 12750,
+   "value": 2550,
+   "unitName": ""
+ },
+ {
+   "level": 255,
+   "salePrice": 12800,
+   "value": 2560,
+   "unitName": ""
+ },
+ {
+   "level": 256,
+   "salePrice": 12850,
+   "value": 2570,
+   "unitName": ""
+ },
+ {
+   "level": 257,
+   "salePrice": 12900,
+   "value": 2580,
+   "unitName": ""
+ },
+ {
+   "level": 258,
+   "salePrice": 12950,
+   "value": 2590,
+   "unitName": ""
+ },
+ {
+   "level": 259,
+   "salePrice": 13000,
+   "value": 2600,
+   "unitName": ""
+ },
+ {
+   "level": 260,
+   "salePrice": 13050,
+   "value": 2610,
+   "unitName": ""
+ },
+ {
+   "level": 261,
+   "salePrice": 13100,
+   "value": 2620,
+   "unitName": ""
+ },
+ {
+   "level": 262,
+   "salePrice": 13150,
+   "value": 2630,
+   "unitName": ""
+ },
+ {
+   "level": 263,
+   "salePrice": 13200,
+   "value": 2640,
+   "unitName": ""
+ },
+ {
+   "level": 264,
+   "salePrice": 13250,
+   "value": 2650,
+   "unitName": ""
+ },
+ {
+   "level": 265,
+   "salePrice": 13300,
+   "value": 2660,
+   "unitName": ""
+ },
+ {
+   "level": 266,
+   "salePrice": 13350,
+   "value": 2670,
+   "unitName": ""
+ },
+ {
+   "level": 267,
+   "salePrice": 13400,
+   "value": 2680,
+   "unitName": ""
+ },
+ {
+   "level": 268,
+   "salePrice": 13450,
+   "value": 2690,
+   "unitName": ""
+ },
+ {
+   "level": 269,
+   "salePrice": 13500,
+   "value": 2700,
+   "unitName": ""
+ },
+ {
+   "level": 270,
+   "salePrice": 13550,
+   "value": 2710,
+   "unitName": ""
+ },
+ {
+   "level": 271,
+   "salePrice": 13600,
+   "value": 2720,
+   "unitName": ""
+ },
+ {
+   "level": 272,
+   "salePrice": 13650,
+   "value": 2730,
+   "unitName": ""
+ },
+ {
+   "level": 273,
+   "salePrice": 13700,
+   "value": 2740,
+   "unitName": ""
+ },
+ {
+   "level": 274,
+   "salePrice": 13750,
+   "value": 2750,
+   "unitName": ""
+ },
+ {
+   "level": 275,
+   "salePrice": 13800,
+   "value": 2760,
+   "unitName": ""
+ },
+ {
+   "level": 276,
+   "salePrice": 13850,
+   "value": 2770,
+   "unitName": ""
+ },
+ {
+   "level": 277,
+   "salePrice": 13900,
+   "value": 2780,
+   "unitName": ""
+ },
+ {
+   "level": 278,
+   "salePrice": 13950,
+   "value": 2790,
+   "unitName": ""
+ },
+ {
+   "level": 279,
+   "salePrice": 14000,
+   "value": 2800,
+   "unitName": ""
+ },
+ {
+   "level": 280,
+   "salePrice": 14050,
+   "value": 2810,
+   "unitName": ""
+ },
+ {
+   "level": 281,
+   "salePrice": 14100,
+   "value": 2820,
+   "unitName": ""
+ },
+ {
+   "level": 282,
+   "salePrice": 14150,
+   "value": 2830,
+   "unitName": ""
+ },
+ {
+   "level": 283,
+   "salePrice": 14200,
+   "value": 2840,
+   "unitName": ""
+ },
+ {
+   "level": 284,
+   "salePrice": 14250,
+   "value": 2850,
+   "unitName": ""
+ },
+ {
+   "level": 285,
+   "salePrice": 14300,
+   "value": 2860,
+   "unitName": ""
+ },
+ {
+   "level": 286,
+   "salePrice": 14350,
+   "value": 2870,
+   "unitName": ""
+ },
+ {
+   "level": 287,
+   "salePrice": 14400,
+   "value": 2880,
+   "unitName": ""
+ },
+ {
+   "level": 288,
+   "salePrice": 14450,
+   "value": 2890,
+   "unitName": ""
+ },
+ {
+   "level": 289,
+   "salePrice": 14500,
+   "value": 2900,
+   "unitName": ""
+ },
+ {
+   "level": 290,
+   "salePrice": 14550,
+   "value": 2910,
+   "unitName": ""
+ },
+ {
+   "level": 291,
+   "salePrice": 14600,
+   "value": 2920,
+   "unitName": ""
+ },
+ {
+   "level": 292,
+   "salePrice": 14650,
+   "value": 2930,
+   "unitName": ""
+ },
+ {
+   "level": 293,
+   "salePrice": 14700,
+   "value": 2940,
+   "unitName": ""
+ },
+ {
+   "level": 294,
+   "salePrice": 14750,
+   "value": 2950,
+   "unitName": ""
+ },
+ {
+   "level": 295,
+   "salePrice": 14800,
+   "value": 2960,
+   "unitName": ""
+ },
+ {
+   "level": 296,
+   "salePrice": 14850,
+   "value": 2970,
+   "unitName": ""
+ },
+ {
+   "level": 297,
+   "salePrice": 14900,
+   "value": 2980,
+   "unitName": ""
+ },
+ {
+   "level": 298,
+   "salePrice": 14950,
+   "value": 2990,
+   "unitName": ""
+ },
+ {
+   "level": 299,
+   "salePrice": 15000,
+   "value": 3000,
+   "unitName": ""
+ },
+ {
+   "level": 300,
+   "salePrice": 15050,
+   "value": 3010,
+   "unitName": ""
+ },
+ {
+   "level": 301,
+   "salePrice": 15100,
+   "value": 3020,
+   "unitName": ""
+ },
+ {
+   "level": 302,
+   "salePrice": 15150,
+   "value": 3030,
+   "unitName": ""
+ },
+ {
+   "level": 303,
+   "salePrice": 15200,
+   "value": 3040,
+   "unitName": ""
+ },
+ {
+   "level": 304,
+   "salePrice": 15250,
+   "value": 3050,
+   "unitName": ""
+ },
+ {
+   "level": 305,
+   "salePrice": 15300,
+   "value": 3060,
+   "unitName": ""
+ },
+ {
+   "level": 306,
+   "salePrice": 15350,
+   "value": 3070,
+   "unitName": ""
+ },
+ {
+   "level": 307,
+   "salePrice": 15400,
+   "value": 3080,
+   "unitName": ""
+ },
+ {
+   "level": 308,
+   "salePrice": 15450,
+   "value": 3090,
+   "unitName": ""
+ },
+ {
+   "level": 309,
+   "salePrice": 15500,
+   "value": 3100,
+   "unitName": ""
+ },
+ {
+   "level": 310,
+   "salePrice": 15550,
+   "value": 3110,
+   "unitName": ""
+ },
+ {
+   "level": 311,
+   "salePrice": 15600,
+   "value": 3120,
+   "unitName": ""
+ },
+ {
+   "level": 312,
+   "salePrice": 15650,
+   "value": 3130,
+   "unitName": ""
+ },
+ {
+   "level": 313,
+   "salePrice": 15700,
+   "value": 3140,
+   "unitName": ""
+ },
+ {
+   "level": 314,
+   "salePrice": 15750,
+   "value": 3150,
+   "unitName": ""
+ },
+ {
+   "level": 315,
+   "salePrice": 15800,
+   "value": 3160,
+   "unitName": ""
+ },
+ {
+   "level": 316,
+   "salePrice": 15850,
+   "value": 3170,
+   "unitName": ""
+ },
+ {
+   "level": 317,
+   "salePrice": 15900,
+   "value": 3180,
+   "unitName": ""
+ },
+ {
+   "level": 318,
+   "salePrice": 15950,
+   "value": 3190,
+   "unitName": ""
+ },
+ {
+   "level": 319,
+   "salePrice": 16000,
+   "value": 3200,
+   "unitName": ""
+ },
+ {
+   "level": 320,
+   "salePrice": 16050,
+   "value": 3210,
+   "unitName": ""
+ },
+ {
+   "level": 321,
+   "salePrice": 16100,
+   "value": 3220,
+   "unitName": ""
+ },
+ {
+   "level": 322,
+   "salePrice": 16150,
+   "value": 3230,
+   "unitName": ""
+ },
+ {
+   "level": 323,
+   "salePrice": 16200,
+   "value": 3240,
+   "unitName": ""
+ },
+ {
+   "level": 324,
+   "salePrice": 16250,
+   "value": 3250,
+   "unitName": ""
+ },
+ {
+   "level": 325,
+   "salePrice": 16300,
+   "value": 3260,
+   "unitName": ""
+ },
+ {
+   "level": 326,
+   "salePrice": 16350,
+   "value": 3270,
+   "unitName": ""
+ },
+ {
+   "level": 327,
+   "salePrice": 16400,
+   "value": 3280,
+   "unitName": ""
+ },
+ {
+   "level": 328,
+   "salePrice": 16450,
+   "value": 3290,
+   "unitName": ""
+ },
+ {
+   "level": 329,
+   "salePrice": 16500,
+   "value": 3300,
+   "unitName": ""
+ },
+ {
+   "level": 330,
+   "salePrice": 16550,
+   "value": 3310,
+   "unitName": ""
+ },
+ {
+   "level": 331,
+   "salePrice": 16600,
+   "value": 3320,
+   "unitName": ""
+ },
+ {
+   "level": 332,
+   "salePrice": 16650,
+   "value": 3330,
+   "unitName": ""
+ },
+ {
+   "level": 333,
+   "salePrice": 16700,
+   "value": 3340,
+   "unitName": ""
+ },
+ {
+   "level": 334,
+   "salePrice": 16750,
+   "value": 3350,
+   "unitName": ""
+ },
+ {
+   "level": 335,
+   "salePrice": 16800,
+   "value": 3360,
+   "unitName": ""
+ },
+ {
+   "level": 336,
+   "salePrice": 16850,
+   "value": 3370,
+   "unitName": ""
+ },
+ {
+   "level": 337,
+   "salePrice": 16900,
+   "value": 3380,
+   "unitName": ""
+ },
+ {
+   "level": 338,
+   "salePrice": 16950,
+   "value": 3390,
+   "unitName": ""
+ },
+ {
+   "level": 339,
+   "salePrice": 17000,
+   "value": 3400,
+   "unitName": ""
+ },
+ {
+   "level": 340,
+   "salePrice": 17050,
+   "value": 3410,
+   "unitName": ""
+ },
+ {
+   "level": 341,
+   "salePrice": 17100,
+   "value": 3420,
+   "unitName": ""
+ },
+ {
+   "level": 342,
+   "salePrice": 17150,
+   "value": 3430,
+   "unitName": ""
+ },
+ {
+   "level": 343,
+   "salePrice": 17200,
+   "value": 3440,
+   "unitName": ""
+ },
+ {
+   "level": 344,
+   "salePrice": 17250,
+   "value": 3450,
+   "unitName": ""
+ },
+ {
+   "level": 345,
+   "salePrice": 17300,
+   "value": 3460,
+   "unitName": ""
+ },
+ {
+   "level": 346,
+   "salePrice": 17350,
+   "value": 3470,
+   "unitName": ""
+ },
+ {
+   "level": 347,
+   "salePrice": 17400,
+   "value": 3480,
+   "unitName": ""
+ },
+ {
+   "level": 348,
+   "salePrice": 17450,
+   "value": 3490,
+   "unitName": ""
+ },
+ {
+   "level": 349,
+   "salePrice": 17500,
+   "value": 3500,
+   "unitName": ""
+ },
+ {
+   "level": 350,
+   "salePrice": 17550,
+   "value": 3510,
+   "unitName": ""
+ },
+ {
+   "level": 351,
+   "salePrice": 17600,
+   "value": 3520,
+   "unitName": ""
+ },
+ {
+   "level": 352,
+   "salePrice": 17650,
+   "value": 3530,
+   "unitName": ""
+ },
+ {
+   "level": 353,
+   "salePrice": 17700,
+   "value": 3540,
+   "unitName": ""
+ },
+ {
+   "level": 354,
+   "salePrice": 17750,
+   "value": 3550,
+   "unitName": ""
+ },
+ {
+   "level": 355,
+   "salePrice": 17800,
+   "value": 3560,
+   "unitName": ""
+ },
+ {
+   "level": 356,
+   "salePrice": 17850,
+   "value": 3570,
+   "unitName": ""
+ },
+ {
+   "level": 357,
+   "salePrice": 17900,
+   "value": 3580,
+   "unitName": ""
+ },
+ {
+   "level": 358,
+   "salePrice": 17950,
+   "value": 3590,
+   "unitName": ""
+ },
+ {
+   "level": 359,
+   "salePrice": 18000,
+   "value": 3600,
+   "unitName": ""
+ },
+ {
+   "level": 360,
+   "salePrice": 18050,
+   "value": 3610,
+   "unitName": ""
+ },
+ {
+   "level": 361,
+   "salePrice": 18100,
+   "value": 3620,
+   "unitName": ""
+ },
+ {
+   "level": 362,
+   "salePrice": 18150,
+   "value": 3630,
+   "unitName": ""
+ },
+ {
+   "level": 363,
+   "salePrice": 18200,
+   "value": 3640,
+   "unitName": ""
+ },
+ {
+   "level": 364,
+   "salePrice": 18250,
+   "value": 3650,
+   "unitName": ""
+ },
+ {
+   "level": 365,
+   "salePrice": 18300,
+   "value": 3660,
+   "unitName": ""
+ },
+ {
+   "level": 366,
+   "salePrice": 18350,
+   "value": 3670,
+   "unitName": ""
+ },
+ {
+   "level": 367,
+   "salePrice": 18400,
+   "value": 3680,
+   "unitName": ""
+ },
+ {
+   "level": 368,
+   "salePrice": 18450,
+   "value": 3690,
+   "unitName": ""
+ },
+ {
+   "level": 369,
+   "salePrice": 18500,
+   "value": 3700,
+   "unitName": ""
+ },
+ {
+   "level": 370,
+   "salePrice": 18550,
+   "value": 3710,
+   "unitName": ""
+ },
+ {
+   "level": 371,
+   "salePrice": 18600,
+   "value": 3720,
+   "unitName": ""
+ },
+ {
+   "level": 372,
+   "salePrice": 18650,
+   "value": 3730,
+   "unitName": ""
+ },
+ {
+   "level": 373,
+   "salePrice": 18700,
+   "value": 3740,
+   "unitName": ""
+ },
+ {
+   "level": 374,
+   "salePrice": 18750,
+   "value": 3750,
+   "unitName": ""
+ },
+ {
+   "level": 375,
+   "salePrice": 18800,
+   "value": 3760,
+   "unitName": ""
+ },
+ {
+   "level": 376,
+   "salePrice": 18850,
+   "value": 3770,
+   "unitName": ""
+ },
+ {
+   "level": 377,
+   "salePrice": 18900,
+   "value": 3780,
+   "unitName": ""
+ },
+ {
+   "level": 378,
+   "salePrice": 18950,
+   "value": 3790,
+   "unitName": ""
+ },
+ {
+   "level": 379,
+   "salePrice": 19000,
+   "value": 3800,
+   "unitName": ""
+ },
+ {
+   "level": 380,
+   "salePrice": 19050,
+   "value": 3810,
+   "unitName": ""
+ },
+ {
+   "level": 381,
+   "salePrice": 19100,
+   "value": 3820,
+   "unitName": ""
+ },
+ {
+   "level": 382,
+   "salePrice": 19150,
+   "value": 3830,
+   "unitName": ""
+ },
+ {
+   "level": 383,
+   "salePrice": 19200,
+   "value": 3840,
+   "unitName": ""
+ },
+ {
+   "level": 384,
+   "salePrice": 19250,
+   "value": 3850,
+   "unitName": ""
+ },
+ {
+   "level": 385,
+   "salePrice": 19300,
+   "value": 3860,
+   "unitName": ""
+ },
+ {
+   "level": 386,
+   "salePrice": 19350,
+   "value": 3870,
+   "unitName": ""
+ },
+ {
+   "level": 387,
+   "salePrice": 19400,
+   "value": 3880,
+   "unitName": ""
+ },
+ {
+   "level": 388,
+   "salePrice": 19450,
+   "value": 3890,
+   "unitName": ""
+ },
+ {
+   "level": 389,
+   "salePrice": 19500,
+   "value": 3900,
+   "unitName": ""
+ },
+ {
+   "level": 390,
+   "salePrice": 19550,
+   "value": 3910,
+   "unitName": ""
+ },
+ {
+   "level": 391,
+   "salePrice": 19600,
+   "value": 3920,
+   "unitName": ""
+ },
+ {
+   "level": 392,
+   "salePrice": 19650,
+   "value": 3930,
+   "unitName": ""
+ },
+ {
+   "level": 393,
+   "salePrice": 19700,
+   "value": 3940,
+   "unitName": ""
+ },
+ {
+   "level": 394,
+   "salePrice": 19750,
+   "value": 3950,
+   "unitName": ""
+ },
+ {
+   "level": 395,
+   "salePrice": 19800,
+   "value": 3960,
+   "unitName": ""
+ },
+ {
+   "level": 396,
+   "salePrice": 19850,
+   "value": 3970,
+   "unitName": ""
+ },
+ {
+   "level": 397,
+   "salePrice": 19900,
+   "value": 3980,
+   "unitName": ""
+ },
+ {
+   "level": 398,
+   "salePrice": 19950,
+   "value": 3990,
+   "unitName": ""
+ },
+ {
+   "level": 399,
+   "salePrice": 20000,
+   "value": 4000,
+   "unitName": ""
+ },
+ {
+   "level": 400,
+   "salePrice": 20050,
+   "value": 4010,
+   "unitName": ""
+ },
+ {
+   "level": 401,
+   "salePrice": 20100,
+   "value": 4020,
+   "unitName": ""
+ },
+ {
+   "level": 402,
+   "salePrice": 20150,
+   "value": 4030,
+   "unitName": ""
+ },
+ {
+   "level": 403,
+   "salePrice": 20200,
+   "value": 4040,
+   "unitName": ""
+ },
+ {
+   "level": 404,
+   "salePrice": 20250,
+   "value": 4050,
+   "unitName": ""
+ },
+ {
+   "level": 405,
+   "salePrice": 20300,
+   "value": 4060,
+   "unitName": ""
+ },
+ {
+   "level": 406,
+   "salePrice": 20350,
+   "value": 4070,
+   "unitName": ""
+ },
+ {
+   "level": 407,
+   "salePrice": 20400,
+   "value": 4080,
+   "unitName": ""
+ },
+ {
+   "level": 408,
+   "salePrice": 20450,
+   "value": 4090,
+   "unitName": ""
+ },
+ {
+   "level": 409,
+   "salePrice": 20500,
+   "value": 4100,
+   "unitName": ""
+ },
+ {
+   "level": 410,
+   "salePrice": 20550,
+   "value": 4110,
+   "unitName": ""
+ },
+ {
+   "level": 411,
+   "salePrice": 20600,
+   "value": 4120,
+   "unitName": ""
+ },
+ {
+   "level": 412,
+   "salePrice": 20650,
+   "value": 4130,
+   "unitName": ""
+ },
+ {
+   "level": 413,
+   "salePrice": 20700,
+   "value": 4140,
+   "unitName": ""
+ },
+ {
+   "level": 414,
+   "salePrice": 20750,
+   "value": 4150,
+   "unitName": ""
+ },
+ {
+   "level": 415,
+   "salePrice": 20800,
+   "value": 4160,
+   "unitName": ""
+ },
+ {
+   "level": 416,
+   "salePrice": 20850,
+   "value": 4170,
+   "unitName": ""
+ },
+ {
+   "level": 417,
+   "salePrice": 20900,
+   "value": 4180,
+   "unitName": ""
+ },
+ {
+   "level": 418,
+   "salePrice": 20950,
+   "value": 4190,
+   "unitName": ""
+ },
+ {
+   "level": 419,
+   "salePrice": 21000,
+   "value": 4200,
+   "unitName": ""
+ },
+ {
+   "level": 420,
+   "salePrice": 21050,
+   "value": 4210,
+   "unitName": ""
+ },
+ {
+   "level": 421,
+   "salePrice": 21100,
+   "value": 4220,
+   "unitName": ""
+ },
+ {
+   "level": 422,
+   "salePrice": 21150,
+   "value": 4230,
+   "unitName": ""
+ },
+ {
+   "level": 423,
+   "salePrice": 21200,
+   "value": 4240,
+   "unitName": ""
+ },
+ {
+   "level": 424,
+   "salePrice": 21250,
+   "value": 4250,
+   "unitName": ""
+ },
+ {
+   "level": 425,
+   "salePrice": 21300,
+   "value": 4260,
+   "unitName": ""
+ },
+ {
+   "level": 426,
+   "salePrice": 21350,
+   "value": 4270,
+   "unitName": ""
+ },
+ {
+   "level": 427,
+   "salePrice": 21400,
+   "value": 4280,
+   "unitName": ""
+ },
+ {
+   "level": 428,
+   "salePrice": 21450,
+   "value": 4290,
+   "unitName": ""
+ },
+ {
+   "level": 429,
+   "salePrice": 21500,
+   "value": 4300,
+   "unitName": ""
+ },
+ {
+   "level": 430,
+   "salePrice": 21550,
+   "value": 4310,
+   "unitName": ""
+ },
+ {
+   "level": 431,
+   "salePrice": 21600,
+   "value": 4320,
+   "unitName": ""
+ },
+ {
+   "level": 432,
+   "salePrice": 21650,
+   "value": 4330,
+   "unitName": ""
+ },
+ {
+   "level": 433,
+   "salePrice": 21700,
+   "value": 4340,
+   "unitName": ""
+ },
+ {
+   "level": 434,
+   "salePrice": 21750,
+   "value": 4350,
+   "unitName": ""
+ },
+ {
+   "level": 435,
+   "salePrice": 21800,
+   "value": 4360,
+   "unitName": ""
+ },
+ {
+   "level": 436,
+   "salePrice": 21850,
+   "value": 4370,
+   "unitName": ""
+ },
+ {
+   "level": 437,
+   "salePrice": 21900,
+   "value": 4380,
+   "unitName": ""
+ },
+ {
+   "level": 438,
+   "salePrice": 21950,
+   "value": 4390,
+   "unitName": ""
+ },
+ {
+   "level": 439,
+   "salePrice": 22000,
+   "value": 4400,
+   "unitName": ""
+ },
+ {
+   "level": 440,
+   "salePrice": 22050,
+   "value": 4410,
+   "unitName": ""
+ },
+ {
+   "level": 441,
+   "salePrice": 22100,
+   "value": 4420,
+   "unitName": ""
+ },
+ {
+   "level": 442,
+   "salePrice": 22150,
+   "value": 4430,
+   "unitName": ""
+ },
+ {
+   "level": 443,
+   "salePrice": 22200,
+   "value": 4440,
+   "unitName": ""
+ },
+ {
+   "level": 444,
+   "salePrice": 22250,
+   "value": 4450,
+   "unitName": ""
+ },
+ {
+   "level": 445,
+   "salePrice": 22300,
+   "value": 4460,
+   "unitName": ""
+ },
+ {
+   "level": 446,
+   "salePrice": 22350,
+   "value": 4470,
+   "unitName": ""
+ },
+ {
+   "level": 447,
+   "salePrice": 22400,
+   "value": 4480,
+   "unitName": ""
+ },
+ {
+   "level": 448,
+   "salePrice": 22450,
+   "value": 4490,
+   "unitName": ""
+ },
+ {
+   "level": 449,
+   "salePrice": 22500,
+   "value": 4500,
+   "unitName": ""
+ },
+ {
+   "level": 450,
+   "salePrice": 22550,
+   "value": 4510,
+   "unitName": ""
+ },
+ {
+   "level": 451,
+   "salePrice": 22600,
+   "value": 4520,
+   "unitName": ""
+ },
+ {
+   "level": 452,
+   "salePrice": 22650,
+   "value": 4530,
+   "unitName": ""
+ },
+ {
+   "level": 453,
+   "salePrice": 22700,
+   "value": 4540,
+   "unitName": ""
+ },
+ {
+   "level": 454,
+   "salePrice": 22750,
+   "value": 4550,
+   "unitName": ""
+ },
+ {
+   "level": 455,
+   "salePrice": 22800,
+   "value": 4560,
+   "unitName": ""
+ },
+ {
+   "level": 456,
+   "salePrice": 22850,
+   "value": 4570,
+   "unitName": ""
+ },
+ {
+   "level": 457,
+   "salePrice": 22900,
+   "value": 4580,
+   "unitName": ""
+ },
+ {
+   "level": 458,
+   "salePrice": 22950,
+   "value": 4590,
+   "unitName": ""
+ },
+ {
+   "level": 459,
+   "salePrice": 23000,
+   "value": 4600,
+   "unitName": ""
+ },
+ {
+   "level": 460,
+   "salePrice": 23050,
+   "value": 4610,
+   "unitName": ""
+ },
+ {
+   "level": 461,
+   "salePrice": 23100,
+   "value": 4620,
+   "unitName": ""
+ },
+ {
+   "level": 462,
+   "salePrice": 23150,
+   "value": 4630,
+   "unitName": ""
+ },
+ {
+   "level": 463,
+   "salePrice": 23200,
+   "value": 4640,
+   "unitName": ""
+ },
+ {
+   "level": 464,
+   "salePrice": 23250,
+   "value": 4650,
+   "unitName": ""
+ },
+ {
+   "level": 465,
+   "salePrice": 23300,
+   "value": 4660,
+   "unitName": ""
+ },
+ {
+   "level": 466,
+   "salePrice": 23350,
+   "value": 4670,
+   "unitName": ""
+ },
+ {
+   "level": 467,
+   "salePrice": 23400,
+   "value": 4680,
+   "unitName": ""
+ },
+ {
+   "level": 468,
+   "salePrice": 23450,
+   "value": 4690,
+   "unitName": ""
+ },
+ {
+   "level": 469,
+   "salePrice": 23500,
+   "value": 4700,
+   "unitName": ""
+ },
+ {
+   "level": 470,
+   "salePrice": 23550,
+   "value": 4710,
+   "unitName": ""
+ },
+ {
+   "level": 471,
+   "salePrice": 23600,
+   "value": 4720,
+   "unitName": ""
+ },
+ {
+   "level": 472,
+   "salePrice": 23650,
+   "value": 4730,
+   "unitName": ""
+ },
+ {
+   "level": 473,
+   "salePrice": 23700,
+   "value": 4740,
+   "unitName": ""
+ },
+ {
+   "level": 474,
+   "salePrice": 23750,
+   "value": 4750,
+   "unitName": ""
+ },
+ {
+   "level": 475,
+   "salePrice": 23800,
+   "value": 4760,
+   "unitName": ""
+ },
+ {
+   "level": 476,
+   "salePrice": 23850,
+   "value": 4770,
+   "unitName": ""
+ },
+ {
+   "level": 477,
+   "salePrice": 23900,
+   "value": 4780,
+   "unitName": ""
+ },
+ {
+   "level": 478,
+   "salePrice": 23950,
+   "value": 4790,
+   "unitName": ""
+ },
+ {
+   "level": 479,
+   "salePrice": 24000,
+   "value": 4800,
+   "unitName": ""
+ },
+ {
+   "level": 480,
+   "salePrice": 24050,
+   "value": 4810,
+   "unitName": ""
+ },
+ {
+   "level": 481,
+   "salePrice": 24100,
+   "value": 4820,
+   "unitName": ""
+ },
+ {
+   "level": 482,
+   "salePrice": 24150,
+   "value": 4830,
+   "unitName": ""
+ },
+ {
+   "level": 483,
+   "salePrice": 24200,
+   "value": 4840,
+   "unitName": ""
+ },
+ {
+   "level": 484,
+   "salePrice": 24250,
+   "value": 4850,
+   "unitName": ""
+ },
+ {
+   "level": 485,
+   "salePrice": 24300,
+   "value": 4860,
+   "unitName": ""
+ },
+ {
+   "level": 486,
+   "salePrice": 24350,
+   "value": 4870,
+   "unitName": ""
+ },
+ {
+   "level": 487,
+   "salePrice": 24400,
+   "value": 4880,
+   "unitName": ""
+ },
+ {
+   "level": 488,
+   "salePrice": 24450,
+   "value": 4890,
+   "unitName": ""
+ },
+ {
+   "level": 489,
+   "salePrice": 24500,
+   "value": 4900,
+   "unitName": ""
+ },
+ {
+   "level": 490,
+   "salePrice": 24550,
+   "value": 4910,
+   "unitName": ""
+ },
+ {
+   "level": 491,
+   "salePrice": 24600,
+   "value": 4920,
+   "unitName": ""
+ },
+ {
+   "level": 492,
+   "salePrice": 24650,
+   "value": 4930,
+   "unitName": ""
+ },
+ {
+   "level": 493,
+   "salePrice": 24700,
+   "value": 4940,
+   "unitName": ""
+ },
+ {
+   "level": 494,
+   "salePrice": 24750,
+   "value": 4950,
+   "unitName": ""
+ },
+ {
+   "level": 495,
+   "salePrice": 24800,
+   "value": 4960,
+   "unitName": ""
+ },
+ {
+   "level": 496,
+   "salePrice": 24850,
+   "value": 4970,
+   "unitName": ""
+ },
+ {
+   "level": 497,
+   "salePrice": 24900,
+   "value": 4980,
+   "unitName": ""
+ },
+ {
+   "level": 498,
+   "salePrice": 24950,
+   "value": 4990,
+   "unitName": ""
+ },
+ {
+   "level": 499,
+   "salePrice": 25000,
+   "value": 5000,
+   "unitName": ""
+ },
+ {
+   "level": 500,
+   "salePrice": 25050,
+   "value": 5010,
+   "unitName": ""
+ },
+ {
+   "level": 501,
+   "salePrice": 25100,
+   "value": 5020,
+   "unitName": ""
+ },
+ {
+   "level": 502,
+   "salePrice": 25150,
+   "value": 5030,
+   "unitName": ""
+ },
+ {
+   "level": 503,
+   "salePrice": 25200,
+   "value": 5040,
+   "unitName": ""
+ },
+ {
+   "level": 504,
+   "salePrice": 25250,
+   "value": 5050,
+   "unitName": ""
+ },
+ {
+   "level": 505,
+   "salePrice": 25300,
+   "value": 5060,
+   "unitName": ""
+ },
+ {
+   "level": 506,
+   "salePrice": 25350,
+   "value": 5070,
+   "unitName": ""
+ },
+ {
+   "level": 507,
+   "salePrice": 25400,
+   "value": 5080,
+   "unitName": ""
+ },
+ {
+   "level": 508,
+   "salePrice": 25450,
+   "value": 5090,
+   "unitName": ""
+ },
+ {
+   "level": 509,
+   "salePrice": 25500,
+   "value": 5100,
+   "unitName": ""
+ },
+ {
+   "level": 510,
+   "salePrice": 25550,
+   "value": 5110,
+   "unitName": ""
+ },
+ {
+   "level": 511,
+   "salePrice": 25600,
+   "value": 5120,
+   "unitName": ""
+ },
+ {
+   "level": 512,
+   "salePrice": 25650,
+   "value": 5130,
+   "unitName": ""
+ },
+ {
+   "level": 513,
+   "salePrice": 25700,
+   "value": 5140,
+   "unitName": ""
+ },
+ {
+   "level": 514,
+   "salePrice": 25750,
+   "value": 5150,
+   "unitName": ""
+ },
+ {
+   "level": 515,
+   "salePrice": 25800,
+   "value": 5160,
+   "unitName": ""
+ },
+ {
+   "level": 516,
+   "salePrice": 25850,
+   "value": 5170,
+   "unitName": ""
+ },
+ {
+   "level": 517,
+   "salePrice": 25900,
+   "value": 5180,
+   "unitName": ""
+ },
+ {
+   "level": 518,
+   "salePrice": 25950,
+   "value": 5190,
+   "unitName": ""
+ },
+ {
+   "level": 519,
+   "salePrice": 26000,
+   "value": 5200,
+   "unitName": ""
+ },
+ {
+   "level": 520,
+   "salePrice": 26050,
+   "value": 5210,
+   "unitName": ""
+ },
+ {
+   "level": 521,
+   "salePrice": 26100,
+   "value": 5220,
+   "unitName": ""
+ },
+ {
+   "level": 522,
+   "salePrice": 26150,
+   "value": 5230,
+   "unitName": ""
+ },
+ {
+   "level": 523,
+   "salePrice": 26200,
+   "value": 5240,
+   "unitName": ""
+ },
+ {
+   "level": 524,
+   "salePrice": 26250,
+   "value": 5250,
+   "unitName": ""
+ },
+ {
+   "level": 525,
+   "salePrice": 26300,
+   "value": 5260,
+   "unitName": ""
+ },
+ {
+   "level": 526,
+   "salePrice": 26350,
+   "value": 5270,
+   "unitName": ""
+ },
+ {
+   "level": 527,
+   "salePrice": 26400,
+   "value": 5280,
+   "unitName": ""
+ },
+ {
+   "level": 528,
+   "salePrice": 26450,
+   "value": 5290,
+   "unitName": ""
+ },
+ {
+   "level": 529,
+   "salePrice": 26500,
+   "value": 5300,
+   "unitName": ""
+ },
+ {
+   "level": 530,
+   "salePrice": 26550,
+   "value": 5310,
+   "unitName": ""
+ },
+ {
+   "level": 531,
+   "salePrice": 26600,
+   "value": 5320,
+   "unitName": ""
+ },
+ {
+   "level": 532,
+   "salePrice": 26650,
+   "value": 5330,
+   "unitName": ""
+ },
+ {
+   "level": 533,
+   "salePrice": 26700,
+   "value": 5340,
+   "unitName": ""
+ },
+ {
+   "level": 534,
+   "salePrice": 26750,
+   "value": 5350,
+   "unitName": ""
+ },
+ {
+   "level": 535,
+   "salePrice": 26800,
+   "value": 5360,
+   "unitName": ""
+ },
+ {
+   "level": 536,
+   "salePrice": 26850,
+   "value": 5370,
+   "unitName": ""
+ },
+ {
+   "level": 537,
+   "salePrice": 26900,
+   "value": 5380,
+   "unitName": ""
+ },
+ {
+   "level": 538,
+   "salePrice": 26950,
+   "value": 5390,
+   "unitName": ""
+ },
+ {
+   "level": 539,
+   "salePrice": 27000,
+   "value": 5400,
+   "unitName": ""
+ },
+ {
+   "level": 540,
+   "salePrice": 27050,
+   "value": 5410,
+   "unitName": ""
+ },
+ {
+   "level": 541,
+   "salePrice": 27100,
+   "value": 5420,
+   "unitName": ""
+ },
+ {
+   "level": 542,
+   "salePrice": 27150,
+   "value": 5430,
+   "unitName": ""
+ },
+ {
+   "level": 543,
+   "salePrice": 27200,
+   "value": 5440,
+   "unitName": ""
+ },
+ {
+   "level": 544,
+   "salePrice": 27250,
+   "value": 5450,
+   "unitName": ""
+ },
+ {
+   "level": 545,
+   "salePrice": 27300,
+   "value": 5460,
+   "unitName": ""
+ },
+ {
+   "level": 546,
+   "salePrice": 27350,
+   "value": 5470,
+   "unitName": ""
+ },
+ {
+   "level": 547,
+   "salePrice": 27400,
+   "value": 5480,
+   "unitName": ""
+ },
+ {
+   "level": 548,
+   "salePrice": 27450,
+   "value": 5490,
+   "unitName": ""
+ },
+ {
+   "level": 549,
+   "salePrice": 27500,
+   "value": 5500,
+   "unitName": ""
+ },
+ {
+   "level": 550,
+   "salePrice": 27550,
+   "value": 5510,
+   "unitName": ""
+ },
+ {
+   "level": 551,
+   "salePrice": 27600,
+   "value": 5520,
+   "unitName": ""
+ },
+ {
+   "level": 552,
+   "salePrice": 27650,
+   "value": 5530,
+   "unitName": ""
+ },
+ {
+   "level": 553,
+   "salePrice": 27700,
+   "value": 5540,
+   "unitName": ""
+ },
+ {
+   "level": 554,
+   "salePrice": 27750,
+   "value": 5550,
+   "unitName": ""
+ },
+ {
+   "level": 555,
+   "salePrice": 27800,
+   "value": 5560,
+   "unitName": ""
+ },
+ {
+   "level": 556,
+   "salePrice": 27850,
+   "value": 5570,
+   "unitName": ""
+ },
+ {
+   "level": 557,
+   "salePrice": 27900,
+   "value": 5580,
+   "unitName": ""
+ },
+ {
+   "level": 558,
+   "salePrice": 27950,
+   "value": 5590,
+   "unitName": ""
+ },
+ {
+   "level": 559,
+   "salePrice": 28000,
+   "value": 5600,
+   "unitName": ""
+ },
+ {
+   "level": 560,
+   "salePrice": 28050,
+   "value": 5610,
+   "unitName": ""
+ },
+ {
+   "level": 561,
+   "salePrice": 28100,
+   "value": 5620,
+   "unitName": ""
+ },
+ {
+   "level": 562,
+   "salePrice": 28150,
+   "value": 5630,
+   "unitName": ""
+ },
+ {
+   "level": 563,
+   "salePrice": 28200,
+   "value": 5640,
+   "unitName": ""
+ },
+ {
+   "level": 564,
+   "salePrice": 28250,
+   "value": 5650,
+   "unitName": ""
+ },
+ {
+   "level": 565,
+   "salePrice": 28300,
+   "value": 5660,
+   "unitName": ""
+ },
+ {
+   "level": 566,
+   "salePrice": 28350,
+   "value": 5670,
+   "unitName": ""
+ },
+ {
+   "level": 567,
+   "salePrice": 28400,
+   "value": 5680,
+   "unitName": ""
+ },
+ {
+   "level": 568,
+   "salePrice": 28450,
+   "value": 5690,
+   "unitName": ""
+ },
+ {
+   "level": 569,
+   "salePrice": 28500,
+   "value": 5700,
+   "unitName": ""
+ },
+ {
+   "level": 570,
+   "salePrice": 28550,
+   "value": 5710,
+   "unitName": ""
+ },
+ {
+   "level": 571,
+   "salePrice": 28600,
+   "value": 5720,
+   "unitName": ""
+ },
+ {
+   "level": 572,
+   "salePrice": 28650,
+   "value": 5730,
+   "unitName": ""
+ },
+ {
+   "level": 573,
+   "salePrice": 28700,
+   "value": 5740,
+   "unitName": ""
+ },
+ {
+   "level": 574,
+   "salePrice": 28750,
+   "value": 5750,
+   "unitName": ""
+ },
+ {
+   "level": 575,
+   "salePrice": 28800,
+   "value": 5760,
+   "unitName": ""
+ },
+ {
+   "level": 576,
+   "salePrice": 28850,
+   "value": 5770,
+   "unitName": ""
+ },
+ {
+   "level": 577,
+   "salePrice": 28900,
+   "value": 5780,
+   "unitName": ""
+ },
+ {
+   "level": 578,
+   "salePrice": 28950,
+   "value": 5790,
+   "unitName": ""
+ },
+ {
+   "level": 579,
+   "salePrice": 29000,
+   "value": 5800,
+   "unitName": ""
+ },
+ {
+   "level": 580,
+   "salePrice": 29050,
+   "value": 5810,
+   "unitName": ""
+ },
+ {
+   "level": 581,
+   "salePrice": 29100,
+   "value": 5820,
+   "unitName": ""
+ },
+ {
+   "level": 582,
+   "salePrice": 29150,
+   "value": 5830,
+   "unitName": ""
+ },
+ {
+   "level": 583,
+   "salePrice": 29200,
+   "value": 5840,
+   "unitName": ""
+ },
+ {
+   "level": 584,
+   "salePrice": 29250,
+   "value": 5850,
+   "unitName": ""
+ },
+ {
+   "level": 585,
+   "salePrice": 29300,
+   "value": 5860,
+   "unitName": ""
+ },
+ {
+   "level": 586,
+   "salePrice": 29350,
+   "value": 5870,
+   "unitName": ""
+ },
+ {
+   "level": 587,
+   "salePrice": 29400,
+   "value": 5880,
+   "unitName": ""
+ },
+ {
+   "level": 588,
+   "salePrice": 29450,
+   "value": 5890,
+   "unitName": ""
+ },
+ {
+   "level": 589,
+   "salePrice": 29500,
+   "value": 5900,
+   "unitName": ""
+ },
+ {
+   "level": 590,
+   "salePrice": 29550,
+   "value": 5910,
+   "unitName": ""
+ },
+ {
+   "level": 591,
+   "salePrice": 29600,
+   "value": 5920,
+   "unitName": ""
+ },
+ {
+   "level": 592,
+   "salePrice": 29650,
+   "value": 5930,
+   "unitName": ""
+ },
+ {
+   "level": 593,
+   "salePrice": 29700,
+   "value": 5940,
+   "unitName": ""
+ },
+ {
+   "level": 594,
+   "salePrice": 29750,
+   "value": 5950,
+   "unitName": ""
+ },
+ {
+   "level": 595,
+   "salePrice": 29800,
+   "value": 5960,
+   "unitName": ""
+ },
+ {
+   "level": 596,
+   "salePrice": 29850,
+   "value": 5970,
+   "unitName": ""
+ },
+ {
+   "level": 597,
+   "salePrice": 29900,
+   "value": 5980,
+   "unitName": ""
+ },
+ {
+   "level": 598,
+   "salePrice": 29950,
+   "value": 5990,
+   "unitName": ""
+ },
+ {
+   "level": 599,
+   "salePrice": 30000,
+   "value": 6000,
+   "unitName": ""
+ },
+ {
+   "level": 600,
+   "salePrice": 30050,
+   "value": 6010,
+   "unitName": ""
+ },
+ {
+   "level": 601,
+   "salePrice": 30100,
+   "value": 6020,
+   "unitName": ""
+ },
+ {
+   "level": 602,
+   "salePrice": 30150,
+   "value": 6030,
+   "unitName": ""
+ },
+ {
+   "level": 603,
+   "salePrice": 30200,
+   "value": 6040,
+   "unitName": ""
+ },
+ {
+   "level": 604,
+   "salePrice": 30250,
+   "value": 6050,
+   "unitName": ""
+ },
+ {
+   "level": 605,
+   "salePrice": 30300,
+   "value": 6060,
+   "unitName": ""
+ },
+ {
+   "level": 606,
+   "salePrice": 30350,
+   "value": 6070,
+   "unitName": ""
+ },
+ {
+   "level": 607,
+   "salePrice": 30400,
+   "value": 6080,
+   "unitName": ""
+ },
+ {
+   "level": 608,
+   "salePrice": 30450,
+   "value": 6090,
+   "unitName": ""
+ },
+ {
+   "level": 609,
+   "salePrice": 30500,
+   "value": 6100,
+   "unitName": ""
+ },
+ {
+   "level": 610,
+   "salePrice": 30550,
+   "value": 6110,
+   "unitName": ""
+ },
+ {
+   "level": 611,
+   "salePrice": 30600,
+   "value": 6120,
+   "unitName": ""
+ },
+ {
+   "level": 612,
+   "salePrice": 30650,
+   "value": 6130,
+   "unitName": ""
+ },
+ {
+   "level": 613,
+   "salePrice": 30700,
+   "value": 6140,
+   "unitName": ""
+ },
+ {
+   "level": 614,
+   "salePrice": 30750,
+   "value": 6150,
+   "unitName": ""
+ },
+ {
+   "level": 615,
+   "salePrice": 30800,
+   "value": 6160,
+   "unitName": ""
+ },
+ {
+   "level": 616,
+   "salePrice": 30850,
+   "value": 6170,
+   "unitName": ""
+ },
+ {
+   "level": 617,
+   "salePrice": 30900,
+   "value": 6180,
+   "unitName": ""
+ },
+ {
+   "level": 618,
+   "salePrice": 30950,
+   "value": 6190,
+   "unitName": ""
+ },
+ {
+   "level": 619,
+   "salePrice": 31000,
+   "value": 6200,
+   "unitName": ""
+ },
+ {
+   "level": 620,
+   "salePrice": 31050,
+   "value": 6210,
+   "unitName": ""
+ },
+ {
+   "level": 621,
+   "salePrice": 31100,
+   "value": 6220,
+   "unitName": ""
+ },
+ {
+   "level": 622,
+   "salePrice": 31150,
+   "value": 6230,
+   "unitName": ""
+ },
+ {
+   "level": 623,
+   "salePrice": 31200,
+   "value": 6240,
+   "unitName": ""
+ },
+ {
+   "level": 624,
+   "salePrice": 31250,
+   "value": 6250,
+   "unitName": ""
+ },
+ {
+   "level": 625,
+   "salePrice": 31300,
+   "value": 6260,
+   "unitName": ""
+ },
+ {
+   "level": 626,
+   "salePrice": 31350,
+   "value": 6270,
+   "unitName": ""
+ },
+ {
+   "level": 627,
+   "salePrice": 31400,
+   "value": 6280,
+   "unitName": ""
+ },
+ {
+   "level": 628,
+   "salePrice": 31450,
+   "value": 6290,
+   "unitName": ""
+ },
+ {
+   "level": 629,
+   "salePrice": 31500,
+   "value": 6300,
+   "unitName": ""
+ },
+ {
+   "level": 630,
+   "salePrice": 31550,
+   "value": 6310,
+   "unitName": ""
+ },
+ {
+   "level": 631,
+   "salePrice": 31600,
+   "value": 6320,
+   "unitName": ""
+ },
+ {
+   "level": 632,
+   "salePrice": 31650,
+   "value": 6330,
+   "unitName": ""
+ },
+ {
+   "level": 633,
+   "salePrice": 31700,
+   "value": 6340,
+   "unitName": ""
+ },
+ {
+   "level": 634,
+   "salePrice": 31750,
+   "value": 6350,
+   "unitName": ""
+ },
+ {
+   "level": 635,
+   "salePrice": 31800,
+   "value": 6360,
+   "unitName": ""
+ },
+ {
+   "level": 636,
+   "salePrice": 31850,
+   "value": 6370,
+   "unitName": ""
+ },
+ {
+   "level": 637,
+   "salePrice": 31900,
+   "value": 6380,
+   "unitName": ""
+ },
+ {
+   "level": 638,
+   "salePrice": 31950,
+   "value": 6390,
+   "unitName": ""
+ },
+ {
+   "level": 639,
+   "salePrice": 32000,
+   "value": 6400,
+   "unitName": ""
+ },
+ {
+   "level": 640,
+   "salePrice": 32050,
+   "value": 6410,
+   "unitName": ""
+ },
+ {
+   "level": 641,
+   "salePrice": 32100,
+   "value": 6420,
+   "unitName": ""
+ },
+ {
+   "level": 642,
+   "salePrice": 32150,
+   "value": 6430,
+   "unitName": ""
+ },
+ {
+   "level": 643,
+   "salePrice": 32200,
+   "value": 6440,
+   "unitName": ""
+ },
+ {
+   "level": 644,
+   "salePrice": 32250,
+   "value": 6450,
+   "unitName": ""
+ },
+ {
+   "level": 645,
+   "salePrice": 32300,
+   "value": 6460,
+   "unitName": ""
+ },
+ {
+   "level": 646,
+   "salePrice": 32350,
+   "value": 6470,
+   "unitName": ""
+ },
+ {
+   "level": 647,
+   "salePrice": 32400,
+   "value": 6480,
+   "unitName": ""
+ },
+ {
+   "level": 648,
+   "salePrice": 32450,
+   "value": 6490,
+   "unitName": ""
+ },
+ {
+   "level": 649,
+   "salePrice": 32500,
+   "value": 6500,
+   "unitName": ""
+ },
+ {
+   "level": 650,
+   "salePrice": 32550,
+   "value": 6510,
+   "unitName": ""
+ },
+ {
+   "level": 651,
+   "salePrice": 32600,
+   "value": 6520,
+   "unitName": ""
+ },
+ {
+   "level": 652,
+   "salePrice": 32650,
+   "value": 6530,
+   "unitName": ""
+ },
+ {
+   "level": 653,
+   "salePrice": 32700,
+   "value": 6540,
+   "unitName": ""
+ },
+ {
+   "level": 654,
+   "salePrice": 32750,
+   "value": 6550,
+   "unitName": ""
+ },
+ {
+   "level": 655,
+   "salePrice": 32800,
+   "value": 6560,
+   "unitName": ""
+ },
+ {
+   "level": 656,
+   "salePrice": 32850,
+   "value": 6570,
+   "unitName": ""
+ },
+ {
+   "level": 657,
+   "salePrice": 32900,
+   "value": 6580,
+   "unitName": ""
+ },
+ {
+   "level": 658,
+   "salePrice": 32950,
+   "value": 6590,
+   "unitName": ""
+ },
+ {
+   "level": 659,
+   "salePrice": 33000,
+   "value": 6600,
+   "unitName": ""
+ },
+ {
+   "level": 660,
+   "salePrice": 33050,
+   "value": 6610,
+   "unitName": ""
+ },
+ {
+   "level": 661,
+   "salePrice": 33100,
+   "value": 6620,
+   "unitName": ""
+ },
+ {
+   "level": 662,
+   "salePrice": 33150,
+   "value": 6630,
+   "unitName": ""
+ },
+ {
+   "level": 663,
+   "salePrice": 33200,
+   "value": 6640,
+   "unitName": ""
+ },
+ {
+   "level": 664,
+   "salePrice": 33250,
+   "value": 6650,
+   "unitName": ""
+ },
+ {
+   "level": 665,
+   "salePrice": 33300,
+   "value": 6660,
+   "unitName": ""
+ },
+ {
+   "level": 666,
+   "salePrice": 33350,
+   "value": 6670,
+   "unitName": ""
+ },
+ {
+   "level": 667,
+   "salePrice": 33400,
+   "value": 6680,
+   "unitName": ""
+ },
+ {
+   "level": 668,
+   "salePrice": 33450,
+   "value": 6690,
+   "unitName": ""
+ },
+ {
+   "level": 669,
+   "salePrice": 33500,
+   "value": 6700,
+   "unitName": ""
+ },
+ {
+   "level": 670,
+   "salePrice": 33550,
+   "value": 6710,
+   "unitName": ""
+ },
+ {
+   "level": 671,
+   "salePrice": 33600,
+   "value": 6720,
+   "unitName": ""
+ },
+ {
+   "level": 672,
+   "salePrice": 33650,
+   "value": 6730,
+   "unitName": ""
+ },
+ {
+   "level": 673,
+   "salePrice": 33700,
+   "value": 6740,
+   "unitName": ""
+ },
+ {
+   "level": 674,
+   "salePrice": 33750,
+   "value": 6750,
+   "unitName": ""
+ },
+ {
+   "level": 675,
+   "salePrice": 33800,
+   "value": 6760,
+   "unitName": ""
+ },
+ {
+   "level": 676,
+   "salePrice": 33850,
+   "value": 6770,
+   "unitName": ""
+ },
+ {
+   "level": 677,
+   "salePrice": 33900,
+   "value": 6780,
+   "unitName": ""
+ },
+ {
+   "level": 678,
+   "salePrice": 33950,
+   "value": 6790,
+   "unitName": ""
+ },
+ {
+   "level": 679,
+   "salePrice": 34000,
+   "value": 6800,
+   "unitName": ""
+ },
+ {
+   "level": 680,
+   "salePrice": 34050,
+   "value": 6810,
+   "unitName": ""
+ },
+ {
+   "level": 681,
+   "salePrice": 34100,
+   "value": 6820,
+   "unitName": ""
+ },
+ {
+   "level": 682,
+   "salePrice": 34150,
+   "value": 6830,
+   "unitName": ""
+ },
+ {
+   "level": 683,
+   "salePrice": 34200,
+   "value": 6840,
+   "unitName": ""
+ },
+ {
+   "level": 684,
+   "salePrice": 34250,
+   "value": 6850,
+   "unitName": ""
+ },
+ {
+   "level": 685,
+   "salePrice": 34300,
+   "value": 6860,
+   "unitName": ""
+ },
+ {
+   "level": 686,
+   "salePrice": 34350,
+   "value": 6870,
+   "unitName": ""
+ },
+ {
+   "level": 687,
+   "salePrice": 34400,
+   "value": 6880,
+   "unitName": ""
+ },
+ {
+   "level": 688,
+   "salePrice": 34450,
+   "value": 6890,
+   "unitName": ""
+ },
+ {
+   "level": 689,
+   "salePrice": 34500,
+   "value": 6900,
+   "unitName": ""
+ },
+ {
+   "level": 690,
+   "salePrice": 34550,
+   "value": 6910,
+   "unitName": ""
+ },
+ {
+   "level": 691,
+   "salePrice": 34600,
+   "value": 6920,
+   "unitName": ""
+ },
+ {
+   "level": 692,
+   "salePrice": 34650,
+   "value": 6930,
+   "unitName": ""
+ },
+ {
+   "level": 693,
+   "salePrice": 34700,
+   "value": 6940,
+   "unitName": ""
+ },
+ {
+   "level": 694,
+   "salePrice": 34750,
+   "value": 6950,
+   "unitName": ""
+ },
+ {
+   "level": 695,
+   "salePrice": 34800,
+   "value": 6960,
+   "unitName": ""
+ },
+ {
+   "level": 696,
+   "salePrice": 34850,
+   "value": 6970,
+   "unitName": ""
+ },
+ {
+   "level": 697,
+   "salePrice": 34900,
+   "value": 6980,
+   "unitName": ""
+ },
+ {
+   "level": 698,
+   "salePrice": 34950,
+   "value": 6990,
+   "unitName": ""
+ },
+ {
+   "level": 699,
+   "salePrice": 35000,
+   "value": 7000,
+   "unitName": ""
+ },
+ {
+   "level": 700,
+   "salePrice": 35050,
+   "value": 7010,
+   "unitName": ""
+ },
+ {
+   "level": 701,
+   "salePrice": 35100,
+   "value": 7020,
+   "unitName": ""
+ },
+ {
+   "level": 702,
+   "salePrice": 35150,
+   "value": 7030,
+   "unitName": ""
+ },
+ {
+   "level": 703,
+   "salePrice": 35200,
+   "value": 7040,
+   "unitName": ""
+ },
+ {
+   "level": 704,
+   "salePrice": 35250,
+   "value": 7050,
+   "unitName": ""
+ },
+ {
+   "level": 705,
+   "salePrice": 35300,
+   "value": 7060,
+   "unitName": ""
+ },
+ {
+   "level": 706,
+   "salePrice": 35350,
+   "value": 7070,
+   "unitName": ""
+ },
+ {
+   "level": 707,
+   "salePrice": 35400,
+   "value": 7080,
+   "unitName": ""
+ },
+ {
+   "level": 708,
+   "salePrice": 35450,
+   "value": 7090,
+   "unitName": ""
+ },
+ {
+   "level": 709,
+   "salePrice": 35500,
+   "value": 7100,
+   "unitName": ""
+ },
+ {
+   "level": 710,
+   "salePrice": 35550,
+   "value": 7110,
+   "unitName": ""
+ },
+ {
+   "level": 711,
+   "salePrice": 35600,
+   "value": 7120,
+   "unitName": ""
+ },
+ {
+   "level": 712,
+   "salePrice": 35650,
+   "value": 7130,
+   "unitName": ""
+ },
+ {
+   "level": 713,
+   "salePrice": 35700,
+   "value": 7140,
+   "unitName": ""
+ },
+ {
+   "level": 714,
+   "salePrice": 35750,
+   "value": 7150,
+   "unitName": ""
+ },
+ {
+   "level": 715,
+   "salePrice": 35800,
+   "value": 7160,
+   "unitName": ""
+ },
+ {
+   "level": 716,
+   "salePrice": 35850,
+   "value": 7170,
+   "unitName": ""
+ },
+ {
+   "level": 717,
+   "salePrice": 35900,
+   "value": 7180,
+   "unitName": ""
+ },
+ {
+   "level": 718,
+   "salePrice": 35950,
+   "value": 7190,
+   "unitName": ""
+ },
+ {
+   "level": 719,
+   "salePrice": 36000,
+   "value": 7200,
+   "unitName": ""
+ },
+ {
+   "level": 720,
+   "salePrice": 36050,
+   "value": 7210,
+   "unitName": ""
+ },
+ {
+   "level": 721,
+   "salePrice": 36100,
+   "value": 7220,
+   "unitName": ""
+ },
+ {
+   "level": 722,
+   "salePrice": 36150,
+   "value": 7230,
+   "unitName": ""
+ },
+ {
+   "level": 723,
+   "salePrice": 36200,
+   "value": 7240,
+   "unitName": ""
+ },
+ {
+   "level": 724,
+   "salePrice": 36250,
+   "value": 7250,
+   "unitName": ""
+ },
+ {
+   "level": 725,
+   "salePrice": 36300,
+   "value": 7260,
+   "unitName": ""
+ },
+ {
+   "level": 726,
+   "salePrice": 36350,
+   "value": 7270,
+   "unitName": ""
+ },
+ {
+   "level": 727,
+   "salePrice": 36400,
+   "value": 7280,
+   "unitName": ""
+ },
+ {
+   "level": 728,
+   "salePrice": 36450,
+   "value": 7290,
+   "unitName": ""
+ },
+ {
+   "level": 729,
+   "salePrice": 36500,
+   "value": 7300,
+   "unitName": ""
+ },
+ {
+   "level": 730,
+   "salePrice": 36550,
+   "value": 7310,
+   "unitName": ""
+ },
+ {
+   "level": 731,
+   "salePrice": 36600,
+   "value": 7320,
+   "unitName": ""
+ },
+ {
+   "level": 732,
+   "salePrice": 36650,
+   "value": 7330,
+   "unitName": ""
+ },
+ {
+   "level": 733,
+   "salePrice": 36700,
+   "value": 7340,
+   "unitName": ""
+ },
+ {
+   "level": 734,
+   "salePrice": 36750,
+   "value": 7350,
+   "unitName": ""
+ },
+ {
+   "level": 735,
+   "salePrice": 36800,
+   "value": 7360,
+   "unitName": ""
+ },
+ {
+   "level": 736,
+   "salePrice": 36850,
+   "value": 7370,
+   "unitName": ""
+ },
+ {
+   "level": 737,
+   "salePrice": 36900,
+   "value": 7380,
+   "unitName": ""
+ },
+ {
+   "level": 738,
+   "salePrice": 36950,
+   "value": 7390,
+   "unitName": ""
+ },
+ {
+   "level": 739,
+   "salePrice": 37000,
+   "value": 7400,
+   "unitName": ""
+ },
+ {
+   "level": 740,
+   "salePrice": 37050,
+   "value": 7410,
+   "unitName": ""
+ },
+ {
+   "level": 741,
+   "salePrice": 37100,
+   "value": 7420,
+   "unitName": ""
+ },
+ {
+   "level": 742,
+   "salePrice": 37150,
+   "value": 7430,
+   "unitName": ""
+ },
+ {
+   "level": 743,
+   "salePrice": 37200,
+   "value": 7440,
+   "unitName": ""
+ },
+ {
+   "level": 744,
+   "salePrice": 37250,
+   "value": 7450,
+   "unitName": ""
+ },
+ {
+   "level": 745,
+   "salePrice": 37300,
+   "value": 7460,
+   "unitName": ""
+ },
+ {
+   "level": 746,
+   "salePrice": 37350,
+   "value": 7470,
+   "unitName": ""
+ },
+ {
+   "level": 747,
+   "salePrice": 37400,
+   "value": 7480,
+   "unitName": ""
+ },
+ {
+   "level": 748,
+   "salePrice": 37450,
+   "value": 7490,
+   "unitName": ""
+ },
+ {
+   "level": 749,
+   "salePrice": 37500,
+   "value": 7500,
+   "unitName": ""
+ },
+ {
+   "level": 750,
+   "salePrice": 37550,
+   "value": 7510,
+   "unitName": ""
+ },
+ {
+   "level": 751,
+   "salePrice": 37600,
+   "value": 7520,
+   "unitName": ""
+ },
+ {
+   "level": 752,
+   "salePrice": 37650,
+   "value": 7530,
+   "unitName": ""
+ },
+ {
+   "level": 753,
+   "salePrice": 37700,
+   "value": 7540,
+   "unitName": ""
+ },
+ {
+   "level": 754,
+   "salePrice": 37750,
+   "value": 7550,
+   "unitName": ""
+ },
+ {
+   "level": 755,
+   "salePrice": 37800,
+   "value": 7560,
+   "unitName": ""
+ },
+ {
+   "level": 756,
+   "salePrice": 37850,
+   "value": 7570,
+   "unitName": ""
+ },
+ {
+   "level": 757,
+   "salePrice": 37900,
+   "value": 7580,
+   "unitName": ""
+ },
+ {
+   "level": 758,
+   "salePrice": 37950,
+   "value": 7590,
+   "unitName": ""
+ },
+ {
+   "level": 759,
+   "salePrice": 38000,
+   "value": 7600,
+   "unitName": ""
+ },
+ {
+   "level": 760,
+   "salePrice": 38050,
+   "value": 7610,
+   "unitName": ""
+ },
+ {
+   "level": 761,
+   "salePrice": 38100,
+   "value": 7620,
+   "unitName": ""
+ },
+ {
+   "level": 762,
+   "salePrice": 38150,
+   "value": 7630,
+   "unitName": ""
+ },
+ {
+   "level": 763,
+   "salePrice": 38200,
+   "value": 7640,
+   "unitName": ""
+ },
+ {
+   "level": 764,
+   "salePrice": 38250,
+   "value": 7650,
+   "unitName": ""
+ },
+ {
+   "level": 765,
+   "salePrice": 38300,
+   "value": 7660,
+   "unitName": ""
+ },
+ {
+   "level": 766,
+   "salePrice": 38350,
+   "value": 7670,
+   "unitName": ""
+ },
+ {
+   "level": 767,
+   "salePrice": 38400,
+   "value": 7680,
+   "unitName": ""
+ },
+ {
+   "level": 768,
+   "salePrice": 38450,
+   "value": 7690,
+   "unitName": ""
+ },
+ {
+   "level": 769,
+   "salePrice": 38500,
+   "value": 7700,
+   "unitName": ""
+ },
+ {
+   "level": 770,
+   "salePrice": 38550,
+   "value": 7710,
+   "unitName": ""
+ },
+ {
+   "level": 771,
+   "salePrice": 38600,
+   "value": 7720,
+   "unitName": ""
+ },
+ {
+   "level": 772,
+   "salePrice": 38650,
+   "value": 7730,
+   "unitName": ""
+ },
+ {
+   "level": 773,
+   "salePrice": 38700,
+   "value": 7740,
+   "unitName": ""
+ },
+ {
+   "level": 774,
+   "salePrice": 38750,
+   "value": 7750,
+   "unitName": ""
+ },
+ {
+   "level": 775,
+   "salePrice": 38800,
+   "value": 7760,
+   "unitName": ""
+ },
+ {
+   "level": 776,
+   "salePrice": 38850,
+   "value": 7770,
+   "unitName": ""
+ },
+ {
+   "level": 777,
+   "salePrice": 38900,
+   "value": 7780,
+   "unitName": ""
+ },
+ {
+   "level": 778,
+   "salePrice": 38950,
+   "value": 7790,
+   "unitName": ""
+ },
+ {
+   "level": 779,
+   "salePrice": 39000,
+   "value": 7800,
+   "unitName": ""
+ },
+ {
+   "level": 780,
+   "salePrice": 39050,
+   "value": 7810,
+   "unitName": ""
+ },
+ {
+   "level": 781,
+   "salePrice": 39100,
+   "value": 7820,
+   "unitName": ""
+ },
+ {
+   "level": 782,
+   "salePrice": 39150,
+   "value": 7830,
+   "unitName": ""
+ },
+ {
+   "level": 783,
+   "salePrice": 39200,
+   "value": 7840,
+   "unitName": ""
+ },
+ {
+   "level": 784,
+   "salePrice": 39250,
+   "value": 7850,
+   "unitName": ""
+ },
+ {
+   "level": 785,
+   "salePrice": 39300,
+   "value": 7860,
+   "unitName": ""
+ },
+ {
+   "level": 786,
+   "salePrice": 39350,
+   "value": 7870,
+   "unitName": ""
+ },
+ {
+   "level": 787,
+   "salePrice": 39400,
+   "value": 7880,
+   "unitName": ""
+ },
+ {
+   "level": 788,
+   "salePrice": 39450,
+   "value": 7890,
+   "unitName": ""
+ },
+ {
+   "level": 789,
+   "salePrice": 39500,
+   "value": 7900,
+   "unitName": ""
+ },
+ {
+   "level": 790,
+   "salePrice": 39550,
+   "value": 7910,
+   "unitName": ""
+ },
+ {
+   "level": 791,
+   "salePrice": 39600,
+   "value": 7920,
+   "unitName": ""
+ },
+ {
+   "level": 792,
+   "salePrice": 39650,
+   "value": 7930,
+   "unitName": ""
+ },
+ {
+   "level": 793,
+   "salePrice": 39700,
+   "value": 7940,
+   "unitName": ""
+ },
+ {
+   "level": 794,
+   "salePrice": 39750,
+   "value": 7950,
+   "unitName": ""
+ },
+ {
+   "level": 795,
+   "salePrice": 39800,
+   "value": 7960,
+   "unitName": ""
+ },
+ {
+   "level": 796,
+   "salePrice": 39850,
+   "value": 7970,
+   "unitName": ""
+ },
+ {
+   "level": 797,
+   "salePrice": 39900,
+   "value": 7980,
+   "unitName": ""
+ },
+ {
+   "level": 798,
+   "salePrice": 39950,
+   "value": 7990,
+   "unitName": ""
+ },
+ {
+   "level": 799,
+   "salePrice": 40000,
+   "value": 8000,
+   "unitName": ""
+ },
+ {
+   "level": 800,
+   "salePrice": 40050,
+   "value": 8010,
+   "unitName": ""
+ },
+ {
+   "level": 801,
+   "salePrice": 40100,
+   "value": 8020,
+   "unitName": ""
+ },
+ {
+   "level": 802,
+   "salePrice": 40150,
+   "value": 8030,
+   "unitName": ""
+ },
+ {
+   "level": 803,
+   "salePrice": 40200,
+   "value": 8040,
+   "unitName": ""
+ },
+ {
+   "level": 804,
+   "salePrice": 40250,
+   "value": 8050,
+   "unitName": ""
+ },
+ {
+   "level": 805,
+   "salePrice": 40300,
+   "value": 8060,
+   "unitName": ""
+ },
+ {
+   "level": 806,
+   "salePrice": 40350,
+   "value": 8070,
+   "unitName": ""
+ },
+ {
+   "level": 807,
+   "salePrice": 40400,
+   "value": 8080,
+   "unitName": ""
+ },
+ {
+   "level": 808,
+   "salePrice": 40450,
+   "value": 8090,
+   "unitName": ""
+ },
+ {
+   "level": 809,
+   "salePrice": 40500,
+   "value": 8100,
+   "unitName": ""
+ },
+ {
+   "level": 810,
+   "salePrice": 40550,
+   "value": 8110,
+   "unitName": ""
+ },
+ {
+   "level": 811,
+   "salePrice": 40600,
+   "value": 8120,
+   "unitName": ""
+ },
+ {
+   "level": 812,
+   "salePrice": 40650,
+   "value": 8130,
+   "unitName": ""
+ },
+ {
+   "level": 813,
+   "salePrice": 40700,
+   "value": 8140,
+   "unitName": ""
+ },
+ {
+   "level": 814,
+   "salePrice": 40750,
+   "value": 8150,
+   "unitName": ""
+ },
+ {
+   "level": 815,
+   "salePrice": 40800,
+   "value": 8160,
+   "unitName": ""
+ },
+ {
+   "level": 816,
+   "salePrice": 40850,
+   "value": 8170,
+   "unitName": ""
+ },
+ {
+   "level": 817,
+   "salePrice": 40900,
+   "value": 8180,
+   "unitName": ""
+ },
+ {
+   "level": 818,
+   "salePrice": 40950,
+   "value": 8190,
+   "unitName": ""
+ },
+ {
+   "level": 819,
+   "salePrice": 41000,
+   "value": 8200,
+   "unitName": ""
+ },
+ {
+   "level": 820,
+   "salePrice": 41050,
+   "value": 8210,
+   "unitName": ""
+ },
+ {
+   "level": 821,
+   "salePrice": 41100,
+   "value": 8220,
+   "unitName": ""
+ },
+ {
+   "level": 822,
+   "salePrice": 41150,
+   "value": 8230,
+   "unitName": ""
+ },
+ {
+   "level": 823,
+   "salePrice": 41200,
+   "value": 8240,
+   "unitName": ""
+ },
+ {
+   "level": 824,
+   "salePrice": 41250,
+   "value": 8250,
+   "unitName": ""
+ },
+ {
+   "level": 825,
+   "salePrice": 41300,
+   "value": 8260,
+   "unitName": ""
+ },
+ {
+   "level": 826,
+   "salePrice": 41350,
+   "value": 8270,
+   "unitName": ""
+ },
+ {
+   "level": 827,
+   "salePrice": 41400,
+   "value": 8280,
+   "unitName": ""
+ },
+ {
+   "level": 828,
+   "salePrice": 41450,
+   "value": 8290,
+   "unitName": ""
+ },
+ {
+   "level": 829,
+   "salePrice": 41500,
+   "value": 8300,
+   "unitName": ""
+ },
+ {
+   "level": 830,
+   "salePrice": 41550,
+   "value": 8310,
+   "unitName": ""
+ },
+ {
+   "level": 831,
+   "salePrice": 41600,
+   "value": 8320,
+   "unitName": ""
+ },
+ {
+   "level": 832,
+   "salePrice": 41650,
+   "value": 8330,
+   "unitName": ""
+ },
+ {
+   "level": 833,
+   "salePrice": 41700,
+   "value": 8340,
+   "unitName": ""
+ },
+ {
+   "level": 834,
+   "salePrice": 41750,
+   "value": 8350,
+   "unitName": ""
+ },
+ {
+   "level": 835,
+   "salePrice": 41800,
+   "value": 8360,
+   "unitName": ""
+ },
+ {
+   "level": 836,
+   "salePrice": 41850,
+   "value": 8370,
+   "unitName": ""
+ },
+ {
+   "level": 837,
+   "salePrice": 41900,
+   "value": 8380,
+   "unitName": ""
+ },
+ {
+   "level": 838,
+   "salePrice": 41950,
+   "value": 8390,
+   "unitName": ""
+ },
+ {
+   "level": 839,
+   "salePrice": 42000,
+   "value": 8400,
+   "unitName": ""
+ },
+ {
+   "level": 840,
+   "salePrice": 42050,
+   "value": 8410,
+   "unitName": ""
+ },
+ {
+   "level": 841,
+   "salePrice": 42100,
+   "value": 8420,
+   "unitName": ""
+ },
+ {
+   "level": 842,
+   "salePrice": 42150,
+   "value": 8430,
+   "unitName": ""
+ },
+ {
+   "level": 843,
+   "salePrice": 42200,
+   "value": 8440,
+   "unitName": ""
+ },
+ {
+   "level": 844,
+   "salePrice": 42250,
+   "value": 8450,
+   "unitName": ""
+ },
+ {
+   "level": 845,
+   "salePrice": 42300,
+   "value": 8460,
+   "unitName": ""
+ },
+ {
+   "level": 846,
+   "salePrice": 42350,
+   "value": 8470,
+   "unitName": ""
+ },
+ {
+   "level": 847,
+   "salePrice": 42400,
+   "value": 8480,
+   "unitName": ""
+ },
+ {
+   "level": 848,
+   "salePrice": 42450,
+   "value": 8490,
+   "unitName": ""
+ },
+ {
+   "level": 849,
+   "salePrice": 42500,
+   "value": 8500,
+   "unitName": ""
+ },
+ {
+   "level": 850,
+   "salePrice": 42550,
+   "value": 8510,
+   "unitName": ""
+ },
+ {
+   "level": 851,
+   "salePrice": 42600,
+   "value": 8520,
+   "unitName": ""
+ },
+ {
+   "level": 852,
+   "salePrice": 42650,
+   "value": 8530,
+   "unitName": ""
+ },
+ {
+   "level": 853,
+   "salePrice": 42700,
+   "value": 8540,
+   "unitName": ""
+ },
+ {
+   "level": 854,
+   "salePrice": 42750,
+   "value": 8550,
+   "unitName": ""
+ },
+ {
+   "level": 855,
+   "salePrice": 42800,
+   "value": 8560,
+   "unitName": ""
+ },
+ {
+   "level": 856,
+   "salePrice": 42850,
+   "value": 8570,
+   "unitName": ""
+ },
+ {
+   "level": 857,
+   "salePrice": 42900,
+   "value": 8580,
+   "unitName": ""
+ },
+ {
+   "level": 858,
+   "salePrice": 42950,
+   "value": 8590,
+   "unitName": ""
+ },
+ {
+   "level": 859,
+   "salePrice": 43000,
+   "value": 8600,
+   "unitName": ""
+ },
+ {
+   "level": 860,
+   "salePrice": 43050,
+   "value": 8610,
+   "unitName": ""
+ },
+ {
+   "level": 861,
+   "salePrice": 43100,
+   "value": 8620,
+   "unitName": ""
+ },
+ {
+   "level": 862,
+   "salePrice": 43150,
+   "value": 8630,
+   "unitName": ""
+ },
+ {
+   "level": 863,
+   "salePrice": 43200,
+   "value": 8640,
+   "unitName": ""
+ },
+ {
+   "level": 864,
+   "salePrice": 43250,
+   "value": 8650,
+   "unitName": ""
+ },
+ {
+   "level": 865,
+   "salePrice": 43300,
+   "value": 8660,
+   "unitName": ""
+ },
+ {
+   "level": 866,
+   "salePrice": 43350,
+   "value": 8670,
+   "unitName": ""
+ },
+ {
+   "level": 867,
+   "salePrice": 43400,
+   "value": 8680,
+   "unitName": ""
+ },
+ {
+   "level": 868,
+   "salePrice": 43450,
+   "value": 8690,
+   "unitName": ""
+ },
+ {
+   "level": 869,
+   "salePrice": 43500,
+   "value": 8700,
+   "unitName": ""
+ },
+ {
+   "level": 870,
+   "salePrice": 43550,
+   "value": 8710,
+   "unitName": ""
+ },
+ {
+   "level": 871,
+   "salePrice": 43600,
+   "value": 8720,
+   "unitName": ""
+ },
+ {
+   "level": 872,
+   "salePrice": 43650,
+   "value": 8730,
+   "unitName": ""
+ },
+ {
+   "level": 873,
+   "salePrice": 43700,
+   "value": 8740,
+   "unitName": ""
+ },
+ {
+   "level": 874,
+   "salePrice": 43750,
+   "value": 8750,
+   "unitName": ""
+ },
+ {
+   "level": 875,
+   "salePrice": 43800,
+   "value": 8760,
+   "unitName": ""
+ },
+ {
+   "level": 876,
+   "salePrice": 43850,
+   "value": 8770,
+   "unitName": ""
+ },
+ {
+   "level": 877,
+   "salePrice": 43900,
+   "value": 8780,
+   "unitName": ""
+ },
+ {
+   "level": 878,
+   "salePrice": 43950,
+   "value": 8790,
+   "unitName": ""
+ },
+ {
+   "level": 879,
+   "salePrice": 44000,
+   "value": 8800,
+   "unitName": ""
+ },
+ {
+   "level": 880,
+   "salePrice": 44050,
+   "value": 8810,
+   "unitName": ""
+ },
+ {
+   "level": 881,
+   "salePrice": 44100,
+   "value": 8820,
+   "unitName": ""
+ },
+ {
+   "level": 882,
+   "salePrice": 44150,
+   "value": 8830,
+   "unitName": ""
+ },
+ {
+   "level": 883,
+   "salePrice": 44200,
+   "value": 8840,
+   "unitName": ""
+ },
+ {
+   "level": 884,
+   "salePrice": 44250,
+   "value": 8850,
+   "unitName": ""
+ },
+ {
+   "level": 885,
+   "salePrice": 44300,
+   "value": 8860,
+   "unitName": ""
+ },
+ {
+   "level": 886,
+   "salePrice": 44350,
+   "value": 8870,
+   "unitName": ""
+ },
+ {
+   "level": 887,
+   "salePrice": 44400,
+   "value": 8880,
+   "unitName": ""
+ },
+ {
+   "level": 888,
+   "salePrice": 44450,
+   "value": 8890,
+   "unitName": ""
+ },
+ {
+   "level": 889,
+   "salePrice": 44500,
+   "value": 8900,
+   "unitName": ""
+ },
+ {
+   "level": 890,
+   "salePrice": 44550,
+   "value": 8910,
+   "unitName": ""
+ },
+ {
+   "level": 891,
+   "salePrice": 44600,
+   "value": 8920,
+   "unitName": ""
+ },
+ {
+   "level": 892,
+   "salePrice": 44650,
+   "value": 8930,
+   "unitName": ""
+ },
+ {
+   "level": 893,
+   "salePrice": 44700,
+   "value": 8940,
+   "unitName": ""
+ },
+ {
+   "level": 894,
+   "salePrice": 44750,
+   "value": 8950,
+   "unitName": ""
+ },
+ {
+   "level": 895,
+   "salePrice": 44800,
+   "value": 8960,
+   "unitName": ""
+ },
+ {
+   "level": 896,
+   "salePrice": 44850,
+   "value": 8970,
+   "unitName": ""
+ },
+ {
+   "level": 897,
+   "salePrice": 44900,
+   "value": 8980,
+   "unitName": ""
+ },
+ {
+   "level": 898,
+   "salePrice": 44950,
+   "value": 8990,
+   "unitName": ""
+ },
+ {
+   "level": 899,
+   "salePrice": 45000,
+   "value": 9000,
+   "unitName": ""
+ },
+ {
+   "level": 900,
+   "salePrice": 45050,
+   "value": 9010,
+   "unitName": ""
+ },
+ {
+   "level": 901,
+   "salePrice": 45100,
+   "value": 9020,
+   "unitName": ""
+ },
+ {
+   "level": 902,
+   "salePrice": 45150,
+   "value": 9030,
+   "unitName": ""
+ },
+ {
+   "level": 903,
+   "salePrice": 45200,
+   "value": 9040,
+   "unitName": ""
+ },
+ {
+   "level": 904,
+   "salePrice": 45250,
+   "value": 9050,
+   "unitName": ""
+ },
+ {
+   "level": 905,
+   "salePrice": 45300,
+   "value": 9060,
+   "unitName": ""
+ },
+ {
+   "level": 906,
+   "salePrice": 45350,
+   "value": 9070,
+   "unitName": ""
+ },
+ {
+   "level": 907,
+   "salePrice": 45400,
+   "value": 9080,
+   "unitName": ""
+ },
+ {
+   "level": 908,
+   "salePrice": 45450,
+   "value": 9090,
+   "unitName": ""
+ },
+ {
+   "level": 909,
+   "salePrice": 45500,
+   "value": 9100,
+   "unitName": ""
+ },
+ {
+   "level": 910,
+   "salePrice": 45550,
+   "value": 9110,
+   "unitName": ""
+ },
+ {
+   "level": 911,
+   "salePrice": 45600,
+   "value": 9120,
+   "unitName": ""
+ },
+ {
+   "level": 912,
+   "salePrice": 45650,
+   "value": 9130,
+   "unitName": ""
+ },
+ {
+   "level": 913,
+   "salePrice": 45700,
+   "value": 9140,
+   "unitName": ""
+ },
+ {
+   "level": 914,
+   "salePrice": 45750,
+   "value": 9150,
+   "unitName": ""
+ },
+ {
+   "level": 915,
+   "salePrice": 45800,
+   "value": 9160,
+   "unitName": ""
+ },
+ {
+   "level": 916,
+   "salePrice": 45850,
+   "value": 9170,
+   "unitName": ""
+ },
+ {
+   "level": 917,
+   "salePrice": 45900,
+   "value": 9180,
+   "unitName": ""
+ },
+ {
+   "level": 918,
+   "salePrice": 45950,
+   "value": 9190,
+   "unitName": ""
+ },
+ {
+   "level": 919,
+   "salePrice": 46000,
+   "value": 9200,
+   "unitName": ""
+ },
+ {
+   "level": 920,
+   "salePrice": 46050,
+   "value": 9210,
+   "unitName": ""
+ },
+ {
+   "level": 921,
+   "salePrice": 46100,
+   "value": 9220,
+   "unitName": ""
+ },
+ {
+   "level": 922,
+   "salePrice": 46150,
+   "value": 9230,
+   "unitName": ""
+ },
+ {
+   "level": 923,
+   "salePrice": 46200,
+   "value": 9240,
+   "unitName": ""
+ },
+ {
+   "level": 924,
+   "salePrice": 46250,
+   "value": 9250,
+   "unitName": ""
+ },
+ {
+   "level": 925,
+   "salePrice": 46300,
+   "value": 9260,
+   "unitName": ""
+ },
+ {
+   "level": 926,
+   "salePrice": 46350,
+   "value": 9270,
+   "unitName": ""
+ },
+ {
+   "level": 927,
+   "salePrice": 46400,
+   "value": 9280,
+   "unitName": ""
+ },
+ {
+   "level": 928,
+   "salePrice": 46450,
+   "value": 9290,
+   "unitName": ""
+ },
+ {
+   "level": 929,
+   "salePrice": 46500,
+   "value": 9300,
+   "unitName": ""
+ },
+ {
+   "level": 930,
+   "salePrice": 46550,
+   "value": 9310,
+   "unitName": ""
+ },
+ {
+   "level": 931,
+   "salePrice": 46600,
+   "value": 9320,
+   "unitName": ""
+ },
+ {
+   "level": 932,
+   "salePrice": 46650,
+   "value": 9330,
+   "unitName": ""
+ },
+ {
+   "level": 933,
+   "salePrice": 46700,
+   "value": 9340,
+   "unitName": ""
+ },
+ {
+   "level": 934,
+   "salePrice": 46750,
+   "value": 9350,
+   "unitName": ""
+ },
+ {
+   "level": 935,
+   "salePrice": 46800,
+   "value": 9360,
+   "unitName": ""
+ },
+ {
+   "level": 936,
+   "salePrice": 46850,
+   "value": 9370,
+   "unitName": ""
+ },
+ {
+   "level": 937,
+   "salePrice": 46900,
+   "value": 9380,
+   "unitName": ""
+ },
+ {
+   "level": 938,
+   "salePrice": 46950,
+   "value": 9390,
+   "unitName": ""
+ },
+ {
+   "level": 939,
+   "salePrice": 47000,
+   "value": 9400,
+   "unitName": ""
+ },
+ {
+   "level": 940,
+   "salePrice": 47050,
+   "value": 9410,
+   "unitName": ""
+ },
+ {
+   "level": 941,
+   "salePrice": 47100,
+   "value": 9420,
+   "unitName": ""
+ },
+ {
+   "level": 942,
+   "salePrice": 47150,
+   "value": 9430,
+   "unitName": ""
+ },
+ {
+   "level": 943,
+   "salePrice": 47200,
+   "value": 9440,
+   "unitName": ""
+ },
+ {
+   "level": 944,
+   "salePrice": 47250,
+   "value": 9450,
+   "unitName": ""
+ },
+ {
+   "level": 945,
+   "salePrice": 47300,
+   "value": 9460,
+   "unitName": ""
+ },
+ {
+   "level": 946,
+   "salePrice": 47350,
+   "value": 9470,
+   "unitName": ""
+ },
+ {
+   "level": 947,
+   "salePrice": 47400,
+   "value": 9480,
+   "unitName": ""
+ },
+ {
+   "level": 948,
+   "salePrice": 47450,
+   "value": 9490,
+   "unitName": ""
+ },
+ {
+   "level": 949,
+   "salePrice": 47500,
+   "value": 9500,
+   "unitName": ""
+ },
+ {
+   "level": 950,
+   "salePrice": 47550,
+   "value": 9510,
+   "unitName": ""
+ },
+ {
+   "level": 951,
+   "salePrice": 47600,
+   "value": 9520,
+   "unitName": ""
+ },
+ {
+   "level": 952,
+   "salePrice": 47650,
+   "value": 9530,
+   "unitName": ""
+ },
+ {
+   "level": 953,
+   "salePrice": 47700,
+   "value": 9540,
+   "unitName": ""
+ },
+ {
+   "level": 954,
+   "salePrice": 47750,
+   "value": 9550,
+   "unitName": ""
+ },
+ {
+   "level": 955,
+   "salePrice": 47800,
+   "value": 9560,
+   "unitName": ""
+ },
+ {
+   "level": 956,
+   "salePrice": 47850,
+   "value": 9570,
+   "unitName": ""
+ },
+ {
+   "level": 957,
+   "salePrice": 47900,
+   "value": 9580,
+   "unitName": ""
+ },
+ {
+   "level": 958,
+   "salePrice": 47950,
+   "value": 9590,
+   "unitName": ""
+ },
+ {
+   "level": 959,
+   "salePrice": 48000,
+   "value": 9600,
+   "unitName": ""
+ },
+ {
+   "level": 960,
+   "salePrice": 48050,
+   "value": 9610,
+   "unitName": ""
+ },
+ {
+   "level": 961,
+   "salePrice": 48100,
+   "value": 9620,
+   "unitName": ""
+ },
+ {
+   "level": 962,
+   "salePrice": 48150,
+   "value": 9630,
+   "unitName": ""
+ },
+ {
+   "level": 963,
+   "salePrice": 48200,
+   "value": 9640,
+   "unitName": ""
+ },
+ {
+   "level": 964,
+   "salePrice": 48250,
+   "value": 9650,
+   "unitName": ""
+ },
+ {
+   "level": 965,
+   "salePrice": 48300,
+   "value": 9660,
+   "unitName": ""
+ },
+ {
+   "level": 966,
+   "salePrice": 48350,
+   "value": 9670,
+   "unitName": ""
+ },
+ {
+   "level": 967,
+   "salePrice": 48400,
+   "value": 9680,
+   "unitName": ""
+ },
+ {
+   "level": 968,
+   "salePrice": 48450,
+   "value": 9690,
+   "unitName": ""
+ },
+ {
+   "level": 969,
+   "salePrice": 48500,
+   "value": 9700,
+   "unitName": ""
+ },
+ {
+   "level": 970,
+   "salePrice": 48550,
+   "value": 9710,
+   "unitName": ""
+ },
+ {
+   "level": 971,
+   "salePrice": 48600,
+   "value": 9720,
+   "unitName": ""
+ },
+ {
+   "level": 972,
+   "salePrice": 48650,
+   "value": 9730,
+   "unitName": ""
+ },
+ {
+   "level": 973,
+   "salePrice": 48700,
+   "value": 9740,
+   "unitName": ""
+ },
+ {
+   "level": 974,
+   "salePrice": 48750,
+   "value": 9750,
+   "unitName": ""
+ },
+ {
+   "level": 975,
+   "salePrice": 48800,
+   "value": 9760,
+   "unitName": ""
+ },
+ {
+   "level": 976,
+   "salePrice": 48850,
+   "value": 9770,
+   "unitName": ""
+ },
+ {
+   "level": 977,
+   "salePrice": 48900,
+   "value": 9780,
+   "unitName": ""
+ },
+ {
+   "level": 978,
+   "salePrice": 48950,
+   "value": 9790,
+   "unitName": ""
+ },
+ {
+   "level": 979,
+   "salePrice": 49000,
+   "value": 9800,
+   "unitName": ""
+ },
+ {
+   "level": 980,
+   "salePrice": 49050,
+   "value": 9810,
+   "unitName": ""
+ },
+ {
+   "level": 981,
+   "salePrice": 49100,
+   "value": 9820,
+   "unitName": ""
+ },
+ {
+   "level": 982,
+   "salePrice": 49150,
+   "value": 9830,
+   "unitName": ""
+ },
+ {
+   "level": 983,
+   "salePrice": 49200,
+   "value": 9840,
+   "unitName": ""
+ },
+ {
+   "level": 984,
+   "salePrice": 49250,
+   "value": 9850,
+   "unitName": ""
+ },
+ {
+   "level": 985,
+   "salePrice": 49300,
+   "value": 9860,
+   "unitName": ""
+ },
+ {
+   "level": 986,
+   "salePrice": 49350,
+   "value": 9870,
+   "unitName": ""
+ },
+ {
+   "level": 987,
+   "salePrice": 49400,
+   "value": 9880,
+   "unitName": ""
+ },
+ {
+   "level": 988,
+   "salePrice": 49450,
+   "value": 9890,
+   "unitName": ""
+ },
+ {
+   "level": 989,
+   "salePrice": 49500,
+   "value": 9900,
+   "unitName": ""
+ },
+ {
+   "level": 990,
+   "salePrice": 49550,
+   "value": 9910,
+   "unitName": ""
+ },
+ {
+   "level": 991,
+   "salePrice": 49600,
+   "value": 9920,
+   "unitName": ""
+ },
+ {
+   "level": 992,
+   "salePrice": 49650,
+   "value": 9930,
+   "unitName": ""
+ },
+ {
+   "level": 993,
+   "salePrice": 49700,
+   "value": 9940,
+   "unitName": ""
+ },
+ {
+   "level": 994,
+   "salePrice": 49750,
+   "value": 9950,
+   "unitName": ""
+ },
+ {
+   "level": 995,
+   "salePrice": 49800,
+   "value": 9960,
+   "unitName": ""
+ },
+ {
+   "level": 996,
+   "salePrice": 49850,
+   "value": 9970,
+   "unitName": ""
+ },
+ {
+   "level": 997,
+   "salePrice": 49900,
+   "value": 9980,
+   "unitName": ""
+ },
+ {
+   "level": 998,
+   "salePrice": 49950,
+   "value": 9990,
+   "unitName": ""
+ },
+ {
+   "level": 999,
+   "salePrice": 50000,
+   "value": 10000,
+   "unitName": ""
+ },
+ {
+   "level": 1000,
+   "salePrice": 50050,
+   "value": 10010,
+   "unitName": ""
+ }
+]
+}

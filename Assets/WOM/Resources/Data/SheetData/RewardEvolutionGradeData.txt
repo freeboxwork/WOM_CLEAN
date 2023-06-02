@@ -1,0 +1,43 @@
+{"data":[
+ {
+   "id": 0,
+   "evolutionGradeType": "iron",
+   "damageRate": 1,
+   "slotCount": 1,
+   "nameKR": "아이언",
+   "nameEN": "iron"
+ },
+ {
+   "id": 1,
+   "evolutionGradeType": "silver",
+   "damageRate": 2,
+   "slotCount": 2,
+   "nameKR": "실버",
+   "nameEN": "silver"
+ },
+ {
+   "id": 2,
+   "evolutionGradeType": "gold",
+   "damageRate": 4,
+   "slotCount": 3,
+   "nameKR": "골드",
+   "nameEN": "gold"
+ },
+ {
+   "id": 3,
+   "evolutionGradeType": "platinum",
+   "damageRate": 8,
+   "slotCount": 4,
+   "nameKR": "플레티넘",
+   "nameEN": "platinum"
+ },
+ {
+   "id": 4,
+   "evolutionGradeType": "master",
+   "damageRate": 16,
+   "slotCount": 5,
+   "nameKR": "마스터",
+   "nameEN": "master"
+ }
+]
+}

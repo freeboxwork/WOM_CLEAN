@@ -1,0 +1,40 @@
+﻿{
+   "data":[
+ {
+   "summonGrade": 0,
+   "normal": 50,
+   "high": 40,
+   "rare": 10,
+   "hero": 0,
+   "legend": 0,
+   "unique": 0
+ },
+ {
+   "summonGrade": 1,
+   "normal": 20,
+   "high": 25,
+   "rare": 28,
+   "hero": 6,
+   "legend": 1,
+   "unique": 0
+ },
+ {
+   "summonGrade": 2,
+   "normal": 20,
+   "high": 22,
+   "rare": 34,
+   "hero": 22.459,
+   "legend": 1.5,
+   "unique": 0.041
+ },
+ {
+   "summonGrade": 3,
+   "normal": 10,
+   "high": 10,
+   "rare": 10,
+   "hero": 67.89,
+   "legend": 1.8,
+   "unique": 0.031
+ }
+]
+}

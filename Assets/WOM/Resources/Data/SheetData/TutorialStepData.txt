@@ -1,0 +1,57 @@
+{"data":[
+ {
+   "id": 0,
+   "setId": 0,
+   "step": 0,
+   "tutorialBtnId": 0,
+   "goal": "훈련 버튼을 누른다",
+   "description": "훈련 버튼을 눌러 <#A3FF00>훈련 메뉴를 여세요.</color>",
+   "비고": "훈련 버튼을 누르면 스텝 종료"
+ },
+ {
+   "id": 1,
+   "setId": 0,
+   "step": 1,
+   "tutorialBtnId": 0,
+   "goal": "훈련 버튼을 누른다",
+   "description": "훈련 버튼을 눌러  <#A3FF00>훈련 메뉴를 닫으세요.</color>",
+   "비고": "훈련 버튼을 누르면 스텝 종료"
+ },
+ {
+   "id": 2,
+   "setId": 1,
+   "step": 0,
+   "tutorialBtnId": 0,
+   "goal": "훈련 버튼을 누른다",
+   "description": "훈련 버튼을 눌러 훈련 메뉴를 여세요.",
+   "비고": "1. 훈련 버튼 선택\n2. 곤충 공격력 강화 버튼 선택\n3. 종료"
+ },
+ {
+   "id": 3,
+   "setId": 1,
+   "step": 1,
+   "tutorialBtnId": 6,
+   "goal": "곤충 공격력 강화 버튼을 누른다",
+   "description": "곤충 <#A3FF00>공격력 강화</color> 버튼을 눌러\n공격력 레벨을 높여 보세요.",
+   "비고": ""
+ },
+ {
+   "id": 4,
+   "setId": 2,
+   "step": 0,
+   "tutorialBtnId": 1,
+   "goal": "진화 버튼을 누른다",
+   "description": "진화 버튼을 눌러 진화 메뉴를 여세요.",
+   "비고": "1. 진화 버튼 선택\n2. 주사위 버튼 선택\n3. 종료"
+ },
+ {
+   "id": 5,
+   "setId": 2,
+   "step": 1,
+   "tutorialBtnId": 7,
+   "goal": "주사위 버튼을 누른다",
+   "description": "주사위 버튼늘 눌러 추가 스탯을 획득 하세요.",
+   "비고": ""
+ }
+]
+}

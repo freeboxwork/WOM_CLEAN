@@ -1,0 +1,40 @@
+{
+  "data": [
+ {
+   "id": 0,
+   "hp": 1000,
+   "imageId": 0,
+   "type": "EVOLUTION",
+   "bgId": 0,
+   "attackType": "TAIL",
+   "grade": "D"
+ },
+ {
+   "id": 1,
+   "hp": 2000,
+   "imageId": 1,
+   "type": "EVOLUTION",
+   "bgId": 1,
+   "attackType": "TAIL",
+   "grade": "C"
+ },
+ {
+   "id": 2,
+   "hp": 3000,
+   "imageId": 2,
+   "type": "EVOLUTION",
+   "bgId": 2,
+   "attackType": "TAIL",
+   "grade": "B"
+ },
+ {
+   "id": 3,
+   "hp": 4000,
+   "imageId": 3,
+   "type": "EVOLUTION",
+   "bgId": 3,
+   "attackType": "TAIL",
+   "grade": "A"
+ }
+]
+}

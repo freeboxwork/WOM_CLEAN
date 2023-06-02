@@ -1,0 +1,72 @@
+{"data":[
+ {
+   "depthId": 0,
+   "level": 0,
+   "damage": 50,
+   "damageRate": 1,
+   "criticalChance": 0,
+   "criticalDamage": 0,
+   "speed": 150,
+   "goldBonus": 0,
+   "bossDamage": 0,
+   "name": "Bee00",
+   "grade": "D",
+   "spawnTime": 1.5
+ },
+ {
+   "depthId": 1,
+   "level": 1,
+   "damage": 50,
+   "damageRate": 2,
+   "criticalChance": 0,
+   "criticalDamage": 0,
+   "speed": 150,
+   "goldBonus": 0,
+   "bossDamage": 0,
+   "name": "Bee01",
+   "grade": "C",
+   "spawnTime": 1.5
+ },
+ {
+   "depthId": 2,
+   "level": 2,
+   "damage": 50,
+   "damageRate": 4,
+   "criticalChance": 0,
+   "criticalDamage": 0,
+   "speed": 150,
+   "goldBonus": 0,
+   "bossDamage": 0,
+   "name": "Bee02",
+   "grade": "B",
+   "spawnTime": 1.5
+ },
+ {
+   "depthId": 3,
+   "level": 3,
+   "damage": 50,
+   "damageRate": 8,
+   "criticalChance": 0,
+   "criticalDamage": 0,
+   "speed": 150,
+   "goldBonus": 0,
+   "bossDamage": 0,
+   "name": "Bee03",
+   "grade": "A",
+   "spawnTime": 1.5
+ },
+ {
+   "depthId": 4,
+   "level": 4,
+   "damage": 50,
+   "damageRate": 16,
+   "criticalChance": 0,
+   "criticalDamage": 0,
+   "speed": 150,
+   "goldBonus": 0,
+   "bossDamage": 0,
+   "name": "Bee04",
+   "grade": "S",
+   "spawnTime": 1.5
+ }
+]}

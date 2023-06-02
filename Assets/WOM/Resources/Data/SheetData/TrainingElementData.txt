@@ -1,0 +1,75 @@
+{"data":[
+ {
+   "id": 0,
+   "buttonSprite": "BaseButton",
+   "currencySprite": "Gold",
+   "trainingName": "기본 공격력",
+   "trainingType": "trainingDamage",
+   "goodsType": "gold"
+ },
+ {
+   "id": 1,
+   "buttonSprite": "BaseButton",
+   "currencySprite": "Gold",
+   "trainingName": "기본 치명타 확률",
+   "trainingType": "trainingCriticalChance",
+   "goodsType": "gold"
+ },
+ {
+   "id": 2,
+   "buttonSprite": "BaseButton",
+   "currencySprite": "Gold",
+   "trainingName": "기본 치명타 공격력",
+   "trainingType": "trainingCriticalDamage",
+   "goodsType": "gold"
+ },
+ {
+   "id": 3,
+   "buttonSprite": "BaseButton",
+   "currencySprite": "Bone",
+   "trainingName": "공격력 증가율",
+   "trainingType": "talentDamage",
+   "goodsType": "bone"
+ },
+ {
+   "id": 4,
+   "buttonSprite": "BaseButton",
+   "currencySprite": "Bone",
+   "trainingName": "추가 치명타 확률",
+   "trainingType": "talentCriticalChance",
+   "goodsType": "bone"
+ },
+ {
+   "id": 5,
+   "buttonSprite": "BaseButton",
+   "currencySprite": "Bone",
+   "trainingName": "추가 치명타 공격력",
+   "trainingType": "talentCriticalDamage",
+   "goodsType": "bone"
+ },
+ {
+   "id": 6,
+   "buttonSprite": "BaseButton",
+   "currencySprite": "Bone",
+   "trainingName": "이동 속도",
+   "trainingType": "talentMoveSpeed",
+   "goodsType": "bone"
+ },
+ {
+   "id": 7,
+   "buttonSprite": "BaseButton",
+   "currencySprite": "Bone",
+   "trainingName": "생성 속도",
+   "trainingType": "talentSpawnSpeed",
+   "goodsType": "bone"
+ },
+ {
+   "id": 8,
+   "buttonSprite": "BaseButton",
+   "currencySprite": "Bone",
+   "trainingName": "골드 보너스",
+   "trainingType": "talentGoldBonus",
+   "goodsType": "bone"
+ }
+]
+}

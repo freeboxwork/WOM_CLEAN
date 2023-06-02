@@ -1,0 +1,63 @@
+{"data":[
+ {
+   "depthId": 0,
+   "damage": 100,
+   "damageRate": 1,
+   "criticalChance": 0,
+   "criticalDamage": 0,
+   "speed": 100,
+   "goldBonus": 0,
+   "bossDamage": 0,
+   "name": "Mantis00",
+   "spawnTime": 3
+ },
+ {
+   "depthId": 1,
+   "damage": 100,
+   "damageRate": 2,
+   "criticalChance": 0,
+   "criticalDamage": 0,
+   "speed": 100,
+   "goldBonus": 0,
+   "bossDamage": 0,
+   "name": "Mantis01",
+   "spawnTime": 3
+ },
+ {
+   "depthId": 2,
+   "damage": 100,
+   "damageRate": 4,
+   "criticalChance": 0,
+   "criticalDamage": 0,
+   "speed": 100,
+   "goldBonus": 0,
+   "bossDamage": 0,
+   "name": "Mantis02",
+   "spawnTime": 3
+ },
+ {
+   "depthId": 3,
+   "damage": 100,
+   "damageRate": 8,
+   "criticalChance": 0,
+   "criticalDamage": 0,
+   "speed": 100,
+   "goldBonus": 0,
+   "bossDamage": 0,
+   "name": "Mantis03",
+   "spawnTime": 3
+ },
+ {
+   "depthId": 4,
+   "damage": 100,
+   "damageRate": 16,
+   "criticalChance": 0,
+   "criticalDamage": 0,
+   "speed": 100,
+   "goldBonus": 0,
+   "bossDamage": 0,
+   "name": "Mantis04",
+   "spawnTime": 3
+ }
+]
+}

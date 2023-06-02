@@ -1,0 +1,92 @@
+﻿{
+   "data":[
+ {
+   "level": 0,
+   "price": 0,
+   "gold": 0,
+   "bone": 0,
+   "dice": 0,
+   "coal": 0
+ },
+ {
+   "level": 1,
+   "price": 100,
+   "gold": 5,
+   "bone": 5,
+   "dice": 5,
+   "coal": 5
+ },
+ {
+   "level": 2,
+   "price": 200,
+   "gold": 10,
+   "bone": 10,
+   "dice": 10,
+   "coal": 10
+ },
+ {
+   "level": 3,
+   "price": 300,
+   "gold": 15,
+   "bone": 15,
+   "dice": 15,
+   "coal": 15
+ },
+ {
+   "level": 4,
+   "price": 400,
+   "gold": 20,
+   "bone": 20,
+   "dice": 20,
+   "coal": 20
+ },
+ {
+   "level": 5,
+   "price": 500,
+   "gold": 25,
+   "bone": 25,
+   "dice": 25,
+   "coal": 25
+ },
+ {
+   "level": 6,
+   "price": 600,
+   "gold": 30,
+   "bone": 30,
+   "dice": 30,
+   "coal": 30
+ },
+ {
+   "level": 7,
+   "price": 700,
+   "gold": 35,
+   "bone": 35,
+   "dice": 35,
+   "coal": 35
+ },
+ {
+   "level": 8,
+   "price": 800,
+   "gold": 40,
+   "bone": 40,
+   "dice": 40,
+   "coal": 40
+ },
+ {
+   "level": 9,
+   "price": 900,
+   "gold": 45,
+   "bone": 45,
+   "dice": 45,
+   "coal": 45
+ },
+ {
+   "level": 10,
+   "price": 1000,
+   "gold": 50,
+   "bone": 50,
+   "dice": 50,
+   "coal": 50
+ }
+]
+}

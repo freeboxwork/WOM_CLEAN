@@ -79,18 +79,6 @@ public class ShopManager : MonoBehaviour
         // FREE GEM 10
         UtilityMethod.SetBtnEventCustomTypeByID(39, () => { });
 
-        // FREE UNION 1
-        UtilityMethod.SetBtnEventCustomTypeByID(40, () => { });
-
-        // FREE UNION 10
-        UtilityMethod.SetBtnEventCustomTypeByID(41, () => { });
-
-        // FREE DNA 1
-        UtilityMethod.SetBtnEventCustomTypeByID(42, () => { });
-
-        // FREE DNA 10
-        UtilityMethod.SetBtnEventCustomTypeByID(43, () => { });
-
         // 뽑기 페이지 닫기 버튼
         UtilityMethod.SetBtnEventCustomTypeByID(44, () =>
         {

@@ -9494,7 +9494,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: -1284567407
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_TargetDisplay: 0
 --- !u!224 &242862827
 RectTransform:
@@ -11290,7 +11290,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &266811187
@@ -12574,7 +12574,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &288770810
@@ -29667,7 +29667,7 @@ Transform:
   - {fileID: 2001790313}
   - {fileID: 326428545}
   m_Father: {fileID: 1609878367}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &718770312
 GameObject:
@@ -42540,7 +42540,7 @@ MonoBehaviour:
   popupType: 2
   imgSummonCountProgress: {fileID: 471542255}
   txtSummonCount: {fileID: 1255277203}
-  txtGradeLevel: {fileID: 0}
+  txtGradeLevel: {fileID: 1963033477}
   btnGetReward: {fileID: 1045347116}
 --- !u!1 &1032416027
 GameObject:
@@ -42976,6 +42976,7 @@ GameObject:
   - component: {fileID: 1045347115}
   - component: {fileID: 1045347114}
   - component: {fileID: 1045347116}
+  - component: {fileID: 1045347117}
   m_Layer: 5
   m_Name: btnGetReward
   m_TagString: Untagged
@@ -43085,6 +43086,28 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1045347117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1045347112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e09e43e2e6511f248919379982c4bd2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  components:
+    animController: {fileID: 0}
+    button: {fileID: 1045347116}
+    text: {fileID: 0}
+    image: {fileID: 1045347114}
+    sr: {fileID: 0}
+    tr: {fileID: 1045347113}
+    gm: {fileID: 1045347112}
+  customType: 0
+  index: 68
 --- !u!1 &1045417294
 GameObject:
   m_ObjectHideFlags: 0
@@ -49936,7 +49959,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 31
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!224 &1212708855
 RectTransform:
@@ -53034,7 +53057,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1297319976
@@ -63706,8 +63729,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1710370011}
-  - {fileID: 435314526}
   - {fileID: 710764206}
+  - {fileID: 435314526}
   - {fileID: 1073158299}
   - {fileID: 1872986010}
   - {fileID: 516221479}
@@ -64413,6 +64436,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customTypeDatas:
+  - {fileID: 1045347117}
   - {fileID: 9690202}
   - {fileID: 18956615}
   - {fileID: 25126548}
@@ -64601,6 +64625,7 @@ MonoBehaviour:
   - {fileID: 5888335923745280019}
   customTypeDatas_animCont: []
   customTypeDatas_uiButton:
+  - {fileID: 1045347117}
   - {fileID: 9690202}
   - {fileID: 48172187}
   - {fileID: 185642875}
@@ -81538,7 +81563,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.25, y: 0.35}
   m_AnchorMax: {x: 0.35, y: 0.5}
-  m_AnchoredPosition: {x: -11.799927, y: 0}
+  m_AnchoredPosition: {x: -11.799942, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2032837688
@@ -119500,7 +119525,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 486736821
-  m_SortingOrder: 4
+  m_SortingOrder: 2
   m_TargetDisplay: 0
 --- !u!114 &6695024101896546795
 MonoBehaviour:

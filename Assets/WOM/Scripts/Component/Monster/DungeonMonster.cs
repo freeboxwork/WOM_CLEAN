@@ -51,16 +51,16 @@ public class DungeonMonster : DungeonMonsterBase
         // SET FACE
         SetMonsterFace(monsterToDataMap[monsterType].monsterFaceId);
 
-        // ¸ó½ºÅÍ hp text
+        // ëª¬ìŠ¤í„° hp text
         GlobalData.instance.uiController.SetTxtMonsterHp(curMonsterHP);
 
-        // ¸ó½ºÅÍ hp slider
+        // ëª¬ìŠ¤í„° hp slider
         GlobalData.instance.uiController.SetSliderDungeonMonsterHP(curMonsterHP);
 
         yield return new WaitForEndOfFrame();
     }
 
-    // ÇöÀç ´øÀü ¸ó½ºÅÍÀÇ Å¸ÀÔ°ú ÀçÈ­ Å¸ÀÔ ¼³Á¤
+    // í˜„ì¬ ë˜ì „ ëª¬ìŠ¤í„°ì˜ íƒ€ì…ê³¼ ì¬í™” íƒ€ì… ì„¤ì •
     public void SetMonsterType(MonsterType monsterType)
     {
         curMonsterData = monsterToDataMap[monsterType];
@@ -79,13 +79,13 @@ public class DungeonMonster : DungeonMonsterBase
         curData = GlobalData.instance.dataManager.GetDungeonMonsterDataByTypeLevel(curMonsterData.monsterType, curLevel).CloneInstance();
         curMonsterHP = curData.monsterHP;
 
-        // ·¹º§¾÷ µ¥ÀÌÅÍ ÀúÀå
+        // ë ˆë²¨ì—… ë°ì´í„° ì €ì¥
         GlobalData.instance.player.dungeonMonsterClearLevel.SetLevelFromMonsterType(curMonsterData.monsterType, curLevel);
     }
 
     public void DungeonMonsterOut()
     {
-        curLevel = 0;
+        curLevel = 1;
     }
 
 

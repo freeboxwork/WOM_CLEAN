@@ -32,31 +32,26 @@ public enum EEfectGameObjectTYPE
 
 public class PopupRewardInfoData
 {
-    //보상 재화 정보
     private List<RewardInfoData> rewardInfoList;
-    //보상 팝업 이름
     private string popupTitleName;
-    //연출 이펙트 타입
     private EEfectGameObjectTYPE effectType;
-    //콜백 액션
     private Action callBack;
 
-    public void SetPopupData(string title)
-    {
-        this.popupTitleName = title;
-    }
+    //TitleName, RewardData
     public void SetPopupData(string title, List<RewardInfoData> list)
     {
         this.popupTitleName = title;
         this.rewardInfoList = list;
     }
+    //TitleName, RewardData, CallbackAction
     public void SetPopupData(string title, List<RewardInfoData> list, Action cb)
     {
         this.popupTitleName = title;
         this.rewardInfoList = list;
         this.callBack = cb;
     }
-    public void SetPopupData(string title , List<RewardInfoData> list, Action cb,EEfectGameObjectTYPE type)
+    //TitleName, RewardData, CallbackAction, EffectGameObject
+     public void SetPopupData(string title , List<RewardInfoData> list, Action cb, EEfectGameObjectTYPE type)
     {
         this.popupTitleName = title;
         this.rewardInfoList = list;
@@ -89,16 +84,11 @@ public class PopupController : MonoBehaviour
 {
     public static PopupController instance;
 
-    [Header("유니온 Sprite SO")]
+    [Header("Union Sprite SO")]
     [SerializeField] SpriteFileData spriteFileData; //GetIconData()
-
-    //由ъ썙?뱶 ?젙蹂닿?? ?떞湲? ?겢?옒?뒪
     PopupRewardInfoData popupRewardInfoData = null;
-    //肄쒕갚 ?씠踰ㅽ듃 ?븸?뀡
     List<Action> callbacks = new List<Action>();
-    [Header("이펙트 연출 게임오브젝트")]
     public GameObject rewardEffect;
-    [Header("팝업의 부모 오브젝트")]
     public Transform popupParent;
 
     private void Awake()
@@ -126,8 +116,7 @@ public class PopupController : MonoBehaviour
 
         PopupBuilder popupBuilder = new PopupBuilder(popupParent);
         popupBuilder.SetTitle(popupRewardInfoData.GetTitle());
-        //popupBuilder.SetButton(I2.Loc.LocalizationManager.GetTranslation("?꺆?븯?뿬?떕湲? 踰꾪듉") , callbacks);
-        popupBuilder.SetButton("?떕湲?", callbacks);
+        popupBuilder.SetButton("GET", callbacks);
         var rewards = popupRewardInfoData.GetRewardInfoDataList();
 
         for (int i = 0; i < rewards.Count; i++)
@@ -151,7 +140,7 @@ public class PopupController : MonoBehaviour
             switch(rewards[i].type)
             {
                 case EnumDefinition.RewardType.gold:
-
+                    //보상 rewards[i].amount Data/UI text Update
                     break;
 
                 case EnumDefinition.RewardType.bone:
@@ -208,19 +197,23 @@ public class PopupController : MonoBehaviour
         PopupRewardInfoData data = new PopupRewardInfoData();
         List<RewardInfoData> rewards = new List<RewardInfoData>();
 
+        //실제 보상받을 데이터 세팅 RewardType으로 각종 재화+유니온+DNA 및 앞으로 추가 될 재화도 고려해야 함
+        //매개변수로 1.보상타입 2.보상량 3.보상아이콘이 세팅되며 보상아이콘은 스크립터블 오브젝트에서 불러올 예정
         rewards.Add(new RewardInfoData(EnumDefinition.RewardType.gold, 10000, null));
         rewards.Add(new RewardInfoData(EnumDefinition.RewardType.gem, 20000, null));
  
-
-        data.SetPopupData("REWARD",rewards);
+        //오버로딩 되어 있음. 매개변수로 CallBack 이벤트와 연출 이펙트로 사용 될 게임오브젝트 타입을 넘길 수 있음(연출 타입에 따른 게임오브젝트 로드가 필요) 
+        //*보상은 따로 콜백구현이 이미 되어있음* line115
+        data.SetPopupData("REWARD", rewards, CallBackTest);
 
         SetupPopupInfo(data);
 
-
-
-
     }
 
+    void CallBackTest()
+    {
+        Debug.Log("CALL");
+    }
 
 
 

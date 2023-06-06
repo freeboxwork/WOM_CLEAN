@@ -34,6 +34,8 @@ public class RewardManager : MonoBehaviour
     {
         // 유니온 획득 버튼 활성화
         UtilityMethod.SetBtnInteractableEnable(68, true);
+        // 유니온 획득 버튼 이펙트 효과 활성화
+        UtilityMethod.GetCustomTypeGMById(14).gameObject.SetActive(true);
         unionRewardQueue.Enqueue(unionIndex);
     }
 
@@ -59,6 +61,8 @@ public class RewardManager : MonoBehaviour
         {
             // 유니온 획득 버튼 비활성화
             UtilityMethod.SetBtnInteractableEnable(68, false);
+            // 유니온 획득 버튼 이펙트 효과 비활성화
+            UtilityMethod.GetCustomTypeGMById(14).gameObject.SetActive(false);
         }
     }
 

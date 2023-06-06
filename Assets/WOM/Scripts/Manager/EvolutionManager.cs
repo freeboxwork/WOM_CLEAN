@@ -146,6 +146,9 @@ public class EvolutionManager : MonoBehaviour
             // 메뉴 판넬 숨김
             GlobalData.instance.uiController.AllDisableMenuPanels();
 
+            // 메뉴 판넬 활성/비활성화 버튼 숨김
+            UtilityMethod.GetCustomTypeImageById(47).raycastTarget = false;
+
             // 진화전 버튼 선택 효과 숨김
             // EnableMenuPanel(MenuPanelType.evolution);
 
@@ -154,6 +157,8 @@ public class EvolutionManager : MonoBehaviour
 
             // 진화전 포기 버튼 활성화
             // UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(true);
+
+
 
         });
 
@@ -175,10 +180,18 @@ public class EvolutionManager : MonoBehaviour
                 GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("", 10);
         });
 
-        // 진화전 포기 버튼
+        // 포기 버튼
         UtilityMethod.SetBtnEventCustomTypeByID(30, () =>
         {
-            StartCoroutine(GlobalData.instance.eventController.ProcessEvolutionMonsterGiveUp());
+            switch (GlobalData.instance.player.curMonsterType)
+            {
+                case MonsterType.evolution:
+                    StartCoroutine(GlobalData.instance.eventController.ProcessEvolutionMonsterGiveUp());
+                    break;
+                case MonsterType.boss:
+                    StartCoroutine(GlobalData.instance.eventController.ProcessBossMonsterGiveUp());
+                    break;
+            }
         });
 
     }

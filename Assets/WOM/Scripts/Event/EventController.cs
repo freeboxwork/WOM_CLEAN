@@ -142,6 +142,9 @@ public class EventController : MonoBehaviour
             // set next level
             currentMonster.SetNextLevelData();
 
+            // level setting
+            var level = currentMonster.curData.level;
+            UtilityMethod.SetTxtCustomTypeByID(107, $"{level}");
             // 재화 획득
         }
 
@@ -299,6 +302,9 @@ public class EventController : MonoBehaviour
         // 보스 도전 가능 상태 설정
         globalData.player.isBossMonsterChllengeEnable = false;
 
+        // 포기 버튼 비활성화
+        UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(false);
+
         // SET STAGE DATA ( 다음 스테이지로 변경 )
         var newStageIdx = globalData.player.stageIdx + 1;
         globalData.player.stageIdx = newStageIdx;
@@ -379,6 +385,12 @@ public class EventController : MonoBehaviour
             // 일반 몬스터 OUT
             StartCoroutine(globalData.player.currentMonster.inOutAnimator.MonsterKillMatAnim());
 
+            //DUNGEON_BOX_ICON_BTN 박스아이콘 활성화
+            UtilityMethod.GetCustomTypeGMById(10).gameObject.SetActive(true);
+
+            // 던전 몬스터 레벨 표시
+            UtilityMethod.SetTxtCustomTypeByID(107, $"{1}");
+
         }));
 
         var monster = globalData.monsterManager.GetMonsterDungeon();
@@ -404,18 +416,18 @@ public class EventController : MonoBehaviour
         isMonsterDie = false;
     }
 
-    // 던전 몬스터 사망시
-    public IEnumerator KillDungeonMonsterKill(MonsterType monsterType)
-    {
-        var monster = globalData.monsterManager.GetMonsterDungeon();
+    // // 던전 몬스터 사망시
+    // public IEnumerator KillDungeonMonsterKill(MonsterType monsterType)
+    // {
+    //     var monster = globalData.monsterManager.GetMonsterDungeon();
 
-        // 던전 몬스터 데이터 셋팅
-        monster.SetNextLevelData();
+    //     // 던전 몬스터 데이터 셋팅
+    //     monster.SetNextLevelData();
 
-        // UI 세팅
+    //     // UI 세팅
 
-        yield return null;
-    }
+    //     yield return null;
+    // }
 
 
 
@@ -489,15 +501,21 @@ public class EventController : MonoBehaviour
 
         // 메인 메뉴 활성화
         globalData.uiController.MainMenuShow();
+
         yield return new WaitForSeconds(0.5f);// 메인메뉴 등장 애니메이션 연출이 끝날때까지 대기
         // 등급 업그레이트 연출 시간 후 몬스터 등장
         //yield return new WaitForSeconds(3f);
 
         // 진화 메뉴 활성화
-        globalData.uiController.EnableMenuPanel(MenuPanelType.evolution);
+        // globalData.uiController.EnableMenuPanel(MenuPanelType.evolution);
+
 
         // 일반 몬스터 등장
         yield return StartCoroutine(MonsterAppearCor(MonsterType.normal));
+
+        // 메뉴 판넬 활성/비활성화 버튼 보임
+        UtilityMethod.GetCustomTypeImageById(47).raycastTarget = true;
+
 
     }
 
@@ -650,6 +668,9 @@ public class EventController : MonoBehaviour
         // 타이머 시간 설정
         globalData.bossChallengeTimer.SetTimeValue(30f);
 
+        // 포기 버튼 활성화
+        UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(true);
+
         // 보스 몬스터 등장
         StartCoroutine(MonsterAppearCor(MonsterType.boss));
 
@@ -680,6 +701,9 @@ public class EventController : MonoBehaviour
         // 보스 몬스터 OUT
         yield return StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionOut());
 
+        // 포기 버튼 비활성화
+        UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(false);
+
         // 보스 도전 버튼 활성화
         globalData.uiController.btnBossChallenge.gameObject.SetActive(true);
 
@@ -707,19 +731,16 @@ public class EventController : MonoBehaviour
               // 진화전 포기 버튼 비활성화
               UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(false);
 
-              // 금광보스 카운트 UI 활성화
-              globalData.uiController.SetEnablePhaseCountUI(true);
-
               // 보스 몬스터 OUT
               StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionOut());
 
               // 보스 도전 타이머 비활성화
               globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(false);
 
+              // 금광보스 카운트 UI 활성화
+              globalData.uiController.SetEnablePhaseCountUI(true);
+
           }));
-
-
-
 
 
         // 메인 메뉴 활성화
@@ -807,6 +828,9 @@ public class EventController : MonoBehaviour
             // 보스 도전 타이머 비활성화
             globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(false);
 
+            //DUNGEON_BOX_ICON_BTN 박스아이콘 비활성화
+            UtilityMethod.GetCustomTypeGMById(10).gameObject.SetActive(false);
+
         }));
 
         // 메인 메뉴 활성화
@@ -866,6 +890,10 @@ public class EventController : MonoBehaviour
         // 화면전환 이펙트
         yield return StartCoroutine(globalData.effectManager.EffTransitioEvolutionUpgrade(() =>
         {
+
+            // 금광보스 카운트 UI 활성화
+            globalData.uiController.SetEnablePhaseCountUI(true);
+
             // 보스 몬스터 OUT
             StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionOut());
 
@@ -890,11 +918,34 @@ public class EventController : MonoBehaviour
 
         // 진화 몬스터 도전 버튼 활성화
         globalData.evolutionManager.EnableBtnEvolutionMonsterChange(true);
+    }
 
+    // 보스 몬스터 포기 했을때
+    public IEnumerator ProcessBossMonsterGiveUp()
+    {
+        // 공격 불가능 상태로 전환
+        globalData.attackController.SetAttackableState(false);
 
+        // 진화전 포기 버튼 비활성화
+        UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(false);
 
+        // 하프 라인 위 곤충 모두 제거
+        globalData.insectManager.DisableHalfLineInsects();
 
+        // 보스 몬스터 OUT
+        yield return StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionOut());
 
+        // 보스 도전 타이머 비활성화
+        globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(false);
+
+        // 보스 도전 버튼 활성화
+        globalData.uiController.btnBossChallenge.gameObject.SetActive(true);
+
+        // 공격 가능 상태로 전환
+        globalData.attackController.SetAttackableState(true);
+
+        // 일반 몬스터 등장
+        StartCoroutine(MonsterAppearCor(MonsterType.normal));
     }
 
 

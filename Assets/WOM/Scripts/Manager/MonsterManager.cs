@@ -55,10 +55,23 @@ public class MonsterManager : MonoBehaviour
 
         // hide monsters
         ShowMonsterByType(MonsterType.normal);
+
+        // hide dungeon monster
+        // monsterDungeon.Hide();
     }
+
 
     public void ShowMonsterByType(MonsterType monsterType)
     {
+        if (monsterType == MonsterType.dungeon)
+        {
+            monsterDungeon.Show();
+            monsterType = MonsterType.none;
+        }
+        else
+        {
+            monsterDungeon.Hide();
+        }
         foreach (var monster in monsters)
         {
             monster.gameObject.SetActive(monster.monsterType == monsterType);

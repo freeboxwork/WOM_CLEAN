@@ -31,6 +31,7 @@ public class EnumDefinition
         dungeonDice,
         dungeonBone,
         dungeonCoal,
+        none,
     }
 
     public enum AttackType
@@ -74,7 +75,7 @@ public class EnumDefinition
         questDataRepeat,
     }
 
-    /// <summary> ?›ˆ? ¨ ë©”ë‰´ </summary>
+    /// <summary> ?ï¿½ï¿½?ï¿½ï¿½ ë©”ë‰´ </summary>
     public enum SaleStatType
     {
         trainingDamage,
@@ -124,7 +125,7 @@ public class EnumDefinition
     }
 
 
-    /// <summary> ?¬?™”????… </summary>
+    /// <summary> ?ï¿½ï¿½?ï¿½ï¿½????ï¿½ï¿½ </summary>
     public enum GoodsType
     {
         gold,
@@ -188,17 +189,17 @@ public class EnumDefinition
 
     public enum SkillType
     {
-        /// <summary> ê³¤ì¶© ê³µê²©? ¥ ì¦ê?? </summary>
+        /// <summary> ê³¤ì¶© ê³µê²©?ï¿½ï¿½ ì¦ï¿½?? </summary>
         insectDamageUp,
-        /// <summary> ?œ ?‹ˆ?˜¨ ê³µê²©? ¥ ì¦ê?? </summary>
+        /// <summary> ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ê³µê²©?ï¿½ï¿½ ì¦ï¿½?? </summary>
         unionDamageUp,
-        /// <summary> ?•„êµ? ? „ì²? ?†?„ ì¦ê?? </summary>
+        /// <summary> ?ï¿½ï¿½ï¿½? ?ï¿½ï¿½ï¿½? ?ï¿½ï¿½?ï¿½ï¿½ ì¦ï¿½?? </summary>
         allUnitSpeedUp,
-        /// <summary> ê³¨ë“œ ?š?“?Ÿ‰ ì¦ê?? </summary>
+        /// <summary> ê³¨ë“œ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ì¦ï¿½?? </summary>
         glodBonusUp,
-        /// <summary> ê´´ìˆ˜ ëª¬ìŠ¤?„° ?“±?¥ </summary>
+        /// <summary> ê´´ìˆ˜ ëª¬ìŠ¤?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½ </summary>
         monsterKing,
-        /// <summary> ?•„êµ? ? „ì²? ì¹˜ëª…???  </summary>
+        /// <summary> ?ï¿½ï¿½ï¿½? ?ï¿½ï¿½ï¿½? ì¹˜ëª…???  </summary>
         allUnitCriticalChanceUp,
     }
 

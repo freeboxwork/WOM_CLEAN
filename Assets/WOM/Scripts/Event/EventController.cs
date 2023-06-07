@@ -393,7 +393,12 @@ public class EventController : MonoBehaviour
 
         }));
 
+
+
         var monster = globalData.monsterManager.GetMonsterDungeon();
+
+        // Show Dungeon Monster
+        globalData.monsterManager.ShowMonsterByType(MonsterType.dungeon);
 
         // 던전 몬스터 데이터 세팅
         yield return StartCoroutine(monster.Init(monsterType));

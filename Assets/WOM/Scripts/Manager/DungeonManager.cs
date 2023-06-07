@@ -9,7 +9,7 @@ public class DungeonManager : MonoBehaviour
 
     void Start()
     {
-         
+
     }
 
     public IEnumerator Init()
@@ -18,6 +18,10 @@ public class DungeonManager : MonoBehaviour
         UpdateDunslotKeyUI(EnumDefinition.MonsterType.dungeonBone);
         UpdateDunslotKeyUI(EnumDefinition.MonsterType.dungeonDice);
         UpdateDunslotKeyUI(EnumDefinition.MonsterType.dungeonCoal);
+
+
+        // hide dungeon monster
+        GlobalData.instance.monsterManager.monsterDungeon.Hide();
 
         yield return null;
     }
@@ -29,7 +33,7 @@ public class DungeonManager : MonoBehaviour
 
     DungeonSlot GetDungeonSlotByMonsterType(EnumDefinition.MonsterType monsterType)
     {
-        return dungeonSlots.FirstOrDefault(f=> f.monsterType== monsterType);    
+        return dungeonSlots.FirstOrDefault(f => f.monsterType == monsterType);
     }
 
 

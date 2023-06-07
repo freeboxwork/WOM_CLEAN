@@ -14,7 +14,7 @@ public class MonsterManager : MonoBehaviour
     public int monsterId_normal;
     public int monsterId_gold;
     public int monsterId_boss;
-         
+
 
     // normal gold boss evolution
     public List<MonsterBase> monsters = new List<MonsterBase>();
@@ -41,8 +41,8 @@ public class MonsterManager : MonoBehaviour
         yield return null;
 
         var monNormalData = GetMonsterData(MonsterType.normal, stageData.monsterNormalId);
-        var monGoldData =   GetMonsterData(MonsterType.gold,   stageData.monsterGoldId);
-        var monBossData =   GetMonsterData(MonsterType.boss,   stageData.monsterBossId);
+        var monGoldData = GetMonsterData(MonsterType.gold, stageData.monsterGoldId);
+        var monBossData = GetMonsterData(MonsterType.boss, stageData.monsterBossId);
 
         SetMonsterData(MonsterType.normal, monNormalData);
         SetMonsterData(MonsterType.gold, monGoldData);
@@ -52,6 +52,17 @@ public class MonsterManager : MonoBehaviour
         SetMonsterBodyImage(monNormalData, monsterNormal);
         SetMonsterBodyImage(monGoldData, monsterGold);
         SetMonsterBodyImage(monBossData, monsterBoss);
+
+        // hide monsters
+        ShowMonsterByType(MonsterType.normal);
+    }
+
+    public void ShowMonsterByType(MonsterType monsterType)
+    {
+        foreach (var monster in monsters)
+        {
+            monster.gameObject.SetActive(monster.monsterType == monsterType);
+        }
     }
 
     public void SetMonsterData(MonsterType monsterType, int stageId)
@@ -63,15 +74,15 @@ public class MonsterManager : MonoBehaviour
                 var monNormalData = GetMonsterData(monsterType, stageData.monsterNormalId);
                 SetMonsterData(monsterType, monNormalData);
                 break;
-            
+
             case MonsterType.gold:
                 var monGoldData = GetMonsterData(monsterType, stageData.monsterGoldId);
                 SetMonsterData(monsterType, monGoldData);
                 break;
-            
+
             case MonsterType.boss:
-                var monBossData = GetMonsterData(monsterType, stageData.monsterBossId); 
-                SetMonsterData(monsterType , monBossData);  
+                var monBossData = GetMonsterData(monsterType, stageData.monsterBossId);
+                SetMonsterData(monsterType, monBossData);
                 break;
         }
     }
@@ -143,8 +154,8 @@ public class MonsterManager : MonoBehaviour
 
     MonsterData GetMonsterData(MonsterType monsterType, int monsterId)
     {
-        var data = GlobalData.instance.dataManager.GetMonsterDataById(monsterType,monsterId); 
-        if(data == null)
+        var data = GlobalData.instance.dataManager.GetMonsterDataById(monsterType, monsterId);
+        if (data == null)
         {
             //TODO : ERROR PRINT 관리자 만들기
             Debug.LogError("");
@@ -152,14 +163,14 @@ public class MonsterManager : MonoBehaviour
         }
         else
         {
-            return data;    
+            return data;
         }
     }
 
-    void SetMonsterData(MonsterType monsterType , MonsterData monsterData)
+    void SetMonsterData(MonsterType monsterType, MonsterData monsterData)
     {
         var monster = GetMonsterData(monsterType);
-        
+
         monster.id = monsterData.id;
         monster.hp = monsterData.hp;
         monster.exp = monsterData.exp;
@@ -183,7 +194,7 @@ public class MonsterManager : MonoBehaviour
             case MonsterType.normal: return monsterNormal;
             case MonsterType.gold: return monsterGold;
             case MonsterType.boss: return monsterBoss;
-            case MonsterType.evolution: return monsterEvolution; 
+            case MonsterType.evolution: return monsterEvolution;
         }
         return null;
     }

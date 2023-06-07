@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using System;
 
 
@@ -14,7 +12,7 @@ public class RewardInfoData
 
     public Sprite icon;
 
-    public RewardInfoData(EnumDefinition.RewardType type, float amount,Sprite sp)
+    public RewardInfoData(EnumDefinition.RewardType type, float amount, Sprite sp)
     {
         this.type = type;
         this.amount = amount;
@@ -51,7 +49,7 @@ public class PopupRewardInfoData
         this.callBack = cb;
     }
     //TitleName, RewardData, CallbackAction, EffectGameObject
-     public void SetPopupData(string title , List<RewardInfoData> list, Action cb, EEfectGameObjectTYPE type)
+    public void SetPopupData(string title, List<RewardInfoData> list, Action cb, EEfectGameObjectTYPE type)
     {
         this.popupTitleName = title;
         this.rewardInfoList = list;
@@ -76,7 +74,7 @@ public class PopupRewardInfoData
     {
         return callBack;
     }
-    
+
 
 }
 
@@ -137,7 +135,7 @@ public class PopupController : MonoBehaviour
 
         for (int i = 0; i < rewards.Count; i++)
         {
-            switch(rewards[i].type)
+            switch (rewards[i].type)
             {
                 case EnumDefinition.RewardType.gold:
                     //보상 rewards[i].amount Data/UI text Update
@@ -180,8 +178,8 @@ public class PopupController : MonoBehaviour
                     break;
                 case EnumDefinition.RewardType.none:
                     break;
-                    
-            } 
+
+            }
         }
 
         //rewardEffect.SetActive(false);
@@ -201,7 +199,7 @@ public class PopupController : MonoBehaviour
         //매개변수로 1.보상타입 2.보상량 3.보상아이콘이 세팅되며 보상아이콘은 스크립터블 오브젝트에서 불러올 예정
         rewards.Add(new RewardInfoData(EnumDefinition.RewardType.gold, 10000, null));
         rewards.Add(new RewardInfoData(EnumDefinition.RewardType.gem, 20000, null));
- 
+
         //오버로딩 되어 있음. 매개변수로 CallBack 이벤트와 연출 이펙트로 사용 될 게임오브젝트 타입을 넘길 수 있음(연출 타입에 따른 게임오브젝트 로드가 필요) 
         //*보상은 따로 콜백구현이 이미 되어있음* line115
         data.SetPopupData("REWARD", rewards, CallBackTest);

@@ -462,6 +462,16 @@ public class DungeonMonsterBase : MonoBehaviour
     //public int maxKeyCount;
     //public int maxAdCount;
     //public int bgID;
+
+    public void Show()
+    {
+        gameObject.SetActive(true);
+    }
+
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+    }
 }
 
 // 던전 몬스터 데이터 클래스

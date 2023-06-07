@@ -537,7 +537,8 @@ public class EventController : MonoBehaviour
         // set current monster
         globalData.player.SetCurrentMonster(monsterData);
 
-
+        // 사용하지 않는 몬스터 숨기기
+        globalData.monsterManager.ShowMonsterByType(monsterType);
 
         // set prev monster type
         globalData.player.SetPervMonsterType(monsterType);

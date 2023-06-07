@@ -23,16 +23,15 @@ public class PopupButton : MonoBehaviour
 
     public void Init(string _text, List<Action> _callback, GameObject _target)
     {
-        // �ʱ�ȭ - �Ű������� ���� �̸��� �ݹ��Լ��� Ŭ���� �ݹ��Լ��� ȣ�����ִ� �˾���ư
         this.buttonString.text = _text;
         this.callbackEvent = _callback;
         this.target = _target;
         btn.onClick.AddListener(OnButton);
-
     }
 
     void OnEnable()
     {
+        StopCoroutine("AutoClose");
         StartCoroutine("AutoClose");
     }
 
@@ -58,9 +57,6 @@ public class PopupButton : MonoBehaviour
         {
             action();
         }
-
-
-        Destroy(target);
     }
 }
 public class PopupButtonInfo

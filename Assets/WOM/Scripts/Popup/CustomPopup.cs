@@ -10,9 +10,18 @@ public class CustomPopup : MonoBehaviour
     [SerializeField] TextMeshProUGUI titleText = null;
     [SerializeField] PopupButton popupButton = null;
     [SerializeField] Transform parent;
-    [SerializeField] GameObject rewardInfoPrefab;
+    [SerializeField] GameObject[] slotRewad;
 
-    Queue<GameObject> rewardQueue = new Queue<GameObject>();
+    Queue<GameObject> slotQueue = new Queue<GameObject>();
+    WaitForSeconds delay = new WaitForSeconds(0.3f);
+
+    void OnDisable()
+    {
+        for(int i = 0; i < slotRewad.Length; i++)
+        {
+            slotRewad[i].SetActive(false);
+        }
+    }
 
     public void Init()
     {
@@ -23,16 +32,18 @@ public class CustomPopup : MonoBehaviour
     {
         popupButton.gameObject.SetActive(false);
 
-        yield return new WaitForSeconds(0.5f);
+        yield return delay;
 
-        while(rewardQueue.Count > 0)
+        while(slotQueue.Count > 0)
         {
-            rewardQueue.Dequeue().SetActive(true);
+            slotQueue.Dequeue().SetActive(true);
             
             //Insert Audio Effect Play Code 
 
-            yield return new WaitForSeconds(0.5f);
+            yield return delay;
         }
+
+        slotQueue.Clear();
 
         popupButton.gameObject.SetActive(true);
     }
@@ -50,16 +61,12 @@ public class CustomPopup : MonoBehaviour
     {
         for (int i = 0; i < list.Count; i++)
         {
-            GameObject rif = Instantiate(this.rewardInfoPrefab);
-            rif.transform.SetParent(this.parent, false);
+            GameObject rif = slotRewad[i];
+            slotQueue.Enqueue(rif);
             PopupRewardIcon popupRewardIcon = rif.GetComponent<PopupRewardIcon>();
             popupRewardIcon.SetUI(list[i]);
-            rif.SetActive(false);
-            rewardQueue.Enqueue(rif);
         }
-
     }
-
 
 
 }

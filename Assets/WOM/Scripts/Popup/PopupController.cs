@@ -33,7 +33,7 @@ public class PopupRewardInfoData
     private List<RewardInfoData> rewardInfoList;
     private string popupTitleName;
     private EEfectGameObjectTYPE effectType;
-    private Action callBack;
+    private List<Action> callBackList = new List<Action>();
 
     //TitleName, RewardData
     public void SetPopupData(string title, List<RewardInfoData> list)
@@ -46,14 +46,14 @@ public class PopupRewardInfoData
     {
         this.popupTitleName = title;
         this.rewardInfoList = list;
-        this.callBack = cb;
+        SetCallBackAction(cb);
     }
     //TitleName, RewardData, CallbackAction, EffectGameObject
     public void SetPopupData(string title, List<RewardInfoData> list, Action cb, EEfectGameObjectTYPE type)
     {
         this.popupTitleName = title;
         this.rewardInfoList = list;
-        this.callBack = cb;
+        SetCallBackAction(cb);
         this.effectType = type;
     }
 
@@ -70,11 +70,19 @@ public class PopupRewardInfoData
     {
         return effectType;
     }
-    public Action GetCallBack()
+    public void ClearActionList()
     {
-        return callBack;
+        callBackList.Clear();
     }
 
+    public void SetCallBackAction(Action ac)
+    {
+        callBackList.Add(ac);        
+    } 
+    public List<Action> GetCallBackList()
+    {
+        return callBackList;
+    }
 
 }
 
@@ -85,9 +93,11 @@ public class PopupController : MonoBehaviour
     [Header("Union Sprite SO")]
     [SerializeField] SpriteFileData spriteFileData; //GetIconData()
     PopupRewardInfoData popupRewardInfoData = null;
-    List<Action> callbacks = new List<Action>();
     public GameObject rewardEffect;
     public Transform popupParent;
+
+    public PoolManager poolManager;
+    public RewardManager rewardManager;
 
     private void Awake()
     {
@@ -99,31 +109,23 @@ public class PopupController : MonoBehaviour
     {
         popupRewardInfoData = data;
 
-        callbacks.Clear();
-
-        var cb = popupRewardInfoData.GetCallBack();
+        popupRewardInfoData.ClearActionList();
 
         //rewardEffect.SetActive(true);
 
-        if (cb != null)
-        {
-            callbacks.Add(cb);
-        }
-
-        callbacks.Add(Reward);
+        popupRewardInfoData.SetCallBackAction(Reward);
 
         PopupBuilder popupBuilder = new PopupBuilder(popupParent);
         popupBuilder.SetTitle(popupRewardInfoData.GetTitle());
-        popupBuilder.SetButton("GET", callbacks);
+        popupBuilder.SetButton("GET", popupRewardInfoData.GetCallBackList());
         var rewards = popupRewardInfoData.GetRewardInfoDataList();
 
         for (int i = 0; i < rewards.Count; i++)
         {
             popupBuilder.SetRewardInfo(rewards[i].type, rewards[i].amount);
-
         }
 
-        popupBuilder.Build();
+        popupBuilder.Build(poolManager);
 
     }
 
@@ -138,7 +140,7 @@ public class PopupController : MonoBehaviour
             switch (rewards[i].type)
             {
                 case EnumDefinition.RewardType.gold:
-                    //º¸»ó rewards[i].amount Data/UI text Update
+                    //ï¿½ï¿½ï¿½ï¿½ rewards[i].amount Data/UI text Update
                     break;
 
                 case EnumDefinition.RewardType.bone:
@@ -195,22 +197,20 @@ public class PopupController : MonoBehaviour
         PopupRewardInfoData data = new PopupRewardInfoData();
         List<RewardInfoData> rewards = new List<RewardInfoData>();
 
-        //½ÇÁ¦ º¸»ó¹ÞÀ» µ¥ÀÌÅÍ ¼¼ÆÃ RewardTypeÀ¸·Î °¢Á¾ ÀçÈ­+À¯´Ï¿Â+DNA ¹× ¾ÕÀ¸·Î Ãß°¡ µÉ ÀçÈ­µµ °í·ÁÇØ¾ß ÇÔ
-        //¸Å°³º¯¼ö·Î 1.º¸»óÅ¸ÀÔ 2.º¸»ó·® 3.º¸»ó¾ÆÀÌÄÜÀÌ ¼¼ÆÃµÇ¸ç º¸»ó¾ÆÀÌÄÜÀº ½ºÅ©¸³ÅÍºí ¿ÀºêÁ§Æ®¿¡¼­ ºÒ·¯¿Ã ¿¹Á¤
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ RewardTypeï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­+ï¿½ï¿½ï¿½Ï¿ï¿½+DNA ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¾ï¿½ ï¿½ï¿½
+        //ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1.ï¿½ï¿½ï¿½ï¿½Å¸ï¿½ï¿½ 2.ï¿½ï¿½ï¿½ï¿½ 3.ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÃµÇ¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ï¿½Íºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ ï¿½Ò·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         rewards.Add(new RewardInfoData(EnumDefinition.RewardType.gold, 10000, null));
         rewards.Add(new RewardInfoData(EnumDefinition.RewardType.gem, 20000, null));
+        rewards.Add(new RewardInfoData(EnumDefinition.RewardType.gem, 20000, null));
+        rewards.Add(new RewardInfoData(EnumDefinition.RewardType.gem, 20000, null));
+        rewards.Add(new RewardInfoData(EnumDefinition.RewardType.gem, 20000, null));
 
-        //¿À¹ö·Îµù µÇ¾î ÀÖÀ½. ¸Å°³º¯¼ö·Î CallBack ÀÌº¥Æ®¿Í ¿¬Ãâ ÀÌÆåÆ®·Î »ç¿ë µÉ °ÔÀÓ¿ÀºêÁ§Æ® Å¸ÀÔÀ» ³Ñ±æ ¼ö ÀÖÀ½(¿¬Ãâ Å¸ÀÔ¿¡ µû¸¥ °ÔÀÓ¿ÀºêÁ§Æ® ·Îµå°¡ ÇÊ¿ä) 
-        //*º¸»óÀº µû·Î ÄÝ¹é±¸ÇöÀÌ ÀÌ¹Ì µÇ¾îÀÖÀ½* line115
-        data.SetPopupData("REWARD", rewards, CallBackTest);
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½ï¿½. ï¿½Å°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ CallBack ï¿½Ìºï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ±ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Îµå°¡ ï¿½Ê¿ï¿½) 
+        //*ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ý¹é±¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½Ç¾ï¿½ï¿½ï¿½ï¿½ï¿½* line115
+        data.SetPopupData("REWARD", rewards);
 
         SetupPopupInfo(data);
 
-    }
-
-    void CallBackTest()
-    {
-        Debug.Log("CALL");
     }
 
 

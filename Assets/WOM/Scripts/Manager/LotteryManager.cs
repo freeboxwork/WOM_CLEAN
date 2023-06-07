@@ -108,7 +108,7 @@ public class LotteryManager : MonoBehaviour
             GlobalData.instance.rewardManager.AddUnionReward(curSummonGradeData.rewardUnionIndex);
             var campPopup = (CampPopup)GlobalData.instance.castleManager.GetCastlePopupByType(EnumDefinition.CastlePopupType.camp);
             campPopup.SetTxtGradeLevel(curSummonGradeData.level);
-         
+
         }
 
     }
@@ -119,7 +119,7 @@ public class LotteryManager : MonoBehaviour
 
         // TODO : 저장된 데이터에서 불러와야 함
         // unionGradeLevel = 
-        totalDrawCount  = 0;
+        totalDrawCount = 0;
         SetSummonGradeData(GlobalData.instance.dataManager.GetSummonGradeDataByLevel(unionGradeLevel));
         SetGambleData(GlobalData.instance.dataManager.GetUnionGambleDataBySummonGrade(unionGradeLevel));
         randomGradeValues = GetRandomArrayValue();
@@ -219,6 +219,9 @@ public class LotteryManager : MonoBehaviour
             var union = (EnumDefinition.UnionGradeType)UtilityMethod.GetWeightRandomValue(randomGradeValues);
             openedUnionTypeCards.Add(union);
             lottreyRoundCount++;
+
+            //일일 퀘스트 완료 : 유니온 소환
+            EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.summonUnion);
             yield return null;
         }
     }

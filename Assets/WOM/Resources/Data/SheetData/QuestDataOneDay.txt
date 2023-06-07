@@ -31,7 +31,7 @@
         {
             "questType": "summonUnion",
             "questName": "유니온 소환",
-            "targetValue": 3,
+            "targetValue": 150,
             "rewardType": "clearTicket",
             "rewardValue": 10
         },

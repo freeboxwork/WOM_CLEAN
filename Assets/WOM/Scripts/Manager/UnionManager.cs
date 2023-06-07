@@ -149,8 +149,8 @@ public class UnionManager : MonoBehaviour
         // Union Spwan
         GlobalData.instance.unionSpwanManager.UnionSpwan(selectedSlot, equipSlot.slotIndex);
 
-        // 일일 퀘스트 완료 : 유니온 소환
-        EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.summonUnion);
+        // // 일일 퀘스트 완료 : 유니온 소환
+        // // EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.summonUnion);
 
     }
 

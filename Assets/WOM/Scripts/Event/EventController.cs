@@ -519,7 +519,7 @@ public class EventController : MonoBehaviour
 
     }
 
-    // 몬스터 등장
+    // 몬스터 등장 로직
     public IEnumerator MonsterAppearCor(EnumDefinition.MonsterType monsterType)
     {
         // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )

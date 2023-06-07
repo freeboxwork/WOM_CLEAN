@@ -86,7 +86,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0920ba228f923a46b6483a37c0a1bfc, type: 2}
+  - {fileID: 2100000, guid: defe47da4140ce943add281424c34c5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -135,8 +135,8 @@ MonoBehaviour:
   - {fileID: 7985384655133938292}
   - {fileID: 7093587602141575172}
   m_Bounds:
-    m_Center: {x: 0.0000009536743, y: 0.004040301, z: 0}
-    m_Extent: {x: 3.4699998, y: 0.91403997, z: 0}
+    m_Center: {x: 0.0000009536743, y: 0.004041016, z: 0}
+    m_Extent: {x: 3.4699998, y: 0.9140403, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -273,7 +273,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0920ba228f923a46b6483a37c0a1bfc, type: 2}
+  - {fileID: 2100000, guid: defe47da4140ce943add281424c34c5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -323,7 +323,7 @@ MonoBehaviour:
   - {fileID: 8185564780338940628}
   m_Bounds:
     m_Center: {x: 0.0018897057, y: 0.055000544, z: 0}
-    m_Extent: {x: 4.4935904, y: 1.67, z: 0}
+    m_Extent: {x: 4.4935904, y: 1.6700006, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -396,7 +396,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0920ba228f923a46b6483a37c0a1bfc, type: 2}
+  - {fileID: 2100000, guid: defe47da4140ce943add281424c34c5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -446,7 +446,7 @@ MonoBehaviour:
   - {fileID: 3548027506382748545}
   m_Bounds:
     m_Center: {x: 0.006410122, y: 0.010001123, z: 0}
-    m_Extent: {x: 3.3864083, y: 0.8899997, z: 0}
+    m_Extent: {x: 3.3864083, y: 0.89000016, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -666,7 +666,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0920ba228f923a46b6483a37c0a1bfc, type: 2}
+  - {fileID: 2100000, guid: defe47da4140ce943add281424c34c5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -715,8 +715,8 @@ MonoBehaviour:
   - {fileID: 3620455765547036116}
   - {fileID: 550248778808437312}
   m_Bounds:
-    m_Center: {x: -0.00612998, y: 0.010001063, z: 0}
-    m_Extent: {x: 2.7261298, y: 1.1199999, z: 0}
+    m_Center: {x: -0.00612998, y: 0.010000825, z: 0}
+    m_Extent: {x: 2.7261298, y: 1.1200007, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -821,7 +821,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0920ba228f923a46b6483a37c0a1bfc, type: 2}
+  - {fileID: 2100000, guid: defe47da4140ce943add281424c34c5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -869,7 +869,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 5486352412639617403}
   m_Bounds:
-    m_Center: {x: 0.0019202232, y: -0.07999992, z: 0}
+    m_Center: {x: 0.0019202232, y: -0.08000016, z: 0}
     m_Extent: {x: 2.1780796, y: 2.92, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -1039,7 +1039,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0920ba228f923a46b6483a37c0a1bfc, type: 2}
+  - {fileID: 2100000, guid: defe47da4140ce943add281424c34c5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1088,7 +1088,7 @@ MonoBehaviour:
   - {fileID: 8798303569099685213}
   - {fileID: 4947510356980878014}
   m_Bounds:
-    m_Center: {x: 0.00024962425, y: 0.010000765, z: 0}
+    m_Center: {x: 0.00024962425, y: 0.010000169, z: 0}
     m_Extent: {x: 3.599749, y: 0.89999986, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -1162,7 +1162,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0920ba228f923a46b6483a37c0a1bfc, type: 2}
+  - {fileID: 2100000, guid: defe47da4140ce943add281424c34c5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1211,8 +1211,8 @@ MonoBehaviour:
   - {fileID: 4785916192345755283}
   - {fileID: 1055513355089201629}
   m_Bounds:
-    m_Center: {x: 0.0013103485, y: -0.0000006556511, z: 0}
-    m_Extent: {x: 2.6486902, y: 0.5799999, z: 0}
+    m_Center: {x: 0.0013103485, y: -0.0000017881393, z: 0}
+    m_Extent: {x: 2.6486902, y: 0.57999915, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1316,7 +1316,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0920ba228f923a46b6483a37c0a1bfc, type: 2}
+  - {fileID: 2100000, guid: defe47da4140ce943add281424c34c5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1366,7 +1366,7 @@ MonoBehaviour:
   - {fileID: 7059118719042101533}
   m_Bounds:
     m_Center: {x: -0.00000047683716, y: 0.014998198, z: 0}
-    m_Extent: {x: 4.1899996, y: 1.8300011, z: 0}
+    m_Extent: {x: 4.1899996, y: 1.8300014, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0
@@ -1471,7 +1471,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0920ba228f923a46b6483a37c0a1bfc, type: 2}
+  - {fileID: 2100000, guid: defe47da4140ce943add281424c34c5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1520,7 +1520,7 @@ MonoBehaviour:
   - {fileID: 1765190125139824022}
   - {fileID: 2396201431266059608}
   m_Bounds:
-    m_Center: {x: 0.00000023841858, y: 0.007010281, z: 0}
+    m_Center: {x: 0.00000023841858, y: 0.007010758, z: 0}
     m_Extent: {x: 2.8999991, y: 0.54700994, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -1753,7 +1753,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0920ba228f923a46b6483a37c0a1bfc, type: 2}
+  - {fileID: 2100000, guid: defe47da4140ce943add281424c34c5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2801,7 +2801,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0920ba228f923a46b6483a37c0a1bfc, type: 2}
+  - {fileID: 2100000, guid: defe47da4140ce943add281424c34c5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2849,7 +2849,7 @@ MonoBehaviour:
   m_BoneTransforms:
   - {fileID: 400453544916286845}
   m_Bounds:
-    m_Center: {x: 0.009389877, y: -0.39499998, z: 0}
+    m_Center: {x: 0.009389877, y: -0.39500046, z: 0}
     m_Extent: {x: 3.5456104, y: 2.2700002, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
@@ -2955,7 +2955,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0920ba228f923a46b6483a37c0a1bfc, type: 2}
+  - {fileID: 2100000, guid: defe47da4140ce943add281424c34c5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3108,7 +3108,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0920ba228f923a46b6483a37c0a1bfc, type: 2}
+  - {fileID: 2100000, guid: defe47da4140ce943add281424c34c5a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3159,8 +3159,8 @@ MonoBehaviour:
   - {fileID: 3317394089706408559}
   - {fileID: 2487716712754222549}
   m_Bounds:
-    m_Center: {x: -0.0059537888, y: 0.056727886, z: 0}
-    m_Extent: {x: 4.3002634, y: 2.204666, z: 0}
+    m_Center: {x: -0.0059537888, y: 0.056727648, z: 0}
+    m_Extent: {x: 4.3002634, y: 2.2046654, z: 0}
   m_UseBatching: 1
   m_AlwaysUpdate: 1
   m_AutoRebind: 0

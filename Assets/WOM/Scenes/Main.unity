@@ -31667,6 +31667,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 771664638}
     - target: {fileID: 7518023023042651156, guid: 1d00d316af01a27429140c616813e081, type: 3}
+      propertyPath: dissolveMat
+      value: 
+      objectReference: {fileID: 2100000, guid: defe47da4140ce943add281424c34c5a, type: 2}
+    - target: {fileID: 7518023023042651156, guid: 1d00d316af01a27429140c616813e081, type: 3}
       propertyPath: monsterAnim
       value: 
       objectReference: {fileID: 771664639}

@@ -77,8 +77,8 @@ public class PopupRewardInfoData
 
     public void SetCallBackAction(Action ac)
     {
-        callBackList.Add(ac);        
-    } 
+        callBackList.Add(ac);
+    }
     public List<Action> GetCallBackList()
     {
         return callBackList;
@@ -137,51 +137,53 @@ public class PopupController : MonoBehaviour
 
         for (int i = 0; i < rewards.Count; i++)
         {
-            switch (rewards[i].type)
-            {
-                case EnumDefinition.RewardType.gold:
-                    //���� rewards[i].amount Data/UI text Update
-                    break;
+            GlobalData.instance.rewardManager.RewardByType(rewards[i].type, (int)rewards[i].amount);
 
-                case EnumDefinition.RewardType.bone:
+            // switch (rewards[i].type)
+            // {
+            //     case EnumDefinition.RewardType.gold:
+            //         //???? rewards[i].amount Data/UI text Update
+            //         break;
 
-                    break;
+            //     case EnumDefinition.RewardType.bone:
 
-                case EnumDefinition.RewardType.gem:
+            //         break;
 
-                    break;
+            //     case EnumDefinition.RewardType.gem:
 
-                case EnumDefinition.RewardType.dice:
+            //         break;
 
-                    break;
+            //     case EnumDefinition.RewardType.dice:
 
-                case EnumDefinition.RewardType.coal:
-                    break;
+            //         break;
 
-                case EnumDefinition.RewardType.clearTicket:
-                    break;
+            //     case EnumDefinition.RewardType.coal:
+            //         break;
 
-                case EnumDefinition.RewardType.goldKey:
-                    break;
+            //     case EnumDefinition.RewardType.clearTicket:
+            //         break;
 
-                case EnumDefinition.RewardType.boneKey:
-                    break;
+            //     case EnumDefinition.RewardType.goldKey:
+            //         break;
 
-                case EnumDefinition.RewardType.diceKey:
-                    break;
+            //     case EnumDefinition.RewardType.boneKey:
+            //         break;
 
-                case EnumDefinition.RewardType.coalKey:
-                    break;
+            //     case EnumDefinition.RewardType.diceKey:
+            //         break;
 
-                case EnumDefinition.RewardType.union:
-                    break;
+            //     case EnumDefinition.RewardType.coalKey:
+            //         break;
 
-                case EnumDefinition.RewardType.dna:
-                    break;
-                case EnumDefinition.RewardType.none:
-                    break;
+            //     case EnumDefinition.RewardType.union:
+            //         break;
 
-            }
+            //     case EnumDefinition.RewardType.dna:
+            //         break;
+            //     case EnumDefinition.RewardType.none:
+            //         break;
+
+            // }
         }
 
         //rewardEffect.SetActive(false);
@@ -197,21 +199,51 @@ public class PopupController : MonoBehaviour
         PopupRewardInfoData data = new PopupRewardInfoData();
         List<RewardInfoData> rewards = new List<RewardInfoData>();
 
-        //���� ������� ������ ���� RewardType���� ���� ��ȭ+���Ͽ�+DNA �� ������ �߰� �� ��ȭ�� �����ؾ� ��
-        //�Ű������� 1.����Ÿ�� 2.���� 3.����������� ���õǸ� ����������� ��ũ���ͺ� ������Ʈ���� �ҷ��� ����
+        //???? ??????? ?????? ???? RewardType???? ???? ???+?????+DNA ?? ?????? ??? ?? ????? ??????? ??
+        //????????? 1.??????? 2.???? 3.??????????? ?????? ??????????? ???????? ??????????? ????? ????
         rewards.Add(new RewardInfoData(EnumDefinition.RewardType.gold, 10000, null));
         rewards.Add(new RewardInfoData(EnumDefinition.RewardType.gem, 20000, null));
         rewards.Add(new RewardInfoData(EnumDefinition.RewardType.gem, 20000, null));
         rewards.Add(new RewardInfoData(EnumDefinition.RewardType.gem, 20000, null));
         rewards.Add(new RewardInfoData(EnumDefinition.RewardType.gem, 20000, null));
 
-        //�����ε� �Ǿ� ����. �Ű������� CallBack �̺�Ʈ�� ���� ����Ʈ�� ��� �� ���ӿ�����Ʈ Ÿ���� �ѱ� �� ����(���� Ÿ�Կ� ���� ���ӿ�����Ʈ �ε尡 �ʿ�) 
-        //*������ ���� �ݹ鱸���� �̹� �Ǿ�����* line115
+        //??????? ??? ????. ????????? CallBack ?????? ???? ??????? ??? ?? ?????????? ????? ??? ?? ????(???? ???? ???? ?????????? ??? ???) 
+        //*?????? ???? ??????? ??? ???????* line115
         data.SetPopupData("REWARD", rewards);
 
         SetupPopupInfo(data);
 
     }
+
+
+    public void InitPopup(EnumDefinition.RewardType rewardType, int amount)
+    {
+        PopupRewardInfoData data = new PopupRewardInfoData();
+        List<RewardInfoData> rewards = new List<RewardInfoData>();
+
+        rewards.Add(new RewardInfoData(rewardType, amount, null));
+
+        data.SetPopupData("REWARD", rewards);
+
+        SetupPopupInfo(data);
+    }
+
+
+    public void InitPopups(List<RewardInfoData> rewardInfoDatas)
+    {
+        PopupRewardInfoData data = new PopupRewardInfoData();
+        List<RewardInfoData> rewards = new List<RewardInfoData>();
+
+        for (int i = 0; i < rewardInfoDatas.Count; i++)
+        {
+            rewards.Add(rewardInfoDatas[i]);
+        }
+
+        data.SetPopupData("REWARD", rewards);
+
+        SetupPopupInfo(data);
+    }
+
 
 
 

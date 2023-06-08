@@ -21,7 +21,7 @@ public class DungeonManager : MonoBehaviour
 
 
         // hide dungeon monster
-        GlobalData.instance.monsterManager.monsterDungeon.Hide();
+        // GlobalData.instance.monsterManager.monsterDungeon.Hide();
 
         yield return null;
     }

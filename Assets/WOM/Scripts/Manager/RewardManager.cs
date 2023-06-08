@@ -37,6 +37,9 @@ public class RewardManager : MonoBehaviour
         // 유니온 획득 버튼 이펙트 효과 활성화
         UtilityMethod.GetCustomTypeGMById(14).gameObject.SetActive(true);
         unionRewardQueue.Enqueue(unionIndex);
+
+        // Enqueue 로그 출력
+        Debug.Log($"유니온 {unionIndex} 보상 저장");
     }
 
     // unionRewardQueue 에서 값을 추출 하고 예외처리를 한다.

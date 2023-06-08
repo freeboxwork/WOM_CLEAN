@@ -115,7 +115,7 @@ public class GlobalController : MonoBehaviour
 
         // 등장 몬스터 활성화 -> 첫 시작은 노멀 몬스터
         // TODO : 하나만 켜야 하는지 확인 필요 현재 모두 나타나도록 수정
-        monsterManager.EnableMonster(EnumDefinition.MonsterType.normal);
+        //monsterManager.EnableMonster(EnumDefinition.MonsterType.normal);
 
         // UI 초기화
         SetUI_Init();

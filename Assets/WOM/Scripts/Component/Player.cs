@@ -1,7 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using static EnumDefinition;
 
@@ -19,7 +17,7 @@ public class Player : MonoBehaviour
     public int gem;
     public int coal;
     // 소탕권
-    public int clearTicket; 
+    public int clearTicket;
 
     // Dungeon Key
     public SerializableDictionary<GoodsType, int> dungeonKeys;
@@ -60,20 +58,20 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     private void Awake()
     {
-        
+
     }
 
-    public  IEnumerator Init(SaveData saveData)
+    public IEnumerator Init(SaveData saveData)
     {
         SetPlayerDataFromSaveData(saveData);
         yield return null;
 
-        
+
     }
 
 
@@ -101,7 +99,7 @@ public class Player : MonoBehaviour
 
     public void SetCurrentMonsterHP(float hpValue)
     {
-        currentMonsterHp = hpValue ;
+        currentMonsterHp = hpValue;
 
         //* (1- GlobalData.instance.statManager.MonsterHpLess())
     }
@@ -155,7 +153,7 @@ public class Player : MonoBehaviour
         coal += value;
         // set ui;
     }
-    
+
     public void AddClearTicket(int value)
     {
         clearTicket += value;
@@ -163,7 +161,7 @@ public class Player : MonoBehaviour
         // set ui 
         GlobalData.instance.dungeonEnterPopup.SetTxtClierTicket(clearTicket);
     }
-         
+
 
 
     public void AddGem(int value)
@@ -191,7 +189,7 @@ public class Player : MonoBehaviour
         GlobalData.instance.uiController.SetTxtBone(bone); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsBone(bone); // set save data
     }
-    public void PayDice(int value )
+    public void PayDice(int value)
     {
         diceCount -= value;
         if (diceCount < 0) diceCount = 0;
@@ -205,7 +203,7 @@ public class Player : MonoBehaviour
         GlobalData.instance.uiController.SetTxtGem(gem); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsGem(gem); // set save data
     }
-         
+
     public void PayCoal(int value)
     {
         coal -= value;
@@ -224,7 +222,7 @@ public class Player : MonoBehaviour
         GlobalData.instance.dungeonEnterPopup.SetTxtClierTicket(clearTicket);
     }
 
-    public void AddDungeonKey(GoodsType goodsType , int addKeyCount)
+    public void AddDungeonKey(GoodsType goodsType, int addKeyCount)
     {
         dungeonKeys[goodsType] += addKeyCount;
 
@@ -258,13 +256,13 @@ public class Player : MonoBehaviour
     {
         switch (monsterType)
         {
-            case MonsterType.dungeonGold: PayDungeonKey(GoodsType.gold,count); break;
+            case MonsterType.dungeonGold: PayDungeonKey(GoodsType.gold, count); break;
             case MonsterType.dungeonBone: PayDungeonKey(GoodsType.bone, count); break;
             case MonsterType.dungeonDice: PayDungeonKey(GoodsType.dice, count); break;
             case MonsterType.dungeonCoal: PayDungeonKey(GoodsType.coal, count); break;
         }
     }
-         
+
 
 }
 
@@ -283,7 +281,7 @@ public class DungeonMonsterClearLevel
     }
     public void SetLevelBone(int level)
     {
-       boneLv = level;
+        boneLv = level;
     }
     public void SetLevelDice(int level)
     {
@@ -294,7 +292,7 @@ public class DungeonMonsterClearLevel
         coalLv = level;
     }
 
-    public int GetLeveByDungeonMonType(EnumDefinition.MonsterType monsterType) 
+    public int GetLeveByDungeonMonType(EnumDefinition.MonsterType monsterType)
     {
         switch (monsterType)
         {
@@ -306,7 +304,7 @@ public class DungeonMonsterClearLevel
         }
     }
 
-    public void SetLevelFromMonsterType(EnumDefinition.MonsterType monsterType, int level )
+    public void SetLevelFromMonsterType(EnumDefinition.MonsterType monsterType, int level)
     {
         switch (monsterType)
         {

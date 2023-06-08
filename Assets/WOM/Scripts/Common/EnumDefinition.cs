@@ -152,17 +152,22 @@ public class EnumDefinition
         none,
     }
 
+    public enum TrainingSubPanelType
+    {
+        training,
+        skill,
+        evolution,
+        none
+    }
 
     public enum MenuPanelType
     {
-        training,
-        evolution,
-        skill,
-        castle,
-        dungeon,
-        shop,
-        union,
-        dna,
+        training = 0,
+        castle = 1,
+        dungeon = 2,
+        shop = 3,
+        union = 4,
+        dna = 5,
         none,
     }
 

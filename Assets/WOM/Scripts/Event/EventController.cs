@@ -755,7 +755,7 @@ public class EventController : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         //진화 메뉴 활성화
-        globalData.uiController.EnableMenuPanel(MenuPanelType.evolution);
+        //globalData.uiController.EnableMenuPanel(MenuPanelType.evolution);
         // 진화 몬스터 도전 버튼 활성화
         globalData.evolutionManager.EnableBtnEvolutionMonsterChange(true);
 
@@ -914,7 +914,7 @@ public class EventController : MonoBehaviour
         globalData.uiController.MainMenuShow();
         yield return new WaitForSeconds(0.5f);// 메인메뉴 등장 애니메이션 연출이 끝날때까지 대기
         //진화 메뉴 활성화
-        globalData.uiController.EnableMenuPanel(MenuPanelType.evolution);
+        //globalData.uiController.EnableMenuPanel(MenuPanelType.evolution);
 
         // 공격 가능 상태로 전환
         globalData.attackController.SetAttackableState(true);

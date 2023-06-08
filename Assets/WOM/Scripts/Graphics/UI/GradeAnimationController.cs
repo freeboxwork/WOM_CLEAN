@@ -57,7 +57,7 @@ namespace ProjectGraphics
             btnClose.onClick.AddListener(() =>
             {
                 // 진화 메뉴 등장
-                GlobalData.instance.uiController.EnableMenuPanel(MenuPanelType.evolution);
+                //GlobalData.instance.uiController.EnableMenuPanel(MenuPanelType.evolution);
                 // 일반 몬스터 등장
                 // GlobalData.instance.eventController.NormalMonsterIn();
 

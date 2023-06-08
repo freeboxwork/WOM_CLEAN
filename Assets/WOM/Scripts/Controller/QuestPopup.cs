@@ -10,14 +10,15 @@ public class QuestPopup : MonoBehaviour
 
     public Button btn_close;
     public Button btn_showListOneDay;
-    public Button btn_showListRepeat;
+    public Button btn_showAttend;
+    public Button btn_showBattlePass;
 
     public GameObject questListOneDay;
-    public GameObject questListRepeat;
+    public GameObject attandPanel;
+    public GameObject battlePassPanel;
 
 
     public List<QuestSlot> questSlotsOneDay;
-    public List<QuestSlot> questSlotsRepeat;
 
     void Start()
     {
@@ -27,7 +28,8 @@ public class QuestPopup : MonoBehaviour
     void SetBtnEvents()
     {
         btn_showListOneDay.onClick.AddListener(ShowQuestListOneDay);
-        btn_showListRepeat.onClick.AddListener(ShowQuestListRepeat);
+        btn_showAttend.onClick.AddListener(ShowAttend);
+        btn_showBattlePass.onClick.AddListener(ShowBattlePass);
         btn_close.onClick.AddListener(ClosePopup);
     }
 
@@ -40,14 +42,24 @@ public class QuestPopup : MonoBehaviour
     void ShowQuestListOneDay()
     {
         questListOneDay.SetActive(true);
-        questListRepeat.SetActive(false);
+        attandPanel.SetActive(false);
+        battlePassPanel.SetActive(false);
     }
 
-    void ShowQuestListRepeat()
+    void ShowAttend()
     {
         questListOneDay.SetActive(false);
-        questListRepeat.SetActive(true);
+        attandPanel.SetActive(true);
+        battlePassPanel.SetActive(false);
     }
+
+    void ShowBattlePass()
+    {
+        questListOneDay.SetActive(false);
+        attandPanel.SetActive(false);
+        battlePassPanel.SetActive(true);
+    }
+
 
     // void InitOneDayQuestUI(List<QuestData> questDatas)
     // {

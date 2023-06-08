@@ -8,12 +8,17 @@ using static EnumDefinition;
 public class TraningManager : MonoBehaviour
 {
     public List<TraningSlot> traningSlots = new List<TraningSlot>();
-    
+
+
+    [SerializeField]
+    List<GameObject> subPanels = new List<GameObject>();
+    TrainingSubPanelType curSubPanelType = TrainingSubPanelType.none;
+    public List<TrainingSubBtnSlot> subButtons = new List<TrainingSubBtnSlot>();
+
     void Start()
     {
         
     }
-
     // 저장된 게임 데이터 로드 및 세팅
     IEnumerator LoadInGameData()
     {
@@ -86,9 +91,22 @@ public class TraningManager : MonoBehaviour
 
             });
         }
+
+        for (int i = 0; i < subButtons.Count; i++)
+        {
+            var index = i;
+            var btn = subButtons[index];
+                btn.btnMain.onClick.AddListener(() =>
+                {
+                    EnableSubMenuPanel(btn.subPanelType);
+                });
+
+        }
+
+
+
         yield return null;
     }
-
 
     int GetCostIntValue(SaleStatType statType, TraningInGameData inGameData)
     {
@@ -203,6 +221,23 @@ public class TraningManager : MonoBehaviour
         return false;
     }
 
+    public void EnableSubMenuPanel(EnumDefinition.TrainingSubPanelType type)
+    {
+        for (int i = 0; i < subPanels.Count; i++)
+        {
+            if (i == (int)type)
+            {
+                curSubPanelType = type;
+                subButtons[i].Select(true);
 
+                subPanels[i].SetActive(true);
+            }
+            else
+            {
+                subButtons[i].Select(false);
+                subPanels[i].SetActive(false);
+            }
+        }
+    }
 
 }

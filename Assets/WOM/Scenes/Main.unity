@@ -64577,8 +64577,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   customTypeDatas:
-  - {fileID: 6690650206440303559}
-  - {fileID: 282815595}
   - {fileID: 9690202}
   - {fileID: 18956615}
   - {fileID: 25126548}
@@ -64602,6 +64600,7 @@ MonoBehaviour:
   - {fileID: 258901643}
   - {fileID: 266811188}
   - {fileID: 268856010}
+  - {fileID: 282815595}
   - {fileID: 285371262}
   - {fileID: 287633516}
   - {fileID: 298950367}
@@ -64705,6 +64704,7 @@ MonoBehaviour:
   - {fileID: 1562460179}
   - {fileID: 1569533616}
   - {fileID: 1570622884}
+  - {fileID: 1595989243}
   - {fileID: 1617475371}
   - {fileID: 1620267294}
   - {fileID: 1665875510}
@@ -64766,6 +64766,7 @@ MonoBehaviour:
   - {fileID: 3409305088193251360}
   - {fileID: 3409305089524062622}
   - {fileID: 5888335923745280019}
+  - {fileID: 6690650206440303559}
   customTypeDatas_animCont: []
   customTypeDatas_uiButton:
   - {fileID: 9690202}
@@ -64908,9 +64909,9 @@ MonoBehaviour:
   - {fileID: 1047927174800691650}
   - {fileID: 1047927175231469340}
   customTypeDatas_uiImage:
-  - {fileID: 282815595}
   - {fileID: 160010086}
   - {fileID: 186876810}
+  - {fileID: 282815595}
   - {fileID: 345622663}
   - {fileID: 506979640}
   - {fileID: 510912723}
@@ -64946,7 +64947,6 @@ MonoBehaviour:
   - {fileID: 1883986643}
   - {fileID: 1908556357}
   customTypeDatas_gameObject:
-  - {fileID: 6690650206440303559}
   - {fileID: 129213001}
   - {fileID: 408297822}
   - {fileID: 518427075}
@@ -64956,11 +64956,13 @@ MonoBehaviour:
   - {fileID: 1415270891}
   - {fileID: 1432440484}
   - {fileID: 1502984283}
+  - {fileID: 1595989243}
   - {fileID: 1747509667}
   - {fileID: 1829917494}
   - {fileID: 1835485544}
   - {fileID: 2022430789}
   - {fileID: 5888335923745280019}
+  - {fileID: 6690650206440303559}
 --- !u!1 &1643456860
 GameObject:
   m_ObjectHideFlags: 0
@@ -67916,6 +67918,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659159323}
   m_CullTransparentMesh: 1
+--- !u!1 &1660478911
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1660478913}
+  - component: {fileID: 1660478912}
+  m_Layer: 0
+  m_Name: '[ FPS DISPLAY ]'
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1660478912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660478911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 01d684b58c1da6e4e9efe2d14e37bc46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1660478913
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1660478911}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.6519805, y: 6.2308583, z: -0.05645156}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1661773436
 GameObject:
   m_ObjectHideFlags: 0

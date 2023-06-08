@@ -175,8 +175,11 @@ public class QuestManager : MonoBehaviour
     {
         data.usingReward = true;
         PlayerPrefs.SetInt(data.questType + keyUsingReward, data.usingReward ? 1 : 0);
-        // 리워드 지급
-        GlobalData.instance.rewardManager.RewardByType(GetRewardTypeByTypeName(data.rewardType), data.rewardValue);
+
+        // // 리워드 지급
+        // 리워드 팝업 띄우기
+        PopupController.instance.InitPopup(GetRewardTypeByTypeName(data.rewardType), data.rewardValue);
+        //GlobalData.instance.rewardManager.RewardByType(GetRewardTypeByTypeName(data.rewardType), data.rewardValue);
     }
 
     EnumDefinition.RewardType GetRewardTypeByTypeName(string typeName)

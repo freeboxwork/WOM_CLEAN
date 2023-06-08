@@ -25,6 +25,7 @@ public class RewardManager : MonoBehaviour
         rewardDic.Add(EnumDefinition.RewardType.coal, GlobalData.instance.player.AddCoal);
         rewardDic.Add(EnumDefinition.RewardType.gem, GlobalData.instance.player.AddGem);
         rewardDic.Add(EnumDefinition.RewardType.clearTicket, GlobalData.instance.player.AddClearTicket);
+        rewardDic.Add(EnumDefinition.RewardType.union, GlobalData.instance.unionManager.AddUnion);
     }
 
 
@@ -55,9 +56,11 @@ public class RewardManager : MonoBehaviour
 
         // 팝업
         int unionIndex = unionRewardQueue.Dequeue();
-        RewardUnion(unionIndex);
 
-        GlobalData.instance.globalPopupController.EnableGlobalPopup("유니온 획득", $"유니온 {unionIndex} 획득");
+        // RewardUnion(unionIndex);
+        PopupController.instance.InitPopup(EnumDefinition.RewardType.union, unionIndex);
+
+        //GlobalData.instance.globalPopupController.EnableGlobalPopup("유니온 획득", $"유니온 {unionIndex} 획득");
         GlobalData.instance.lotteryManager.TotalDrawCountUiUpdate();
 
         if (unionRewardQueue.Count <= 0)

@@ -12,13 +12,14 @@ public class QuestPopup : MonoBehaviour
     public Button btn_showListOneDay;
     public Button btn_showAttend;
     public Button btn_showBattlePass;
-
+    public List<QuestSlot> questSlotsOneDay;
+    public List<BattlePassSlot> battlePassSlots;
     public GameObject questListOneDay;
     public GameObject attandPanel;
     public GameObject battlePassPanel;
 
 
-    public List<QuestSlot> questSlotsOneDay;
+
 
     void Start()
     {
@@ -116,3 +117,4 @@ public class QuestPopup : MonoBehaviour
     }
 
 }
+

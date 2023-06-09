@@ -72,7 +72,7 @@ public class EnumDefinition
         buindingDataCamp,
         buindingDataLab,
         questDataOneDay,
-        questDataRepeat,
+        battlePassData,
     }
 
     /// <summary> ?��?�� 메뉴 </summary>

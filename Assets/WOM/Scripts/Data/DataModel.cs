@@ -566,3 +566,13 @@ public class QuestData
 
 }
 
+[System.Serializable]
+public class BattlePassData
+{
+    public int id;
+    public string targetType;
+    public int targetStage;
+    public string rewardType;
+    public int commonRewardCount;
+    public int passRewardCount;
+}

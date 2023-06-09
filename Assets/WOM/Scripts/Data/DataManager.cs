@@ -122,6 +122,10 @@ public class DataManager : MonoBehaviour
     // 퀘스트 데이터
     public QuestDatas questDatasOneDay;
 
+    // 배틀 패스 데이터
+
+    public BattlePassDatas battlePassDatas;
+
     void Start()
     {
 
@@ -186,6 +190,8 @@ public class DataManager : MonoBehaviour
         // SET QUEST DATA
         SetQuestData();
 
+
+
         yield return new WaitForEndOfFrame();
     }
 
@@ -238,6 +244,7 @@ public class DataManager : MonoBehaviour
     void SetQuestData()
     {
         questDatasOneDay = GetData<QuestDatas>(SheetDataType.questDataOneDay);
+        battlePassDatas = GetData<BattlePassDatas>(SheetDataType.battlePassData);
     }
 
     public MineAndFactoryBuildingData GetBuildDataMineByLevel(int level)
@@ -666,4 +673,10 @@ public class LabBuildingDatas
 public class QuestDatas
 {
     public List<QuestData> data = new List<QuestData>();
+}
+
+[Serializable]
+public class BattlePassDatas
+{
+    public List<BattlePassData> data = new List<BattlePassData>();
 }

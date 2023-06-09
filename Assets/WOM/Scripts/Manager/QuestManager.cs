@@ -45,7 +45,8 @@ public class QuestManager : MonoBehaviour
     public IEnumerator Init()
     {
         SetBtnEvent();
-        AddQuestData();
+        AddOneDayQuestData();
+        AddBattlePassData();
         yield return null;
     }
 
@@ -60,12 +61,12 @@ public class QuestManager : MonoBehaviour
 
 
 
-    void AddQuestData()
+    void AddOneDayQuestData()
     {
         var oneDayData = GlobalData.instance.dataManager.questDatasOneDay.data;
         for (int i = 0; i < oneDayData.Count; i++)
         {
-            var clonData = oneDayData[i].CloneInstance();
+            var clonData = oneDayData[i].ClonInstance();
             var slot = questPopup.questSlotsOneDay[i];
 
             if (questResetTimer.HasCurrentTime())
@@ -80,6 +81,18 @@ public class QuestManager : MonoBehaviour
             questsOneDay.Add(GetQuestTypeOneDayByTypeName(clonData.questType), clonData);
             questPopup.SetUIQusetSlot(slot, clonData);
         }
+    }
+
+    void AddBattlePassData()
+    {
+        var battlePassData = GlobalData.instance.dataManager.battlePassDatas.data;
+        for (int i = 0; i < battlePassData.Count; i++)
+        {
+            var clonData = battlePassData[i].ClonInstance();
+            var slot = questPopup.battlePassSlots[i];
+            questPopup.SetUIBattlePassSlot(slot, clonData);
+        }
+
     }
 
     void LoadQuestDataFromUserMemory(QuestData data)

@@ -89,6 +89,15 @@ public class QuestPopup : MonoBehaviour
         slot.SetQuestData(data);
     }
 
+    public void SetUIBattlePassSlot(BattlePassSlot slot, BattlePassData data)
+    {
+        slot.SetTxtStage(data.targetStage.ToString());
+        slot.SetTxtRewardValue(data.commonRewardCount.ToString());
+        slot.SetTxtPassRewardValue(data.passRewardCount.ToString());
+
+        // TODO: set icon image
+    }
+
     void InitRepeatQuestUI(List<QuestData> questDatas)
     {
 

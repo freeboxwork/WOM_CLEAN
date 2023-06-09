@@ -546,7 +546,7 @@ public class QuestData
     // 보상을 받았는지 확인
     public bool usingReward = false;
 
-    public QuestData CloneInstance()
+    public QuestData ClonInstance()
     {
 
         QuestData questData = new QuestData();
@@ -575,4 +575,17 @@ public class BattlePassData
     public string rewardType;
     public int commonRewardCount;
     public int passRewardCount;
+
+    public BattlePassData ClonInstance()
+    {
+        BattlePassData battlePassData = new BattlePassData();
+        battlePassData.id = id;
+        battlePassData.targetType = targetType;
+        battlePassData.targetStage = targetStage;
+        battlePassData.rewardType = rewardType;
+        battlePassData.commonRewardCount = commonRewardCount;
+        battlePassData.passRewardCount = passRewardCount;
+
+        return battlePassData;
+    }
 }

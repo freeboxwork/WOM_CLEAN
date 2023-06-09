@@ -5151,6 +5151,7 @@ MonoBehaviour:
   eventSystem: {fileID: 2113049911}
   questManager: {fileID: 1480385586}
   rewardManager: {fileID: 1561127881}
+  spriteDataManager: {fileID: 351539259}
 --- !u!1 &134828268
 GameObject:
   m_ObjectHideFlags: 0
@@ -16415,6 +16416,51 @@ MonoBehaviour:
   m_Spacing: {x: 50, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
+--- !u!1 &351539258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 351539260}
+  - component: {fileID: 351539259}
+  m_Layer: 0
+  m_Name: SpriteDataManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &351539259
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351539258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c9576d560679d44d8183b4e7a37305b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconSpriteFileData: {fileID: 11400000, guid: 1b004ec5633eb234cb8b0f1c3967404d, type: 2}
+--- !u!4 &351539260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351539258}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 879479835}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &354494626
 GameObject:
   m_ObjectHideFlags: 0
@@ -39321,6 +39367,7 @@ Transform:
   - {fileID: 1289334273}
   - {fileID: 131730009}
   - {fileID: 1643049990}
+  - {fileID: 351539260}
   m_Father: {fileID: 1780090584}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

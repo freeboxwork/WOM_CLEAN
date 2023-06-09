@@ -43,6 +43,7 @@ public class GlobalData : MonoBehaviour
     public QuestManager questManager;
     public RewardManager rewardManager;
 
+    public SpriteDataManager spriteDataManager;
 
     private void Awake()
     {

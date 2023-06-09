@@ -251,6 +251,15 @@ public static class UtilityMethod
     }
 
 
+    public static EnumDefinition.RewardType GetRewardTypeByTypeName(string typeName)
+    {
+        foreach (EnumDefinition.RewardType type in System.Enum.GetValues(typeof(EnumDefinition.RewardType)))
+            if (type.ToString() == typeName)
+                return type;
+        return EnumDefinition.RewardType.none;
+    }
+
+
 
 
 #if UNITY_EDITOR

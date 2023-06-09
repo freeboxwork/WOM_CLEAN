@@ -96,6 +96,9 @@ public class QuestPopup : MonoBehaviour
         slot.SetTxtPassRewardValue(data.passRewardCount.ToString());
 
         // TODO: set icon image
+        var rewardIcon = GlobalData.instance.spriteDataManager.GetRewardIcon(UtilityMethod.GetRewardTypeByTypeName(data.rewardType));
+        slot.SetRewardIcon(rewardIcon);
+        slot.SetPassRewardIcon(rewardIcon);
     }
 
     void InitRepeatQuestUI(List<QuestData> questDatas)

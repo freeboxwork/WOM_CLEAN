@@ -191,17 +191,10 @@ public class QuestManager : MonoBehaviour
 
         // // 리워드 지급
         // 리워드 팝업 띄우기
-        PopupController.instance.InitPopup(GetRewardTypeByTypeName(data.rewardType), data.rewardValue);
+        PopupController.instance.InitPopup(UtilityMethod.GetRewardTypeByTypeName(data.rewardType), data.rewardValue);
         //GlobalData.instance.rewardManager.RewardByType(GetRewardTypeByTypeName(data.rewardType), data.rewardValue);
     }
 
-    EnumDefinition.RewardType GetRewardTypeByTypeName(string typeName)
-    {
-        foreach (RewardType type in System.Enum.GetValues(typeof(RewardType)))
-            if (type.ToString() == typeName)
-                return type;
-        return RewardType.none;
-    }
 
 
 

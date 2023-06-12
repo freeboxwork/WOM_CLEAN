@@ -93,6 +93,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cb44d245ec0c6042b29540b8bb0b54f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  battlePassData:
+    id: 0
+    targetType: 
+    targetStage: 0
+    rewardType: 
+    commonRewardCount: 0
+    passRewardCount: 0
   imgRewardIcon: {fileID: 8685874516735610960}
   txtRewardValue: {fileID: 2033024800290521185}
   txtStage: {fileID: 7721811362362083130}
@@ -100,6 +107,8 @@ MonoBehaviour:
   blockPassImage: {fileID: 7721811363365790368}
   imgPassRewardIcon: {fileID: 7721811361864434893}
   txtPassRewardValue: {fileID: 7721811363642952460}
+  btnReward: {fileID: 3286186118351248182}
+  btnPassReward: {fileID: 7721811362698929104}
 --- !u!1 &6085890335558160717
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,7 +122,7 @@ GameObject:
   - component: {fileID: 7694202722466513910}
   - component: {fileID: 3286186118351248182}
   m_Layer: 5
-  m_Name: Icon_Pouch
+  m_Name: btnReward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -219,7 +228,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 7694202722466513910}
+  m_TargetGraphic: {fileID: 8685874516735610960}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -496,7 +505,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -751,7 +760,7 @@ GameObject:
   - component: {fileID: 7721811362698929105}
   - component: {fileID: 7721811362698929104}
   m_Layer: 5
-  m_Name: Icon_Pouch (1)
+  m_Name: BtnPassReward
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -858,7 +867,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 7721811362698929105}
+  m_TargetGraphic: {fileID: 7721811361864434893}
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
@@ -1211,8 +1220,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: -43.42, z: 0, w: -11.9}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:

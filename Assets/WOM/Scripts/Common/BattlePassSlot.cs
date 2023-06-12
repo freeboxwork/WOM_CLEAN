@@ -3,6 +3,9 @@ using TMPro;
 using UnityEngine.UI;
 public class BattlePassSlot : MonoBehaviour
 {
+
+    public BattlePassData battlePassData;
+
     public Image imgRewardIcon;
     public TextMeshProUGUI txtRewardValue;
     public TextMeshProUGUI txtStage;
@@ -11,6 +14,29 @@ public class BattlePassSlot : MonoBehaviour
     public Image imgPassRewardIcon;
     public TextMeshProUGUI txtPassRewardValue;
 
+    public Button btnReward;
+    public Button btnPassReward;
+
+
+    private void Start()
+    {
+        SetBtnEvents();
+    }
+
+    void SetBtnEvents()
+    {
+        btnReward.onClick.AddListener(() =>
+        {
+            EventManager.instance.RunEvent<string, int>(CallBackEventType.TYPES.OnQuestCompleteBattlePassStage, battlePassData.rewardType, battlePassData.commonRewardCount);
+            btnReward.interactable = false;
+        });
+
+        btnPassReward.onClick.AddListener(() =>
+        {
+            //EventManager.instance.CallBackEvent<QuestData>(CallBackEventType.TYPES.OnQusetUsingRewardOneDay, questData);
+            btnPassReward.interactable = false;
+        });
+    }
 
     public void SetRewardIcon(Sprite sprite) // 보상 아이콘의 스프라이트를 설정합니다.
     {

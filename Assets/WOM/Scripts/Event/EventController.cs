@@ -325,6 +325,10 @@ public class EventController : MonoBehaviour
         yield return StartCoroutine(globalData.monsterManager.Init(globalData.player.stageIdx));
 
         yield return StartCoroutine(MonsterAppearCor(MonsterType.normal));
+
+        // 퀘스트 - 배틀 패스 스테이지 완료 블록 이미지 해제
+        globalData.questManager.questPopup.UnlockBattlePassSlot(newStageIdx);
+
     }
 
     // 던전 몬스터 도전으로 인한 현재 몬스터 잠시 사라지도록

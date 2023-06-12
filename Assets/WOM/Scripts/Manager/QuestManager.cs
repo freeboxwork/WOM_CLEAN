@@ -33,12 +33,14 @@ public class QuestManager : MonoBehaviour
     {
         EventManager.instance.AddCallBackEvent<QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, IncreaseCountOneDayQuest);
         EventManager.instance.AddCallBackEvent<QuestData>(CallBackEventType.TYPES.OnQusetUsingRewardOneDay, EvnUsingReward);
+        EventManager.instance.AddCallBackEvent<string, int>(CallBackEventType.TYPES.OnQuestCompleteBattlePassStage, EvnUsingRewardBattlePassStage);
     }
 
     void RemoveEvents()
     {
         EventManager.instance.RemoveCallBackEvent<QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, IncreaseCountOneDayQuest);
         EventManager.instance.RemoveCallBackEvent<QuestData>(CallBackEventType.TYPES.OnQusetUsingRewardOneDay, EvnUsingReward);
+        EventManager.instance.RemoveCallBackEvent<string, int>(CallBackEventType.TYPES.OnQuestCompleteBattlePassStage, EvnUsingRewardBattlePassStage);
     }
 
 
@@ -92,8 +94,8 @@ public class QuestManager : MonoBehaviour
             var slot = questPopup.battlePassSlots[i];
             questPopup.SetUIBattlePassSlot(slot, clonData);
         }
-
     }
+
 
     void LoadQuestDataFromUserMemory(QuestData data)
     {
@@ -195,6 +197,12 @@ public class QuestManager : MonoBehaviour
         //GlobalData.instance.rewardManager.RewardByType(GetRewardTypeByTypeName(data.rewardType), data.rewardValue);
     }
 
+    void EvnUsingRewardBattlePassStage(string rewardType, int rewardValue)
+    {
+        // 리워드 팝업 띄우기
+        var rewardTypeValue = UtilityMethod.GetRewardTypeByTypeName(rewardType);
+        PopupController.instance.InitPopup(rewardTypeValue, rewardValue);
+    }
 
 
 

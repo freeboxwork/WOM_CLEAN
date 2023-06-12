@@ -94,18 +94,15 @@ public class QuestPopup : MonoBehaviour
         slot.SetTxtStage(data.targetStage.ToString());
         slot.SetTxtRewardValue(data.commonRewardCount.ToString());
         slot.SetTxtPassRewardValue(data.passRewardCount.ToString());
-
-        // TODO: set icon image
+        slot.battlePassData = data;
+        //slot.targetStage = data.targetStage;
+        // set icon image
         var rewardIcon = GlobalData.instance.spriteDataManager.GetRewardIcon(UtilityMethod.GetRewardTypeByTypeName(data.rewardType));
         slot.SetRewardIcon(rewardIcon);
         slot.SetPassRewardIcon(rewardIcon);
     }
 
-    void InitRepeatQuestUI(List<QuestData> questDatas)
-    {
 
-
-    }
 
     public QuestSlot GetQuestSlotByQuestTypeOneDay(EnumDefinition.QuestTypeOneDay type)
     {
@@ -126,6 +123,26 @@ public class QuestPopup : MonoBehaviour
         }
 
         return questTypeEnum;
+    }
+
+
+    public void UnlockBattlePassSlot(int stageId)
+    {
+        var slot = GetBattlePassSlotByStage(stageId);
+        slot.SetBlockImage(false);
+    }
+
+    public void UnlockBattlePassSlotItem(int stageId)
+    {
+        var slot = GetBattlePassSlotByStage(stageId);
+        slot.SetBlockPassImage(false);
+    }
+
+
+
+    BattlePassSlot GetBattlePassSlotByStage(int stage)
+    {
+        return battlePassSlots.Where(x => x.battlePassData.targetStage == stage).FirstOrDefault();
     }
 
 }

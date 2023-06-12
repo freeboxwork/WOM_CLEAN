@@ -92,6 +92,29 @@ public class EvolutionData
     }
 }
 
+
+[Serializable]
+public class AttendData
+{
+    public int id;
+    public int day;
+    public string rewardType;
+    public int rewardValue;
+
+    public AttendData CopyInstance()
+    {
+        return new AttendData
+        {
+            id = this.id,
+            day = this.day,
+            rewardType = this.rewardType,
+            rewardValue = this.rewardValue
+        };
+    }
+
+}
+
+
 [Serializable]
 public class EvolutionOptionData
 {

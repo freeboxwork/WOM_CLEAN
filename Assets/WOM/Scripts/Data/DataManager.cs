@@ -123,8 +123,10 @@ public class DataManager : MonoBehaviour
     public QuestDatas questDatasOneDay;
 
     // 배틀 패스 데이터
-
     public BattlePassDatas battlePassDatas;
+
+    // 출석 데이터
+    public AttendDatas attendDatas;
 
     void Start()
     {
@@ -245,6 +247,7 @@ public class DataManager : MonoBehaviour
     {
         questDatasOneDay = GetData<QuestDatas>(SheetDataType.questDataOneDay);
         battlePassDatas = GetData<BattlePassDatas>(SheetDataType.battlePassData);
+        attendDatas = GetData<AttendDatas>(SheetDataType.attendData);
     }
 
     public MineAndFactoryBuildingData GetBuildDataMineByLevel(int level)
@@ -679,4 +682,10 @@ public class QuestDatas
 public class BattlePassDatas
 {
     public List<BattlePassData> data = new List<BattlePassData>();
+}
+
+[Serializable]
+public class AttendDatas
+{
+    public List<AttendData> data = new List<AttendData>();
 }

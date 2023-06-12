@@ -73,9 +73,10 @@ public class EnumDefinition
         buindingDataLab,
         questDataOneDay,
         battlePassData,
+        attendData
     }
 
-    /// <summary> ?ï¿½ï¿½?ï¿½ï¿½ ë©”ë‰´ </summary>
+    /// <summary> ?????? ¸Ş´º </summary>
     public enum SaleStatType
     {
         trainingDamage,
@@ -125,7 +126,7 @@ public class EnumDefinition
     }
 
 
-    /// <summary> ?ï¿½ï¿½?ï¿½ï¿½????ï¿½ï¿½ </summary>
+    /// <summary> ???????????? </summary>
     public enum GoodsType
     {
         gold,
@@ -149,6 +150,8 @@ public class EnumDefinition
         coalKey,
         union,
         dna,
+        unionTicket,
+        dnaTicket,
         none,
     }
 
@@ -194,17 +197,17 @@ public class EnumDefinition
 
     public enum SkillType
     {
-        /// <summary> ê³¤ì¶© ê³µê²©?ï¿½ï¿½ ì¦ï¿½?? </summary>
+        /// <summary> °ïÃæ °ø°İ??? Áõ??? </summary>
         insectDamageUp,
-        /// <summary> ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ê³µê²©?ï¿½ï¿½ ì¦ï¿½?? </summary>
+        /// <summary> ????????? °ø°İ??? Áõ??? </summary>
         unionDamageUp,
-        /// <summary> ?ï¿½ï¿½ï¿½? ?ï¿½ï¿½ï¿½? ?ï¿½ï¿½?ï¿½ï¿½ ì¦ï¿½?? </summary>
+        /// <summary> ????? ????? ?????? Áõ??? </summary>
         allUnitSpeedUp,
-        /// <summary> ê³¨ë“œ ?ï¿½ï¿½?ï¿½ï¿½?ï¿½ï¿½ ì¦ï¿½?? </summary>
+        /// <summary> °ñµå ????????? Áõ??? </summary>
         glodBonusUp,
-        /// <summary> ê´´ìˆ˜ ëª¬ìŠ¤?ï¿½ï¿½ ?ï¿½ï¿½?ï¿½ï¿½ </summary>
+        /// <summary> ±«¼ö ¸ó½º??? ?????? </summary>
         monsterKing,
-        /// <summary> ?ï¿½ï¿½ï¿½? ?ï¿½ï¿½ï¿½? ì¹˜ëª…???  </summary>
+        /// <summary> ????? ????? Ä¡¸í???  </summary>
         allUnitCriticalChanceUp,
     }
 

@@ -14,6 +14,8 @@ public class QuestPopup : MonoBehaviour
     public Button btn_showBattlePass;
     public List<QuestSlot> questSlotsOneDay;
     public List<BattlePassSlot> battlePassSlots;
+    public List<AttendSlot> attendSlots;
+
     public GameObject questListOneDay;
     public GameObject attandPanel;
     public GameObject battlePassPanel;
@@ -100,6 +102,14 @@ public class QuestPopup : MonoBehaviour
         var rewardIcon = GlobalData.instance.spriteDataManager.GetRewardIcon(UtilityMethod.GetRewardTypeByTypeName(data.rewardType));
         slot.SetRewardIcon(rewardIcon);
         slot.SetPassRewardIcon(rewardIcon);
+    }
+
+    public void SetUIAttendSlot(AttendSlot slot, AttendData data)
+    {
+        slot.SetTxtDayCount(data.day.ToString());
+        slot.SetTxtRewardValue(data.rewardValue.ToString());
+        slot.SetRewardIcon(GlobalData.instance.spriteDataManager.GetRewardIcon(UtilityMethod.GetRewardTypeByTypeName(data.rewardType)));
+        slot.attendData = data;
     }
 
 

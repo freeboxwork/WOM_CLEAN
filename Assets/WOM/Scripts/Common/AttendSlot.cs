@@ -4,6 +4,7 @@ using UnityEngine.UI;
 
 public class AttendSlot : MonoBehaviour
 {
+    public AttendData attendData;
     public Image imgRewardIcon;
     public TextMeshProUGUI txtRewardValue;
     public TextMeshProUGUI txtDayCount;
@@ -37,7 +38,7 @@ public class AttendSlot : MonoBehaviour
 
     public void SetTxtDayCount(string value) // 보상 가치의 텍스트를 설정합니다.
     {
-        txtDayCount.text = value;
+        txtDayCount.text = $"{value} Day";
     }
 
     public void SetBlockImage(bool isActive)

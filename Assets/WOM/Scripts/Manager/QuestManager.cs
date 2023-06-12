@@ -49,6 +49,7 @@ public class QuestManager : MonoBehaviour
         SetBtnEvent();
         AddOneDayQuestData();
         AddBattlePassData();
+        AddAttendData();
         yield return null;
     }
 
@@ -93,6 +94,17 @@ public class QuestManager : MonoBehaviour
             var clonData = battlePassData[i].ClonInstance();
             var slot = questPopup.battlePassSlots[i];
             questPopup.SetUIBattlePassSlot(slot, clonData);
+        }
+    }
+
+    void AddAttendData()
+    {
+        var attendData = GlobalData.instance.dataManager.attendDatas.data;
+        for (int i = 0; i < attendData.Count; i++)
+        {
+            var clonData = attendData[i].CopyInstance();
+            var slot = questPopup.attendSlots[i];
+            questPopup.SetUIAttendSlot(slot, clonData);
         }
     }
 

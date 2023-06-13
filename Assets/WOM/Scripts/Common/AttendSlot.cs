@@ -12,6 +12,10 @@ public class AttendSlot : MonoBehaviour
 
     public Button btnReward;
 
+    bool isUsingReward = false;
+
+
+
     private void Start()
     {
         SetBtnEvents();
@@ -47,7 +51,10 @@ public class AttendSlot : MonoBehaviour
     }
 
 
-
+    // bool HasUsingReward()
+    // {
+    //     //return PlayerPrefs.(attendData.id) == 1;
+    // }
 
 
 

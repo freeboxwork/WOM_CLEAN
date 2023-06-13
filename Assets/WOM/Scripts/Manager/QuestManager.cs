@@ -19,6 +19,9 @@ public class QuestManager : MonoBehaviour
 
     public QuestResetTimer questResetTimer;
 
+    public AttendTimer attendTimer;
+
+
     void Start()
     {
         AddEvents();
@@ -49,6 +52,12 @@ public class QuestManager : MonoBehaviour
         SetBtnEvent();
         AddOneDayQuestData();
         AddBattlePassData();
+
+        // 일일 출석 보상 타이머를 계산한다.
+        attendTimer.CalcAttendTimer();
+
+        yield return new WaitForEndOfFrame();
+
         AddAttendData();
         yield return null;
     }
@@ -100,11 +109,12 @@ public class QuestManager : MonoBehaviour
     void AddAttendData()
     {
         var attendData = GlobalData.instance.dataManager.attendDatas.data;
+        var unLockCount = PlayerPrefs.GetInt("unlocked_attend_count");
         for (int i = 0; i < attendData.Count; i++)
         {
             var clonData = attendData[i].CopyInstance();
             var slot = questPopup.attendSlots[i];
-            questPopup.SetUIAttendSlot(slot, clonData);
+            questPopup.SetUIAttendSlot(slot, clonData, unLockCount);
         }
     }
 

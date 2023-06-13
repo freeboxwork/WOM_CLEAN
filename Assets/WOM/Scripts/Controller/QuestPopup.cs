@@ -104,11 +104,15 @@ public class QuestPopup : MonoBehaviour
         slot.SetPassRewardIcon(rewardIcon);
     }
 
-    public void SetUIAttendSlot(AttendSlot slot, AttendData data)
+    public void SetUIAttendSlot(AttendSlot slot, AttendData data, int unlockCount)
     {
         slot.SetTxtDayCount(data.day.ToString());
         slot.SetTxtRewardValue(data.rewardValue.ToString());
         slot.SetRewardIcon(GlobalData.instance.spriteDataManager.GetRewardIcon(UtilityMethod.GetRewardTypeByTypeName(data.rewardType)));
+
+        var isUnLock = data.id > unlockCount;
+        slot.SetBlockImage(isUnLock);
+
         slot.attendData = data;
     }
 

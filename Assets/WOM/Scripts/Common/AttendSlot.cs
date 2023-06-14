@@ -25,7 +25,16 @@ public class AttendSlot : MonoBehaviour
     {
         btnReward.onClick.AddListener(() =>
         {
-            //EventManager.instance.RunEvent<int>(CallBackEventType.TYPES.OnQuestCompleteAttend, int.Parse(txtDayCount.text));
+            // var rewardType = UtilityMethod.GetRewardTypeByTypeName(attendData.rewardType);
+            // 보상 지급
+            EventManager.instance.RunEvent<string, int>(CallBackEventType.TYPES.OnUsingRewardAttend, attendData.rewardType, attendData.rewardValue);
+
+            var saveKey = $"{GlobalData.instance.questManager.keyAttendUsedReawrd}_{attendData.day}";
+
+            Debug.Log($"saveKey : {saveKey}");
+
+            PlayerPrefs.SetInt(saveKey, 1);
+
             btnReward.interactable = false;
         });
     }
@@ -51,10 +60,11 @@ public class AttendSlot : MonoBehaviour
     }
 
 
-    // bool HasUsingReward()
-    // {
-    //     //return PlayerPrefs.(attendData.id) == 1;
-    // }
+    // btn_showQuestPopup 의interactable 를 설정합니다.
+    public void SetBtnRewardInteractable(bool isActive)
+    {
+        btnReward.interactable = isActive;
+    }
 
 
 

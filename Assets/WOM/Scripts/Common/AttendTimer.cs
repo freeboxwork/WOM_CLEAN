@@ -45,8 +45,12 @@ public class AttendTimer : MonoBehaviour
     void CalcAttendCount()
     {
         var now = DateTime.Now.ToString("yyyy-MM-dd");
+
+        // test code
         var nowDate = DateTime.Parse(attendTestCurDateValue);
         var lastDate = DateTime.Parse(attendTestPrevDateValue);
+
+        //var nowDate = DateTime.Parse(now);
         //var lastDate = DateTime.Parse(PlayerPrefs.GetString(LAST_ATTEND_DATE_KEY));
 
         TimeSpan timeSpan = nowDate.Subtract(lastDate);
@@ -66,6 +70,19 @@ public class AttendTimer : MonoBehaviour
             if (countValue >= maxCount)
             {
                 PlayerPrefs.SetInt(UNLOCKED_ATTEND_COUNT_KEY, 0);
+
+
+                // 리워드 지급 여부 리셋
+                var resetData = GlobalData.instance.dataManager.attendDatas.data;
+                for (int i = 0; i < resetData.Count; i++)
+                {
+                    var loadKey = $"{GlobalData.instance.questManager.keyAttendUsedReawrd}_{resetData[i].day}";
+                    var hasKey = PlayerPrefs.HasKey(loadKey);
+                    if (hasKey)
+                    {
+                        PlayerPrefs.SetInt(loadKey, 0);
+                    }
+                }
             }
         }
         else if (totalDays == 0)

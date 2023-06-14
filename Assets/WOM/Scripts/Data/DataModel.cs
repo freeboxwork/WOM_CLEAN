@@ -100,6 +100,8 @@ public class AttendData
     public int day;
     public string rewardType;
     public int rewardValue;
+    public bool usedReward;
+    public bool usedPassReward;
 
     public AttendData CopyInstance()
     {
@@ -108,10 +110,11 @@ public class AttendData
             id = this.id,
             day = this.day,
             rewardType = this.rewardType,
-            rewardValue = this.rewardValue
+            rewardValue = this.rewardValue,
+            usedReward = this.usedReward,
+            usedPassReward = this.usedPassReward
         };
     }
-
 }
 
 

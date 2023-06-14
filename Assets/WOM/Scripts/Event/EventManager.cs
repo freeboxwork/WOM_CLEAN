@@ -11,7 +11,7 @@ public class EventManager : MonoBehaviour
     public delegate void CallBackEvent();
     public delegate void CallBackEvent<F>(F arg);
     public delegate void CallBackEvent<F, S>(F arg_1, S arg_2);
-    public delegate void CallBackEvent<F, S, T >(F arg_1, S arg_2, T arg_3);
+    public delegate void CallBackEvent<F, S, T>(F arg_1, S arg_2, T arg_3);
 
     public Hashtable eventHash = new Hashtable();
 
@@ -112,7 +112,7 @@ public class EventManager : MonoBehaviour
 
 
     // 3 ARGUMENT
-    public void AddCallBackEvent<F, S, T>(CallBackEventType.TYPES _type, CallBackEvent<F, S , T> _event)
+    public void AddCallBackEvent<F, S, T>(CallBackEventType.TYPES _type, CallBackEvent<F, S, T> _event)
     {
         var callBacks = (List<CallBackEvent<F, S, T>>)eventHash[_type];
         if (callBacks == null)
@@ -146,12 +146,12 @@ public class EventManager : MonoBehaviour
 
     void PrintRemoveException(CallBackEventType.TYPES _type)
     {
-        Debug.LogError($"µî·ÏµÇ¾î ÀÖÁö ¾ÊÀº Å¸ÀÔ ÀÌ¹Ç·Î <b><color=red> Á¦°Å ÇÒ ¼ö ¾ø½À´Ï´Ù. </color></b>. Null Type : {_type}");
+        Debug.LogError($"ï¿½ï¿½ÏµÇ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ì¹Ç·ï¿½ <b><color=red> ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. </color></b>. Null Type : {_type}");
     }
 
     void PrintRunException(CallBackEventType.TYPES _type)
     {
-        Debug.LogError($"µî·ÏµÇ¾î ÀÖÁö ¾ÊÀº Å¸ÀÔ ÀÌ¹Ç·Î <b><color=red> ½ÇÇà ÇÒ ¼ö ¾ø½À´Ï´Ù. </color></b> Null Type : {_type}");
+        Debug.LogError($"ï¿½ï¿½ÏµÇ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ ï¿½Ì¹Ç·ï¿½ <b><color=red> ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. </color></b> Null Type : {_type}");
     }
 
 

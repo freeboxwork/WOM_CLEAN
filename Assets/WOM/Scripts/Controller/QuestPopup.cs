@@ -110,9 +110,24 @@ public class QuestPopup : MonoBehaviour
         slot.SetTxtRewardValue(data.rewardValue.ToString());
         slot.SetRewardIcon(GlobalData.instance.spriteDataManager.GetRewardIcon(UtilityMethod.GetRewardTypeByTypeName(data.rewardType)));
 
-        var isUnLock = data.id > unlockCount;
-        slot.SetBlockImage(isUnLock);
+        var isLock = data.id > unlockCount;
+        slot.SetBlockImage(isLock);
 
+
+        // 리워드 사용 확인
+        if (isLock == false)
+        {
+            var loadKey = $"{GlobalData.instance.questManager.keyAttendUsedReawrd}_{data.day}";
+            var hasKey = PlayerPrefs.HasKey(loadKey);
+
+            Debug.Log($"hasKey : {hasKey} , loadKey : {loadKey} ");
+
+            if (hasKey)
+            {
+                var enableValue = PlayerPrefs.GetInt(loadKey) == 0 ? true : false;
+                slot.SetBtnRewardInteractable(enableValue);
+            }
+        }
         slot.attendData = data;
     }
 

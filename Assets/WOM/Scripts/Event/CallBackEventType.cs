@@ -16,6 +16,8 @@ public class CallBackEventType
         OnQusetUsingRewardOneDay,       /// <summary> 일일 퀘스트 보상 받았을때  </summary>
         OnQusetClearRepeatCounting,     /// <summary> 반복 퀘스트 완료 했을때  </summary>
         OnQuestCompleteBattlePassStage, /// <summary> 배틀패스 - 스테이지 퀘스트 완료 했을때  </summary>
+        OnUsingRewardAttend,            /// <summary> 출석 보상 받았을때  </summary>
+
         None,
     }
 }

@@ -26,9 +26,15 @@ public class RewardManager : MonoBehaviour
         rewardDic.Add(EnumDefinition.RewardType.gem, GlobalData.instance.player.AddGem);
         rewardDic.Add(EnumDefinition.RewardType.clearTicket, GlobalData.instance.player.AddClearTicket);
         rewardDic.Add(EnumDefinition.RewardType.union, GlobalData.instance.unionManager.AddUnion);
+        rewardDic.Add(EnumDefinition.RewardType.unionTicket, RewardNull);
+        rewardDic.Add(EnumDefinition.RewardType.dnaTicket, RewardNull);
     }
 
-
+    // 보상이 정해지지 않았을때 호출되는 함수
+    void RewardNull(int value)
+    {
+        Debug.Log("보상이 정해지지 않았습니다.");
+    }
 
     // unionRewardQueue 에 인자로 값을 받아서 넣는 함수
     public void AddUnionReward(int unionIndex)

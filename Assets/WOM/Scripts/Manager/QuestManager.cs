@@ -21,6 +21,8 @@ public class QuestManager : MonoBehaviour
 
     public AttendTimer attendTimer;
 
+    public string keyAttendUsedReawrd = "_attendUsedReward";
+
 
     void Start()
     {
@@ -37,6 +39,7 @@ public class QuestManager : MonoBehaviour
         EventManager.instance.AddCallBackEvent<QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, IncreaseCountOneDayQuest);
         EventManager.instance.AddCallBackEvent<QuestData>(CallBackEventType.TYPES.OnQusetUsingRewardOneDay, EvnUsingReward);
         EventManager.instance.AddCallBackEvent<string, int>(CallBackEventType.TYPES.OnQuestCompleteBattlePassStage, EvnUsingRewardBattlePassStage);
+        EventManager.instance.AddCallBackEvent<string, int>(CallBackEventType.TYPES.OnUsingRewardAttend, EvnUsingRewardAttend);
     }
 
     void RemoveEvents()
@@ -44,6 +47,7 @@ public class QuestManager : MonoBehaviour
         EventManager.instance.RemoveCallBackEvent<QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, IncreaseCountOneDayQuest);
         EventManager.instance.RemoveCallBackEvent<QuestData>(CallBackEventType.TYPES.OnQusetUsingRewardOneDay, EvnUsingReward);
         EventManager.instance.RemoveCallBackEvent<string, int>(CallBackEventType.TYPES.OnQuestCompleteBattlePassStage, EvnUsingRewardBattlePassStage);
+        EventManager.instance.RemoveCallBackEvent<string, int>(CallBackEventType.TYPES.OnUsingRewardAttend, EvnUsingRewardAttend);
     }
 
 
@@ -226,6 +230,12 @@ public class QuestManager : MonoBehaviour
         PopupController.instance.InitPopup(rewardTypeValue, rewardValue);
     }
 
+    void EvnUsingRewardAttend(string rewardType, int rewardValue)
+    {
+        // 리워드 팝업 띄우기
+        var rewardTypeValue = UtilityMethod.GetRewardTypeByTypeName(rewardType);
+        PopupController.instance.InitPopup(rewardTypeValue, rewardValue);
+    }
 
 
 

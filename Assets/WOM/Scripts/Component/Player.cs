@@ -152,6 +152,8 @@ public class Player : MonoBehaviour
     {
         coal += value;
         // set ui;
+        // set save data;
+        GlobalData.instance.saveDataManager.SaveDataGoodsCoal(coal);
     }
 
     public void AddClearTicket(int value)
@@ -160,6 +162,8 @@ public class Player : MonoBehaviour
 
         // set ui 
         GlobalData.instance.dungeonEnterPopup.SetTxtClierTicket(clearTicket);
+        // set save data;
+        GlobalData.instance.saveDataManager.SaveDataGoodsClearTicket(clearTicket);
     }
 
 
@@ -211,6 +215,8 @@ public class Player : MonoBehaviour
 
         // set ui
 
+        // set save data;
+        GlobalData.instance.saveDataManager.SaveDataGoodsCoal(coal);
     }
 
     public void PayClearTicekt(int value)

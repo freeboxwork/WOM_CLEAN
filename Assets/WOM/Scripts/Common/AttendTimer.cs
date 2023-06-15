@@ -67,10 +67,10 @@ public class AttendTimer : MonoBehaviour
 
             var maxCount = GlobalData.instance.dataManager.attendDatas.data.Max(x => x.day);
 
+            // 리셋
             if (countValue >= maxCount)
             {
                 PlayerPrefs.SetInt(UNLOCKED_ATTEND_COUNT_KEY, 0);
-
 
                 // 리워드 지급 여부 리셋
                 var resetData = GlobalData.instance.dataManager.attendDatas.data;

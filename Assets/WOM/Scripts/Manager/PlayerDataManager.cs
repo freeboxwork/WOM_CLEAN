@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
-using System;
 
 public class PlayerDataManager : MonoBehaviour
 {
@@ -14,7 +12,7 @@ public class PlayerDataManager : MonoBehaviour
 
     void Start()
     {
-   
+
     }
 
     public IEnumerator InitPlayerData()
@@ -30,7 +28,7 @@ public class PlayerDataManager : MonoBehaviour
 
     }
 
-   
+
 
     void SetGamePlayStartDateTime()
     {
@@ -41,11 +39,11 @@ public class PlayerDataManager : MonoBehaviour
     {
         SavePlayerData();
 
-        
+
     }
 
 
-    
+
 
     void Update()
     {
@@ -57,7 +55,7 @@ public class PlayerDataManager : MonoBehaviour
     IEnumerator LoadPlayerData()
     {
         // first connect
-        if (GetFirstConnectValue())
+        if (!GetFirstConnectValue())
         {
             // 첫 접속은 0번 데이터로 셋팅.
             saveData = new SaveData();
@@ -72,10 +70,19 @@ public class PlayerDataManager : MonoBehaviour
             saveData.beeSaveData = GetFirstConnectInsectData(EnumDefinition.InsectType.bee);
             saveData.beetleSaveData = GetFirstConnectInsectData(EnumDefinition.InsectType.beetle);
             saveData.mentisSaveData = GetFirstConnectInsectData(EnumDefinition.InsectType.mentis);
+
+            //PlayerPrefs.SetInt(isFirstConnectKey, 1);
         }
         else
         {
+            var saveDataTotal = GlobalData.instance.saveDataManager.saveDataTotal;
             // json data load
+            saveData = new SaveData();
+            saveData.isFirstConnect = false;
+            saveData.stageIdx = saveDataTotal.saveDataStage.stageLevel;
+            saveData.gold = saveDataTotal.saveDataGoods.gold;
+
+            Debug.Log("saveDataTotal.saveDataGoods.gold : " + saveDataTotal.saveDataGoods.gold);
 
         }
 
@@ -84,8 +91,7 @@ public class PlayerDataManager : MonoBehaviour
 
     bool GetFirstConnectValue()
     {
-        var isFirstConnect = !PlayerPrefs.HasKey(isFirstConnectKey);
-        return isFirstConnect;
+        return PlayerPrefs.HasKey(isFirstConnectKey);
     }
 
 
@@ -94,7 +100,7 @@ public class PlayerDataManager : MonoBehaviour
     {
         // set firstConnect
         //  PlayerPrefs.SetInt(isFirstConnectKey, 1);
-        
+
         // Sample Code
         // TODO : 각 데이터에서 값 로드 하여 저장
         saveData = new SaveData();
@@ -152,7 +158,7 @@ public class PlayerDataManager : MonoBehaviour
 
     // load data
     void LoadData()
-    {                
+    {
         var existFile = File.Exists(path);
         if (existFile)
         {

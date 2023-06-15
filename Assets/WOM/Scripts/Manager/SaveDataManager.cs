@@ -5,7 +5,6 @@ using System.IO;
 using System;
 using static EnumDefinition;
 using System.Linq;
-using UnityEngine.Playables;
 
 public class SaveDataManager : MonoBehaviour
 {
@@ -21,14 +20,12 @@ public class SaveDataManager : MonoBehaviour
 
     }
 
-   
+
 
 
     public IEnumerator Init()
     {
-        LoadDataFromFile(); 
-        
-        
+        LoadDataFromFile();
 
         //SetData();
 
@@ -36,15 +33,6 @@ public class SaveDataManager : MonoBehaviour
 
         // Save Json File
         //SaveDataToFile();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-       if(Input.GetKeyUp(KeyCode.J))
-        {
-            SampleSaveJsonData();
-        }
     }
 
 
@@ -56,7 +44,7 @@ public class SaveDataManager : MonoBehaviour
         saveDataTest.level = 1;
         saveDataTest.saveDataUnions.Add(new SaveDataUnion() { equipSlotId = 1, level = 2, isEquip = false, unionId = 20 });
 
-        var data = JsonUtility.ToJson(saveDataTest,true);
+        var data = JsonUtility.ToJson(saveDataTest, true);
         File.WriteAllText(Application.dataPath + "/data.json", data);
     }
 
@@ -68,6 +56,23 @@ public class SaveDataManager : MonoBehaviour
         File.WriteAllText(path, jsonData);
     }
 
+    public IEnumerator SaveDataToFileCoroutine()
+    {
+        // ui interaction disable
+        UtilityMethod.EnableUIEventSystem(false);
+        // 데이터 저장                
+        var jsonData = JsonUtility.ToJson(saveDataTotal);
+        var path = GetSaveDataFilePaht();
+        File.WriteAllText(path, jsonData);
+        yield return new WaitForEndOfFrame();
+        // 종료
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#elif UNITY_ANDROID
+        Application.Quit(); 
+#endif    
+    }
+
     void LoadDataFromFile()
     {
         var path = GetSaveDataFilePaht();
@@ -75,19 +80,31 @@ public class SaveDataManager : MonoBehaviour
         {
             var file = File.ReadAllText(path);
             saveDataTotal = JsonUtility.FromJson<SaveDataTotal>(file);
+            //SetData();
         }
         else
         {
-            SetData();
+            InitData();
             SaveDataToFile();
         }
     }
 
+    // 저장된 파일에서 데이터 읽어오기
     public void SetData()
+    {
+        var player = globalData.player;
+        player.gold = saveDataTotal.saveDataGoods.gold;
+        player.bone = saveDataTotal.saveDataGoods.bone;
+        player.diceCount = saveDataTotal.saveDataGoods.dice;
+        player.gem = saveDataTotal.saveDataGoods.gem;
+        player.clearTicket = saveDataTotal.saveDataGoods.clearTicket;
+        //TODO: dungen key 추가 작업 필요함
+    }
+
+    public void InitData()
     {
         saveDataTotal = new SaveDataTotal();
 
-        // TODO: JSON 데이터에서 파일 읽어와야 함
 
         // set traning 
         saveDataTotal.saveDataTranings = new SaveDataTranings();
@@ -99,20 +116,20 @@ public class SaveDataManager : MonoBehaviour
 
         // set union 
         saveDataTotal.saveDataUnions = new SaveDataUnions();
-        //foreach(var union in globalData.dataManager.unionDatas.data)
-        //{
-        //    saveDataTotal.saveDataUnions.unions.Add(new SaveDataUnion {unionId = union.unionIndex });
-        //}
+        foreach (var union in globalData.dataManager.unionDatas.data)
+        {
+            saveDataTotal.saveDataUnions.unions.Add(new SaveDataUnion { unionId = union.unionIndex });
+        }
 
         // 성능 테스트
-        for (int i = 0; i < 64; i++)
-        {
-            saveDataTotal.saveDataUnions.unions.Add(new SaveDataUnion { unionId = i });
-        }
+        // for (int i = 0; i < 64; i++)
+        // {
+        //     saveDataTotal.saveDataUnions.unions.Add(new SaveDataUnion { unionId = i });
+        // }
 
         // set DNA
         saveDataTotal.saveDataDNAs = new SaveDataDNAs();
-        foreach(DNAType type in Enum.GetValues(typeof(DNAType)))
+        foreach (DNAType type in Enum.GetValues(typeof(DNAType)))
         {
             saveDataTotal.saveDataDNAs.saveDatas.Add(new SaveDataDNA { dnaType = type });
         }
@@ -139,12 +156,12 @@ public class SaveDataManager : MonoBehaviour
         return saveData;
     }
 
-   
+
     // 트레이닝 데이터 세팅
 
     public void SetLevelByTraningType(EnumDefinition.SaleStatType traningType, int newLevel)
     {
-        SaveDataTraning traningData = GetSaveDataByType(saveDataTotal.saveDataTranings.tranings, 
+        SaveDataTraning traningData = GetSaveDataByType(saveDataTotal.saveDataTranings.tranings,
             f => f.traningType == traningType, traningType.ToString());
 
         if (traningData != null)
@@ -157,7 +174,7 @@ public class SaveDataManager : MonoBehaviour
     // DNA 데이터 세팅
     public void SetLevelDNAByType(DNAType dnaType, int level)
     {
-        SaveDataDNA dnaData = GetSaveDataByType(saveDataTotal.saveDataDNAs.saveDatas, 
+        SaveDataDNA dnaData = GetSaveDataByType(saveDataTotal.saveDataDNAs.saveDatas,
             f => f.dnaType == dnaType, dnaType.ToString());
         dnaData.level = level;
     }
@@ -167,7 +184,7 @@ public class SaveDataManager : MonoBehaviour
     {
         saveDataTotal.saveDataEvolution.level_evolution = evolutionLevel;
     }
-    public void SetEvolutionInGameData( DiceEvolutionInGameData inGameData)
+    public void SetEvolutionInGameData(DiceEvolutionInGameData inGameData)
     {
         saveDataTotal.saveDataEvolution.diceEvolutionData = inGameData.CopyInstance();
     }
@@ -259,7 +276,7 @@ public class SaveDataManager : MonoBehaviour
     // 재화 데이터 세팅
     public void SaveDataGoodsGold(int gold)
     {
-        saveDataTotal.saveDataGoods.gold = gold;    
+        saveDataTotal.saveDataGoods.gold = gold;
     }
     public void SaveDataGoodsGem(int gem)
     {
@@ -273,6 +290,22 @@ public class SaveDataManager : MonoBehaviour
     {
         saveDataTotal.saveDataGoods.dice = dice;
     }
+    public void SaveDataGoodsCoal(int coal)
+    {
+        saveDataTotal.saveDataGoods.coal = coal;
+    }
+    public void SaveDataGoodsClearTicket(int clearTicket)
+    {
+        saveDataTotal.saveDataGoods.clearTicket = clearTicket;
+    }
+
+
+    // 추가 작업 필요
+    public void SaveDataGoodsDungeonKey(int dungeonKey)
+    {
+        //saveDataTotal.saveDataGoods.dungeonKey = dungeonKey;
+    }
+
 
     // 타임 데이터 세팅
     public void SaveDataTimeGameEnd(DateTime time)
@@ -297,7 +330,7 @@ public class SaveDataManager : MonoBehaviour
 
     public void SaveDataSystem_SFX_BG_Volume(float value)
     {
-        saveDataTotal.saveDataSystem.sfx_bg_Volume = value; 
+        saveDataTotal.saveDataSystem.sfx_bg_Volume = value;
     }
     public void SaveDataSystem_SFX_BG_Eff(float value)
     {
@@ -313,7 +346,7 @@ public class SaveDataManager : MonoBehaviour
     {
         string path = "";
 #if UNITY_EDITOR
-        path = Application.dataPath + "/"+ dataFileName;
+        path = Application.dataPath + "/" + dataFileName;
 #elif UNITY_ANDROID
             path = Application.persistentDataPath + "/"+ dataFileName;
 #endif
@@ -335,7 +368,7 @@ public class SaveDataTest
 {
     public EnumDefinition.SkillType skillType;
     public int level;
-    public List<SaveDataUnion> saveDataUnions= new List<SaveDataUnion>();   
+    public List<SaveDataUnion> saveDataUnions = new List<SaveDataUnion>();
 }
 
 
@@ -452,7 +485,7 @@ public class SaveDataSkills
     monsterKing;
     allUnitCriticalChanceUp;
     */
-    public List<SaveDataSkill> saveDataSkills= new List<SaveDataSkill>();
+    public List<SaveDataSkill> saveDataSkills = new List<SaveDataSkill>();
 }
 
 [System.Serializable]
@@ -486,6 +519,9 @@ public class SaveDataGoods
     public int gem;
     public int bone;
     public int dice;
+    public int coal;
+    public int clearTicket;
+    public int dungeonKey_gold;
 }
 
 [System.Serializable]

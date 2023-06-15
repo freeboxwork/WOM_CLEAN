@@ -21,20 +21,6 @@ public class WomSystemMnager : MonoBehaviour
     }
 
 
-    // 게임 종료
-    void QuitGame()
-    {
-#if UNITY_EDITOR
-        // play 종료
-        UnityEditor.EditorApplication.isPlaying = false;
-#elif UNITY_ANDROID
-    // 안드로이드 종료
-    // 게임 데이터 저장
-    Application.Quit(); 
-#endif    
-    }
-
-
     void QuitPopupCancel()
     {
         // 팝업 닫기
@@ -43,7 +29,7 @@ public class WomSystemMnager : MonoBehaviour
 
     void QuitPopupApply()
     {
-        QuitGame();
+        StartCoroutine(GlobalData.instance.saveDataManager.SaveDataToFileCoroutine());
     }
 
 }

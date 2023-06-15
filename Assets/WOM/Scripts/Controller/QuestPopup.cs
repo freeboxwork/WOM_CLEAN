@@ -120,7 +120,7 @@ public class QuestPopup : MonoBehaviour
             var loadKey = $"{GlobalData.instance.questManager.keyAttendUsedReawrd}_{data.day}";
             var hasKey = PlayerPrefs.HasKey(loadKey);
 
-            Debug.Log($"hasKey : {hasKey} , loadKey : {loadKey} ");
+            // Debug.Log($"hasKey : {hasKey} , loadKey : {loadKey} ");
 
             if (hasKey)
             {

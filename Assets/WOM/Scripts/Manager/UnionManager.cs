@@ -66,6 +66,9 @@ public class UnionManager : MonoBehaviour
 
             // TODO: 저장된 데이터에서 불러와야 함
 
+            var saveData = GlobalData.instance.saveDataManager.GetSaveDataUnion(slot);
+
+
             // set level 
             slot.inGameData.level = 0;
 
@@ -74,6 +77,18 @@ public class UnionManager : MonoBehaviour
 
             // set equip type
             slot.unionEquipType = EnumDefinition.UnionEquipType.NotEquipped;
+
+
+            // // set level 
+            // slot.inGameData.level = saveData.level;
+
+            // // set reqirement count
+            // slot.inGameData.LevelUpReqirementCount = data.reqirementCount;
+
+            // // set equip type
+            // slot.unionEquipType = EnumDefinition.UnionEquipType.NotEquipped;
+
+
 
             // set slider value
             slot.SetSliderValue();
@@ -90,7 +105,8 @@ public class UnionManager : MonoBehaviour
             });
 
 
-            // SET IN GAME DATA ( TODO: 저장된 데이터에서 불러와야 함 )
+            // TODO: 저장된 데이터에서 불러와야 함
+            // SET IN GAME DATA (  ) 
             slot.inGameData.damage = GetUnionDamage(slot); // data.damage;
             slot.inGameData.spawnTime = data.spawnTime;
             slot.inGameData.moveSpeed = data.moveSpeed;

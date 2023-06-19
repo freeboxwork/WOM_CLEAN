@@ -237,11 +237,11 @@ public class SaveDataManager : MonoBehaviour
     }
 
 
-    SaveDataUnion GetSaveDataUnion(UnionSlot unionSlot)
+    public SaveDataUnion GetSaveDataUnion(UnionSlot unionSlot)
     {
         var inGmaeData = unionSlot.inGameData;
         var unionID = inGmaeData.unionIndex;
-        var union = GetSaveDataByType(saveDataTotal.saveDataUnions.unions, f => f.unionId == unionID, $"????? ID : {unionID}");
+        var union = GetSaveDataByType(saveDataTotal.saveDataUnions.unions, f => f.unionId == unionID, $"유니온 ID : {unionID}");
         return union;
     }
 
@@ -326,6 +326,7 @@ public class SaveDataManager : MonoBehaviour
         }
     }
 
+    // 던전 레벨 데이터 저장 -> 던전 레벨은 저장 하지 않음 무조건 0 부터 시작
 
 
 
@@ -551,6 +552,8 @@ public class SaveDataGoods
     public int dungeonKeyCoal;
     public int dungeonKeyDice;
 }
+
+
 
 [System.Serializable]
 public class SaveDataDateTime

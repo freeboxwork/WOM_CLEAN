@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.IO;
@@ -43,19 +42,21 @@ public class PerformanceTest : MonoBehaviour
 
     private void Start()
     {
-      
-        SetTotalSaveData();
+
+        // SetTotalSaveData();
         SetBtnEvent();
     }
 
     void SetBtnEvent()
     {
-        btnTestSingleClass.onClick.AddListener(() => {
+        btnTestSingleClass.onClick.AddListener(() =>
+        {
 
             StartCoroutine(RunPerformanceTestSaveDataSingle_Cor());
         });
 
-        btnTestTotalClass.onClick.AddListener(() => {
+        btnTestTotalClass.onClick.AddListener(() =>
+        {
 
             StartCoroutine(RunPerformanceTestSaveDataTotal_Cor());
         });
@@ -63,10 +64,10 @@ public class PerformanceTest : MonoBehaviour
 
     }
 
-    void SetTotalSaveData()
-    {
-        saveDataManager.SetData();
-    }
+    // void SetTotalSaveData()
+    // {
+    //     saveDataManager.SetData();
+    // }
 
     // todo : traning save data - data set....
     void SetTraningSaveData()
@@ -90,13 +91,13 @@ public class PerformanceTest : MonoBehaviour
     {
         for (int i = 0; i < iterations; i++)
         {
-            string filePath =  GetSaveDataFilePaht("testTotalSave.json");
+            string filePath = GetSaveDataFilePaht("testTotalSave.json");
             float startTime = Time.realtimeSinceStartup * 1000f;
 
-            
+
 
             //SerializeClassToJson(totalSaveData, filePath);
-           
+
 
             float endTime = Time.realtimeSinceStartup * 1000f;
             long elapsedTime = (long)(endTime - startTime);
@@ -169,7 +170,7 @@ public class PerformanceTest : MonoBehaviour
             txtCount.text = "COUNT : " + i;
 
             string filePath = GetSaveDataFilePaht("testTotalSave.json");
-           // float startTime = Time.realtimeSinceStartup * 1000f;
+            // float startTime = Time.realtimeSinceStartup * 1000f;
             var stopwatch = System.Diagnostics.Stopwatch.StartNew();
 
 

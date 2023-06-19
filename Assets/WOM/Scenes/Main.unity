@@ -3859,7 +3859,8 @@ MonoBehaviour:
       dice: 0
       coal: 0
       clearTicket: 0
-      dungeonKey_gold: 0
+      unionTicket: 0
+      dnaTicket: 0
     saveDataSystem:
       sfx_bgOnOff: 0
       sfx_bg_Volume: 0
@@ -55200,6 +55201,13 @@ MonoBehaviour:
         spawnTime: 0
     upgradeLevelIdx: 0
     gold: 0
+    bone: 0
+    gem: 0
+    dice: 0
+    coal: 0
+    clearTicker: 0
+    unionTicket: 0
+    dnaTicket: 0
     offlineTime: 
     playingTime: 
 --- !u!1 &1290506971

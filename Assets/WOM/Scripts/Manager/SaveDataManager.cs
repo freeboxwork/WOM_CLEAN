@@ -12,8 +12,8 @@ public class SaveDataManager : MonoBehaviour
     const string dataFileName = "saveData.json";
     public GlobalData globalData;
 
-    /* ¸Æ½º ·¹º§ Á¦ÇÑ°ª Ãß°¡ µÇ¾î¾ß ÇÔ */
-    // µ¥ÀÌÅÍ ·Îµå ÇßÀ»¶§ ÇöÀç ·¹º§ÀÌ ¸Æ½º ·¹º§ÀÓ¿¡µµ ±× ÀÌ»óÀÇ ·¹º§À» ¿ä±¸ÇÒ °æ¿ì ¹®Á¦°¡ »ý±â±â ¶§¹®¿¡ ÇÊÈ÷ ¿¹¿Ü Ã³¸® ÇØ¾ßÇÔ
+    /* ï¿½Æ½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ°ï¿½ ï¿½ß°ï¿½ ï¿½Ç¾ï¿½ï¿½ ï¿½ï¿½ */
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ó¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ä±¸ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ ï¿½Ø¾ï¿½ï¿½ï¿½
     void Start()
     {
         globalData = FindObjectOfType<GlobalData>();
@@ -60,12 +60,12 @@ public class SaveDataManager : MonoBehaviour
     {
         // ui interaction disable
         UtilityMethod.EnableUIEventSystem(false);
-        // µ¥ÀÌÅÍ ÀúÀå                
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½                
         var jsonData = JsonUtility.ToJson(saveDataTotal);
         var path = GetSaveDataFilePaht();
         File.WriteAllText(path, jsonData);
         yield return new WaitForEndOfFrame();
-        // Á¾·á
+        // ï¿½ï¿½ï¿½ï¿½
 #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
 #elif UNITY_ANDROID
@@ -89,7 +89,7 @@ public class SaveDataManager : MonoBehaviour
         }
     }
 
-    // ÀúÀåµÈ ÆÄÀÏ¿¡¼­ µ¥ÀÌÅÍ ÀÐ¾î¿À±â
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ð¾ï¿½ï¿½ï¿½ï¿½
     public void SetData()
     {
         var player = globalData.player;
@@ -98,7 +98,7 @@ public class SaveDataManager : MonoBehaviour
         player.diceCount = saveDataTotal.saveDataGoods.dice;
         player.gem = saveDataTotal.saveDataGoods.gem;
         player.clearTicket = saveDataTotal.saveDataGoods.clearTicket;
-        //TODO: dungen key Ãß°¡ ÀÛ¾÷ ÇÊ¿äÇÔ
+        //TODO: dungen key ï¿½ß°ï¿½ ï¿½Û¾ï¿½ ï¿½Ê¿ï¿½ï¿½ï¿½
     }
 
     public void InitData()
@@ -121,7 +121,7 @@ public class SaveDataManager : MonoBehaviour
             saveDataTotal.saveDataUnions.unions.Add(new SaveDataUnion { unionId = union.unionIndex });
         }
 
-        // ¼º´É Å×½ºÆ®
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½×½ï¿½Æ®
         // for (int i = 0; i < 64; i++)
         // {
         //     saveDataTotal.saveDataUnions.unions.Add(new SaveDataUnion { unionId = i });
@@ -151,13 +151,13 @@ public class SaveDataManager : MonoBehaviour
         var saveData = saveDataList.FirstOrDefault(predicate);
         if (saveData == null)
         {
-            throw new Exception($"{type}Àº Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+            throw new Exception($"{type}ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½.");
         }
         return saveData;
     }
 
 
-    // Æ®·¹ÀÌ´× µ¥ÀÌÅÍ ¼¼ÆÃ
+    // Æ®ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
     public void SetLevelByTraningType(EnumDefinition.SaleStatType traningType, int newLevel)
     {
@@ -171,7 +171,7 @@ public class SaveDataManager : MonoBehaviour
     }
 
 
-    // DNA µ¥ÀÌÅÍ ¼¼ÆÃ
+    // DNA ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public void SetLevelDNAByType(DNAType dnaType, int level)
     {
         SaveDataDNA dnaData = GetSaveDataByType(saveDataTotal.saveDataDNAs.saveDatas,
@@ -179,7 +179,7 @@ public class SaveDataManager : MonoBehaviour
         dnaData.level = level;
     }
 
-    // ÁøÈ­ µ¥ÀÌÅÍ ¼¼ÆÃ
+    // ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public void SetEvolutionLevel(int evolutionLevel)
     {
         saveDataTotal.saveDataEvolution.level_evolution = evolutionLevel;
@@ -200,12 +200,12 @@ public class SaveDataManager : MonoBehaviour
     //}
 
 
-    // À¯´Ï¿Â µ¥ÀÌÅÍ ¼¼ÆÃ
+    // ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     //public void SaveUnionData(UnionSlot unionSlot)
     //{
     //    var inGmaeData = unionSlot.inGameData;
     //    var unionID = inGmaeData.unionIndex;
-    //    var union = GetSaveDataByType(saveDataTotal.saveDataUnions.unions, f => f.unionId == unionID, $"À¯´Ï¿Â ID : {unionID}");
+    //    var union = GetSaveDataByType(saveDataTotal.saveDataUnions.unions, f => f.unionId == unionID, $"ï¿½ï¿½ï¿½Ï¿ï¿½ ID : {unionID}");
 
     //    // union.unionId = inGmaeData.unionIndex;
     //    union.level = inGmaeData.level;
@@ -241,12 +241,12 @@ public class SaveDataManager : MonoBehaviour
     {
         var inGmaeData = unionSlot.inGameData;
         var unionID = inGmaeData.unionIndex;
-        var union = GetSaveDataByType(saveDataTotal.saveDataUnions.unions, f => f.unionId == unionID, $"À¯´Ï¿Â ID : {unionID}");
+        var union = GetSaveDataByType(saveDataTotal.saveDataUnions.unions, f => f.unionId == unionID, $"ï¿½ï¿½ï¿½Ï¿ï¿½ ID : {unionID}");
         return union;
     }
 
 
-    //½ºÅ³ µ¥ÀÌÅÍ ¼¼ÆÃ
+    //ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public void SaveSkillData(SkillType skillType, Skill_InGameData skill_InGameData)
     {
         SaveDataSkill skillData = GetSaveDataByType(saveDataTotal.saveDataSkills.saveDataSkills,
@@ -258,10 +258,10 @@ public class SaveDataManager : MonoBehaviour
         skillData.leftSkillTime = skill_InGameData.skillLeftTime;
     }
 
-    // SHOP µ¥ÀÌÅÍ ¼¼ÆÃ
+    // SHOP ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 
-    // ½ºÅ×ÀÌÁö µ¥ÀÌÅÍ ¼¼ÆÃ
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public void SaveStageDataLevel(int stageLevel)
     {
         saveDataTotal.saveDataStage.stageLevel = stageLevel;
@@ -273,7 +273,7 @@ public class SaveDataManager : MonoBehaviour
     }
 
 
-    // ÀçÈ­ µ¥ÀÌÅÍ ¼¼ÆÃ
+    // ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public void SaveDataGoodsGold(int gold)
     {
         saveDataTotal.saveDataGoods.gold = gold;
@@ -300,14 +300,14 @@ public class SaveDataManager : MonoBehaviour
     }
 
 
-    // Ãß°¡ ÀÛ¾÷ ÇÊ¿ä
+    // ï¿½ß°ï¿½ ï¿½Û¾ï¿½ ï¿½Ê¿ï¿½
     public void SaveDataGoodsDungeonKey(int dungeonKey)
     {
         //saveDataTotal.saveDataGoods.dungeonKey = dungeonKey;
     }
 
 
-    // Å¸ÀÓ µ¥ÀÌÅÍ ¼¼ÆÃ
+    // Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public void SaveDataTimeGameEnd(DateTime time)
     {
         saveDataTotal.saveDataDateTime.time_gameEnd = time;
@@ -318,7 +318,7 @@ public class SaveDataManager : MonoBehaviour
         saveDataTotal.saveDataDateTime.time_AD_Reset = time;
     }
 
-    // ½Ã½ºÅÛ µ¥ÀÌÅÍ ¼¼ÆÃ
+    // ï¿½Ã½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public void SaveDataSystem_SFX_BG(bool value)
     {
         saveDataTotal.saveDataSystem.sfx_bgOnOff = value;
@@ -416,9 +416,9 @@ public class SaveDataTraning
 [System.Serializable]
 public class SaveDataEvolution
 {
-    // ÁøÈ­ ·¹º§ ( ÁøÈ­ ·¹º§¿¡ µû¶ó ½½·Ô ¿ÀÇÂµÊ )
+    // ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ ( ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Âµï¿½ )
     public int level_evolution;
-    // ÁøÈ­ ÁÖ»çÀ§ µ¹·Á¼­ È¹µæÇÑ µ¥ÀÌÅÍ ÀúÀå
+    // ï¿½ï¿½È­ ï¿½Ö»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public DiceEvolutionInGameData diceEvolutionData;
 }
 
@@ -492,8 +492,8 @@ public class SaveDataSkills
 public class SaveDataSkill
 {
     public int level;
-    public bool isUsingSkill; // ½ºÅ³ »ç¿ëÁß Ç¥½Ã
-    public float leftSkillTime; // ½ºÅ³ ³²Àº ½Ã°£ 
+    public bool isUsingSkill; // ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
+    public float leftSkillTime; // ï¿½ï¿½Å³ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ 
     public EnumDefinition.SkillType skillType;
 }
 
@@ -521,7 +521,9 @@ public class SaveDataGoods
     public int dice;
     public int coal;
     public int clearTicket;
-    public int dungeonKey_gold;
+    public int unionTicket;
+    public int dnaTicket;
+    //public int dungeonKey_gold;
 }
 
 [System.Serializable]
@@ -534,13 +536,13 @@ public class SaveDataDateTime
 [System.Serializable]
 public class SaveDataSystem
 {
-    // ¹è°æÀ½ OnOff
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ OnOff
     public bool sfx_bgOnOff;
     public float sfx_bg_Volume;
-    // È¿°úÀ½ OnOff
+    // È¿ï¿½ï¿½ï¿½ï¿½ OnOff
     public bool sfx_eff;
     public float sfx_eff_Volume;
-    // ÅõÅä¸®¾ó ÁøÇà ½ºÅÇ
+    // ï¿½ï¿½ï¿½ä¸®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public int tutorial_step;
 }
 

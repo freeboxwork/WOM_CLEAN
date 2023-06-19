@@ -57,7 +57,7 @@ public class PlayerDataManager : MonoBehaviour
         // first connect
         if (!GetFirstConnectValue())
         {
-            // Ã¹ Á¢¼ÓÀº 0¹ø µ¥ÀÌÅÍ·Î ¼ÂÆÃ.
+            // ì²« ì ‘ì†ì€ 0ë²ˆ ë°ì´í„°ë¡œ ì…‹íŒ….
             saveData = new SaveData();
             saveData.isFirstConnect = true;
             saveData.stageIdx = 0;
@@ -71,19 +71,28 @@ public class PlayerDataManager : MonoBehaviour
             saveData.beetleSaveData = GetFirstConnectInsectData(EnumDefinition.InsectType.beetle);
             saveData.mentisSaveData = GetFirstConnectInsectData(EnumDefinition.InsectType.mentis);
 
-            //PlayerPrefs.SetInt(isFirstConnectKey, 1);
+            PlayerPrefs.SetInt(isFirstConnectKey, 1);
         }
         else
         {
             var saveDataTotal = GlobalData.instance.saveDataManager.saveDataTotal;
             // json data load
+            // todo: ì½”ë“œ ë¦¬í™í† ë¦¼ ë° ì •ë¦¬
             saveData = new SaveData();
             saveData.isFirstConnect = false;
             saveData.stageIdx = saveDataTotal.saveDataStage.stageLevel;
             saveData.gold = saveDataTotal.saveDataGoods.gold;
+            saveData.bone = saveDataTotal.saveDataGoods.bone;
+            saveData.dice = saveDataTotal.saveDataGoods.dice;
+            saveData.coal = saveDataTotal.saveDataGoods.coal;
+            saveData.clearTicker = saveDataTotal.saveDataGoods.clearTicket;
+            saveData.unionTicket = saveDataTotal.saveDataGoods.unionTicket;
+            saveData.dnaTicket = saveDataTotal.saveDataGoods.dnaTicket;
 
-            Debug.Log("saveDataTotal.saveDataGoods.gold : " + saveDataTotal.saveDataGoods.gold);
-
+            // todo: ì €ì¥ ë° ë¡œë“œ ë¡œì§ ì¶”ê°€
+            saveData.beeSaveData = GetFirstConnectInsectData(EnumDefinition.InsectType.bee);
+            saveData.beetleSaveData = GetFirstConnectInsectData(EnumDefinition.InsectType.beetle);
+            saveData.mentisSaveData = GetFirstConnectInsectData(EnumDefinition.InsectType.mentis);
         }
 
         yield return null;
@@ -102,7 +111,7 @@ public class PlayerDataManager : MonoBehaviour
         //  PlayerPrefs.SetInt(isFirstConnectKey, 1);
 
         // Sample Code
-        // TODO : °¢ µ¥ÀÌÅÍ¿¡¼­ °ª ·Îµå ÇÏ¿© ÀúÀå
+        // TODO : ê° ë°ì´í„°ì—ì„œ ê°’ ë¡œë“œ í•˜ì—¬ ì €ì¥
         saveData = new SaveData();
         saveData.isFirstConnect = false;
         saveData.stageIdx = 0;
@@ -123,13 +132,13 @@ public class PlayerDataManager : MonoBehaviour
         File.WriteAllText(path, json, System.Text.Encoding.Default);
     }
 
-    //TODO : °è»ê½Ä Àû¿ë
+    //TODO : ê³„ì‚°ì‹ ì ìš©
     string GetOfflineTime()
     {
         return "1";
     }
 
-    //TODO : °è»ê½Ä Àû¿ë
+    //TODO : ê³„ì‚°ì‹ ì ìš©
     string GetPlayingTime()
     {
         return "2";
@@ -179,6 +188,13 @@ public class SaveData
     public InsectSaveData mentisSaveData;
     public int upgradeLevelIdx;
     public int gold;
+    public int bone;
+    public int gem;
+    public int dice;
+    public int coal;
+    public int clearTicker;
+    public int unionTicket;
+    public int dnaTicket;
     public string offlineTime;
     public string playingTime;
 }
@@ -200,7 +216,7 @@ public class Player
     public int upgradeLevelIdx;
     public int gold;
     public DateTime playTime;
-    /// <summary> µîÀåÇÑ ¸ó½ºÅÍ </summary>
+    /// <summary> ë“±ì¥í•œ ëª¬ìŠ¤í„° </summary>
     public MonsterBase currentMonster;
 
 }

@@ -3861,6 +3861,10 @@ MonoBehaviour:
       clearTicket: 0
       unionTicket: 0
       dnaTicket: 0
+      dungeonKeyGold: 0
+      dungeonKeyBone: 0
+      dungeonKeyCoal: 0
+      dungeonKeyDice: 0
     saveDataSystem:
       sfx_bgOnOff: 0
       sfx_bg_Volume: 0
@@ -55208,6 +55212,11 @@ MonoBehaviour:
     clearTicker: 0
     unionTicket: 0
     dnaTicket: 0
+    dungeonKeyGold: 0
+    dungeonKeyGem: 0
+    dungeonKeyDice: 0
+    dungeonKeyCoal: 0
+    dungeonKeyBone: 0
     offlineTime: 
     playingTime: 
 --- !u!1 &1290506971

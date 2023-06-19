@@ -88,6 +88,10 @@ public class PlayerDataManager : MonoBehaviour
             saveData.clearTicker = saveDataTotal.saveDataGoods.clearTicket;
             saveData.unionTicket = saveDataTotal.saveDataGoods.unionTicket;
             saveData.dnaTicket = saveDataTotal.saveDataGoods.dnaTicket;
+            saveData.dungeonKeyGold = saveDataTotal.saveDataGoods.dungeonKeyGold;
+            saveData.dungeonKeyBone = saveDataTotal.saveDataGoods.dungeonKeyBone;
+            saveData.dungeonKeyDice = saveDataTotal.saveDataGoods.dungeonKeyDice;
+            saveData.dungeonKeyCoal = saveDataTotal.saveDataGoods.dungeonKeyCoal;
 
             // todo: 저장 및 로드 로직 추가
             saveData.beeSaveData = GetFirstConnectInsectData(EnumDefinition.InsectType.bee);
@@ -196,10 +200,17 @@ public class SaveData
     public int unionTicket;
     public int dnaTicket;
 
-    public int dungeonLvGold;
-    public int dungeonLvGem;
-    public int dungeonLvDice;
-    public int dungeonLvCoal;
+
+    public int dungeonKeyGold;
+    public int dungeonKeyGem;
+    public int dungeonKeyDice;
+    public int dungeonKeyCoal;
+    public int dungeonKeyBone;
+
+    // public int dungeonLvGold;
+    // public int dungeonLvGem;
+    // public int dungeonLvDice;
+    // public int dungeonLvCoal;
 
     public string offlineTime;
     public string playingTime;

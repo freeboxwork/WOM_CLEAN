@@ -300,11 +300,34 @@ public class SaveDataManager : MonoBehaviour
     }
 
 
-    // 추가 작업 필요
-    public void SaveDataGoodsDungeonKey(int dungeonKey)
+    // 던전 키 데이터 저장
+    public void SaveDataGoodsDungeonKey(GoodsType goodsType, int dungeonKey)
     {
-        //saveDataTotal.saveDataGoods.dungeonKey = dungeonKey;
+        var keyValue = GetGoodsData(goodsType);
+        keyValue = dungeonKey;
     }
+
+    ref int GetGoodsData(GoodsType goodsType)
+    {
+        switch (goodsType)
+        {
+            case GoodsType.gold:
+                return ref saveDataTotal.saveDataGoods.gold;
+            case GoodsType.gem:
+                return ref saveDataTotal.saveDataGoods.gem;
+            case GoodsType.bone:
+                return ref saveDataTotal.saveDataGoods.bone;
+            case GoodsType.dice:
+                return ref saveDataTotal.saveDataGoods.dice;
+            case GoodsType.coal:
+                return ref saveDataTotal.saveDataGoods.coal;
+            default:
+                return ref saveDataTotal.saveDataGoods.gold;
+        }
+    }
+
+
+
 
 
     // 타임 데이터 세팅
@@ -523,7 +546,10 @@ public class SaveDataGoods
     public int clearTicket;
     public int unionTicket;
     public int dnaTicket;
-    //public int dungeonKey_gold;
+    public int dungeonKeyGold;
+    public int dungeonKeyBone;
+    public int dungeonKeyCoal;
+    public int dungeonKeyDice;
 }
 
 [System.Serializable]

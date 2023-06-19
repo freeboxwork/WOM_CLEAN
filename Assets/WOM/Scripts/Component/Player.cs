@@ -226,6 +226,9 @@ public class Player : MonoBehaviour
 
         // set ui 
         GlobalData.instance.dungeonEnterPopup.SetTxtClierTicket(clearTicket);
+
+        // set save data;
+        GlobalData.instance.saveDataManager.SaveDataGoodsClearTicket(clearTicket);
     }
 
     public void AddDungeonKey(GoodsType goodsType, int addKeyCount)
@@ -234,6 +237,9 @@ public class Player : MonoBehaviour
 
         // RELOAD UI
         // ...
+
+        // set save data;
+        GlobalData.instance.saveDataManager.SaveDataGoodsDungeonKey(goodsType, dungeonKeys[goodsType]);
     }
 
     public void PayDungeonKey(GoodsType goodsType, int keyCount)
@@ -243,6 +249,9 @@ public class Player : MonoBehaviour
 
         // RELOAD UI
         // ...
+
+        // set save data;
+        GlobalData.instance.saveDataManager.SaveDataGoodsDungeonKey(goodsType, dungeonKeys[goodsType]);
     }
 
 

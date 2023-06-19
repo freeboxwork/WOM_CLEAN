@@ -195,8 +195,16 @@ public class SaveData
     public int clearTicker;
     public int unionTicket;
     public int dnaTicket;
+
+    public int dungeonLvGold;
+    public int dungeonLvGem;
+    public int dungeonLvDice;
+    public int dungeonLvCoal;
+
     public string offlineTime;
     public string playingTime;
+
+
 }
 
 [System.Serializable]

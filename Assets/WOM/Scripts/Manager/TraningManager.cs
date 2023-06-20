@@ -34,7 +34,7 @@ public class TraningManager : MonoBehaviour
             slot.statType = statType;
             slot.goodsType = (GoodsType)Enum.Parse(typeof(GoodsType), elementData.goodsType);
 
-            // TODO : 저장된 데이터에서 불러와야 함 -> Save Data Manager 접근 방식으로 수정
+            //저장된 데이터에서 불러옴 -> Save Data Manager 접근
             var saveData = GlobalData.instance.saveDataManager.GetTraningData(statType);
 
             slot.traningInGameData.level = saveData.level;

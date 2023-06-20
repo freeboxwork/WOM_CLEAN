@@ -240,7 +240,7 @@ public class SaveDataManager : MonoBehaviour
         GetSaveDataUnion(unionSlot).unionCount = inGmaeData.unionCount;
     }
 
-    public void SaveUnionEquipSlotData_(UnionSlot unionSlot)
+    public void SaveUnionEquipSlotData(UnionSlot unionSlot)
     {
         var union = GetSaveDataUnion(unionSlot);
         union.isEquip = unionSlot.unionEquipType == UnionEquipType.Equipped;
@@ -251,6 +251,11 @@ public class SaveDataManager : MonoBehaviour
     {
         var union = GetSaveDataUnion(unionSlot);
         union.isEquip = unionEquipSlot != null;
+
+        // union.isEquip 을 로그로 출력 하는 코드
+        Debug.Log($"SaveUnionEquipSlotData => union.isEquip : {union.isEquip}, unionEquipSlot : {unionEquipSlot}");
+
+
         union.equipSlotId = unionEquipSlot?.slotIndex ?? 999;
     }
 
@@ -504,6 +509,7 @@ public class SaveDataUnion
     public int unionCount;// 현재 유니온 보유 수
     public int equipSlotId;
     public bool isEquip;
+
 }
 
 

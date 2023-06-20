@@ -222,6 +222,12 @@ public class SaveDataManager : MonoBehaviour
         GetSaveDataUnion(unionSlot).level = inGmaeData.level;
     }
 
+    public void SaveUnionCountData(UnionSlot unionSlot)
+    {
+        var inGmaeData = unionSlot.inGameData;
+        GetSaveDataUnion(unionSlot).unionCount = inGmaeData.unionCount;
+    }
+
     public void SaveUnionEquipSlotData_(UnionSlot unionSlot)
     {
         var union = GetSaveDataUnion(unionSlot);
@@ -235,6 +241,8 @@ public class SaveDataManager : MonoBehaviour
         union.isEquip = unionEquipSlot != null;
         union.equipSlotId = unionEquipSlot?.slotIndex ?? 999;
     }
+
+
 
 
     public SaveDataUnion GetSaveDataUnion(UnionSlot unionSlot)
@@ -299,6 +307,27 @@ public class SaveDataManager : MonoBehaviour
         saveDataTotal.saveDataGoods.clearTicket = clearTicket;
     }
 
+    // 던전 레벨 데이터 저장
+    public void SaveDataDungeonLevelGold(int dungeonLevel)
+    {
+        saveDataTotal.saveDataDungeonLevel.dungeonLvGold = dungeonLevel;
+    }
+
+    public void SaveDataDungeonLevelBone(int dungeonLevel)
+    {
+        saveDataTotal.saveDataDungeonLevel.dungeonLvBone = dungeonLevel;
+    }
+
+    public void SaveDataDungeonLevelDice(int dungeonLevel)
+    {
+        saveDataTotal.saveDataDungeonLevel.dungeonLvDice = dungeonLevel;
+    }
+
+    public void SaveDataDungeonLevelCoal(int dungeonLevel)
+    {
+        saveDataTotal.saveDataDungeonLevel.dungeonLvCoal = dungeonLevel;
+    }
+
 
     // 던전 키 데이터 저장
     public void SaveDataGoodsDungeonKey(GoodsType goodsType, int dungeonKey)
@@ -326,7 +355,8 @@ public class SaveDataManager : MonoBehaviour
         }
     }
 
-    // 던전 레벨 데이터 저장 -> 던전 레벨은 저장 하지 않음 무조건 0 부터 시작
+    // 던전 레벨 데이터 저장 -> 던전 레벨은 무조건 0 부터 시작 , 티켓으로 구매하면 클리어한 레벨의 금액만큼 더해준다.
+
 
 
 
@@ -409,6 +439,7 @@ public class SaveDataTotal
     public SaveDataGoods saveDataGoods;
     public SaveDataDateTime saveDataDateTime;
     public SaveDataSystem saveDataSystem;
+    public SaveDataDungeonLevel saveDataDungeonLevel;
 
 }
 
@@ -458,6 +489,7 @@ public class SaveDataUnion
 {
     public int unionId;
     public int level;
+    public int unionCount;// 현재 유니온 보유 수
     public int equipSlotId;
     public bool isEquip;
 }
@@ -521,6 +553,14 @@ public class SaveDataSkill
     public EnumDefinition.SkillType skillType;
 }
 
+[System.Serializable]
+public class SaveDataDungeonLevel
+{
+    public int dungeonLvGold = 1;
+    public int dungeonLvBone = 1;
+    public int dungeonLvDice = 1;
+    public int dungeonLvCoal = 1;
+}
 
 [System.Serializable]
 public class SaveDataShop

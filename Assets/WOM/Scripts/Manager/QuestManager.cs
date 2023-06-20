@@ -125,16 +125,20 @@ public class QuestManager : MonoBehaviour
 
     void LoadQuestDataFromUserMemory(QuestData data)
     {
+        // 퀘스트 데이터를 로드한다.
         if (PlayerPrefs.HasKey(data.questType))
         {
+            // 퀘스트 데이터가 존재하는 경우
             data.curCountValue = PlayerPrefs.GetInt(data.questType);
         }
 
+        // 퀘스트 완료 데이터가 존재하는 경우
         if (PlayerPrefs.HasKey(data.questType + keyQuestComplete))
         {
             data.qusetComplete = PlayerPrefs.GetInt(data.questType + keyQuestComplete) == 1 ? true : false;
         }
 
+        // 퀘스트 보상 사용 데이터가 존재하는 경우
         if (PlayerPrefs.HasKey(data.questType + keyUsingReward))
         {
             data.usingReward = PlayerPrefs.GetInt(data.questType + keyUsingReward) == 1 ? true : false;

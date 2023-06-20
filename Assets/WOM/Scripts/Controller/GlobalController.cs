@@ -120,6 +120,10 @@ public class GlobalController : MonoBehaviour
         // UI 초기화
         SetUI_Init();
 
+
+
+
+
         // 트랜지션 아웃 ( black screen )
         yield return StartCoroutine(GlobalData.instance.effectManager.TransitionOut());
 
@@ -130,8 +134,13 @@ public class GlobalController : MonoBehaviour
         // Monster In Animation
         yield return StartCoroutine(player.currentMonster.inOutAnimator.AnimPositionIn());
 
+
+
+
         // 한 프레임 대기
         yield return new WaitForEndOfFrame();
+
+
 
 
         // 공격 가능 상태로 전환

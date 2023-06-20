@@ -93,6 +93,12 @@ public class PlayerDataManager : MonoBehaviour
             saveData.dungeonKeyDice = saveDataTotal.saveDataGoods.dungeonKeyDice;
             saveData.dungeonKeyCoal = saveDataTotal.saveDataGoods.dungeonKeyCoal;
 
+            saveData.dungeonLvGold = saveDataTotal.saveDataDungeonLevel.dungeonLvGold;
+            saveData.dungeonLvBone = saveDataTotal.saveDataDungeonLevel.dungeonLvBone;
+            saveData.dungeonLvDice = saveDataTotal.saveDataDungeonLevel.dungeonLvDice;
+            saveData.dungeonLvCoal = saveDataTotal.saveDataDungeonLevel.dungeonLvCoal;
+
+
             // todo: 저장 및 로드 로직 추가
             saveData.beeSaveData = GetFirstConnectInsectData(EnumDefinition.InsectType.bee);
             saveData.beetleSaveData = GetFirstConnectInsectData(EnumDefinition.InsectType.beetle);
@@ -206,6 +212,15 @@ public class SaveData
     public int dungeonKeyDice;
     public int dungeonKeyCoal;
     public int dungeonKeyBone;
+
+    public int dungeonLvGold;
+    public int dungeonLvBone;
+    public int dungeonLvDice;
+    public int dungeonLvCoal;
+
+
+
+
 
     // public int dungeonLvGold;
     // public int dungeonLvGem;

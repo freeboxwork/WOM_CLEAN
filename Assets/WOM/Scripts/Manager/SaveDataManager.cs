@@ -170,6 +170,18 @@ public class SaveDataManager : MonoBehaviour
         }
     }
 
+    public SaveDataTraning GetTraningData(EnumDefinition.SaleStatType traningType)
+    {
+        var data = saveDataTotal.saveDataTranings.tranings.FirstOrDefault(f => f.traningType == traningType);
+        if (data == null)
+        {
+            Debug.LogError($"save data maanger => traningType : {traningType} is null");
+        }
+
+        return data;
+    }
+
+
 
     // DNA 데이터 세팅
     public void SetLevelDNAByType(DNAType dnaType, int level)

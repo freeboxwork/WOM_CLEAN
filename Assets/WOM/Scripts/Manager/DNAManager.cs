@@ -25,20 +25,23 @@ public class DNAManager : MonoBehaviour
         // 뽑기버튼 3종
         // 27 : 1회 , 28: 10회 , 29 : 30회
 
-        SetBtnEventCustomTypeByID(btnLottery01, () => {
+        SetBtnEventCustomTypeByID(btnLottery01, () =>
+        {
             DNALotteryGameStart(1);
         });
 
-        SetBtnEventCustomTypeByID(btnLottery10, () => {
+        SetBtnEventCustomTypeByID(btnLottery10, () =>
+        {
             DNALotteryGameStart(10);
         });
 
-        SetBtnEventCustomTypeByID(btnLottery30, () => {
+        SetBtnEventCustomTypeByID(btnLottery30, () =>
+        {
             DNALotteryGameStart(30);
         });
     }
 
-   public void DNALotteryGameStart(int gameCount)
+    public void DNALotteryGameStart(int gameCount)
     {
         if (isGambling == false)
             StartCoroutine(LotteryStart(gameCount));
@@ -47,7 +50,7 @@ public class DNAManager : MonoBehaviour
 
     public IEnumerator Init()
     {
-       
+
 
         // SET SLOT
         for (int i = 0; i < dnaSlots.Count; i++)
@@ -57,12 +60,16 @@ public class DNAManager : MonoBehaviour
             var data = GlobalData.instance.dataManager.GetDNADataById(index);
             slot.inGameData = new DNAInGameData();
 
+            var type = (EnumDefinition.DNAType)index;
             // set type
-            slot.SetDnaType((EnumDefinition.DNAType)index);
-            
-            // set in game data ( TODO: 저장된 데이터에서 불러와야 함 )
-            slot.inGameData.power = 0;
-            slot.inGameData.level = 0;
+            slot.SetDnaType(type);
+
+            // 저장된 데이터에서 불러와야 함
+            // set in game data (  )
+            var saveData = GlobalData.instance.saveDataManager.GetSaveDataDNA(type);
+
+            slot.inGameData.power = saveData.power;
+            slot.inGameData.level = saveData.level;
             slot.inGameData.maxLevel = data.maxLevel;
             slot.inGameData.name = data.dnaName;
             slot.inGameData.dataPower = data.power;
@@ -73,7 +80,7 @@ public class DNAManager : MonoBehaviour
             slot.SetTxtInfo(data.infoFront, powerColorCode, slot.inGameData.power, data.infoBack);
             slot.SetTxtHasCount(slot.inGameData.level, slot.inGameData.maxLevel);
             slot.SetFace(GetDnaIconImage(data.spriteName));
-           
+
         }
         yield return null;
         // 뽑기버튼 비활성화
@@ -83,22 +90,22 @@ public class DNAManager : MonoBehaviour
 
     DNASlot GetSlotByDNAType(EnumDefinition.DNAType type)
     {
-        return dnaSlots.FirstOrDefault(f=> f.DNAType == type);  
+        return dnaSlots.FirstOrDefault(f => f.DNAType == type);
     }
 
     public DNAInGameData GetDNAInGameData(EnumDefinition.DNAType type)
     {
-        return GetSlotByDNAType(type).inGameData;   
+        return GetSlotByDNAType(type).inGameData;
     }
-    
-    
+
+
     // DNA 뽑기
     IEnumerator LotteryStart(int gameCount)
     {
-        if (IsValidGemCount(gameCount) )
+        if (IsValidGemCount(gameCount))
         {
             isGambling = true;
-        
+
             // pay gem
             GlobalData.instance.player.PayGem(gameCount);
 
@@ -116,10 +123,10 @@ public class DNAManager : MonoBehaviour
                 slot.inGameData.LevelUp();
 
                 // set save data
-                GlobalData.instance.saveDataManager.SetLevelDNAByType(randomType, slot.inGameData.level);
-                
+                GlobalData.instance.saveDataManager.SetLevelDNAByType(randomType, slot.inGameData);
+
                 lotteryTypes.Add(randomType);
-                dnaEffectTypes.Add(randomType); 
+                dnaEffectTypes.Add(randomType);
 
                 if (!dnaTypes.Contains(randomType))
                     dnaTypes.Add(randomType);
@@ -131,7 +138,7 @@ public class DNAManager : MonoBehaviour
             }
 
             // UI RESET
-            foreach(var type in dnaTypes)
+            foreach (var type in dnaTypes)
                 ResetUI(type);
 
             // 연출 등장
@@ -144,12 +151,12 @@ public class DNAManager : MonoBehaviour
         else
         {
             // message popup (골드가 부족합니다)
-            GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("Message",3);
+            GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("Message", 3);
         }
-        
+
         yield return new WaitForEndOfFrame();
 
-        isGambling = false; 
+        isGambling = false;
     }
 
     int[] GetTypeListToInt(List<EnumDefinition.DNAType> types)
@@ -181,7 +188,7 @@ public class DNAManager : MonoBehaviour
     List<EnumDefinition.DNAType> GetLotteryDNATypes()
     {
         List<EnumDefinition.DNAType> types = new List<EnumDefinition.DNAType>();
-        foreach(var slot in dnaSlots)
+        foreach (var slot in dnaSlots)
         {
             if (slot.inGameData.level < slot.inGameData.maxLevel)
                 types.Add(slot.DNAType);
@@ -191,7 +198,7 @@ public class DNAManager : MonoBehaviour
 
     EnumDefinition.DNAType GetRandomType(List<EnumDefinition.DNAType> types)
     {
-        var randomIndex = Random.Range(0, types.Count); 
+        var randomIndex = Random.Range(0, types.Count);
         return types[randomIndex];
     }
 

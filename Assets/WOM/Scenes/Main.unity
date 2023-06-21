@@ -3861,12 +3861,21 @@ MonoBehaviour:
       clearTicket: 0
       unionTicket: 0
       dnaTicket: 0
+      dungeonKeyGold: 0
+      dungeonKeyBone: 0
+      dungeonKeyCoal: 0
+      dungeonKeyDice: 0
     saveDataSystem:
       sfx_bgOnOff: 0
       sfx_bg_Volume: 0
       sfx_eff: 0
       sfx_eff_Volume: 0
       tutorial_step: 0
+    saveDataDungeonLevel:
+      dungeonLvGold: 1
+      dungeonLvBone: 1
+      dungeonLvDice: 1
+      dungeonLvCoal: 1
   globalData: {fileID: 131730010}
 --- !u!1 &106291641
 GameObject:
@@ -38275,6 +38284,7 @@ MonoBehaviour:
   - {fileID: 4900000, guid: d4e691d085fac9445a039247da7e94e2, type: 3}
   - {fileID: 4900000, guid: 3bacfa62d87e0474fb756175ab1e097f, type: 3}
   - {fileID: 4900000, guid: 785f7a76eba9c9047a5c2030acc85cc3, type: 3}
+  - {fileID: 4900000, guid: 831d3f405f878cb46b3bdec6af3da4a6, type: 3}
   sheetDatas_saleStats:
   - {fileID: 4900000, guid: d9d0207d5010e46458b2a5fe4af26f50, type: 3}
   - {fileID: 4900000, guid: 7c9a2f69513c44e4b95add4ff39e1490, type: 3}
@@ -55683,8 +55693,13 @@ MonoBehaviour:
     clearTicker: 0
     unionTicket: 0
     dnaTicket: 0
+    dungeonKeyGold: 0
+    dungeonKeyGem: 0
+    dungeonKeyDice: 0
+    dungeonKeyCoal: 0
+    dungeonKeyBone: 0
     dungeonLvGold: 0
-    dungeonLvGem: 0
+    dungeonLvBone: 0
     dungeonLvDice: 0
     dungeonLvCoal: 0
     offlineTime: 
@@ -60840,6 +60855,11 @@ MonoBehaviour:
   prevMonsterType: 0
   isSpacialMonsterHunting: 0
   isBossMonsterChllengeEnable: 1
+  dungeonMonsterClearLevel:
+    goldLv: 1
+    boneLv: 1
+    diceLv: 1
+    coalLv: 1
 --- !u!1 &1431111860
 GameObject:
   m_ObjectHideFlags: 0

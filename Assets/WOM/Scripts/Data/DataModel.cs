@@ -625,3 +625,30 @@ public class BattlePassData
         return battlePassData;
     }
 }
+
+[System.Serializable]
+public class NewUserData
+{
+    public int id;
+    public int day;
+    public string rewardType_1;
+    public string rewardType_2;
+    public string rewardType_3;
+    public int rewardValue_1;
+    public int rewardValue_2;
+    public int rewardValue_3;
+
+    public NewUserData ClonInstance()
+    {
+        NewUserData newUserData = new NewUserData();
+        newUserData.id = id;
+        newUserData.day = day;
+        newUserData.rewardType_1 = rewardType_1;
+        newUserData.rewardType_2 = rewardType_2;
+        newUserData.rewardType_3 = rewardType_3;
+        newUserData.rewardValue_1 = rewardValue_1;
+        newUserData.rewardValue_2 = rewardValue_2;
+        newUserData.rewardValue_3 = rewardValue_3;
+        return newUserData;
+    }
+}

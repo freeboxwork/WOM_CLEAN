@@ -1,0 +1,74 @@
+{
+  "data": [
+    {
+      "id": 0,
+      "day": 1,
+      "rewardType_1": "gem",
+      "rewardType_2": "goldKey",
+      "rewardType_3": "unionTicket",
+      "rewardValue_1": 1000,
+      "rewardValue_2": 2,
+      "rewardValue_3": 3
+    },
+    {
+      "id": 1,
+      "day": 2,
+      "rewardType_1": "gem",
+      "rewardType_2": "boneKey",
+      "rewardType_3": "dnaTicket",
+      "rewardValue_1": 2000,
+      "rewardValue_2": 2,
+      "rewardValue_3": 3
+    },
+    {
+      "id": 2,
+      "day": 3,
+      "rewardType_1": "gem",
+      "rewardType_2": "diceKey",
+      "rewardType_3": "unionTicket",
+      "rewardValue_1": 3000,
+      "rewardValue_2": 2,
+      "rewardValue_3": 5
+    },
+    {
+      "id": 3,
+      "day": 4,
+      "rewardType_1": "gem",
+      "rewardType_2": "coalKey",
+      "rewardType_3": "dnaTicket",
+      "rewardValue_1": 4000,
+      "rewardValue_2": 2,
+      "rewardValue_3": 5
+    },
+    {
+      "id": 4,
+      "day": 5,
+      "rewardType_1": "gem",
+      "rewardType_2": "unionTicket",
+      "rewardType_3": "dungeonPass",
+      "rewardValue_1": 5000,
+      "rewardValue_2": 5,
+      "rewardValue_3": 2
+    },
+    {
+      "id": 5,
+      "day": 6,
+      "rewardType_1": "gem",
+      "rewardType_2": "dnaTicket",
+      "rewardType_3": "dungeonPass",
+      "rewardValue_1": 6000,
+      "rewardValue_2": 5,
+      "rewardValue_3": 2
+    },
+    {
+      "id": 6,
+      "day": 7,
+      "rewardType_1": "gem",
+      "rewardType_2": "unionTicket",
+      "rewardType_3": "dnaTicket",
+      "rewardValue_1": 7000,
+      "rewardValue_2": 10,
+      "rewardValue_3": 10
+    }
+  ]
+}

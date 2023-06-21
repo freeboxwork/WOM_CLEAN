@@ -66,6 +66,10 @@ public class UnionManager : MonoBehaviour
 
             // TODO: 저장된 데이터에서 불러와야 함
 
+            var saveData = GlobalData.instance.saveDataManager.GetSaveDataUnion(slot);
+
+
+            /*
             // set level 
             slot.inGameData.level = 0;
 
@@ -74,6 +78,24 @@ public class UnionManager : MonoBehaviour
 
             // set equip type
             slot.unionEquipType = EnumDefinition.UnionEquipType.NotEquipped;
+            */
+
+            // set level 
+            slot.inGameData.level = saveData.level;
+
+            // set union count
+            slot.inGameData.unionCount = saveData.unionCount;
+
+            // set equip type
+            var equipType = saveData.isEquip == true ? EnumDefinition.UnionEquipType.Equipped : EnumDefinition.UnionEquipType.NotEquipped;
+
+            slot.unionEquipType = equipType;
+
+            // set reqirement count
+            slot.inGameData.LevelUpReqirementCount = data.reqirementCount;
+
+
+
 
             // set slider value
             slot.SetSliderValue();
@@ -83,6 +105,16 @@ public class UnionManager : MonoBehaviour
             slot.SetUITxtUnionCount();
             slot.SetUITxtUnionEquipState();
 
+            if (slot.inGameData.unionCount > 0)
+                slot.EnableSlot();
+
+            // equip slot
+            if (saveData.isEquip)
+            {
+                selectedSlot = slot;
+                EquipSlot(unionEquipSlots[saveData.equipSlotId]);
+            }
+
             // set BtnAction
             slot.btn.onClick.AddListener(() =>
             {
@@ -90,13 +122,16 @@ public class UnionManager : MonoBehaviour
             });
 
 
-            // SET IN GAME DATA ( TODO: 저장된 데이터에서 불러와야 함 )
+            // TODO: 저장된 데이터에서 불러와야 함
+            // SET IN GAME DATA (  ) 
             slot.inGameData.damage = GetUnionDamage(slot); // data.damage;
             slot.inGameData.spawnTime = data.spawnTime;
             slot.inGameData.moveSpeed = data.moveSpeed;
             slot.inGameData.passiveDamage = GetUnionPassiveDamage(slot); //data.passiveDamage;
             slot.inGameData.unionGradeType = (EnumDefinition.UnionGradeType)System.Enum.Parse(typeof(EnumDefinition.UnionGradeType), data.gradeType);
             //Debug.Log(slot.inGameData.passiveDamage);
+
+
 
             yield return null;
         }

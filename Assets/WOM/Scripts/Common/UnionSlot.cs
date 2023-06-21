@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -20,27 +18,31 @@ public class UnionSlot : MonoBehaviour
     public UnionInGameData inGameData;
     public UnionData unionData;
     public UnionEquipSlot unionEquipSlot;
- 
+
 
     void Start()
     {
-        
+
     }
 
-   void SetBtnEvent()
+    void SetBtnEvent()
     {
 
     }
 
-   
+
     public void AddUnion(int count)
     {
         inGameData.unionCount += count;
+        // set save data
+        GlobalData.instance.saveDataManager.SaveUnionCountData(this);
     }
-        
+
     public void PayUnion(int count)
     {
         inGameData.unionCount -= count;
+        // set save data
+        GlobalData.instance.saveDataManager.SaveUnionCountData(this);
     }
 
     public void LevelUp()
@@ -60,7 +62,7 @@ public class UnionSlot : MonoBehaviour
 
     public void SetUIImageUnion(Sprite unionFace)
     {
-        imgUnionFace.sprite = unionFace;    
+        imgUnionFace.sprite = unionFace;
     }
 
 
@@ -85,7 +87,7 @@ public class UnionSlot : MonoBehaviour
     {
         this.unionEquipSlot = unionEquipSlot;
         // set save data
-        GlobalData.instance.saveDataManager.SaveUnionEquipSlotData(this, unionEquipSlot);   
+        GlobalData.instance.saveDataManager.SaveUnionEquipSlotData(this, unionEquipSlot);
     }
 
     public void SetSliderValue()

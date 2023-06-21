@@ -17,7 +17,7 @@ public class TraningManager : MonoBehaviour
 
     void Start()
     {
-        
+
     }
     // 저장된 게임 데이터 로드 및 세팅
     IEnumerator LoadInGameData()
@@ -29,28 +29,29 @@ public class TraningManager : MonoBehaviour
         {
             var slot = traningSlots[id];
             var elementData = GlobalData.instance.dataManager.GetTrainingElementData(statType);
-            
+
             slot.traningInGameData = new TraningInGameData();
             slot.statType = statType;
             slot.goodsType = (GoodsType)Enum.Parse(typeof(GoodsType), elementData.goodsType);
 
-            // TODO : 저장된 데이터에서 불러와야 함 -> Save Data Manager 접근 방식으로 수정
-            
-            slot.traningInGameData.level = 0;
+            //저장된 데이터에서 불러옴 -> Save Data Manager 접근
+            var saveData = GlobalData.instance.saveDataManager.GetTraningData(statType);
+
+            slot.traningInGameData.level = saveData.level;
 
             // Get Value From data
             var data = GlobalData.instance.dataManager.GetSaleStatDataByTypeId(statType, slot.traningInGameData.level);
-            
+
             slot.traningInGameData.value = data.value;
             slot.traningInGameData.unitName = data.unitName;
             slot.traningInGameData.trainingName = elementData.trainingName;
-          
+
             id++;
         }
     }
 
 
-   
+
     public IEnumerator Init()
     {
         // Load In Game Data  저장된 게임 데이터 로드 및 세팅
@@ -72,7 +73,7 @@ public class TraningManager : MonoBehaviour
             slot.SetTxtInfo(txtInfoValue);
             slot.SetTxtPower(txtPowerValue);
             slot.SetTxtCost(txtCostValue);
-            
+
             yield return null;
 
         }
@@ -82,9 +83,10 @@ public class TraningManager : MonoBehaviour
 
     IEnumerator SetBtnEvent()
     {
-        foreach(var slot in traningSlots)
+        foreach (var slot in traningSlots)
         {
-            slot.btnBuy.onClick.AddListener(()=>{
+            slot.btnBuy.onClick.AddListener(() =>
+            {
 
                 Debug.Log("stat " + slot.statType);
                 GlobalData.instance.saleManager.AddData(new SaleStatMsgData(slot.statType));
@@ -96,10 +98,10 @@ public class TraningManager : MonoBehaviour
         {
             var index = i;
             var btn = subButtons[index];
-                btn.btnMain.onClick.AddListener(() =>
-                {
-                    EnableSubMenuPanel(btn.subPanelType);
-                });
+            btn.btnMain.onClick.AddListener(() =>
+            {
+                EnableSubMenuPanel(btn.subPanelType);
+            });
 
         }
 
@@ -113,7 +115,7 @@ public class TraningManager : MonoBehaviour
         var data = GlobalData.instance.dataManager.GetSaleStatDataByType(statType).data;
         if (data.Last().level > inGameData.level)
         {
-            return  GlobalData.instance.dataManager.GetSaleStatDataByTypeId(statType, inGameData.level + 1).salePrice;
+            return GlobalData.instance.dataManager.GetSaleStatDataByTypeId(statType, inGameData.level + 1).salePrice;
         }
         else
         {
@@ -125,7 +127,7 @@ public class TraningManager : MonoBehaviour
         var data = GlobalData.instance.dataManager.GetSaleStatDataByType(statType).data;
         if (data.Last().level > inGameData.level)
         {
-            return ""+GlobalData.instance.dataManager.GetSaleStatDataByTypeId(statType, inGameData.level + 1).salePrice;
+            return "" + GlobalData.instance.dataManager.GetSaleStatDataByTypeId(statType, inGameData.level + 1).salePrice;
         }
         else
         {
@@ -133,13 +135,13 @@ public class TraningManager : MonoBehaviour
         }
     }
 
-    
-    
-    public void SetUI_TraningSlot(SaleStatType statType )
+
+
+    public void SetUI_TraningSlot(SaleStatType statType)
     {
         var inGameData = GetTraningInGameData(statType);
         var slot = GetTraningInSlotByType(statType);
-        
+
         // INFO TEXT
         var txtInfoValue = $"Lv{inGameData.level} {inGameData.trainingName}";
         slot.SetTxtInfo(txtInfoValue);
@@ -153,7 +155,7 @@ public class TraningManager : MonoBehaviour
         slot.SetTxtPower(txtPowerValue);
     }
 
-    
+
 
     public TraningSlot GetTraningInSlotByType(SaleStatType statType)
     {

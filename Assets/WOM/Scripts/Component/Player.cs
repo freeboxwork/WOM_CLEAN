@@ -112,9 +112,12 @@ public class Player : MonoBehaviour
         gold = saveData.gold;
         SetCurrentStageData(stageIdx);
 
-        //TODO: 던전 몬스터 클리어 레벨 데이터 로드
+        // 던전 몬스터 클리어 레벨 데이터 로드
         dungeonMonsterClearLevel = new DungeonMonsterClearLevel();
-
+        dungeonMonsterClearLevel.goldLv = saveData.dungeonLvGold;
+        dungeonMonsterClearLevel.boneLv = saveData.dungeonLvBone;
+        dungeonMonsterClearLevel.diceLv = saveData.dungeonLvDice;
+        dungeonMonsterClearLevel.coalLv = saveData.dungeonLvCoal;
     }
 
     public void SetCurrentStageData(int stageIdx)
@@ -226,6 +229,9 @@ public class Player : MonoBehaviour
 
         // set ui 
         GlobalData.instance.dungeonEnterPopup.SetTxtClierTicket(clearTicket);
+
+        // set save data;
+        GlobalData.instance.saveDataManager.SaveDataGoodsClearTicket(clearTicket);
     }
 
     public void AddDungeonKey(GoodsType goodsType, int addKeyCount)
@@ -234,6 +240,9 @@ public class Player : MonoBehaviour
 
         // RELOAD UI
         // ...
+
+        // set save data;
+        GlobalData.instance.saveDataManager.SaveDataGoodsDungeonKey(goodsType, dungeonKeys[goodsType]);
     }
 
     public void PayDungeonKey(GoodsType goodsType, int keyCount)
@@ -243,6 +252,9 @@ public class Player : MonoBehaviour
 
         // RELOAD UI
         // ...
+
+        // set save data;
+        GlobalData.instance.saveDataManager.SaveDataGoodsDungeonKey(goodsType, dungeonKeys[goodsType]);
     }
 
 
@@ -276,26 +288,36 @@ public class Player : MonoBehaviour
 [System.Serializable]
 public class DungeonMonsterClearLevel
 {
-    int goldLv = 1;
-    int boneLv = 1;
-    int diceLv = 1;
-    int coalLv = 1;
+    public int goldLv = 1;
+    public int boneLv = 1;
+    public int diceLv = 1;
+    public int coalLv = 1;
 
     public void SetLevelGold(int level)
     {
         goldLv = level;
+
+        // set save data;
+        GlobalData.instance.saveDataManager.SaveDataDungeonLevelGold(goldLv);
     }
     public void SetLevelBone(int level)
     {
         boneLv = level;
+
+        // set save data;
+        GlobalData.instance.saveDataManager.SaveDataDungeonLevelBone(boneLv);
     }
     public void SetLevelDice(int level)
     {
         diceLv = level;
+        // set save data;
+        GlobalData.instance.saveDataManager.SaveDataDungeonLevelDice(diceLv);
     }
     public void SetLevelCoal(int level)
     {
         coalLv = level;
+        // set save data;
+        GlobalData.instance.saveDataManager.SaveDataDungeonLevelCoal(coalLv);
     }
 
     public int GetLeveByDungeonMonType(EnumDefinition.MonsterType monsterType)

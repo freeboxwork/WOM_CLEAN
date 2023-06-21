@@ -170,6 +170,18 @@ public class SaveDataManager : MonoBehaviour
         }
     }
 
+    public SaveDataTraning GetTraningData(EnumDefinition.SaleStatType traningType)
+    {
+        var data = saveDataTotal.saveDataTranings.tranings.FirstOrDefault(f => f.traningType == traningType);
+        if (data == null)
+        {
+            Debug.LogError($"save data maanger => traningType : {traningType} is null");
+        }
+
+        return data;
+    }
+
+
 
     // DNA 데이터 세팅
     public void SetLevelDNAByType(DNAType dnaType, int level)
@@ -222,7 +234,13 @@ public class SaveDataManager : MonoBehaviour
         GetSaveDataUnion(unionSlot).level = inGmaeData.level;
     }
 
-    public void SaveUnionEquipSlotData_(UnionSlot unionSlot)
+    public void SaveUnionCountData(UnionSlot unionSlot)
+    {
+        var inGmaeData = unionSlot.inGameData;
+        GetSaveDataUnion(unionSlot).unionCount = inGmaeData.unionCount;
+    }
+
+    public void SaveUnionEquipSlotData(UnionSlot unionSlot)
     {
         var union = GetSaveDataUnion(unionSlot);
         union.isEquip = unionSlot.unionEquipType == UnionEquipType.Equipped;
@@ -233,15 +251,22 @@ public class SaveDataManager : MonoBehaviour
     {
         var union = GetSaveDataUnion(unionSlot);
         union.isEquip = unionEquipSlot != null;
+
+        // union.isEquip 을 로그로 출력 하는 코드
+        Debug.Log($"SaveUnionEquipSlotData => union.isEquip : {union.isEquip}, unionEquipSlot : {unionEquipSlot}");
+
+
         union.equipSlotId = unionEquipSlot?.slotIndex ?? 999;
     }
 
 
-    SaveDataUnion GetSaveDataUnion(UnionSlot unionSlot)
+
+
+    public SaveDataUnion GetSaveDataUnion(UnionSlot unionSlot)
     {
         var inGmaeData = unionSlot.inGameData;
         var unionID = inGmaeData.unionIndex;
-        var union = GetSaveDataByType(saveDataTotal.saveDataUnions.unions, f => f.unionId == unionID, $"????? ID : {unionID}");
+        var union = GetSaveDataByType(saveDataTotal.saveDataUnions.unions, f => f.unionId == unionID, $"유니온 ID : {unionID}");
         return union;
     }
 
@@ -299,12 +324,58 @@ public class SaveDataManager : MonoBehaviour
         saveDataTotal.saveDataGoods.clearTicket = clearTicket;
     }
 
-
-    // 추가 작업 필요
-    public void SaveDataGoodsDungeonKey(int dungeonKey)
+    // 던전 레벨 데이터 저장
+    public void SaveDataDungeonLevelGold(int dungeonLevel)
     {
-        //saveDataTotal.saveDataGoods.dungeonKey = dungeonKey;
+        saveDataTotal.saveDataDungeonLevel.dungeonLvGold = dungeonLevel;
     }
+
+    public void SaveDataDungeonLevelBone(int dungeonLevel)
+    {
+        saveDataTotal.saveDataDungeonLevel.dungeonLvBone = dungeonLevel;
+    }
+
+    public void SaveDataDungeonLevelDice(int dungeonLevel)
+    {
+        saveDataTotal.saveDataDungeonLevel.dungeonLvDice = dungeonLevel;
+    }
+
+    public void SaveDataDungeonLevelCoal(int dungeonLevel)
+    {
+        saveDataTotal.saveDataDungeonLevel.dungeonLvCoal = dungeonLevel;
+    }
+
+
+    // 던전 키 데이터 저장
+    public void SaveDataGoodsDungeonKey(GoodsType goodsType, int dungeonKey)
+    {
+        var keyValue = GetGoodsData(goodsType);
+        keyValue = dungeonKey;
+    }
+
+    ref int GetGoodsData(GoodsType goodsType)
+    {
+        switch (goodsType)
+        {
+            case GoodsType.gold:
+                return ref saveDataTotal.saveDataGoods.gold;
+            case GoodsType.gem:
+                return ref saveDataTotal.saveDataGoods.gem;
+            case GoodsType.bone:
+                return ref saveDataTotal.saveDataGoods.bone;
+            case GoodsType.dice:
+                return ref saveDataTotal.saveDataGoods.dice;
+            case GoodsType.coal:
+                return ref saveDataTotal.saveDataGoods.coal;
+            default:
+                return ref saveDataTotal.saveDataGoods.gold;
+        }
+    }
+
+    // 던전 레벨 데이터 저장 -> 던전 레벨은 무조건 0 부터 시작 , 티켓으로 구매하면 클리어한 레벨의 금액만큼 더해준다.
+
+
+
 
 
     // 타임 데이터 세팅
@@ -385,6 +456,7 @@ public class SaveDataTotal
     public SaveDataGoods saveDataGoods;
     public SaveDataDateTime saveDataDateTime;
     public SaveDataSystem saveDataSystem;
+    public SaveDataDungeonLevel saveDataDungeonLevel;
 
 }
 
@@ -434,8 +506,10 @@ public class SaveDataUnion
 {
     public int unionId;
     public int level;
+    public int unionCount;// 현재 유니온 보유 수
     public int equipSlotId;
     public bool isEquip;
+
 }
 
 
@@ -497,6 +571,14 @@ public class SaveDataSkill
     public EnumDefinition.SkillType skillType;
 }
 
+[System.Serializable]
+public class SaveDataDungeonLevel
+{
+    public int dungeonLvGold = 1;
+    public int dungeonLvBone = 1;
+    public int dungeonLvDice = 1;
+    public int dungeonLvCoal = 1;
+}
 
 [System.Serializable]
 public class SaveDataShop
@@ -523,8 +605,13 @@ public class SaveDataGoods
     public int clearTicket;
     public int unionTicket;
     public int dnaTicket;
-    //public int dungeonKey_gold;
+    public int dungeonKeyGold;
+    public int dungeonKeyBone;
+    public int dungeonKeyCoal;
+    public int dungeonKeyDice;
 }
+
+
 
 [System.Serializable]
 public class SaveDataDateTime

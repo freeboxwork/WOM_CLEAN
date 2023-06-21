@@ -70,7 +70,7 @@ public class GlobalController : MonoBehaviour
         // UI Controller 세팅 
         yield return StartCoroutine(uiController.Init());
 
-        // Evalution Manager 세팅
+        // 진화 매니저 초기 세팅
         yield return StartCoroutine(evolutionManager.Init());
 
         // 뽑기 매니저 초기화 ( 첫 뽑기 데이터는 모두 0번 )

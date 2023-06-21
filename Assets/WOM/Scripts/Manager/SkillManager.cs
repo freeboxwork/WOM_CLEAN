@@ -9,10 +9,10 @@ public class SkillManager : MonoBehaviour
     public List<SkilSlot> skillSlots = new List<SkilSlot>();
     public List<Skill_InGameData> skill_InGameDatas = new List<Skill_InGameData>();
     public List<SkillBtn> skillBtns = new List<SkillBtn>();
-    
+
     void Start()
     {
-      
+
     }
 
     public void UnLockSkillButton(SkillType skillType)
@@ -37,19 +37,24 @@ public class SkillManager : MonoBehaviour
         foreach (SkillType type in System.Enum.GetValues(typeof(SkillType)))
         {
             var skillData = GetSkillData(type);
-            
+
             Skill_InGameData data = new Skill_InGameData();
             data.skillType = type;
 
-            //TODO : 추 후 저장된 값에서 불러와야 함
-            data.level = 0;
+            //저장된 값에서 불러와야 함
+            var saveData = GlobalData.instance.saveDataManager.GetSaveDataSkill(type);
+            data.level = saveData.level;
+            data.damage = saveData.damage;
+            data.isSkilUsing = saveData.isUsingSkill;
+            data.skillLeftTime = saveData.leftSkillTime;
+
             data.duaration = skillData.duration;
             data.power = skillData.power;
-            data.damage = 0;
             data.coolTime = skillData.coolTime;
             data.skilName = skillData.name;
 
             skill_InGameDatas.Add(data);
+
         }
     }
 
@@ -64,7 +69,7 @@ public class SkillManager : MonoBehaviour
             var levelName = $"Lv{inGameData.level} {inGameData.skilName}";
 
             slot.SetTxt_Level(levelName);
-           // slot.SetTxt_Name(data.name);
+            // slot.SetTxt_Name(data.name);
 
             slot.SetTxt_MaxLevel(data.maxLevel.ToString());
             slot.SetTxt_Cost(GetSkillPrice(data, inGameData).ToString());
@@ -81,7 +86,7 @@ public class SkillManager : MonoBehaviour
 
     bool IsDP_Type(SkillType skillType)
     {
-        
+
         return skillType == SkillType.insectDamageUp || skillType == SkillType.unionDamageUp || skillType == SkillType.allUnitSpeedUp || skillType == SkillType.glodBonusUp;
 
     }
@@ -101,7 +106,7 @@ public class SkillManager : MonoBehaviour
 
         // 현재 가격
         var skillPrice = GetSkillPrice(skillData, inGameData);
-        
+
         // 구매 가능 한지 확인
         var isPaySkill = IsPaySkill(skillPrice);
 
@@ -124,8 +129,8 @@ public class SkillManager : MonoBehaviour
                     break;
 
                 case SkillType.unionDamageUp:
-                    AddInGameDataValue(skillData, ref inGameData); 
-                    SetUI(ref skillSlot, skillData, inGameData); 
+                    AddInGameDataValue(skillData, ref inGameData);
+                    SetUI(ref skillSlot, skillData, inGameData);
                     break;
 
                 case SkillType.allUnitSpeedUp:
@@ -194,7 +199,7 @@ public class SkillManager : MonoBehaviour
         skillSlot.SetTxt_Cost(GetSkillPrice(skillData, inGameData).ToString());
         var levelName = $"Lv{inGameData.level} {inGameData.skilName}";
         skillSlot.SetTxt_Level(levelName);
-        
+
         skillSlot.SetTxt_Description(description);
 
     }
@@ -227,7 +232,7 @@ public class SkillManager : MonoBehaviour
     }
 
 
-    float GetDurationValue(SkillData skillData , Skill_InGameData skill_InGameData)
+    float GetDurationValue(SkillData skillData, Skill_InGameData skill_InGameData)
     {
         return skillData.duration + (skill_InGameData.level + skillData.addDurationTime);
     }
@@ -237,7 +242,7 @@ public class SkillManager : MonoBehaviour
         return skillData.power + (skill_InGameData.level * skillData.addPowerRate);
     }
 
-    float GetDamangeValue( float power)
+    float GetDamangeValue(float power)
     {
         return GlobalData.instance.insectManager.GetInsectsDps() * power;
     }

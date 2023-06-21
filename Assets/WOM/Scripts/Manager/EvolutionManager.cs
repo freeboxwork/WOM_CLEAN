@@ -28,11 +28,16 @@ public class EvolutionManager : MonoBehaviour
     {
         SetButtonEvents();
 
+        // 저장된 데이터에서 로드
+        var saveData = GlobalData.instance.saveDataManager.GetEvolutionData();
+        evalutionLeveldx = saveData.level_evolution;
+        diceEvolutionData = saveData.diceEvolutionData.CopyInstance();
+
         // 진화 판넬 UI 초기 값 세팅
-        SetUI_Pannel_Evolution(GlobalData.instance.evolutionManager.evalutionLeveldx);
+        SetUI_Pannel_Evolution(evalutionLeveldx);
 
         // 진화 슬롯 UI 초기 세팅 
-        SetUI_EvolutionSlots(GlobalData.instance.evolutionManager.evalutionLeveldx);
+        SetUI_EvolutionSlots(evalutionLeveldx);
 
         // 진화 주사위 사용 개수 세팅
         SetTxtUsingDiceCount();

@@ -398,9 +398,19 @@ public class DiceEvolutionInGameData
     public float insectBossDamage;
     public float goldBonus;
 
+    // copy instance
     public DiceEvolutionInGameData CopyInstance()
     {
-        return (DiceEvolutionInGameData)this.MemberwiseClone();
+        DiceEvolutionInGameData copyInstance = new DiceEvolutionInGameData();
+        copyInstance.insectDamage = insectDamage;
+        copyInstance.insectCriticalChance = insectCriticalChance;
+        copyInstance.insectCriticalDamage = insectCriticalDamage;
+        copyInstance.insectMoveSpeed = insectMoveSpeed;
+        copyInstance.insectSpawnTime = insectSpawnTime;
+        copyInstance.insectBossDamage = insectBossDamage;
+        copyInstance.goldBonus = goldBonus;
+
+        return copyInstance;
     }
 }
 

@@ -207,6 +207,11 @@ public class SaveDataManager : MonoBehaviour
         saveDataTotal.saveDataEvolution.diceEvolutionData = inGameData.CopyInstance();
     }
 
+    public SaveDataEvolution GetEvolutionData()
+    {
+        return saveDataTotal.saveDataEvolution;
+    }
+
     //public SaveDataUnion GetUnionDataById(int unionID)
     //{
     //    var union = saveDataTotal.saveDataUnions.unions.FirstOrDefault(f=> f.unionId == unionID);
@@ -285,8 +290,16 @@ public class SaveDataManager : MonoBehaviour
 
         skillData.skillType = skillType;
         skillData.level = skill_InGameData.level;
+        skillData.damage = skill_InGameData.damage;
         skillData.isUsingSkill = skill_InGameData.isSkilUsing;
         skillData.leftSkillTime = skill_InGameData.skillLeftTime;
+
+    }
+
+    public SaveDataSkill GetSaveDataSkill(SkillType skillType)
+    {
+        return GetSaveDataByType(saveDataTotal.saveDataSkills.saveDataSkills,
+            f => f.skillType == skillType, skillType.ToString());
     }
 
     // SHOP 데이터 세팅
@@ -573,6 +586,7 @@ public class SaveDataSkills
 public class SaveDataSkill
 {
     public int level;
+    public float damage;
     public bool isUsingSkill; // 스킬 사용중 표시
     public float leftSkillTime; // 스킬 남은 시간  
     public EnumDefinition.SkillType skillType;

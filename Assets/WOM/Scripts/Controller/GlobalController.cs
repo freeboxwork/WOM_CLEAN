@@ -82,6 +82,9 @@ public class GlobalController : MonoBehaviour
         // 스킬 데이터및 UI 세팅
         yield return StartCoroutine(skillManager.Init());
 
+        // 유니온 스폰 매니저 세팅
+        yield return StartCoroutine(unionSpwanManager.Init());
+
         // 유니온 데이터및 UI 세팅
         yield return StartCoroutine(unionManager.Init());
 
@@ -97,8 +100,6 @@ public class GlobalController : MonoBehaviour
         // 스탯 매니저 초기 세팅
         yield return StartCoroutine(statManager.Init());
 
-        // 유니온 스폰 매니저 세팅
-        yield return StartCoroutine(unionSpwanManager.Init());
 
         // 곤충 스폰 매니저 세팅
         yield return StartCoroutine(insectSpwanManager.Init());

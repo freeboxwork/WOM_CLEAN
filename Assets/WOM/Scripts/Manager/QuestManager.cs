@@ -11,6 +11,7 @@ public class QuestManager : MonoBehaviour
 
     public Button btn_showQuestPopup;
     public QuestPopup questPopup;
+    public NewUserEventPopup newUserEventPopup;
 
     private Dictionary<QuestTypeOneDay, QuestData> questsOneDay = new Dictionary<QuestTypeOneDay, QuestData>();
 
@@ -63,6 +64,7 @@ public class QuestManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         AddAttendData();
+        AddNewUserEventData();
         yield return null;
     }
 
@@ -122,6 +124,10 @@ public class QuestManager : MonoBehaviour
         }
     }
 
+    void AddNewUserEventData()
+    {
+        newUserEventPopup.SetSlotUI();
+    }
 
     void LoadQuestDataFromUserMemory(QuestData data)
     {

@@ -651,4 +651,22 @@ public class NewUserData
         newUserData.rewardValue_3 = rewardValue_3;
         return newUserData;
     }
+
+    public string[] GetRewardTypes()
+    {
+        string[] rewardTypeArray = new string[3];
+        rewardTypeArray[0] = rewardType_1;
+        rewardTypeArray[1] = rewardType_2;
+        rewardTypeArray[2] = rewardType_3;
+        return rewardTypeArray;
+    }
+
+    public int[] GetRewardValues()
+    {
+        int[] rewardValueArray = new int[3];
+        rewardValueArray[0] = rewardValue_1;
+        rewardValueArray[1] = rewardValue_2;
+        rewardValueArray[2] = rewardValue_3;
+        return rewardValueArray;
+    }
 }

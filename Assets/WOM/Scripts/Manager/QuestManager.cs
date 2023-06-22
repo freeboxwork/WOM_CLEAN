@@ -164,18 +164,11 @@ public class QuestManager : MonoBehaviour
         else
         {
             newUserEventPopup.EnablePopup(false);
+            // 신규 유저 보상 팝업 현재는 테스트 용도로 남겨줌.
+            btn_showNewUserEventPopup.gameObject.SetActive(false);
         }
 
-        // var isAllDayComplete = PlayerPrefs.GetInt("newUserEvent_reward_complete") == 0 ? false : true;
-        // if (isAllDayComplete)
-        // {
 
-        // }
-        // else
-        // {
-
-
-        // }
     }
 
 

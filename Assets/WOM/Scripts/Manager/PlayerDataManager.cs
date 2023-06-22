@@ -145,13 +145,16 @@ public class PlayerDataManager : MonoBehaviour
     //TODO : 계산식 적용
     string GetOfflineTime()
     {
+
         return "1";
     }
 
     //TODO : 계산식 적용
     string GetPlayingTime()
     {
-        return "2";
+        var endTime = System.DateTime.Now;
+        var timeSpan = endTime - startDataTime;
+        return timeSpan.Duration().ToString();
     }
 
     InsectSaveData GetInsectSaveData()

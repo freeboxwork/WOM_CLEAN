@@ -40,6 +40,7 @@ namespace ProjectGraphics
         void Awake()
         {
             anim = GetComponent<Animator>();
+            btnClose = GetComponent<Button>();
             audioSource = GetComponent<AudioSource>();
 
         }
@@ -47,7 +48,6 @@ namespace ProjectGraphics
 
         private void Start()
         {
-            btnClose = GetComponent<Button>();
             SetBtnEvent();
         }
 
@@ -70,6 +70,7 @@ namespace ProjectGraphics
         }
         private void OnEnable()
         {
+            btnClose.interactable = false;
             //시작시 gradeIndex 값을 정의 해주세요.
             int startIndex = 0;
             if (gradeIndex <= 0 || gradeIndex >= imageResources.Length) startIndex = 0;
@@ -102,6 +103,11 @@ namespace ProjectGraphics
         {
             foreach (var element in enableObjects)
                 element.SetActive(value);
+        }
+
+        public void TrueButtonInteractable()
+        {
+            btnClose.interactable = true;
         }
 
     }

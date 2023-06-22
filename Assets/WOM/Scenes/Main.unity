@@ -53959,7 +53959,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1236629463}
   m_Layer: 5
-  m_Name: CUSTOP_REWARD_POPUP
+  m_Name: CUSTOM_REWARD_POPUP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -62617,6 +62617,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   btn_showQuestPopup: {fileID: 1686428277}
+  btn_showNewUserEventPopup: {fileID: 337167618}
   questPopup: {fileID: 2131260005761567350}
   newUserEventPopup: {fileID: 1734734748}
   questResetTimer: {fileID: 1480385587}

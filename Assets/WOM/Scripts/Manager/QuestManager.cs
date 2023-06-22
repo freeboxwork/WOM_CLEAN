@@ -6,10 +6,12 @@ using static EnumDefinition;
 using System.Linq;
 
 
+
 public class QuestManager : MonoBehaviour
 {
 
     public Button btn_showQuestPopup;
+    public Button btn_showNewUserEventPopup;
     public QuestPopup questPopup;
     public NewUserEventPopup newUserEventPopup;
 
@@ -25,6 +27,9 @@ public class QuestManager : MonoBehaviour
 
     public string keyAttendUsedReawrd = "_attendUsedReward";
     public string keyNewUserEventUsedReward = "_newUserEventUsedReward";
+
+
+
 
 
     void Start()
@@ -80,6 +85,11 @@ public class QuestManager : MonoBehaviour
         {
             questPopup.gameObject.SetActive(true);
             btn_showQuestPopup.gameObject.SetActive(false);
+        });
+
+        btn_showNewUserEventPopup.onClick.AddListener(() =>
+        {
+            newUserEventPopup.EnablePopup(true);
         });
     }
 

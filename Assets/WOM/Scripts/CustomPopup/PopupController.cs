@@ -229,20 +229,35 @@ public class PopupController : MonoBehaviour
     }
 
 
-    public void InitPopups(List<RewardInfoData> rewardInfoDatas)
+    public void InitPopups(EnumDefinition.RewardType[] rewardTypes, int[] amounts)
     {
         PopupRewardInfoData data = new PopupRewardInfoData();
         List<RewardInfoData> rewards = new List<RewardInfoData>();
 
-        for (int i = 0; i < rewardInfoDatas.Count; i++)
+        for (int i = 0; i < rewardTypes.Length; i++)
         {
-            rewards.Add(rewardInfoDatas[i]);
+            rewards.Add(new RewardInfoData(rewardTypes[i], amounts[i], null));
         }
-
         data.SetPopupData("REWARD", rewards);
 
         SetupPopupInfo(data);
     }
+
+
+    // public void InitPopups(List<RewardInfoData> rewardInfoDatas)
+    // {
+    //     PopupRewardInfoData data = new PopupRewardInfoData();
+    //     List<RewardInfoData> rewards = new List<RewardInfoData>();
+
+    //     for (int i = 0; i < rewardInfoDatas.Count; i++)
+    //     {
+    //         rewards.Add(rewardInfoDatas[i]);
+    //     }
+
+    //     data.SetPopupData("REWARD", rewards);
+
+    //     SetupPopupInfo(data);
+    // }
 
 
 

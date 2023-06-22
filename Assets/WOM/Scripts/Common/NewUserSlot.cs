@@ -18,16 +18,44 @@ public class NewUserSlot : MonoBehaviour
         SetBtnEvents();
     }
 
-    public void SetUI(NewUserData data)
+    public void SetUI(NewUserData data, int unlockCount)
     {
         newUserData = data;
         var icons = new Sprite[] { GetRewardIcon(newUserData.rewardType_1), GetRewardIcon(newUserData.rewardType_2), GetRewardIcon(newUserData.rewardType_3) };
         var values = new int[] { newUserData.rewardValue_1, newUserData.rewardValue_2, newUserData.rewardValue_3 };
 
+
+        var isLock = data.id > unlockCount;
+        SetBlockImage(isLock);
+
         SetRewardIcon(icons);
         SetTxtRewardValue(values);
         SetTxtDayCount(data.day.ToString());
+
+        // 리워드 사용 확인
+        if (HasRewardKey())
+        {
+            SetBtnRewardInteractable(NotUsingReward());
+        }
+
     }
+
+    public bool HasRewardKey()
+    {
+        var hasKey = PlayerPrefs.HasKey(GetKey());
+        return hasKey;
+    }
+
+    public string GetKey()
+    {
+        return $"{GlobalData.instance.questManager.keyNewUserEventUsedReward}_{newUserData.id}";
+    }
+
+    public bool NotUsingReward()
+    {
+        return PlayerPrefs.GetInt(GetKey()) == 0 ? true : false;
+    }
+
 
     Sprite GetRewardIcon(string name)
     {
@@ -44,7 +72,10 @@ public class NewUserSlot : MonoBehaviour
     {
         btnReward.onClick.AddListener(() =>
         {
-
+            // 보상 지급
+            EventManager.instance.RunEvent<string[], int[]>(CallBackEventType.TYPES.OnUsingRewardNewUserEvent, newUserData.GetRewardTypes(), newUserData.GetRewardValues());
+            PlayerPrefs.SetInt(GetKey(), 1);
+            btnReward.interactable = false;
         });
     }
 

@@ -26,8 +26,17 @@ public class RewardManager : MonoBehaviour
         rewardDic.Add(EnumDefinition.RewardType.gem, GlobalData.instance.player.AddGem);
         rewardDic.Add(EnumDefinition.RewardType.clearTicket, GlobalData.instance.player.AddClearTicket);
         rewardDic.Add(EnumDefinition.RewardType.union, GlobalData.instance.unionManager.AddUnion);
+
+        // 보상이 정해지지 않았을때 호출되는 함수
+        rewardDic.Add(EnumDefinition.RewardType.goldKey, RewardNull);
+        rewardDic.Add(EnumDefinition.RewardType.boneKey, RewardNull);
+        rewardDic.Add(EnumDefinition.RewardType.diceKey, RewardNull);
+        rewardDic.Add(EnumDefinition.RewardType.coalKey, RewardNull);
+
         rewardDic.Add(EnumDefinition.RewardType.unionTicket, RewardNull);
         rewardDic.Add(EnumDefinition.RewardType.dnaTicket, RewardNull);
+        rewardDic.Add(EnumDefinition.RewardType.dungeonPass, RewardNull);
+
     }
 
     // 보상이 정해지지 않았을때 호출되는 함수

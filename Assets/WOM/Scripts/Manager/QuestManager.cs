@@ -6,10 +6,12 @@ using static EnumDefinition;
 using System.Linq;
 
 
+
 public class QuestManager : MonoBehaviour
 {
 
     public Button btn_showQuestPopup;
+    public Button btn_showNewUserEventPopup;
     public QuestPopup questPopup;
     public NewUserEventPopup newUserEventPopup;
 
@@ -21,8 +23,13 @@ public class QuestManager : MonoBehaviour
     public QuestResetTimer questResetTimer;
 
     public AttendTimer attendTimer;
+    public NewUserEventTimer newUserEventTimer;
 
     public string keyAttendUsedReawrd = "_attendUsedReward";
+    public string keyNewUserEventUsedReward = "_newUserEventUsedReward";
+
+
+
 
 
     void Start()
@@ -41,6 +48,7 @@ public class QuestManager : MonoBehaviour
         EventManager.instance.AddCallBackEvent<QuestData>(CallBackEventType.TYPES.OnQusetUsingRewardOneDay, EvnUsingReward);
         EventManager.instance.AddCallBackEvent<string, int>(CallBackEventType.TYPES.OnQuestCompleteBattlePassStage, EvnUsingRewardBattlePassStage);
         EventManager.instance.AddCallBackEvent<string, int>(CallBackEventType.TYPES.OnUsingRewardAttend, EvnUsingRewardAttend);
+        EventManager.instance.AddCallBackEvent<string[], int[]>(CallBackEventType.TYPES.OnUsingRewardNewUserEvent, EvnUsingRewardNewUserEvent);
     }
 
     void RemoveEvents()
@@ -48,7 +56,7 @@ public class QuestManager : MonoBehaviour
         EventManager.instance.RemoveCallBackEvent<QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, IncreaseCountOneDayQuest);
         EventManager.instance.RemoveCallBackEvent<QuestData>(CallBackEventType.TYPES.OnQusetUsingRewardOneDay, EvnUsingReward);
         EventManager.instance.RemoveCallBackEvent<string, int>(CallBackEventType.TYPES.OnQuestCompleteBattlePassStage, EvnUsingRewardBattlePassStage);
-        EventManager.instance.RemoveCallBackEvent<string, int>(CallBackEventType.TYPES.OnUsingRewardAttend, EvnUsingRewardAttend);
+        EventManager.instance.RemoveCallBackEvent<string[], int[]>(CallBackEventType.TYPES.OnUsingRewardNewUserEvent, EvnUsingRewardNewUserEvent);
     }
 
 
@@ -60,6 +68,9 @@ public class QuestManager : MonoBehaviour
 
         // 일일 출석 보상 타이머를 계산한다.
         attendTimer.CalcAttendTimer();
+
+        // 신규 유저 이벤트 타이머를 계산한다.
+        newUserEventTimer.CalcTimer();
 
         yield return new WaitForEndOfFrame();
 
@@ -74,6 +85,11 @@ public class QuestManager : MonoBehaviour
         {
             questPopup.gameObject.SetActive(true);
             btn_showQuestPopup.gameObject.SetActive(false);
+        });
+
+        btn_showNewUserEventPopup.onClick.AddListener(() =>
+        {
+            newUserEventPopup.EnablePopup(true);
         });
     }
 
@@ -126,8 +142,35 @@ public class QuestManager : MonoBehaviour
 
     void AddNewUserEventData()
     {
-        newUserEventPopup.SetSlotUI();
+
+        var newUserEventData = GlobalData.instance.dataManager.newUserDatas.data;
+        var unLockCount = PlayerPrefs.GetInt("unlocked_newUserEvent_count");
+
+        for (int i = 0; i < newUserEventData.Count; i++)
+        {
+            var clonData = newUserEventData[i].ClonInstance();
+            var slot = newUserEventPopup.newUserSlots[i];
+            slot.SetUI(clonData, unLockCount);
+        }
+
+
+        var NotAllUsingReward = newUserEventPopup.newUserSlots.Any(x => x.HasRewardKey() == false);
+        // 보상이 남아 있는 경우
+        if (NotAllUsingReward)
+        {
+            newUserEventPopup.EnablePopup(true);
+        }
+        // 모든 보상을 받은 경우
+        else
+        {
+            newUserEventPopup.EnablePopup(false);
+            // 신규 유저 보상 팝업 현재는 테스트 용도로 남겨줌.
+            btn_showNewUserEventPopup.gameObject.SetActive(false);
+        }
+
+
     }
+
 
     void LoadQuestDataFromUserMemory(QuestData data)
     {
@@ -243,6 +286,18 @@ public class QuestManager : MonoBehaviour
         PopupController.instance.InitPopup(rewardTypeValue, rewardValue);
     }
 
+
+    void EvnUsingRewardNewUserEvent(string[] rewardTypes, int[] rewardValues)
+    {
+        List<EnumDefinition.RewardType> rewards = new List<RewardType>();
+        foreach (var v in rewardTypes)
+        {
+            rewards.Add(UtilityMethod.GetRewardTypeByTypeName(v));
+        }
+
+        // 리워드 팝업 띄우기
+        PopupController.instance.InitPopups(rewards.ToArray(), rewardValues);
+    }
 
 
 

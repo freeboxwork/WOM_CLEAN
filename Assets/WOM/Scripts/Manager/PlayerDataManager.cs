@@ -20,11 +20,11 @@ public class PlayerDataManager : MonoBehaviour
         // set save & load path
         path = path = Path.Combine(Application.dataPath, fileName);
 
-        // set game start time
-        SetGamePlayStartDateTime();
-
         // load data
         yield return StartCoroutine(LoadPlayerData());
+
+        // set game start time
+        SetGamePlayStartDateTime();
 
     }
 
@@ -35,12 +35,12 @@ public class PlayerDataManager : MonoBehaviour
         startDataTime = System.DateTime.Now;
     }
 
-    private void OnApplicationQuit()
-    {
-        SavePlayerData();
+    // private void OnApplicationQuit()
+    // {
+    //     // SavePlayerData();
 
 
-    }
+    // }
 
 
 
@@ -145,7 +145,6 @@ public class PlayerDataManager : MonoBehaviour
     //TODO : 계산식 적용
     string GetOfflineTime()
     {
-
         return "1";
     }
 

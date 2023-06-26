@@ -27,6 +27,8 @@ public class GlobalController : MonoBehaviour
     public SaveDataManager saveDataManager;
     public QuestManager questManager;
 
+    public SoundManager soundManager;
+
     void Start()
     {
         if (dataManager == null) dataManager = FindObjectOfType<DataManager>();
@@ -130,6 +132,9 @@ public class GlobalController : MonoBehaviour
 
         // Monster In Animation
         yield return StartCoroutine(player.currentMonster.inOutAnimator.AnimPositionIn());
+
+        // 사운드 매니저 초기화
+        yield return StartCoroutine(soundManager.Init());
 
         // 한 프레임 대기
         yield return new WaitForEndOfFrame();

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,31 +20,42 @@ public class SettingPopupController : MonoBehaviour
 
     void Start()
     {
+
+    }
+
+    public void SetUI()
+    {
+        txtBGM_OnOff.text = GlobalData.instance.soundManager.bgmOn ? "배경음 OFF" : "배경음 ON";
+        txtSFX_OnOff.text = GlobalData.instance.soundManager.sfxOn ? "효과음 OFF" : "효과음 ON";
+
         SetBtnEvents();
     }
-    
 
     void SetBtnEvents()
     {
-        btnBgmOnOff.onClick.AddListener(() => {
+        btnBgmOnOff.onClick.AddListener(() =>
+        {
             GlobalData.instance.soundManager.BGM_OnOff();
 
             var txtValue = GlobalData.instance.soundManager.bgmOn ? "배경음 OFF" : "배경음 ON";
             txtBGM_OnOff.text = txtValue;
         });
 
-        btnSfxOnOff.onClick.AddListener(() => {
+        btnSfxOnOff.onClick.AddListener(() =>
+        {
             GlobalData.instance.soundManager.SFX_OnOff();
 
             var txtValue = GlobalData.instance.soundManager.sfxOn ? "효과음 OFF" : "효과음 ON";
             txtSFX_OnOff.text = txtValue;
         });
 
-        btnReview.onClick.AddListener(() => {
+        btnReview.onClick.AddListener(() =>
+        {
             Debug.Log("review...");
         });
 
-        btnClose.onClick.AddListener(() => {
+        btnClose.onClick.AddListener(() =>
+        {
             popupSetting.SetActive(false);
         });
 
@@ -57,7 +66,7 @@ public class SettingPopupController : MonoBehaviour
 
     }
 
-  
+
 
 }
 

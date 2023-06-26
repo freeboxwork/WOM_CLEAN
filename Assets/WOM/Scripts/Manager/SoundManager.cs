@@ -1,5 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -11,21 +11,66 @@ public class SoundManager : MonoBehaviour
     public List<AudioClip> bgmList = new List<AudioClip>();
     public List<AudioClip> sfxList = new List<AudioClip>();
 
-    public bool bgmOn = true;
-    public bool sfxOn = true;
+    public bool bgmOn;
+    public bool sfxOn;
+
+    const string bgmOnOffKey = "bgmOnOff";
+    const string sfxOnOffKey = "sfxOnOff";
 
     void Start()
     {
-        PlayBgm(EnumDefinition.BGM_TYPE.BGM_01);
+
+    }
+
+    public IEnumerator Init()
+    {
+        bgmOn = IsBgmOn();
+        sfxOn = IsSfxOn();
+        if (bgmOn)
+            PlayBgm(EnumDefinition.BGM_TYPE.BGM_01);
+
+        // set sfx volume
+        var volume = sfxOn ? 1 : 0;
+        playerSfxInGame.volume = volume;
+        playerSfxUiPlayer.volume = volume;
+
+        // Set Setting Popup UI
+        yield return new WaitForEndOfFrame();
+        GlobalData.instance.settingPopupController.SetUI();
     }
 
     public void BGM_OnOff()
     {
         bgmOn = !bgmOn;
         if (bgmOn)
+        {
             playerBgm.Play();
+            PlayerPrefs.SetString(bgmOnOffKey, "on");
+        }
+
         else
+        {
             playerBgm.Stop();
+            PlayerPrefs.SetString(bgmOnOffKey, "off");
+        }
+    }
+
+    bool IsBgmOn()
+    {
+        if (!PlayerPrefs.HasKey(bgmOnOffKey))
+            return true;
+
+        var bgmOnOff = PlayerPrefs.GetString(bgmOnOffKey);
+        return bgmOnOff == "on" ? true : false;
+    }
+
+    bool IsSfxOn()
+    {
+        if (!PlayerPrefs.HasKey(sfxOnOffKey))
+            return true;
+
+        var sfxOnOff = PlayerPrefs.GetString(sfxOnOffKey);
+        return sfxOnOff == "on" ? true : false;
     }
 
     public void SFX_OnOff()
@@ -34,6 +79,9 @@ public class SoundManager : MonoBehaviour
         var volume = sfxOn ? 1 : 0;
         playerSfxInGame.volume = volume;
         playerSfxUiPlayer.volume = volume;
+
+        var saveValue = sfxOn ? "on" : "off";
+        PlayerPrefs.SetString(sfxOnOffKey, saveValue);
     }
 
     public void PlayBgm(EnumDefinition.BGM_TYPE bgmType)

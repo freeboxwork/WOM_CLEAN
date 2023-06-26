@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using System.IO;
+using System;
 
 public class PlayerDataManager : MonoBehaviour
 {
@@ -10,10 +11,50 @@ public class PlayerDataManager : MonoBehaviour
     string isFirstConnectKey = "isFirstConnect";
     System.DateTime startDataTime;
 
+    // save data key
+    DateTime startDateTime;
+
+    const string offlineTimeKey = "offlineTime";
+    const string playingTimeKey = "playingTime";
+
+
     void Start()
     {
 
     }
+
+
+    //TODO: 코드 정리
+
+    private void OnApplicationQuit()
+    {
+        SavePlayingTime();
+        SaveOfflineTime();
+    }
+
+    void SaveOfflineTime()
+    {
+        var startOfflineTime = System.DateTime.Now;
+        PlayerPrefs.SetString(offlineTimeKey, startOfflineTime.ToString());
+    }
+    void SavePlayingTime()
+    {
+        var endTime = System.DateTime.Now;
+        var timeSpan = endTime - startDataTime;
+        PlayerPrefs.SetString(playingTimeKey, timeSpan.Duration().ToString());
+    }
+
+    string LoadOfflineTime()
+    {
+        var offlineTime = PlayerPrefs.GetString(offlineTimeKey);
+        var startOfflineTime = System.DateTime.Parse(offlineTime);
+        var endTime = System.DateTime.Now;
+        var timeSpan = endTime - startOfflineTime;
+        Debug.Log("offlineTime : " + timeSpan.Duration().ToString());
+        return timeSpan.Duration().ToString();
+    }
+
+
 
     public IEnumerator InitPlayerData()
     {
@@ -35,12 +76,7 @@ public class PlayerDataManager : MonoBehaviour
         startDataTime = System.DateTime.Now;
     }
 
-    // private void OnApplicationQuit()
-    // {
-    //     // SavePlayerData();
 
-
-    // }
 
 
 
@@ -54,6 +90,8 @@ public class PlayerDataManager : MonoBehaviour
 
     IEnumerator LoadPlayerData()
     {
+        startDataTime = System.DateTime.Now;
+
         // first connect
         if (!GetFirstConnectValue())
         {
@@ -98,6 +136,16 @@ public class PlayerDataManager : MonoBehaviour
             saveData.dungeonLvDice = saveDataTotal.saveDataDungeonLevel.dungeonLvDice;
             saveData.dungeonLvCoal = saveDataTotal.saveDataDungeonLevel.dungeonLvCoal;
 
+            // 시간 데이터
+            if (PlayerPrefs.HasKey(playingTimeKey))
+            {
+                saveData.playingTime = PlayerPrefs.GetString(playingTimeKey);
+                Debug.Log("playingTimeKey : " + saveData.playingTime);
+            }
+            if (PlayerPrefs.HasKey(offlineTimeKey))
+            {
+                saveData.offlineTime = LoadOfflineTime();
+            }
 
             // todo: 저장 및 로드 로직 추가
             saveData.beeSaveData = GetFirstConnectInsectData(EnumDefinition.InsectType.bee);
@@ -130,7 +178,6 @@ public class PlayerDataManager : MonoBehaviour
         saveData.mentisSaveData = GetInsectSaveData();
         saveData.upgradeLevelIdx = 0;
         saveData.gold = 123;
-        saveData.offlineTime = GetOfflineTime();
         saveData.playingTime = GetPlayingTime();
 
         var json = JsonUtility.ToJson(saveData);

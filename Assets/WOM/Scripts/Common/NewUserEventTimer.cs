@@ -32,7 +32,11 @@ public class NewUserEventTimer : MonoBehaviour
         }
         else
         {
-            CalcCount();
+            var currentCount = PlayerPrefs.GetInt(UNLOCKED_COUNT_KEY);
+            var loadKey = $"{GlobalData.instance.questManager.keyNewUserEventUsedReward}_{currentCount}";
+            var usedReward = PlayerPrefs.GetInt(loadKey) == 0 ? false : true;
+            if (usedReward)
+                CalcCount();
         }
     }
 

@@ -30,7 +30,11 @@ public class AttendTimer : MonoBehaviour
         }
         else
         {
-            CalcAttendCount();
+            var currentCount = PlayerPrefs.GetInt(UNLOCKED_ATTEND_COUNT_KEY);
+            var loadKey = $"{GlobalData.instance.questManager.keyAttendUsedReawrd}_{currentCount + 1}";
+            var usedReward = PlayerPrefs.GetInt(loadKey) == 0 ? false : true;
+            if (usedReward)
+                CalcAttendCount();
         }
     }
 

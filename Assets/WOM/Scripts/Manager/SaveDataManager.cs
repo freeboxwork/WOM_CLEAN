@@ -56,6 +56,14 @@ public class SaveDataManager : MonoBehaviour
         File.WriteAllText(path, jsonData);
     }
 
+    void OnApplicationQuit()
+    {
+        // 데이터 저장                
+        var jsonData = JsonUtility.ToJson(saveDataTotal);
+        var path = GetSaveDataFilePaht();
+        File.WriteAllText(path, jsonData);
+    }
+
     public IEnumerator SaveDataToFileCoroutine()
     {
         // ui interaction disable

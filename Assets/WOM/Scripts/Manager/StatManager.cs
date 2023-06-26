@@ -1,10 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
-using System.Threading.Tasks;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UIElements;
 using static EnumDefinition;
 
 /// <summary>
@@ -34,7 +29,7 @@ public class StatManager : MonoBehaviour
 
     void Start()
     {
-       
+
 
     }
 
@@ -61,7 +56,7 @@ public class StatManager : MonoBehaviour
     {
         var itd = GetEvolutionData(insectType).damage;
         var ttd = GetTraningData(SaleStatType.trainingDamage).value;
-        var value = itd + ttd  + skill_InsectDamageUp;
+        var value = itd + ttd + skill_InsectDamageUp;
         return value;
     }
 
@@ -71,7 +66,7 @@ public class StatManager : MonoBehaviour
         var trcc = GetTraningData(SaleStatType.trainingCriticalChance).value;
         var tacc = GetTraningData(SaleStatType.talentCriticalChance).value;
         var icc = GetDnaData(DNAType.insectCriticalChance).power;
-        var diceIcc = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectCriticalChance); 
+        var diceIcc = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectCriticalChance);
         var value = trcc + tacc + icc + diceIcc + skill_AllUnitCriticalChanceUp;
         return value;
     }
@@ -111,14 +106,14 @@ public class StatManager : MonoBehaviour
         // Debug.Log($"진화속도:{ies}/특성속도:{tms}/DNA속도:{ims}/주사위속도{diceIms} = 합계 : {value}");
         return value * 0.01f;
     }
-    
+
     /// <summary> 곤충 생성 속도 </summary>
     public float GetInsectSpwanTime(InsectType insectType)
     {
         var ist = GetEvolutionData(insectType).spawnTime;
         var tst = GetTraningData(SaleStatType.talentSpawnSpeed).value;
         var diceIst = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectSpawnTime);
-        var value = ist - (ist * (tst+ diceIst)) ;
+        var value = ist - (ist * (tst + diceIst));
         return value;
     }
 
@@ -143,14 +138,14 @@ public class StatManager : MonoBehaviour
         var ums = GetUnionData(unionIndex).moveSpeed;
         var dms = GetDnaData(DNAType.insectMoveSpeed).power;
         var diceIms = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectMoveSpeed);
-        var value = ums + (ums * ((dms + diceIms + skill_AllUnitSpeedUp) *0.01f)) ;
+        var value = ums + (ums * ((dms + diceIms + skill_AllUnitSpeedUp) * 0.01f));
         return value * 0.01f;
     }
 
     /// <summary> 유니온 생성속도 </summary>
     public float GetUnionSpwanSpeed(int unionIndex)
     {
-        var dst = GetDnaData(DNAType.unionSpawnTime).power; 
+        var dst = GetDnaData(DNAType.unionSpawnTime).power;
         return dst;
     }
 
@@ -187,7 +182,7 @@ public class StatManager : MonoBehaviour
 
     #region SKILLS
 
-    
+
     public void UsingSkill(SkillType skillType)
     {
         switch (skillType)
@@ -202,10 +197,10 @@ public class StatManager : MonoBehaviour
                 StartCoroutine(EnableSkill_AllUnitSpeedUP());
                 break;
             case SkillType.glodBonusUp:
-                StartCoroutine(EnableSkill_GoldBonusUP()); 
+                StartCoroutine(EnableSkill_GoldBonusUP());
                 break;
             case SkillType.monsterKing:
-                StartCoroutine(EnableSkill_MonsterKing()); 
+                StartCoroutine(EnableSkill_MonsterKing());
                 break;
             case SkillType.allUnitCriticalChanceUp:
                 StartCoroutine(EnableSkill_AllUnitCriticalChanceUP());
@@ -214,11 +209,25 @@ public class StatManager : MonoBehaviour
     }
 
 
-    public IEnumerator EnableSkill_InsectDamageUP() 
+    void SetUsingSkillSaveData(SkillType skillType, bool isUsing)
+    {
+        GlobalData.instance.saveDataManager.SetSkillUsingValue(skillType, isUsing);
+    }
+
+    void SetLeftSkillTimeSaveData(SkillType skillType, float leftTime)
+    {
+        GlobalData.instance.saveDataManager.SetSkillLeftTime(skillType, leftTime);
+    }
+
+    public IEnumerator EnableSkill_InsectDamageUP()
     {
         var data = GetSkillData(SkillType.insectDamageUp);
         skill_InsectDamageUp = data.damage;
         data.isSkilUsing = true;
+
+        // set save data
+        var skilType = SkillType.insectDamageUp;
+        SetUsingSkillSaveData(skilType, true);
 
         float elapsedTime = 0.0f;
         var totalDuration = data.duaration * (1 + SkillDuration());
@@ -226,12 +235,19 @@ public class StatManager : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             data.skillLeftTime = totalDuration - elapsedTime;
+            // set save data
+            SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
             yield return null;
         }
 
         data.skillLeftTime = 0;
         skill_InsectDamageUp = 0;
         data.isSkilUsing = false;
+
+        // set save data
+        SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
+        SetUsingSkillSaveData(skilType, false);
+
     }
 
     public IEnumerator EnableSkill_UnionDamageUP()
@@ -247,7 +263,7 @@ public class StatManager : MonoBehaviour
             data.skillLeftTime = data.duaration - elapsedTime;
             yield return null;
         }
-        
+
         data.isSkilUsing = false;
         skill_UnionDamageUp = 0;
     }
@@ -383,7 +399,7 @@ public class StatManager : MonoBehaviour
     #region UTILITY METHOD
     EvolutionData GetEvolutionData(InsectType insectType)
     {
-       // Debug.Log(insectType);
+        // Debug.Log(insectType);
         return dataManager.GetEvolutionDataById(insectType, evolutionManager.evalutionLeveldx);
     }
 

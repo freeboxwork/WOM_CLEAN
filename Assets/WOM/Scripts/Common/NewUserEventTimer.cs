@@ -32,7 +32,7 @@ public class NewUserEventTimer : MonoBehaviour
         }
         else
         {
-            CalcAttendCount();
+            CalcCount();
         }
     }
 
@@ -44,7 +44,7 @@ public class NewUserEventTimer : MonoBehaviour
     //     }
     // }
 
-    void CalcAttendCount()
+    void CalcCount()
     {
         var now = DateTime.Now.ToString("yyyy-MM-dd");
 

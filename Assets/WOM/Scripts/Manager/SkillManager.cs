@@ -41,7 +41,7 @@ public class SkillManager : MonoBehaviour
             Skill_InGameData data = new Skill_InGameData();
             data.skillType = type;
 
-            //저장된 값에서 불러와야 함
+            //저장된 값에서 불러옴
             var saveData = GlobalData.instance.saveDataManager.GetSaveDataSkill(type);
             data.level = saveData.level;
             data.damage = saveData.damage;

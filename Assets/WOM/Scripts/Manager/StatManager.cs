@@ -256,16 +256,26 @@ public class StatManager : MonoBehaviour
         skill_UnionDamageUp = data.damage;
         data.isSkilUsing = true;
 
+        // set save data
+        var skilType = SkillType.insectDamageUp;
+        SetUsingSkillSaveData(skilType, true);
+
         float elapsedTime = 0.0f;
         while (elapsedTime < data.duaration)
         {
             elapsedTime += Time.deltaTime;
             data.skillLeftTime = data.duaration - elapsedTime;
+            // set save data
+            SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
             yield return null;
         }
 
         data.isSkilUsing = false;
         skill_UnionDamageUp = 0;
+
+        // set save data
+        SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
+        SetUsingSkillSaveData(skilType, false);
     }
 
     public IEnumerator EnableSkill_AllUnitSpeedUP()
@@ -274,16 +284,26 @@ public class StatManager : MonoBehaviour
         skill_AllUnitSpeedUp = data.power;
         data.isSkilUsing = true;
 
+        // set save data
+        var skilType = SkillType.insectDamageUp;
+        SetUsingSkillSaveData(skilType, true);
+
         float elapsedTime = 0.0f;
         while (elapsedTime < data.duaration)
         {
             elapsedTime += Time.deltaTime;
             data.skillLeftTime = data.duaration - elapsedTime;
+            // set save data
+            SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
             yield return null;
         }
 
         data.isSkilUsing = false;
         skill_UnionDamageUp = 0;
+
+        // set save data
+        SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
+        SetUsingSkillSaveData(skilType, false);
     }
 
     public IEnumerator EnableSkill_GoldBonusUP()
@@ -292,16 +312,27 @@ public class StatManager : MonoBehaviour
         skill_GoldBounsUp = data.power;
         data.isSkilUsing = true;
 
+        // set save data
+        var skilType = SkillType.insectDamageUp;
+        SetUsingSkillSaveData(skilType, true);
+
         float elapsedTime = 0.0f;
         while (elapsedTime < data.duaration)
         {
             elapsedTime += Time.deltaTime;
             data.skillLeftTime = data.duaration - elapsedTime;
+            // set save data
+            SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
             yield return null;
         }
 
         data.isSkilUsing = false;
         skill_GoldBounsUp = 0;
+
+        // set save data
+        SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
+        SetUsingSkillSaveData(skilType, false);
+
     }
 
     public IEnumerator EnableSkill_MonsterKing()
@@ -310,16 +341,26 @@ public class StatManager : MonoBehaviour
         skill_MonsterKing = data.power;
         data.isSkilUsing = true;
 
+        // set save data
+        var skilType = SkillType.insectDamageUp;
+        SetUsingSkillSaveData(skilType, true);
+
         float elapsedTime = 0.0f;
         while (elapsedTime < data.duaration)
         {
             elapsedTime += Time.deltaTime;
             data.skillLeftTime = data.duaration - elapsedTime;
+            // set save data
+            SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
             yield return null;
         }
 
         data.isSkilUsing = false;
         skill_MonsterKing = 0;
+
+        // set save data
+        SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
+        SetUsingSkillSaveData(skilType, false);
     }
 
     public IEnumerator EnableSkill_AllUnitCriticalChanceUP()
@@ -328,16 +369,26 @@ public class StatManager : MonoBehaviour
         skill_AllUnitCriticalChanceUp = data.power;
         data.isSkilUsing = true;
 
+        // set save data
+        var skilType = SkillType.insectDamageUp;
+        SetUsingSkillSaveData(skilType, true);
+
         float elapsedTime = 0.0f;
         while (elapsedTime < data.duaration)
         {
             elapsedTime += Time.deltaTime;
             data.skillLeftTime = data.duaration - elapsedTime;
+            // set save data
+            SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
             yield return null;
         }
 
         data.isSkilUsing = false;
         skill_AllUnitCriticalChanceUp = 0;
+
+        // set save data
+        SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
+        SetUsingSkillSaveData(skilType, false);
     }
 
 

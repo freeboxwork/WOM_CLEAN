@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using Coffee.UIExtensions;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -39,6 +38,9 @@ public class TutorialManager : MonoBehaviour
 
     IEnumerator Init()
     {
+        // get tutorial set id ( load data )
+        curTutorialSetID = GlobalData.instance.saveDataManager.saveDataTotal.saveDataTutorial.tutorial_step;
+
         // get json data
         tutorialStepData = JsonUtility.FromJson<TutorialStepDatas>(tutorialJsonData.text);
 
@@ -54,7 +56,7 @@ public class TutorialManager : MonoBehaviour
         for (int i = 0; i < tutorialStepData.data.Count; i++)
         {
             var data = tutorialStepData.data[i];
-            if(!tutorialStepSetDatas.Any(a=> a.setId == data.setId))
+            if (!tutorialStepSetDatas.Any(a => a.setId == data.setId))
             {
                 tutorialStepSetDatas.Add(new TutorialStepSetData
                 {
@@ -78,7 +80,7 @@ public class TutorialManager : MonoBehaviour
 
     public void EnableTutorialSet()
     {
-        var tutorialSet = GetTutorialSetById(curTutorialSetID);   
+        var tutorialSet = GetTutorialSetById(curTutorialSetID);
         var step = tutorialSet.steps[curTutorialStepID];
         var tutoBtn = GetTutorialButtonById(step.tutorialBtnId);
         tutorialUiCont.EnableTutorial(step.description, tutoBtn.image, tutoBtn.button);
@@ -89,11 +91,11 @@ public class TutorialManager : MonoBehaviour
         var tutorialSet = GetTutorialSetById(curTutorialSetID);
 
         // 현재 스텝 완료
-        tutorialSet.steps[curTutorialStepID].isStepComplete= true;
+        tutorialSet.steps[curTutorialStepID].isStepComplete = true;
 
-        
+
         // 다음 스텝 있는지 확인
-        if (tutorialSet.steps.Any(a=> a.step == curTutorialStepID+1))
+        if (tutorialSet.steps.Any(a => a.step == curTutorialStepID + 1))
         {
             // 다음 스텝 실행
             ++curTutorialStepID;
@@ -106,11 +108,14 @@ public class TutorialManager : MonoBehaviour
             // 투토리얼 세트 완료
             tutorialSet.isSetComplete = true;
             tutorialSet.steps[curTutorialStepID].isStepComplete = true;
-            
+
             curTutorialSetID++;
             curTutorialStepID = 0;
-            
+
             tutorialUiCont.DisableTutorial();
+
+            // set save data
+            GlobalData.instance.saveDataManager.SaveDataTutorialStep(curTutorialSetID);
         }
 
         //Debug.Log(curTutorialStepID);

@@ -310,6 +310,19 @@ public class SaveDataManager : MonoBehaviour
             f => f.skillType == skillType, skillType.ToString());
     }
 
+
+    public void SetSkillLeftTime(SkillType skillType, float leftTime)
+    {
+        SaveDataSkill skillData = GetSaveDataSkill(skillType);
+        skillData.leftSkillTime = leftTime;
+    }
+
+    public void SetSkillUsingValue(SkillType skillType, bool isUsing)
+    {
+        SaveDataSkill skillData = GetSaveDataSkill(skillType);
+        skillData.isUsingSkill = isUsing;
+    }
+
     // SHOP 데이터 세팅
 
 
@@ -371,7 +384,6 @@ public class SaveDataManager : MonoBehaviour
     {
         saveDataTotal.saveDataDungeonLevel.dungeonLvCoal = dungeonLevel;
     }
-
 
     // 던전 키 데이터 저장
     public void SaveDataGoodsDungeonKey(GoodsType goodsType, int dungeonKey)
@@ -439,6 +451,12 @@ public class SaveDataManager : MonoBehaviour
         saveDataTotal.saveDataSystem.tutorial_step = value;
     }
 
+    // 투토리얼 스텝 데이터 세팅
+    public void SaveDataTutorialStep(int step)
+    {
+        saveDataTotal.saveDataSystem.tutorial_step = step;
+    }
+
 
     string GetSaveDataFilePaht()
     {
@@ -484,6 +502,7 @@ public class SaveDataTotal
     public SaveDataDateTime saveDataDateTime;
     public SaveDataSystem saveDataSystem;
     public SaveDataDungeonLevel saveDataDungeonLevel;
+    public SaveDataTutorial saveDataTutorial;
 
 }
 
@@ -498,6 +517,12 @@ public class SaveDataTotal
 //public int level_talentSpawnSpeed;
 //public int level_talentGoldBonus;
 #endregion
+
+[System.Serializable]
+public class SaveDataTutorial
+{
+    public int tutorial_step;
+}
 
 [System.Serializable]
 public class SaveDataTranings

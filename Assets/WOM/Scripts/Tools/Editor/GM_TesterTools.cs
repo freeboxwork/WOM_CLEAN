@@ -6,6 +6,7 @@ public class GM_TesterTools : EditorWindow
 {
     Transform t;
     Vector2 scrollView;
+    const string dataFileName = "saveData.json";
 
     [MenuItem("GM_TOOLS/TesterTools")]
     public static void ShowWindwo()
@@ -46,6 +47,8 @@ public class GM_TesterTools : EditorWindow
         EditorCustomGUI.GUI_Button("저장된 모든 PlayerPrefs 지우기", () => { PlayerPrefs.DeleteAll(); });
 
 
+        EditorCustomGUI.GUI_Button("저장된 모든 SAVE DATA 지우기", () => { DeleteSaveDataFile(); });
+
 
         EditorGUILayout.EndScrollView();
     }
@@ -62,6 +65,22 @@ public class GM_TesterTools : EditorWindow
     void DeletePlayerPrefsByKey(string key)
     {
         PlayerPrefs.DeleteKey(key);
+    }
+
+    void DeleteSaveDataFile()
+    {
+        System.IO.File.Delete(GetSaveDataFilePaht());
+    }
+
+    string GetSaveDataFilePaht()
+    {
+        string path = "";
+#if UNITY_EDITOR
+        path = Application.dataPath + "/" + dataFileName;
+#elif UNITY_ANDROID
+            path = Application.persistentDataPath + "/"+ dataFileName;
+#endif
+        return path;
     }
 
 }

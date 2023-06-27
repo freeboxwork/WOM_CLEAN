@@ -25,14 +25,8 @@ public class SaveDataManager : MonoBehaviour
 
     public IEnumerator Init()
     {
-        LoadDataFromFile();
-
-        //SetData();
-
+        yield return StartCoroutine(LoadDataFromFile());
         yield return new WaitForEndOfFrame();
-
-        // Save Json File
-        //SaveDataToFile();
     }
 
 
@@ -81,7 +75,7 @@ public class SaveDataManager : MonoBehaviour
 #endif    
     }
 
-    void LoadDataFromFile()
+    IEnumerator LoadDataFromFile()
     {
         var path = GetSaveDataFilePaht();
         if (File.Exists(path))
@@ -94,25 +88,20 @@ public class SaveDataManager : MonoBehaviour
         {
             InitData();
             SaveDataToFile();
+
+            yield return new WaitForEndOfFrame();
+            var file = File.ReadAllText(path);
+            saveDataTotal = JsonUtility.FromJson<SaveDataTotal>(file);
         }
+
+        yield return null;
     }
 
-    // 저장된 파일에서 데이터 읽어오기
-    // public void SetData()
-    // {
-    //     var player = globalData.player;
-    //     player.gold = saveDataTotal.saveDataGoods.gold;
-    //     player.bone = saveDataTotal.saveDataGoods.bone;
-    //     player.diceCount = saveDataTotal.saveDataGoods.dice;
-    //     player.gem = saveDataTotal.saveDataGoods.gem;
-    //     player.clearTicket = saveDataTotal.saveDataGoods.clearTicket;
-    //     //TODO: dungen key 추가 작업 필요함
-    // }
+
 
     public void InitData()
     {
         saveDataTotal = new SaveDataTotal();
-
 
         // set traning 
         saveDataTotal.saveDataTranings = new SaveDataTranings();
@@ -128,12 +117,6 @@ public class SaveDataManager : MonoBehaviour
         {
             saveDataTotal.saveDataUnions.unions.Add(new SaveDataUnion { unionId = union.unionIndex });
         }
-
-        // 성능 테스트
-        // for (int i = 0; i < 64; i++)
-        // {
-        //     saveDataTotal.saveDataUnions.unions.Add(new SaveDataUnion { unionId = i });
-        // }
 
         // set DNA
         saveDataTotal.saveDataDNAs = new SaveDataDNAs();
@@ -220,32 +203,6 @@ public class SaveDataManager : MonoBehaviour
         return saveDataTotal.saveDataEvolution;
     }
 
-    //public SaveDataUnion GetUnionDataById(int unionID)
-    //{
-    //    var union = saveDataTotal.saveDataUnions.unions.FirstOrDefault(f=> f.unionId == unionID);
-    //    if (union == null)
-    //    {
-    //        throw new Exception($"Union with ID {unionID} not found.");
-    //    }
-    //    return union;
-    //}
-
-
-    // 유니온 데이터 세팅
-    //public void SaveUnionData(UnionSlot unionSlot)
-    //{
-    //    var inGmaeData = unionSlot.inGameData;
-    //    var unionID = inGmaeData.unionIndex;
-    //    var union = GetSaveDataByType(saveDataTotal.saveDataUnions.unions, f => f.unionId == unionID, $"????? ID : {unionID}");
-
-    //    // union.unionId = inGmaeData.unionIndex;
-    //    union.level = inGmaeData.level;
-    //    union.isEquip = unionSlot.unionEquipType == UnionEquipType.Equipped;
-    //    if (union.isEquip)
-    //    {
-    //        union.equipSlotId = unionSlot.unionEquipSlot.slotIndex;
-    //    }
-    //}
 
     public void SaveUnionLevelData(UnionSlot unionSlot)
     {
@@ -505,18 +462,6 @@ public class SaveDataTotal
     public SaveDataTutorial saveDataTutorial;
 
 }
-
-#region old
-//public int level_trainingDamage;
-//public int level_trainingCriticalChance;
-//public int level_trainingCriticalDamage;
-//public int level_talentDamage;
-//public int level_talentCriticalChance;
-//public int level_talentCriticalDamage;
-//public int level_talentMoveSpeed;
-//public int level_talentSpawnSpeed;
-//public int level_talentGoldBonus;
-#endregion
 
 [System.Serializable]
 public class SaveDataTutorial

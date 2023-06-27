@@ -7,18 +7,18 @@ public class TutorialManager : MonoBehaviour
 {
     public TextAsset tutorialJsonData;
 
-    // ÅõÅä¸®¾ó µ¥ÀÌÅÍ
+    // íˆ¬í† ë¦¬ì–¼ ë°ì´í„°
     public TutorialStepDatas tutorialStepData;
 
-    // setId ±âÁØÀ¸·Î ³ª´« ÅõÅä¸®¾ó ¼¼Æ® µ¥ÀÌÅÍ
+    // setId ê¸°ì¤€ìœ¼ë¡œ ë‚˜ëˆˆ íˆ¬í† ë¦¬ì–¼ ì„¸íŠ¸ ë°ì´í„°
     public List<TutorialStepSetData> tutorialStepSetDatas = new List<TutorialStepSetData>();
 
-    // ÅõÅä¸®¾ó ¹öÆ°µé
+    // íˆ¬í† ë¦¬ì–¼ ë²„íŠ¼ë“¤
     public List<TutorialButton> tutorialButtons = new List<TutorialButton>();
 
-    // ÇöÀç ÁøÇàÁßÀÎ ÅõÅä¸®¾ó ¼¼Æ®ÀÇ ¾ÆÀÌµğ
+    // í˜„ì¬ ì§„í–‰ì¤‘ì¸ íˆ¬í† ë¦¬ì–¼ ì„¸íŠ¸ì˜ ì•„ì´ë””
     public int curTutorialSetID = 0;
-    // ÇöÀç ÁøÇàÁßÀÎ ÅõÅä¸®¾ó ¼¼Æ®ÀÇ ½ºÅÜ ¾ÆÀÌµğ
+    // í˜„ì¬ ì§„í–‰ì¤‘ì¸ íˆ¬í† ë¦¬ì–¼ ì„¸íŠ¸ì˜ ìŠ¤í… ì•„ì´ë””
     public int curTutorialStepID = 0;
 
     public TutorialUiController tutorialUiCont;
@@ -52,7 +52,7 @@ public class TutorialManager : MonoBehaviour
 
     void SetData()
     {
-        // set set data ( setId ±âÁØÀ¸·Î ¼¼Æ® ¸®½ºÆ®¸¦ ¸¸µê )
+        // set set data ( setId ê¸°ì¤€ìœ¼ë¡œ ì„¸íŠ¸ ë¦¬ìŠ¤íŠ¸ë¥¼ ë§Œë“¦ )
         for (int i = 0; i < tutorialStepData.data.Count; i++)
         {
             var data = tutorialStepData.data[i];
@@ -90,14 +90,14 @@ public class TutorialManager : MonoBehaviour
     {
         var tutorialSet = GetTutorialSetById(curTutorialSetID);
 
-        // ÇöÀç ½ºÅÜ ¿Ï·á
+        // í˜„ì¬ ìŠ¤í… ì™„ë£Œ
         tutorialSet.steps[curTutorialStepID].isStepComplete = true;
 
 
-        // ´ÙÀ½ ½ºÅÜ ÀÖ´ÂÁö È®ÀÎ
+        // ë‹¤ìŒ ìŠ¤í… ìˆëŠ”ì§€ í™•ì¸
         if (tutorialSet.steps.Any(a => a.step == curTutorialStepID + 1))
         {
-            // ´ÙÀ½ ½ºÅÜ ½ÇÇà
+            // ë‹¤ìŒ ìŠ¤í… ì‹¤í–‰
             ++curTutorialStepID;
             var step = tutorialSet.steps[curTutorialStepID];
             var tutoBtn = GetTutorialButtonById(step.tutorialBtnId);
@@ -105,7 +105,7 @@ public class TutorialManager : MonoBehaviour
         }
         else
         {
-            // ÅõÅä¸®¾ó ¼¼Æ® ¿Ï·á
+            // íˆ¬í† ë¦¬ì–¼ ì„¸íŠ¸ ì™„ë£Œ
             tutorialSet.isSetComplete = true;
             tutorialSet.steps[curTutorialStepID].isStepComplete = true;
 

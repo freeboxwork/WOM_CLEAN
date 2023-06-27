@@ -52,6 +52,8 @@ public class SaveDataManager : MonoBehaviour
 
     void OnApplicationQuit()
     {
+        // 종료 시간 저장
+        saveDataTotal.saveDataSystem.quitTime = DateTime.Now.ToString();
         // 데이터 저장                
         var jsonData = JsonUtility.ToJson(saveDataTotal);
         var path = GetSaveDataFilePaht();
@@ -62,6 +64,8 @@ public class SaveDataManager : MonoBehaviour
     {
         // ui interaction disable
         UtilityMethod.EnableUIEventSystem(false);
+        // 종료 시간 저장
+        saveDataTotal.saveDataSystem.quitTime = DateTime.Now.ToString();
         // 데이터 저장                
         var jsonData = JsonUtility.ToJson(saveDataTotal);
         var path = GetSaveDataFilePaht();
@@ -257,7 +261,7 @@ public class SaveDataManager : MonoBehaviour
         skillData.level = skill_InGameData.level;
         skillData.damage = skill_InGameData.damage;
         skillData.isUsingSkill = skill_InGameData.isSkilUsing;
-        skillData.leftSkillTime = skill_InGameData.skillLeftTime;
+        //skillData.leftSkillTime = skill_InGameData.skillLeftTime;
 
     }
 
@@ -268,11 +272,11 @@ public class SaveDataManager : MonoBehaviour
     }
 
 
-    public void SetSkillLeftTime(SkillType skillType, float leftTime)
-    {
-        SaveDataSkill skillData = GetSaveDataSkill(skillType);
-        skillData.leftSkillTime = leftTime;
-    }
+    // public void SetSkillLeftTime(SkillType skillType, float leftTime)
+    // {
+    //     SaveDataSkill skillData = GetSaveDataSkill(skillType);
+    //     skillData.leftSkillTime = leftTime;
+    // }
 
     public void SetSkillUsingValue(SkillType skillType, bool isUsing)
     {
@@ -460,8 +464,9 @@ public class SaveDataTotal
     public SaveDataSystem saveDataSystem;
     public SaveDataDungeonLevel saveDataDungeonLevel;
     public SaveDataTutorial saveDataTutorial;
-
 }
+
+
 
 [System.Serializable]
 public class SaveDataTutorial
@@ -566,7 +571,7 @@ public class SaveDataSkill
     public int level;
     public float damage;
     public bool isUsingSkill; // 스킬 사용중 표시
-    public float leftSkillTime; // 스킬 남은 시간  
+    //public float leftSkillTime; // 스킬 남은 시간  
     public EnumDefinition.SkillType skillType;
 }
 
@@ -630,6 +635,9 @@ public class SaveDataSystem
     public float sfx_eff_Volume;
     // 투토리얼 진행 스탭
     public int tutorial_step;
+    // 게임 종료 시간
+    public string quitTime;
+
 }
 
 #endregion

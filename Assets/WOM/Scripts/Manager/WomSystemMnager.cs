@@ -32,4 +32,6 @@ public class WomSystemMnager : MonoBehaviour
         StartCoroutine(GlobalData.instance.saveDataManager.SaveDataToFileCoroutine());
     }
 
+
+
 }

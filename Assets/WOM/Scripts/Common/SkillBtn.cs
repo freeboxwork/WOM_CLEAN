@@ -76,8 +76,6 @@ public class SkillBtn : MonoBehaviour
             imgSkillBack.color = colorWhite;
             imgSkillFront.color = colorDeem;
 
-
-
             animCont.animData = animDataUsingSkill;
 
             //스킬 사용
@@ -99,6 +97,7 @@ public class SkillBtn : MonoBehaviour
             imgSkillFront.color = colorWhite;
             animCont.animData = animDataReloadSkill;
 
+            // 쿨타임
             yield return StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 0, 1));
 
             btnSkill.enabled = true;
@@ -108,7 +107,31 @@ public class SkillBtn : MonoBehaviour
         yield return null;
     }
 
+    // 재접속시 쿨타임 여부에 따라 실행
+    IEnumerator ReloadCoolTime()
+    {
+        var data = GlobalData.instance.skillManager.GetSkillInGameDataByType(skillType);
+        var saveData = GlobalData.instance.saveDataManager.GetSaveDataSkill(skillType);
+        if (saveData.isUsingSkill)
+        {
+            var currentTime = System.DateTime.Now;
+            var lastTime = GlobalData.instance.saveDataManager.saveDataTotal.saveDataSystem.quitTime;
+            TimeSpan timeSpan = currentTime - System.DateTime.Parse(lastTime);
+            var second = timeSpan.Seconds;
+            if (second > data.coolTime)
+            {
+                // 쿨타임이 끝난경우
+            }
+            else
+            {
+                // 쿨타임이 필요한 경우
 
+            }
+
+        }
+        yield return null;
+
+    }
 
 
 

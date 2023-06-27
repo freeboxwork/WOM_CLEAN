@@ -216,7 +216,8 @@ public class StatManager : MonoBehaviour
 
     void SetLeftSkillTimeSaveData(SkillType skillType, float leftTime)
     {
-        GlobalData.instance.saveDataManager.SetSkillLeftTime(skillType, leftTime);
+        // 추 후 필요하면 추가 할 것
+        //GlobalData.instance.saveDataManager.SetSkillLeftTime(skillType, leftTime);
     }
 
     public IEnumerator EnableSkill_InsectDamageUP()
@@ -236,7 +237,7 @@ public class StatManager : MonoBehaviour
             elapsedTime += Time.deltaTime;
             data.skillLeftTime = totalDuration - elapsedTime;
             // set save data
-            SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
+            //SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
             yield return null;
         }
 
@@ -245,7 +246,7 @@ public class StatManager : MonoBehaviour
         data.isSkilUsing = false;
 
         // set save data
-        SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
+        // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
         SetUsingSkillSaveData(skilType, false);
 
     }
@@ -266,7 +267,7 @@ public class StatManager : MonoBehaviour
             elapsedTime += Time.deltaTime;
             data.skillLeftTime = data.duaration - elapsedTime;
             // set save data
-            SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
+            // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
             yield return null;
         }
 
@@ -274,7 +275,7 @@ public class StatManager : MonoBehaviour
         skill_UnionDamageUp = 0;
 
         // set save data
-        SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
+        // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
         SetUsingSkillSaveData(skilType, false);
     }
 
@@ -294,7 +295,7 @@ public class StatManager : MonoBehaviour
             elapsedTime += Time.deltaTime;
             data.skillLeftTime = data.duaration - elapsedTime;
             // set save data
-            SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
+            // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
             yield return null;
         }
 
@@ -302,7 +303,7 @@ public class StatManager : MonoBehaviour
         skill_UnionDamageUp = 0;
 
         // set save data
-        SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
+        // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
         SetUsingSkillSaveData(skilType, false);
     }
 
@@ -322,7 +323,7 @@ public class StatManager : MonoBehaviour
             elapsedTime += Time.deltaTime;
             data.skillLeftTime = data.duaration - elapsedTime;
             // set save data
-            SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
+            // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
             yield return null;
         }
 
@@ -330,7 +331,7 @@ public class StatManager : MonoBehaviour
         skill_GoldBounsUp = 0;
 
         // set save data
-        SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
+        // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
         SetUsingSkillSaveData(skilType, false);
 
     }
@@ -351,7 +352,7 @@ public class StatManager : MonoBehaviour
             elapsedTime += Time.deltaTime;
             data.skillLeftTime = data.duaration - elapsedTime;
             // set save data
-            SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
+            // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
             yield return null;
         }
 
@@ -359,7 +360,7 @@ public class StatManager : MonoBehaviour
         skill_MonsterKing = 0;
 
         // set save data
-        SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
+        // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
         SetUsingSkillSaveData(skilType, false);
     }
 
@@ -379,7 +380,7 @@ public class StatManager : MonoBehaviour
             elapsedTime += Time.deltaTime;
             data.skillLeftTime = data.duaration - elapsedTime;
             // set save data
-            SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
+            // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
             yield return null;
         }
 
@@ -387,7 +388,7 @@ public class StatManager : MonoBehaviour
         skill_AllUnitCriticalChanceUp = 0;
 
         // set save data
-        SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
+        // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
         SetUsingSkillSaveData(skilType, false);
     }
 

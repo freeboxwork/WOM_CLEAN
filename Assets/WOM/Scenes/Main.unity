@@ -3871,11 +3871,14 @@ MonoBehaviour:
       sfx_eff: 0
       sfx_eff_Volume: 0
       tutorial_step: 0
+      quitTime: 
     saveDataDungeonLevel:
       dungeonLvGold: 1
       dungeonLvBone: 1
       dungeonLvDice: 1
       dungeonLvCoal: 1
+    saveDataTutorial:
+      tutorial_step: 0
   globalData: {fileID: 131730010}
 --- !u!1 &106291641
 GameObject:

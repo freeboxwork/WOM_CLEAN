@@ -46,7 +46,7 @@ public class SkillManager : MonoBehaviour
             data.level = saveData.level;
             data.damage = saveData.damage;
             data.isSkilUsing = saveData.isUsingSkill;
-            data.skillLeftTime = saveData.leftSkillTime;
+            //data.skillLeftTime = saveData.leftSkillTime;
 
             data.duaration = skillData.duration;
             data.power = skillData.power;

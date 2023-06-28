@@ -28,6 +28,8 @@ public class BattlePassSlot : MonoBehaviour
         btnReward.onClick.AddListener(() =>
         {
             EventManager.instance.RunEvent<string, int>(CallBackEventType.TYPES.OnQuestCompleteBattlePassStage, battlePassData.rewardType, battlePassData.commonRewardCount);
+            var saveKey = $"{GlobalData.instance.questManager.keyBattlePassUsedReward}_{battlePassData.targetStage}";
+            PlayerPrefs.SetInt(saveKey, 1);
             btnReward.interactable = false;
         });
 
@@ -72,6 +74,12 @@ public class BattlePassSlot : MonoBehaviour
     {
         blockPassImage.gameObject.SetActive(isBlock);
     }
+
+    public void SetBtnRewardInteractable(bool isActive)
+    {
+        btnReward.interactable = isActive;
+    }
+
 
 
 }

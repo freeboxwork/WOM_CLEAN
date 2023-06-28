@@ -28,7 +28,7 @@ public class QuestManager : MonoBehaviour
     public string keyAttendUsedReawrd = "_attendUsedReward";
     public string keyNewUserEventUsedReward = "_newUserEventUsedReward";
 
-
+    public string keyBattlePassUsedReward = "_battlePassUsedReward";
 
 
 
@@ -124,7 +124,9 @@ public class QuestManager : MonoBehaviour
         {
             var clonData = battlePassData[i].ClonInstance();
             var slot = questPopup.battlePassSlots[i];
-            questPopup.SetUIBattlePassSlot(slot, clonData);
+
+            var unlockCount = GlobalData.instance.player.stageIdx;
+            questPopup.SetUIBattlePassSlot(slot, clonData, unlockCount);
         }
     }
 

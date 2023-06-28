@@ -91,17 +91,31 @@ public class QuestPopup : MonoBehaviour
         slot.SetQuestData(data);
     }
 
-    public void SetUIBattlePassSlot(BattlePassSlot slot, BattlePassData data)
+    public void SetUIBattlePassSlot(BattlePassSlot slot, BattlePassData data, int unlockCount)
     {
         slot.SetTxtStage(data.targetStage.ToString());
         slot.SetTxtRewardValue(data.commonRewardCount.ToString());
         slot.SetTxtPassRewardValue(data.passRewardCount.ToString());
         slot.battlePassData = data;
-        //slot.targetStage = data.targetStage;
-        // set icon image
+
         var rewardIcon = GlobalData.instance.spriteDataManager.GetRewardIcon(UtilityMethod.GetRewardTypeByTypeName(data.rewardType));
         slot.SetRewardIcon(rewardIcon);
         slot.SetPassRewardIcon(rewardIcon);
+
+        var isLock = data.targetStage > unlockCount;
+        slot.SetBlockImage(isLock);
+
+        // 리워드 사용확인
+        if (isLock == false)
+        {
+            var loadKey = $"{GlobalData.instance.questManager.keyBattlePassUsedReward}_{data.targetStage}";
+            var hasKey = PlayerPrefs.HasKey(loadKey);
+            if (hasKey)
+            {
+                var enableValue = PlayerPrefs.GetInt(loadKey) == 0 ? true : false;
+                slot.SetBtnRewardInteractable(enableValue);
+            }
+        }
     }
 
     public void SetUIAttendSlot(AttendSlot slot, AttendData data, int unlockCount)

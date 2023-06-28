@@ -1,244 +1,244 @@
 {
    "data":[
-      {
-         "id":1,
-         "targetType":"stage",
-         "targetStage":1,
-         "rewardType":"gem",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":2,
-         "targetType":"stage",
-         "targetStage":2,
-         "rewardType":"bone",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":3,
-         "targetType":"stage",
-         "targetStage":3,
-         "rewardType":"dice",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":4,
-         "targetType":"stage",
-         "targetStage":4,
-         "rewardType":"coal",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":5,
-         "targetType":"stage",
-         "targetStage":5,
-         "rewardType":"clearTicket",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":6,
-         "targetType":"stage",
-         "targetStage":6,
-         "rewardType":"goldKey",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":7,
-         "targetType":"stage",
-         "targetStage":7,
-         "rewardType":"boneKey",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":8,
-         "targetType":"stage",
-         "targetStage":8,
-         "rewardType":"diceKey",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":9,
-         "targetType":"stage",
-         "targetStage":9,
-         "rewardType":"coalKey",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":10,
-         "targetType":"stage",
-         "targetStage":10,
-         "rewardType":"union",
-         "commonRewardCount":10,
-         "passRewardCount":25
-      },
-      {
-         "id":11,
-         "targetType":"stage",
-         "targetStage":11,
-         "rewardType":"dna",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":12,
-         "targetType":"stage",
-         "targetStage":12,
-         "rewardType":"gem",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":13,
-         "targetType":"stage",
-         "targetStage":13,
-         "rewardType":"gem",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":14,
-         "targetType":"stage",
-         "targetStage":14,
-         "rewardType":"gem",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":15,
-         "targetType":"stage",
-         "targetStage":15,
-         "rewardType":"gem",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":16,
-         "targetType":"stage",
-         "targetStage":16,
-         "rewardType":"gem",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":17,
-         "targetType":"stage",
-         "targetStage":17,
-         "rewardType":"gem",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":18,
-         "targetType":"stage",
-         "targetStage":18,
-         "rewardType":"gem",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":19,
-         "targetType":"stage",
-         "targetStage":19,
-         "rewardType":"gem",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":20,
-         "targetType":"stage",
-         "targetStage":20,
-         "rewardType":"gem",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":21,
-         "targetType":"stage",
-         "targetStage":21,
-         "rewardType":"gem",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":22,
-         "targetType":"stage",
-         "targetStage":22,
-         "rewardType":"gem",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":23,
-         "targetType":"stage",
-         "targetStage":23,
-         "rewardType":"gem",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":24,
-         "targetType":"stage",
-         "targetStage":24,
-         "rewardType":"gem",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":25,
-         "targetType":"stage",
-         "targetStage":25,
-         "rewardType":"gem",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":26,
-         "targetType":"stage",
-         "targetStage":26,
-         "rewardType":"gem",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":27,
-         "targetType":"stage",
-         "targetStage":27,
-         "rewardType":"gem",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":28,
-         "targetType":"stage",
-         "targetStage":28,
-         "rewardType":"gem",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":29,
-         "targetType":"stage",
-         "targetStage":29,
-         "rewardType":"gem",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      },
-      {
-         "id":30,
-         "targetType":"stage",
-         "targetStage":30,
-         "rewardType":"gem",
-         "commonRewardCount":200,
-         "passRewardCount":500
-      }
-   ]
+  {
+    "id": 0,
+    "targetType": "stage",
+    "targetStage": 1,
+    "rewardType": "gem",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 1,
+    "targetType": "stage",
+    "targetStage": 2,
+    "rewardType": "bone",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 2,
+    "targetType": "stage",
+    "targetStage": 3,
+    "rewardType": "dice",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 3,
+    "targetType": "stage",
+    "targetStage": 4,
+    "rewardType": "coal",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 4,
+    "targetType": "stage",
+    "targetStage": 5,
+    "rewardType": "clearTicket",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 5,
+    "targetType": "stage",
+    "targetStage": 6,
+    "rewardType": "goldKey",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 6,
+    "targetType": "stage",
+    "targetStage": 7,
+    "rewardType": "boneKey",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 7,
+    "targetType": "stage",
+    "targetStage": 8,
+    "rewardType": "diceKey",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 8,
+    "targetType": "stage",
+    "targetStage": 9,
+    "rewardType": "coalKey",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 9,
+    "targetType": "stage",
+    "targetStage": 10,
+    "rewardType": "union",
+    "commonRewardCount": 10,
+    "passRewardCount": 25
+  },
+  {
+    "id": 10,
+    "targetType": "stage",
+    "targetStage": 11,
+    "rewardType": "dna",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 11,
+    "targetType": "stage",
+    "targetStage": 12,
+    "rewardType": "gem",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 12,
+    "targetType": "stage",
+    "targetStage": 13,
+    "rewardType": "gem",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 13,
+    "targetType": "stage",
+    "targetStage": 14,
+    "rewardType": "gem",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 14,
+    "targetType": "stage",
+    "targetStage": 15,
+    "rewardType": "gem",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 15,
+    "targetType": "stage",
+    "targetStage": 16,
+    "rewardType": "gem",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 16,
+    "targetType": "stage",
+    "targetStage": 17,
+    "rewardType": "gem",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 17,
+    "targetType": "stage",
+    "targetStage": 18,
+    "rewardType": "gem",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 18,
+    "targetType": "stage",
+    "targetStage": 19,
+    "rewardType": "gem",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 19,
+    "targetType": "stage",
+    "targetStage": 20,
+    "rewardType": "gem",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 20,
+    "targetType": "stage",
+    "targetStage": 21,
+    "rewardType": "gem",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 21,
+    "targetType": "stage",
+    "targetStage": 22,
+    "rewardType": "gem",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 22,
+    "targetType": "stage",
+    "targetStage": 23,
+    "rewardType": "gem",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 23,
+    "targetType": "stage",
+    "targetStage": 24,
+    "rewardType": "gem",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 24,
+    "targetType": "stage",
+    "targetStage": 25,
+    "rewardType": "gem",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 25,
+    "targetType": "stage",
+    "targetStage": 26,
+    "rewardType": "gem",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 26,
+    "targetType": "stage",
+    "targetStage": 27,
+    "rewardType": "gem",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 27,
+    "targetType": "stage",
+    "targetStage": 28,
+    "rewardType": "gem",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 28,
+    "targetType": "stage",
+    "targetStage": 29,
+    "rewardType": "gem",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  },
+  {
+    "id": 29,
+    "targetType": "stage",
+    "targetStage": 30,
+    "rewardType": "gem",
+    "commonRewardCount": 200,
+    "passRewardCount": 500
+  }
+]
 }

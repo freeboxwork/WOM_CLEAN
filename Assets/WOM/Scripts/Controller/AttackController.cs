@@ -46,7 +46,8 @@ public class AttackController : MonoBehaviour
                     if (hit.collider.CompareTag("goldPig"))
                     {
                         // gold pig event
-                        Debug.Log("gold pig !!!!");
+                        Debug.Log("get gold pig !!!!");
+                        EventManager.instance.RunEvent(CallBackEventType.TYPES.OnGoldPigEvent);
                     }
                 }
             }

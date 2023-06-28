@@ -24,9 +24,27 @@ public class GoldPigController : MonoBehaviour
 
     public LineRenderer lineRenderer;
 
+    public GoldPigPopup goldPigPopup;
+
+    public int[] enableGoldPigRange;
+
+
     void Start()
     {
+
+    }
+
+    public IEnumerator Init()
+    {
         SetPointSides();
+        AddEvents();
+        EnableGoldPig();
+        yield return null;
+    }
+
+    void OnDestroy()
+    {
+        RemoveEvents();
     }
 
     void SetPointSides()
@@ -47,6 +65,24 @@ public class GoldPigController : MonoBehaviour
         }
     }
 
+    void AddEvents()
+    {
+        EventManager.instance.AddCallBackEvent(CallBackEventType.TYPES.OnGoldPigEvent, GetGoldPig);
+    }
+
+    void RemoveEvents()
+    {
+        EventManager.instance.RemoveCallBackEvent(CallBackEventType.TYPES.OnGoldPigEvent, GetGoldPig);
+    }
+
+    // 골드피그 획득
+    void GetGoldPig()
+    {
+        // 애니메이션 종료 ( 코루틴 종료 )
+        StopAllCoroutines();
+        goldPig.gameObject.SetActive(false);
+        goldPigPopup.gameObject.SetActive(true);
+    }
 
     // ramdom pos y points
     Vector3[] GetPointValues()
@@ -88,16 +124,27 @@ public class GoldPigController : MonoBehaviour
             animData.animTime = (Time.time - animData.animStartTime) / animData.animDuration;
             animData.animValue = Mathf.Lerp(0, 1, animData.animTime);
             var pos = CalculateBezierPoint(animData.animValue, points[0], points[1], points[2], points[3]);
-
-            Debug.Log("pos : " + pos);
-
             goldPig.transform.position = pos;
             yield return null;
         }
 
         goldPig.gameObject.SetActive(false);
+        EnableGoldPig();
     }
 
+    public void EnableGoldPig()
+    {
+        StartCoroutine(EnableGoldPigCor());
+    }
+
+    // 300~500초 사이 등장
+    IEnumerator EnableGoldPigCor()
+    {
+        var enableTime = Random.Range(enableGoldPigRange[0], enableGoldPigRange[1]);
+        yield return new WaitForSeconds(enableTime);
+
+        StartCoroutine(MoveGoldPig());
+    }
 
     Vector3 GetRandomPos(Transform point, float range)
     {

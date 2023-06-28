@@ -45,6 +45,8 @@ public class GlobalData : MonoBehaviour
 
     public SpriteDataManager spriteDataManager;
 
+    public GoldPigController goldPigController;
+
     private void Awake()
     {
         SetInstance();

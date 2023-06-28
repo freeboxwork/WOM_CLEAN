@@ -29,6 +29,8 @@ public class GlobalController : MonoBehaviour
 
     public SoundManager soundManager;
 
+    public GoldPigController goldPigController;
+
     void Start()
     {
         if (dataManager == null) dataManager = FindObjectOfType<DataManager>();
@@ -138,6 +140,9 @@ public class GlobalController : MonoBehaviour
 
         // 한 프레임 대기
         yield return new WaitForEndOfFrame();
+
+        // 골드 피그 등장( 지정된 시간 지난뒤 등장 )
+        yield return StartCoroutine(goldPigController.Init());
 
 
         // 공격 가능 상태로 전환

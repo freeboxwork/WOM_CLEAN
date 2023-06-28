@@ -18,6 +18,7 @@ public class CallBackEventType
         OnQuestCompleteBattlePassStage, /// <summary> 배틀패스 - 스테이지 퀘스트 완료 했을때  </summary>
         OnUsingRewardAttend,            /// <summary> 출석 보상 받았을때  </summary>
         OnUsingRewardNewUserEvent,      /// <summary> 신규 유저 이벤트 보상 받았을때  </summary>
+        OnGoldPigEvent,                 /// <summary> 황금 돼지 이벤트 획득 했을때 </summary>
 
         None,
     }

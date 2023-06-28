@@ -261,6 +261,7 @@ public class SaveDataManager : MonoBehaviour
         skillData.level = skill_InGameData.level;
         skillData.damage = skill_InGameData.damage;
         skillData.isUsingSkill = skill_InGameData.isSkilUsing;
+        skillData.leftCoolTime = skill_InGameData.skillLeftCoolTime;
         //skillData.leftSkillTime = skill_InGameData.skillLeftTime;
 
     }
@@ -272,11 +273,11 @@ public class SaveDataManager : MonoBehaviour
     }
 
 
-    // public void SetSkillLeftTime(SkillType skillType, float leftTime)
-    // {
-    //     SaveDataSkill skillData = GetSaveDataSkill(skillType);
-    //     skillData.leftSkillTime = leftTime;
-    // }
+    public void SetSkillLeftCoolTime(SkillType skillType, float leftTime)
+    {
+        SaveDataSkill skillData = GetSaveDataSkill(skillType);
+        skillData.leftCoolTime = leftTime;
+    }
 
     public void SetSkillUsingValue(SkillType skillType, bool isUsing)
     {
@@ -570,8 +571,9 @@ public class SaveDataSkill
 {
     public int level;
     public float damage;
-    public bool isUsingSkill; // 스킬 사용중 표시
+    public bool isUsingSkill;     // 스킬 사용중 표시
     //public float leftSkillTime; // 스킬 남은 시간  
+    public float leftCoolTime;    // 스킬 쿨타임 남은 시간
     public EnumDefinition.SkillType skillType;
 }
 

@@ -98,7 +98,18 @@ public class SkillBtn : MonoBehaviour
             animCont.animData = animDataReloadSkill;
 
             // 쿨타임
-            yield return StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 0, 1));
+            StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 0, 1));
+
+            // 쿨타임 대기 및 데이터 저장 
+            float calcCooltime = animDataReloadSkill.animDuration;
+            var startTime = Time.time;
+            while (calcCooltime <= 0)
+            {
+                calcCooltime -= Time.time - startTime;
+                GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, calcCooltime);
+                yield return null;
+            }
+            GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, 0);
 
             btnSkill.enabled = true;
             skillReady = true;

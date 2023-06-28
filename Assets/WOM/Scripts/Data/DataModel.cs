@@ -444,6 +444,7 @@ public class Skill_InGameData
     public string skilName;
     public bool isSkilUsing = false;
     public float skillLeftTime;
+    public float skillLeftCoolTime;
 }
 
 [Serializable]

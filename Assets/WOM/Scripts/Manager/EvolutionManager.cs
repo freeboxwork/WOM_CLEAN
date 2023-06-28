@@ -71,6 +71,7 @@ public class EvolutionManager : MonoBehaviour
         for (int i = 0; i < data.slotCount; i++)
         {
             evolutionSlots[i].UnLockSlot();
+            evolutionSlots[i].UnLock();
         }
 
         // 자물쇠 기본 열림상태

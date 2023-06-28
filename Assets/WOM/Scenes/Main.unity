@@ -14716,6 +14716,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2068331201}
     m_Modifications:
+    - target: {fileID: 3112526302185617392, guid: 58cb371e60576464e9574e1f1084ac2d, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3112526302185617403, guid: 58cb371e60576464e9574e1f1084ac2d, type: 3}
       propertyPath: m_Name
       value: GoldPig
@@ -63787,6 +63791,7 @@ MonoBehaviour:
   newUserEventTimer: {fileID: 1480385589}
   keyAttendUsedReawrd: _attendUsedReward
   keyNewUserEventUsedReward: _newUserEventUsedReward
+  keyBattlePassUsedReward: _battlePassUsedReward
 --- !u!114 &1480385587
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,9 +5,11 @@ public class AttackController : MonoBehaviour
 {
     public InsectManager insectManager;
     /// <summary> 공격 가능 상태  </summary>
-    bool isAttackableState = false ;
+    bool isAttackableState = false;
     public float spawnInterval = 0.1f;
     float lastSpawnTime;
+
+    RaycastHit2D hit;
 
     void Start()
     {
@@ -31,17 +31,31 @@ public class AttackController : MonoBehaviour
 
                     var pos = Input.mousePosition;
                     // 포인터 위치가 UI 위에 있는지 판단
-                    if (EventSystem.current!= null && EventSystem.current.enabled)
+                    if (EventSystem.current != null && EventSystem.current.enabled)
                     {
                         var isPointerOnUI = EventSystem.current.IsPointerOverGameObject();
                         if (isPointerOnUI == false)
                             EnableInsectBullet(pos);
                     }
                 }
+
+                // gold pig 
+                hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+                if (hit.collider != null)
+                {
+                    if (hit.collider.CompareTag("goldPig"))
+                    {
+                        // gold pig event
+                        Debug.Log("gold pig !!!!");
+                    }
+                }
             }
+
+
+
         }
     }
- 
+
     void EnableInsectBullet(Vector2 enablePos)
     {
         var worldPos = Camera.main.ScreenToWorldPoint(enablePos);

@@ -10,6 +10,7 @@ TagManager:
   - monster_boss
   - monster_evolution
   - monsterDungeon
+  - goldPig
   layers:
   - Default
   - TransparentFX

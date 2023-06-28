@@ -8,13 +8,16 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
-  - enabled: 0
+  - enabled: 1
     path: Assets/WOM/Scenes/Start.unity
     guid: f5be20293b4eb0c488216cc4412ffa14
-  - enabled: 1
-    path: Assets/WOM/Scenes/Main.unity
-    guid: 6a7c48dbc77018c44be188108c0330f5
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 0
     path: Assets/WOM/Scenes/PerformanceTest.unity
     guid: bd03337c60c1121459b7226258de80f7
+  - enabled: 1
+    path: Assets/WOM/Scenes/Main.unity
+    guid: 858060db7446fc64194dd0c3624d0cb8
   m_configObjects: {}

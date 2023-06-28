@@ -60,10 +60,10 @@ TagManager:
   - name: Monsters
     uniqueID: 4233588257
     locked: 0
-  - name: Goods
+  - name: Insects
     uniqueID: 348848675
     locked: 0
-  - name: Insects
+  - name: Goods
     uniqueID: 4267736641
     locked: 0
   - name: Castle

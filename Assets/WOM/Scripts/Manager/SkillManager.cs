@@ -58,6 +58,8 @@ public class SkillManager : MonoBehaviour
             if (saveData.isUnLock)
             {
                 UnLockSkillButton(type);
+                if (saveData.isUsingSkill)
+                    skillBtns[(int)type].ReloadCoolTime();
             }
 
         }

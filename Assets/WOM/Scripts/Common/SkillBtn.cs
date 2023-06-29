@@ -109,12 +109,13 @@ public class SkillBtn : MonoBehaviour
             while (coolTimeWait > 0)
             {
                 coolTimeWait = calcCooltime - (Time.time - startTime);
-                GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, calcCooltime);
+                GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, coolTimeWait);
                 Debug.Log("skill coolTimeWait : " + coolTimeWait);
                 yield return null;
             }
 
             GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, 0);
+
             coolTimeWait = 0;
             btnSkill.enabled = true;
             skillReady = true;
@@ -124,8 +125,13 @@ public class SkillBtn : MonoBehaviour
     }
 
 
+
+    public void ReloadCoolTime()
+    {
+        StartCoroutine(ReloadCoolTimeCor());
+    }
     // 재접속시 쿨타임 여부에 따라 실행
-    IEnumerator ReloadCoolTime()
+    IEnumerator ReloadCoolTimeCor()
     {
         var data = GlobalData.instance.skillManager.GetSkillInGameDataByType(skillType);
         var saveData = GlobalData.instance.saveDataManager.GetSaveDataSkill(skillType);
@@ -138,13 +144,37 @@ public class SkillBtn : MonoBehaviour
             if (second > data.coolTime)
             {
                 // 쿨타임이 끝난경우
+                saveData.isUsingSkill = false;
+                saveData.leftCoolTime = 0;
+                Debug.Log("cooltime end!!!");
             }
             else
             {
                 // 쿨타임이 필요한 경우
+                btnSkill.enabled = false;
+                skillReady = false;
 
+                //TODO: 계산식 맞는지 확인 필요
+                var cooltime = saveData.leftCoolTime - second;
+
+                // 쿨타임 대기
+                float calcCooltime = cooltime;
+                var startTime = Time.time;
+                coolTimeWait = calcCooltime;
+                while (coolTimeWait > 0)
+                {
+                    coolTimeWait = calcCooltime - (Time.time - startTime);
+                    GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, coolTimeWait);
+                    Debug.Log("reload skill coolTimeWait : " + coolTimeWait);
+                    yield return null;
+                }
+
+                GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, 0);
+                GlobalData.instance.saveDataManager.SetSkillUsingValue(skillType, false);
+                coolTimeWait = 0;
+                btnSkill.enabled = true;
+                skillReady = true;
             }
-
         }
         yield return null;
 

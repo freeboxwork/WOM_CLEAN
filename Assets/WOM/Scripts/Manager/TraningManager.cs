@@ -102,12 +102,13 @@ public class TraningManager : MonoBehaviour
             {
                 EnableSubMenuPanel(btn.subPanelType);
             });
-
         }
-
-
-
         yield return null;
+    }
+
+    public void EnableFirstSubMenuPanel()
+    {
+        EnableSubMenuPanel(EnumDefinition.TrainingSubPanelType.training);
     }
 
     int GetCostIntValue(SaleStatType statType, TraningInGameData inGameData)

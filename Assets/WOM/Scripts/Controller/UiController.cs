@@ -438,6 +438,11 @@ public class UiController : MonoBehaviour
                 mainButtons[i].Select(enableValue);
                 ResetMainPannelScrollViewPosY(type);
 
+                if (type == MenuPanelType.training)
+                {
+                    GlobalData.instance.traningManager.EnableFirstSubMenuPanel();
+                }
+
                 Debug.Log("EnableMenuPanel : " + type + " / " + enableValue);
             }
             else

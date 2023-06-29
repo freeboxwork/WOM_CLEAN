@@ -8,7 +8,6 @@ public class SettingPopupController : MonoBehaviour
 
     public Button btnBgmOnOff;
     public Button btnSfxOnOff;
-    public Button btnReview;
     public Button btnSetting;
     public Button btnClose;
 
@@ -25,8 +24,8 @@ public class SettingPopupController : MonoBehaviour
 
     public void SetUI()
     {
-        txtBGM_OnOff.text = GlobalData.instance.soundManager.bgmOn ? "¹è°æÀ½ OFF" : "¹è°æÀ½ ON";
-        txtSFX_OnOff.text = GlobalData.instance.soundManager.sfxOn ? "È¿°úÀ½ OFF" : "È¿°úÀ½ ON";
+        txtBGM_OnOff.text = GlobalData.instance.soundManager.bgmOn ? "ï¿½ï¿½ï¿½ï¿½ï¿½ OFF" : "ï¿½ï¿½ï¿½ï¿½ï¿½ ON";
+        txtSFX_OnOff.text = GlobalData.instance.soundManager.sfxOn ? "È¿ï¿½ï¿½ï¿½ï¿½ OFF" : "È¿ï¿½ï¿½ï¿½ï¿½ ON";
 
         SetBtnEvents();
     }
@@ -37,7 +36,7 @@ public class SettingPopupController : MonoBehaviour
         {
             GlobalData.instance.soundManager.BGM_OnOff();
 
-            var txtValue = GlobalData.instance.soundManager.bgmOn ? "¹è°æÀ½ OFF" : "¹è°æÀ½ ON";
+            var txtValue = GlobalData.instance.soundManager.bgmOn ? "ï¿½ï¿½ï¿½ï¿½ï¿½ OFF" : "ï¿½ï¿½ï¿½ï¿½ï¿½ ON";
             txtBGM_OnOff.text = txtValue;
         });
 
@@ -45,13 +44,8 @@ public class SettingPopupController : MonoBehaviour
         {
             GlobalData.instance.soundManager.SFX_OnOff();
 
-            var txtValue = GlobalData.instance.soundManager.sfxOn ? "È¿°úÀ½ OFF" : "È¿°úÀ½ ON";
+            var txtValue = GlobalData.instance.soundManager.sfxOn ? "È¿ï¿½ï¿½ï¿½ï¿½ OFF" : "È¿ï¿½ï¿½ï¿½ï¿½ ON";
             txtSFX_OnOff.text = txtValue;
-        });
-
-        btnReview.onClick.AddListener(() =>
-        {
-            Debug.Log("review...");
         });
 
         btnClose.onClick.AddListener(() =>

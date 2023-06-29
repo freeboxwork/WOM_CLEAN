@@ -233,7 +233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a23ee3d5e8ed9e419c2fb3ff68605d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  imgSkillBack: {fileID: 2876859116523754018}
+  imgSkillBack: {fileID: 164077726387276585}
   imgSkillFront: {fileID: 2876859116741140198}
   txtTime: {fileID: 2876859116285229132}
   txtTimeAnim: {fileID: 5340413377852995814}

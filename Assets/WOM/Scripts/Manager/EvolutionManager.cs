@@ -56,7 +56,7 @@ public class EvolutionManager : MonoBehaviour
         UtilityMethod.SetTxtCustomTypeByID(61, data.evolutionGradeType);
 
         // set txt damage rate
-        UtilityMethod.SetTxtCustomTypeByID(62, $"{data.damageRate}");
+        UtilityMethod.SetTxtCustomTypeByID(62, $"X{data.damageRate}");
 
         // set txt slot count
         UtilityMethod.SetTxtCustomTypeByID(63, $"{data.slotCount}");

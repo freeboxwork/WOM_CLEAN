@@ -25225,6 +25225,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2876859116523754018, guid: beb86881f0e997048952ecd844779da3, type: 3}
+      propertyPath: m_Maskable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2876859116523754019, guid: beb86881f0e997048952ecd844779da3, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

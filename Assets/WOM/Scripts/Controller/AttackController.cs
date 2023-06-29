@@ -48,6 +48,8 @@ public class AttackController : MonoBehaviour
                         // gold pig event
                         Debug.Log("get gold pig !!!!");
                         EventManager.instance.RunEvent(CallBackEventType.TYPES.OnGoldPigEvent);
+                        // 일일 퀘스트 완료 : 골드피그
+                        EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.takeGoldPig);
                     }
                 }
             }

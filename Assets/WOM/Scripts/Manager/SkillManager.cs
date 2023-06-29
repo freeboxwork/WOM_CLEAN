@@ -55,6 +55,11 @@ public class SkillManager : MonoBehaviour
 
             skill_InGameDatas.Add(data);
 
+            if (saveData.isUnLock)
+            {
+                UnLockSkillButton(type);
+            }
+
         }
     }
 

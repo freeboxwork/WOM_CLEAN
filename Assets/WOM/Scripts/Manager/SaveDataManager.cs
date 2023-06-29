@@ -290,6 +290,7 @@ public class SaveDataManager : MonoBehaviour
         skillData.damage = skill_InGameData.damage;
         skillData.isUsingSkill = skill_InGameData.isSkilUsing;
         skillData.leftCoolTime = skill_InGameData.skillLeftCoolTime;
+        skillData.isUnLock = true;
         //skillData.leftSkillTime = skill_InGameData.skillLeftTime;
 
     }
@@ -616,6 +617,7 @@ public class SaveDataSkill
     //public float leftSkillTime; // 스킬 남은 시간  
     public float leftCoolTime;    // 스킬 쿨타임 남은 시간
     public EnumDefinition.SkillType skillType;
+    public bool isUnLock;
 }
 
 [System.Serializable]

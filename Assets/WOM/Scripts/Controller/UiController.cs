@@ -88,9 +88,9 @@ public class UiController : MonoBehaviour
     void SetGoodsUI()
     {
         //TODO: 저장된 데이터에서 불어와야 함
-        SetTxtGold(0);
-        SetTxtBone(0);
-        SetTxtGem(0);
+        SetTxtGold(0, 0);
+        SetTxtBone(0, 0);
+        SetTxtGem(0, 0);
         SetTxtDice(0);  // 현재 남은 진화 주사위 개수 UI 적용
         // 소탕권
         SetTxtClearTicket();
@@ -157,35 +157,48 @@ public class UiController : MonoBehaviour
         EnableGlodMonsterIconOutlineEffect(sliderValue >= 1);
     }
 
-    public void SetTxtGold(int value)
+    public void SetTxtGold(int value, int flotingValue)
     {
         var changeValue = UtilityMethod.ChangeSymbolNumber(value);
+        var flotingValueChange = UtilityMethod.ChangeSymbolNumber(flotingValue);
 
         // floting text effect
-        floatingTextGold.gameObject.SetActive(true);
-        floatingTextGold.SetText(changeValue, FloatingTextValues.ValueType.Gold);
+        if (flotingValue > 0)
+        {
+            floatingTextGold.gameObject.SetActive(true);
+            floatingTextGold.SetText(flotingValueChange, FloatingTextValues.ValueType.Gold);
+        }
+
 
         txtGold.text = changeValue.ToString();
     }
 
-    public void SetTxtBone(int value)
+    public void SetTxtBone(int value, int flotingValue)
     {
         var changeValue = UtilityMethod.ChangeSymbolNumber(value);
+        var flotingValueChange = UtilityMethod.ChangeSymbolNumber(flotingValue);
 
         // floting text effect
-        floatingTextBone.gameObject.SetActive(true);
-        floatingTextBone.SetText(changeValue, FloatingTextValues.ValueType.Bone);
-
+        if (flotingValue > 0)
+        {
+            floatingTextBone.gameObject.SetActive(true);
+            floatingTextBone.SetText(flotingValueChange, FloatingTextValues.ValueType.Bone);
+        }
         UtilityMethod.SetTxtCustomTypeByID(60, changeValue.ToString());
     }
 
-    public void SetTxtGem(int value)
+    public void SetTxtGem(int value, int flotingValue)
     {
         var changeValue = UtilityMethod.ChangeSymbolNumber(value);
+        var flotingValueChange = UtilityMethod.ChangeSymbolNumber(flotingValue);
 
         // floting text effect
-        floatingTextGem.gameObject.SetActive(true);
-        floatingTextGem.SetText(changeValue, FloatingTextValues.ValueType.jewel);
+        if (flotingValue > 0)
+        {
+            floatingTextGem.gameObject.SetActive(true);
+            floatingTextGem.SetText(flotingValueChange, FloatingTextValues.ValueType.jewel);
+        }
+
 
         UtilityMethod.SetTxtCustomTypeByID(79, changeValue.ToString());
     }

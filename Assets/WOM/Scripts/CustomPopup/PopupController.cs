@@ -221,7 +221,8 @@ public class PopupController : MonoBehaviour
         PopupRewardInfoData data = new PopupRewardInfoData();
         List<RewardInfoData> rewards = new List<RewardInfoData>();
 
-        rewards.Add(new RewardInfoData(rewardType, amount, null));
+        var sprite = GlobalData.instance.spriteDataManager.GetRewardIcon(rewardType);
+        rewards.Add(new RewardInfoData(rewardType, amount, sprite));
 
         data.SetPopupData("REWARD", rewards);
 
@@ -236,12 +237,14 @@ public class PopupController : MonoBehaviour
 
         for (int i = 0; i < rewardTypes.Length; i++)
         {
-            rewards.Add(new RewardInfoData(rewardTypes[i], amounts[i], null));
+            var sprite = GlobalData.instance.spriteDataManager.GetRewardIcon(rewardTypes[i]);
+            rewards.Add(new RewardInfoData(rewardTypes[i], amounts[i], sprite));
         }
         data.SetPopupData("REWARD", rewards);
 
         SetupPopupInfo(data);
     }
+
 
 
     // public void InitPopups(List<RewardInfoData> rewardInfoDatas)

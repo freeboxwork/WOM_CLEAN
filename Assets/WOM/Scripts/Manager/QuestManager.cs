@@ -27,7 +27,6 @@ public class QuestManager : MonoBehaviour
 
     public string keyAttendUsedReawrd = "_attendUsedReward";
     public string keyNewUserEventUsedReward = "_newUserEventUsedReward";
-
     public string keyBattlePassUsedReward = "_battlePassUsedReward";
 
 

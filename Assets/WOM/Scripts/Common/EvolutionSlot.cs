@@ -74,6 +74,9 @@ public class EvolutionSlot : MonoBehaviour
     public void SetSymbol(Sprite symbol)
     {
         imgSymbol.sprite = symbol;
+
+        // setSaveData
+
     }
 
     public void SetGradeTxtColor(string hexCode)

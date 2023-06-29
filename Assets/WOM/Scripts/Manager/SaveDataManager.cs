@@ -136,6 +136,15 @@ public class SaveDataManager : MonoBehaviour
             saveDataTotal.saveDataSkills.saveDataSkills.Add(new SaveDataSkill { skillType = type });
         }
 
+        // // set evolution slot
+        // saveDataTotal.saveDataEvolution = new SaveDataEvolution();
+        // var slots = globalData.evolutionManager.evolutionSlots;
+        // for (int i = 0; i < slots.Count; i++)
+        // {
+        //     var slot = new SaveDataEvolutionSolt();
+        //     slot.slotId = i;
+        //     saveDataTotal.saveDataEvolution.saveDataEvolutionSolts.Add(slot);
+        // }
     }
 
 
@@ -202,10 +211,29 @@ public class SaveDataManager : MonoBehaviour
         saveDataTotal.saveDataEvolution.diceEvolutionData = inGameData.CopyInstance();
     }
 
+    public void SetEvolutionSlotData(SaveDataEvolutionSolt data)
+    {
+        if (saveDataTotal.saveDataEvolution.saveDataEvolutionSolts.Any(a => a.slotId == data.slotId))
+        {
+            var slotData = saveDataTotal.saveDataEvolution.saveDataEvolutionSolts.FirstOrDefault(f => f.slotId == data.slotId);
+            slotData.slotId = data.slotId;
+            slotData.symbolId = data.symbolId;
+            slotData.value = data.value;
+            slotData.evolutionDiceStatType = data.evolutionDiceStatType;
+            slotData.clorHexCode = data.clorHexCode;
+        }
+        else
+        {
+            saveDataTotal.saveDataEvolution.saveDataEvolutionSolts.Add(data);
+        }
+    }
+
     public SaveDataEvolution GetEvolutionData()
     {
         return saveDataTotal.saveDataEvolution;
     }
+
+
 
 
     public void SaveUnionLevelData(UnionSlot unionSlot)
@@ -495,8 +523,21 @@ public class SaveDataEvolution
     public int level_evolution;
     // 진화 주사위 돌려서 획득한 데이터 저장
     public DiceEvolutionInGameData diceEvolutionData;
+    // 슬롯 데이터 저장
+    public List<SaveDataEvolutionSolt> saveDataEvolutionSolts = new List<SaveDataEvolutionSolt>();
 }
 
+[System.Serializable]
+public class SaveDataEvolutionSolt
+{
+    public int slotId;
+    public int symbolId;
+    public float value;
+    public string evolutionDiceStatType;
+    public string clorHexCode;
+
+
+}
 
 [System.Serializable]
 public class SaveDataUnions

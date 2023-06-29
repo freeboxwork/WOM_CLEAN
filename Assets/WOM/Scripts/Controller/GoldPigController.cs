@@ -28,7 +28,7 @@ public class GoldPigController : MonoBehaviour
 
     public int[] enableGoldPigRange;
 
-    float enableWaitTime;
+    public float enableWaitTime;
 
 
     void Start()
@@ -69,6 +69,11 @@ public class GoldPigController : MonoBehaviour
 
     void AddEvents()
     {
+        UtilityMethod.SetBtnEventCustomTypeByID(49, () =>
+        {
+            EnterCastleView();
+        });
+
         EventManager.instance.AddCallBackEvent(CallBackEventType.TYPES.OnGoldPigEvent, GetGoldPig);
     }
 
@@ -95,7 +100,14 @@ public class GoldPigController : MonoBehaviour
 
     public void ExitCastleView()
     {
-        EnableGoldPig();
+        if (enableWaitTime <= 0)
+        {
+            EnableGoldPig();
+        }
+        else
+        {
+            StartCoroutine(EnableGoldPig_ExitCastleView());
+        }
     }
 
     // ramdom pos y points
@@ -155,13 +167,31 @@ public class GoldPigController : MonoBehaviour
     IEnumerator EnableGoldPigCor()
     {
         var enableTime = (float)Random.Range(enableGoldPigRange[0], enableGoldPigRange[1]);
-        var startTime = Time.time;
-        while (enableTime > 0)
-        {
-            enableTime -= (Time.time - startTime);
-            enableWaitTime = enableTime;
-            yield return null;
 
+        var startTime = Time.time;
+        float waitTime = enableTime;
+        while (waitTime > 0)
+        {
+            waitTime = enableTime - (Time.time - startTime);
+            enableWaitTime = waitTime;
+            yield return null;
+        }
+        enableWaitTime = 0;
+        StartCoroutine(MoveGoldPig());
+    }
+
+
+    public IEnumerator EnableGoldPig_ExitCastleView()
+    {
+        float enableTime = enableWaitTime;
+
+        var startTime = Time.time;
+        float waitTime = enableTime;
+        while (waitTime > 0)
+        {
+            waitTime = enableTime - (Time.time - startTime);
+            enableWaitTime = waitTime;
+            yield return null;
         }
         enableWaitTime = 0;
         StartCoroutine(MoveGoldPig());

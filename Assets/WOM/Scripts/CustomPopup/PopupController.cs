@@ -122,7 +122,7 @@ public class PopupController : MonoBehaviour
 
         for (int i = 0; i < rewards.Count; i++)
         {
-            popupBuilder.SetRewardInfo(rewards[i].type, rewards[i].amount);
+            popupBuilder.SetRewardInfo(rewards[i].type, rewards[i].amount, rewards[i].icon);
         }
 
         popupBuilder.Build(poolManager);

@@ -54,9 +54,9 @@ public class PopupBuilder
         buttonInfo = new PopupButtonInfo(_text, _callback);
     }
 
-    public void SetRewardInfo(EnumDefinition.RewardType type, float amount)
+    public void SetRewardInfo(EnumDefinition.RewardType type, float amount, Sprite sp)
     {
-        rewards.Add(new RewardInfoData(type, amount, null));
+        rewards.Add(new RewardInfoData(type, amount, sp));
     }
 
 

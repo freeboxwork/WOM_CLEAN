@@ -11,9 +11,8 @@ public class PopupRewardIcon : MonoBehaviour
 
     public void SetUI(RewardInfoData reward)
     {
-        //icon.sprite = Utils.GetUiSprite(reward.type.ToString()).uiSprite;
+        Debug.Log(reward.icon);
         icon.sprite = reward.icon;
-        //amount.text = string.Format("{0:F0}", NumberToSymbol.ChangeNumber(reward.amount));
         amount.text = UtilityMethod.ChangeSymbolNumber(reward.amount);
     }
 }

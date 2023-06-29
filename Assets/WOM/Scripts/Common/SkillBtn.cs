@@ -36,6 +36,8 @@ public class SkillBtn : MonoBehaviour
 
     public bool skillReady = false;
 
+    float coolTimeWait;
+
     void Start()
     {
         SetBtnEvent();
@@ -103,21 +105,24 @@ public class SkillBtn : MonoBehaviour
             // 쿨타임 대기 및 데이터 저장 
             float calcCooltime = animDataReloadSkill.animDuration;
             var startTime = Time.time;
-            while (calcCooltime > 0)
+            coolTimeWait = calcCooltime;
+            while (coolTimeWait > 0)
             {
-                calcCooltime -= (Time.time - startTime);
+                coolTimeWait = calcCooltime - (Time.time - startTime);
                 GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, calcCooltime);
-
+                Debug.Log("skill coolTimeWait : " + coolTimeWait);
                 yield return null;
             }
-            GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, 0);
 
+            GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, 0);
+            coolTimeWait = 0;
             btnSkill.enabled = true;
             skillReady = true;
 
         }
         yield return null;
     }
+
 
     // 재접속시 쿨타임 여부에 따라 실행
     IEnumerator ReloadCoolTime()

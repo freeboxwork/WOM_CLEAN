@@ -28,6 +28,8 @@ public class GoldPigController : MonoBehaviour
 
     public int[] enableGoldPigRange;
 
+    float enableWaitTime;
+
 
     void Start()
     {
@@ -82,6 +84,18 @@ public class GoldPigController : MonoBehaviour
         StopAllCoroutines();
         goldPig.gameObject.SetActive(false);
         goldPigPopup.gameObject.SetActive(true);
+    }
+
+    public void EnterCastleView()
+    {
+        // 애니메이션 종료 ( 코루틴 종료 )
+        StopAllCoroutines();
+        goldPig.gameObject.SetActive(false);
+    }
+
+    public void ExitCastleView()
+    {
+        EnableGoldPig();
     }
 
     // ramdom pos y points
@@ -140,9 +154,16 @@ public class GoldPigController : MonoBehaviour
     // 300~500초 사이 등장
     IEnumerator EnableGoldPigCor()
     {
-        var enableTime = Random.Range(enableGoldPigRange[0], enableGoldPigRange[1]);
-        yield return new WaitForSeconds(enableTime);
+        var enableTime = (float)Random.Range(enableGoldPigRange[0], enableGoldPigRange[1]);
+        var startTime = Time.time;
+        while (enableTime > 0)
+        {
+            enableTime -= (Time.time - startTime);
+            enableWaitTime = enableTime;
+            yield return null;
 
+        }
+        enableWaitTime = 0;
         StartCoroutine(MoveGoldPig());
     }
 

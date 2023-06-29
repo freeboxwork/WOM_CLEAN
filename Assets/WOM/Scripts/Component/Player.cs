@@ -110,6 +110,15 @@ public class Player : MonoBehaviour
         stageIdx = saveData.stageIdx;
         upgradeLevelIdx = saveData.upgradeLevelIdx;
         gold = saveData.gold;
+        diceCount = saveData.dice;
+        bone = saveData.bone;
+        gem = saveData.gem;
+        coal = saveData.coal;
+        clearTicket = saveData.clearTicker;
+
+        //TODO: 재화 추가 로직 필요
+        //dungeonKeys = saveData.dungeonKeys;
+
         SetCurrentStageData(stageIdx);
 
         // 던전 몬스터 클리어 레벨 데이터 로드

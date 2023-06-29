@@ -2045,6 +2045,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1524346711}
     m_Modifications:
     - target: {fileID: 22503716406166357, guid: f2aa9579f258b42418ada885fe16bf58, type: 3}
+      propertyPath: slotId
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 22503716406166357, guid: f2aa9579f258b42418ada885fe16bf58, type: 3}
       propertyPath: isUnlock
       value: 0
       objectReference: {fileID: 0}
@@ -3978,6 +3982,7 @@ MonoBehaviour:
         insectSpawnTime: 0
         insectBossDamage: 0
         goldBonus: 0
+      saveDataEvolutionSolts: []
     saveDataUnions:
       unions: []
     saveDataDNAs:
@@ -9067,6 +9072,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1524346711}
     m_Modifications:
+    - target: {fileID: 22503716406166357, guid: f2aa9579f258b42418ada885fe16bf58, type: 3}
+      propertyPath: slotId
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 22503716406166357, guid: f2aa9579f258b42418ada885fe16bf58, type: 3}
       propertyPath: isUnlock
       value: 0
@@ -50200,6 +50209,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1524346711}
     m_Modifications:
+    - target: {fileID: 22503716406166357, guid: f2aa9579f258b42418ada885fe16bf58, type: 3}
+      propertyPath: slotId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 77824516234807055, guid: f2aa9579f258b42418ada885fe16bf58, type: 3}
       propertyPath: m_Name
       value: EvolutionSlot (1)
@@ -52112,6 +52125,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1524346711}
     m_Modifications:
+    - target: {fileID: 22503716406166357, guid: f2aa9579f258b42418ada885fe16bf58, type: 3}
+      propertyPath: slotId
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 22503716406166357, guid: f2aa9579f258b42418ada885fe16bf58, type: 3}
       propertyPath: isUnlock
       value: 0

@@ -18,7 +18,7 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
     // 랜덤 가중치.
     float[] weightValues;
     RewardDiceEvolutionDatas rewardData;
-    
+
     // 주사위 굴리고 있는지 판단
     bool rollDice = false;
 
@@ -26,17 +26,17 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     /// <summary> 뽑기 필요 데이터 세팅</summary>
     public IEnumerator Init()
     {
         rewardData = GlobalData.instance.dataManager.rewardDiceEvolutionDatas;
-        
+
         // 랜덤 가중치 설정
         SetWeightValues();
-        yield return new WaitForEndOfFrame();  
+        yield return new WaitForEndOfFrame();
     }
 
     void SetWeightValues()
@@ -53,7 +53,7 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
     public IEnumerator RollEvolutionDice()
     {
 
-        if(rollDice == false)
+        if (rollDice == false)
         {
             rollDice = true;
 
@@ -77,15 +77,15 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
                 }
 
             }
-            
-            
-            
+
+
+
             for (int i = 0; i < slots.Count; i++)
             {
                 var slot = slots[i];
                 if (slot.isUnlock && slot.statOpend)
                 {
-                  yield return  StartCoroutine(DiceRoll(slot));
+                    yield return StartCoroutine(DiceRoll(slot));
                 }
             }
 
@@ -127,21 +127,7 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
         // 주사위 개수 충분한지 판단
         if (IsReadyDiceCount(usingDice))
         {
-            //bool isPervGradeS = slot.GetEvolutionRewardGrade() == EvolutionRewardGrade.S;
-            //// 기존 Grade 가 S등급일 경우 팝업창 띄워서 더 진행 할것인지 확인.
-            //if (isPervGradeS)
-            //{
-            //    btnApply = false;
-            //    btnCancel = false;
 
-            //    // 팝업 실행
-            //    GlobalData.instance.globalPopupController.EnableMessageTwoBtnPopup(11, Apply, Cancel);
-
-            //    // 팝업 버튼 클릭 대기
-            //    yield return new WaitUntil(() => btnApply || btnCancel);
-
-            //    if (isPervGradeS && btnCancel) yield break;
-            //}
 
             // 주사위 사용
             GlobalData.instance.player.PayDice(usingDice);
@@ -168,9 +154,9 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
             GlobalData.instance.evolutionManager.SetDiceEvolutionData(randomStatType, statValue);
 
             // UI TEXT 적용
-            GlobalData.instance.evolutionManager.SetEvolutuinSlotName(randomStatType, slot, statValue, randomGradeData.gradeColor);
-            
-            
+            GlobalData.instance.evolutionManager.SetEvolutuinSlotName(randomStatType, slot, statValue, randomGradeData.gradeColor, randomGradeData.grade);
+
+
 
         }
         else
@@ -178,14 +164,14 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
             GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("Message", 1);
         }
 
-       
+
     }
 
 
 
     bool IsReadyDiceCount(int usingDiceCount)
     {
-        return GlobalData.instance.player.diceCount >  usingDiceCount;
+        return GlobalData.instance.player.diceCount > usingDiceCount;
     }
 
     RewardDiceEvolutionData GetRandomWeightEvolutionGradeData()
@@ -201,7 +187,7 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
         return (EvolutionDiceStatType)randomValue;
     }
 
-    float GetRandomStatValue (RewardDiceEvolutionData data)
+    float GetRandomStatValue(RewardDiceEvolutionData data)
     {
         var statType = GetRandomStatType();
         randomStatType = statType;

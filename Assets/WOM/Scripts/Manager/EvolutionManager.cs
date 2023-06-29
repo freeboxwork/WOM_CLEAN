@@ -72,6 +72,12 @@ public class EvolutionManager : MonoBehaviour
         {
             evolutionSlots[i].UnLockSlot();
             evolutionSlots[i].UnLock();
+            // load save data
+            var loadData = GlobalData.instance.saveDataManager.saveDataTotal.saveDataEvolution.saveDataEvolutionSolts[i];
+            var type = (EvolutionDiceStatType)System.Enum.Parse(typeof(EvolutionDiceStatType), loadData.evolutionDiceStatType);
+            var symbols = GlobalData.instance.evolutionDiceLotteryManager.symbols;
+            evolutionSlots[i].SetSymbol(symbols[loadData.symbolId]);
+            SetEvolutuinSlotName(type, evolutionSlots[i], loadData.value, loadData.clorHexCode, loadData.symbolId);
         }
 
         // 자물쇠 기본 열림상태
@@ -102,11 +108,21 @@ public class EvolutionManager : MonoBehaviour
     }
 
 
-    public void SetEvolutuinSlotName(EvolutionDiceStatType type, EvolutionSlot slot, float value, string clorHexCode)
+    public void SetEvolutuinSlotName(EvolutionDiceStatType type, EvolutionSlot slot, float value, string clorHexCode, int symbolId)
     {
         var data = GlobalData.instance.dataManager.GetConvertTextDataByEvolutionDiceStatType(type);
         var txtValue = $"{data.kr_Front} {value}{data.kr_Back}";
         slot.SettxtStatName($"<color=#{clorHexCode}>{txtValue}</color>");
+
+        // set save data
+        SaveDataEvolutionSolt saveSlotData = new SaveDataEvolutionSolt();
+        saveSlotData.slotId = slot.slotId;
+        saveSlotData.value = value;
+        saveSlotData.evolutionDiceStatType = type.ToString();
+        saveSlotData.clorHexCode = clorHexCode;
+        saveSlotData.symbolId = symbolId;
+
+        GlobalData.instance.saveDataManager.SetEvolutionSlotData(saveSlotData);
     }
 
 

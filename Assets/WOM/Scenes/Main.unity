@@ -4867,6 +4867,10 @@ PrefabInstance:
       propertyPath: colorDeem.r
       value: 0.5471698
       objectReference: {fileID: 0}
+    - target: {fileID: 164077726387276585, guid: beb86881f0e997048952ecd844779da3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 31a0881a49b31a44fb94b0645c746d13, type: 3}
     - target: {fileID: 2876859116285229132, guid: beb86881f0e997048952ecd844779da3, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -25185,6 +25189,10 @@ PrefabInstance:
       propertyPath: colorDeem.r
       value: 0.5471698
       objectReference: {fileID: 0}
+    - target: {fileID: 164077726387276585, guid: beb86881f0e997048952ecd844779da3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 7ea79f42de0eeaa4a983ed1ca0c3d217, type: 3}
     - target: {fileID: 2876859116285229132, guid: beb86881f0e997048952ecd844779da3, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -35937,6 +35945,10 @@ PrefabInstance:
       propertyPath: colorDeem.r
       value: 0.5471698
       objectReference: {fileID: 0}
+    - target: {fileID: 164077726387276585, guid: beb86881f0e997048952ecd844779da3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: e082b68057a78484493f52090e07a794, type: 3}
     - target: {fileID: 2876859116285229132, guid: beb86881f0e997048952ecd844779da3, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -58842,6 +58854,10 @@ PrefabInstance:
       propertyPath: colorDeem.r
       value: 0.5471698
       objectReference: {fileID: 0}
+    - target: {fileID: 164077726387276585, guid: beb86881f0e997048952ecd844779da3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 73aeb03795f6b1348a9ce60379521905, type: 3}
     - target: {fileID: 2876859116285229132, guid: beb86881f0e997048952ecd844779da3, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -66703,6 +66719,10 @@ PrefabInstance:
       propertyPath: colorDeem.r
       value: 0.5471698
       objectReference: {fileID: 0}
+    - target: {fileID: 164077726387276585, guid: beb86881f0e997048952ecd844779da3, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: d2062647fece186459f78707b0c454a6, type: 3}
     - target: {fileID: 2876859116285229132, guid: beb86881f0e997048952ecd844779da3, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -118582,9 +118602,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2876859116523754018, guid: beb86881f0e997048952ecd844779da3, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2876859116523754018, guid: beb86881f0e997048952ecd844779da3, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: bff705582d324e34ebdfaf8b57acd7c9, type: 3}
+      objectReference: {fileID: 21300000, guid: ce45c56873753dd4a9c5c459643e22c3, type: 3}
     - target: {fileID: 2876859116523754018, guid: beb86881f0e997048952ecd844779da3, type: 3}
       propertyPath: m_Color.a
       value: 0.5882353

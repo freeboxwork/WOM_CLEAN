@@ -88,10 +88,11 @@ public class UiController : MonoBehaviour
     void SetGoodsUI()
     {
         //TODO: 저장된 데이터에서 불어와야 함
-        SetTxtGold(0, 0);
-        SetTxtBone(0, 0);
-        SetTxtGem(0, 0);
-        SetTxtDice(0);  // 현재 남은 진화 주사위 개수 UI 적용
+        var player = GlobalData.instance.player;
+        SetTxtGold(player.gold, 0);
+        SetTxtBone(player.bone, 0);
+        SetTxtGem(player.gem, 0);
+        SetTxtDice(player.diceCount);  // 현재 남은 진화 주사위 개수 UI 적용
         // 소탕권
         SetTxtClearTicket();
     }

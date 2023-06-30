@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -60,7 +58,7 @@ public class AnimationController : MonoBehaviour
         isAnimPlay = false;
     }
 
-    public IEnumerator MaterialAnimMinMax(Material mat, string property, (float,float)minMax)
+    public IEnumerator MaterialAnimMinMax(Material mat, string property, (float, float) minMax)
     {
         isAnimPlay = true;
         animData.ResetAnimData();
@@ -69,7 +67,7 @@ public class AnimationController : MonoBehaviour
             animData.animTime = (Time.time - animData.animStartTime) / animData.animDuration;
             //Debug.Log(animData.animTime);
             animData.animValue = EaseValues.instance.GetAnimCurve(animData.animCurveType, animData.animTime);
-            var value = Mathf.Lerp(minMax.Item1,minMax.Item2,animData.animValue);   
+            var value = Mathf.Lerp(minMax.Item1, minMax.Item2, animData.animValue);
             mat.SetFloat(property, value);
             yield return null;
         }
@@ -110,13 +108,13 @@ public class AnimationController : MonoBehaviour
             yield return null;
         }
         isAnimPlay = false;
-        
+
         //yield return new WaitForEndOfFrame();
         callBackEvent.Invoke();
     }
 
     // UI IMAGE CLOLOR ANIM - CALLBACK COMPLETE EVENT
-    public IEnumerator UI_ImageColorAnim(Image image, Color start, Color end,UnityAction callBackEvent = null)
+    public IEnumerator UI_ImageColorAnim(Image image, Color start, Color end, UnityAction callBackEvent = null)
     {
         isAnimPlay = true;
         animData.ResetAnimData();
@@ -128,13 +126,13 @@ public class AnimationController : MonoBehaviour
             yield return null;
         }
         isAnimPlay = false;
-        if(callBackEvent != null)   
+        if (callBackEvent != null)
             callBackEvent.Invoke();
     }
 
 
     // UI IMAGE FILL AMOUNT
-    public IEnumerator UI_ImageFillAmountAnim(Image image, float start,float end,  UnityAction callBackEvent = null)
+    public IEnumerator UI_ImageFillAmountAnim(Image image, float start, float end, UnityAction callBackEvent = null)
     {
         isAnimPlay = true;
         animData.ResetAnimData();
@@ -150,6 +148,24 @@ public class AnimationController : MonoBehaviour
             callBackEvent.Invoke();
     }
 
+    public IEnumerator UI_ImageFillAnim(Image image, float start, float end, float duration)
+    {
+        isAnimPlay = true;
+        float timeValue = 0f;
+        var startTime = Time.time;
+
+        while (timeValue < 0.999f)
+        {
+            timeValue = (Time.time - startTime) / duration;
+            //animValue = Mathf.SmoothStep(animData.animCurveType, timeValue);
+            image.fillAmount = Mathf.Lerp(start, end, timeValue);
+            yield return null;
+        }
+        isAnimPlay = false;
+    }
+
+
+
 
     // UI TEXT ANIMATION
     public IEnumerator UI_TextAnim(TextMeshProUGUI text, float start, float end, UnityAction callBackEvent = null)
@@ -161,12 +177,26 @@ public class AnimationController : MonoBehaviour
             animData.animTime = (Time.time - animData.animStartTime) / animData.animDuration;
             animData.animValue = EaseValues.instance.GetAnimCurve(animData.animCurveType, animData.animTime);
             var textValue = Mathf.Lerp(start, end, animData.animValue);
-            text.text = string.Format("{0:0.00} ", textValue) +"s";
+            text.text = string.Format("{0:0.00} ", textValue) + "s";
             yield return null;
         }
         isAnimPlay = false;
         if (callBackEvent != null)
             callBackEvent.Invoke();
+    }
+
+    public IEnumerator UI_TextAnim_Reload(TextMeshProUGUI text, float start, float end, float duration)
+    {
+
+        float timeValue = 0f;
+        var startTime = Time.time;
+        while (timeValue < 0.999f)
+        {
+            timeValue = (Time.time - startTime) / duration;
+            var textValue = Mathf.Lerp(start, end, timeValue);
+            text.text = string.Format("{0:0.00} ", textValue) + "s";
+            yield return null;
+        }
     }
 
 }

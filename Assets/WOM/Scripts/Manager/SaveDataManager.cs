@@ -314,6 +314,12 @@ public class SaveDataManager : MonoBehaviour
         skillData.isUsingSkill = isUsing;
     }
 
+    public void SetSkillCooltime(SkillType skillType, bool isCoolTime)
+    {
+        SaveDataSkill skillData = GetSaveDataSkill(skillType);
+        skillData.isCooltime = isCoolTime;
+    }
+
     // SHOP 데이터 세팅
 
 
@@ -616,6 +622,7 @@ public class SaveDataSkill
     public bool isUsingSkill;     // 스킬 사용중 표시
     //public float leftSkillTime; // 스킬 남은 시간  
     public float leftCoolTime;    // 스킬 쿨타임 남은 시간
+    public bool isCooltime;       // 스킬 쿨타임중 표시
     public EnumDefinition.SkillType skillType;
     public bool isUnLock;
 }

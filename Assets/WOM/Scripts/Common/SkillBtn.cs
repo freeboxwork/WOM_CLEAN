@@ -77,6 +77,7 @@ public class SkillBtn : MonoBehaviour
 
             imgSkillBack.color = colorWhite;
             imgSkillFront.color = colorDeem;
+            imgSkillFront.fillClockwise = true;
 
             animCont.animData = animDataUsingSkill;
 
@@ -95,12 +96,15 @@ public class SkillBtn : MonoBehaviour
             skillAddValue = false;
             txtTime.enabled = true;
 
-            imgSkillBack.color = colorDeem;
-            imgSkillFront.color = colorWhite;
+            imgSkillBack.color = colorWhite;
+            imgSkillFront.color = colorDeem;
+            imgSkillFront.fillClockwise = false;
             animCont.animData = animDataReloadSkill;
 
             // 쿨타임
-            StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 0, 1));
+            GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, true);
+            StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 1, 0));
+            StartCoroutine(animCont.UI_TextAnim(txtTime, animDataReloadSkill.animDuration, 0));
 
             // 쿨타임 대기 및 데이터 저장 
             float calcCooltime = animDataReloadSkill.animDuration;
@@ -115,7 +119,8 @@ public class SkillBtn : MonoBehaviour
             }
 
             GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, 0);
-
+            GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, false);
+            txtTime.enabled = false;
             coolTimeWait = 0;
             btnSkill.enabled = true;
             skillReady = true;
@@ -135,7 +140,7 @@ public class SkillBtn : MonoBehaviour
     {
         var data = GlobalData.instance.skillManager.GetSkillInGameDataByType(skillType);
         var saveData = GlobalData.instance.saveDataManager.GetSaveDataSkill(skillType);
-        if (saveData.isUsingSkill)
+        if (saveData.isCooltime)
         {
             var currentTime = System.DateTime.Now;
             var lastTime = GlobalData.instance.saveDataManager.saveDataTotal.saveDataSystem.quitTime;
@@ -144,7 +149,7 @@ public class SkillBtn : MonoBehaviour
             if (second > data.coolTime)
             {
                 // 쿨타임이 끝난경우
-                saveData.isUsingSkill = false;
+                saveData.isCooltime = false;
                 saveData.leftCoolTime = 0;
                 Debug.Log("cooltime end!!!");
             }
@@ -156,6 +161,16 @@ public class SkillBtn : MonoBehaviour
 
                 //TODO: 계산식 맞는지 확인 필요
                 var cooltime = saveData.leftCoolTime - second;
+
+                float animDuration = cooltime;
+                imgSkillBack.color = colorWhite;
+                imgSkillFront.color = colorDeem;
+                imgSkillFront.fillClockwise = false;
+                // 쿨타임
+                StartCoroutine(animCont.UI_ImageFillAnim(imgSkillFront, 1, 0, animDuration));
+
+                txtTime.enabled = true;
+                StartCoroutine(animCont.UI_TextAnim_Reload(txtTime, animDuration, 0, animDuration));
 
                 // 쿨타임 대기
                 float calcCooltime = cooltime;
@@ -170,10 +185,11 @@ public class SkillBtn : MonoBehaviour
                 }
 
                 GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, 0);
-                GlobalData.instance.saveDataManager.SetSkillUsingValue(skillType, false);
+                GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, false);
                 coolTimeWait = 0;
                 btnSkill.enabled = true;
                 skillReady = true;
+                txtTime.enabled = false;
             }
         }
         yield return null;

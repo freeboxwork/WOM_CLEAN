@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
+
 public class MainToDonnieNest : MonoBehaviour
 {
 
@@ -15,10 +16,10 @@ public class MainToDonnieNest : MonoBehaviour
 
     void AddBtnEvnet()
     {
-        btnEmail.onClick.AddListener(OnClickEvnet);
+        btnEmail.onClick.AddListener(EnableMailWindow);
     }
 
-    public void OnClickEvnet()
+    public void EnableMailWindow()
     {
         string Emailadd = "donnie127834@gmail.com";
         string Emailname = System.Uri.EscapeDataString("버그 리포트 / 문의사항");

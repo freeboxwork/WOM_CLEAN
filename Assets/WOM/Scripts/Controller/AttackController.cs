@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using System.Collections;
 
 public class AttackController : MonoBehaviour
 {
@@ -10,6 +11,10 @@ public class AttackController : MonoBehaviour
     float lastSpawnTime;
 
     RaycastHit2D hit;
+
+    public Transform testInsectEnablePos;
+    bool insectAutoEnable = false;
+
 
     void Start()
     {
@@ -58,6 +63,40 @@ public class AttackController : MonoBehaviour
 
         }
     }
+
+
+    /// <summary>
+    ///  테스터를 위한 곤충 생성
+    /// </summary>
+    public void TestInsectAotoEnable(float insectAutoEnableTime)
+    {
+        insectAutoEnable = true;
+        StartCoroutine(AutoInsectEnable(insectAutoEnableTime));
+    }
+
+    public void StopTestInsectAotoEnable()
+    {
+        insectAutoEnable = false;
+    }
+
+    public IEnumerator AutoInsectEnable(float insectAutoEnableTime)
+    {
+        while (insectAutoEnable)
+        {
+            yield return new WaitForSeconds(insectAutoEnableTime);
+            insectManager.EnableBullet(GetProbabilityInsectType(), InsectAutoEnablePos());
+        }
+
+
+    }
+
+    Vector3 InsectAutoEnablePos()
+    {
+        var pos = testInsectEnablePos.position;
+        var x = pos.x + Random.Range(-1.5f, 1.5f);
+        return new Vector3(x, pos.y, pos.z);
+    }
+
 
     void EnableInsectBullet(Vector2 enablePos)
     {

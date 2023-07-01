@@ -18,6 +18,7 @@ public class GM_TesterTools : EditorWindow
     int addCoal;
     int addDice;
 
+    float insectAutoEnableTime = 0.1f;
 
     [MenuItem("GM_TOOLS/TesterTools")]
     public static void ShowWindwo()
@@ -36,6 +37,7 @@ public class GM_TesterTools : EditorWindow
         t = tg.transform;
     }
 
+    [System.Obsolete]
     private void OnGUI()
     {
         EditorCustomGUI.GUI_Title("게임 테스트를 위한 툴 모음");
@@ -90,6 +92,16 @@ public class GM_TesterTools : EditorWindow
         otherFold = EditorGUILayout.BeginFoldoutHeaderGroup(otherFold, "OTHER");
         if (otherFold)
         {
+
+            if (Application.isPlaying)
+            {
+                GUI_AutoEnableInsect();
+            }
+            else
+            {
+                GUILayout.Box("자동으로 곤충 활성화는 플레이 모드에서만 사용 가능합니다.");
+            }
+
             EditorCustomGUI.GUI_Button("몬스터 즉시 사냥", () => { KillMonster(); });
             EditorCustomGUI.GUI_Button("퀘스트 일일 타이머 리셋", () => { PlayerPrefs.DeleteKey("current_time"); PlayerPrefs.DeleteKey("midnight_time"); });
         }
@@ -101,6 +113,25 @@ public class GM_TesterTools : EditorWindow
         EditorGUILayout.EndScrollView();
     }
 
+    [System.Obsolete]
+    void GUI_AutoEnableInsect()
+    {
+        GUILayout.BeginHorizontal();
+        GUILayout.Label("곤충 자동생성 간격");
+        insectAutoEnableTime = EditorGUILayout.FloatField(insectAutoEnableTime);
+        GUILayout.EndHorizontal();
+
+        EditorCustomGUI.GUI_Button("자동으로 곤충 활성화", () =>
+        {
+            GlobalData.instance.attackController.TestInsectAotoEnable(insectAutoEnableTime);
+        });
+
+        EditorCustomGUI.GUI_Button("자동 곤충 활성화 멈춤 ", () =>
+        {
+            GlobalData.instance.attackController.StopTestInsectAotoEnable();
+        });
+
+    }
 
     void GUI_AddGoodsCustom(string title, EnumDefinition.RewardType goodsType, ref int value)
     {

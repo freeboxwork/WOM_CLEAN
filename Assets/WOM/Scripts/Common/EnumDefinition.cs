@@ -184,7 +184,8 @@ public class EnumDefinition
         goldBonus,
         insectMoveSpeed,
         insectSpawnTime,
-        insectBossDamage
+        insectBossDamage,
+        none
     }
 
     public enum EvolutionRewardGrade

@@ -136,15 +136,19 @@ public class SaveDataManager : MonoBehaviour
             saveDataTotal.saveDataSkills.saveDataSkills.Add(new SaveDataSkill { skillType = type });
         }
 
-        // // set evolution slot
-        // saveDataTotal.saveDataEvolution = new SaveDataEvolution();
-        // var slots = globalData.evolutionManager.evolutionSlots;
-        // for (int i = 0; i < slots.Count; i++)
-        // {
-        //     var slot = new SaveDataEvolutionSolt();
-        //     slot.slotId = i;
-        //     saveDataTotal.saveDataEvolution.saveDataEvolutionSolts.Add(slot);
-        // }
+        // set evolution slot
+        saveDataTotal.saveDataEvolution = new SaveDataEvolution();
+        var slots = globalData.evolutionManager.evolutionSlots;
+        for (int i = 0; i < slots.Count; i++)
+        {
+            var slot = new SaveDataEvolutionSolt();
+            slot.slotId = i;
+            saveDataTotal.saveDataEvolution.saveDataEvolutionSolts.Add(slot);
+            slot.evolutionDiceStatType = EvolutionDiceStatType.none.ToString();
+            //slot.clorHexCode = "#808080";
+            //slot.symbolId = 0;
+
+        }
     }
 
 

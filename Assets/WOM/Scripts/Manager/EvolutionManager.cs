@@ -75,6 +75,11 @@ public class EvolutionManager : MonoBehaviour
             // load save data
             var loadData = GlobalData.instance.saveDataManager.saveDataTotal.saveDataEvolution.saveDataEvolutionSolts[i];
             var type = (EvolutionDiceStatType)System.Enum.Parse(typeof(EvolutionDiceStatType), loadData.evolutionDiceStatType);
+            if (type == EvolutionDiceStatType.none)
+            {
+                continue;
+            }
+
             var symbols = GlobalData.instance.evolutionDiceLotteryManager.symbols;
             evolutionSlots[i].SetSymbol(symbols[loadData.symbolId]);
             SetEvolutuinSlotName(type, evolutionSlots[i], loadData.value, loadData.clorHexCode, loadData.symbolId);

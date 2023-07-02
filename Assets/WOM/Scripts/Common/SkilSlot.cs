@@ -46,7 +46,8 @@ public class SkilSlot : MonoBehaviour
 
     public void SetTxt_MaxLevel(string value)
     {
-        txtMaxLevel.text = value;
+        //txtMaxLevel.text = value;
+        txtMaxLevel.text = "";
     }
 
     public void SetTxt_Level_SkillName(string value)

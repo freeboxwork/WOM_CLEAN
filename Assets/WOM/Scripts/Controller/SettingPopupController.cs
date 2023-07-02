@@ -24,8 +24,8 @@ public class SettingPopupController : MonoBehaviour
 
     public void SetUI()
     {
-        txtBGM_OnOff.text = GlobalData.instance.soundManager.bgmOn ? "����� OFF" : "����� ON";
-        txtSFX_OnOff.text = GlobalData.instance.soundManager.sfxOn ? "ȿ���� OFF" : "ȿ���� ON";
+        txtBGM_OnOff.text = GlobalData.instance.soundManager.bgmOn ? "BGM OFF" : "BGM ON";
+        txtSFX_OnOff.text = GlobalData.instance.soundManager.sfxOn ? "SFX OFF" : "SFX ON";
 
         SetBtnEvents();
     }
@@ -36,7 +36,7 @@ public class SettingPopupController : MonoBehaviour
         {
             GlobalData.instance.soundManager.BGM_OnOff();
 
-            var txtValue = GlobalData.instance.soundManager.bgmOn ? "����� OFF" : "����� ON";
+            var txtValue = GlobalData.instance.soundManager.bgmOn ? "BGM OFF" : "BGM ON";
             txtBGM_OnOff.text = txtValue;
         });
 
@@ -44,7 +44,7 @@ public class SettingPopupController : MonoBehaviour
         {
             GlobalData.instance.soundManager.SFX_OnOff();
 
-            var txtValue = GlobalData.instance.soundManager.sfxOn ? "ȿ���� OFF" : "ȿ���� ON";
+            var txtValue = GlobalData.instance.soundManager.sfxOn ? "SFX OFF" : "SFX ON";
             txtSFX_OnOff.text = txtValue;
         });
 

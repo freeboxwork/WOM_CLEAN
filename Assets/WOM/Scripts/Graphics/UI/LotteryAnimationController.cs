@@ -124,6 +124,8 @@ namespace ProjectGraphics
                 if (isSkip) continue;
                 yield return new WaitForSeconds(0.05f);
             }
+
+            isSkip = false;
         }
 
         int SetImageFromUnionType(EnumDefinition.UnionGradeType type)

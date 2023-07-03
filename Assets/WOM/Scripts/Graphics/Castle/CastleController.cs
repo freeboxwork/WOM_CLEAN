@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -61,27 +60,27 @@ namespace ProjectGraphics
         {
             switch (type)
             {
-                case BuildingType.CAMP: SetCampBuild(level);   break;
-                case BuildingType.FACTORY: SetFactoryBuild(level);   break;
-                case BuildingType.MINE:     SetMineBuild(level);    break;
+                case BuildingType.CAMP: SetCampBuild(level); break;
+                case BuildingType.FACTORY: SetFactoryBuild(level); break;
+                case BuildingType.MINE: SetMineBuild(level); break;
                 case BuildingType.LAB: SetLabBuild(level); break;
             }
 
-            if(!castleObject.activeSelf) castleObject.SetActive(true);
+            if (!castleObject.activeSelf) castleObject.SetActive(true);
         }
 
         private void SetCampBuild(int level)
         {
             for (int i = 0; i < campBuild.Length; i++)
             {
-                if(i <= level) campBuild[i].SetActive(true);
+                if (i <= level) campBuild[i].SetActive(true);
                 else campBuild[i].SetActive(false);
             }
 
             SetBuildEffect(campBuild[level].transform.position);
         }
 
-        private void SetFactoryBuild(int level)
+        public void SetFactoryBuild(int level)
         {
             for (int i = 0; i < factoryBuild.Length; i++)
             {
@@ -92,7 +91,7 @@ namespace ProjectGraphics
             SetBuildEffect(factoryBuild[level].transform.position);
         }
 
-        private void SetMineBuild(int level)
+        public void SetMineBuild(int level)
         {
             for (int i = 0; i < mineBuild.Length; i++)
             {

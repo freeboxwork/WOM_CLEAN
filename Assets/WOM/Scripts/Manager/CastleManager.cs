@@ -6,12 +6,11 @@ using UnityEngine.Events;
 using static EnumDefinition;
 using ProjectGraphics;
 using static ProjectGraphics.CastleController;
-using System.Runtime.InteropServices;
 
 public class CastleManager : MonoBehaviour
 {
-    public List<CastlePopupBase> castlePopupList = new List<CastlePopupBase >();
-    
+    public List<CastlePopupBase> castlePopupList = new List<CastlePopupBase>();
+
     public CastleBuildingData BuildDataMine;
     public CastleBuildingData BuildDataFactory;
 
@@ -29,46 +28,66 @@ public class CastleManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public IEnumerator Init()
     {
         // GET SAVE DATA
         SetCastleData();
-        
+
         // 골드 채굴 시작
         StartCoroutine(MiningGold());
         // 뼈조각 채굴 시작 
         StartCoroutine(MiningBone());
 
-          yield return null;
+        yield return null;
     }
 
 
     void SetCastleData()
     {
+        //TODO: 저장된 데이터에서 불러와야 함.
+        mineLevel = GlobalData.instance.saveDataManager.saveDataTotal.saveDataCastle.mineLevel;
+        factoryLevel = GlobalData.instance.saveDataManager.saveDataTotal.saveDataCastle.factoryLevel;
+
         var refBuildDataMine = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel);
         var refBuildDataFactory = GlobalData.instance.dataManager.GetBuildDataFactoryByLevel(factoryLevel);
 
         BuildDataMine = new CastleBuildingData().Create().SetGoodsType(GoodsType.gold).Clone(refBuildDataMine);
         BuildDataFactory = new CastleBuildingData().Create().SetGoodsType(GoodsType.bone).Clone(refBuildDataFactory);
 
-        // SET UI , TODO: 저장된 데이터에서 불러와야 함.
-        // 초기 UI 설정
+        // 초기 UI 설정 ( POPUP )
         var minePopup = (MinePopup)GetCastlePopupByType(CastlePopupType.mine);
         minePopup.InitUIText(BuildDataMine);
-      
-        var factoryPopup =(MinePopup)GetCastlePopupByType(CastlePopupType.factory);
+
+        var factoryPopup = (MinePopup)GetCastlePopupByType(CastlePopupType.factory);
         factoryPopup.InitUIText(BuildDataFactory);
+
+        // 초기 UI 설정 ( CASTLE )
+        castleController.SetMineBuild(mineLevel);
+        castleController.SetFactoryBuild(factoryLevel);
+
+        // 건설하기 버튼 UI Disable
+        if (mineLevel > 0)
+        {
+            UtilityMethod.GetCustomTypeBtnByID(64).gameObject.SetActive(false);
+            UtilityMethod.GetCustomTypeBtnByID(51).interactable = true;
+        }
+        if (factoryLevel > 0)
+        {
+            UtilityMethod.GetCustomTypeBtnByID(65).gameObject.SetActive(false);
+            UtilityMethod.GetCustomTypeBtnByID(52).interactable = true;
+        }
     }
 
 
-    void SetBtnEvents() 
+    void SetBtnEvents()
     {
         // 건설하기 버튼 ( 금광 , 가공소 )
         // 64, 65
-        UtilityMethod.SetBtnEventCustomTypeByID(64, () => {
+        UtilityMethod.SetBtnEventCustomTypeByID(64, () =>
+        {
             UpGradeCastle(CastlePopupType.mine);
             var isUpgrade = mineLevel > 0;
 
@@ -76,27 +95,32 @@ public class CastleManager : MonoBehaviour
             UtilityMethod.GetCustomTypeBtnByID(64).gameObject.SetActive(!isUpgrade);
             UtilityMethod.GetCustomTypeBtnByID(51).interactable = isUpgrade;
         });
-        UtilityMethod.SetBtnEventCustomTypeByID(65, () => {
+        UtilityMethod.SetBtnEventCustomTypeByID(65, () =>
+        {
             UpGradeCastle(CastlePopupType.factory);
 
             var isUpgrade = factoryLevel > 0;
-            
+
             Debug.Log(isUpgrade + " factory level " + factoryLevel);
             UtilityMethod.GetCustomTypeBtnByID(65).gameObject.SetActive(!isUpgrade);
             UtilityMethod.GetCustomTypeBtnByID(52).interactable = isUpgrade;
         });
 
-        UtilityMethod.SetBtnEventCustomTypeByID(51,()=>{
-            OpenCastlePopup(EnumDefinition.CastlePopupType.mine);            
+        UtilityMethod.SetBtnEventCustomTypeByID(51, () =>
+        {
+            OpenCastlePopup(EnumDefinition.CastlePopupType.mine);
         });
-        UtilityMethod.SetBtnEventCustomTypeByID(52,()=>{
-            OpenCastlePopup(EnumDefinition.CastlePopupType.factory);            
+        UtilityMethod.SetBtnEventCustomTypeByID(52, () =>
+        {
+            OpenCastlePopup(EnumDefinition.CastlePopupType.factory);
         });
-        UtilityMethod.SetBtnEventCustomTypeByID(53,()=>{
-            OpenCastlePopup(EnumDefinition.CastlePopupType.camp);            
+        UtilityMethod.SetBtnEventCustomTypeByID(53, () =>
+        {
+            OpenCastlePopup(EnumDefinition.CastlePopupType.camp);
         });
-        UtilityMethod.SetBtnEventCustomTypeByID(54,()=>{
-            OpenCastlePopup(EnumDefinition.CastlePopupType.lab);            
+        UtilityMethod.SetBtnEventCustomTypeByID(54, () =>
+        {
+            OpenCastlePopup(EnumDefinition.CastlePopupType.lab);
         });
 
         // 64 금광 건설하기 버튼
@@ -111,13 +135,13 @@ public class CastleManager : MonoBehaviour
     }
 
 
-    public CastlePopupBase GetCastlePopupByType(EnumDefinition.CastlePopupType popupType) 
+    public CastlePopupBase GetCastlePopupByType(EnumDefinition.CastlePopupType popupType)
     {
-       return castlePopupList.FirstOrDefault(x => x.popupType == popupType );
+        return castlePopupList.FirstOrDefault(x => x.popupType == popupType);
     }
 
 
-    public void OpenCastlePopup(EnumDefinition.CastlePopupType popup) 
+    public void OpenCastlePopup(EnumDefinition.CastlePopupType popup)
     {
         GetCastlePopupByType(popup).gameObject.SetActive(true);
     }
@@ -168,7 +192,7 @@ public class CastleManager : MonoBehaviour
                             nextBuildData = new CastleBuildingData().Create().SetGoodsType(GoodsType.coal).Clone(nextLevelData);
                         }
                         popup.SetUpGradeText(upgradeData, nextBuildData);
-                        castleController.SetBuildUpgrade(BuildingType.FACTORY, factoryLevel );
+                        castleController.SetBuildUpgrade(BuildingType.FACTORY, factoryLevel);
 
                         if (nextBuildData == null)
                             popup.btnUpgrade.interactable = false;
@@ -252,7 +276,7 @@ public class CastleManager : MonoBehaviour
             Debug.Log("Upgrade Fail");
             return false;
         }
-        
+
     }
 
     // max level 체크
@@ -276,6 +300,9 @@ public class CastleManager : MonoBehaviour
             GlobalData.instance.player.PayCoal(BuildDataMine.price);
             mineLevel++;
 
+            // set save data
+            GlobalData.instance.saveDataManager.SaveDataCastMineleLevel(mineLevel);
+
             // 다음 레벨의 광산 정보 가져오기
             var refBuildDataMine = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel);
 
@@ -297,13 +324,15 @@ public class CastleManager : MonoBehaviour
         {
             GlobalData.instance.player.PayCoal(BuildDataFactory.price);
             factoryLevel++;
+            // set save data
+            GlobalData.instance.saveDataManager.SaveDataCastleFactoryLevel(factoryLevel);
             var refBuildDataFactory = GlobalData.instance.dataManager.GetBuildDataFactoryByLevel(factoryLevel);
             BuildDataFactory = new CastleBuildingData().Create().SetGoodsType(GoodsType.bone).Clone(refBuildDataFactory);
             completeCallback(true, BuildDataFactory);
         }
         else
         {
-            completeCallback(false,null);
+            completeCallback(false, null);
         }
     }
 
@@ -354,8 +383,8 @@ public class CastleManager : MonoBehaviour
         // 모든 금 채굴량을 인출했으므로 BuildDataMine 객체의 totlaMiningValue를 0으로 설정합니다. 
         BuildDataMine.TotlaMiningValue = 0;
 
-       
-        
+
+
     }
 
 
@@ -405,29 +434,30 @@ public class CastleBuildingData
     public int price;
     public string currencyType;
     // 총 생산량
-     public int totlaMiningValue;
+    public int totlaMiningValue;
     public int TotlaMiningValue
     {
 
         get => totlaMiningValue;
-        set 
+        set
         {
             totlaMiningValue = value;
-             var popup = (MinePopup)GlobalData.instance.castleManager.GetCastlePopupByType(CastlePopupType.mine);
-             popup.SetTextTotalMiningValue(totlaMiningValue.ToString());
+            var popup = (MinePopup)GlobalData.instance.castleManager.GetCastlePopupByType(CastlePopupType.mine);
+            popup.SetTextTotalMiningValue(totlaMiningValue.ToString());
         }
 
     }
-     
-     
+
+
     // 생산되는 재화 타입    
     EnumDefinition.GoodsType goodsType;
 
-   public CastleBuildingData data;
+    public CastleBuildingData data;
 
-    public CastleBuildingData  Create(){
-        data = new CastleBuildingData();   
-        return this; 
+    public CastleBuildingData Create()
+    {
+        data = new CastleBuildingData();
+        return this;
     }
     public CastleBuildingData SetGoodsType(EnumDefinition.GoodsType goodsType)
     {

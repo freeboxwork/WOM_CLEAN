@@ -452,6 +452,17 @@ public class SaveDataManager : MonoBehaviour
         saveDataTotal.saveDataSystem.tutorial_step = value;
     }
 
+    // 캐슬 데이터 세팅
+    public void SaveDataCastMineleLevel(int level)
+    {
+        saveDataTotal.saveDataCastle.mineLevel = level;
+    }
+    public void SaveDataCastleFactoryLevel(int level)
+    {
+        saveDataTotal.saveDataCastle.factoryLevel = level;
+    }
+
+
     // 투토리얼 스텝 데이터 세팅
     public void SaveDataTutorialStep(int step)
     {
@@ -504,6 +515,7 @@ public class SaveDataTotal
     public SaveDataSystem saveDataSystem;
     public SaveDataDungeonLevel saveDataDungeonLevel;
     public SaveDataTutorial saveDataTutorial;
+    public SaveDataCastle saveDataCastle;
 }
 
 
@@ -696,4 +708,14 @@ public class SaveDataSystem
 
 }
 
+[System.Serializable]
+public class SaveDataCastle
+{
+    public int mineLevel;
+    public int factoryLevel;
+}
+
 #endregion
+
+
+

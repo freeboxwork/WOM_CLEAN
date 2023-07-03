@@ -4023,6 +4023,9 @@ MonoBehaviour:
       dungeonLvCoal: 1
     saveDataTutorial:
       tutorial_step: 0
+    saveDataCastle:
+      mineLevel: 0
+      factoryLevel: 0
   globalData: {fileID: 131730010}
 --- !u!1 &106291641
 GameObject:
@@ -42043,7 +42046,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1747509666}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -42925,7 +42928,7 @@ RectTransform:
   - {fileID: 1557450980}
   - {fileID: 554174257}
   m_Father: {fileID: 1747509666}
-  m_RootOrder: 7
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -48715,7 +48718,7 @@ RectTransform:
   m_Children:
   - {fileID: 298839017}
   m_Father: {fileID: 1747509666}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -76325,7 +76328,7 @@ RectTransform:
   - {fileID: 1502984280}
   - {fileID: 926182303}
   m_Father: {fileID: 1747509666}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 0.6}
@@ -78714,10 +78717,10 @@ RectTransform:
   - {fileID: 546225919}
   - {fileID: 565569842}
   - {fileID: 354494627}
+  - {fileID: 924743474}
   - {fileID: 1696223317}
   - {fileID: 905248403}
   - {fileID: 1073794119}
-  - {fileID: 924743474}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

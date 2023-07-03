@@ -266,10 +266,10 @@ public class EffectManager : MonoBehaviour
     }
     IEnumerator EnableTransitionEffSkillOnByType_Cor(EnumDefinition.SkillType skillType)
     {
-        transitionAnimEffSkillOnImage.gameObject.SetActive(false);
+        transitionAnimEffSkillOn.gameObject.SetActive(false);
         yield return new WaitForEndOfFrame();
         transitionAnimEffSkillOnImage.sprite = skillTypeToIconMap[skillType];
-        transitionAnimEffSkillOnImage.gameObject.SetActive(true);
+        transitionAnimEffSkillOn.gameObject.SetActive(true);
     }
 
 

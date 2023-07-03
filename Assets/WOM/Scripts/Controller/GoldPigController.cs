@@ -71,7 +71,7 @@ public class GoldPigController : MonoBehaviour
     {
         UtilityMethod.SetBtnEventCustomTypeByID(49, () =>
         {
-            EnterCastleView();
+            EnterOtherView();
         });
 
         EventManager.instance.AddCallBackEvent(CallBackEventType.TYPES.OnGoldPigEvent, GetGoldPig);
@@ -91,14 +91,14 @@ public class GoldPigController : MonoBehaviour
         goldPigPopup.gameObject.SetActive(true);
     }
 
-    public void EnterCastleView()
+    public void EnterOtherView()
     {
         // 애니메이션 종료 ( 코루틴 종료 )
         StopAllCoroutines();
         goldPig.gameObject.SetActive(false);
     }
 
-    public void ExitCastleView()
+    public void ExitOtherView()
     {
         if (enableWaitTime <= 0)
         {

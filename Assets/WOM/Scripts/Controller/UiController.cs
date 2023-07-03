@@ -402,7 +402,7 @@ public class UiController : MonoBehaviour
         }));
 
         // 황금 돼지 출현 타이머 활성
-        GlobalData.instance.goldPigController.ExitCastleView();
+        GlobalData.instance.goldPigController.ExitOtherView();
 
         // 공격 가능 상태 전환
         GlobalData.instance.attackController.SetAttackableState(true);

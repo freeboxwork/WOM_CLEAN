@@ -9,6 +9,7 @@ public class DungeonEnterPopup : MonoBehaviour
 {
 
     public Image keyIcon;
+    public Image goodsIcon;
 
     public TextMeshProUGUI textClearTicket;
     public TextMeshProUGUI textKeyCount;
@@ -16,6 +17,7 @@ public class DungeonEnterPopup : MonoBehaviour
     public TextMeshProUGUI textRewardValue;
 
     public SerializableDictionary<EnumDefinition.MonsterType, Sprite> monsterTypeToIconMap;
+    public SerializableDictionary<EnumDefinition.MonsterType, Sprite> monsterTypeToGoodsIconMap;
 
     public EnumDefinition.MonsterType curMonsterType;
     public GameObject contents;
@@ -142,6 +144,7 @@ public class DungeonEnterPopup : MonoBehaviour
     public void SetKeyUI(EnumDefinition.MonsterType monsterType)
     {
         keyIcon.sprite = monsterTypeToIconMap[monsterType];
+        goodsIcon.sprite = monsterTypeToGoodsIconMap[monsterType];
         // 던전별 보유 열쇠 수
         var keyCount = GlobalData.instance.player.GetCurrentDungeonKeyCount(monsterType);
         textKeyCount.text = keyCount.ToString();

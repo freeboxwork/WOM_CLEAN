@@ -338,8 +338,6 @@ public class EventController : MonoBehaviour
     {
         var usingKeyCount = GlobalData.instance.monsterManager.GetMonsterDungeon().monsterToDataMap[monsterType].usingKeyCount;
 
-
-
         // 열쇠 사용
         globalData.player.PayDungeonKeyByMonsterType(monsterType, usingKeyCount);
 
@@ -347,11 +345,16 @@ public class EventController : MonoBehaviour
         globalData.dungeonManager.UpdateDunslotKeyUI(monsterType);
 
         StopAllCoroutines();
+
         StartCoroutine(DungeonMonsterAppear(monsterType));
     }
 
     IEnumerator DungeonMonsterAppear(MonsterType monsterType)
     {
+
+        // 황금돼지 비활성화
+        globalData.goldPigController.EnterOtherView();
+
         // 공격 막기
         globalData.attackController.SetAttackableState(false);
 
@@ -526,6 +529,10 @@ public class EventController : MonoBehaviour
         UtilityMethod.GetCustomTypeImageById(47).raycastTarget = true;
 
 
+        // 황금돼지 활성화
+        globalData.goldPigController.ExitOtherView();
+
+
     }
 
     // 몬스터 등장
@@ -607,6 +614,9 @@ public class EventController : MonoBehaviour
 
     IEnumerator ProcessEvolutionGradeChallenge()
     {
+        // 황금돼지 비활성화
+        globalData.goldPigController.EnterOtherView();
+
         // 공격 불가능 상태로 전환
         globalData.attackController.SetAttackableState(false);
 
@@ -763,12 +773,14 @@ public class EventController : MonoBehaviour
         // 진화 몬스터 도전 버튼 활성화
         globalData.evolutionManager.EnableBtnEvolutionMonsterChange(true);
 
-
         // 공격 가능 상태로 전환
         globalData.attackController.SetAttackableState(true);
 
         // 일반 몬스터 등장
         StartCoroutine(MonsterAppearCor(MonsterType.normal));
+
+        // 황금 돼지 활성화
+        globalData.goldPigController.ExitOtherView();
 
 
     }
@@ -871,6 +883,9 @@ public class EventController : MonoBehaviour
 
         //진화 메뉴 활성화
         // globalData.uiController.EnableMenuPanel(MenuPanelType.evolution);
+
+        // 황금돼지 활성화
+        globalData.goldPigController.ExitOtherView();
     }
 
     public void AddDungeonMonsterKillReward(GoodsType goodsType, int totalCurrencyAmount)

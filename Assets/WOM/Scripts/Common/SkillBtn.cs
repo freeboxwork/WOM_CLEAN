@@ -65,6 +65,8 @@ public class SkillBtn : MonoBehaviour
 
     IEnumerator UsingKill_Cor()
     {
+        // effect
+        GlobalData.instance.effectManager.EnableTransitionEffSkillOnByType(skillType);
         var data = GlobalData.instance.skillManager.GetSkillInGameDataByType(skillType);
         float totalCoolTime = data.coolTime * (1 - GlobalData.instance.statManager.SkillCoolTime());
 

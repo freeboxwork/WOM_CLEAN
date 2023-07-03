@@ -2,6 +2,7 @@ using ProjectGraphics;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 
 
@@ -50,6 +51,10 @@ public class EffectManager : MonoBehaviour
     [Header("=====================================================================================================================")]
     [Header("화면전환 이펙트")]
     public GameObject transitionAnimEffBossAttack;
+    public GameObject transitionAnimEffSkillOn;
+    public Image transitionAnimEffSkillOnImage;
+    public SerializableDictionary<EnumDefinition.SkillType, Sprite> skillTypeToIconMap;
+
 
 
     void Start()
@@ -253,5 +258,19 @@ public class EffectManager : MonoBehaviour
     {
         transitionAnimEffBossAttack.gameObject.SetActive(true);
     }
+
+    public void EnableTransitionEffSkillOnByType(EnumDefinition.SkillType skillType)
+    {
+        StopCoroutine("EnableTransitionEffSkillOnByType_Cor");
+        StartCoroutine(EnableTransitionEffSkillOnByType_Cor(skillType));
+    }
+    IEnumerator EnableTransitionEffSkillOnByType_Cor(EnumDefinition.SkillType skillType)
+    {
+        transitionAnimEffSkillOnImage.gameObject.SetActive(false);
+        yield return new WaitForEndOfFrame();
+        transitionAnimEffSkillOnImage.sprite = skillTypeToIconMap[skillType];
+        transitionAnimEffSkillOnImage.gameObject.SetActive(true);
+    }
+
 
 }

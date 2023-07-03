@@ -26,8 +26,13 @@ public class SoundManager : MonoBehaviour
     {
         bgmOn = IsBgmOn();
         sfxOn = IsSfxOn();
+        yield return new WaitForEndOfFrame();
+
+        // set bgm clip
+        SetBgmClip(EnumDefinition.BGM_TYPE.BGM_01);
+
         if (bgmOn)
-            PlayBgm(EnumDefinition.BGM_TYPE.BGM_01);
+            PlayBgm();
 
         // set sfx volume
         var volume = sfxOn ? 1 : 0;
@@ -84,9 +89,13 @@ public class SoundManager : MonoBehaviour
         PlayerPrefs.SetString(sfxOnOffKey, saveValue);
     }
 
-    public void PlayBgm(EnumDefinition.BGM_TYPE bgmType)
+    public void SetBgmClip(EnumDefinition.BGM_TYPE bgmType)
     {
         playerBgm.clip = bgmList[(int)bgmType];
+    }
+
+    public void PlayBgm()
+    {
         playerBgm.Play();
     }
 

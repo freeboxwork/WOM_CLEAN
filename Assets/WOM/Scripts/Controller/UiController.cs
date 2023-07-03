@@ -249,8 +249,8 @@ public class UiController : MonoBehaviour
         // 보스 몬스터 도전 버튼
         btnBossChallenge.onClick.AddListener(() =>
         {
-
             EventManager.instance.RunEvent(CallBackEventType.TYPES.OnBossMonsterChallenge);
+            GlobalData.instance.effectManager.EnableTransitionEffBossAttack();
         });
 
         // 던전 몬스터 - 골드 도전 버튼

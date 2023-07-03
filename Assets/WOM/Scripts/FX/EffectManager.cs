@@ -27,7 +27,7 @@ public class EffectManager : MonoBehaviour
     // 프리팹 생성될 부모 모드젝트
     public Transform trEffects;
     [Header("=====================================================================================================================")]
-    
+
 
     [Header("골드 관련 항목")]
     // 골드 생성 포인트들
@@ -40,14 +40,16 @@ public class EffectManager : MonoBehaviour
     public AnimationController animContTransition;
     public AnimData animDataTranIn;
     public AnimData animDataTranOut;
-    
+
     [Header("=====================================================================================================================")]
     [Header("몬스터 타격시 나타나는 텍스트")]
     int flotingTextPoolCount = 20;
     public FloatingText prefabFloatingText;
     public List<FloatingText> floatingTextPool = new List<FloatingText>();
-         
 
+    [Header("=====================================================================================================================")]
+    [Header("화면전환 이펙트")]
+    public GameObject transitionAnimEffBossAttack;
 
 
     void Start()
@@ -80,8 +82,8 @@ public class EffectManager : MonoBehaviour
         //CreateInstanceGolds();
     }
 
- 
-    void CreateInstanceAttackEffects(ParticleRoate prefabParticle , List<ParticleRoate> list )
+
+    void CreateInstanceAttackEffects(ParticleRoate prefabParticle, List<ParticleRoate> list)
     {
         for (int i = 0; i < insectAttackEffectsBrithCount; i++)
         {
@@ -119,8 +121,8 @@ public class EffectManager : MonoBehaviour
             case EnumDefinition.InsectType.union: EnableAttackEffect(insectAttackEffUnion, tr, insectType); break;
         }
     }
-        
-    void EnableAttackEffect(List<ParticleRoate> particles ,Transform tr, EnumDefinition.InsectType insectType)
+
+    void EnableAttackEffect(List<ParticleRoate> particles, Transform tr, EnumDefinition.InsectType insectType)
     {
         var effect = GetDisableParticleRoate(particles, insectType);
         var zRot = tr.eulerAngles.z;
@@ -131,7 +133,7 @@ public class EffectManager : MonoBehaviour
 
 
 
-    ParticleRoate GetDisableParticleRoate(List<ParticleRoate> particles , EnumDefinition.InsectType insectType)
+    ParticleRoate GetDisableParticleRoate(List<ParticleRoate> particles, EnumDefinition.InsectType insectType)
     {
 
         foreach (var eff in particles)
@@ -151,7 +153,7 @@ public class EffectManager : MonoBehaviour
     ParticleSystem GetInsectDisableEff()
     {
 
-        foreach(var eff in insectDisableEffects)
+        foreach (var eff in insectDisableEffects)
         {
             if (!eff.gameObject.activeInHierarchy)
             {
@@ -246,4 +248,10 @@ public class EffectManager : MonoBehaviour
         var colorAlpha = new Color(1, 1, 1, 0);
         yield return StartCoroutine(animContTransition.UI_ImageColorAnim(image, colorAlpha_None, colorAlpha));
     }
+
+    public void EnableTransitionEffBossAttack()
+    {
+        transitionAnimEffBossAttack.gameObject.SetActive(true);
+    }
+
 }

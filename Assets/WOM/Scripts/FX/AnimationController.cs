@@ -177,7 +177,7 @@ public class AnimationController : MonoBehaviour
             animData.animTime = (Time.time - animData.animStartTime) / animData.animDuration;
             animData.animValue = EaseValues.instance.GetAnimCurve(animData.animCurveType, animData.animTime);
             var textValue = Mathf.Lerp(start, end, animData.animValue);
-            text.text = string.Format("{0:0.00} ", textValue) + "s";
+            text.text = string.Format("{0:0} ", textValue) + "s";
             yield return null;
         }
         isAnimPlay = false;
@@ -194,7 +194,7 @@ public class AnimationController : MonoBehaviour
         {
             timeValue = (Time.time - startTime) / duration;
             var textValue = Mathf.Lerp(start, end, timeValue);
-            text.text = string.Format("{0:0.00} ", textValue) + "s";
+            text.text = string.Format("{0:0} ", textValue) + "s";
             yield return null;
         }
     }

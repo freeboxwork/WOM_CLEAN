@@ -146,12 +146,12 @@ public class EventManager : MonoBehaviour
 
     void PrintRemoveException(CallBackEventType.TYPES _type)
     {
-        Debug.LogError($"��ϵǾ� ���� ���� Ÿ�� �̹Ƿ� <b><color=red> ���� �� �� �����ϴ�. </color></b>. Null Type : {_type}");
+        Debug.LogError($"????? ???? ???? ??? ???? <b><color=red> ???? ?? ?? ???????. </color></b>. Null Type : {_type}");
     }
 
     void PrintRunException(CallBackEventType.TYPES _type)
     {
-        Debug.LogError($"��ϵǾ� ���� ���� Ÿ�� �̹Ƿ� <b><color=red> ���� �� �� �����ϴ�. </color></b> Null Type : {_type}");
+        Debug.LogError($"????? ???? ???? ??? ???? <b><color=red> ???? ?? ?? ???????. </color></b> Null Type : {_type}");
     }
 
 

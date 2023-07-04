@@ -57,7 +57,7 @@ public class SkillBtn : MonoBehaviour
     public void SetTxtCoolTime(int time)
     {
         TimeSpan t = TimeSpan.FromSeconds(time);
-        string answer = string.Format("{0:D2}:{1:D2}", t.Minutes, t.Seconds);
+        string answer = string.Format("{0:D0}:{1:D0}", t.Minutes, t.Seconds);
         txtTime.text = answer;
     }
 

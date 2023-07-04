@@ -442,7 +442,7 @@ RectTransform:
   m_Father: {fileID: 7879725457005353027}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 0.1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -929,6 +929,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3addd4bc5d00d7d40ac95cf47f6d1bde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  questData:
+    questType: 
+    questName: 
+    targetValue: 0
+    curCountValue: 0
+    rewardType: 
+    rewardValue: 0
+    qusetComplete: 0
+    usingReward: 0
   imgNotifyIcon: {fileID: 5256588682335354828}
   imgRewardIcon: {fileID: 1414990512925557222}
   txtRewardValue: {fileID: 8583759517236154839}
@@ -937,6 +946,7 @@ MonoBehaviour:
   txtQuestProgressCount: {fileID: 6479067947219466906}
   btnReward: {fileID: 2081078722389949908}
   txtDoing: {fileID: 8100435445203373987}
+  questTypeOneDay: 0
 --- !u!1 &5256588681367499374
 GameObject:
   m_ObjectHideFlags: 0

@@ -56,6 +56,13 @@ public class EffectManager : MonoBehaviour
     public SerializableDictionary<EnumDefinition.SkillType, Sprite> skillTypeToIconMap;
 
 
+    // Dungeon tranition effectg
+    public GameObject transitionAnimEffDungeonIn;
+    public Image imgDungeonKey;
+    public Image imgDungeonKeyShadow;
+    public SerializableDictionary<EnumDefinition.MonsterType, Sprite> dungeonTypeToIconMap;
+
+
 
     void Start()
     {
@@ -272,5 +279,18 @@ public class EffectManager : MonoBehaviour
         transitionAnimEffSkillOn.gameObject.SetActive(true);
     }
 
+    public void EnableTransitionEffDungeonInByType(EnumDefinition.MonsterType monsterType)
+    {
+        StopCoroutine("EnableTransitionEffEffDungeonInByType_Cor");
+        StartCoroutine(EnableTransitionEffEffDungeonInByType_Cor(monsterType));
+    }
+    IEnumerator EnableTransitionEffEffDungeonInByType_Cor(EnumDefinition.MonsterType monsterType)
+    {
+        transitionAnimEffDungeonIn.gameObject.SetActive(false);
+        yield return new WaitForEndOfFrame();
+        imgDungeonKey.sprite = dungeonTypeToIconMap[monsterType];
+        imgDungeonKeyShadow.sprite = dungeonTypeToIconMap[monsterType];
+        transitionAnimEffDungeonIn.gameObject.SetActive(true);
+    }
 
 }

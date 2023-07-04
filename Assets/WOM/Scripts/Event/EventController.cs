@@ -351,6 +351,8 @@ public class EventController : MonoBehaviour
 
     IEnumerator DungeonMonsterAppear(MonsterType monsterType)
     {
+        // transition effect
+        globalData.effectManager.EnableTransitionEffDungeonInByType(monsterType);
 
         // 황금돼지 비활성화
         globalData.goldPigController.EnterOtherView();
@@ -397,6 +399,8 @@ public class EventController : MonoBehaviour
 
             // 던전 몬스터 레벨 표시
             UtilityMethod.SetTxtCustomTypeByID(107, $"{1}");
+
+
 
         }));
 

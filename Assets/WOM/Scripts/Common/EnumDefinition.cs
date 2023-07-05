@@ -293,4 +293,11 @@ public class EnumDefinition
         none
     }
 
+    public enum PowerSavingMode
+    {
+        none,
+        on,
+        off
+    }
+
 }

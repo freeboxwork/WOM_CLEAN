@@ -1,4 +1,3 @@
-using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,14 +7,17 @@ public class SettingPopupController : MonoBehaviour
 
     public Button btnBgmOnOff;
     public Button btnSfxOnOff;
+    public Button btnCloudSaveOnOff;
+    public Button btnPowerSaving;
     public Button btnSetting;
     public Button btnClose;
 
-
+    public WomSystemMnager womSystemMnager;
     public GameObject popupSetting;
-    public TextMeshProUGUI txtBGM_OnOff;
-    public TextMeshProUGUI txtSFX_OnOff;
 
+    public OnOffSliderSlot onOffSliderSlot_Bgm;
+    public OnOffSliderSlot onOffSliderSlot_Sfx;
+    public OnOffSliderSlot onOffSliderSlot_CloudeSave;
 
     void Start()
     {
@@ -24,8 +26,15 @@ public class SettingPopupController : MonoBehaviour
 
     public void SetUI()
     {
-        txtBGM_OnOff.text = GlobalData.instance.soundManager.bgmOn ? "BGM OFF" : "BGM ON";
-        txtSFX_OnOff.text = GlobalData.instance.soundManager.sfxOn ? "SFX OFF" : "SFX ON";
+
+        //set bgm on off slider
+        var isBgmOn = GlobalData.instance.soundManager.bgmOn;
+        onOffSliderSlot_Bgm.Init(isBgmOn);
+
+        //set sfx on off slider
+        var isSfxOn = GlobalData.instance.soundManager.sfxOn;
+        onOffSliderSlot_Sfx.Init(isSfxOn);
+
 
         SetBtnEvents();
     }
@@ -36,16 +45,21 @@ public class SettingPopupController : MonoBehaviour
         {
             GlobalData.instance.soundManager.BGM_OnOff();
 
-            var txtValue = GlobalData.instance.soundManager.bgmOn ? "BGM OFF" : "BGM ON";
-            txtBGM_OnOff.text = txtValue;
+            var value = GlobalData.instance.soundManager.bgmOn;
+            onOffSliderSlot_Bgm.SetSliderValue(value);
         });
 
         btnSfxOnOff.onClick.AddListener(() =>
         {
             GlobalData.instance.soundManager.SFX_OnOff();
 
-            var txtValue = GlobalData.instance.soundManager.sfxOn ? "SFX OFF" : "SFX ON";
-            txtSFX_OnOff.text = txtValue;
+            var value = GlobalData.instance.soundManager.sfxOn;
+            onOffSliderSlot_Sfx.SetSliderValue(value);
+        });
+
+        btnPowerSaving.onClick.AddListener(() =>
+        {
+            womSystemMnager.PowerSavingModeOn();
         });
 
         btnClose.onClick.AddListener(() =>

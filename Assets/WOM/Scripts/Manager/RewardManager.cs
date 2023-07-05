@@ -28,10 +28,10 @@ public class RewardManager : MonoBehaviour
         rewardDic.Add(EnumDefinition.RewardType.union, GlobalData.instance.unionManager.AddUnion);
 
         // 보상이 정해지지 않았을때 호출되는 함수
-        rewardDic.Add(EnumDefinition.RewardType.goldKey, RewardNull);
-        rewardDic.Add(EnumDefinition.RewardType.boneKey, RewardNull);
-        rewardDic.Add(EnumDefinition.RewardType.diceKey, RewardNull);
-        rewardDic.Add(EnumDefinition.RewardType.coalKey, RewardNull);
+        rewardDic.Add(EnumDefinition.RewardType.goldKey, AddDungeonKeyGold);
+        rewardDic.Add(EnumDefinition.RewardType.boneKey, AddDungeonKeyBone);
+        rewardDic.Add(EnumDefinition.RewardType.diceKey, AddDungeonKeyDice);
+        rewardDic.Add(EnumDefinition.RewardType.coalKey, AddDungeonKeyCoal);
 
         rewardDic.Add(EnumDefinition.RewardType.unionTicket, RewardNull);
         rewardDic.Add(EnumDefinition.RewardType.dnaTicket, RewardNull);
@@ -44,6 +44,24 @@ public class RewardManager : MonoBehaviour
     {
         Debug.Log("보상이 정해지지 않았습니다.");
     }
+
+    void AddDungeonKeyGold(int value)
+    {
+        GlobalData.instance.player.AddDungeonKey(EnumDefinition.GoodsType.gold, value);
+    }
+    void AddDungeonKeyBone(int value)
+    {
+        GlobalData.instance.player.AddDungeonKey(EnumDefinition.GoodsType.bone, value);
+    }
+    void AddDungeonKeyDice(int value)
+    {
+        GlobalData.instance.player.AddDungeonKey(EnumDefinition.GoodsType.dice, value);
+    }
+    void AddDungeonKeyCoal(int value)
+    {
+        GlobalData.instance.player.AddDungeonKey(EnumDefinition.GoodsType.coal, value);
+    }
+
 
     // unionRewardQueue 에 인자로 값을 받아서 넣는 함수
     public void AddUnionReward(int unionIndex)

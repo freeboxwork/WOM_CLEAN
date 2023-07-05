@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
+using System.Collections.Generic;
 
 public class AttackController : MonoBehaviour
 {
@@ -44,24 +45,38 @@ public class AttackController : MonoBehaviour
                     }
                 }
 
-                // gold pig 
-                hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-                if (hit.collider != null)
+                if (!IsPointerOverUIObject()) // 포인터 UI 위에 있지 않을때만 실행
                 {
-                    if (hit.collider.CompareTag("goldPig"))
+                    // gold pig 
+                    hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+                    if (hit.collider != null)
                     {
-                        // gold pig event
-                        Debug.Log("get gold pig !!!!");
-                        EventManager.instance.RunEvent(CallBackEventType.TYPES.OnGoldPigEvent);
-                        // 일일 퀘스트 완료 : 골드피그
-                        EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.takeGoldPig);
+                        if (hit.collider.CompareTag("goldPig"))
+                        {
+                            // gold pig event
+                            Debug.Log("get gold pig !!!!");
+                            EventManager.instance.RunEvent(CallBackEventType.TYPES.OnGoldPigEvent);
+                            // 일일 퀘스트 완료 : 골드피그
+                            EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.takeGoldPig);
+                        }
                     }
                 }
+
             }
 
 
 
         }
+    }
+
+    // 포인터 위치가 UI 위에 있는지 판단
+    private bool IsPointerOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+        List<RaycastResult> results = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
     }
 
 

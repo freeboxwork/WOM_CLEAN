@@ -400,7 +400,8 @@ public class EventController : MonoBehaviour
             // 던전 몬스터 레벨 표시
             UtilityMethod.SetTxtCustomTypeByID(107, $"{1}");
 
-
+            // 배경 리셋
+            globalData.stageManager.bgAnimController.SetOffsetY(0f);
 
         }));
 
@@ -654,6 +655,9 @@ public class EventController : MonoBehaviour
 
             // 타이머 계산 시작
             globalData.bossChallengeTimer.StartTimer();
+
+            // 배경 리셋
+            globalData.stageManager.bgAnimController.SetOffsetY(0f);
 
         }));
 

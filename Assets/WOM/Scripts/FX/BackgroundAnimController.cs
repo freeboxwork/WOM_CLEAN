@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BackgroundAnimController : MonoBehaviour
@@ -10,7 +9,7 @@ public class BackgroundAnimController : MonoBehaviour
 
     public SpriteRenderer bg_rd;
     Material bgMat;
-    
+
     // 보스 몬스터 제거시 배경 전환
     public AnimData animData_transition;
 
@@ -22,6 +21,8 @@ public class BackgroundAnimController : MonoBehaviour
     {
         bgMat = bg_rd.material;
     }
+
+
 
     //void Update()
     //{
@@ -47,7 +48,7 @@ public class BackgroundAnimController : MonoBehaviour
     //    }
     //}
 
-    
+
 
 
     public void SetBgTex_Back(Texture2D tex)

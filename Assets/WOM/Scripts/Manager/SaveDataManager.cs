@@ -147,8 +147,19 @@ public class SaveDataManager : MonoBehaviour
             slot.evolutionDiceStatType = EvolutionDiceStatType.none.ToString();
             //slot.clorHexCode = "#808080";
             //slot.symbolId = 0;
-
         }
+
+        // 최초 던전 키 2개씩 지급
+        saveDataTotal.saveDataGoods = new SaveDataGoods();
+        saveDataTotal.saveDataGoods.dungeonKeyGold = 2;
+        saveDataTotal.saveDataGoods.dungeonKeyBone = 2;
+        saveDataTotal.saveDataGoods.dungeonKeyDice = 2;
+        saveDataTotal.saveDataGoods.dungeonKeyCoal = 2;
+
+        saveDataTotal.saveDataGoods.dungeonKeyADGold = 2;
+        saveDataTotal.saveDataGoods.dungeonKeyADBone = 2;
+        saveDataTotal.saveDataGoods.dungeonKeyADDice = 2;
+        saveDataTotal.saveDataGoods.dungeonKeyADCoal = 2;
     }
 
 
@@ -389,28 +400,70 @@ public class SaveDataManager : MonoBehaviour
     // 던전 키 데이터 저장
     public void SaveDataGoodsDungeonKey(GoodsType goodsType, int dungeonKey)
     {
-        var keyValue = GetGoodsData(goodsType);
-        keyValue = dungeonKey;
+        switch (goodsType)
+        {
+            case GoodsType.gold:
+                saveDataTotal.saveDataGoods.dungeonKeyGold = dungeonKey; break;
+            case GoodsType.bone:
+                saveDataTotal.saveDataGoods.dungeonKeyBone = dungeonKey; break;
+            case GoodsType.dice:
+                saveDataTotal.saveDataGoods.dungeonKeyDice = dungeonKey; break;
+            case GoodsType.coal:
+                saveDataTotal.saveDataGoods.dungeonKeyCoal = dungeonKey; break;
+        }
     }
 
-    ref int GetGoodsData(GoodsType goodsType)
+    // 던전 광고 키 데이터 저장
+    public void SaveDataGoodsDungeonADKey(GoodsType goodsType, int dungeonADKey)
     {
         switch (goodsType)
         {
             case GoodsType.gold:
-                return ref saveDataTotal.saveDataGoods.gold;
-            case GoodsType.gem:
-                return ref saveDataTotal.saveDataGoods.gem;
+                saveDataTotal.saveDataGoods.dungeonKeyADGold = dungeonADKey; break;
             case GoodsType.bone:
-                return ref saveDataTotal.saveDataGoods.bone;
+                saveDataTotal.saveDataGoods.dungeonKeyADBone = dungeonADKey; break;
             case GoodsType.dice:
-                return ref saveDataTotal.saveDataGoods.dice;
+                saveDataTotal.saveDataGoods.dungeonKeyADDice = dungeonADKey; break;
             case GoodsType.coal:
-                return ref saveDataTotal.saveDataGoods.coal;
-            default:
-                return ref saveDataTotal.saveDataGoods.gold;
+                saveDataTotal.saveDataGoods.dungeonKeyADCoal = dungeonADKey; break;
         }
     }
+
+    /*
+        ref int GetGoodsDungenKeyData(GoodsType goodsType)
+        {
+            switch (goodsType)
+            {
+                case GoodsType.gold:
+                    return ref saveDataTotal.saveDataGoods.dungeonKeyGold;
+                case GoodsType.bone:
+                    return ref saveDataTotal.saveDataGoods.dungeonKeyBone;
+                case GoodsType.dice:
+                    return ref saveDataTotal.saveDataGoods.dungeonKeyDice;
+                case GoodsType.coal:
+                    return ref saveDataTotal.saveDataGoods.dungeonKeyCoal;
+                default:
+                    return ref saveDataTotal.saveDataGoods.dungeonKeyGold;
+            }
+        }
+
+        ref int GetGoodsDungenADKeyData(GoodsType goodsType)
+        {
+            switch (goodsType)
+            {
+                case GoodsType.gold:
+                    return ref saveDataTotal.saveDataGoods.dungeonKeyADGold;
+                case GoodsType.bone:
+                    return ref saveDataTotal.saveDataGoods.dungeonKeyADBone;
+                case GoodsType.dice:
+                    return ref saveDataTotal.saveDataGoods.dungeonKeyADDice;
+                case GoodsType.coal:
+                    return ref saveDataTotal.saveDataGoods.dungeonKeyADCoal;
+                default:
+                    return ref saveDataTotal.saveDataGoods.dungeonKeyADGold;
+            }
+        }
+    */
 
     // 던전 레벨 데이터 저장 -> 던전 레벨은 무조건 0 부터 시작 , 티켓으로 구매하면 클리어한 레벨의 금액만큼 더해준다.
 
@@ -681,6 +734,10 @@ public class SaveDataGoods
     public int dungeonKeyBone;
     public int dungeonKeyCoal;
     public int dungeonKeyDice;
+    public int dungeonKeyADGold;
+    public int dungeonKeyADBone;
+    public int dungeonKeyADCoal;
+    public int dungeonKeyADDice;
 }
 
 

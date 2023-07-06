@@ -104,6 +104,17 @@ public class PlayerDataManager : MonoBehaviour
             saveData.offlineTime = "0";
             saveData.playingTime = "0";
 
+            // 최초 던전 키 2개씩 지급
+            saveData.dungeonKeyGold = 2;
+            saveData.dungeonKeyBone = 2;
+            saveData.dungeonKeyDice = 2;
+            saveData.dungeonKeyCoal = 2;
+            saveData.dungeonKeyADGold = 2;
+            saveData.dungeonKeyADBone = 2;
+            saveData.dungeonKeyADDice = 2;
+            saveData.dungeonKeyADCoal = 2;
+
+
             // set insect save data
             saveData.beeSaveData = GetFirstConnectInsectData(EnumDefinition.InsectType.bee);
             saveData.beetleSaveData = GetFirstConnectInsectData(EnumDefinition.InsectType.beetle);
@@ -115,7 +126,7 @@ public class PlayerDataManager : MonoBehaviour
         {
             var saveDataTotal = GlobalData.instance.saveDataManager.saveDataTotal;
             // json data load
-            // todo: 코드 리펙토림 및 정리
+            // todo: 코드 리펙토링 및 정리
             saveData = new SaveData();
             saveData.isFirstConnect = false;
             saveData.stageIdx = saveDataTotal.saveDataStage.stageLevel;
@@ -130,6 +141,10 @@ public class PlayerDataManager : MonoBehaviour
             saveData.dungeonKeyBone = saveDataTotal.saveDataGoods.dungeonKeyBone;
             saveData.dungeonKeyDice = saveDataTotal.saveDataGoods.dungeonKeyDice;
             saveData.dungeonKeyCoal = saveDataTotal.saveDataGoods.dungeonKeyCoal;
+            saveData.dungeonKeyADGold = saveDataTotal.saveDataGoods.dungeonKeyADGold;
+            saveData.dungeonKeyADBone = saveDataTotal.saveDataGoods.dungeonKeyADBone;
+            saveData.dungeonKeyADDice = saveDataTotal.saveDataGoods.dungeonKeyADDice;
+            saveData.dungeonKeyADCoal = saveDataTotal.saveDataGoods.dungeonKeyADCoal;
 
             saveData.dungeonLvGold = saveDataTotal.saveDataDungeonLevel.dungeonLvGold;
             saveData.dungeonLvBone = saveDataTotal.saveDataDungeonLevel.dungeonLvBone;
@@ -261,6 +276,12 @@ public class SaveData
     public int dungeonKeyDice;
     public int dungeonKeyCoal;
     public int dungeonKeyBone;
+
+    public int dungeonKeyADGold;
+    public int dungeonKeyADDice;
+    public int dungeonKeyADCoal;
+    public int dungeonKeyADBone;
+
 
     public int dungeonLvGold;
     public int dungeonLvBone;

@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
     // Dungeon Key
     public SerializableDictionary<GoodsType, int> dungeonKeys;
 
+    // Dungeon AD Key
+    public SerializableDictionary<GoodsType, int> dungeonADKeys;
+
     public DateTime playTime;
     public float currentMonsterHp;
 
@@ -116,8 +119,17 @@ public class Player : MonoBehaviour
         coal = saveData.coal;
         clearTicket = saveData.clearTicker;
 
+
         //TODO: 재화 추가 로직 필요
-        //dungeonKeys = saveData.dungeonKeys;
+        dungeonKeys[GoodsType.gold] = saveData.dungeonKeyGold;
+        dungeonKeys[GoodsType.bone] = saveData.dungeonKeyBone;
+        dungeonKeys[GoodsType.dice] = saveData.dungeonKeyDice;
+        dungeonKeys[GoodsType.coal] = saveData.dungeonKeyCoal;
+
+        dungeonADKeys[GoodsType.gold] = saveData.dungeonKeyADGold;
+        dungeonADKeys[GoodsType.bone] = saveData.dungeonKeyADBone;
+        dungeonADKeys[GoodsType.dice] = saveData.dungeonKeyADDice;
+        dungeonADKeys[GoodsType.coal] = saveData.dungeonKeyADCoal;
 
         SetCurrentStageData(stageIdx);
 
@@ -127,6 +139,19 @@ public class Player : MonoBehaviour
         dungeonMonsterClearLevel.boneLv = saveData.dungeonLvBone;
         dungeonMonsterClearLevel.diceLv = saveData.dungeonLvDice;
         dungeonMonsterClearLevel.coalLv = saveData.dungeonLvCoal;
+    }
+
+    // 던전 입장 키 초기화 ( 2개씩 지급 )
+    public void AddAllDungeonKeys()
+    {
+        AddDungeonADKey(GoodsType.gold, 2);
+        AddDungeonADKey(GoodsType.bone, 2);
+        AddDungeonADKey(GoodsType.dice, 2);
+        AddDungeonADKey(GoodsType.coal, 2);
+        AddDungeonKey(GoodsType.gold, 2);
+        AddDungeonKey(GoodsType.bone, 2);
+        AddDungeonKey(GoodsType.dice, 2);
+        AddDungeonKey(GoodsType.coal, 2);
     }
 
     public void SetCurrentStageData(int stageIdx)
@@ -246,6 +271,7 @@ public class Player : MonoBehaviour
     public void AddDungeonKey(GoodsType goodsType, int addKeyCount)
     {
         dungeonKeys[goodsType] += addKeyCount;
+        if (dungeonKeys[goodsType] > 2) dungeonKeys[goodsType] = 2; // 던전 키 최대 보유수 2개 제한
 
         // RELOAD UI
         // ...
@@ -264,6 +290,31 @@ public class Player : MonoBehaviour
 
         // set save data;
         GlobalData.instance.saveDataManager.SaveDataGoodsDungeonKey(goodsType, dungeonKeys[goodsType]);
+    }
+
+    // ADD DUNGEON AD KEY BY GOODS TYPE
+    public void AddDungeonADKey(GoodsType goodsType, int addKeyCount)
+    {
+        dungeonADKeys[goodsType] += addKeyCount;
+        if (dungeonADKeys[goodsType] > 2) dungeonADKeys[goodsType] = 2; // 던전 키 최대 보유수 2개 제한
+        // RELOAD UI
+        // ...
+
+        // set save data;
+        GlobalData.instance.saveDataManager.SaveDataGoodsDungeonADKey(goodsType, dungeonADKeys[goodsType]);
+    }
+
+    // PAY DUNGEON AD KEY BY GOODS TYPE
+    public void PayDungeonADKey(GoodsType goodsType, int keyCount)
+    {
+        dungeonADKeys[goodsType] -= keyCount;
+        if (dungeonADKeys[goodsType] < 0) dungeonADKeys[goodsType] = 0;
+
+        // RELOAD UI
+        // ...
+
+        // set save data;
+        GlobalData.instance.saveDataManager.SaveDataGoodsDungeonADKey(goodsType, dungeonADKeys[goodsType]);
     }
 
 
@@ -289,6 +340,32 @@ public class Player : MonoBehaviour
             case MonsterType.dungeonCoal: PayDungeonKey(GoodsType.coal, count); break;
         }
     }
+
+    // get dungeon ad key count by monster type
+    public int GetDungeonADKeyCountByMonsterType(MonsterType monsterType)
+    {
+        switch (monsterType)
+        {
+            case MonsterType.dungeonGold: return dungeonADKeys[GoodsType.gold];
+            case MonsterType.dungeonBone: return dungeonADKeys[GoodsType.bone];
+            case MonsterType.dungeonDice: return dungeonADKeys[GoodsType.dice];
+            case MonsterType.dungeonCoal: return dungeonADKeys[GoodsType.coal];
+            default: return 0;
+        }
+    }
+
+    // pay dungeon ad key by monster type
+    public void PayDungeonADKeyByMonsterType(MonsterType monsterType, int count)
+    {
+        switch (monsterType)
+        {
+            case MonsterType.dungeonGold: PayDungeonADKey(GoodsType.gold, count); break;
+            case MonsterType.dungeonBone: PayDungeonADKey(GoodsType.bone, count); break;
+            case MonsterType.dungeonDice: PayDungeonADKey(GoodsType.dice, count); break;
+            case MonsterType.dungeonCoal: PayDungeonADKey(GoodsType.coal, count); break;
+        }
+    }
+
 
 
 }

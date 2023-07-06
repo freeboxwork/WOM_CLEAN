@@ -339,7 +339,17 @@ public class EventController : MonoBehaviour
         var usingKeyCount = GlobalData.instance.monsterManager.GetMonsterDungeon().monsterToDataMap[monsterType].usingKeyCount;
 
         // 열쇠 사용
-        globalData.player.PayDungeonKeyByMonsterType(monsterType, usingKeyCount);
+        // 열쇠 없으면 광고 키 사용
+        var keyCount = globalData.player.GetCurrentDungeonKeyCount(monsterType);
+        if (keyCount > 0)
+        {
+            globalData.player.PayDungeonKeyByMonsterType(monsterType, usingKeyCount);
+        }
+        else
+        {
+            globalData.player.PayDungeonADKeyByMonsterType(monsterType, usingKeyCount);
+        }
+
 
         // UI 업데이트
         globalData.dungeonManager.UpdateDunslotKeyUI(monsterType);
@@ -402,6 +412,9 @@ public class EventController : MonoBehaviour
 
             // 배경 리셋
             globalData.stageManager.bgAnimController.SetOffsetY(0f);
+
+            // side menu hide
+            SideUIMenuHide(true);
 
         }));
 
@@ -659,6 +672,9 @@ public class EventController : MonoBehaviour
             // 배경 리셋
             globalData.stageManager.bgAnimController.SetOffsetY(0f);
 
+            // side menu hide
+            SideUIMenuHide(true);
+
         }));
 
 
@@ -670,6 +686,12 @@ public class EventController : MonoBehaviour
         StartCoroutine(MonsterAppearCor(MonsterType.evolution));
 
         isMonsterDie = false;
+    }
+
+    void SideUIMenuHide(bool isHide)
+    {
+        UtilityMethod.GetCustomTypeGMById(15).SetActive(!isHide);
+        UtilityMethod.GetCustomTypeGMById(16).SetActive(!isHide);
     }
 
     // 보스 몬스터 도전 버튼 눌렀을때 이벤트
@@ -768,6 +790,9 @@ public class EventController : MonoBehaviour
               // 금광보스 카운트 UI 활성화
               globalData.uiController.SetEnablePhaseCountUI(true);
 
+              // side menu show
+              SideUIMenuHide(false);
+
           }));
 
 
@@ -861,6 +886,9 @@ public class EventController : MonoBehaviour
             //DUNGEON_BOX_ICON_BTN 박스아이콘 비활성화
             UtilityMethod.GetCustomTypeGMById(10).gameObject.SetActive(false);
 
+            // side menu show
+            SideUIMenuHide(false);
+
         }));
 
         // 메인 메뉴 활성화
@@ -932,6 +960,9 @@ public class EventController : MonoBehaviour
 
             // 보스 도전 타이머 비활성화
             globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(false);
+
+            // side menu show
+            SideUIMenuHide(false);
 
         }));
 

@@ -13,6 +13,7 @@ public class DungeonEnterPopup : MonoBehaviour
 
     public TextMeshProUGUI textClearTicket;
     public TextMeshProUGUI textKeyCount;
+    public TextMeshProUGUI textADKeyCount;
     public TextMeshProUGUI textPervClearLevel;
     public TextMeshProUGUI textRewardValue;
 
@@ -55,6 +56,22 @@ public class DungeonEnterPopup : MonoBehaviour
                 // 일일 퀘스트 완료 : 던전
                 EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.clearDungeon);
                 EventManager.instance.RunEvent(CallBackEventType.TYPES.OnDungeonMonsterChallenge, curMonsterType);
+            }
+            contents.SetActive(false);
+        });
+
+        btn_AD_Dungeon.onClick.AddListener(() =>
+        {
+            if (IsValidDungeonKeyCount(curMonsterType))
+            {
+                // 일일 퀘스트 완료 : 던전
+                EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.clearDungeon);
+                EventManager.instance.RunEvent(CallBackEventType.TYPES.OnDungeonMonsterChallenge, curMonsterType);
+
+                if (GlobalData.instance.player.GetDungeonADKeyCountByMonsterType(curMonsterType) <= 0)
+                {
+                    btn_AD_Dungeon.interactable = false;
+                }
             }
             contents.SetActive(false);
         });
@@ -119,7 +136,17 @@ public class DungeonEnterPopup : MonoBehaviour
     bool IsValidDungeonKeyCount(EnumDefinition.MonsterType monsterType)
     {
         var usingKeyCount = GlobalData.instance.monsterManager.GetMonsterDungeon().monsterToDataMap[monsterType].usingKeyCount;
-        var curKeyCount = GlobalData.instance.player.GetCurrentDungeonKeyCount(monsterType);
+
+        int curKeyCount = 0;
+        if (GlobalData.instance.player.GetCurrentDungeonKeyCount(monsterType) > 0)
+        {
+            curKeyCount = GlobalData.instance.player.GetCurrentDungeonKeyCount(monsterType);
+        }
+        else
+        {
+            curKeyCount = GlobalData.instance.player.GetDungeonADKeyCountByMonsterType(monsterType);
+        }
+
         if (curKeyCount < usingKeyCount)
         {
             // enable popup
@@ -148,6 +175,21 @@ public class DungeonEnterPopup : MonoBehaviour
         // 던전별 보유 열쇠 수
         var keyCount = GlobalData.instance.player.GetCurrentDungeonKeyCount(monsterType);
         textKeyCount.text = keyCount.ToString();
+        var adkeyCount = GlobalData.instance.player.GetDungeonADKeyCountByMonsterType(monsterType);
+        textADKeyCount.text = adkeyCount.ToString();
+
+        if (keyCount <= 0)
+        {
+            btn_KeyDungeon.gameObject.SetActive(false);
+            btn_AD_Dungeon.gameObject.SetActive(true);
+
+            if (adkeyCount <= 0)
+            {
+                btn_AD_Dungeon.interactable = false;
+            }
+        }
+
+        // ad 버튼 추가
     }
 
 

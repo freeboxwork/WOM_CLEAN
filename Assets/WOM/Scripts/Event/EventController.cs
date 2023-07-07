@@ -641,6 +641,9 @@ public class EventController : MonoBehaviour
         // 하단 메인 메뉴 숨김
         globalData.uiController.MainMenuHide();
 
+        // 트랜지션 효과
+        globalData.effectManager.EnableTransitionEffEvolution();
+
         // 진화전 화면전환 이펙트
         yield return StartCoroutine(globalData.effectManager.EffTransitioEvolutionUpgrade(() =>
         {

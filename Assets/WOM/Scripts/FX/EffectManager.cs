@@ -62,6 +62,9 @@ public class EffectManager : MonoBehaviour
     public Image imgDungeonKeyShadow;
     public SerializableDictionary<EnumDefinition.MonsterType, Sprite> dungeonTypeToIconMap;
 
+    // evolution tranition effect
+    public GameObject transitionAnimEffEvolutionIn;
+
 
 
     void Start()
@@ -291,6 +294,11 @@ public class EffectManager : MonoBehaviour
         imgDungeonKey.sprite = dungeonTypeToIconMap[monsterType];
         imgDungeonKeyShadow.sprite = dungeonTypeToIconMap[monsterType];
         transitionAnimEffDungeonIn.gameObject.SetActive(true);
+    }
+
+    public void EnableTransitionEffEvolution()
+    {
+        transitionAnimEffEvolutionIn.gameObject.SetActive(true);
     }
 
 }

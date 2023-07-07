@@ -13,7 +13,7 @@ public class DungeonPopup : MonoBehaviour
     public TextMeshProUGUI txtRewardAmount;
     public Button btnApply;
     public Image imageCurrencyIcon;
-    public ParticleImage particleImage;
+    //public ParticleImage particleImage;
 
     public SerializableDictionary<EnumDefinition.GoodsType, Sprite> goodsToIconMap;
     public SerializableDictionary<EnumDefinition.GoodsType, Texture> goodsToTextureMap;
@@ -29,27 +29,27 @@ public class DungeonPopup : MonoBehaviour
     private void Awake()
     {
         btnApply.onClick.AddListener(ButtonClickEvent);
-        particleImage.onStop.AddListener(EndParticle);
+        //particleImage.onStop.AddListener(EndParticle);
 
     }
 
     public void SetDungeonPopup(EnumDefinition.GoodsType goodsType,int reward)
     {
-        txtRewardAmount.text = string.Format("{0}", reward);//ÀçÈ­ º¸»ó·®
-        imageCurrencyIcon.sprite = goodsToIconMap[goodsType];//º¸»ó ÀçÈ­ÀÇ ¾ÆÀÌÄÜ Á¾·ù
-        particleImage.texture = goodsToTextureMap[goodsType];
+        txtRewardAmount.text = string.Format("{0}", reward);//ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½
+        imageCurrencyIcon.sprite = goodsToIconMap[goodsType];//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        //particleImage.texture = goodsToTextureMap[goodsType];
     }
 
-    //È®ÀÎ ¹öÆ° Å¬¸¯
+    //È®ï¿½ï¿½ ï¿½ï¿½Æ° Å¬ï¿½ï¿½
     public void ButtonClickEvent()
     {
-        //ÆÄÆ¼Å¬ÀÌ ¾ÆÁ÷ Àç»ýÁßÀÌ¶ó¸é ¹öÆ° Å¬¸¯ÀÌ µÇÁö ¾ÊÀ½
-        if (particleImage.isPlaying) return;
+        //ï¿½ï¿½Æ¼Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½ ï¿½ï¿½Æ° Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        //if (particleImage.isPlaying) return;
         OnButtonClick.Invoke();
         gameObject.SetActive(false);
     }
     
-    //ÆÄÆ¼Å¬ÀÌ Á¾·ùµÈ ÈÄ ÀçÈ­ UI Text & Data ¾÷µ¥ÀÌÆ®
+    //ï¿½ï¿½Æ¼Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½È­ UI Text & Data ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
     public void EndParticle()
     {
         OnFinishParticle.Invoke();

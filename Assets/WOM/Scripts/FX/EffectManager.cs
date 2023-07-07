@@ -4,17 +4,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using DamageNumbersPro;
 
 
 public class EffectManager : MonoBehaviour
 {
-    [Header("°ïÃæ ÀÌÆåÆ® °ü·Ã Ç×¸ñ")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½")]
     public int insectDisableEffectsBirthCount = 25;
     public int insectAttackEffectsBrithCount = 10;
     public ParticleSystem prefabInsectDisableEff;
     public List<ParticleSystem> insectDisableEffects = new List<ParticleSystem>();
 
-    /// <summary> º¸½º °ø°Ý ÇßÀ»¶§ ³ªÅ¸³ª´Â ÆÄÆ¼Å¬ ÀÌÆåÆ® </summary>
+    /// <summary> ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼Å¬ ï¿½ï¿½ï¿½ï¿½Æ® </summary>
     // mentis , bee , beetle 
     public List<ParticleRoate> prefabInsectAttackEff = new List<ParticleRoate>();
     public List<ParticleRoate> insectAttackEffMentis = new List<ParticleRoate>();
@@ -24,32 +25,32 @@ public class EffectManager : MonoBehaviour
     [Header("=====================================================================================================================")]
 
 
-    [Header("ÀÌÆåÆ®µé ºÎ¸ð °ÔÀÓ ¿ÀºêÁ§Æ®")]
-    // ÇÁ¸®ÆÕ »ý¼ºµÉ ºÎ¸ð ¸ðµåÁ§Æ®
+    [Header("ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®")]
+    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
     public Transform trEffects;
     [Header("=====================================================================================================================")]
 
 
-    [Header("°ñµå °ü·Ã Ç×¸ñ")]
-    // °ñµå »ý¼º Æ÷ÀÎÆ®µé
+    [Header("ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½")]
+    // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½
     public List<Transform> goldSFX_RandomPoints = new List<Transform>();
     public GoodsPoolingConrtoller goldPoolingCont;
     public GoodsPoolingConrtoller bonePoolingCont;
 
     [Header("=====================================================================================================================")]
-    [Header("ÁøÈ­Àü ÀÌÆåÆ® °ü·Ã Ç×¸ñ")]
+    [Header("ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½")]
     public AnimationController animContTransition;
     public AnimData animDataTranIn;
     public AnimData animDataTranOut;
 
     [Header("=====================================================================================================================")]
-    [Header("¸ó½ºÅÍ Å¸°Ý½Ã ³ªÅ¸³ª´Â ÅØ½ºÆ®")]
+    [Header("ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ý½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ®")]
     int flotingTextPoolCount = 20;
     public FloatingText prefabFloatingText;
     public List<FloatingText> floatingTextPool = new List<FloatingText>();
 
     [Header("=====================================================================================================================")]
-    [Header("È­¸éÀüÈ¯ ÀÌÆåÆ®")]
+    [Header("È­ï¿½ï¿½ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½Æ®")]
     public GameObject transitionAnimEffBossAttack;
     public GameObject transitionAnimEffSkillOn;
     public Image transitionAnimEffSkillOnImage;
@@ -67,6 +68,7 @@ public class EffectManager : MonoBehaviour
 
     public GameObject transitionAnimEffStageClear;
 
+    public DamageNumber numberPrefab;
 
 
     void Start()
@@ -90,10 +92,10 @@ public class EffectManager : MonoBehaviour
         // attack effect Union
         CreateInstanceAttackEffects(prefabInsectAttackEff[(int)EnumDefinition.InsectType.union], insectAttackEffUnion);
 
-        // ÇÃ·ÎÆÃ ÅØ½ºÆ® ¿ÀºêÁ§Æ® Ç® »ý¼º
+        // ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ç® ï¿½ï¿½ï¿½ï¿½
         CreateFloatingTextPool();
 
-        // °ñµå Ç®¸µ ¿ÀºêÁ§Æ® »ý¼º
+        // ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
         goldPoolingCont.Init();
         bonePoolingCont.Init();
         //CreateInstanceGolds();
@@ -185,7 +187,7 @@ public class EffectManager : MonoBehaviour
         //return insectDisableEffects.FirstOrDefault(f => !f.gameObject.activeSelf);
     }
 
-    // °ñµå »ý¼º Æ÷ÀÎÆ®
+    // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
     public Transform GetGoldSfxRandomPoint(EnumDefinition.GoldPosType pointType)
     {
         return goldSFX_RandomPoints[(int)pointType];
@@ -193,13 +195,15 @@ public class EffectManager : MonoBehaviour
 
     public void EnableFloatingText(float damage, bool isCritical, Transform tr)
     {
-        var flotingTxt = GetFloatingText();
-        flotingTxt.transform.position = tr.position;
-        flotingTxt.gameObject.SetActive(true);
-        flotingTxt.SetText(damage.ToString(), isCritical);
+        // var flotingTxt = GetFloatingText();
+        // flotingTxt.transform.position = tr.position;
+        // flotingTxt.gameObject.SetActive(true);
+        // flotingTxt.SetText(damage.ToString(), isCritical);
+        DamageNumber damageNumber = numberPrefab.Spawn(tr.position, damage);
+
     }
 
-    // ÇÃ·ÎÆÃ ÅØ½ºÆ® Pool
+    // ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ® Pool
     void CreateFloatingTextPool()
     {
         for (int i = 0; i < flotingTextPoolCount; i++)
@@ -228,12 +232,12 @@ public class EffectManager : MonoBehaviour
 
 
 
-    /// <summary> ÁøÈ­Àü Æ®·£Áö¼Ç ÀÌÆåÆ® </summary>
+    /// <summary> ï¿½ï¿½È­ï¿½ï¿½ Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® </summary>
     public IEnumerator EffTransitioEvolutionUpgrade(UnityAction transitionEvent)
     {
         yield return null;
 
-        // Æ®·£Áö¼Ç ÀÎ
+        // Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
         var image = UtilityMethod.GetCustomTypeImageById(20);
         var colorAlpha_None = new Color(1, 1, 1, 1);
         var colorAlpha = new Color(1, 1, 1, 0);
@@ -241,12 +245,12 @@ public class EffectManager : MonoBehaviour
         yield return StartCoroutine(animContTransition.UI_ImageColorAnim(image, colorAlpha, colorAlpha_None));
 
         transitionEvent.Invoke();
-        // UI PANEL ¼û±è
+        // UI PANEL ï¿½ï¿½ï¿½ï¿½
         GlobalData.instance.uiController.AllDisableMenuPanels();
 
         yield return new WaitForSeconds(1f);
 
-        // Æ®·£Áö¼Ç ¾Æ¿ô
+        // Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½
         animContTransition.animData = animDataTranOut;
         yield return StartCoroutine(animContTransition.UI_ImageColorAnim(image, colorAlpha_None, colorAlpha));
     }

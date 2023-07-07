@@ -97,7 +97,8 @@ public class DungeonEnterPopup : MonoBehaviour
             EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.clearDungeon);
 
             // reward
-            PopupController.instance.InitPopup(EnumDefinition.RewardType.gold, curDungeonMonData.currencyAmount);
+            var type = GetRewardTypeByMonsterType(curMonsterType);
+            PopupController.instance.InitPopup(type, curDungeonMonData.currencyAmount);
             // addRewardMap[curMonsterType].Invoke(curDungeonMonData.currencyAmount);
 
             Debug.Log("소탕권 사용. 리워드 지급");
@@ -108,6 +109,19 @@ public class DungeonEnterPopup : MonoBehaviour
             GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("", 17);
         }
     }
+
+    EnumDefinition.RewardType GetRewardTypeByMonsterType(EnumDefinition.MonsterType monsterType)
+    {
+        switch (monsterType)
+        {
+            case EnumDefinition.MonsterType.dungeonGold: return EnumDefinition.RewardType.gold;
+            case EnumDefinition.MonsterType.dungeonBone: return EnumDefinition.RewardType.bone;
+            case EnumDefinition.MonsterType.dungeonDice: return EnumDefinition.RewardType.dice;
+            case EnumDefinition.MonsterType.dungeonCoal: return EnumDefinition.RewardType.coal;
+            default: return EnumDefinition.RewardType.none;
+        }
+    }
+
 
     public void SetTxtClierTicket(int ticketCount)
     {

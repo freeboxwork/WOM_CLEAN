@@ -1,11 +1,10 @@
-using System.Collections.Generic;
 using UnityEngine;
 using static EnumDefinition;
 public class SpriteDataManager : MonoBehaviour
 {
     public IconSpriteFileData iconSpriteFileData;
 
-    Dictionary<RewardType, Sprite> rewardIconDic = new Dictionary<RewardType, Sprite>();
+    public SerializableDictionary<RewardType, Sprite> rewardIconDic = new SerializableDictionary<RewardType, Sprite>();
 
 
     void Start()

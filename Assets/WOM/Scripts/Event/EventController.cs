@@ -361,6 +361,13 @@ public class EventController : MonoBehaviour
 
     IEnumerator DungeonMonsterAppear(MonsterType monsterType)
     {
+
+        // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
+        StartCoroutine(globalData.effectManager.goldPoolingCont.DisableGoldEffects());
+
+        // 보스의 경우 뼈조각 OUT EFF 추가 ( 뼈조각 화면에 뿌려진 경우에만 )
+        StartCoroutine(globalData.effectManager.bonePoolingCont.DisableGoldEffects());
+
         // transition effect
         globalData.effectManager.EnableTransitionEffDungeonInByType(monsterType);
 
@@ -632,6 +639,8 @@ public class EventController : MonoBehaviour
 
     IEnumerator ProcessEvolutionGradeChallenge()
     {
+
+
         // 황금돼지 비활성화
         globalData.goldPigController.EnterOtherView();
 

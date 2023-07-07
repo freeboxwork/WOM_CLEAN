@@ -184,25 +184,11 @@ public class DungeonEnterPopup : MonoBehaviour
         var adkeyCount = GlobalData.instance.player.GetDungeonADKeyCountByMonsterType(monsterType);
         textADKeyCount.text = adkeyCount.ToString();
 
-        if (keyCount <= 0)
-        {
-            btn_KeyDungeon.gameObject.SetActive(false);
-            btn_AD_Dungeon.gameObject.SetActive(true);
+        var hasKey = keyCount > 0;
 
-            if (adkeyCount <= 0)
-            {
-                btn_AD_Dungeon.interactable = false;
-            }
-            else
-            {
-                btn_AD_Dungeon.interactable = true;
-            }
-        }
-        else
-        {
-            btn_KeyDungeon.gameObject.SetActive(true);
-            btn_AD_Dungeon.gameObject.SetActive(false);
-        }
+        btn_KeyDungeon.gameObject.SetActive(hasKey);
+        btn_AD_Dungeon.gameObject.SetActive(!hasKey);
+        btn_AD_Dungeon.interactable = adkeyCount > 0;
 
         // º“≈¡±«
         var ticket = GlobalData.instance.player.clearTicket;

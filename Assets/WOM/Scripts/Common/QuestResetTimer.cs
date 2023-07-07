@@ -7,9 +7,9 @@ public class QuestResetTimer : MonoBehaviour
     void Start()
     {
         // PlayerPrefs 에 CURRENT_TIME_KEY 가 저장되어 있지 않다면 SaveCurrentTime() 함수를 실행한다.
-        if (!HasCurrentTime())
+        if (!HasMidnightTime())
         {
-            SaveCurrentTime();
+            //SaveCurrentTime();
             SaveMidnightTime();
         }
         else
@@ -31,7 +31,7 @@ public class QuestResetTimer : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
-            SaveCurrentTime();
+            // SaveCurrentTime();
             SaveMidnightTime();
         }
     }
@@ -39,18 +39,18 @@ public class QuestResetTimer : MonoBehaviour
     private const string CURRENT_TIME_KEY = "current_time";
     private const string MIDNIGHT_TIME_KEY = "midnight_time";
 
-    public bool HasCurrentTime()
+    public bool HasMidnightTime()
     {
-        return PlayerPrefs.HasKey(CURRENT_TIME_KEY);
+        return PlayerPrefs.HasKey(MIDNIGHT_TIME_KEY);
     }
 
     void SaveCurrentTime()
     {
         // 현재 시간을 가져온다.
-        DateTime now = DateTime.Now;
+        var now = DateTime.Now.ToString("yyyy-MM-dd");
 
         // PlayerPrefs에 현재 시간을 문자열로 저장한다.
-        PlayerPrefs.SetString(CURRENT_TIME_KEY, now.ToString());
+        PlayerPrefs.SetString(CURRENT_TIME_KEY, now);
 
         Debug.Log(now.ToString());
 
@@ -60,10 +60,11 @@ public class QuestResetTimer : MonoBehaviour
     void SaveMidnightTime()
     {
         // 오늘 자정 시간을 계산한다.
-        DateTime midnight = DateTime.Today.AddDays(1);
+        // DateTime midnight = DateTime.Today.AddDays(1);
+        var midnight = DateTime.Now.ToString("yyyy-MM-dd");
 
         // PlayerPrefs에 오늘 자정 시간을 문자열로 저장한다.
-        PlayerPrefs.SetString(MIDNIGHT_TIME_KEY, midnight.ToString());
+        PlayerPrefs.SetString(MIDNIGHT_TIME_KEY, midnight);
 
         Debug.Log(midnight.ToString());
 
@@ -72,7 +73,7 @@ public class QuestResetTimer : MonoBehaviour
 
     DateTime LoadCurrentTime()
     {
-        // PlayerPrefs에서 저장된 시간 정보를 불러온다."2023-06-19"
+        // PlayerPrefs에서 저장된 시간 정보를 불러온다.
         string currentTimeStr = PlayerPrefs.GetString(CURRENT_TIME_KEY);
         //string currentTimeStr = "2023-06-19";
 
@@ -85,8 +86,9 @@ public class QuestResetTimer : MonoBehaviour
     public bool HasCrossedMidnight()
     {
         // 현재 시간과 저장된 오늘 자정 시간을 비교한다.
-        DateTime currentTime = LoadCurrentTime();
+        DateTime currentTime = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd"));
         DateTime midnight = DateTime.Parse(PlayerPrefs.GetString(MIDNIGHT_TIME_KEY));
+
 
         if (currentTime > midnight)
         {
@@ -102,7 +104,7 @@ public class QuestResetTimer : MonoBehaviour
 
     public void ResetTimer()
     {
-        SaveCurrentTime();
+        //SaveCurrentTime();
         SaveMidnightTime();
     }
 

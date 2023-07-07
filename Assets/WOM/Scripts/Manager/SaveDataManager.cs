@@ -160,6 +160,13 @@ public class SaveDataManager : MonoBehaviour
         saveDataTotal.saveDataGoods.dungeonKeyADBone = 2;
         saveDataTotal.saveDataGoods.dungeonKeyADDice = 2;
         saveDataTotal.saveDataGoods.dungeonKeyADCoal = 2;
+
+        saveDataTotal.saveDataDungeonLevel = new SaveDataDungeonLevel();
+        saveDataTotal.saveDataDungeonLevel.dungeonLvGold = 1;
+        saveDataTotal.saveDataDungeonLevel.dungeonLvBone = 1;
+        saveDataTotal.saveDataDungeonLevel.dungeonLvDice = 1;
+        saveDataTotal.saveDataDungeonLevel.dungeonLvCoal = 1;
+
     }
 
 

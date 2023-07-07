@@ -102,7 +102,7 @@ public class QuestManager : MonoBehaviour
             var clonData = oneDayData[i].ClonInstance();
             var slot = questPopup.questSlotsOneDay[i];
 
-            if (questResetTimer.HasCurrentTime())
+            if (questResetTimer.HasMidnightTime())
             {
                 // 만약 퀘스트 재설정 타이머가 자정을 지난 경우 타이머를 재설정한다.
                 if (questResetTimer.HasCrossedMidnight())

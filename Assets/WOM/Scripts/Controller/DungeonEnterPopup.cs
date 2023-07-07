@@ -97,7 +97,9 @@ public class DungeonEnterPopup : MonoBehaviour
             EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.clearDungeon);
 
             // reward
-            addRewardMap[curMonsterType].Invoke(curDungeonMonData.currencyAmount);
+            PopupController.instance.InitPopup(EnumDefinition.RewardType.gold, curDungeonMonData.currencyAmount);
+            // addRewardMap[curMonsterType].Invoke(curDungeonMonData.currencyAmount);
+
             Debug.Log("소탕권 사용. 리워드 지급");
         }
         else
@@ -189,7 +191,10 @@ public class DungeonEnterPopup : MonoBehaviour
             }
         }
 
-        // ad 버튼 추가
+        // 소탕권
+        var ticket = GlobalData.instance.player.clearTicket;
+        SetTxtClierTicket(ticket);
+        btn_Ticket_Dungeon.interactable = ticket > 0;
     }
 
 

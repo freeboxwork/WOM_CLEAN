@@ -94,14 +94,14 @@ public class UiController : MonoBehaviour
         SetTxtGem(player.gem, 0);
         SetTxtDice(player.diceCount);  // 현재 남은 진화 주사위 개수 UI 적용
         // 소탕권
-        SetTxtClearTicket();
+        //SetTxtClearTicket();
     }
 
-    void SetTxtClearTicket()
-    {
-        var ticket = GlobalData.instance.player.clearTicket;
-        GlobalData.instance.dungeonEnterPopup.SetTxtClierTicket(ticket);
-    }
+    // void SetTxtClearTicket()
+    // {
+    //     var ticket = GlobalData.instance.player.clearTicket;
+    //     GlobalData.instance.dungeonEnterPopup.SetTxtClierTicket(ticket);
+    // }
 
 
 

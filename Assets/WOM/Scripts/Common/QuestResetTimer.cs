@@ -19,22 +19,22 @@ public class QuestResetTimer : MonoBehaviour
                 Debug.Log("자정이 지났습니다.");
 
                 // reset timer
-                SaveCurrentTime();
-                SaveMidnightTime();
+                // SaveCurrentTime();
+                // SaveMidnightTime();
 
                 // reset one day quest
             }
         }
     }
 
-    // void Update()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.A))
-    //     {
-    //         SaveCurrentTime();
-    //         SaveMidnightTime();
-    //     }
-    // }
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            SaveCurrentTime();
+            SaveMidnightTime();
+        }
+    }
 
     private const string CURRENT_TIME_KEY = "current_time";
     private const string MIDNIGHT_TIME_KEY = "midnight_time";
@@ -72,8 +72,9 @@ public class QuestResetTimer : MonoBehaviour
 
     DateTime LoadCurrentTime()
     {
-        // PlayerPrefs에서 저장된 시간 정보를 불러온다.
+        // PlayerPrefs에서 저장된 시간 정보를 불러온다."2023-06-19"
         string currentTimeStr = PlayerPrefs.GetString(CURRENT_TIME_KEY);
+        //string currentTimeStr = "2023-06-19";
 
         // 불러온 문자열 시간 정보를 DateTime 형식으로 변환한다.
         DateTime currentTime = DateTime.Parse(currentTimeStr);

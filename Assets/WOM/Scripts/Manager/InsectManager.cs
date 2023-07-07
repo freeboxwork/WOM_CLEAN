@@ -7,7 +7,7 @@ using static EnumDefinition;
 
 public class InsectManager : MonoBehaviour
 {
-    
+
     public InsectBee insectBee;
     public InsectBeetle insectBeetle;
     public InsectMentis insectMentis;
@@ -84,13 +84,13 @@ public class InsectManager : MonoBehaviour
         insects.Add(insectBeetle);
 
         yield return new WaitForEndOfFrame();
-     
+
 
         // Set insect face
-        SetAllInsectFace(GlobalData.instance.evolutionManager.evalutionLeveldx);
+        SetAllInsectFace(playerDataManager.saveData.evolutionLevel);
     }
 
-    
+
     public void SetAllInsectData(StageData stageData)
     {
         // 진화 공식 필요    
@@ -140,7 +140,7 @@ public class InsectManager : MonoBehaviour
     {
         foreach (var insect in insectBullets)
             if (insect.gameObject.activeSelf)
-                if(IsHalfPointUpSide(insect))
+                if (IsHalfPointUpSide(insect))
                     insect.DisableInsect();
     }
 
@@ -172,7 +172,7 @@ public class InsectManager : MonoBehaviour
                 damage = damage * statManager.GetInsectCriticalDamage(insectType);
                 isCritical = true;
             }
-            
+
             if (damageDebug) return debugDamage;
             return damage;
         }
@@ -221,12 +221,12 @@ public class InsectManager : MonoBehaviour
     float GetInsectCriticalDamage(InsectBase insect)
     {
         //return 2 + insect.criticalDamage;
-        return 2 + insect.criticalDamage + traningManager.GetStatPower(SaleStatType.trainingCriticalChance) + traningManager.GetStatPower(SaleStatType.talentCriticalChance) ;
+        return 2 + insect.criticalDamage + traningManager.GetStatPower(SaleStatType.trainingCriticalChance) + traningManager.GetStatPower(SaleStatType.talentCriticalChance);
         //return 2 + insect.criticalDamage + player.GetStatValue(SaleStatType.trainingCriticalChance) + player.GetStatValue(SaleStatType.talentCriticalChance) + RewardPolishEvolutionData insectCriticalDamage;
 
     }
     // 크리티컬 데미지를 가지고 있는지? ( 크리티컬 데미지카 터졌는지 )
-    bool HasCriticalDamage( InsectType insectType )
+    bool HasCriticalDamage(InsectType insectType)
     {
         //var percentage = 1+insect.criticalChance;
         //var percentage = 1+insect.criticalChance + player.GetStatValue(SaleStatType.trainingCriticalDamage) + player.GetStatValue(SaleStatType.talentCriticalDamage)+ RewardPolishEvolutionData insectCriticalChance;
@@ -239,7 +239,7 @@ public class InsectManager : MonoBehaviour
     ///talentSpawnSpeed 방치형으로 게임이 전환될 경우 필요한 스텟 현재 사용되지 않으나 테스트 후 필요에 의해 사용될 수 있음
     ///
     ///talentMoveSpeed 현재 구현되어 있는 곤충의 스피드가 Max. Max Speed값 = 500, Min Speed값 = 0, InsectBullet.AttackAnim speed 값이 필요하며 EvolutionData Speed의 값이 대입되고 + Player.GetStatValue(SaleStatType.trainingMoveSpeed) 가 됨
-    
+
     ///talentGoldBonus 재화를 획득하는 순간 체크 EventController.GainGold -> Player.AddGold 
 
     //---------- 훈련 업그레이드 끝
@@ -264,7 +264,7 @@ public class InsectManager : MonoBehaviour
         }
     }
 
-    void SetInsectEvolutionData(InsectBase insectBase , EvolutionData evolutionData)
+    void SetInsectEvolutionData(InsectBase insectBase, EvolutionData evolutionData)
     {
         insectBase.name = evolutionData.name;
         insectBase.damage = evolutionData.damage;
@@ -295,7 +295,7 @@ public class InsectManager : MonoBehaviour
     {
         var bullets = GetBulletsByInsectType(insectType);
         var bullet = bullets.FirstOrDefault(f => !f.gameObject.activeSelf);
-        if(bullet != null)
+        if (bullet != null)
         {
             bullet.transform.position = targetPos;
             bullet.gameObject.SetActive(true);
@@ -313,7 +313,7 @@ public class InsectManager : MonoBehaviour
         {
             case InsectType.mentis: return insectBullets_Mentis;
             case InsectType.bee: return insectBullets_Bee;
-            case InsectType.beetle: return insectBullets_Beetle; 
+            case InsectType.beetle: return insectBullets_Beetle;
             default: return null;
         }
     }
@@ -336,7 +336,7 @@ public class InsectManager : MonoBehaviour
     {
         for (int i = 0; i < insectBirthCount; i++)
         {
-            var bullet = Instantiate(prefab,tr_insectPool);
+            var bullet = Instantiate(prefab, tr_insectPool);
             bullets.Add(bullet);
             bullet.gameObject.SetActive(false);
         }
@@ -390,9 +390,9 @@ public class InsectManager : MonoBehaviour
         }
     }
 
-    
 
-    
+
+
     public InsectBullet GetDisableUnion()
     {
         var union = insectBullets_Union[disableUnionIndex];
@@ -417,14 +417,14 @@ public class InsectManager : MonoBehaviour
     {
         switch (insectType)
         {
-            case InsectType.bee: return GetDisableST_Insect(ref disableInsectBeeIndex,  st_insectBullets_Bee);
-            case InsectType.beetle: return GetDisableST_Insect(ref disableInsectBeetleIndex,  st_insectBullets_Beetle);
-            case InsectType.mentis: return GetDisableST_Insect(ref disableInsectMentisIndex,  st_insectBullets_Mentis);
+            case InsectType.bee: return GetDisableST_Insect(ref disableInsectBeeIndex, st_insectBullets_Bee);
+            case InsectType.beetle: return GetDisableST_Insect(ref disableInsectBeetleIndex, st_insectBullets_Beetle);
+            case InsectType.mentis: return GetDisableST_Insect(ref disableInsectMentisIndex, st_insectBullets_Mentis);
             default: return null;
         }
     }
-   
-    public InsectBullet GetDisableST_Insect(ref int idCount , List<InsectBullet> insectBullets)
+
+    public InsectBullet GetDisableST_Insect(ref int idCount, List<InsectBullet> insectBullets)
     {
         var insect = insectBullets[idCount];
         if (insect.gameObject.activeSelf)
@@ -437,7 +437,7 @@ public class InsectManager : MonoBehaviour
             idCount++;
             if (idCount == insectBullets.Count - 1)
                 idCount = 0;
-            
+
             return insect;
         }
     }

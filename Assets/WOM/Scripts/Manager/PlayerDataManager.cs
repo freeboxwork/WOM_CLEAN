@@ -155,6 +155,8 @@ public class PlayerDataManager : MonoBehaviour
             saveData.dungeonLvDice = saveDataTotal.saveDataDungeonLevel.dungeonLvDice;
             saveData.dungeonLvCoal = saveDataTotal.saveDataDungeonLevel.dungeonLvCoal;
 
+            saveData.evolutionLevel = saveDataTotal.saveDataEvolution.level_evolution;
+
             // 시간 데이터
             if (PlayerPrefs.HasKey(playingTimeKey))
             {
@@ -265,6 +267,7 @@ public class SaveData
     public InsectSaveData beetleSaveData;
     public InsectSaveData mentisSaveData;
     public int upgradeLevelIdx;
+    public int evolutionLevel;
     public int gold;
     public int bone;
     public int gem;

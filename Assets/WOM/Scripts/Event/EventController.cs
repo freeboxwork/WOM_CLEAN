@@ -770,14 +770,15 @@ public class EventController : MonoBehaviour
         // 공격 불가능 상태로 전환
         globalData.attackController.SetAttackableState(false);
 
-        // 하프 라인 위 곤충 모두 제거
-        globalData.insectManager.DisableHalfLineInsects();
-
         yield return StartCoroutine(globalData.globalPopupController.EnableGlobalPopupCor("message", 0));
+
+        // 활성화 된 모든 곤충 모두 제거
+        globalData.insectManager.DisableAllAvtiveInsects();
 
         // 화면전환 이펙트
         yield return StartCoroutine(globalData.effectManager.EffTransitioEvolutionUpgrade(() =>
           {
+
               // 진화전 포기 버튼 비활성화
               UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(false);
 
@@ -796,6 +797,8 @@ public class EventController : MonoBehaviour
           }));
 
 
+
+
         // 메인 메뉴 활성화
         globalData.uiController.MainMenuShow();
 
@@ -806,14 +809,14 @@ public class EventController : MonoBehaviour
         // 진화 몬스터 도전 버튼 활성화
         globalData.evolutionManager.EnableBtnEvolutionMonsterChange(true);
 
-        // 공격 가능 상태로 전환
-        globalData.attackController.SetAttackableState(true);
-
         // 일반 몬스터 등장
-        StartCoroutine(MonsterAppearCor(MonsterType.normal));
+        yield return StartCoroutine(MonsterAppearCor(MonsterType.normal));
 
         // 황금 돼지 활성화
         globalData.goldPigController.ExitOtherView();
+
+        // 공격 가능 상태로 전환
+        globalData.attackController.SetAttackableState(true);
 
 
     }
@@ -833,8 +836,10 @@ public class EventController : MonoBehaviour
         // 공격 불가능 상태로 전환
         globalData.attackController.SetAttackableState(false);
 
+        // 활성화 된 모든 곤충 모두 제거
+        globalData.insectManager.DisableAllAvtiveInsects();
         // 하프 라인 위 곤충 모두 제거
-        globalData.insectManager.DisableHalfLineInsects();
+        // globalData.insectManager.DisableHalfLineInsects();
 
         // yield return StartCoroutine(globalData.globalPopupController.EnableGlobalPopupCor("message", 0));
 
@@ -863,6 +868,7 @@ public class EventController : MonoBehaviour
 
         //팝업 닫기 버튼을 누를때까지 대기
         yield return new WaitUntil(() => dungeonMonsterPopupClose);
+
 
 
         // 화면전환 이펙트
@@ -945,8 +951,8 @@ public class EventController : MonoBehaviour
         // 진화전 포기 버튼 비활성화
         UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(false);
 
-        // 하프 라인 위 곤충 모두 제거
-        globalData.insectManager.DisableHalfLineInsects();
+        // 활성화 된 모든 곤충 모두 제거
+        globalData.insectManager.DisableAllAvtiveInsects();
 
         // 화면전환 이펙트
         yield return StartCoroutine(globalData.effectManager.EffTransitioEvolutionUpgrade(() =>

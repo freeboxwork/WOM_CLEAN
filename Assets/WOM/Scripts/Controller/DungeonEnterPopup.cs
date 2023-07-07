@@ -121,10 +121,10 @@ public class DungeonEnterPopup : MonoBehaviour
         curLevel = GlobalData.instance.player.dungeonMonsterClearLevel.GetLeveByDungeonMonType(curMonsterType);
         curDungeonMonData = GlobalData.instance.dataManager.GetDungeonMonsterDataByTypeLevel(curMonsterType, curLevel);
 
-
-        contents.SetActive(true);
         SetKeyUI(monsterType);
         SetRewardUI(curLevel, curDungeonMonData);
+
+        contents.SetActive(true);
     }
 
     void SetRewardUI(int level, DungeonMonsterData data)
@@ -172,11 +172,15 @@ public class DungeonEnterPopup : MonoBehaviour
 
     public void SetKeyUI(EnumDefinition.MonsterType monsterType)
     {
+
+        Debug.Log("던전 몬스터 타입 : " + monsterType.ToString());
+
         keyIcon.sprite = monsterTypeToIconMap[monsterType];
         goodsIcon.sprite = monsterTypeToGoodsIconMap[monsterType];
         // 던전별 보유 열쇠 수
         var keyCount = GlobalData.instance.player.GetCurrentDungeonKeyCount(monsterType);
         textKeyCount.text = keyCount.ToString();
+
         var adkeyCount = GlobalData.instance.player.GetDungeonADKeyCountByMonsterType(monsterType);
         textADKeyCount.text = adkeyCount.ToString();
 
@@ -189,6 +193,11 @@ public class DungeonEnterPopup : MonoBehaviour
             {
                 btn_AD_Dungeon.interactable = false;
             }
+        }
+        else
+        {
+            btn_KeyDungeon.gameObject.SetActive(true);
+            btn_AD_Dungeon.gameObject.SetActive(false);
         }
 
         // 소탕권

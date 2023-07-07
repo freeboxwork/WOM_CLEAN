@@ -65,6 +65,8 @@ public class EffectManager : MonoBehaviour
     // evolution tranition effect
     public GameObject transitionAnimEffEvolutionIn;
 
+    public GameObject transitionAnimEffStageClear;
+
 
 
     void Start()
@@ -299,6 +301,11 @@ public class EffectManager : MonoBehaviour
     public void EnableTransitionEffEvolution()
     {
         transitionAnimEffEvolutionIn.gameObject.SetActive(true);
+    }
+
+    public void EnableTransitionEffStageClear()
+    {
+        transitionAnimEffStageClear.gameObject.SetActive(true);
     }
 
 }

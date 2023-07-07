@@ -189,6 +189,12 @@ public class EventController : MonoBehaviour
         // 하프라인 위쪽 곤충들 제거
         globalData.insectManager.DisableHalfLineInsects();
 
+        if (currentMonster.monsterType == MonsterType.boss)
+        {
+            // 보스 사냥 성공 전환 이펙트
+            globalData.effectManager.EnableTransitionEffStageClear();
+        }
+
         // monster kill animation 사망 애니메이션 대기
         yield return StartCoroutine(currentMonster.inOutAnimator.MonsterKillMatAnim());
 
@@ -289,6 +295,9 @@ public class EventController : MonoBehaviour
     //보스 몬스터 사망시
     IEnumerator MonsterDie_Boss()
     {
+
+
+
         // 타이머 종료
         globalData.bossChallengeTimer.StopAllCoroutines();
 

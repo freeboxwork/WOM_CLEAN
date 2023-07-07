@@ -65,7 +65,8 @@ public class GoodsPoolingConrtoller : MonoBehaviour
             var gold = enableGoldAnimConts[i];
             if (gold.gameObject.activeSelf)
             {
-                gold.GoldOutAnimStart(() => {
+                gold.GoldOutAnimStart(() =>
+                {
                     // 골드가 UI 쪽으로 이동후 개별 이벤트 실행
                     //Debug.Log("gold goal event!!");
                 });

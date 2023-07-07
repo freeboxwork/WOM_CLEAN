@@ -193,6 +193,10 @@ public class DungeonEnterPopup : MonoBehaviour
             {
                 btn_AD_Dungeon.interactable = false;
             }
+            else
+            {
+                btn_AD_Dungeon.interactable = true;
+            }
         }
         else
         {

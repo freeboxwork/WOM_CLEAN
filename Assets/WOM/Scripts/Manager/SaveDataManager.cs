@@ -243,6 +243,7 @@ public class SaveDataManager : MonoBehaviour
             slotData.value = data.value;
             slotData.evolutionDiceStatType = data.evolutionDiceStatType;
             slotData.clorHexCode = data.clorHexCode;
+            slotData.evolutionGrade = data.evolutionGrade;
         }
         else
         {
@@ -618,6 +619,8 @@ public class SaveDataEvolutionSolt
     public float value;
     public string evolutionDiceStatType;
     public string clorHexCode;
+    public int evolutionGrade;
+
 
 
 }

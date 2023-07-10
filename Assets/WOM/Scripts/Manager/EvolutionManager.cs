@@ -74,6 +74,7 @@ public class EvolutionManager : MonoBehaviour
             evolutionSlots[i].UnLock();
             // load save data
             var loadData = GlobalData.instance.saveDataManager.saveDataTotal.saveDataEvolution.saveDataEvolutionSolts[i];
+
             var type = (EvolutionDiceStatType)System.Enum.Parse(typeof(EvolutionDiceStatType), loadData.evolutionDiceStatType);
             if (type == EvolutionDiceStatType.none)
             {
@@ -82,6 +83,7 @@ public class EvolutionManager : MonoBehaviour
 
             var symbols = GlobalData.instance.evolutionDiceLotteryManager.symbols;
             evolutionSlots[i].SetSymbol(symbols[loadData.symbolId]);
+            evolutionSlots[i].evolutionRewardGrade = (EnumDefinition.EvolutionRewardGrade)loadData.evolutionGrade;
             SetEvolutuinSlotName(type, evolutionSlots[i], loadData.value, loadData.clorHexCode, loadData.symbolId);
         }
 
@@ -126,6 +128,7 @@ public class EvolutionManager : MonoBehaviour
         saveSlotData.evolutionDiceStatType = type.ToString();
         saveSlotData.clorHexCode = clorHexCode;
         saveSlotData.symbolId = symbolId;
+        saveSlotData.evolutionGrade = (int)slot.evolutionRewardGrade;
 
         GlobalData.instance.saveDataManager.SetEvolutionSlotData(saveSlotData);
     }

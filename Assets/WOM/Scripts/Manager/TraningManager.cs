@@ -19,6 +19,23 @@ public class TraningManager : MonoBehaviour
     {
 
     }
+
+    // void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.T))
+    //     {
+    //         subButtons[0].btnMain.onClick.Invoke();
+    //     }
+    //     if (Input.GetKeyDown(KeyCode.Y))
+    //     {
+    //         subButtons[1].btnMain.onClick.Invoke();
+    //     }
+    //     if (Input.GetKeyDown(KeyCode.U))
+    //     {
+    //         subButtons[2].btnMain.onClick.Invoke();
+    //     }
+    // }
+
     // 저장된 게임 데이터 로드 및 세팅
     IEnumerator LoadInGameData()
     {

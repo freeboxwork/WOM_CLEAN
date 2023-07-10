@@ -519,6 +519,9 @@ public class EventController : MonoBehaviour
         globalData.gradeAnimCont.gameObject.SetActive(true);
         evalGradeEffectShow = true;
 
+        // 훈련 메뉴 -> 진화 메뉴 UI 활성화
+        UtilityMethod.GetCustomTypeGMById(0).SetActive(true);
+
         // 금광보스 카운트 UI 활성화
         globalData.uiController.SetEnablePhaseCountUI(true);
 
@@ -822,6 +825,9 @@ public class EventController : MonoBehaviour
 
               // side menu show
               SideUIMenuHide(false);
+
+              // 훈련 메뉴 -> 진화 메뉴 UI 활성화
+              UtilityMethod.GetCustomTypeGMById(0).SetActive(true);
 
           }));
 

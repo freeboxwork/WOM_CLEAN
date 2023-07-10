@@ -296,7 +296,8 @@ public class EventController : MonoBehaviour
     IEnumerator MonsterDie_Boss()
     {
 
-
+        // side menu show
+        SideUIMenuHide(false);
 
         // 타이머 종료
         globalData.bossChallengeTimer.StopAllCoroutines();
@@ -724,6 +725,9 @@ public class EventController : MonoBehaviour
     bool isbossMonsterChallenge;
     IEnumerator ProcessBossMonsterChallenge()
     {
+        // side menu hide
+        SideUIMenuHide(true);
+
         // 하프 라인 위 곤충 모두 제거
         globalData.insectManager.DisableHalfLineInsects();
 
@@ -766,6 +770,10 @@ public class EventController : MonoBehaviour
 
     IEnumerator ProcessBossMonsterTimeOut()
     {
+
+        // side menu show
+        SideUIMenuHide(false);
+
         // 하프 라인 위 곤충 모두 제거
         globalData.insectManager.DisableHalfLineInsects();
 
@@ -1014,6 +1022,10 @@ public class EventController : MonoBehaviour
     // 보스 몬스터 포기 했을때
     public IEnumerator ProcessBossMonsterGiveUp()
     {
+
+        // side menu show
+        SideUIMenuHide(false);
+
         // 공격 불가능 상태로 전환
         globalData.attackController.SetAttackableState(false);
 

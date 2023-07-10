@@ -156,6 +156,10 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
             // UI TEXT 적용
             GlobalData.instance.evolutionManager.SetEvolutuinSlotName(randomStatType, slot, statValue, randomGradeData.gradeColor, randomGradeData.grade);
 
+            // LIGHT SWEEP EFFECT
+            slot.SetGradeImgColor(randomGradeData.gradeColor);
+            slot.EnableSlotLightSweepAnim();
+
 
 
         }

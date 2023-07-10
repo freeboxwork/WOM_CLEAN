@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 using TMPro;
 
 public class EvolutionSlot : MonoBehaviour
@@ -18,6 +19,9 @@ public class EvolutionSlot : MonoBehaviour
 
     // 능력치 오픈 되어 있는지 판단
     public bool statOpend = false;
+
+    public Image imgLightSweepAnim;
+
 
     void Start()
     {
@@ -79,9 +83,22 @@ public class EvolutionSlot : MonoBehaviour
 
     }
 
-    public void SetGradeTxtColor(string hexCode)
+    public void SetGradeImgColor(string hexCode)
     {
         ColorUtility.TryParseHtmlString("#" + hexCode, out Color color);
-        txtStatName.color = color;
+        imgLightSweepAnim.color = color;
+    }
+
+    public void EnableSlotLightSweepAnim()
+    {
+        StopCoroutine("EnableSlotLightSweepAnimCoroutine");
+        StartCoroutine(EnableSlotLightSweepAnimCoroutine());
+    }
+
+    IEnumerator EnableSlotLightSweepAnimCoroutine()
+    {
+        imgLightSweepAnim.gameObject.SetActive(false);
+        yield return new WaitForEndOfFrame();
+        imgLightSweepAnim.gameObject.SetActive(true);
     }
 }

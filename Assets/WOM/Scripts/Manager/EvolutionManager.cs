@@ -120,6 +120,7 @@ public class EvolutionManager : MonoBehaviour
         var data = GlobalData.instance.dataManager.GetConvertTextDataByEvolutionDiceStatType(type);
         var txtValue = $"{data.kr_Front} {value}{data.kr_Back}";
         slot.SettxtStatName($"<color=#{clorHexCode}>{txtValue}</color>");
+        slot.SetGradeImgColor(clorHexCode);
 
         // set save data
         SaveDataEvolutionSolt saveSlotData = new SaveDataEvolutionSolt();

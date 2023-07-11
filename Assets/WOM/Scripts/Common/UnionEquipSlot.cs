@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +14,7 @@ public class UnionEquipSlot : MonoBehaviour
     public GameObject objEquipHighlight;
 
     // union spwan timer 와 1:1 매칭
-   
+
     void Start()
     {
         SetBtnEvent();
@@ -33,7 +30,7 @@ public class UnionEquipSlot : MonoBehaviour
             GlobalData.instance.unionManager.AllDisableEquipSlotHighlightEff();
         });
     }
-    
+
     //장착 해제 
 
 
@@ -81,5 +78,5 @@ public class UnionEquipSlot : MonoBehaviour
     {
         objEquipHighlight.gameObject.SetActive(value);
     }
-    
+
 }

@@ -1719,13 +1719,15 @@ GameObject:
   m_Component:
   - component: {fileID: 6805973550215894675}
   - component: {fileID: 6805973550215894672}
+  - component: {fileID: 214553179}
+  - component: {fileID: 214553182}
   m_Layer: 0
   m_Name: Intro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6805973550215894675
 Transform:
   m_ObjectHideFlags: 0
@@ -1759,7 +1761,7 @@ PlayableDirector:
   m_Enabled: 1
   serializedVersion: 3
   m_PlayableAsset: {fileID: 11400000, guid: e6e51d1baee7f4243b76f087ebbc00a8, type: 2}
-  m_InitialState: 1
+  m_InitialState: 0
   m_WrapMode: 0
   m_DirectorUpdateMode: 1
   m_InitialTime: 0
@@ -1809,6 +1811,58 @@ PlayableDirector:
     - 0c844e3e98c622f4ca8dfe00e3ea9480: {fileID: 6805973550345270686}
     - e58aa3402fd80b54b97529e8fd158f8f: {fileID: 6805973549938493324}
     - d7c073374b33b3c4abf490ac75d0d668: {fileID: 6805973548813539043}
+--- !u!114 &214553179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6805973550215894674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9204f45b55784f3682426b3da1e7608, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  director: {fileID: 6805973550215894672}
+  cutFrames:
+  - 0
+  - 2
+  - 5
+  - 6
+  - 9
+  - 13.3
+  currentTimeIndex: 0
+  deleyTime: 0.8
+--- !u!114 &214553182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6805973550215894674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: affb42edce6ce4dfb9e7ce331af53014, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 214553179}
+          m_TargetAssemblyTypeName: IntroTimeLineController, Assembly-CSharp
+          m_MethodName: OnMarkableIntroSignal
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &6805973550239751319
 GameObject:
   m_ObjectHideFlags: 0

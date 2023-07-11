@@ -9,13 +9,13 @@ using DamageNumbersPro;
 
 public class EffectManager : MonoBehaviour
 {
-    [Header("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½")]
+    [Header("°ïÃæ ÀÌÆåÆ® °ü·Ã Ç×¸ñ")]
     public int insectDisableEffectsBirthCount = 25;
     public int insectAttackEffectsBrithCount = 10;
     public ParticleSystem prefabInsectDisableEff;
     public List<ParticleSystem> insectDisableEffects = new List<ParticleSystem>();
 
-    /// <summary> ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ¼Å¬ ï¿½ï¿½ï¿½ï¿½Æ® </summary>
+    /// <summary> º¸½º °ø°Ý ÇßÀ»¶§ ³ªÅ¸³ª´Â ÆÄÆ¼Å¬ ÀÌÆåÆ® </summary>
     // mentis , bee , beetle 
     public List<ParticleRoate> prefabInsectAttackEff = new List<ParticleRoate>();
     public List<ParticleRoate> insectAttackEffMentis = new List<ParticleRoate>();
@@ -25,32 +25,32 @@ public class EffectManager : MonoBehaviour
     [Header("=====================================================================================================================")]
 
 
-    [Header("ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®")]
-    // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
+    [Header("ÀÌÆåÆ®µé ºÎ¸ð °ÔÀÓ ¿ÀºêÁ§Æ®")]
+    // ÇÁ¸®ÆÕ »ý¼ºµÉ ºÎ¸ð ¸ðµåÁ§Æ®
     public Transform trEffects;
     [Header("=====================================================================================================================")]
 
 
-    [Header("ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½")]
-    // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½
+    [Header("°ñµå °ü·Ã Ç×¸ñ")]
+    // °ñµå »ý¼º Æ÷ÀÎÆ®µé
     public List<Transform> goldSFX_RandomPoints = new List<Transform>();
     public GoodsPoolingConrtoller goldPoolingCont;
     public GoodsPoolingConrtoller bonePoolingCont;
 
     [Header("=====================================================================================================================")]
-    [Header("ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½")]
+    [Header("ÁøÈ­Àü ÀÌÆåÆ® °ü·Ã Ç×¸ñ")]
     public AnimationController animContTransition;
     public AnimData animDataTranIn;
     public AnimData animDataTranOut;
 
     [Header("=====================================================================================================================")]
-    [Header("ï¿½ï¿½ï¿½ï¿½ Å¸ï¿½Ý½ï¿½ ï¿½ï¿½Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ®")]
+    [Header("¸ó½ºÅÍ Å¸°Ý½Ã ³ªÅ¸³ª´Â ÅØ½ºÆ®")]
     int flotingTextPoolCount = 20;
     public FloatingText prefabFloatingText;
     public List<FloatingText> floatingTextPool = new List<FloatingText>();
 
     [Header("=====================================================================================================================")]
-    [Header("È­ï¿½ï¿½ï¿½ï¿½È¯ ï¿½ï¿½ï¿½ï¿½Æ®")]
+    [Header("È­¸éÀüÈ¯ ÀÌÆåÆ®")]
     public GameObject transitionAnimEffBossAttack;
     public GameObject transitionAnimEffSkillOn;
     public Image transitionAnimEffSkillOnImage;
@@ -70,6 +70,9 @@ public class EffectManager : MonoBehaviour
 
     public DamageNumber numberPrefab;
 
+
+    // castle tranition effect
+    public GameObject transitionAnimEffCastleIn;
 
     void Start()
     {
@@ -92,10 +95,10 @@ public class EffectManager : MonoBehaviour
         // attack effect Union
         CreateInstanceAttackEffects(prefabInsectAttackEff[(int)EnumDefinition.InsectType.union], insectAttackEffUnion);
 
-        // ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® Ç® ï¿½ï¿½ï¿½ï¿½
+        // ÇÃ·ÎÆÃ ÅØ½ºÆ® ¿ÀºêÁ§Æ® Ç® »ý¼º
         CreateFloatingTextPool();
 
-        // ï¿½ï¿½ï¿½ Ç®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
+        // °ñµå Ç®¸µ ¿ÀºêÁ§Æ® »ý¼º
         goldPoolingCont.Init();
         bonePoolingCont.Init();
         //CreateInstanceGolds();
@@ -187,7 +190,7 @@ public class EffectManager : MonoBehaviour
         //return insectDisableEffects.FirstOrDefault(f => !f.gameObject.activeSelf);
     }
 
-    // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+    // °ñµå »ý¼º Æ÷ÀÎÆ®
     public Transform GetGoldSfxRandomPoint(EnumDefinition.GoldPosType pointType)
     {
         return goldSFX_RandomPoints[(int)pointType];
@@ -203,7 +206,7 @@ public class EffectManager : MonoBehaviour
 
     }
 
-    // ï¿½Ã·ï¿½ï¿½ï¿½ ï¿½Ø½ï¿½Æ® Pool
+    // ÇÃ·ÎÆÃ ÅØ½ºÆ® Pool
     void CreateFloatingTextPool()
     {
         for (int i = 0; i < flotingTextPoolCount; i++)
@@ -232,12 +235,12 @@ public class EffectManager : MonoBehaviour
 
 
 
-    /// <summary> ï¿½ï¿½È­ï¿½ï¿½ Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® </summary>
+    /// <summary> ÁøÈ­Àü Æ®·£Áö¼Ç ÀÌÆåÆ® </summary>
     public IEnumerator EffTransitioEvolutionUpgrade(UnityAction transitionEvent)
     {
         yield return null;
 
-        // Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+        // Æ®·£Áö¼Ç ÀÎ
         var image = UtilityMethod.GetCustomTypeImageById(20);
         var colorAlpha_None = new Color(1, 1, 1, 1);
         var colorAlpha = new Color(1, 1, 1, 0);
@@ -245,12 +248,12 @@ public class EffectManager : MonoBehaviour
         yield return StartCoroutine(animContTransition.UI_ImageColorAnim(image, colorAlpha, colorAlpha_None));
 
         transitionEvent.Invoke();
-        // UI PANEL ï¿½ï¿½ï¿½ï¿½
+        // UI PANEL ¼û±è
         GlobalData.instance.uiController.AllDisableMenuPanels();
 
         yield return new WaitForSeconds(1f);
 
-        // Æ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Æ¿ï¿½
+        // Æ®·£Áö¼Ç ¾Æ¿ô
         animContTransition.animData = animDataTranOut;
         yield return StartCoroutine(animContTransition.UI_ImageColorAnim(image, colorAlpha_None, colorAlpha));
     }
@@ -312,4 +315,9 @@ public class EffectManager : MonoBehaviour
         transitionAnimEffStageClear.gameObject.SetActive(true);
     }
 
+
+    public void EnableTransitionEffCastle()
+    {
+        transitionAnimEffCastleIn.gameObject.SetActive(true);
+    }
 }

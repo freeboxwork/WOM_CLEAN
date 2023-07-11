@@ -348,6 +348,10 @@ public class UiController : MonoBehaviour
 
         GlobalData.instance.attackController.SetAttackableState(false);
         StartCoroutine(EnableCastle());
+
+        // 트렌지션 효과
+        GlobalData.instance.effectManager.EnableTransitionEffCastle();
+
         // 화면전환 효과
         yield return StartCoroutine(GlobalData.instance.effectManager.EffTransitioEvolutionUpgrade(() =>
         {

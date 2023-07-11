@@ -230,11 +230,7 @@ public class StatManager : MonoBehaviour
         var skilType = SkillType.insectDamageUp;
         SetUsingSkillSaveData(skilType, true);
 
-        var insects = GlobalData.instance.insectManager.enableInsects;
-        foreach (var insect in insects)
-        {
-            insect.effectContoller.FireEffect(true);
-        }
+
 
         float elapsedTime = 0.0f;
         var totalDuration = data.duaration * (1 + SkillDuration());
@@ -247,10 +243,6 @@ public class StatManager : MonoBehaviour
             yield return null;
         }
 
-        foreach (var insect in insects)
-        {
-            insect.effectContoller.FireEffect(false);
-        }
 
         data.skillLeftTime = 0;
         skill_InsectDamageUp = 0;
@@ -272,6 +264,11 @@ public class StatManager : MonoBehaviour
         var skilType = SkillType.insectDamageUp;
         SetUsingSkillSaveData(skilType, true);
 
+        // effect on!
+        var insects = GlobalData.instance.insectManager.enableInsects;
+        foreach (var insect in insects)
+            insect.effectContoller.FireEffect(true);
+
         float elapsedTime = 0.0f;
         while (elapsedTime < data.duaration)
         {
@@ -282,6 +279,11 @@ public class StatManager : MonoBehaviour
             yield return null;
         }
 
+        // effect off!
+        foreach (var insect in insects)
+            insect.effectContoller.FireEffect(false);
+
+
         data.isSkilUsing = false;
         skill_UnionDamageUp = 0;
 
@@ -289,6 +291,8 @@ public class StatManager : MonoBehaviour
         // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
         SetUsingSkillSaveData(skilType, false);
     }
+
+
 
     public IEnumerator EnableSkill_AllUnitSpeedUP()
     {
@@ -385,6 +389,11 @@ public class StatManager : MonoBehaviour
         var skilType = SkillType.insectDamageUp;
         SetUsingSkillSaveData(skilType, true);
 
+        // effect on!
+        var insects = GlobalData.instance.insectManager.enableInsects;
+        foreach (var insect in insects)
+            insect.effectContoller.ThunderEffect(true);
+
         float elapsedTime = 0.0f;
         while (elapsedTime < data.duaration)
         {
@@ -394,6 +403,10 @@ public class StatManager : MonoBehaviour
             // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
             yield return null;
         }
+
+        // effect off!
+        foreach (var insect in insects)
+            insect.effectContoller.FireEffect(false);
 
         data.isSkilUsing = false;
         skill_AllUnitCriticalChanceUp = 0;

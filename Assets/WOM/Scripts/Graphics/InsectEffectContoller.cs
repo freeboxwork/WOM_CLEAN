@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -19,7 +16,14 @@ namespace ProjectGraphics
 
         private void Awake()
         {
-            fire.enabled = thunder.enabled = trail.enabled = false;    
+            fire.enabled = thunder.enabled = trail.enabled = false;
+        }
+
+        void OnDisable()
+        {
+            FireEffect(false);
+            ThunderEffect(false);
+            TrailEffect(false);
         }
 
         #region »≠ø∞ ¿Ã∆Â∆Æ
@@ -40,8 +44,8 @@ namespace ProjectGraphics
         #region π¯∞≥ ¿Ã∆Â∆Æ
         public void ThunderEffect(bool on)
         {
-            if(on) anim.EffectEvent += ThunderEffectAnimation;
-            else anim.EffectEvent-= ThunderEffectAnimation; 
+            if (on) anim.EffectEvent += ThunderEffectAnimation;
+            else anim.EffectEvent -= ThunderEffectAnimation;
             thunder.enabled = on;
         }
 

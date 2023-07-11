@@ -300,6 +300,20 @@ public class SkillManager : MonoBehaviour
         }
     }
 
+    public SkillBtn GetSkillBtnByType(SkillType skillType)
+    {
+        return skillBtns.FirstOrDefault(f => f.skillType == skillType);
+    }
+
+    public bool IsDamageUpSkillEffOn()
+    {
+        return GetSkillBtnByType(SkillType.unionDamageUp).skillAddValue;
+    }
+
+    public bool IsAllUnitCritChanceUpSkillEffOn()
+    {
+        return GetSkillBtnByType(SkillType.allUnitCriticalChanceUp).skillAddValue;
+    }
 
 
 }

@@ -219,6 +219,7 @@ MonoBehaviour:
     spawnTime: 0
     moveSpeed: 0
     passiveDamage: 0
+  effectContoller: {fileID: 8077675036516449967}
 --- !u!114 &-8844348188701716801
 MonoBehaviour:
   m_ObjectHideFlags: 0

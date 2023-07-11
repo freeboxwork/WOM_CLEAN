@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using ProjectGraphics;
 
 /// <summary>
 /// 몬스터 향해 이동 하는 발사체 ( 공격 )
@@ -12,44 +13,62 @@ public class InsectBullet : MonoBehaviour
     public ParticleSystem effDisable;
     //public SpriteRenderer spriteRenderer;
     public InsectSpriteAnimation spriteAnim;
-    
+
     float speed = 1;
     Vector3 lookDir;
 
     // UNION
     public UnionInGameData inGameData;
 
+    public InsectEffectContoller effectContoller;
+
     void Start()
     {
-        
+
     }
-    
+
     public void SetInsectType(EnumDefinition.InsectType insectType)
     {
         this.insectType = insectType;
     }
-    
+
 
     private void OnEnable()
     {
         // 공격 가능 상태에서만 애니메이션 진행
         if (GlobalData.instance.attackController.GetAttackableState() == true)
+        {
             StartCoroutine(AttackMove());
+            // EFFECT ON OFF
+            // 사기의 외침
+            // var unionDamageUp = GlobalData.instance.skillManager.GetSkillBtnByType(EnumDefinition.SkillType.unionDamageUp);
+            // effectContoller.FireEffect(unionDamageUp.skillAddValue);
+
+            // // 광란
+            // var allUnitCriticalUp = GlobalData.instance.skillManager.GetSkillBtnByType(EnumDefinition.SkillType.allUnitCriticalChanceUp);
+            // effectContoller.ThunderEffect(allUnitCriticalUp.skillAddValue);
+        }
+
         //StartCoroutine(AttackAnim());
         else
             gameObject.SetActive(false);
 
     }
 
+    void OnDisable()
+    {
+        GlobalData.instance.insectManager.RemoveEnableInsects(this);
+    }
+
     float GetSpeed()
     {
-        if(insectType == EnumDefinition.InsectType.union)
+        if (insectType == EnumDefinition.InsectType.union)
         {
             return GlobalData.instance.statManager.GetUnionMoveSpeed(inGameData.unionIndex);
         }
         else
         {
-            
+
             return GlobalData.instance.statManager.GetInsectMoveSpeed(insectType);
             // return GlobalData.instance.insectManager.GetInsect(insectType).speed;
         }
@@ -60,6 +79,8 @@ public class InsectBullet : MonoBehaviour
         animData.ResetAnimData();
         var animPoints = GetAnimPoints();
         speed = GetSpeed();
+
+
         while (animData.animValue < 0.99f)
         {
             // TODO : DATA 의 SPEED 적용
@@ -86,13 +107,13 @@ public class InsectBullet : MonoBehaviour
         while (!IsGoalTargetPoint(targetPoint))
         {
             // 이동 방향
-            var direction = transform.position- targetPoint;    
-            
+            var direction = transform.position - targetPoint;
+
             // 방향 벡터 정규화 ( 이동거리간 일정한 속도를 위해 )
             direction.Normalize();
-            
+
             // 직선 이동
-            transform.position = GetMovePosition(direction,speed);
+            transform.position = GetMovePosition(direction, speed);
 
             // 회전
             lookDir = (targetPoint - transform.position);

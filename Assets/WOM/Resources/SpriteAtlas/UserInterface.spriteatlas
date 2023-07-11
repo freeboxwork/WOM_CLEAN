@@ -82,7 +82,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 3aca79f2bb7b652489f75113b6358ef6, type: 3}
   - {fileID: 21300000, guid: 5b5d7303be0e3334c9831aa8d4ee9aaf, type: 3}
   - {fileID: 21300000, guid: b7f5cb038b250184cb6e27688bdf3dab, type: 3}
-  - {fileID: 21300000, guid: 029b7c13fe520c542866b6dea66e56bb, type: 3}
   - {fileID: 21300000, guid: 1935072321b922944b678298fbb5609b, type: 3}
   - {fileID: 21300000, guid: dbbace53a0784a1419d0ea4846b6113c, type: 3}
   - {fileID: 21300000, guid: a8f35573823f743a8b0aa4fd5526202f, type: 3}
@@ -110,7 +109,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 0ec3abf5d80765b408c67aa4a051b937, type: 3}
   - {fileID: 21300000, guid: 67b5fe063942b0d499f15abf9e8dcfc6, type: 3}
   - {fileID: 21300000, guid: 00d0ce16d5fbf514fa48095c36b93ca8, type: 3}
-  - {fileID: 21300000, guid: cf848836faf6a0645abe1ba8003959ef, type: 3}
   - {fileID: 21300000, guid: 1e13e576a7f11924e9db1622c482dba7, type: 3}
   - {fileID: 21300000, guid: 746121869a5fb7a4c834f5c76412f884, type: 3}
   - {fileID: 21300000, guid: b367f786e4f84d6459b60b756aefa06c, type: 3}
@@ -138,7 +136,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 50d03bb8b652d3445b74839c24b7070d, type: 3}
   - {fileID: 21300000, guid: be6a80c841fd78f478865bf329f79ed2, type: 3}
   - {fileID: 21300000, guid: 9060b1c87c3203249a912a162dcf88d1, type: 3}
-  - {fileID: 21300000, guid: ea7035c85be35fa419b431ee663fd910, type: 3}
   - {fileID: 21300000, guid: 775529d836fdf1343ace006ea2e1f5d5, type: 3}
   - {fileID: 21300000, guid: f0ef07e86af78e34187e5cd69593b3ce, type: 3}
   - {fileID: 21300000, guid: 475bc94972f8305418c404834561ae28, type: 3}
@@ -194,7 +191,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: ff5cea0f48a6d2445b7aeda46f001b7f, type: 3}
   - {fileID: 21300000, guid: d05b1f2fee21206498cafb5ca0700004, type: 3}
   - {fileID: 21300000, guid: 938cfe3fd32f5466a825f6185d59eea4, type: 3}
-  - {fileID: 21300000, guid: 865a644fdadf03143b3c8dfc1f35b880, type: 3}
   - {fileID: 21300000, guid: 062b375fb7e6c8f4cae752dffd4767e7, type: 3}
   - {fileID: 21300000, guid: 63489b8fde573de4bb6c4e9b3f5e5f9a, type: 3}
   - {fileID: 21300000, guid: e215db8f9dd195d40a60caa237c0353e, type: 3}
@@ -232,7 +228,6 @@ SpriteAtlas:
   - btn_Escape
   - Icon_CriticalDamage
   - Shop_Jewel_Free
-  - Button_1
   - Dungeon
   - Castle_Lock_Icon
   - Btn_Yellow
@@ -260,7 +255,6 @@ SpriteAtlas:
   - Icon_GoldBoss
   - DNA_skillDuration__
   - Popup_Panel_1
-  - B1
   - Icon_MoveSpeed
   - 1pixel_black
   - Option_Safety
@@ -288,7 +282,6 @@ SpriteAtlas:
   - btn_Base_White_Border3
   - DNA_boneBonus
   - Option_Alarm_ON
-  - B2
   - Option_Safety_ON
   - Name_Frame
   - DNA_skillDuration
@@ -344,7 +337,6 @@ SpriteAtlas:
   - DNA_goldPig__
   - Option_BGM_ON
   - QuestBack
-  - B4
   - ClearBox
   - Option_SaveCloude
   - Option_BGM

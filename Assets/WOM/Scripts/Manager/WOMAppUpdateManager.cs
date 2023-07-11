@@ -12,7 +12,7 @@ public class WOMAppUpdateManager : MonoBehaviour
     void Start()
     {
 
-#if UNITY_ANDROID
+#if UNITY_ANDROID&&!UNITY_EDITOR
         StartCoroutine(AppUpdateCheck());
 #endif
     }

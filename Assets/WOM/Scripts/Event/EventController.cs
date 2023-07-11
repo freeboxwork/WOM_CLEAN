@@ -646,7 +646,7 @@ public class EventController : MonoBehaviour
     // 진화전 도전 버튼 눌렀을때 ( 진화 몬스터 사냥 )
     void EvnOnEvolutionGradeChallenge()
     {
-        StopAllCoroutines();
+        //StopAllCoroutines();
         StartCoroutine(ProcessEvolutionGradeChallenge());
     }
 

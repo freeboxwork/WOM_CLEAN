@@ -89,6 +89,8 @@ public class SkillBtn : MonoBehaviour
             // 일일 퀘스트 완료 : 스킬 사용
             EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.useSkill);
 
+
+
             txtTime.enabled = false;
             skillAddValue = true;
             txtTimeAnim.enabled = true;

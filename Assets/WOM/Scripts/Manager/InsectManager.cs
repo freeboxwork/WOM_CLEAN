@@ -54,12 +54,16 @@ public class InsectManager : MonoBehaviour
     public List<InsectBullet> st_insectBullets_Beetle;
     public List<InsectBullet> st_insectBullets_Mentis;
 
+    public List<InsectBullet> enableInsects = new List<InsectBullet>();
+
     void Start()
     {
         player = GlobalData.instance.player;
         traningManager = GlobalData.instance.traningManager;
         statManager = GlobalData.instance.statManager;
     }
+
+
 
     public IEnumerator Init(PlayerDataManager playerDataManager)
     {
@@ -125,6 +129,17 @@ public class InsectManager : MonoBehaviour
         DisableActiveInsects(st_insectBullets_Beetle);
         DisableActiveInsects(st_insectBullets_Mentis);
     }
+
+    public void AddEnableInsects(InsectBullet insectBullet)
+    {
+        enableInsects.Add(insectBullet);
+    }
+
+    public void RemoveEnableInsects(InsectBullet insectBullet)
+    {
+        enableInsects.Remove(insectBullet);
+    }
+
 
     void DisableActiveInsects(List<InsectBullet> insectBullets)
     {
@@ -299,6 +314,11 @@ public class InsectManager : MonoBehaviour
         {
             bullet.transform.position = targetPos;
             bullet.gameObject.SetActive(true);
+            AddEnableInsects(bullet);
+
+            // SKILL EFFECT
+            bullet.effectContoller.FireEffect(GlobalData.instance.skillManager.IsDamageUpSkillEffOn());
+            bullet.effectContoller.ThunderEffect(GlobalData.instance.skillManager.IsAllUnitCritChanceUpSkillEffOn());
         }
         else
         {

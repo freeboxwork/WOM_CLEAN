@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InsectSpwanTimer : MonoBehaviour
@@ -40,9 +39,14 @@ public class InsectSpwanTimer : MonoBehaviour
                 // set position
                 var randomPos = insectSpwanManager.GetRandomPos();
                 insect.gameObject.transform.position = randomPos;
-                
+
                 yield return new WaitForSeconds(waitTime);
                 insect.gameObject.SetActive(true);
+                GlobalData.instance.insectManager.AddEnableInsects(insect);
+
+                // SKILL EFFECT
+                insect.effectContoller.FireEffect(GlobalData.instance.skillManager.IsDamageUpSkillEffOn());
+                insect.effectContoller.ThunderEffect(GlobalData.instance.skillManager.IsAllUnitCritChanceUpSkillEffOn());
             }
             else
                 yield return new WaitForSeconds(waitTime);

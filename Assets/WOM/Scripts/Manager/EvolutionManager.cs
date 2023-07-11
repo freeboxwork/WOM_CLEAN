@@ -87,6 +87,11 @@ public class EvolutionManager : MonoBehaviour
             SetEvolutuinSlotName(type, evolutionSlots[i], loadData.value, loadData.clorHexCode, loadData.symbolId);
         }
 
+
+        var interactableValue = evolutionSlots.Any(a => a.isUnlock == false);
+        UtilityMethod.GetCustomTypeBtnByID(20).interactable = interactableValue;
+
+
         // 자물쇠 기본 열림상태
         //foreach (var slot in evolutionSlots)
         //    slot.LockEvent();

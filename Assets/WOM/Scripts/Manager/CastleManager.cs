@@ -141,11 +141,29 @@ public class CastleManager : MonoBehaviour
     }
 
 
-    public void OpenCastlePopup(EnumDefinition.CastlePopupType popup)
+    // TODO : 리펙토링........
+    public void OpenCastlePopup(EnumDefinition.CastlePopupType popupType)
     {
-        GetCastlePopupByType(popup).gameObject.SetActive(true);
+        switch (popupType)
+        {
+            case CastlePopupType.mine:
+                var minePopup = (MinePopup)GetCastlePopupByType(popupType);
+                var mineNextLevelData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel + 1);
+                minePopup.btnUpgrade.interactable = mineNextLevelData != null;
+
+                break;
+            case CastlePopupType.factory:
+                var factoryPopup = (MinePopup)GetCastlePopupByType(popupType);
+                var factoryNextLevelData = GlobalData.instance.dataManager.GetBuildDataFactoryByLevel(factoryLevel + 1);
+                factoryPopup.btnUpgrade.interactable = factoryNextLevelData != null;
+                break;
+        }
+        // 업그레이트 버튼 활성/비활성
+        GetCastlePopupByType(popupType).gameObject.SetActive(true);
     }
 
+
+    // TODO : 리펙토링........
     public void UpGradeCastle(CastlePopupType type)
     {
         switch (type)

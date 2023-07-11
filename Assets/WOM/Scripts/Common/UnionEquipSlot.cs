@@ -57,7 +57,7 @@ public class UnionEquipSlot : MonoBehaviour
     {
         if (unionSlot != null)
         {
-            unionSlot.unionEquipType = EnumDefinition.UnionEquipType.Equipped;
+            unionSlot.unionEquipType = EnumDefinition.UnionEquipType.NotEquipped;
             unionSlot.SetUITxtUnionEquipState();
             unionSlot.SetEquipSlot(this);
         }

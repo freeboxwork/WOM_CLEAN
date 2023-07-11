@@ -5,7 +5,7 @@
    "hp": 1000,
    "imageId": 0,
    "type": "EVOLUTION",
-   "bgId": 0,
+   "bgId": 5,
    "attackType": "TAIL",
    "grade": "D"
  },
@@ -14,7 +14,7 @@
    "hp": 2000,
    "imageId": 1,
    "type": "EVOLUTION",
-   "bgId": 1,
+   "bgId": 5,
    "attackType": "TAIL",
    "grade": "C"
  },
@@ -23,7 +23,7 @@
    "hp": 3000,
    "imageId": 2,
    "type": "EVOLUTION",
-   "bgId": 2,
+   "bgId": 5,
    "attackType": "TAIL",
    "grade": "B"
  },
@@ -32,7 +32,7 @@
    "hp": 4000,
    "imageId": 3,
    "type": "EVOLUTION",
-   "bgId": 3,
+   "bgId": 5,
    "attackType": "TAIL",
    "grade": "A"
  }

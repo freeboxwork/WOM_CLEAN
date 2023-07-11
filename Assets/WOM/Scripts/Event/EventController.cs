@@ -519,6 +519,7 @@ public class EventController : MonoBehaviour
         globalData.gradeAnimCont.gameObject.SetActive(true);
         evalGradeEffectShow = true;
 
+
         // 훈련 메뉴 -> 진화 메뉴 UI 활성화
         UtilityMethod.GetCustomTypeGMById(0).SetActive(true);
 
@@ -536,6 +537,9 @@ public class EventController : MonoBehaviour
 
         // 프레임 대기 ( evalutionLeveld 업데이트 대기 )
         yield return new WaitForEndOfFrame();
+
+        // 배경 이미지 변경
+        globalData.stageManager.SetBgImage();
 
         // 진화 자물쇠 UnLock 상태로 Enable 및 필요 주사위 개수 계산하여 적용함.
         globalData.evolutionManager.SetUI_EvolutuinSlotsLockerItems(evalutionLeveld);
@@ -700,6 +704,10 @@ public class EventController : MonoBehaviour
             // side menu hide
             SideUIMenuHide(true);
 
+            // 배경 교체
+            var monsterData = globalData.monsterManager.GetMonsterData(MonsterType.evolution, globalData.evolutionManager.evalutionLeveldx);
+            globalData.stageManager.SetDungeonBgImage(monsterData.bgId);
+
         }));
 
 
@@ -828,6 +836,9 @@ public class EventController : MonoBehaviour
 
               // 훈련 메뉴 -> 진화 메뉴 UI 활성화
               UtilityMethod.GetCustomTypeGMById(0).SetActive(true);
+
+              // 배경 이미지 변경
+              globalData.stageManager.SetBgImage();
 
           }));
 
@@ -1004,6 +1015,9 @@ public class EventController : MonoBehaviour
 
             // side menu show
             SideUIMenuHide(false);
+
+            // 배경 이미지 변경
+            globalData.stageManager.SetBgImage();
 
         }));
 

@@ -165,7 +165,7 @@ public class MonsterManager : MonoBehaviour
         }
     }
 
-    MonsterData GetMonsterData(MonsterType monsterType, int monsterId)
+    public MonsterData GetMonsterData(MonsterType monsterType, int monsterId)
     {
         var data = GlobalData.instance.dataManager.GetMonsterDataById(monsterType, monsterId);
         if (data == null)

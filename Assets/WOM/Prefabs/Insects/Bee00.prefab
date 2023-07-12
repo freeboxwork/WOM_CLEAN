@@ -460,6 +460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d298ef7dbc37a834494102a2e7e47f2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 4304186195738549220}
   insectType: 1
   animData: {fileID: 7072555088193193043}
   effDisable: {fileID: 0}

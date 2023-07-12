@@ -17,6 +17,8 @@ public class AttackController : MonoBehaviour
     bool insectAutoEnable = false;
 
 
+
+
     void Start()
     {
         insectManager = GlobalData.instance.insectManager;

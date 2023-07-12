@@ -56,6 +56,10 @@ public class InsectManager : MonoBehaviour
 
     public List<InsectBullet> enableInsects = new List<InsectBullet>();
 
+    int beetleOrderInLayerID = 0;
+    int beeOrderInLayerID = 10;
+    int mentisOrderInLayerID = 20;
+
     void Start()
     {
         player = GlobalData.instance.player;
@@ -312,6 +316,17 @@ public class InsectManager : MonoBehaviour
         var bullet = bullets.FirstOrDefault(f => !f.gameObject.activeSelf);
         if (bullet != null)
         {
+            // if (insectType == EnumDefinition.InsectType.beetle)
+            // {
+            //     bullet.spriteRenderer.sortingOrder = beetleOrderInLayerID;
+            //     beetleOrderInLayerID++;
+            //     if (beetleOrderInLayerID > 9)
+            //     {
+            //         beetleOrderInLayerID = 0;
+            //     }
+            // }
+
+            SetOrderInLayerID(insectType, bullet);
             bullet.transform.position = targetPos;
             bullet.gameObject.SetActive(true);
             AddEnableInsects(bullet);
@@ -324,6 +339,37 @@ public class InsectManager : MonoBehaviour
         {
             //TODO 모든 오브젝트 ENABLE 상태일때 새로운 BULLET 추가 
 
+        }
+    }
+
+    void SetOrderInLayerID(EnumDefinition.InsectType insectType, InsectBullet bullet)
+    {
+        switch (insectType)
+        {
+            case EnumDefinition.InsectType.beetle:
+                bullet.spriteRenderer.sortingOrder = beetleOrderInLayerID;
+                beetleOrderInLayerID++;
+                if (beetleOrderInLayerID > 9)
+                {
+                    beetleOrderInLayerID = 0;
+                }
+                break;
+            case EnumDefinition.InsectType.bee:
+                bullet.spriteRenderer.sortingOrder = beeOrderInLayerID;
+                beeOrderInLayerID++;
+                if (beeOrderInLayerID > 19)
+                {
+                    beeOrderInLayerID = 10;
+                }
+                break;
+            case EnumDefinition.InsectType.mentis:
+                bullet.spriteRenderer.sortingOrder = mentisOrderInLayerID;
+                mentisOrderInLayerID++;
+                if (mentisOrderInLayerID > 29)
+                {
+                    mentisOrderInLayerID = 20;
+                }
+                break;
         }
     }
 

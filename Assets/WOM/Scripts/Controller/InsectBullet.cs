@@ -8,6 +8,8 @@ using ProjectGraphics;
 [RequireComponent(typeof(InsectSpriteAnimation))]
 public class InsectBullet : MonoBehaviour
 {
+    public SpriteRenderer spriteRenderer;
+
     public EnumDefinition.InsectType insectType;
     public AnimData animData;
     public ParticleSystem effDisable;

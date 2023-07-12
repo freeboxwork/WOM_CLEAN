@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -21,7 +19,7 @@ public class UnionInfoPopupController : MonoBehaviour
     public Button btnClose;
     public UnionSlot unionSlot;
 
-    
+
 
 
     void Start()
@@ -48,15 +46,17 @@ public class UnionInfoPopupController : MonoBehaviour
 
         btnClose.onClick.AddListener(() =>
         {
-            popup.SetActive(false); 
+            popup.SetActive(false);
         });
     }
-    public void EnablePopup(UnionSlot slot, UnionData data,  UnionInGameData inGameData)
+    public void EnablePopup(UnionSlot slot, UnionData data, UnionInGameData inGameData)
     {
         // SET UI
         SetImgFace(slot.imgUnionFace.sprite);
         SetTxtUnionName(data.name);
-        SetTxtUinonGrade($"<#{data.textColor}>{data.gradeName}</color>" );
+        Debug.Log(data.textColor + $"{data.gradeName}</color>");
+        SetTxtUinonGrade($"<#{data.textColor}>{data.gradeName}</color>");
+
 
         unionSlot = slot;
 
@@ -70,7 +70,7 @@ public class UnionInfoPopupController : MonoBehaviour
 
         popup.SetActive(true);
     }
-  
+
     void ReloadUiSet()
     {
         SetTxtDamage(unionSlot.inGameData.damage.ToString());
@@ -93,12 +93,12 @@ public class UnionInfoPopupController : MonoBehaviour
 
     public void SetTxtDamage(string value)
     {
-        txtDamage.text = value; 
+        txtDamage.text = value;
     }
 
     public void SetTxtSpawnTime(string value)
     {
-        txtSpawnTime.text = value;  
+        txtSpawnTime.text = value;
     }
 
     public void SetTxtMoveSpeed(string value)
@@ -108,7 +108,7 @@ public class UnionInfoPopupController : MonoBehaviour
 
     public void SetTxtPassiveDamage(string value)
     {
-        txtPassiveDamage.text = value+"%";
+        txtPassiveDamage.text = value + "%";
     }
 
     public void SetTxtReqirementCount(string value)
@@ -120,7 +120,7 @@ public class UnionInfoPopupController : MonoBehaviour
     {
         imgUnionFace.sprite = sprite;
     }
-   
+
     public void SetSlider(float value)
     {
         slider.value = value;

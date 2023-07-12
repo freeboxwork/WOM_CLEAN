@@ -1,5 +1,7 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 namespace ProjectGraphics
 {
@@ -14,6 +16,12 @@ namespace ProjectGraphics
         public Lottery_Slot[] slots;
 
         private bool isSkip = false;
+
+        public TextMeshProUGUI titleText;
+        public Image titleImage;
+        public Sprite unionTitle;
+        public Sprite dnaTitle;
+
 
 #if UNITY_EDITOR
         //[SerializeField] int ii;
@@ -41,6 +49,10 @@ namespace ProjectGraphics
 
         public void StartLotteryAnimation(int[] unionIndex)
         {
+            //changed to image and title text
+            titleText.text = "UNIONS";
+            titleImage.sprite = unionTitle;
+
             foreach (var slot in slots) slot.gameObject.SetActive(false);
             StartCoroutine(ShowUnionSlotCardOpenProcess(unionIndex));
         }
@@ -96,6 +108,9 @@ namespace ProjectGraphics
 
         public void StartDNASlotAnimation(int[] u)
         {
+            titleText.text = "DNA";
+            titleImage.sprite = dnaTitle;
+
             foreach (var slot in slots) slot.gameObject.SetActive(false);
             StartCoroutine(ShowDNAIconSlotCardOpenProcess(u));
         }

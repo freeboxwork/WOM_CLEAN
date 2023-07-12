@@ -49,11 +49,6 @@ namespace ProjectGraphics
 
         public void StartLotteryAnimation(int[] unionIndex)
         {
-   
-            //changed to image and title text
-            titleText.text = "UNIONS";
-            titleImage.sprite = unionTitle;
-
             foreach (var slot in slots) slot.gameObject.SetActive(false);
             StartCoroutine(ShowUnionSlotCardOpenProcess(unionIndex));
         }
@@ -67,6 +62,10 @@ namespace ProjectGraphics
 
         public IEnumerator ShowUnionSlotCardOpenProcess(int[] u)
         {
+            //changed to image and title text
+            titleText.text = "UNIONS";
+            titleImage.sprite = unionTitle;
+
             yield return new WaitForSeconds(0.05f);
 
             for (int i = 0; i < u.Length; i++)

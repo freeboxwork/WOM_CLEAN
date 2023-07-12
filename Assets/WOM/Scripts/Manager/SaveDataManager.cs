@@ -135,6 +135,10 @@ public class SaveDataManager : MonoBehaviour
         {
             saveDataTotal.saveDataSkills.saveDataSkills.Add(new SaveDataSkill { skillType = type });
         }
+        // foreach (var data in saveDataTotal.saveDataSkills.saveDataSkills)
+        // {
+        //     data.skill_InGameData = new Skill_InGameData();
+        // }
 
         // set evolution slot
         saveDataTotal.saveDataEvolution = new SaveDataEvolution();
@@ -314,8 +318,12 @@ public class SaveDataManager : MonoBehaviour
         skillData.isUsingSkill = skill_InGameData.isSkilUsing;
         skillData.leftCoolTime = skill_InGameData.skillLeftCoolTime;
         skillData.isUnLock = true;
-        //skillData.leftSkillTime = skill_InGameData.skillLeftTime;
+        skillData.duaration = skill_InGameData.duaration;
+        skillData.power = skill_InGameData.power;
 
+
+        //skillData.skill_InGameData = skill_InGameData;
+        //skillData.leftSkillTime = skill_InGameData.skillLeftTime;
     }
 
     public SaveDataSkill GetSaveDataSkill(SkillType skillType)
@@ -342,6 +350,8 @@ public class SaveDataManager : MonoBehaviour
         SaveDataSkill skillData = GetSaveDataSkill(skillType);
         skillData.isCooltime = isCoolTime;
     }
+
+
 
     // SHOP 데이터 세팅
 
@@ -704,6 +714,10 @@ public class SaveDataSkill
     public bool isCooltime;       // 스킬 쿨타임중 표시
     public EnumDefinition.SkillType skillType;
     public bool isUnLock;
+    public float duaration;
+    public float power;
+
+    //public Skill_InGameData skill_InGameData;
 }
 
 [System.Serializable]

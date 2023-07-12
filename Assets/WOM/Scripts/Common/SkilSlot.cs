@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -9,12 +7,16 @@ public class SkilSlot : MonoBehaviour
 {
     public TextMeshProUGUI txtLevel;
     public TextMeshProUGUI txtName;
-    public TextMeshProUGUI txtDescription;  
+    public TextMeshProUGUI txtDescription;
     public TextMeshProUGUI txtMaxLevel;
     public TextMeshProUGUI txtCost;
     public Button btnPay;
     public EnumDefinition.SkillType skillType;
     public ParticleSystem effLevelUp;
+
+    public GameObject infoCommon;
+    public GameObject infoMax;
+
     void Start()
     {
         SetBtnEvent();
@@ -23,7 +25,8 @@ public class SkilSlot : MonoBehaviour
 
     void SetBtnEvent()
     {
-        btnPay.onClick.AddListener(() => {
+        btnPay.onClick.AddListener(() =>
+        {
             GlobalData.instance.skillManager.LevelUpSkill(skillType);
             effLevelUp.Play();
         });
@@ -67,5 +70,10 @@ public class SkilSlot : MonoBehaviour
     //    SetTxt_Level(data.)
     //}
 
+    public void MaxStat()
+    {
+        infoCommon.SetActive(false);
+        infoMax.SetActive(true);
+    }
 
 }

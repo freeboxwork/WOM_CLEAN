@@ -26,10 +26,12 @@ public class SkillManager : MonoBehaviour
 
     public IEnumerator Init()
     {
-        yield return null;
         SetSkillInGameData();
+        yield return new WaitForEndOfFrame();
         SetSlotUI();
         EnableBuyButtons();
+
+        yield return null;
     }
 
     void SetSkillInGameData()
@@ -43,15 +45,18 @@ public class SkillManager : MonoBehaviour
 
             //저장된 값에서 불러옴
             var saveData = GlobalData.instance.saveDataManager.GetSaveDataSkill(type);
+
             data.level = saveData.level;
             data.damage = saveData.damage;
             data.isSkilUsing = saveData.isUsingSkill;
             //data.skillLeftTime = saveData.leftSkillTime;
 
-            data.duaration = skillData.duration;
-            data.power = skillData.power;
+            data.duaration = saveData.duaration;
+            data.power = saveData.power;
             data.coolTime = skillData.coolTime;
             data.skilName = skillData.name;
+
+            //data = saveData.skill_InGameData;
 
             skill_InGameDatas.Add(data);
 
@@ -81,13 +86,54 @@ public class SkillManager : MonoBehaviour
             slot.SetTxt_MaxLevel(data.maxLevel.ToString());
             slot.SetTxt_Cost(GetSkillPrice(data, inGameData).ToString());
 
+
+
             // set description 
-            if (IsDP_Type(slot.skillType))
-                slot.SetTxt_Description(GetDesicriptionDP(slot.skillType, data, inGameData));
-            else if (IsD_Type(slot.skillType))
-                slot.SetTxt_Description(GetDesicriptionDP(slot.skillType, data, inGameData));
-            else
-                slot.SetTxt_Description(data.desctiption);
+
+
+            // if (IsDP_Type(slot.skillType))
+            //     slot.SetTxt_Description(GetDesicriptionDP(slot.skillType, data, inGameData));
+            // else if (IsD_Type(slot.skillType))
+            //     slot.SetTxt_Description(GetDesicriptionDP(slot.skillType, data, inGameData));
+            // else
+            //     slot.SetTxt_Description(data.desctiption);
+
+
+            switch (slot.skillType)
+            {
+                case SkillType.insectDamageUp:
+                    SetUI(ref slot, data, inGameData); // SET UI
+                    break;
+
+                case SkillType.unionDamageUp:
+                    SetUI(ref slot, data, inGameData);
+                    break;
+
+                case SkillType.allUnitSpeedUp:
+                    SetUI(ref slot, data, inGameData);
+                    break;
+
+                case SkillType.glodBonusUp:
+                    SetUI(ref slot, data, inGameData);
+                    break;
+
+                case SkillType.monsterKing:
+                    SetUI_MonsterKing(ref slot, data, inGameData);
+                    break;
+
+                case SkillType.allUnitCriticalChanceUp:
+                    SetUIAllUnitCDU(ref slot, data, inGameData);
+                    break;
+            }
+
+
+
+            // set max 
+            if (data.maxLevel <= inGameData.level)
+            {
+                slot.MaxStat();
+            }
+
         }
     }
 
@@ -117,7 +163,7 @@ public class SkillManager : MonoBehaviour
         // 구매 가능 한지 확인
         var isPaySkill = IsPaySkill(skillPrice);
 
-        if (!isMaximumLevel && isPaySkill)
+        if (isPaySkill)
         {
             // 구매
             GlobalData.instance.player.PayGold((int)skillPrice);
@@ -166,6 +212,11 @@ public class SkillManager : MonoBehaviour
 
             // set save data
             GlobalData.instance.saveDataManager.SaveSkillData(skillType, inGameData);
+
+            if (isMaximumLevel)
+            {
+                slot.MaxStat();
+            }
         }
         else
         {
@@ -268,7 +319,7 @@ public class SkillManager : MonoBehaviour
     // 최대 레벨 도달 판단
     bool IsMaximumLevel(SkillData data, Skill_InGameData skill_InGameData)
     {
-        return skill_InGameData.level >= data.maxLevel;
+        return skill_InGameData.level == data.maxLevel;
     }
 
 

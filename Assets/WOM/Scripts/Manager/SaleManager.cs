@@ -13,9 +13,9 @@ public class SaleManager : MonoBehaviour
     void Start()
     {
         GetPlayer();
-        StartCoroutine( SandMessage());
+        StartCoroutine(SandMessage());
     }
-   
+
     void GetPlayer()
     {
         player = GlobalData.instance.player;
@@ -26,13 +26,13 @@ public class SaleManager : MonoBehaviour
     {
         saleStatMsgs.Enqueue(data);
     }
-        
+
 
     IEnumerator SandMessage()
     {
         while (true)
         {
-            if(saleStatMsgs.Count > 0)
+            if (saleStatMsgs.Count > 0)
             {
                 var data = saleStatMsgs.Dequeue();
                 yield return StartCoroutine(PurchaseStatByType(data.saleStatType));
@@ -41,14 +41,14 @@ public class SaleManager : MonoBehaviour
         }
     }
 
-    
+
     public IEnumerator PurchaseStatByType(SaleStatType statType)
     {
         // get current level & next statData by statType
         var payData = GetPayData(statType);
 
         // 최대 레벨 체크
-        if (payData.isValidMaximumLevel)
+        if (true)
         {
             //재화 : GOLD
             if (IsGoldItem(statType))
@@ -62,18 +62,22 @@ public class SaleManager : MonoBehaviour
                     // 데이터 적용
                     traningManager.SetInGameStatLevel(statType, payData.statData.level);
                     traningManager.SetInGameStatValue(statType, payData.statData.value);
-                    
+
                     // 세이브 데이터 업데이트
                     GlobalData.instance.saveDataManager.SetLevelByTraningType(statType, payData.statData.level);
 
+
+                    traningManager.SetUI_TraningSlot(statType);
+
                     // UI 적용
-                    if (payData.nextStatSaleData != null)
+                    if (payData.nextStatSaleData == null)
                     {
-                        traningManager.SetUI_TraningSlot(statType);
+                        traningManager.SetUI_Max(statType);
                     }
                     else // 최종레벨 도달
                     {
-                        Debug.Log("최종레벨 도달");
+                        //traningManager.SetUI_Max(statType);
+                        //Debug.Log("최종레벨 도달");
                     }
                 }
                 else
@@ -123,28 +127,33 @@ public class SaleManager : MonoBehaviour
         yield return null;
     }
 
-    (int level , StatSaleData statData, bool isValidMaximumLevel, StatSaleData nextStatSaleData) GetPayData( SaleStatType statType)
+    (int level, StatSaleData statData, bool isValidMaximumLevel, StatSaleData nextStatSaleData) GetPayData(SaleStatType statType)
     {
-        (int m_level, StatSaleData m_statData,bool m_isValidMaxLevel, StatSaleData m_nextStatData) items;
+        (int m_level, StatSaleData m_statData, bool m_isValidMaxLevel, StatSaleData m_nextStatData) items;
         var statDatas = GlobalData.instance.dataManager.GetSaleStatDataByType(statType);
         items.m_level = traningManager.GetInGameStatLevel(statType);
-    
+
         // 맥시멈 체크
+
+
+
         var lastData = statDatas.data.Last();
-        items.m_isValidMaxLevel =  lastData.level > items.m_level;
+        items.m_isValidMaxLevel = lastData.level == items.m_level;
+
+        Debug.Log($"lastData.level : {lastData.level} , items.m_level : {items.m_level} , items.m_isValidMaxLevel : {items.m_isValidMaxLevel}");
         if (items.m_isValidMaxLevel)
         {
-            items.m_statData = GetStatSaleData(statDatas, items.m_level + 1);
+            items.m_statData = lastData;
         }
         else
         {
-            items.m_statData = null;
+            items.m_statData = GetStatSaleData(statDatas, items.m_level + 1);
         }
 
-        
+
 
         // 다음 레벨 데이터 존재 하는지 체크
-        if(lastData.level > items.m_level+2)
+        if (!items.m_isValidMaxLevel)
         {
             items.m_nextStatData = GetStatSaleData(statDatas, items.m_level + 2);
         }
@@ -152,7 +161,7 @@ public class SaleManager : MonoBehaviour
         {
             items.m_nextStatData = null;
         }
-        
+
         return items;
     }
 
@@ -168,7 +177,7 @@ public class SaleManager : MonoBehaviour
     }
 
 
-    
+
 
 
 
@@ -186,11 +195,11 @@ public class SaleManager : MonoBehaviour
     }
 
 
-    bool IsValidMaximumLevel(SaleStatType statType ,int curLevel)
+    bool IsValidMaximumLevel(SaleStatType statType, int curLevel)
     {
         int maxumLevel = 100;
         return maxumLevel > curLevel;
     }
-    
+
 
 }

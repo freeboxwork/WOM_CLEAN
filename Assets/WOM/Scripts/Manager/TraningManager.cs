@@ -91,6 +91,13 @@ public class TraningManager : MonoBehaviour
             slot.SetTxtPower(txtPowerValue);
             slot.SetTxtCost(txtCostValue);
 
+            // max stat
+            var lastData = GlobalData.instance.dataManager.GetSaleStatDataByType(statType).data.Last();
+            if (inGameData.level == lastData.level)
+            {
+                SetUI_Max(statType);
+            }
+
             yield return null;
 
         }
@@ -171,6 +178,12 @@ public class TraningManager : MonoBehaviour
         // POWER TEXT
         var txtPowerValue = $"{inGameData.value} {inGameData.unitName}";
         slot.SetTxtPower(txtPowerValue);
+    }
+
+    public void SetUI_Max(SaleStatType statType)
+    {
+        var slot = GetTraningInSlotByType(statType);
+        slot.MaxStat();
     }
 
 

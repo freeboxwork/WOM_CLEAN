@@ -284,6 +284,8 @@ public class StatManager : MonoBehaviour
             insect.effectContoller.FireEffect(false);
 
 
+
+
         data.isSkilUsing = false;
         skill_UnionDamageUp = 0;
 
@@ -406,7 +408,7 @@ public class StatManager : MonoBehaviour
 
         // effect off!
         foreach (var insect in insects)
-            insect.effectContoller.FireEffect(false);
+            insect.effectContoller.ThunderEffect(false);
 
         data.isSkilUsing = false;
         skill_AllUnitCriticalChanceUp = 0;
@@ -414,6 +416,9 @@ public class StatManager : MonoBehaviour
         // set save data
         // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
         SetUsingSkillSaveData(skilType, false);
+
+
+
     }
 
 

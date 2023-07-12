@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -8,13 +6,13 @@ public class TraningSlot : MonoBehaviour
 {
     //level + sheet TrainingElementData : trainingName
     public TextMeshProUGUI txtInfo;
-    
+
     // Sheet 에서 value + unitName 
     public TextMeshProUGUI txtPower;
-    
+
     // 심볼 단위 구성
     public TextMeshProUGUI txtCost;
-         
+
     public Button btnBuy;
 
     public EnumDefinition.SaleStatType statType;
@@ -24,6 +22,10 @@ public class TraningSlot : MonoBehaviour
 
     public ParticleSystem effLevelUp;
 
+    public GameObject infoCommon;
+    public GameObject infoMax;
+
+
     public void Start()
     {
         SetBtnEvent();
@@ -31,7 +33,7 @@ public class TraningSlot : MonoBehaviour
 
     public void SetTxtInfo(string value)
     {
-        txtInfo.text = value;   
+        txtInfo.text = value;
     }
 
     public void SetTxtPower(string value)
@@ -54,7 +56,8 @@ public class TraningSlot : MonoBehaviour
 
     public void SetBtnEvent()
     {
-        btnBuy.onClick.AddListener(() => {
+        btnBuy.onClick.AddListener(() =>
+        {
 
             effLevelUp.Play();
 
@@ -66,7 +69,11 @@ public class TraningSlot : MonoBehaviour
         btnBuy.interactable = value;
     }
 
-
+    public void MaxStat()
+    {
+        infoCommon.SetActive(false);
+        infoMax.SetActive(true);
+    }
 
 
 

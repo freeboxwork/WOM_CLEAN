@@ -302,6 +302,8 @@ public class UnionManager : MonoBehaviour
         else
         {
             Debug.Log($"레벨업에 필요한 유니온이 부족합니다. {slot.unionData.name} _ {slot.inGameData.unionCount}");
+            // 유니온 부족 팝업
+            GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("", 20);
         }
         return isValidLevelUp;
     }

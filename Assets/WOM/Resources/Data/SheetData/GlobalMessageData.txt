@@ -159,6 +159,14 @@
       "message_kor": "리뷰를 남겨 주세요.",
       "message_eng": "Please leave a review.",
       "비고": ""
+    },
+    {
+      "id": 20,
+      "popupType": "message",
+      "title": "message",
+      "message_kor": "강화에 필요한 보유 유니온이 부족합니다.",
+      "message_eng": "You don't have enough union possession required for leveling up.",
+      "비고": ""
     }
   ]
 }

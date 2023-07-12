@@ -49,6 +49,7 @@ namespace ProjectGraphics
 
         public void StartLotteryAnimation(int[] unionIndex)
         {
+   
             //changed to image and title text
             titleText.text = "UNIONS";
             titleImage.sprite = unionTitle;

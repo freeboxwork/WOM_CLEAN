@@ -571,6 +571,8 @@ public class EventController : MonoBehaviour
         UtilityMethod.GetCustomTypeImageById(47).raycastTarget = true;
 
 
+
+
         // 황금돼지 활성화
         globalData.goldPigController.ExitOtherView();
 
@@ -626,7 +628,8 @@ public class EventController : MonoBehaviour
         MonsterUiReset();
 
         // 공격 가능 상태 변경
-        globalData.attackController.SetAttackableState(true);
+        if (globalData.uiController.isCastleOpen == false)
+            globalData.attackController.SetAttackableState(true);
     }
 
 
@@ -911,7 +914,7 @@ public class EventController : MonoBehaviour
 
         //팝업 닫기 버튼을 누를때까지 대기
         yield return new WaitUntil(() => dungeonMonsterPopupClose);
-     
+
         // 재화 획득 TODO: 재화 획득 연출
         AddDungeonMonsterKillReward(goodsType, totalCurrencyAmount);
 

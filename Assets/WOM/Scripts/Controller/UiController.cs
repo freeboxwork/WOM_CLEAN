@@ -46,6 +46,8 @@ public class UiController : MonoBehaviour
     public Button btnMainMenuClose;
     MenuPanelType curMenuPanelType = MenuPanelType.none;
 
+    public bool isCastleOpen = false;
+
     void Start()
     {
     }
@@ -337,16 +339,20 @@ public class UiController : MonoBehaviour
     public void EnableMainMenuCloseBtn(bool value)
     {
         btnMainMenuClose.image.raycastTarget = value;
+        btnMainMenuClose.image.enabled = value;
+
     }
 
     IEnumerator EnableCastlePanel()
     {
+
+        isCastleOpen = true;
         // 공격 불가능 상태 전환
         GlobalData.instance.attackController.SetAttackableState(false);
+
         // 버튼 클릭 안되게 수정
         UtilityMethod.EnableUIEventSystem(false);
 
-        GlobalData.instance.attackController.SetAttackableState(false);
         StartCoroutine(EnableCastle());
 
         // 트렌지션 효과
@@ -385,6 +391,7 @@ public class UiController : MonoBehaviour
     IEnumerator ExitCastlePanel()
     {
         UtilityMethod.EnableUIEventSystem(false);
+        isCastleOpen = false;
         // 화면전환 효과
         yield return StartCoroutine(GlobalData.instance.effectManager.EffTransitioEvolutionUpgrade(() =>
         {

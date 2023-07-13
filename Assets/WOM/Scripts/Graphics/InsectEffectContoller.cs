@@ -71,7 +71,7 @@ namespace ProjectGraphics
             if (Input.GetKeyDown(KeyCode.Y))
             {
                 test = !test;
-                FireEffect(test);
+                //FireEffect(test);
                 ThunderEffect(test);
             }
         }

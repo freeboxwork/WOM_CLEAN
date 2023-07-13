@@ -383,6 +383,9 @@ public class StatManager : MonoBehaviour
 
     public IEnumerator EnableSkill_AllUnitCriticalChanceUP()
     {
+
+        Debug.Log("EnableSkill_AllUnitCriticalChanceUP");
+
         var data = GetSkillData(SkillType.allUnitCriticalChanceUp);
         skill_AllUnitCriticalChanceUp = data.power;
         data.isSkilUsing = true;

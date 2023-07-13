@@ -917,45 +917,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2297338681190385852, guid: f2212ec6487b10143a452a8334123426, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3715924520997169486, guid: f2212ec6487b10143a452a8334123426, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 3715924520997169486, guid: f2212ec6487b10143a452a8334123426, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.45
-      objectReference: {fileID: 0}
-    - target: {fileID: 6805973550215894672, guid: f2212ec6487b10143a452a8334123426, type: 3}
-      propertyPath: m_SceneBindings.Array.size
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 6805973550215894672, guid: f2212ec6487b10143a452a8334123426, type: 3}
-      propertyPath: m_SceneBindings.Array.data[18].key
-      value: 
-      objectReference: {fileID: 8285152408508156179, guid: e6e51d1baee7f4243b76f087ebbc00a8, type: 2}
-    - target: {fileID: 6805973550215894672, guid: f2212ec6487b10143a452a8334123426, type: 3}
-      propertyPath: m_SceneBindings.Array.data[19].key
-      value: 
-      objectReference: {fileID: 4083926525419767982, guid: e6e51d1baee7f4243b76f087ebbc00a8, type: 2}
-    - target: {fileID: 6805973550215894672, guid: f2212ec6487b10143a452a8334123426, type: 3}
-      propertyPath: m_SceneBindings.Array.data[18].value
-      value: 
-      objectReference: {fileID: 980057901}
-    - target: {fileID: 6805973550215894672, guid: f2212ec6487b10143a452a8334123426, type: 3}
-      propertyPath: m_SceneBindings.Array.data[19].value
-      value: 
-      objectReference: {fileID: 980057902}
     - target: {fileID: 6805973550215894674, guid: f2212ec6487b10143a452a8334123426, type: 3}
       propertyPath: m_Name
       value: Intro
-      objectReference: {fileID: 0}
-    - target: {fileID: 6805973550215894674, guid: f2212ec6487b10143a452a8334123426, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6805973550215894675, guid: f2212ec6487b10143a452a8334123426, type: 3}
       propertyPath: m_RootOrder
@@ -1001,38 +965,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8688345416536332268, guid: f2212ec6487b10143a452a8334123426, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f2212ec6487b10143a452a8334123426, type: 3}
---- !u!1 &980057901 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8688345416536332268, guid: f2212ec6487b10143a452a8334123426, type: 3}
-  m_PrefabInstance: {fileID: 980057900}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &980057902
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 980057901}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1113021215
 GameObject:
   m_ObjectHideFlags: 0
@@ -1435,12 +1369,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -8875804998088276940, guid: b825fd2bd7e94a247811490bf2fd3f89, type: 3}
+  m_Sprite: {fileID: 3995485647003956174, guid: 66412f3ce33dca243b6b4c653062f1a7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 10.8, y: 19.2}
+  m_Size: {x: 38.4, y: 21.6}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

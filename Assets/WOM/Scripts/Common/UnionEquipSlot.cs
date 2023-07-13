@@ -52,6 +52,10 @@ public class UnionEquipSlot : MonoBehaviour
         unionSlot.unionEquipType = EnumDefinition.UnionEquipType.Equipped;
         unionSlot.SetUITxtUnionEquipState();
     }
+    void SetEquitSlot()
+    {
+        unionSlot.SetEquipSlot(this);
+    }
 
     public void EquipUnion(UnionSlot _unionSlot)
     {
@@ -59,16 +63,18 @@ public class UnionEquipSlot : MonoBehaviour
         {
             unionSlot.unionEquipType = EnumDefinition.UnionEquipType.NotEquipped;
             unionSlot.SetUITxtUnionEquipState();
-            unionSlot.SetEquipSlot(this);
+            unionSlot.SetEquipSlot(null);
         }
 
         unionSlot = _unionSlot;
         SetUI();
+        SetEquitSlot();
     }
 
     public void UnEquipSlot()
     {
         unionSlot.unionEquipType = EnumDefinition.UnionEquipType.NotEquipped;
+        unionSlot.SetUITxtUnionEquipState();
         unionSlot.SetEquipSlot(null);
         unionSlot = null;
         imgUnionFace.sprite = spriteUnionEmpty;

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UnionSpwanTimer : MonoBehaviour
@@ -10,19 +9,19 @@ public class UnionSpwanTimer : MonoBehaviour
     public int timerIndex;
 
     UnionSlot unionSlot;
-    
+
 
     void Start()
     {
-        
+
     }
 
     public void SetSpwanTime(float time)
     {
-        spwanTime = time;   
+        spwanTime = time;
     }
-    
-    public void TimerStart( UnionSlot unionSlot )
+
+    public void TimerStart(UnionSlot unionSlot)
     {
         this.unionSlot = unionSlot;
         isTimerReady = true;
@@ -47,24 +46,24 @@ public class UnionSpwanTimer : MonoBehaviour
             // set union data
             var union = GlobalData.instance.insectManager.GetDisableUnion();
             union.inGameData = unionSlot.inGameData;
-            
+
             // set union face
             var sprite = spwanManager.spriteFileData.GetSpriteData(unionSlot.inGameData.unionIndex);
             union.SetInsectFace(sprite);
-            
+
             // set position
             var randomPos = spwanManager.GetRandomPos();
             union.gameObject.transform.position = randomPos;
-            
+
             // spwan time 대기
             yield return new WaitForSeconds(spwanTime);
 
             // enable insect
             union.gameObject.SetActive(true);
 
-            Debug.Log($"타이머 인덱스 : {timerIndex} _ 스폰 유니온 : {sprite[0].name} _ 스폰 타임 : {spwanTime}");
+            // Debug.Log($"타이머 인덱스 : {timerIndex} _ 스폰 유니온 : {sprite[0].name} _ 스폰 타임 : {spwanTime}");
 
-        
+
         }
     }
 

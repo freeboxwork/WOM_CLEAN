@@ -288,21 +288,33 @@ public class SaveDataManager : MonoBehaviour
         union.isEquip = unionEquipSlot != null;
 
         // union.isEquip 을 로그로 출력 하는 코드
-        Debug.Log($"SaveUnionEquipSlotData => union.isEquip : {union.isEquip}, unionEquipSlot : {unionEquipSlot}");
+        // Debug.Log($"union id : {union.unionId}, => union.isEquip : {union.isEquip}, unionEquipSlot : {unionEquipSlot.slotIndex}");
 
+        var equipSlotID = unionEquipSlot != null ? unionEquipSlot.slotIndex : 999;
 
-        union.equipSlotId = unionEquipSlot?.slotIndex ?? 999;
+        union.equipSlotId = equipSlotID;//unionEquipSlot?.slotIndex ?? 999;
     }
 
-
+    public void SaveUnionUnEquioSlot(UnionSlot unionSlot)
+    {
+        var union = GetSaveDataUnion(unionSlot);
+        union.isEquip = false;
+        union.equipSlotId = 999;
+    }
 
 
     public SaveDataUnion GetSaveDataUnion(UnionSlot unionSlot)
     {
         var inGmaeData = unionSlot.inGameData;
         var unionID = inGmaeData.unionIndex;
-        var union = GetSaveDataByType(saveDataTotal.saveDataUnions.unions, f => f.unionId == unionID, $"유니온 ID : {unionID}");
+        var union = GetUnionData(unionID);
+        Debug.Log($"유니온 ID : {unionID}, union : {union}");
         return union;
+    }
+
+    SaveDataUnion GetUnionData(int unionId)
+    {
+        return saveDataTotal.saveDataUnions.unions.FirstOrDefault(f => f.unionId == unionId);
     }
 
 

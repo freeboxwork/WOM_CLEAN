@@ -85,6 +85,15 @@ public class UnionSlot : MonoBehaviour
 
     public void SetEquipSlot(UnionEquipSlot unionEquipSlot)
     {
+        if (unionEquipSlot != null)
+        {
+            Debug.Log("this!?" + unionEquipSlot.slotIndex);
+        }
+        else
+        {
+            Debug.Log("slot null");
+        }
+
         this.unionEquipSlot = unionEquipSlot;
         // set save data
         GlobalData.instance.saveDataManager.SaveUnionEquipSlotData(this, unionEquipSlot);

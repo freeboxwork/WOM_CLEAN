@@ -35,12 +35,28 @@ public class SkillBtn : MonoBehaviour
     */
 
     public bool skillReady = false;
+    public bool skillAddValue = false;
+    public bool isCoolTime = false;
 
     float coolTimeWait;
+    float skillLeftTime;
+    float skillLeftCoolTime;
 
     void Start()
     {
         SetBtnEvent();
+    }
+
+    void OnEnable()
+    {
+        if (skillAddValue)
+        {
+            StartCoroutine(ReloadSkill_Cor());
+        }
+        if (skillAddValue == false && isCoolTime)
+        {
+            StartCoroutine(ReloadSkillCoolTime());
+        }
     }
 
     void SetBtnEvent()
@@ -61,7 +77,7 @@ public class SkillBtn : MonoBehaviour
         txtTime.text = answer;
     }
 
-    public bool skillAddValue = false;
+
 
     IEnumerator UsingKill_Cor()
     {
@@ -89,13 +105,22 @@ public class SkillBtn : MonoBehaviour
             // 일일 퀘스트 완료 : 스킬 사용
             EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.useSkill);
 
-
-
             txtTime.enabled = false;
             skillAddValue = true;
             txtTimeAnim.enabled = true;
             StartCoroutine(animCont.UI_TextAnim(txtTimeAnim, data.duaration, 0));
-            yield return StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 0, 1));
+            StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 0, 1));
+
+            // 스킬 사용 대기
+            float calcSkillTime = data.duaration;
+            var skillStartTime = Time.time;
+            skillLeftTime = calcSkillTime;
+            while (skillLeftTime > 0)
+            {
+                skillLeftTime = calcSkillTime - (Time.time - skillStartTime);
+                yield return null;
+            }
+
             txtTimeAnim.enabled = false;
             skillAddValue = false;
             txtTime.enabled = true;
@@ -111,6 +136,7 @@ public class SkillBtn : MonoBehaviour
             StartCoroutine(animCont.UI_TextAnim(txtTime, animDataReloadSkill.animDuration, 0));
 
             // 쿨타임 대기 및 데이터 저장 
+            isCoolTime = true;
             float calcCooltime = animDataReloadSkill.animDuration;
             var startTime = Time.time;
             coolTimeWait = calcCooltime;
@@ -124,6 +150,8 @@ public class SkillBtn : MonoBehaviour
 
             GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, 0);
             GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, false);
+
+            isCoolTime = false;
             txtTime.enabled = false;
             coolTimeWait = 0;
             btnSkill.enabled = true;
@@ -133,6 +161,90 @@ public class SkillBtn : MonoBehaviour
         yield return null;
     }
 
+
+    IEnumerator ReloadSkill_Cor()
+    {
+
+        //StartCoroutine(animCont.UI_TextAnim(txtTimeAnim, skillLeftTime, 0));
+        StartCoroutine(animCont.UI_TextAnim_Reload(txtTimeAnim, skillLeftTime, 0, skillLeftTime));
+        StartCoroutine(animCont.UI_ImageFillAnim(imgSkillFront, 0, 1, skillLeftTime));
+
+        // 스킬 사용 대기
+        float calcSkillTime = skillLeftTime;
+        var skillStartTime = Time.time;
+        while (skillLeftTime > 0)
+        {
+            skillLeftTime = calcSkillTime - (Time.time - skillStartTime);
+            yield return null;
+        }
+
+        txtTimeAnim.enabled = false;
+        skillAddValue = false;
+        txtTime.enabled = true;
+
+        imgSkillBack.color = colorWhite;
+        imgSkillFront.color = colorDeem;
+        imgSkillFront.fillClockwise = false;
+        animCont.animData = animDataReloadSkill;
+
+        // 쿨타임
+        GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, true);
+        StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 1, 0));
+        StartCoroutine(animCont.UI_TextAnim(txtTime, animDataReloadSkill.animDuration, 0));
+
+        // 쿨타임 대기 및 데이터 저장 
+        isCoolTime = true;
+        float calcCooltime = animDataReloadSkill.animDuration;
+        var startTime = Time.time;
+        coolTimeWait = calcCooltime;
+        while (coolTimeWait > 0)
+        {
+            coolTimeWait = calcCooltime - (Time.time - startTime);
+            GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, coolTimeWait);
+            //Debug.Log("skill coolTimeWait : " + coolTimeWait);
+            yield return null;
+        }
+
+        GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, 0);
+        GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, false);
+
+        isCoolTime = false;
+        txtTime.enabled = false;
+        coolTimeWait = 0;
+        btnSkill.enabled = true;
+        skillReady = true;
+    }
+
+    IEnumerator ReloadSkillCoolTime()
+    {
+        yield return null;
+
+        // 쿨타임
+        StartCoroutine(animCont.UI_ImageFillAnim(imgSkillFront, 1, 0, coolTimeWait));
+        txtTime.enabled = true;
+        StartCoroutine(animCont.UI_TextAnim_Reload(txtTime, coolTimeWait, 0, coolTimeWait));
+
+        // 쿨타임 대기 및 데이터 저장 
+
+        float calcCooltime = coolTimeWait;
+        var startTime = Time.time;
+        while (coolTimeWait > 0)
+        {
+            coolTimeWait = calcCooltime - (Time.time - startTime);
+            GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, coolTimeWait);
+            //Debug.Log("skill coolTimeWait : " + coolTimeWait);
+            yield return null;
+        }
+
+        GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, 0);
+        GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, false);
+
+        isCoolTime = false;
+        txtTime.enabled = false;
+        coolTimeWait = 0;
+        btnSkill.enabled = true;
+        skillReady = true;
+    }
 
 
     public void ReloadCoolTime()

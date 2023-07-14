@@ -146,47 +146,65 @@ public class LotteryManager : MonoBehaviour
 
     public IEnumerator CardOpen(int roundCount, UnityAction gameEndEvent)
     {
-        // 닫기 버튼 비활성화
-        UtilityMethod.GetCustomTypeBtnByID(44).interactable = false;
-
-        // 다시 뽑기 버튼 비활성화
-        UtilityMethod.SetBtnsInteractableEnable(new List<int> { 17, 18, 19 }, false);
-
-        // 스킵 버튼 활성화
-        UtilityMethod.SetBtnInteractableEnable(33, true);
-
-        yield return StartCoroutine(MakeCardOption(roundCount));
-
-        //yield return new WaitForSeconds(0.3f); // 05초 대기 ( 연출 )
-
-        yield return StartCoroutine(CardsOpenEffect());
-
-        // 다시 뽑기 버튼 활성화
-        UtilityMethod.SetBtnsInteractableEnable(new List<int> { 17, 18, 19 }, true);
-
-        // 스킵 버튼 비활성화
-        UtilityMethod.SetBtnInteractableEnable(33, false);
-
-        // 닫기 버튼 활성화
-        UtilityMethod.GetCustomTypeBtnByID(44).interactable = true;
-
-        curLotteryCount += roundCount;
-        totalDrawCount += roundCount;
-        // 소환등급 레벨업 체크 및 UI 업데이트
-        if (curLotteryCount >= totalLotteryCount)
+        if (IsValidGemCount(roundCount))
         {
-            ++unionGradeLevel;
-            SetSummonGradeData(GlobalData.instance.dataManager.GetSummonGradeDataByLevel(unionGradeLevel));
-            SetGambleData(GlobalData.instance.dataManager.GetUnionGambleDataBySummonGrade(unionGradeLevel));
+
+            // pay gem
+            GlobalData.instance.player.PayGem(roundCount);
+
+            // 닫기 버튼 비활성화
+            UtilityMethod.GetCustomTypeBtnByID(44).interactable = false;
+
+            // 다시 뽑기 버튼 비활성화
+            UtilityMethod.SetBtnsInteractableEnable(new List<int> { 17, 18, 19 }, false);
+
+            // 스킵 버튼 활성화
+            UtilityMethod.SetBtnInteractableEnable(33, true);
+
+            yield return StartCoroutine(MakeCardOption(roundCount));
+
+            //yield return new WaitForSeconds(0.3f); // 05초 대기 ( 연출 )
+
+            yield return StartCoroutine(CardsOpenEffect());
+
+            // 다시 뽑기 버튼 활성화
+            UtilityMethod.SetBtnsInteractableEnable(new List<int> { 17, 18, 19 }, true);
+
+            // 스킵 버튼 비활성화
+            UtilityMethod.SetBtnInteractableEnable(33, false);
+
+            // 닫기 버튼 활성화
+            UtilityMethod.GetCustomTypeBtnByID(44).interactable = true;
+
+            curLotteryCount += roundCount;
+            totalDrawCount += roundCount;
+            // 소환등급 레벨업 체크 및 UI 업데이트
+            if (curLotteryCount >= totalLotteryCount)
+            {
+                ++unionGradeLevel;
+                SetSummonGradeData(GlobalData.instance.dataManager.GetSummonGradeDataByLevel(unionGradeLevel));
+                SetGambleData(GlobalData.instance.dataManager.GetUnionGambleDataBySummonGrade(unionGradeLevel));
+            }
+            else
+            {
+                PopupUIUpdate();
+            }
+
+            Debug.Log("뽑기 진행 수 : " + curLotteryCount);
+
+            gameEndEvent.Invoke();
         }
         else
         {
-            PopupUIUpdate();
+            // message popup (보석이 부족합니다)
+            GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("Message", 3);
         }
 
-        Debug.Log("뽑기 진행 수 : " + curLotteryCount);
+    }
 
-        gameEndEvent.Invoke();
+    bool IsValidGemCount(int lotteryCount)
+    {
+        return GlobalData.instance.player.gem > lotteryCount;
     }
 
     // UI 업데이트

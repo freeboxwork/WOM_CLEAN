@@ -125,6 +125,9 @@ public class DNAManager : MonoBehaviour
             // 연출을 위한 DNA TYPES ( 중복 포함 )
             List<EnumDefinition.DNAType> dnaEffectTypes = new List<EnumDefinition.DNAType>();
 
+            // 다시 뽑기 버튼 비활성화
+            UtilityMethod.SetBtnsInteractableEnable(new List<int> { 27, 28, 29, 44 }, false);
+
 
             for (int i = 0; i < gameCount; i++)
             {
@@ -154,16 +157,26 @@ public class DNAManager : MonoBehaviour
 
             // 연출 등장
             lotteryAnimCont.gameObject.SetActive(true);
-            lotteryAnimCont.StartDNASlotAnimation(GetTypeListToInt(dnaEffectTypes));
+
+            yield return new WaitForEndOfFrame();
+
+            yield return StartCoroutine(lotteryAnimCont.ShowDNAIconSlotCardOpenProcess(GetTypeListToInt(dnaEffectTypes)));
+
+            // 다시 뽑기 버튼 활성화
+            UtilityMethod.SetBtnsInteractableEnable(new List<int> { 27, 28, 29, 44 }, true);
+
 
             // 뽑기버튼 비활성화
             EnableValidButtons();
+            yield return new WaitForSeconds(0.1f);
+
         }
         else
         {
-            // message popup (골드가 부족합니다)
+            // message popup (보석이 부족합니다)
             GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("Message", 3);
         }
+
 
         yield return new WaitForEndOfFrame();
 

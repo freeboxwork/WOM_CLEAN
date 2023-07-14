@@ -135,6 +135,7 @@ public class PlayerDataManager : MonoBehaviour
             saveData.isFirstConnect = false;
             saveData.stageIdx = saveDataTotal.saveDataStage.stageLevel;
             saveData.gold = saveDataTotal.saveDataGoods.gold;
+            saveData.gem = saveDataTotal.saveDataGoods.gem;
             saveData.bone = saveDataTotal.saveDataGoods.bone;
             saveData.dice = saveDataTotal.saveDataGoods.dice;
             saveData.coal = saveDataTotal.saveDataGoods.coal;

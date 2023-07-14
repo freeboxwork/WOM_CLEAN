@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 
 namespace ProjectGraphics
 {
@@ -104,17 +103,23 @@ namespace ProjectGraphics
             isSkip = false;
         }
 
-        public void StartDNASlotAnimation(int[] u)
+        // public void StartDNASlotAnimation(int[] u)
+        // {
+        //     titleImage.sprite = dnaTitle;
+
+        //     foreach (var slot in slots) slot.gameObject.SetActive(false);
+        //     StartCoroutine(ShowDNAIconSlotCardOpenProcess(u));
+        // }
+
+        //슬롯 형태 확인 하고, 백 이미지 지우고 아이콘 이미지만 처리 이펙트 컬러 통일.
+        public IEnumerator ShowDNAIconSlotCardOpenProcess(int[] u)
         {
+
             titleImage.sprite = dnaTitle;
 
             foreach (var slot in slots) slot.gameObject.SetActive(false);
-            StartCoroutine(ShowDNAIconSlotCardOpenProcess(u));
-        }
+            //StartCoroutine(ShowDNAIconSlotCardOpenProcess(u));
 
-        //슬롯 형태 확인 하고, 백 이미지 지우고 아이콘 이미지만 처리 이펙트 컬러 통일.
-        IEnumerator ShowDNAIconSlotCardOpenProcess(int[] u)
-        {
             yield return new WaitForSeconds(0.05f);
 
             for (int i = 0; i < u.Length; i++)

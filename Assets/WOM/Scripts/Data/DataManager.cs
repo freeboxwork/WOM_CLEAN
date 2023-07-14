@@ -446,6 +446,10 @@ public class DataManager : MonoBehaviour
         return totalCurrencyAmount;
     }
 
+    public UnionData GetUnionDataByIdx(int idx)
+    {
+        return unionDatas.data.FirstOrDefault(f => f.unionIndex == idx);
+    }
 
     DungeonMonsterData GetDungeonMonsterDataByLevel(DungeonMonsterDatas monsterDatas, int level)
     {

@@ -236,7 +236,18 @@ public class UnionManager : MonoBehaviour
 
     public void AddUnion(int unionId)
     {
+        var data = GlobalData.instance.dataManager.GetUnionDataByIdx(unionId);
         var slot = GetUnionSlotByID(unionId);
+
+        // 유니온 최대 레벨 계산
+        var currentCount = slot.inGameData.unionCount;
+        var maxCount = data.maxLevel;
+        if (currentCount >= maxCount)
+        {
+            Debug.Log("유니온 최대 레벨");
+            return;
+        }
+
         if (slot.inGameData.isUnlock == false)
         {
             slot.EnableSlot();

@@ -17,7 +17,6 @@ namespace ProjectGraphics
 
         private bool isSkip = false;
 
-        public TextMeshProUGUI titleText;
         public Image titleImage;
         public Sprite unionTitle;
         public Sprite dnaTitle;
@@ -63,7 +62,6 @@ namespace ProjectGraphics
         public IEnumerator ShowUnionSlotCardOpenProcess(int[] u)
         {
             //changed to image and title text
-            titleText.text = "UNIONS";
             titleImage.sprite = unionTitle;
 
             yield return new WaitForSeconds(0.05f);
@@ -108,7 +106,6 @@ namespace ProjectGraphics
 
         public void StartDNASlotAnimation(int[] u)
         {
-            titleText.text = "DNA";
             titleImage.sprite = dnaTitle;
 
             foreach (var slot in slots) slot.gameObject.SetActive(false);

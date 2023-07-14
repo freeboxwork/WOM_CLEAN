@@ -23,7 +23,7 @@ public class IntroTimeLineController : MonoBehaviour
     float t = 0.0f;
     void Update()
     {
-        if (!dontTouch && currentTimeIndex < (cutFrames.Length -1))
+        if (!dontTouch && currentTimeIndex != (cutFrames.Length -1))
         {
             if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.P))
             {

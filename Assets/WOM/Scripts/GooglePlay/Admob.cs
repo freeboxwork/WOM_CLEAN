@@ -1,252 +1,123 @@
-﻿// using System;
-// using System.Collections;
-// using UnityEngine;
-// using GoogleMobileAds.Api;
-// using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using UnityEngine;
+using GoogleMobileAds.Api;
+using System.Collections.Generic;
 
-// public class Admob : MonoBehaviour
-// {
-//     private int rewardAmount;
-
-//     private Action<bool> callBack;
-
-//     private bool isLoading = false;
-//     private RewardedAd rewardBasedVideo;
-//     private bool curVideoCompleteReward = false;
-
-//     //InterstitialAd interstitialAd;//전면광고
-//     //private BannerView banner;//배너광고
-
-//     private static Admob instance;
-
-//     public static Admob Instance
-//     {
-//         get
-//         {
-//             return instance;
-//         }
-//     }
-
-//     private void Awake()
-//     {
-//         instance = this;
-//     }
-
-//     private void Start()
-//     {
-// //#if !UNITY_EDITOR
-
-//         #region 전면광고
-
-//         //interstitialAd.OnAdLoaded += HandleOnAdLoaded;
-//         //interstitialAd.OnAdFailedToLoad += HandleOnAdFailedToLoad;
-//         //interstitialAd.OnAdOpening += HandleOnAdOpened;
-//         //interstitialAd.OnAdClosed += HandleOnAdClosed;
-//         //interstitialAd.OnAdLeavingApplication += HandleOnAdLeavingApplication;
-
-//         #endregion 전면광고
-
-//         #region 배너 광고
-
-//         //RequestBanner();
-//         //banner.Hide();
-
-//         #endregion 배너 광고
-//         //this.rewardBasedVideo = new RewardedAd("ca-app-pub-3940256099942544/5224354917");//테스트 광고 ID
-//         //this.rewardBasedVideo = new RewardedAd("ca-app-pub-5121994233839369/2664945728");//실제 광고
-//         // Create an empty ad request.
-//         //AdRequest request = new AdRequest.Builder().Build();
+public class Admob : MonoBehaviour
+{
+    // These ad units are configured to always serve test ads.
+    private string _adUnitId = "ca-app-pub-3940256099942544/5224354917";
 
 
-//         LoadRewardAdvertise();
-//         // Load the rewarded ad with the request.
-//         //this.rewardBasedVideo.LoadAd(request);
+    private RewardedAd rewardedAd;
 
-//         // Called when an ad request has successfully loaded.
-//         //this.rewardBasedVideo.OnAdLoaded += HandleRewardedAdLoaded;
-//         // Called when an ad request failed to load.
-//         this.rewardBasedVideo.OnAdFailedToLoad += HandleRewardedAdFailedToLoad;
-//         // Called when an ad is shown.
-//         this.rewardBasedVideo.OnAdOpening += HandleRewardedAdOpening;
-//         // Called when an ad request failed to show.
-//         this.rewardBasedVideo.OnAdFailedToShow += HandleRewardedAdFailedToShow;
-//         // Called when the user should be rewarded for interacting with the ad.
-//         //this.rewardBasedVideo.OnUserEarnedReward += HandleUserEarnedReward;
-//         // Called when the ad is closed.
-//         //this.rewardBasedVideo.OnAdClosed += HandleRewardedAdClosed;
+    /// <summary>
+    /// Loads the rewarded ad.
+    /// </summary>
+    public void LoadRewardedAd()
+    {
+        // Clean up the old ad before loading a new one.
+        if (rewardedAd != null)
+        {
+            rewardedAd.Destroy();
+            rewardedAd = null;
+        }
 
-//         //Test Device
-//         List<string> deviceIds = new List<string>();
-//         deviceIds.Add("73109040666EEABC91E01A2E8CA04A19");
-//         RequestConfiguration requestConfiguration = new RequestConfiguration.Builder().SetTestDeviceIds(deviceIds).build();
-//         MobileAds.SetRequestConfiguration(requestConfiguration);
+        Debug.Log("Loading the rewarded ad.");
 
+        // create our request used to load the ad.
+        var adRequest = new AdRequest();
+        adRequest.Keywords.Add("unity-admob-sample");
 
-//         //#endif
-//     }
-//     private void OnApplicationFocus(bool focus)
-//     {
-//         if (focus)
-//         {
-//             //실제 보상 처리
-//             if (curVideoCompleteReward)
-//             {
-//                 callBack?.Invoke(curVideoCompleteReward);
-//                 callBack = null;
-//                 curVideoCompleteReward = false;
-//             }
-//         }
-//     }
-//     //배너광고 로드
-//     //private void RequestBanner()
-//     //{
-//     //    string AdUnitID = "ca-app-pub-5121994233839369/6130327025";
+        // send the request to load the ad.
+        RewardedAd.Load(_adUnitId, adRequest,
+            (RewardedAd ad, LoadAdError error) =>
+            {
+                // if error is not null, the load request failed.
+                if (error != null || ad == null)
+                {
+                    Debug.LogError("Rewarded ad failed to load an ad " +
+                                   "with error : " + error);
+                    return;
+                }
 
-//     //    banner = new BannerView(AdUnitID, AdSize.Banner, AdPosition.TopRight);
+                Debug.Log("Rewarded ad loaded with response : "
+                          + ad.GetResponseInfo());
 
-//     //    AdRequest request = new AdRequest.Builder().Build();
+                rewardedAd = ad;
+            });
+    }
 
-//     //    banner.LoadAd(request);
-//     //}
+    public void ShowRewardedAd()
+    {
+        const string rewardMsg =
+            "Rewarded ad rewarded the user. Type: {0}, amount: {1}.";
 
-//     //유니티애즈
-//     //private void HandleShowResult(ShowResult result)
-//     //{
-//     //    switch (result)
-//     //    {
-//     //        case ShowResult.Finished:
-//     //            Debug.Log("The ad was successfully shown.");
-//     //            StartCoroutine("AdmobReward");
-//     //            break;
+        if (rewardedAd != null && rewardedAd.CanShowAd())
+        {
+            rewardedAd.Show((Reward reward) =>
+            {
+                // TODO: Reward the user.
+                Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
+            });
+        }
+    }
 
-//     //        case ShowResult.Skipped:
-//     //            Debug.Log("The ad was skipped before reaching the end.");
-//     //            break;
+    private void RegisterEventHandlers(RewardedAd ad)
+    {
+        // Raised when the ad is estimated to have earned money.
+        ad.OnAdPaid += (AdValue adValue) =>
+        {
+            Debug.Log(String.Format("Rewarded ad paid {0} {1}.",
+                adValue.Value,
+                adValue.CurrencyCode));
+        };
+        // Raised when an impression is recorded for an ad.
+        ad.OnAdImpressionRecorded += () =>
+        {
+            Debug.Log("Rewarded ad recorded an impression.");
+        };
+        // Raised when a click is recorded for an ad.
+        ad.OnAdClicked += () =>
+        {
+            Debug.Log("Rewarded ad was clicked.");
+        };
+        // Raised when an ad opened full screen content.
+        ad.OnAdFullScreenContentOpened += () =>
+        {
+            Debug.Log("Rewarded ad full screen content opened.");
+        };
+        // Raised when the ad closed full screen content.
+        ad.OnAdFullScreenContentClosed += () =>
+        {
+            Debug.Log("Rewarded ad full screen content closed.");
+        };
+        // Raised when the ad failed to open full screen content.
+        ad.OnAdFullScreenContentFailed += (AdError error) =>
+        {
+            Debug.LogError("Rewarded ad failed to open full screen content " +
+                           "with error : " + error);
+        };
+    }
+    private void RegisterReloadHandler(RewardedAd ad)
+    {
+        // Raised when the ad closed full screen content.
+        ad.OnAdFullScreenContentClosed += () =>
+        {
+            Debug.Log("Rewarded Ad full screen content closed.");
 
-//     //        case ShowResult.Failed:
-//     //            Debug.LogError("The ad failed to be shown.");
-//     //            break;
-//     //    }
-//     //}
+            // Reload the ad so that we can show another as soon as possible.
+            LoadRewardedAd();
+        };
+        // Raised when the ad failed to open full screen content.
+        ad.OnAdFullScreenContentFailed += (AdError error) =>
+        {
+            Debug.LogError("Rewarded ad failed to open full screen content " +
+                           "with error : " + error);
 
-//     ////전면 광고 로드
-//     //void LoadInterAdvertise()
-//     //{
-//     //    //string adUnitId = "ca-app-pub-5121994233839369/9861757126";
-//     //    //테스트 전면광고 ID
-//     //    string adUnitId = "ca-app-pub-3940256099942544/1033173712";
-
-//     //    interstitialAd = new InterstitialAd(adUnitId);
-//     //    AdRequest interRequest = new AdRequest.Builder().Build();
-//     //    interstitialAd.LoadAd(interRequest);
-
-//     //}
-
-//     //public void AdmobInterAdShow()
-//     //{
-//     //    if (interstitialAd.IsLoaded())
-//     //        interstitialAd.Show();
-//     //}
-
-//     //    public void ShowBanner()
-//     //    {
-//     //        banner.Show();
-//     //    }
-
-//     private void LoadRewardAdvertise()
-//     {
-//         //보상형 동영상 테스트 ID
-//         //this.rewardBasedVideo = new RewardedAd("ca-app-pub-3940256099942544/5224354917");
-//         this.rewardBasedVideo = new RewardedAd("ca-app-pub-5121994233839369/2664945728");//실제 광고
-//         this.rewardBasedVideo.OnAdLoaded += HandleRewardedAdLoaded;
-//         this.rewardBasedVideo.OnUserEarnedReward += HandleUserEarnedReward;
-//         this.rewardBasedVideo.OnAdClosed += HandleRewardedAdClosed;
-
-//         // Create an empty ad request.
-//         AdRequest request = new AdRequest.Builder().Build();
-//         // Load the rewarded ad with the request.
-//         this.rewardBasedVideo.LoadAd(request);
-
-//     }
-
-//     public void AdmobShow(Action<bool> action = null)
-//     {
-//         if (action != null)
-//             callBack = action;
-
-//         if (GameDataManager.instance.GetSaveData.productPackage.buyAdPassPackage)
-//         {
-
-//             callBack?.Invoke(true);
-//             callBack = null;
-//             //Debug.Log("광고패스 발동!");
-//             return;
-//         }
-
-//         if (isLoading) return;
-//         isLoading = true;
-
-        
-
-
-//         //Admob 광고가 로드 되어있다면
-//         if (rewardBasedVideo.IsLoaded())
-//         {
-//             rewardBasedVideo.Show();
-//         }
-//         else
-//         {
-//             UIController.instance.SendPopupMessage(AlarmTYPE.NOT_LOAD_AD);
-//         }
-
-//         isLoading = false;
-//     }
-
-//     public void HandleRewardedAdLoaded(object sender, EventArgs args)
-//     {
-//         MonoBehaviour.print("HandleRewardedAdLoaded event received");
-//     }
-
-//     public void HandleRewardedAdFailedToLoad(object sender, AdFailedToLoadEventArgs args)
-//     {
-//         MonoBehaviour.print(
-//             "HandleRewardedAdFailedToLoad event received with message: "
-//                              + args.ToString());
-//         LoadRewardAdvertise();
-//     }
-
-//     public void HandleRewardedAdOpening(object sender, EventArgs args)
-//     {
-//         MonoBehaviour.print("HandleRewardedAdOpening event received");
-//     }
-
-//     public void HandleRewardedAdFailedToShow(object sender, AdErrorEventArgs args)
-//     {
-//         MonoBehaviour.print(
-//             "HandleRewardedAdFailedToShow event received with message: "
-//                              + args.AdError);
-//     }
-
-//     public void HandleRewardedAdClosed(object sender, EventArgs args)
-//     {
-//         MonoBehaviour.print("HandleRewardedAdClosed event received");
-//         //애드몹은 광고 시청 후 ADS와 다르게 리퀘스트를 다시 빌드하여 로드해야한다.
-//         LoadRewardAdvertise();
-//     }
-
-//     public void HandleUserEarnedReward(object sender, Reward args)
-//     {
-//         MonoBehaviour.print(
-//             "HandleRewardedAdRewarded event received for "
-//                         + args.Amount);
-//         //광고 보상 받을 수 있게 flag 처리 
-//         curVideoCompleteReward = true;
-//     }
-
-
-
-
-
- 
-
-// }
+            // Reload the ad so that we can show another as soon as possible.
+            LoadRewardedAd();
+        };
+    }
+}

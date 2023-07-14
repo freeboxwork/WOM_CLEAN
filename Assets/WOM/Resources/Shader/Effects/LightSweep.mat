@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: LightSweep
-  m_Shader: {fileID: -6465566751694194690, guid: 176cb1e1239449e489f0dab28feef986, type: 3}
+  m_Shader: {fileID: 4800000, guid: 6f90c35187d414e4a88d25ee8626fc20, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -20,6 +20,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_2ecfd9af9aa54d04b781da4cb6247db1_Texture_1:
         m_Texture: {fileID: 2800000, guid: fdc49c528c05cb2429296ec2e5fd90b1, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -46,7 +50,15 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _ColorMask: 15
     - _Power: 1
+    - _Stencil: 0
+    - _StencilComp: 8
+    - _StencilOp: 0
+    - _StencilReadMask: 255
+    - _StencilWriteMask: 255
     - _Sweep: 1
-    m_Colors: []
+    m_Colors:
+    - _ClipRect: {r: -32767, g: -32767, b: 32767, a: 32767}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

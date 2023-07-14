@@ -102,7 +102,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: bef97d45548138b459d3736d332c56aa, type: 3}
   - {fileID: 21300000, guid: 5bd8555513722d2468d4350778716d69, type: 3}
   - {fileID: 21300000, guid: 58ecd765d0e461f45810a70f0d8d64e1, type: 3}
-  - {fileID: 21300000, guid: f6ef09858d7606d45992714963ff40d3, type: 3}
   - {fileID: 21300000, guid: d624e9950c7e3c44188bd7bf89e126b3, type: 3}
   - {fileID: 21300000, guid: 871cb5a5f3d3b85438ea46efeec7d0b2, type: 3}
   - {fileID: 21300000, guid: 6dabe6d57c9063b40949a33c26fe949d, type: 3}
@@ -244,7 +243,6 @@ SpriteAtlas:
   - Icon_Grade_04
   - Icon_GoldBoss_OutLine
   - EmptyBlueBgBox_LightEdge
-  - Btn_MainButton_Gray
   - U_Frame_OutLine
   - Icon_DamageUP
   - U_Frame_Hero
@@ -325,7 +323,7 @@ SpriteAtlas:
   - Castle
   - Icon_Grade_01
   - DNA_goldMonsterBonus
-  - DNA_BossDamage
+  - DNA_bossDamage
   - U_Frame_High
   - DNA_goldPig__
   - Btn_MainButton_Green

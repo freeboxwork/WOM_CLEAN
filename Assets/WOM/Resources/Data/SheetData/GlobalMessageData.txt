@@ -167,6 +167,14 @@
       "message_kor": "강화에 필요한 보유 유니온이 부족합니다.",
       "message_eng": "You don't have enough union possession required for leveling up.",
       "비고": ""
+    },
+    {
+      "id": 21,
+      "popupType": "message",
+      "title": "message",
+      "message_kor": "모든 DNA 레벨이 MAX 상태에 도달 했습니다.",
+      "message_eng": "All DNA levels have reached MAX status.",
+      "비고": ""
     }
   ]
 }

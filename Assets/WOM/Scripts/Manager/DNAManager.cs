@@ -44,7 +44,17 @@ public class DNAManager : MonoBehaviour
     public void DNALotteryGameStart(int gameCount)
     {
         if (isGambling == false)
-            StartCoroutine(LotteryStart(gameCount));
+        {
+            if (GetLotteryDNATypes().Count <= 0)
+            {
+                // message popup (더이상 뽑을 수 없습니다,모든 DNA 레벨이 MAX 상태에 도달 했습니다.)
+                GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("Message", 21);
+            }
+            else
+            {
+                StartCoroutine(LotteryStart(gameCount));
+            }
+        }
     }
 
 
@@ -114,6 +124,7 @@ public class DNAManager : MonoBehaviour
 
             // 연출을 위한 DNA TYPES ( 중복 포함 )
             List<EnumDefinition.DNAType> dnaEffectTypes = new List<EnumDefinition.DNAType>();
+
 
             for (int i = 0; i < gameCount; i++)
             {
@@ -198,6 +209,8 @@ public class DNAManager : MonoBehaviour
 
     EnumDefinition.DNAType GetRandomType(List<EnumDefinition.DNAType> types)
     {
+
+        Debug.Log("count!!! " + types.Count);
         var randomIndex = Random.Range(0, types.Count);
         return types[randomIndex];
     }

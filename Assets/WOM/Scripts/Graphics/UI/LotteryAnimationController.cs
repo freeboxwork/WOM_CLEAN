@@ -1,3 +1,4 @@
+using Sirenix.OdinInspector;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ namespace ProjectGraphics
         public SpriteFileData data;
         [Header("DNA Icon 이미지"), SerializeField]
         private Sprite[] dnaIcons;
-
+        [Header("유니온로터리 이미지")]
         public Color[] effectColor;
         public Sprite[] gradeBackImage;
         public Lottery_Slot[] slots;
@@ -19,7 +20,6 @@ namespace ProjectGraphics
         public Image titleImage;
         public Sprite unionTitle;
         public Sprite dnaTitle;
-
 
 #if UNITY_EDITOR
         //[SerializeField] int ii;
@@ -69,47 +69,18 @@ namespace ProjectGraphics
             {
                 int typeIndex = SetImageFromUnionType(data.GetGradeData(u[i]));
 
-                if (isSkip == false)
-                {
-                    if (typeIndex == 2)
-                    {
-                        yield return new WaitForSeconds(0.7F);
-                    }
-                }
-
                 slots[i].SetSlotImage(effectColor[typeIndex], gradeBackImage[typeIndex], data.GetIconData(u[i]));
                 slots[i].gameObject.SetActive(true);
+                slots[i].SetActiveAction(typeIndex);
 
                 //여기 출현 사운드 필요함.
 
-                if (isSkip == false)
-                {
-                    for (int j = 0; j < i; j++)
-                    {
-                        slots[j].SetShakeAction();
-                    }
-                    yield return new WaitForSeconds(0.05f);
-                    //if (typeIndex == 2)
-                    //{
-                    //    yield return new WaitForSeconds(1F);
-                    //}
-                    //else
-                    //{
-                    //    yield return new WaitForSeconds(0.1f);
-                    //}
-                }
+                if (isSkip) continue;
+                yield return new WaitForSeconds(0.03f);
             }
 
             isSkip = false;
         }
-
-        // public void StartDNASlotAnimation(int[] u)
-        // {
-        //     titleImage.sprite = dnaTitle;
-
-        //     foreach (var slot in slots) slot.gameObject.SetActive(false);
-        //     StartCoroutine(ShowDNAIconSlotCardOpenProcess(u));
-        // }
 
         //슬롯 형태 확인 하고, 백 이미지 지우고 아이콘 이미지만 처리 이펙트 컬러 통일.
         public IEnumerator ShowDNAIconSlotCardOpenProcess(int[] u)
@@ -126,20 +97,17 @@ namespace ProjectGraphics
             {
                 //타입 없음
                 //GradeBackImage = DNA Icon
-                int typeIndex = 0;
+                //int typeIndex = 0;
 
-                slots[i].SetSlotImage(effectColor[typeIndex], dnaIcons[u[i]]);
+                //DNA 는 타입이 존재 안함.
+                slots[i].SetSlotImage(dnaIcons[u[i]]);
                 slots[i].gameObject.SetActive(true);
+                slots[i].SetActiveAction(0); 
 
                 //여기 출현 사운드 필요함.
 
-                for (int j = 0; j < i; j++)
-                {
-                    slots[j].SetShakeAction();
-                }
-
                 if (isSkip) continue;
-                yield return new WaitForSeconds(0.05f);
+                yield return new WaitForSeconds(0.03f);
             }
 
             isSkip = false;

@@ -21,6 +21,8 @@ namespace ProjectGraphics
         public Sprite unionTitle;
         public Sprite dnaTitle;
 
+        [SerializeField] AudioSource audio;
+
 #if UNITY_EDITOR
         //[SerializeField] int ii;
 #endif
@@ -31,9 +33,9 @@ namespace ProjectGraphics
             // foreach(var slot in slots) slot.gameObject.SetActive(false);
         }
 
-#if UNITY_EDITOR
         void Start()
         {
+            audio = GetComponent<AudioSource>();
             /*
             int[] uIndex = new int[ii];
             for (int i = 0; i < uIndex.Length; i++)
@@ -43,7 +45,6 @@ namespace ProjectGraphics
             StartCoroutine(ShowUnionSlotCardOpenProcess(uIndex));
             */
         }
-#endif
 
         public void StartLotteryAnimation(int[] unionIndex)
         {
@@ -74,6 +75,7 @@ namespace ProjectGraphics
                 slots[i].SetActiveAction(typeIndex);
 
                 //여기 출현 사운드 필요함.
+                audio.Play();
 
                 if (isSkip) continue;
                 yield return new WaitForSeconds(0.03f);
@@ -105,6 +107,7 @@ namespace ProjectGraphics
                 slots[i].SetActiveAction(0); 
 
                 //여기 출현 사운드 필요함.
+                audio.Play();
 
                 if (isSkip) continue;
                 yield return new WaitForSeconds(0.03f);

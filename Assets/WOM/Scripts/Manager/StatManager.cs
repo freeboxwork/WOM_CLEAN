@@ -22,6 +22,9 @@ public class StatManager : MonoBehaviour
     float skill_MonsterKing = 0;
     float skill_AllUnitCriticalChanceUp = 0;
 
+    //전환 효과로 스킬 UI 가 꺼질때 사용
+    public bool transitionUI = false;
+
     #region STAT INFOMATION
 
 
@@ -208,6 +211,11 @@ public class StatManager : MonoBehaviour
         }
     }
 
+    public void SetTransitionUI(bool value)
+    {
+        transitionUI = value;
+    }
+
 
     void SetUsingSkillSaveData(SkillType skillType, bool isUsing)
     {
@@ -236,6 +244,9 @@ public class StatManager : MonoBehaviour
         var totalDuration = data.duaration * (1 + SkillDuration());
         while (elapsedTime < totalDuration)
         {
+            // ui 전환 효과가 발동되면 대기
+            yield return new WaitUntil(() => transitionUI == false);
+
             elapsedTime += Time.deltaTime;
             data.skillLeftTime = totalDuration - elapsedTime;
             // set save data
@@ -272,6 +283,9 @@ public class StatManager : MonoBehaviour
         float elapsedTime = 0.0f;
         while (elapsedTime < data.duaration)
         {
+            // ui 전환 효과가 발동되면 대기
+            yield return new WaitUntil(() => transitionUI == false);
+
             elapsedTime += Time.deltaTime;
             data.skillLeftTime = data.duaration - elapsedTime;
             // set save data
@@ -309,6 +323,9 @@ public class StatManager : MonoBehaviour
         float elapsedTime = 0.0f;
         while (elapsedTime < data.duaration)
         {
+            // ui 전환 효과가 발동되면 대기
+            yield return new WaitUntil(() => transitionUI == false);
+
             elapsedTime += Time.deltaTime;
             data.skillLeftTime = data.duaration - elapsedTime;
             // set save data
@@ -337,6 +354,9 @@ public class StatManager : MonoBehaviour
         float elapsedTime = 0.0f;
         while (elapsedTime < data.duaration)
         {
+            // ui 전환 효과가 발동되면 대기
+            yield return new WaitUntil(() => transitionUI == false);
+
             elapsedTime += Time.deltaTime;
             data.skillLeftTime = data.duaration - elapsedTime;
             // set save data
@@ -366,6 +386,9 @@ public class StatManager : MonoBehaviour
         float elapsedTime = 0.0f;
         while (elapsedTime < data.duaration)
         {
+            // ui 전환 효과가 발동되면 대기
+            yield return new WaitUntil(() => transitionUI == false);
+
             elapsedTime += Time.deltaTime;
             data.skillLeftTime = data.duaration - elapsedTime;
             // set save data
@@ -402,6 +425,9 @@ public class StatManager : MonoBehaviour
         float elapsedTime = 0.0f;
         while (elapsedTime < data.duaration)
         {
+            // ui 전환 효과가 발동되면 대기
+            yield return new WaitUntil(() => transitionUI == false);
+
             elapsedTime += Time.deltaTime;
             data.skillLeftTime = data.duaration - elapsedTime;
             // set save data

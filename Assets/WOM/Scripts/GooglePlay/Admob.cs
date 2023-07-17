@@ -12,6 +12,23 @@ public class Admob : MonoBehaviour
 
     private RewardedAd rewardedAd;
 
+
+
+
+    void Start()
+    {
+                MobileAds.RaiseAdEventsOnUnityMainThread = true;
+        // Initialize the Google Mobile Ads SDK.
+        MobileAds.Initialize((InitializationStatus initStatus) =>
+        {
+            // This callback is called once the MobileAds SDK is initialized.
+            Debug.Log("Admob 초기화 완료");
+        });
+        LoadRewardedAd();
+    }
+
+
+
     /// <summary>
     /// Loads the rewarded ad.
     /// </summary>
@@ -59,6 +76,7 @@ public class Admob : MonoBehaviour
             rewardedAd.Show((Reward reward) =>
             {
                 // TODO: Reward the user.
+                Debug.Log("광고 시청 완료");
                 Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
             });
         }
@@ -89,19 +107,6 @@ public class Admob : MonoBehaviour
             Debug.Log("Rewarded ad full screen content opened.");
         };
         // Raised when the ad closed full screen content.
-        ad.OnAdFullScreenContentClosed += () =>
-        {
-            Debug.Log("Rewarded ad full screen content closed.");
-        };
-        // Raised when the ad failed to open full screen content.
-        ad.OnAdFullScreenContentFailed += (AdError error) =>
-        {
-            Debug.LogError("Rewarded ad failed to open full screen content " +
-                           "with error : " + error);
-        };
-    }
-    private void RegisterReloadHandler(RewardedAd ad)
-    {
         // Raised when the ad closed full screen content.
         ad.OnAdFullScreenContentClosed += () =>
         {

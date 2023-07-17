@@ -2,14 +2,33 @@
 using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.Purchasing.Extension;
+using UnityEngine.UI;
 
 public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListener
 {
     private static IStoreController storeController;
     private static IExtensionProvider extensionProvider;
 
+
+
+    public Button gem1Btn;
+    public Button gem2Btn;
+    public Button gem3Btn;
+    public Button gem4Btn;
+    public Button package1Btn;
+    public Button package2Btn;
+    public Button package3Btn;
+    
+
+
     // 상품 ID
     private string gem1 = "gem_1";
+    private string gem2 = "gem_2";
+    private string gem3 = "gem_3";
+    private string gem4 = "gem_4";
+    private string package1 = "package_1";
+    private string package2 = "package_2";
+    private string package3 = "package_3";
 
 
 
@@ -27,6 +46,12 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
 
         // 상품 ID 추가
         builder.AddProduct(gem1, ProductType.Consumable);
+        builder.AddProduct(gem2, ProductType.Consumable);
+        builder.AddProduct(gem3, ProductType.Consumable);
+        builder.AddProduct(gem4, ProductType.Consumable);
+        builder.AddProduct(package1, ProductType.NonConsumable);
+        builder.AddProduct(package2, ProductType.NonConsumable);
+        builder.AddProduct(package3, ProductType.NonConsumable);
 
         // Unity IAP 초기화
         UnityPurchasing.Initialize(this, builder);
@@ -45,13 +70,34 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
         Debug.Log("IAP initialization failed: " + error);
     }
 
-    public void TestPurchaseProduct()
+    public void BuyGem1()
     {
-        // 상품 구매 시도
         storeController.InitiatePurchase(gem1);
     }
-
-    
+    public void BuyGem2()
+    {
+        storeController.InitiatePurchase(gem2);
+    }
+    public void BuyGem3()
+    {
+        storeController.InitiatePurchase(gem3);
+    }
+    public void BuyGem4()
+    {
+        storeController.InitiatePurchase(gem4);
+    }
+    public void Package1()
+    {
+        storeController.InitiatePurchase(package1);
+    }
+    public void Package2()
+    {
+        storeController.InitiatePurchase(package2);
+    }
+    public void Package3()
+    {
+        storeController.InitiatePurchase(package3);
+    }
 
 
 
@@ -61,7 +107,42 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
         // 상품 구매 성공
         // 여기서 구매한 아이템을 처리하는 코드를 작성하세요.
         Debug.Log("Purchase successful: " + args.purchasedProduct.definition.id);
-        
+
+        if (args.purchasedProduct.definition.id == gem1)
+        {
+            Debug.Log("보석 I 구매 성공");
+        }
+        else if (args.purchasedProduct.definition.id == gem2)
+        {
+            Debug.Log("보석 II 구매 성공");
+
+        }
+        else if (args.purchasedProduct.definition.id == gem3)
+        {
+            Debug.Log("보석 III 구매 성공");
+
+        }
+        else if (args.purchasedProduct.definition.id == gem4)
+        {
+            Debug.Log("보석 IIII 구매 성공");
+
+        }
+        else if (args.purchasedProduct.definition.id == package1)
+        {
+            Debug.Log("패키지 I 구매 성공");
+
+        }
+        else if (args.purchasedProduct.definition.id == package2)
+        {
+            Debug.Log("패키지 II 구매 성공");
+
+        }
+        else if (args.purchasedProduct.definition.id == package3)
+        {
+            Debug.Log("보패키지 III 구매 성공");
+
+        }
+
         // 구매 완료 처리
         return PurchaseProcessingResult.Complete;
     }
@@ -70,6 +151,29 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
     {
         // 상품 구매 실패
         Debug.Log("Purchase failed: " + failureReason);
+
+        if (failureReason == PurchaseFailureReason.DuplicateTransaction)
+        {
+            if (String.Equals(product.definition.storeSpecificId, package1, StringComparison.Ordinal))
+            {
+                Debug.Log("Pakace1을 이미 구매하였습니다");
+            }
+            else if (String.Equals(product.definition.storeSpecificId, package2, StringComparison.Ordinal))
+            {
+                Debug.Log("Pakace2를 이미 구매하였습니다");
+
+            }
+            else if (String.Equals(product.definition.storeSpecificId, package3, StringComparison.Ordinal))
+            {
+                Debug.Log("Pakace3을 이미 구매하였습니다");
+
+            }
+            else
+            {
+
+            }
+        }
+
     }
 
     public void OnInitializeFailed(InitializationFailureReason error, string message)

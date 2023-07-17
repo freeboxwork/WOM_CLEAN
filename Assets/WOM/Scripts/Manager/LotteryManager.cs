@@ -125,10 +125,11 @@ public class LotteryManager : MonoBehaviour
     {
 
         // TODO : 저장된 데이터에서 불러와야 함
-        // unionGradeLevel = 
+        // summonGradeLevel =
+        // totalGambleCount = 
         totalDrawCount = 0;
-        SetSummonGradeData(GlobalData.instance.dataManager.GetSummonGradeDataByLevel(unionGradeLevel));
-        SetGambleData(GlobalData.instance.dataManager.GetUnionGambleDataBySummonGrade(unionGradeLevel));
+        SetSummonGradeData(GlobalData.instance.dataManager.GetSummonGradeDataByLevel(summonGradeLevel));
+        SetGambleData(GlobalData.instance.dataManager.GetUnionGambleDataBySummonGrade(summonGradeLevel));
         randomGradeValues = GetRandomArrayValue();
         //CreateCards();
         yield return null;
@@ -236,8 +237,8 @@ public class LotteryManager : MonoBehaviour
     void PopupUIUpdate()
     {
         CampPopup popup = (CampPopup)GlobalData.instance.castleManager.GetCastlePopupByType(EnumDefinition.CastlePopupType.camp);
-        popup.SetSummonCountProgress(totalGamblePlayCount, curSummonGradeData.count);
-        popup.SetTxtSummonCount(totalGamblePlayCount, curSummonGradeData.count);
+        popup.SetSummonCountProgress(totalGambleCount, curSummonGradeData.count);
+        popup.SetTxtSummonCount(totalGambleCount, curSummonGradeData.count);
 
     }
 
@@ -246,7 +247,7 @@ public class LotteryManager : MonoBehaviour
     {
         totalGamblePlayCount -= subCount;
         var campPopup = (CampPopup)GlobalData.instance.castleManager.GetCastlePopupByType(EnumDefinition.CastlePopupType.camp);
-        campPopup.SetTxtSummonCount(totalGamblePlayCount, curSummonGradeData.count);
+        campPopup.SetTxtSummonCount(totalGambleCount, curSummonGradeData.count);
     }
 
     void LotteryClose()

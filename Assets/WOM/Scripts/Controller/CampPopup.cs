@@ -1,5 +1,6 @@
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine;
 
 public class CampPopup : CastlePopupBase
 {
@@ -17,10 +18,14 @@ public class CampPopup : CastlePopupBase
         SetBtnEvent();
     }
 
-    public void SetSummonCountProgress(int totalValue, int curValue)
+    public void SetSummonCountProgress(int curValue, int totalValue)
     {
-        imgSummonCountProgress.fillAmount = (float)curValue / (float)totalValue;
-        
+        var value = (float)curValue / (float)totalValue;
+
+        Debug.Log($"value : {value}" + $"curValue : {curValue}" + $"totalValue : {totalValue}");
+
+        imgSummonCountProgress.fillAmount = value;
+
     }
 
     public void SetTxtSummonCount(int curValue, int totalValue)

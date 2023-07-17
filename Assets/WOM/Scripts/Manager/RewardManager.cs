@@ -91,14 +91,14 @@ public class RewardManager : MonoBehaviour
 
         // 팝업
         int unionIndex = unionRewardQueue.Dequeue();
-        var subCountData = GlobalData.instance.dataManager.summonGradeDatas.data.Find(x => x.rewardUnionIndex == unionIndex);
-        var subCount = GlobalData.instance.dataManager.GetSummonGradeDataByLevel(subCountData.level - 1).count;
+        //var subCountData = GlobalData.instance.dataManager.summonGradeDatas.data.Find(x => x.rewardUnionIndex == unionIndex);
+        //var subCount = GlobalData.instance.dataManager.GetSummonGradeDataByLevel(subCountData.level - 1).count;
 
         // RewardUnion(unionIndex);
         PopupController.instance.InitPopup(EnumDefinition.RewardType.union, unionIndex);
 
         //GlobalData.instance.globalPopupController.EnableGlobalPopup("유니온 획득", $"유니온 {unionIndex} 획득");
-        GlobalData.instance.lotteryManager.TotalDrawCountUiUpdate(subCount);
+        // GlobalData.instance.lotteryManager.TotalDrawCountUiUpdate(subCount);
 
         if (unionRewardQueue.Count <= 0)
         {

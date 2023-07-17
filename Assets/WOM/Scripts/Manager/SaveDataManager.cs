@@ -552,6 +552,29 @@ public class SaveDataManager : MonoBehaviour
         saveDataTotal.saveDataSystem.tutorial_step = step;
     }
 
+    // 유니온 소환 등급 데이터 세팅
+    public void SaveDataUnionSummonGradeLevel(int gradeLevel)
+    {
+        saveDataTotal.saveDataUnionSummonGrade.summonGradeLevel = gradeLevel;
+    }
+
+    // 유니온 토탈 갬블 카운트 데이터 세팅
+    public void SaveDataUnionTotalGambleCount(int count)
+    {
+        saveDataTotal.saveDataUnionSummonGrade.totalGambleCount = count;
+    }
+
+    // 유니온 획득 리워드 아이디 데이터 세팅
+    public void SaveDataUnionAddRewardId(int id)
+    {
+        saveDataTotal.saveDataUnionSummonGrade.rewaedUnionIds.Add(id);
+    }
+
+    // SaveData Remove UnionRewardId
+    public void SaveDataRemoveUnionRewardId(int id)
+    {
+        saveDataTotal.saveDataUnionSummonGrade.rewaedUnionIds.Remove(id);
+    }
 
     string GetSaveDataFilePaht()
     {
@@ -599,6 +622,7 @@ public class SaveDataTotal
     public SaveDataDungeonLevel saveDataDungeonLevel;
     public SaveDataTutorial saveDataTutorial;
     public SaveDataCastle saveDataCastle;
+    public SaveDataUnionSummonGrade saveDataUnionSummonGrade;
 }
 
 
@@ -807,6 +831,17 @@ public class SaveDataCastle
     public int mineLevel;
     public int factoryLevel;
 }
+
+
+[System.Serializable]
+public class SaveDataUnionSummonGrade
+{
+    public int summonGradeLevel = 0;
+    public int totalGambleCount = 0;
+    public List<int> rewaedUnionIds = new List<int>();
+}
+
+
 
 #endregion
 

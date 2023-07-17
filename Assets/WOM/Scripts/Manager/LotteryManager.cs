@@ -58,7 +58,7 @@ public class LotteryManager : MonoBehaviour
     // union gamble 새로 만듦....
     public int totalGambleCount = 0; // 현재 레벨에서 전체 뽑기 수 ( 레벨 올라가면 초기화)
     public int summonGradeLevel = 0; // 뽑기 등급 레벨
-    public int totalGamblePlayCount = 0; // 게임 전체 뽑기 수 ( 리워드 획득시 해당 레벨 count 만큼 차감 )
+                                     // public int totalGamblePlayCount = 0; // 게임 전체 뽑기 수 ( 리워드 획득시 해당 레벨 count 만큼 차감 )
 
     void Start()
     {
@@ -125,9 +125,22 @@ public class LotteryManager : MonoBehaviour
     {
 
         // TODO : 저장된 데이터에서 불러와야 함
-        // summonGradeLevel =
-        // totalGambleCount = 
-        totalDrawCount = 0;
+        var data = GlobalData.instance.saveDataManager.saveDataTotal.saveDataUnionSummonGrade;
+        summonGradeLevel = data.summonGradeLevel;
+        totalGambleCount = data.totalGambleCount;
+
+        // // 저장된 데이터 세팅
+        // if (data.rewaedUnionIds.Count > 0)
+        // {
+        //     foreach (var id in data.rewaedUnionIds)
+        //         GlobalData.instance.rewardManager.unionRewardQueue.Enqueue(id);
+        // }
+
+
+        // set ui
+        PopupUIUpdate();
+
+
         SetSummonGradeData(GlobalData.instance.dataManager.GetSummonGradeDataByLevel(summonGradeLevel));
         SetGambleData(GlobalData.instance.dataManager.GetUnionGambleDataBySummonGrade(summonGradeLevel));
         randomGradeValues = GetRandomArrayValue();
@@ -184,32 +197,31 @@ public class LotteryManager : MonoBehaviour
             // 닫기 버튼 활성화
             UtilityMethod.GetCustomTypeBtnByID(44).interactable = true;
 
-            curLotteryCount += roundCount;
-            totalDrawCount += roundCount;
-
-            totalGambleCount += roundCount;
+            //curLotteryCount += roundCount;
+            //totalDrawCount += roundCount;
             //var data = GlobalData.instance.dataManager.GetSummonGradeDataByLevel(summonGradeLevel);
+
             var maxData = GlobalData.instance.dataManager.summonGradeDatas.data.Last();
             if (summonGradeLevel < maxData.level)
             {
-                totalGamblePlayCount += roundCount;
+                totalGambleCount += roundCount;
+
+                // save data
+                GlobalData.instance.saveDataManager.SaveDataUnionTotalGambleCount(totalGambleCount);
 
                 // 소환등급 레벨업 체크 및 UI 업데이트
                 if (totalGambleCount >= curSummonGradeData.count)
                 {
                     summonGradeLevel++;
                     // save data
+                    GlobalData.instance.saveDataManager.SaveDataUnionSummonGradeLevel(summonGradeLevel);
 
                     totalGambleCount = totalGambleCount - curSummonGradeData.count;
                     //++unionGradeLevel;
                     SetSummonGradeData(GlobalData.instance.dataManager.GetSummonGradeDataByLevel(summonGradeLevel));
                     SetGambleData(GlobalData.instance.dataManager.GetUnionGambleDataBySummonGrade(summonGradeLevel));
                 }
-                // else
-                // {
-                //     // reward popup
-                //     PopupUIUpdate();
-                // }
+
 
                 PopupUIUpdate();
             }
@@ -245,7 +257,7 @@ public class LotteryManager : MonoBehaviour
     //유니온 리워드 사용 획득 버튼 이벤트 실행 후 호출 
     public void TotalDrawCountUiUpdate(int subCount)
     {
-        totalGamblePlayCount -= subCount;
+        //totalGamblePlayCount -= subCount;
         var campPopup = (CampPopup)GlobalData.instance.castleManager.GetCastlePopupByType(EnumDefinition.CastlePopupType.camp);
         campPopup.SetTxtSummonCount(totalGambleCount, curSummonGradeData.count);
     }

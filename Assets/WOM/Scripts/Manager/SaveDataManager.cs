@@ -308,7 +308,7 @@ public class SaveDataManager : MonoBehaviour
         var inGmaeData = unionSlot.inGameData;
         var unionID = inGmaeData.unionIndex;
         var union = GetUnionData(unionID);
-        Debug.Log($"유니온 ID : {unionID}, union : {union}");
+        //        Debug.Log($"유니온 ID : {unionID}, union : {union}");
         return union;
     }
 

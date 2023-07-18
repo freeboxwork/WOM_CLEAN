@@ -166,7 +166,7 @@ public class InsectBullet : MonoBehaviour
                 GlobalData.instance.effectManager.EnableAttackEffectByInsectType(insectType, this.transform);
 
                 // SFX PLAY
-                GlobalData.instance.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.MONSTER_HIT);
+                GlobalData.instance.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.MonsterHit);
 
                 CallBackEventType.TYPES hitEventType = tag == "monster" ? CallBackEventType.TYPES.OnMonsterHit : CallBackEventType.TYPES.OnDungeonMonsterHit;
 

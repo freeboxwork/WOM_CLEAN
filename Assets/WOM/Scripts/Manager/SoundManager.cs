@@ -29,7 +29,7 @@ public class SoundManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         // set bgm clip
-        SetBgmClip(EnumDefinition.BGM_TYPE.BGM_01);
+        SetBgmClip(EnumDefinition.BGM_TYPE.BGM_Main);
 
         if (bgmOn)
             PlayBgm();

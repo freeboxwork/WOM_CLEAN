@@ -195,6 +195,9 @@ public class EventController : MonoBehaviour
             globalData.effectManager.EnableTransitionEffStageClear();
         }
 
+        // sfx monster die
+        globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.BossDie);
+
         // monster kill animation 사망 애니메이션 대기
         yield return StartCoroutine(currentMonster.inOutAnimator.MonsterKillMatAnim());
 
@@ -546,6 +549,9 @@ public class EventController : MonoBehaviour
 
         // 진화전 포기 버튼 비활성화
         UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(false);
+
+        // sfx 진화 성공
+        globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.Evolution_Victory);
 
         yield return new WaitUntil(() => evalGradeEffectShow == false); // 등급업그레이드 연출이 끝날때까지 대기
 
@@ -901,6 +907,9 @@ public class EventController : MonoBehaviour
         //Addrate = 던전 추가보상량
         //totalCurrencyAmount = totalCurrencyAmount * ( 1 * Addrate)
 
+
+        // sfx dungeon monster out
+        globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.End_Batle);
 
         // 던전 몬스터 팝업 
         globalData.dungeonPopup.gameObject.SetActive(true);

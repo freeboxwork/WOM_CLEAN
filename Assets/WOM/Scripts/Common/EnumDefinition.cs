@@ -259,12 +259,36 @@ public class EnumDefinition
 
     public enum BGM_TYPE
     {
-        BGM_01,
+        BGM_Main,
+        BGM_EvolutionBoss,
+        BGM_DungeonBoss,
+        BGM_Castle,
 
     }
     public enum SFX_TYPE
     {
-        MONSTER_HIT,
+        MonsterHit,
+        BossDie,
+        ButtonUIClick,
+        Coins,
+        CustomPopup_Item,
+        Dice,
+        End_Batle,
+        Evolution_Victory,
+        Gamble,
+        IntroPop,
+        PurchaseShopProduct,
+        Reward,
+        S_Grade,
+        Skill_1,
+        Skill_2,
+        Skill_3,
+        Skill_4,
+        Skill_5,
+        Skill_6,
+        Slot,
+        Transition,
+        Typewriter
     }
 
     public enum CastlePopupType

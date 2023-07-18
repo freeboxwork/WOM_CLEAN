@@ -18,8 +18,15 @@ namespace ProjectGraphics
         [SerializeField] Sprite[] auraSprites;
         [SerializeField] Sprite[] goldSprites;
 
-
         private void Awake()
+        {
+            fire = transform.Find("Fire").GetComponent<SpriteRenderer>();
+            thunder = transform.Find("Thunder").GetComponent <SpriteRenderer>();
+            auraEffect = transform.Find("Aura").GetComponent<SpriteRenderer>();
+            goldEffect = transform.Find("Gold").GetComponent<SpriteRenderer>();
+        }
+
+        private void Start()
         {
             fire.enabled = thunder.enabled = trail.enabled = false;
             goldEffect.enabled = auraEffect.enabled = false;

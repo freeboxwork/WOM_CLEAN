@@ -403,6 +403,7 @@ public class EventController : MonoBehaviour
         // 메인 메뉴 활성화
         globalData.uiController.MainMenuHide();
 
+
         // 화면전환 이펙트
         yield return StartCoroutine(globalData.effectManager.EffTransitioEvolutionUpgrade(() =>
         {
@@ -431,6 +432,7 @@ public class EventController : MonoBehaviour
             UtilityMethod.SetTxtCustomTypeByID(107, $"{1}");
 
             // 배경 리셋
+            globalData.stageManager.bgAnimController.StopAllCoroutines();
             globalData.stageManager.bgAnimController.SetOffsetY(0f);
 
             // side menu hide
@@ -438,6 +440,10 @@ public class EventController : MonoBehaviour
 
         }));
 
+
+
+        // BGM CHANGE
+        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_DungeonBoss);
 
 
         var monster = globalData.monsterManager.GetMonsterDungeon();
@@ -554,6 +560,9 @@ public class EventController : MonoBehaviour
         globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.Evolution_Victory);
 
         yield return new WaitUntil(() => evalGradeEffectShow == false); // 등급업그레이드 연출이 끝날때까지 대기
+
+        // BGM CHANGE
+        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
 
         // 상단의 몬스터 정보([ CANVAS UI SET ])와 재화 정보([ TOP_UI_CANVAS ]) 비활성화 → UI 활성화
         UtilityMethod.GetCustomTypeGMById(6).SetActive(true);
@@ -708,6 +717,7 @@ public class EventController : MonoBehaviour
             globalData.bossChallengeTimer.StartTimer();
 
             // 배경 리셋
+            globalData.stageManager.bgAnimController.StopAllCoroutines();
             globalData.stageManager.bgAnimController.SetOffsetY(0f);
 
             // side menu hide
@@ -718,6 +728,9 @@ public class EventController : MonoBehaviour
             globalData.stageManager.SetDungeonBgImage(monsterData.bgId);
 
         }));
+
+        // BGM CHANGE
+        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_EvolutionBoss);
 
 
 
@@ -851,7 +864,8 @@ public class EventController : MonoBehaviour
 
           }));
 
-
+        // BGM CHANGE
+        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
 
 
         // 메인 메뉴 활성화
@@ -957,6 +971,9 @@ public class EventController : MonoBehaviour
 
         }));
 
+        // BGM CHANGE
+        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
+
         // 메인 메뉴 활성화
         globalData.uiController.MainMenuShow();
         globalData.uiController.EnableMainMenuCloseBtn(true);
@@ -1036,7 +1053,8 @@ public class EventController : MonoBehaviour
 
         }));
 
-
+        // BGM CHANGE
+        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
 
         // 메인 메뉴 활성화
         globalData.uiController.MainMenuShow();

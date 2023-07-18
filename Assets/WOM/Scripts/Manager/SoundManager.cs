@@ -99,6 +99,12 @@ public class SoundManager : MonoBehaviour
         playerBgm.Play();
     }
 
+    public void PlayBGM(EnumDefinition.BGM_TYPE bgmType)
+    {
+        playerBgm.clip = bgmList[(int)bgmType];
+        playerBgm.Play();
+    }
+
     public void PlaySfxInGame(EnumDefinition.SFX_TYPE sfxType)
     {
         playerSfxInGame.clip = sfxList[(int)sfxType];

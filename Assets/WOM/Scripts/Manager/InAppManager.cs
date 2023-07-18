@@ -38,12 +38,12 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
         // Unity IAP 초기화
         InitializePurchasing();
         gem1Btn.onClick.AddListener(BuyGem1);
-        gem1Btn.onClick.AddListener(BuyGem2);
-        gem1Btn.onClick.AddListener(BuyGem3);
-        gem1Btn.onClick.AddListener(BuyGem4);
-        gem1Btn.onClick.AddListener(Package1);
-        gem1Btn.onClick.AddListener(Package2);
-        gem1Btn.onClick.AddListener(Package3);
+        gem2Btn.onClick.AddListener(BuyGem2);
+        gem3Btn.onClick.AddListener(BuyGem3);
+        gem4Btn.onClick.AddListener(BuyGem4);
+        package1Btn.onClick.AddListener(Package1);
+        package2Btn.onClick.AddListener(Package2);
+        package3Btn.onClick.AddListener(Package3);
     }
 
     public void InitializePurchasing()

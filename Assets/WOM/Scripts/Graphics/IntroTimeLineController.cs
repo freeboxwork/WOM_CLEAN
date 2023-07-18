@@ -23,19 +23,20 @@ public class IntroTimeLineController : MonoBehaviour
     float t = 0.0f;
     void Update()
     {
-        if (!dontTouch && currentTimeIndex != (cutFrames.Length -1))
+        if (!dontTouch && currentTimeIndex != (cutFrames.Length-1))
         {
-            if(Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.P))
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.P))
             {
                 double currentTime = director.time;
                 for (int i = 0; i < cutFrames.Length; i++)
                 {
-                    if(currentTime <= cutFrames[i])
+                    if (currentTime <= cutFrames[i])
                     {
                         currentTimeIndex = i;
                         break;
                     }
                 }
+
                 director.time = cutFrames[currentTimeIndex];
                 dontTouch = true;
             }
@@ -53,7 +54,7 @@ public class IntroTimeLineController : MonoBehaviour
 
     public void OnMarkableIntroSignal()
     {
-        Debug.Log("시그날 왔다구리");
+        dontTouch = true;
     }
 
 

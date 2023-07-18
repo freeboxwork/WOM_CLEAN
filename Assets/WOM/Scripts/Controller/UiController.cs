@@ -361,6 +361,8 @@ public class UiController : MonoBehaviour
         // 화면전환 효과
         yield return StartCoroutine(GlobalData.instance.effectManager.EffTransitioEvolutionUpgrade(() =>
         {
+            // BGM CHANGE
+            GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Castle);
 
             // 현재 몬스터 OUT
             StartCoroutine(GlobalData.instance.player.currentMonster.inOutAnimator.MonsterKillMatAnim());
@@ -372,6 +374,8 @@ public class UiController : MonoBehaviour
             UtilityMethod.GetCustomTypeGMById(6).gameObject.SetActive(false);
 
         }));
+
+
 
         UtilityMethod.EnableUIEventSystem(true);
 
@@ -395,6 +399,8 @@ public class UiController : MonoBehaviour
         // 화면전환 효과
         yield return StartCoroutine(GlobalData.instance.effectManager.EffTransitioEvolutionUpgrade(() =>
         {
+            // BGM CHANGE
+            GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
 
 
             // 캐슬창 비활성화
@@ -411,6 +417,8 @@ public class UiController : MonoBehaviour
 
 
         }));
+
+
 
         // 황금 돼지 출현 타이머 활성
         GlobalData.instance.goldPigController.ExitOtherView();

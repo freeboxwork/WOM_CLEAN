@@ -231,7 +231,7 @@ public class StatManager : MonoBehaviour
     public IEnumerator EnableSkill_InsectDamageUP()
     {
         var data = GetSkillData(SkillType.insectDamageUp);
-        skill_InsectDamageUp = data.damage;
+        skill_InsectDamageUp = data.power;
         data.isSkilUsing = true;
 
         // set save data
@@ -268,7 +268,7 @@ public class StatManager : MonoBehaviour
     public IEnumerator EnableSkill_UnionDamageUP()
     {
         var data = GetSkillData(SkillType.unionDamageUp);
-        skill_UnionDamageUp = data.damage;
+        skill_UnionDamageUp = data.power;
         data.isSkilUsing = true;
 
         // set save data

@@ -356,7 +356,12 @@ public class SkillManager : MonoBehaviour
         return skillBtns.FirstOrDefault(f => f.skillType == skillType);
     }
 
-    public bool IsDamageUpSkillEffOn()
+    public bool IsUsingSkillByType(SkillType skillType)
+    {
+        return GetSkillBtnByType(skillType).skillAddValue;
+    }
+
+    public bool IsUnionDamageUpSkillEffOn()
     {
         return GetSkillBtnByType(SkillType.unionDamageUp).skillAddValue;
     }

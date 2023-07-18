@@ -340,8 +340,12 @@ public class InsectManager : MonoBehaviour
             AddEnableInsects(bullet);
 
             // SKILL EFFECT
-            bullet.effectContoller.FireEffect(GlobalData.instance.skillManager.IsDamageUpSkillEffOn());
-            bullet.effectContoller.ThunderEffect(GlobalData.instance.skillManager.IsAllUnitCritChanceUpSkillEffOn());
+            bullet.effectContoller.AuraEffect(GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.insectDamageUp));
+            bullet.effectContoller.FireEffect(GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.unionDamageUp));
+            bullet.effectContoller.TrailEffect(GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.allUnitSpeedUp));
+            bullet.effectContoller.GoldEffect(GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.glodBonusUp));
+            bullet.effectContoller.ThunderEffect(GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.allUnitCriticalChanceUp));
+
         }
         else
         {

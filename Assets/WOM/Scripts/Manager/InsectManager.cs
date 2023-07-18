@@ -220,6 +220,14 @@ public class InsectManager : MonoBehaviour
             }
         }
 
+        // 광란 스킬 사용 했을때 ( 모든 유닛 크리티컬 데미지 적용 )
+        if (GlobalData.instance.statManager.allUnitCriticalOn)
+        {
+            damage *= statManager.GetInsectCriticalDamage(insectType);
+            isCritical = true;
+        }
+
+
         damage += talentDamage;
         if (damageDebug) return debugDamage;
         return damage;

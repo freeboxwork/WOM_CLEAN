@@ -202,7 +202,7 @@ public class SkillManager : MonoBehaviour
                     break;
 
                 case SkillType.allUnitCriticalChanceUp:
-                    AddInGameDataDamage(skillData, ref inGameData);
+                    AddInGameDataValue(skillData, ref inGameData);
                     SetUIAllUnitCDU(ref skillSlot, skillData, inGameData);
                     break;
             }

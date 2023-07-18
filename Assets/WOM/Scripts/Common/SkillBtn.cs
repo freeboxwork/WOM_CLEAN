@@ -111,6 +111,10 @@ public class SkillBtn : MonoBehaviour
             StartCoroutine(animCont.UI_TextAnim(txtTimeAnim, data.duaration, 0));
             StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 0, 1));
 
+            // skill effect on!
+            SkillEffectBySkillType(true);
+
+
             // 스킬 사용 대기
             float calcSkillTime = data.duaration;
             var skillStartTime = Time.time;
@@ -129,6 +133,12 @@ public class SkillBtn : MonoBehaviour
             imgSkillFront.color = colorDeem;
             imgSkillFront.fillClockwise = false;
             animCont.animData = animDataReloadSkill;
+
+            yield return new WaitForEndOfFrame();
+
+            // skill effect off!
+            SkillEffectBySkillType(false);
+
 
             // 쿨타임
             GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, true);
@@ -159,6 +169,38 @@ public class SkillBtn : MonoBehaviour
 
         }
         yield return null;
+    }
+
+    void SkillEffectBySkillType(bool enableValue)
+    {
+        var insects = GlobalData.instance.insectManager.enableInsects;
+
+        foreach (var insect in insects)
+        {
+            switch (skillType)
+            {
+                case EnumDefinition.SkillType.insectDamageUp:
+                    insect.effectContoller.AuraEffect(enableValue);
+                    break;
+                case EnumDefinition.SkillType.unionDamageUp:
+                    insect.effectContoller.FireEffect(enableValue);
+                    break;
+                case EnumDefinition.SkillType.allUnitSpeedUp:
+                    insect.effectContoller.TrailEffect(enableValue);
+                    break;
+                case EnumDefinition.SkillType.glodBonusUp:
+                    insect.effectContoller.GoldEffect(enableValue);
+                    break;
+                case EnumDefinition.SkillType.monsterKing:
+
+                    break;
+                case EnumDefinition.SkillType.allUnitCriticalChanceUp:
+                    insect.effectContoller.ThunderEffect(enableValue);
+                    break;
+            }
+        }
+
+
     }
 
 
@@ -278,34 +320,47 @@ public class SkillBtn : MonoBehaviour
                 //TODO: 계산식 맞는지 확인 필요
                 var cooltime = saveData.leftCoolTime - second;
 
-                float animDuration = cooltime;
-                imgSkillBack.color = colorWhite;
-                imgSkillFront.color = colorDeem;
-                imgSkillFront.fillClockwise = false;
-                // 쿨타임
-                StartCoroutine(animCont.UI_ImageFillAnim(imgSkillFront, 1, 0, animDuration));
-
-                txtTime.enabled = true;
-                StartCoroutine(animCont.UI_TextAnim_Reload(txtTime, animDuration, 0, animDuration));
-
-                // 쿨타임 대기
-                float calcCooltime = cooltime;
-                var startTime = Time.time;
-                coolTimeWait = calcCooltime;
-                while (coolTimeWait > 0)
+                if (cooltime < 1f)
                 {
-                    coolTimeWait = calcCooltime - (Time.time - startTime);
-                    GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, coolTimeWait);
-                    Debug.Log("reload skill coolTimeWait : " + coolTimeWait);
-                    yield return null;
+                    cooltime = 0;
+                }
+                else
+                {
+                    float animDuration = cooltime;
+                    imgSkillBack.color = colorWhite;
+                    imgSkillFront.color = colorDeem;
+                    imgSkillFront.fillClockwise = false;
+
+                    Debug.Log("reload cooltime : " + cooltime);
+
+
+                    // 쿨타임
+                    StartCoroutine(animCont.UI_ImageFillAnim(imgSkillFront, 1, 0, animDuration));
+
+                    txtTime.enabled = true;
+                    StartCoroutine(animCont.UI_TextAnim_Reload(txtTime, animDuration, 0, animDuration));
+
+                    // 쿨타임 대기
+                    float calcCooltime = cooltime;
+                    var startTime = Time.time;
+                    coolTimeWait = calcCooltime;
+                    while (coolTimeWait > 0)
+                    {
+                        coolTimeWait = calcCooltime - (Time.time - startTime);
+                        GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, coolTimeWait);
+                        Debug.Log("reload skill coolTimeWait : " + coolTimeWait);
+                        yield return null;
+                    }
+
                 }
 
-                GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, 0);
-                GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, false);
                 coolTimeWait = 0;
                 btnSkill.enabled = true;
                 skillReady = true;
                 txtTime.enabled = false;
+
+                GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, 0);
+                GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, false);
             }
         }
         yield return null;

@@ -25,6 +25,8 @@ public class StatManager : MonoBehaviour
     //전환 효과로 스킬 UI 가 꺼질때 사용
     public bool transitionUI = false;
 
+    public bool allUnitCriticalOn = false;
+
     #region STAT INFOMATION
 
 
@@ -275,10 +277,7 @@ public class StatManager : MonoBehaviour
         var skilType = SkillType.insectDamageUp;
         SetUsingSkillSaveData(skilType, true);
 
-        // effect on!
-        var insects = GlobalData.instance.insectManager.enableInsects;
-        foreach (var insect in insects)
-            insect.effectContoller.FireEffect(true);
+
 
         float elapsedTime = 0.0f;
         while (elapsedTime < data.duaration)
@@ -293,19 +292,16 @@ public class StatManager : MonoBehaviour
             yield return null;
         }
 
-        // effect off!
-        foreach (var insect in insects)
-            insect.effectContoller.FireEffect(false);
-
-
-
-
         data.isSkilUsing = false;
         skill_UnionDamageUp = 0;
 
         // set save data
         // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
         SetUsingSkillSaveData(skilType, false);
+
+
+
+
     }
 
 
@@ -407,6 +403,7 @@ public class StatManager : MonoBehaviour
     public IEnumerator EnableSkill_AllUnitCriticalChanceUP()
     {
 
+        allUnitCriticalOn = true;
         Debug.Log("EnableSkill_AllUnitCriticalChanceUP");
 
         var data = GetSkillData(SkillType.allUnitCriticalChanceUp);
@@ -416,11 +413,6 @@ public class StatManager : MonoBehaviour
         // set save data
         var skilType = SkillType.insectDamageUp;
         SetUsingSkillSaveData(skilType, true);
-
-        // effect on!
-        var insects = GlobalData.instance.insectManager.enableInsects;
-        foreach (var insect in insects)
-            insect.effectContoller.ThunderEffect(true);
 
         float elapsedTime = 0.0f;
         while (elapsedTime < data.duaration)
@@ -435,9 +427,6 @@ public class StatManager : MonoBehaviour
             yield return null;
         }
 
-        // effect off!
-        foreach (var insect in insects)
-            insect.effectContoller.ThunderEffect(false);
 
         data.isSkilUsing = false;
         skill_AllUnitCriticalChanceUp = 0;
@@ -446,7 +435,7 @@ public class StatManager : MonoBehaviour
         // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
         SetUsingSkillSaveData(skilType, false);
 
-
+        allUnitCriticalOn = false;
 
     }
 

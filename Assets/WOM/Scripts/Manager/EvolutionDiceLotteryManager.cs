@@ -160,6 +160,11 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
             slot.SetGradeImgColor(randomGradeData.gradeColor);
             slot.EnableSlotLightSweepAnim();
 
+            // sfx -> S등급일때 사운드 효과
+            if (slot.GetEvolutionRewardGrade() == EvolutionRewardGrade.S)
+            {
+                GlobalData.instance.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.S_Grade);
+            }
 
 
         }

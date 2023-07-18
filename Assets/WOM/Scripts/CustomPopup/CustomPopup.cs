@@ -2,8 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.UI;
-using System;
 
 public class CustomPopup : MonoBehaviour
 {
@@ -17,7 +15,7 @@ public class CustomPopup : MonoBehaviour
 
     void OnDisable()
     {
-        for(int i = 0; i < slotRewad.Length; i++)
+        for (int i = 0; i < slotRewad.Length; i++)
         {
             slotRewad[i].SetActive(false);
         }
@@ -30,14 +28,20 @@ public class CustomPopup : MonoBehaviour
 
     IEnumerator Show()
     {
+        // sfx 팝업 보여질때 효과음
+        GlobalData.instance.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.Reward);
+
         popupButton.gameObject.SetActive(false);
 
         yield return delay;
 
-        while(slotQueue.Count > 0)
+        while (slotQueue.Count > 0)
         {
+            // sfx 아이템 하나씩 나올때 효과음
+            GlobalData.instance.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.CustomPopup_Item);
+
             slotQueue.Dequeue().SetActive(true);
-            
+
             //Insert Audio Effect Play Code 
 
             yield return delay;

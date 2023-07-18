@@ -79,6 +79,8 @@ namespace ProjectGraphics
         #region 함성이펙트(아우라)
         public void AuraEffect(bool on)
         {
+
+            Debug.Log("AURA EFFECT");
             if (on) anim.EffectEvent += AuraEffectAnimation;
             else anim.EffectEvent -= AuraEffectAnimation;
             auraEffect.enabled = on;
@@ -111,8 +113,8 @@ namespace ProjectGraphics
 
             //FireEffect(test);
             //ThunderEffect(test);
-            GoldEffect(test);
-            AuraEffect(test);
+            //GoldEffect(test);
+            //AuraEffect(test);
 
         }
 #endif

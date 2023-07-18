@@ -192,12 +192,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1348948941708790430}
   - component: {fileID: 1348948941708790431}
+  - component: {fileID: 446856072817248971}
+  - component: {fileID: 7988044497271703859}
   - component: {fileID: -151419926794647515}
   - component: {fileID: -8844348188701716801}
   - component: {fileID: 1857833523352664512}
   - component: {fileID: -2628233927021942681}
-  - component: {fileID: 446856072817248971}
-  - component: {fileID: 7988044497271703859}
   m_Layer: 0
   m_Name: Mantis00
   m_TagString: Untagged
@@ -278,6 +278,63 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &446856072817248971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348948941708790424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8692dd6ba3c5d0941b451f13f92e067f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fire: {fileID: 353256655844086365}
+  thunder: {fileID: 1861432379613028237}
+  auraEffect: {fileID: 5770667380044245881}
+  goldEffect: {fileID: 2655394715897304670}
+  trail: {fileID: 4214222574305099716}
+  anim: {fileID: 7988044497271703859}
+  fireSprites:
+  - {fileID: -811967882, guid: fe44e92e0f36339499b963092deced4b, type: 3}
+  - {fileID: 664079930, guid: fe44e92e0f36339499b963092deced4b, type: 3}
+  - {fileID: -1779928831, guid: fe44e92e0f36339499b963092deced4b, type: 3}
+  - {fileID: -814954261, guid: fe44e92e0f36339499b963092deced4b, type: 3}
+  thunderSprites:
+  - {fileID: 414090884, guid: e1460e93fe44d8f42a513e0784f07fa0, type: 3}
+  - {fileID: -1530426939, guid: e1460e93fe44d8f42a513e0784f07fa0, type: 3}
+  - {fileID: -970075340, guid: e1460e93fe44d8f42a513e0784f07fa0, type: 3}
+  - {fileID: -2142051529, guid: e1460e93fe44d8f42a513e0784f07fa0, type: 3}
+  auraSprites:
+  - {fileID: 88507768, guid: 29c4834bec4ae25419c4c6cbbebccbb7, type: 3}
+  - {fileID: -1794195676, guid: 29c4834bec4ae25419c4c6cbbebccbb7, type: 3}
+  - {fileID: -498719494, guid: 29c4834bec4ae25419c4c6cbbebccbb7, type: 3}
+  - {fileID: -1840208496, guid: 29c4834bec4ae25419c4c6cbbebccbb7, type: 3}
+  goldSprites:
+  - {fileID: 1388740235, guid: b0ab123f125adfb4bb1093e3653af196, type: 3}
+  - {fileID: -1004078438, guid: b0ab123f125adfb4bb1093e3653af196, type: 3}
+  - {fileID: 1663122048, guid: b0ab123f125adfb4bb1093e3653af196, type: 3}
+  - {fileID: 495313259, guid: b0ab123f125adfb4bb1093e3653af196, type: 3}
+  test: 0
+--- !u!114 &7988044497271703859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348948941708790424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d29ab69cb64b14587fe7d573f75b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 73051420, guid: 06516e5444d18ec40a28b61c0d703710, type: 3}
+  - {fileID: -718145741, guid: 06516e5444d18ec40a28b61c0d703710, type: 3}
+  - {fileID: 57788885, guid: 06516e5444d18ec40a28b61c0d703710, type: 3}
+  - {fileID: 587807138, guid: 06516e5444d18ec40a28b61c0d703710, type: 3}
+  samplelate: 24
 --- !u!114 &-151419926794647515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -363,63 +420,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &446856072817248971
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348948941708790424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8692dd6ba3c5d0941b451f13f92e067f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fire: {fileID: 353256655844086365}
-  thunder: {fileID: 1861432379613028237}
-  auraEffect: {fileID: 5770667380044245881}
-  goldEffect: {fileID: 2655394715897304670}
-  trail: {fileID: 4214222574305099716}
-  anim: {fileID: 7988044497271703859}
-  fireSprites:
-  - {fileID: -811967882, guid: fe44e92e0f36339499b963092deced4b, type: 3}
-  - {fileID: 664079930, guid: fe44e92e0f36339499b963092deced4b, type: 3}
-  - {fileID: -1779928831, guid: fe44e92e0f36339499b963092deced4b, type: 3}
-  - {fileID: -814954261, guid: fe44e92e0f36339499b963092deced4b, type: 3}
-  thunderSprites:
-  - {fileID: 414090884, guid: e1460e93fe44d8f42a513e0784f07fa0, type: 3}
-  - {fileID: -1530426939, guid: e1460e93fe44d8f42a513e0784f07fa0, type: 3}
-  - {fileID: -970075340, guid: e1460e93fe44d8f42a513e0784f07fa0, type: 3}
-  - {fileID: -2142051529, guid: e1460e93fe44d8f42a513e0784f07fa0, type: 3}
-  auraSprites:
-  - {fileID: 88507768, guid: 29c4834bec4ae25419c4c6cbbebccbb7, type: 3}
-  - {fileID: -1794195676, guid: 29c4834bec4ae25419c4c6cbbebccbb7, type: 3}
-  - {fileID: -498719494, guid: 29c4834bec4ae25419c4c6cbbebccbb7, type: 3}
-  - {fileID: -1840208496, guid: 29c4834bec4ae25419c4c6cbbebccbb7, type: 3}
-  goldSprites:
-  - {fileID: 1388740235, guid: b0ab123f125adfb4bb1093e3653af196, type: 3}
-  - {fileID: -1004078438, guid: b0ab123f125adfb4bb1093e3653af196, type: 3}
-  - {fileID: 1663122048, guid: b0ab123f125adfb4bb1093e3653af196, type: 3}
-  - {fileID: 495313259, guid: b0ab123f125adfb4bb1093e3653af196, type: 3}
-  test: 0
---- !u!114 &7988044497271703859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1348948941708790424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d29ab69cb64b14587fe7d573f75b23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 73051420, guid: 06516e5444d18ec40a28b61c0d703710, type: 3}
-  - {fileID: -718145741, guid: 06516e5444d18ec40a28b61c0d703710, type: 3}
-  - {fileID: 57788885, guid: 06516e5444d18ec40a28b61c0d703710, type: 3}
-  - {fileID: 587807138, guid: 06516e5444d18ec40a28b61c0d703710, type: 3}
-  samplelate: 24
 --- !u!1 &2677377972847381656
 GameObject:
   m_ObjectHideFlags: 0

@@ -497,10 +497,10 @@ GameObject:
   - component: {fileID: 4304186195738549220}
   - component: {fileID: 8160721583491665901}
   - component: {fileID: 3067067983931845970}
+  - component: {fileID: 4442477168056333007}
+  - component: {fileID: 1969278460}
   - component: {fileID: -7696914327861270080}
   - component: {fileID: 7072555088193193043}
-  - component: {fileID: 1969278460}
-  - component: {fileID: 4442477168056333007}
   m_Layer: 0
   m_Name: Bee00
   m_TagString: Untagged
@@ -618,6 +618,63 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &4442477168056333007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4304186195738549223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64d29ab69cb64b14587fe7d573f75b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 712262681, guid: 3a5a2aa72c77c58468bee6ba857aa8bb, type: 3}
+  - {fileID: -1886994501, guid: 3a5a2aa72c77c58468bee6ba857aa8bb, type: 3}
+  - {fileID: -1914901196, guid: 3a5a2aa72c77c58468bee6ba857aa8bb, type: 3}
+  - {fileID: 675629624, guid: 3a5a2aa72c77c58468bee6ba857aa8bb, type: 3}
+  samplelate: 24
+--- !u!114 &1969278460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4304186195738549223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8692dd6ba3c5d0941b451f13f92e067f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fire: {fileID: 578043091}
+  thunder: {fileID: 1945071776}
+  auraEffect: {fileID: 5422950720800702001}
+  goldEffect: {fileID: 8550837145231869705}
+  trail: {fileID: 1769428785}
+  anim: {fileID: 4442477168056333007}
+  fireSprites:
+  - {fileID: -811967882, guid: fe44e92e0f36339499b963092deced4b, type: 3}
+  - {fileID: 664079930, guid: fe44e92e0f36339499b963092deced4b, type: 3}
+  - {fileID: -1779928831, guid: fe44e92e0f36339499b963092deced4b, type: 3}
+  - {fileID: -814954261, guid: fe44e92e0f36339499b963092deced4b, type: 3}
+  thunderSprites:
+  - {fileID: -1530426939, guid: e1460e93fe44d8f42a513e0784f07fa0, type: 3}
+  - {fileID: -970075340, guid: e1460e93fe44d8f42a513e0784f07fa0, type: 3}
+  - {fileID: -2142051529, guid: e1460e93fe44d8f42a513e0784f07fa0, type: 3}
+  - {fileID: 414090884, guid: e1460e93fe44d8f42a513e0784f07fa0, type: 3}
+  auraSprites:
+  - {fileID: 88507768, guid: 29c4834bec4ae25419c4c6cbbebccbb7, type: 3}
+  - {fileID: -1794195676, guid: 29c4834bec4ae25419c4c6cbbebccbb7, type: 3}
+  - {fileID: -498719494, guid: 29c4834bec4ae25419c4c6cbbebccbb7, type: 3}
+  - {fileID: -1840208496, guid: 29c4834bec4ae25419c4c6cbbebccbb7, type: 3}
+  goldSprites:
+  - {fileID: 1388740235, guid: b0ab123f125adfb4bb1093e3653af196, type: 3}
+  - {fileID: -1004078438, guid: b0ab123f125adfb4bb1093e3653af196, type: 3}
+  - {fileID: 1663122048, guid: b0ab123f125adfb4bb1093e3653af196, type: 3}
+  - {fileID: 495313259, guid: b0ab123f125adfb4bb1093e3653af196, type: 3}
+  test: 0
 --- !u!114 &-7696914327861270080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,63 +723,6 @@ MonoBehaviour:
   animTime: 0
   animValue: 0
   animStartTime: 0
---- !u!114 &1969278460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4304186195738549223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8692dd6ba3c5d0941b451f13f92e067f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fire: {fileID: 578043091}
-  thunder: {fileID: 1945071776}
-  auraEffect: {fileID: 5422950720800702001}
-  goldEffect: {fileID: 8550837145231869705}
-  trail: {fileID: 1769428785}
-  anim: {fileID: 4442477168056333007}
-  fireSprites:
-  - {fileID: -811967882, guid: fe44e92e0f36339499b963092deced4b, type: 3}
-  - {fileID: 664079930, guid: fe44e92e0f36339499b963092deced4b, type: 3}
-  - {fileID: -1779928831, guid: fe44e92e0f36339499b963092deced4b, type: 3}
-  - {fileID: -814954261, guid: fe44e92e0f36339499b963092deced4b, type: 3}
-  thunderSprites:
-  - {fileID: -1530426939, guid: e1460e93fe44d8f42a513e0784f07fa0, type: 3}
-  - {fileID: -970075340, guid: e1460e93fe44d8f42a513e0784f07fa0, type: 3}
-  - {fileID: -2142051529, guid: e1460e93fe44d8f42a513e0784f07fa0, type: 3}
-  - {fileID: 414090884, guid: e1460e93fe44d8f42a513e0784f07fa0, type: 3}
-  auraSprites:
-  - {fileID: 88507768, guid: 29c4834bec4ae25419c4c6cbbebccbb7, type: 3}
-  - {fileID: -1794195676, guid: 29c4834bec4ae25419c4c6cbbebccbb7, type: 3}
-  - {fileID: -498719494, guid: 29c4834bec4ae25419c4c6cbbebccbb7, type: 3}
-  - {fileID: -1840208496, guid: 29c4834bec4ae25419c4c6cbbebccbb7, type: 3}
-  goldSprites:
-  - {fileID: 1388740235, guid: b0ab123f125adfb4bb1093e3653af196, type: 3}
-  - {fileID: -1004078438, guid: b0ab123f125adfb4bb1093e3653af196, type: 3}
-  - {fileID: 1663122048, guid: b0ab123f125adfb4bb1093e3653af196, type: 3}
-  - {fileID: 495313259, guid: b0ab123f125adfb4bb1093e3653af196, type: 3}
-  test: 0
---- !u!114 &4442477168056333007
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4304186195738549223}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64d29ab69cb64b14587fe7d573f75b23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sprites:
-  - {fileID: 712262681, guid: 3a5a2aa72c77c58468bee6ba857aa8bb, type: 3}
-  - {fileID: -1886994501, guid: 3a5a2aa72c77c58468bee6ba857aa8bb, type: 3}
-  - {fileID: -1914901196, guid: 3a5a2aa72c77c58468bee6ba857aa8bb, type: 3}
-  - {fileID: 675629624, guid: 3a5a2aa72c77c58468bee6ba857aa8bb, type: 3}
-  samplelate: 24
 --- !u!1 &4304186195977861312
 GameObject:
   m_ObjectHideFlags: 0

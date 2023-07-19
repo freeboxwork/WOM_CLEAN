@@ -19,6 +19,9 @@ public class Player : MonoBehaviour
     // 소탕권
     public int clearTicket;
 
+    public int unionTicket;
+    public int dnaTicket;
+
     // Dungeon Key
     public SerializableDictionary<GoodsType, int> dungeonKeys;
 
@@ -211,6 +214,14 @@ public class Player : MonoBehaviour
         GlobalData.instance.uiController.SetTxtGem(gem, value); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsGem(gem); // set save data
     }
+
+    public void AddUnionTicket(int value)
+    {
+        unionTicket += value;
+        //GlobalData.instance.uiController.SetTxtUnionTicket(unionTicket, value); // RELOAD UI
+        // GlobalData.instance.saveDataManager.SaveDataGoodsUnionTicket(unionTicket); // set save data
+    }
+
 
     public void PayGold(int value)
     {

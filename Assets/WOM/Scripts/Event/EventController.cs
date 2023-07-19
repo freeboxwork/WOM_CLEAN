@@ -530,7 +530,7 @@ public class EventController : MonoBehaviour
 
 
         // 훈련 메뉴 -> 진화 메뉴 UI 활성화
-        UtilityMethod.GetCustomTypeGMById(0).SetActive(true);
+        // UtilityMethod.GetCustomTypeGMById(0).SetActive(true);
 
         // 금광보스 카운트 UI 활성화
         globalData.uiController.SetEnablePhaseCountUI(true);
@@ -569,6 +569,7 @@ public class EventController : MonoBehaviour
         UtilityMethod.GetCustomTypeGMById(11).SetActive(true);
 
         // 메인 메뉴 활성화
+        globalData.uiController.MainMenuAllUnSelect();
         globalData.uiController.MainMenuShow();
 
         yield return new WaitForSeconds(0.5f);// 메인메뉴 등장 애니메이션 연출이 끝날때까지 대기
@@ -583,7 +584,7 @@ public class EventController : MonoBehaviour
         yield return StartCoroutine(MonsterAppearCor(MonsterType.normal));
 
         // 메뉴 판넬 활성/비활성화 버튼 보임
-        UtilityMethod.GetCustomTypeImageById(47).raycastTarget = true;
+        // UtilityMethod.GetCustomTypeImageById(47).raycastTarget = true;
 
 
 
@@ -721,6 +722,9 @@ public class EventController : MonoBehaviour
             globalData.stageManager.bgAnimController.SetOffsetY(0f);
 
             // side menu hide
+            // 메뉴 판넬 비활성화
+            UtilityMethod.GetCustomTypeImageById(47).raycastTarget = false;
+            UtilityMethod.GetCustomTypeImageById(47).enabled = false;
             SideUIMenuHide(true);
 
             // 배경 교체
@@ -867,8 +871,8 @@ public class EventController : MonoBehaviour
         // BGM CHANGE
         GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
 
-
         // 메인 메뉴 활성화
+        globalData.uiController.MainMenuAllUnSelect();
         globalData.uiController.MainMenuShow();
 
         yield return new WaitForSeconds(0.5f);
@@ -1057,6 +1061,7 @@ public class EventController : MonoBehaviour
         GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
 
         // 메인 메뉴 활성화
+        globalData.uiController.MainMenuAllUnSelect();
         globalData.uiController.MainMenuShow();
         yield return new WaitForSeconds(0.5f);// 메인메뉴 등장 애니메이션 연출이 끝날때까지 대기
         //진화 메뉴 활성화

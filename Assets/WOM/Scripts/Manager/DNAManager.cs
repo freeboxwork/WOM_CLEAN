@@ -27,21 +27,21 @@ public class DNAManager : MonoBehaviour
 
         SetBtnEventCustomTypeByID(btnLottery01, () =>
         {
-            DNALotteryGameStart(1);
+            DNALotteryGameStart(1, 10, EnumDefinition.RewardType.gem);
         });
 
         SetBtnEventCustomTypeByID(btnLottery10, () =>
         {
-            DNALotteryGameStart(10);
+            DNALotteryGameStart(10, 100, EnumDefinition.RewardType.gem);
         });
 
         SetBtnEventCustomTypeByID(btnLottery30, () =>
         {
-            DNALotteryGameStart(30);
+            DNALotteryGameStart(30, 1000, EnumDefinition.RewardType.gem);
         });
     }
 
-    public void DNALotteryGameStart(int gameCount)
+    public void DNALotteryGameStart(int gameCount, int payValue, EnumDefinition.RewardType rewardType)
     {
         if (isGambling == false)
         {
@@ -52,7 +52,7 @@ public class DNAManager : MonoBehaviour
             }
             else
             {
-                StartCoroutine(LotteryStart(gameCount));
+                StartCoroutine(LotteryStart(gameCount, payValue, rewardType));
             }
         }
     }
@@ -110,9 +110,9 @@ public class DNAManager : MonoBehaviour
 
 
     // DNA 뽑기
-    IEnumerator LotteryStart(int gameCount)
+    IEnumerator LotteryStart(int gameCount, int payValue, EnumDefinition.RewardType rewardType)
     {
-        if (IsValidGemCount(gameCount))
+        if (IsValidGemCount(payValue, rewardType))
         {
             isGambling = true;
 
@@ -248,9 +248,10 @@ public class DNAManager : MonoBehaviour
     }
 
 
-    bool IsValidGemCount(int lotteryCount)
+    bool IsValidGemCount(int payValue, EnumDefinition.RewardType rewardType)
     {
-        return GlobalData.instance.player.gem > lotteryCount;
+        var goods = GlobalData.instance.player.GetGoodsByRewardType(rewardType);
+        return goods >= payValue;
     }
 
     // 보유중인 전체 DNA 수

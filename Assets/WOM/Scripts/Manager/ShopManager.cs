@@ -37,7 +37,7 @@ public class ShopManager : MonoBehaviour
 
     private void SetButtonEvents()
     {
-        // UNION 1 ( 34 )
+        // UNION 1 ( 34 ) -> gem 사용
         UtilityMethod.SetBtnEventCustomTypeByID(34, () =>
         {
             // disable menu ui
@@ -49,15 +49,29 @@ public class ShopManager : MonoBehaviour
 
         });
 
-
-
-        // UNION 11
+        // UNION 11 -> gem 사용
         UtilityMethod.SetBtnEventCustomTypeByID(35, () =>
         {
             //GlobalData.instance.uiController.AllDisableMenuPanels();
             EnableLotteryBtnsSet(LotteryPageType.UNION);
             GlobalData.instance.evolutionManager.UnionLotteryGameStart(11, 100, EnumDefinition.RewardType.gem);
         });
+
+
+        // UNION 1 -> unionTicket 사용
+        UtilityMethod.SetBtnEventCustomTypeByID(70, () =>
+        {
+            EnableLotteryBtnsSet(LotteryPageType.UNION);
+            GlobalData.instance.evolutionManager.UnionLotteryGameStart(1, 10, EnumDefinition.RewardType.unionTicket);
+        });
+
+        // UNION 11 -> unionTicket 사용
+        UtilityMethod.SetBtnEventCustomTypeByID(71, () =>
+        {
+            EnableLotteryBtnsSet(LotteryPageType.UNION);
+            GlobalData.instance.evolutionManager.UnionLotteryGameStart(11, 100, EnumDefinition.RewardType.unionTicket);
+        });
+
 
         // DNA 1
         UtilityMethod.SetBtnEventCustomTypeByID(36, () =>

@@ -563,6 +563,11 @@ public class UiController : MonoBehaviour
         menuRectTrans.DOAnchorPos(new Vector2(0f, 0f), 0.5f).SetEase(Ease.InOutExpo);
     }
 
+    public void MainMenuAllUnSelect()
+    {
+        foreach (var mainBtn in mainButtons)
+            mainBtn.Select(false);
+    }
 
 
 

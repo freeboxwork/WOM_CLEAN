@@ -18,6 +18,10 @@ public class GM_TesterTools : EditorWindow
     int addCoal;
     int addDice;
 
+    int addClertTicekt;
+    int addUnionTicket;
+    int addDnaTicket;
+
     float insectAutoEnableTime = 0.1f;
 
     [MenuItem("GM_TOOLS/TesterTools")]
@@ -55,6 +59,9 @@ public class GM_TesterTools : EditorWindow
                 GUI_AddGoodsCustom("보석", RewardType.gem, ref addGem);
                 GUI_AddGoodsCustom("석탄", RewardType.coal, ref addCoal);
                 GUI_AddGoodsCustom("주사위", RewardType.dice, ref addDice);
+                GUI_AddGoodsCustom("클리어티켓", RewardType.clearTicket, ref addClertTicekt);
+                GUI_AddGoodsCustom("유니온티켓", RewardType.unionTicket, ref addUnionTicket);
+                GUI_AddGoodsCustom("유전자티켓", RewardType.dnaTicket, ref addDnaTicket);
 
 
                 EditorCustomGUI.GUI_Button("골드 10000 추가", () => { GlobalData.instance.player.AddGold(1000); });

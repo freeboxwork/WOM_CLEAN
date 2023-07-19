@@ -21,7 +21,7 @@ namespace ProjectGraphics
         private void Awake()
         {
             fire = transform.Find("Fire").GetComponent<SpriteRenderer>();
-            thunder = transform.Find("Thunder").GetComponent <SpriteRenderer>();
+            thunder = transform.Find("Thunder").GetComponent<SpriteRenderer>();
             auraEffect = transform.Find("Aura").GetComponent<SpriteRenderer>();
             goldEffect = transform.Find("Gold").GetComponent<SpriteRenderer>();
         }
@@ -35,11 +35,16 @@ namespace ProjectGraphics
 
         void OnDisable()
         {
-            FireEffect(false);
-            ThunderEffect(false);
-            TrailEffect(false);
-            AuraEffect(false);
-            GoldEffect(false);
+            if (fire.enabled)
+                FireEffect(false);
+            if (thunder.enabled)
+                ThunderEffect(false);
+            if (trail.enabled)
+                TrailEffect(false);
+            if (auraEffect.enabled)
+                AuraEffect(false);
+            if (goldEffect.enabled)
+                GoldEffect(false);
         }
 
         #region »≠ø∞ ¿Ã∆Â∆Æ
@@ -60,6 +65,7 @@ namespace ProjectGraphics
         #region π¯∞≥ ¿Ã∆Â∆Æ
         public void ThunderEffect(bool on)
         {
+            Debug.Log("THUNDER EFFECT");
             if (on) anim.EffectEvent += ThunderEffectAnimation;
             else anim.EffectEvent -= ThunderEffectAnimation;
             thunder.enabled = on;

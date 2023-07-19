@@ -5,7 +5,6 @@ using UnityEngine.UI;
 /// </summary>
 public class ButtonInteractableCheck : MonoBehaviour
 {
-
     public EnumDefinition.RewardType type;
 
     public int enableCount;
@@ -17,20 +16,28 @@ public class ButtonInteractableCheck : MonoBehaviour
         if (TryGetComponent(out Button button))
         {
             btn = button;
+            InteractableCheck();
+            btn.onClick.AddListener(() =>
+            {
+                Invoke("InteractableCheck", 0.1f);
+            });
         }
     }
 
     void OnEnable()
     {
-
+        if (btn != null)
+            InteractableCheck();
     }
-
 
     void InteractableCheck()
     {
-
+        btn.interactable = IsEnable();
     }
 
-
+    bool IsEnable()
+    {
+        return enableCount <= GlobalData.instance.player.GetGoodsByRewardType(type);
+    }
 
 }

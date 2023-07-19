@@ -28,6 +28,9 @@ public class Player : MonoBehaviour
     // Dungeon AD Key
     public SerializableDictionary<GoodsType, int> dungeonADKeys;
 
+    // Goods Map
+    public SerializableDictionary<RewardType, int> rewardToGoodsMap;
+
     public DateTime playTime;
     public float currentMonsterHp;
 
@@ -74,10 +77,30 @@ public class Player : MonoBehaviour
 
     public IEnumerator Init(SaveData saveData)
     {
+
         SetPlayerDataFromSaveData(saveData);
+        SetRewardToGoodsMap();
         yield return null;
+    }
 
+    void SetRewardToGoodsMap()
+    {
+        rewardToGoodsMap = new SerializableDictionary<RewardType, int>{
 
+            {RewardType.gold, gold },
+            {RewardType.bone, bone },
+            {RewardType.gem, gem },
+            {RewardType.dice, diceCount },
+            {RewardType.coal, coal },
+            {RewardType.clearTicket, clearTicket },
+            {RewardType.unionTicket, unionTicket },
+            {RewardType.dnaTicket, dnaTicket }
+        };
+    }
+
+    public int GetGoodsByRewardType(RewardType rewardType)
+    {
+        return rewardToGoodsMap[rewardType];
     }
 
 
@@ -121,6 +144,8 @@ public class Player : MonoBehaviour
         gem = saveData.gem;
         coal = saveData.coal;
         clearTicket = saveData.clearTicker;
+        unionTicket = saveData.unionTicket;
+        dnaTicket = saveData.dnaTicket;
 
 
         //TODO: 재화 추가 로직 필요
@@ -219,9 +244,31 @@ public class Player : MonoBehaviour
     {
         unionTicket += value;
         //GlobalData.instance.uiController.SetTxtUnionTicket(unionTicket, value); // RELOAD UI
-        // GlobalData.instance.saveDataManager.SaveDataGoodsUnionTicket(unionTicket); // set save data
+        GlobalData.instance.saveDataManager.SaveDataGoodsUnionTicket(unionTicket); // set save data
     }
 
+    public void AddDnaTicket(int value)
+    {
+        dnaTicket += value;
+        //GlobalData.instance.uiController.SetTxtDnaTicket(dnaTicket, value); // RELOAD UI
+        GlobalData.instance.saveDataManager.SaveDataGoodsDnaTicket(dnaTicket); // set save data
+    }
+
+    public void PayUnionTicket(int value)
+    {
+        unionTicket -= value;
+        if (unionTicket < 0) unionTicket = 0;
+        //GlobalData.instance.uiController.SetTxtUnionTicket(unionTicket, 0); // RELOAD UI
+        GlobalData.instance.saveDataManager.SaveDataGoodsUnionTicket(unionTicket); // set save data
+    }
+
+    public void PayDnaTicket(int value)
+    {
+        dnaTicket -= value;
+        if (dnaTicket < 0) dnaTicket = 0;
+        //GlobalData.instance.uiController.SetTxtDnaTicket(dnaTicket, 0); // RELOAD UI
+        GlobalData.instance.saveDataManager.SaveDataGoodsDnaTicket(dnaTicket); // set save data
+    }
 
     public void PayGold(int value)
     {
@@ -376,6 +423,7 @@ public class Player : MonoBehaviour
             case MonsterType.dungeonCoal: PayDungeonADKey(GoodsType.coal, count); break;
         }
     }
+
 
 
 

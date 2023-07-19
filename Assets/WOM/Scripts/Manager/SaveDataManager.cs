@@ -405,6 +405,15 @@ public class SaveDataManager : MonoBehaviour
     {
         saveDataTotal.saveDataGoods.clearTicket = clearTicket;
     }
+    public void SaveDataGoodsUnionTicket(int unionTicket)
+    {
+        saveDataTotal.saveDataGoods.unionTicket = unionTicket;
+    }
+
+    public void SaveDataGoodsDnaTicket(int dnaTicket)
+    {
+        saveDataTotal.saveDataGoods.dnaTicket = dnaTicket;
+    }
 
     // 던전 레벨 데이터 저장
     public void SaveDataDungeonLevelGold(int dungeonLevel)

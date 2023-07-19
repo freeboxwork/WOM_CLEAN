@@ -340,11 +340,16 @@ public class InsectManager : MonoBehaviour
             AddEnableInsects(bullet);
 
             // SKILL EFFECT
-            bullet.effectContoller.AuraEffect(GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.insectDamageUp));
-            bullet.effectContoller.FireEffect(GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.unionDamageUp));
-            bullet.effectContoller.TrailEffect(GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.allUnitSpeedUp));
-            bullet.effectContoller.GoldEffect(GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.glodBonusUp));
-            bullet.effectContoller.ThunderEffect(GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.allUnitCriticalChanceUp));
+            if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.insectDamageUp))
+                bullet.effectContoller.AuraEffect(true);
+            if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.unionDamageUp))
+                bullet.effectContoller.FireEffect(true);
+            if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.allUnitSpeedUp))
+                bullet.effectContoller.TrailEffect(true);
+            if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.glodBonusUp))
+                bullet.effectContoller.GoldEffect(true);
+            if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.allUnitCriticalChanceUp))
+                bullet.effectContoller.ThunderEffect(true);
 
         }
         else

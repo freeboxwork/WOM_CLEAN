@@ -45,14 +45,17 @@ public class InsectSpwanTimer : MonoBehaviour
                 insect.gameObject.SetActive(true);
                 GlobalData.instance.insectManager.AddEnableInsects(insect);
 
-                // SKILL EFFECT
-                // insect.effectContoller.FireEffect(GlobalData.instance.skillManager.IsUnionDamageUpSkillEffOn());
-                // insect.effectContoller.ThunderEffect(GlobalData.instance.skillManager.IsAllUnitCritChanceUpSkillEffOn());
-                insect.effectContoller.AuraEffect(GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.insectDamageUp));
-                insect.effectContoller.FireEffect(GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.unionDamageUp));
-                insect.effectContoller.TrailEffect(GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.allUnitSpeedUp));
-                insect.effectContoller.GoldEffect(GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.glodBonusUp));
-                insect.effectContoller.ThunderEffect(GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.allUnitCriticalChanceUp));
+
+                if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.insectDamageUp))
+                    insect.effectContoller.AuraEffect(true);
+                if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.unionDamageUp))
+                    insect.effectContoller.FireEffect(true);
+                if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.allUnitSpeedUp))
+                    insect.effectContoller.TrailEffect(true);
+                if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.glodBonusUp))
+                    insect.effectContoller.GoldEffect(true);
+                if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.allUnitCriticalChanceUp))
+                    insect.effectContoller.ThunderEffect(true);
 
             }
             else

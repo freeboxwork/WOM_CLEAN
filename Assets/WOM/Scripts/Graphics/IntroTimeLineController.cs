@@ -54,6 +54,7 @@ public class IntroTimeLineController : MonoBehaviour
 
     public void OnMarkableIntroSignal()
     {
+        currentTimeIndex = 5;
         dontTouch = true;
     }
 

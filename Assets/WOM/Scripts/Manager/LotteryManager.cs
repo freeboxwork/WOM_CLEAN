@@ -160,18 +160,27 @@ public class LotteryManager : MonoBehaviour
         }
     }
 
-    public void LotteryStart(int roundCount, UnityAction gameEndEvent)
+    public void LotteryStart(int roundCount, int payValue, UnityAction gameEndEvent, EnumDefinition.RewardType rewardType)
     {
-        StartCoroutine(CardOpen(roundCount, gameEndEvent));
+        StartCoroutine(CardOpen(roundCount, payValue, gameEndEvent, rewardType));
     }
 
-    public IEnumerator CardOpen(int roundCount, UnityAction gameEndEvent)
+    public IEnumerator CardOpen(int roundCount, int payValue, UnityAction gameEndEvent, EnumDefinition.RewardType rewardType)
     {
-        if (IsValidGemCount(roundCount))
+        if (IsValidGemCount(payValue, rewardType))
         {
 
-            // pay gem
-            GlobalData.instance.player.PayGem(roundCount);
+            if (rewardType == EnumDefinition.RewardType.unionTicket)
+            {
+                // pay union ticket
+                GlobalData.instance.player.PayUnionTicket(payValue);
+            }
+            else
+            {
+                // pay gem
+                GlobalData.instance.player.PayGem(payValue);
+            }
+
 
             // 닫기 버튼 비활성화
             UtilityMethod.GetCustomTypeBtnByID(44).interactable = false;
@@ -241,9 +250,10 @@ public class LotteryManager : MonoBehaviour
 
     }
 
-    bool IsValidGemCount(int lotteryCount)
+    bool IsValidGemCount(int payValue, EnumDefinition.RewardType rewardType)
     {
-        return GlobalData.instance.player.gem > lotteryCount;
+        var goods = GlobalData.instance.player.GetGoodsByRewardType(rewardType);
+        return goods >= payValue;
     }
 
     // UI 업데이트

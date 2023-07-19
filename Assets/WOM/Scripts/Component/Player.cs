@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     public SerializableDictionary<GoodsType, int> dungeonADKeys;
 
     // Goods Map
-    public SerializableDictionary<RewardType, int> rewardToGoodsMap;
+    //SerializableDictionary<RewardType, int> rewardToGoodsMap;
 
     public DateTime playTime;
     public float currentMonsterHp;
@@ -79,29 +79,86 @@ public class Player : MonoBehaviour
     {
 
         SetPlayerDataFromSaveData(saveData);
-        SetRewardToGoodsMap();
+        //SetRewardToGoodsMap();
         yield return null;
     }
 
-    void SetRewardToGoodsMap()
-    {
-        rewardToGoodsMap = new SerializableDictionary<RewardType, int>{
+    // void SetRewardToGoodsMap()
+    // {
+    //     rewardToGoodsMap = new SerializableDictionary<RewardType, int>{
 
-            {RewardType.gold, gold },
-            {RewardType.bone, bone },
-            {RewardType.gem, gem },
-            {RewardType.dice, diceCount },
-            {RewardType.coal, coal },
-            {RewardType.clearTicket, clearTicket },
-            {RewardType.unionTicket, unionTicket },
-            {RewardType.dnaTicket, dnaTicket }
-        };
-    }
+    //         {RewardType.gold, GetGold() },
+    //         {RewardType.bone, GetBone() },
+    //         {RewardType.gem,  GetGem() },
+    //         {RewardType.dice, GetDice() },
+    //         {RewardType.coal, GetCoal() },
+    //         {RewardType.clearTicket, GetClearTicket() },
+    //         {RewardType.unionTicket, GetUnionTicket() },
+    //         {RewardType.dnaTicket, GetDnaTicket() }
+    //     };
+    // }
 
+    // 인자로 RewardType 을 받고 switch를 이용하여 해당 재화를 리턴하는 함수
     public int GetGoodsByRewardType(RewardType rewardType)
     {
-        return rewardToGoodsMap[rewardType];
+        switch (rewardType)
+        {
+            case RewardType.gold: return gold;
+            case RewardType.bone: return bone;
+            case RewardType.gem: return gem;
+            case RewardType.dice: return diceCount;
+            case RewardType.coal: return coal;
+            case RewardType.clearTicket: return clearTicket;
+            case RewardType.unionTicket: return unionTicket;
+            case RewardType.dnaTicket: return dnaTicket;
+            default: return 0;
+        }
     }
+
+
+
+
+    // int GetGold()
+    // {
+    //     return gold;
+    // }
+    // int GetBone()
+    // {
+    //     return bone;
+    // }
+    // int GetGem()
+    // {
+    //     return gem;
+    // }
+    // int GetDice()
+    // {
+    //     return diceCount;
+    // }
+
+    // int GetCoal()
+    // {
+    //     return coal;
+    // }
+    // int GetClearTicket()
+    // {
+    //     return clearTicket;
+    // }
+    // int GetUnionTicket()
+    // {
+    //     return unionTicket;
+    // }
+    // int GetDnaTicket()
+    // {
+    //     return dnaTicket;
+    // }
+
+
+
+
+    // public int GetGoodsByRewardType(RewardType rewardType)
+    // {
+    //     return rewardToGoodsMap[rewardType];
+    // }
 
 
     public void SetCurrentMonster(MonsterBase monsterBase)

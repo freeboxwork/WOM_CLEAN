@@ -166,10 +166,10 @@ public class EvolutionManager : MonoBehaviour
 
     void SetButtonEvents()
     {
-        // 뽑기 게임 10 , 11 , 30회
-        UtilityMethod.SetBtnEventCustomTypeByID(17, () => UnionLotteryGameStart(1));
-        UtilityMethod.SetBtnEventCustomTypeByID(18, () => UnionLotteryGameStart(11));
-        UtilityMethod.SetBtnEventCustomTypeByID(19, () => UnionLotteryGameStart(30));
+        // 뽑기 게임 10 , 11 , 30회 , 
+        UtilityMethod.SetBtnEventCustomTypeByID(17, () => UnionLotteryGameStart(1, 10, EnumDefinition.RewardType.gem));
+        UtilityMethod.SetBtnEventCustomTypeByID(18, () => UnionLotteryGameStart(11, 100, EnumDefinition.RewardType.gem));
+        UtilityMethod.SetBtnEventCustomTypeByID(19, () => UnionLotteryGameStart(30, 1000, EnumDefinition.RewardType.gem));
 
 
         /* 진화전 */
@@ -266,13 +266,13 @@ public class EvolutionManager : MonoBehaviour
     }
 
     // 유니온 뽑기
-    public void UnionLotteryGameStart(int roundCount)
+    public void UnionLotteryGameStart(int roundCount, int payValye, EnumDefinition.RewardType rewardType)
     {
         //trLotteryGameSet.gameObject.SetActive(true);
-        GlobalData.instance.lotteryManager.LotteryStart(roundCount, () =>
+        GlobalData.instance.lotteryManager.LotteryStart(roundCount, payValye, () =>
         {
             Debug.Log(roundCount + "회 뽑기 게임 종료 이벤트 실행");
-        });
+        }, rewardType);
     }
 
 

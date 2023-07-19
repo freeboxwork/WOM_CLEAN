@@ -45,16 +45,18 @@ public class ShopManager : MonoBehaviour
             // 유니온 뽑기 버튼 셋트 활성화
             EnableLotteryBtnsSet(LotteryPageType.UNION);
             // 뽑기 1회 시작
-            GlobalData.instance.evolutionManager.UnionLotteryGameStart(1);
+            GlobalData.instance.evolutionManager.UnionLotteryGameStart(1, 10, EnumDefinition.RewardType.gem);
 
         });
+
+
 
         // UNION 11
         UtilityMethod.SetBtnEventCustomTypeByID(35, () =>
         {
             //GlobalData.instance.uiController.AllDisableMenuPanels();
             EnableLotteryBtnsSet(LotteryPageType.UNION);
-            GlobalData.instance.evolutionManager.UnionLotteryGameStart(11);
+            GlobalData.instance.evolutionManager.UnionLotteryGameStart(11, 100, EnumDefinition.RewardType.gem);
         });
 
         // DNA 1

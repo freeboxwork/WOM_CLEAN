@@ -58,6 +58,7 @@ public class ShopManager : MonoBehaviour
         // UNION 1 -> unionTicket 사용
         UtilityMethod.SetBtnEventCustomTypeByID(70, () =>
         {
+            Debug.Log("UNION 1 -> unionTicket 사용");
             EnableLotteryBtnsSet(LotteryPageType.UNION);
             GlobalData.instance.evolutionManager.UnionLotteryGameStart(1, 10, EnumDefinition.RewardType.unionTicket);
         });

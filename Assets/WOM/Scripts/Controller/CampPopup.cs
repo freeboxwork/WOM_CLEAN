@@ -11,6 +11,8 @@ public class CampPopup : CastlePopupBase
 
     public Button btnGetReward;
 
+    public Button btnClose;
+
 
 
     void Start()
@@ -44,6 +46,11 @@ public class CampPopup : CastlePopupBase
         {
             GlobalData.instance.rewardManager.UnionReward();
 
+        });
+
+        btnClose.onClick.AddListener(() =>
+        {
+            gameObject.SetActive(false);
         });
     }
 

@@ -60,14 +60,14 @@ public class ShopManager : MonoBehaviour
         {
             Debug.Log("UNION 1 -> unionTicket 사용");
             EnableLotteryBtnsSet(LotteryPageType.UNION);
-            GlobalData.instance.evolutionManager.UnionLotteryGameStart(1, 10, EnumDefinition.RewardType.unionTicket);
+            GlobalData.instance.evolutionManager.UnionLotteryGameStart(1, 1, EnumDefinition.RewardType.unionTicket);
         });
 
         // UNION 11 -> unionTicket 사용
         UtilityMethod.SetBtnEventCustomTypeByID(71, () =>
         {
             EnableLotteryBtnsSet(LotteryPageType.UNION);
-            GlobalData.instance.evolutionManager.UnionLotteryGameStart(11, 100, EnumDefinition.RewardType.unionTicket);
+            GlobalData.instance.evolutionManager.UnionLotteryGameStart(11, 10, EnumDefinition.RewardType.unionTicket);
         });
 
 
@@ -89,14 +89,14 @@ public class ShopManager : MonoBehaviour
         UtilityMethod.SetBtnEventCustomTypeByID(72, () =>
         {
             EnableLotteryBtnsSet(LotteryPageType.DNA);
-            GlobalData.instance.dnaManger.DNALotteryGameStart(1, 10, EnumDefinition.RewardType.dnaTicket);
+            GlobalData.instance.dnaManger.DNALotteryGameStart(1, 1, EnumDefinition.RewardType.dnaTicket);
         });
 
         // DNA 11 -> dnaTicket 사용
         UtilityMethod.SetBtnEventCustomTypeByID(73, () =>
         {
             EnableLotteryBtnsSet(LotteryPageType.DNA);
-            GlobalData.instance.dnaManger.DNALotteryGameStart(11, 100, EnumDefinition.RewardType.dnaTicket);
+            GlobalData.instance.dnaManger.DNALotteryGameStart(11, 10, EnumDefinition.RewardType.dnaTicket);
         });
 
         // FREE GEM 1

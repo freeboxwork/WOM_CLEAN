@@ -17,10 +17,6 @@ public class ButtonInteractableCheck : MonoBehaviour
         {
             btn = button;
             InteractableCheck();
-            btn.onClick.AddListener(() =>
-            {
-                Invoke("InteractableCheck", 0.1f);
-            });
         }
     }
 
@@ -30,9 +26,10 @@ public class ButtonInteractableCheck : MonoBehaviour
             InteractableCheck();
     }
 
-    void InteractableCheck()
+    public void InteractableCheck()
     {
-        btn.interactable = IsEnable();
+        if (btn != null)
+            btn.interactable = IsEnable();
     }
 
     bool IsEnable()

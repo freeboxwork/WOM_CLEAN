@@ -48,6 +48,9 @@ public class UiController : MonoBehaviour
 
     public bool isCastleOpen = false;
 
+    public List<ButtonInteractableCheck> btnInteractableCheckList = new List<ButtonInteractableCheck>();
+
+
     void Start()
     {
     }
@@ -84,6 +87,17 @@ public class UiController : MonoBehaviour
 
         yield return null;
 
+    }
+
+    public void ButtonInteractableCheck(EnumDefinition.RewardType rewardType)
+    {
+        foreach (var btn in btnInteractableCheckList)
+        {
+            if (btn.gameObject.activeSelf == false)
+                continue;
+            if (btn.type == rewardType)
+                btn.InteractableCheck();
+        }
     }
 
     // SET PLAYER UI

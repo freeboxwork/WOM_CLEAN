@@ -317,6 +317,9 @@ public class Player : MonoBehaviour
         if (unionTicket < 0) unionTicket = 0;
         //GlobalData.instance.uiController.SetTxtUnionTicket(unionTicket, 0); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsUnionTicket(unionTicket); // set save data
+
+        // button interactable check    
+        GlobalData.instance.uiController.ButtonInteractableCheck(EnumDefinition.RewardType.unionTicket);
     }
 
     public void PayDnaTicket(int value)
@@ -325,6 +328,9 @@ public class Player : MonoBehaviour
         if (dnaTicket < 0) dnaTicket = 0;
         //GlobalData.instance.uiController.SetTxtDnaTicket(dnaTicket, 0); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsDnaTicket(dnaTicket); // set save data
+
+        // button interactable check    
+        GlobalData.instance.uiController.ButtonInteractableCheck(EnumDefinition.RewardType.dnaTicket);
     }
 
     public void PayGold(int value)
@@ -358,6 +364,9 @@ public class Player : MonoBehaviour
         if (gem < 0) gem = 0;
         GlobalData.instance.uiController.SetTxtGem(gem, 0); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsGem(gem); // set save data
+
+        // button interactable check    
+        GlobalData.instance.uiController.ButtonInteractableCheck(EnumDefinition.RewardType.gem);
     }
 
     public void PayCoal(int value)

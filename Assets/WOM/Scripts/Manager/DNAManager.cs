@@ -116,8 +116,17 @@ public class DNAManager : MonoBehaviour
         {
             isGambling = true;
 
-            // pay gem
-            GlobalData.instance.player.PayGem(gameCount);
+
+            if (rewardType == EnumDefinition.RewardType.dnaTicket)
+            {
+                // pay dna ticket
+                GlobalData.instance.player.PayDnaTicket(payValue);
+            }
+            else
+            {
+                // pay gem
+                GlobalData.instance.player.PayGem(payValue);
+            }
 
             // 랜덤하게 뽑은 DNA TYPES ( UI 리셋할때 활용, 중복제외 ) 
             List<EnumDefinition.DNAType> dnaTypes = new List<EnumDefinition.DNAType>();
@@ -173,7 +182,7 @@ public class DNAManager : MonoBehaviour
         }
         else
         {
-            // message popup (보석이 부족합니다)
+            // message popup (보석이 부족합니다) -> 재화가 부족 합니다.
             GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("Message", 3);
         }
 

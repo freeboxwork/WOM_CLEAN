@@ -576,6 +576,7 @@ public class LabBuildIngameData
     public EnumDefinition.GoodsType goodsType;
     public int level;
     public int value;
+    public int price;
 
     public LabBuildIngameData CloneInstance()
     {
@@ -583,6 +584,7 @@ public class LabBuildIngameData
         labBuildIngameData.goodsType = goodsType;
         labBuildIngameData.level = level;
         labBuildIngameData.value = value;
+        labBuildIngameData.price = price;
 
         return labBuildIngameData;
     }

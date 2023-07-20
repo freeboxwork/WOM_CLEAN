@@ -564,7 +564,7 @@ public class DataManager : MonoBehaviour
         return convertTextDatas.data.FirstOrDefault(f => f.type == type.ToString());
     }
 
-    public int GetLabBuindingDataByGoodsType(int level, GoodsType goodsType)
+    public int GetLabBuindingDataValueByGoodsType(int level, GoodsType goodsType)
     {
         var data = GetLabBuildingDataByLevel(level);
         switch (goodsType)

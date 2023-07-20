@@ -172,22 +172,14 @@ public class SaveDataManager : MonoBehaviour
         saveDataTotal.saveDataDungeonLevel.dungeonLvCoal = 1;
 
         saveDataTotal.saveDataLabBuildingData = new SaveDataLabBuildingData();
+        var zeroLevelPrice = globalData.dataManager.GetLabBuildingDataByLevel(0).price;
         saveDataTotal.saveDataLabBuildingData.labBuildIngameDatas = new List<LabBuildIngameData>(){
 
-            new LabBuildIngameData(){goodsType = EnumDefinition.GoodsType.gold },
-            new LabBuildIngameData(){goodsType = EnumDefinition.GoodsType.dice},
-            new LabBuildIngameData(){goodsType = EnumDefinition.GoodsType.bone},
-            new LabBuildIngameData(){goodsType = EnumDefinition.GoodsType.gold},
+            new LabBuildIngameData(){ goodsType = EnumDefinition.GoodsType.gold , level = 0, price = zeroLevelPrice },
+            new LabBuildIngameData(){ goodsType = EnumDefinition.GoodsType.dice, level = 0,price = zeroLevelPrice },
+            new LabBuildIngameData(){ goodsType = EnumDefinition.GoodsType.bone, level = 0,price = zeroLevelPrice },
+            new LabBuildIngameData(){ goodsType = EnumDefinition.GoodsType.coal, level = 0,price = zeroLevelPrice },
         };
-
-        // foreach (GoodsType type in Enum.GetValues(typeof(GoodsType)))
-        // {
-        //     saveDataTotal.saveDataLabBuildingData.labBuildIngameDatas.Add(new LabBuildIngameData() { goodsType = type });
-        // }
-        // saveDataLabBuildingData.labBuildIngameDatas.Add(new LabBuildIngameData() { goodsType = EnumDefinition.GoodsType.gold });
-        // saveDataLabBuildingData.labBuildIngameDatas.Add(new LabBuildIngameData() { goodsType = EnumDefinition.GoodsType.dice });
-        // saveDataLabBuildingData.labBuildIngameDatas.Add(new LabBuildIngameData() { goodsType = EnumDefinition.GoodsType.bone });
-        // saveDataLabBuildingData.labBuildIngameDatas.Add(new LabBuildIngameData() { goodsType = EnumDefinition.GoodsType.gold });
 
 
     }
@@ -596,6 +588,16 @@ public class SaveDataManager : MonoBehaviour
     public void SaveDataUnionAddRewardId(int id)
     {
         saveDataTotal.saveDataUnionSummonGrade.rewaedUnionIds.Add(id);
+    }
+
+
+    // 캐슬 -> 연구소 데이터 세팅
+    public void SaveDataLabBuildIngameData(LabBuildIngameData data)
+    {
+        var saveData = saveDataTotal.saveDataLabBuildingData.labBuildIngameDatas.Find(x => x.goodsType == data.goodsType);
+        saveData.level = data.level;
+        saveData.value = data.value;
+        saveData.price = data.price;
     }
 
     // SaveData Remove UnionRewardId

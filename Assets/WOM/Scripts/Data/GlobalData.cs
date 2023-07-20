@@ -47,6 +47,9 @@ public class GlobalData : MonoBehaviour
 
     public GoldPigController goldPigController;
 
+    public LabBuildingManager labBuildingManager;
+
+
     private void Awake()
     {
         SetInstance();

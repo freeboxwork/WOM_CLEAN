@@ -81,7 +81,7 @@ public class LabBuildingManager : MonoBehaviour
         return GlobalData.instance.player.coal >= price;
     }
 
-    LabBuildIngameData GetInLabBuildGameData(EnumDefinition.GoodsType goodsType)
+    public LabBuildIngameData GetInLabBuildGameData(EnumDefinition.GoodsType goodsType)
     {
         return labBuildIngameDataList.Where(x => x.goodsType == goodsType).FirstOrDefault();
     }

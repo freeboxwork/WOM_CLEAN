@@ -74,7 +74,8 @@ public class EnumDefinition
         questDataOneDay,
         battlePassData,
         attendData,
-        newUserData
+        newUserData,
+        labBuildingData,
     }
 
     /// <summary> ?????? ??? </summary>
@@ -104,6 +105,8 @@ public class EnumDefinition
         EaseOutQuint,
         Linear
     }
+
+
 
     public enum GoldPosType
     {

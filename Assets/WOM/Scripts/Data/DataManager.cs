@@ -131,6 +131,9 @@ public class DataManager : MonoBehaviour
     // 신규 유저 데이터
     public NewUserDatas newUserDatas;
 
+    // 캐슬 -> 연구소 데이터
+    public LabBuidingDatas labBuildingDatas;
+
     void Start()
     {
 
@@ -195,6 +198,9 @@ public class DataManager : MonoBehaviour
         // SET QUEST DATA
         SetQuestData();
 
+        // SET LABBUILDING DATA
+        SetLabBuildingData();
+
 
 
         yield return new WaitForEndOfFrame();
@@ -215,6 +221,10 @@ public class DataManager : MonoBehaviour
         statSaleDatas.Add(talentGoldBonusData);
     }
 
+    void SetLabBuildingData()
+    {
+        labBuildingDatas = GetData<LabBuidingDatas>(SheetDataType.labBuildingData);
+    }
 
     void SetSaleStatDatas()
     {
@@ -554,6 +564,24 @@ public class DataManager : MonoBehaviour
         return convertTextDatas.data.FirstOrDefault(f => f.type == type.ToString());
     }
 
+    public int GetLabBuindingDataByGoodsType(int level, GoodsType goodsType)
+    {
+        var data = GetLabBuildingDataByLevel(level);
+        switch (goodsType)
+        {
+            case GoodsType.gold: return data.gold;
+            case GoodsType.dice: return data.dice;
+            case GoodsType.bone: return data.bone;
+            case GoodsType.coal: return data.coal;
+            default: return 0;
+        }
+    }
+
+    public LabBuildingData GetLabBuildingDataByLevel(int level)
+    {
+        return labBuildingDatas.data.FirstOrDefault(f => f.level == level);
+    }
+
 }
 
 
@@ -702,4 +730,10 @@ public class AttendDatas
 public class NewUserDatas
 {
     public List<NewUserData> data = new List<NewUserData>();
+}
+
+[Serializable]
+public class LabBuidingDatas
+{
+    public List<LabBuildingData> data = new List<LabBuildingData>();
 }

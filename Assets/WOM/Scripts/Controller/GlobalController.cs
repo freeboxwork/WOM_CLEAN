@@ -30,6 +30,7 @@ public class GlobalController : MonoBehaviour
     public SoundManager soundManager;
 
     public GoldPigController goldPigController;
+    public LabBuildingManager labBuildingManager;
 
     void Start()
     {
@@ -131,6 +132,9 @@ public class GlobalController : MonoBehaviour
 
         // 캐슬 초기화
         yield return StartCoroutine(GlobalData.instance.castleManager.Init());
+
+        // 랩 초기화
+        yield return StartCoroutine(labBuildingManager.Init());
 
         // Monster In Animation
         yield return StartCoroutine(player.currentMonster.inOutAnimator.AnimPositionIn());

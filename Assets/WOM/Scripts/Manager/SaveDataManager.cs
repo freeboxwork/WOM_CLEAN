@@ -171,6 +171,25 @@ public class SaveDataManager : MonoBehaviour
         saveDataTotal.saveDataDungeonLevel.dungeonLvDice = 1;
         saveDataTotal.saveDataDungeonLevel.dungeonLvCoal = 1;
 
+        saveDataTotal.saveDataLabBuildingData = new SaveDataLabBuildingData();
+        saveDataTotal.saveDataLabBuildingData.labBuildIngameDatas = new List<LabBuildIngameData>(){
+
+            new LabBuildIngameData(){goodsType = EnumDefinition.GoodsType.gold },
+            new LabBuildIngameData(){goodsType = EnumDefinition.GoodsType.dice},
+            new LabBuildIngameData(){goodsType = EnumDefinition.GoodsType.bone},
+            new LabBuildIngameData(){goodsType = EnumDefinition.GoodsType.gold},
+        };
+
+        // foreach (GoodsType type in Enum.GetValues(typeof(GoodsType)))
+        // {
+        //     saveDataTotal.saveDataLabBuildingData.labBuildIngameDatas.Add(new LabBuildIngameData() { goodsType = type });
+        // }
+        // saveDataLabBuildingData.labBuildIngameDatas.Add(new LabBuildIngameData() { goodsType = EnumDefinition.GoodsType.gold });
+        // saveDataLabBuildingData.labBuildIngameDatas.Add(new LabBuildIngameData() { goodsType = EnumDefinition.GoodsType.dice });
+        // saveDataLabBuildingData.labBuildIngameDatas.Add(new LabBuildIngameData() { goodsType = EnumDefinition.GoodsType.bone });
+        // saveDataLabBuildingData.labBuildIngameDatas.Add(new LabBuildIngameData() { goodsType = EnumDefinition.GoodsType.gold });
+
+
     }
 
 
@@ -632,6 +651,7 @@ public class SaveDataTotal
     public SaveDataTutorial saveDataTutorial;
     public SaveDataCastle saveDataCastle;
     public SaveDataUnionSummonGrade saveDataUnionSummonGrade;
+    public SaveDataLabBuildingData saveDataLabBuildingData;
 }
 
 
@@ -850,6 +870,12 @@ public class SaveDataUnionSummonGrade
     public List<int> rewaedUnionIds = new List<int>();
 }
 
+
+[System.Serializable]
+public class SaveDataLabBuildingData
+{
+    public List<LabBuildIngameData> labBuildIngameDatas = new List<LabBuildIngameData>();
+}
 
 
 #endregion

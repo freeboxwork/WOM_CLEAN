@@ -550,6 +550,7 @@ public class MineAndFactoryBuildingData
 
 }
 
+[Serializable]
 public class CampBuildingData
 {
     public int level;
@@ -557,8 +558,10 @@ public class CampBuildingData
     public string reward;
 }
 
+[Serializable]
 public class LabBuildingData
 {
+    public int id;
     public int level;
     public int price;
     public int gold;
@@ -566,6 +569,26 @@ public class LabBuildingData
     public int dice;
     public int coal;
 }
+
+[Serializable]
+public class LabBuildIngameData
+{
+    public EnumDefinition.GoodsType goodsType;
+    public int level;
+    public int value;
+
+    public LabBuildIngameData CloneInstance()
+    {
+        LabBuildIngameData labBuildIngameData = new LabBuildIngameData();
+        labBuildIngameData.goodsType = goodsType;
+        labBuildIngameData.level = level;
+        labBuildIngameData.value = value;
+
+        return labBuildIngameData;
+    }
+}
+
+
 
 // 퀘스트 관련
 
@@ -600,8 +623,10 @@ public class QuestData
 
         return questData;
     }
-
 }
+
+
+
 
 [System.Serializable]
 public class BattlePassData

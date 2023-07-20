@@ -922,8 +922,9 @@ public class EventController : MonoBehaviour
         var goodsType = monster.curMonsterData.goodsType;
         var totalCurrencyAmount = globalData.dataManager.GetDungeonMonsterKillRewardByLevel(monsterType, monster.curLevel);
 
-        //Addrate = 던전 추가보상량
-        //totalCurrencyAmount = totalCurrencyAmount * ( 1 * Addrate)
+        // 캐슬 -> 연구소에 따른 던전 추가보상량
+        var addValue = globalData.labBuildingManager.GetInLabBuildGameData(goodsType).value;
+        totalCurrencyAmount = (int)(totalCurrencyAmount + (totalCurrencyAmount * addValue * 0.01f));
 
 
         // sfx dungeon monster out
@@ -934,7 +935,7 @@ public class EventController : MonoBehaviour
 
         globalData.dungeonPopup.SetDungeonPopup(goodsType, totalCurrencyAmount);
 
-
+        //
 
         // 팝업 파티클이 종료될때까지 대기
         //yield return new WaitUntil(() => dungeonMonsterPopupFinishParticle);

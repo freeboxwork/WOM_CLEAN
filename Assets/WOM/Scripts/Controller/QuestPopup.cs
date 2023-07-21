@@ -38,7 +38,7 @@ public class QuestPopup : MonoBehaviour
 
     void ClosePopup()
     {
-        QuestManager.btn_showQuestPopup.gameObject.SetActive(true);
+        //QuestManager.btn_showQuestPopup.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
 

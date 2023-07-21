@@ -83,7 +83,7 @@ public class QuestManager : MonoBehaviour
         btn_showQuestPopup.onClick.AddListener(() =>
         {
             questPopup.gameObject.SetActive(true);
-            btn_showQuestPopup.gameObject.SetActive(false);
+            //btn_showQuestPopup.gameObject.SetActive(false);
         });
 
         btn_showNewUserEventPopup.onClick.AddListener(() =>

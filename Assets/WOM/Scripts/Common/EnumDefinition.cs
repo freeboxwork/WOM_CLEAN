@@ -334,4 +334,13 @@ public class EnumDefinition
         buffAD_Gold
     }
 
+    public enum RewardTypeAD
+    {
+        gold,
+        gem,
+        buffDamage,
+        buffSpeed,
+        buffGold,
+    }
+
 }

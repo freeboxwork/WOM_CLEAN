@@ -17,6 +17,7 @@ public class RewardManager : MonoBehaviour
 
 
 
+
     void SetRewardDic()
     {
         rewardDic.Add(EnumDefinition.RewardType.gold, GlobalData.instance.player.AddGold);
@@ -140,6 +141,23 @@ public class RewardManager : MonoBehaviour
         GlobalData.instance.unionManager.AddUnion(unionIndex);
         // 획득한 유니온을 로그로 출력함
         Debug.Log($"획득한 유니온 번호 : {unionIndex}");
+    }
+
+    public void RewardAd(EnumDefinition.RewardTypeAD adRewardType, int reward = 0)
+    {
+
+        switch (adRewardType)
+        {
+            case EnumDefinition.RewardTypeAD.gold:
+                break;
+            case EnumDefinition.RewardTypeAD.gem:
+
+                break;
+            case EnumDefinition.RewardTypeAD.buffDamage: break;
+            case EnumDefinition.RewardTypeAD.buffSpeed: break;
+            case EnumDefinition.RewardTypeAD.buffGold: break;
+        }
+
     }
 
 }

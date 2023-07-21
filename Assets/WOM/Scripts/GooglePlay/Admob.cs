@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
 using GoogleMobileAds.Api;
-using System.Collections.Generic;
 
 public class Admob : MonoBehaviour
 {
@@ -17,7 +15,7 @@ public class Admob : MonoBehaviour
 
     void Start()
     {
-                MobileAds.RaiseAdEventsOnUnityMainThread = true;
+        MobileAds.RaiseAdEventsOnUnityMainThread = true;
         // Initialize the Google Mobile Ads SDK.
         MobileAds.Initialize((InitializationStatus initStatus) =>
         {
@@ -81,6 +79,28 @@ public class Admob : MonoBehaviour
             });
         }
     }
+
+    public void ShowRewardedAdByType(EnumDefinition.RewardTypeAD adRewardType)
+    {
+        const string rewardMsg =
+            "Rewarded ad rewarded the user. Type: {0}, amount: {1}.";
+
+        if (rewardedAd != null && rewardedAd.CanShowAd())
+        {
+            rewardedAd.Show((Reward reward) =>
+            {
+
+                // 리워드 지급
+                GlobalData.instance.rewardManager.RewardAd(adRewardType);
+                Debug.Log("광고 시청 완료");
+                Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
+            });
+        }
+    }
+
+
+
+
 
     private void RegisterEventHandlers(RewardedAd ad)
     {

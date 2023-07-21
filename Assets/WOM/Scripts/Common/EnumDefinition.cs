@@ -327,4 +327,11 @@ public class EnumDefinition
         off
     }
 
+    public enum BuffADType
+    {
+        buffAD_Damage,
+        buffAD_Speed,
+        buffAD_Gold
+    }
+
 }

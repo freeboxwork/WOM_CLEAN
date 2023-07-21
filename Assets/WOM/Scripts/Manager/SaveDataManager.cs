@@ -181,7 +181,13 @@ public class SaveDataManager : MonoBehaviour
             new LabBuildIngameData(){ goodsType = EnumDefinition.GoodsType.coal, level = 0,price = zeroLevelPrice },
         };
 
-
+        // ad buff timer
+        saveDataTotal.saveDataBuffAD = new SaveDataBuffAD();
+        saveDataTotal.saveDataBuffAD.buffAD_LeftDatas = new List<SaveDataBuffAD_LeftData>(){
+            {new SaveDataBuffAD_LeftData(){ buffADType = EnumDefinition.BuffADType.buffAD_Damage, leftTime = 30*60 } },
+            {new SaveDataBuffAD_LeftData(){ buffADType = EnumDefinition.BuffADType.buffAD_Speed, leftTime = 30*60 } },
+            {new SaveDataBuffAD_LeftData(){ buffADType = EnumDefinition.BuffADType.buffAD_Gold, leftTime = 30*60 } },
+        };
     }
 
 
@@ -606,6 +612,20 @@ public class SaveDataManager : MonoBehaviour
         saveDataTotal.saveDataUnionSummonGrade.rewaedUnionIds.Remove(id);
     }
 
+    // save left time buff ad 
+    public void SetSaveDataBuffAD_LeftTime(EnumDefinition.BuffADType buffADType, float leftTime)
+    {
+        var buffAD_LeftData = GetSaveDataBuffAD_LeftDataByType(buffADType);
+        buffAD_LeftData.leftTime = leftTime;
+    }
+
+
+    SaveDataBuffAD_LeftData GetSaveDataBuffAD_LeftDataByType(EnumDefinition.BuffADType buffADType)
+    {
+        return saveDataTotal.saveDataBuffAD.buffAD_LeftDatas.FirstOrDefault(x => x.buffADType == buffADType);
+    }
+
+
     string GetSaveDataFilePaht()
     {
         string path = "";
@@ -654,6 +674,7 @@ public class SaveDataTotal
     public SaveDataCastle saveDataCastle;
     public SaveDataUnionSummonGrade saveDataUnionSummonGrade;
     public SaveDataLabBuildingData saveDataLabBuildingData;
+    public SaveDataBuffAD saveDataBuffAD;
 }
 
 
@@ -879,6 +900,19 @@ public class SaveDataLabBuildingData
     public List<LabBuildIngameData> labBuildIngameDatas = new List<LabBuildIngameData>();
 }
 
+
+[System.Serializable]
+public class SaveDataBuffAD
+{
+    public List<SaveDataBuffAD_LeftData> buffAD_LeftDatas = new List<SaveDataBuffAD_LeftData>();
+}
+
+[System.Serializable]
+public class SaveDataBuffAD_LeftData
+{
+    public EnumDefinition.BuffADType buffADType;
+    public float leftTime;
+}
 
 #endregion
 

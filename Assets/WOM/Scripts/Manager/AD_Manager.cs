@@ -16,6 +16,16 @@ public class AD_Manager : MonoBehaviour
         yield return null;
     }
 
+
+    void SetBuffAdSlotData()
+    {
+        // foreach (var slot in buffADSlots)
+        // {
+        //   var data = GlobalData.instance.saveDataManager.GetSaveDataBuffAD_LeftDataByType(slot.buffADType);
+
+        // }
+    }
+
     BuffADSlot GetBuffAdSlotByType(EnumDefinition.BuffADType buffADType)
     {
         return buffADSlots.Where(x => x.buffADType == buffADType).FirstOrDefault();

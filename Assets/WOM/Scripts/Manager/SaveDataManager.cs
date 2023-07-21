@@ -619,8 +619,14 @@ public class SaveDataManager : MonoBehaviour
         buffAD_LeftData.leftTime = leftTime;
     }
 
+    // set using buff ad
+    public void SetSaveDataBuffAD_Using(EnumDefinition.BuffADType buffADType, bool isUsing)
+    {
+        var buffAD_LeftData = GetSaveDataBuffAD_LeftDataByType(buffADType);
+        buffAD_LeftData.isUsing = isUsing;
+    }
 
-    SaveDataBuffAD_LeftData GetSaveDataBuffAD_LeftDataByType(EnumDefinition.BuffADType buffADType)
+    public SaveDataBuffAD_LeftData GetSaveDataBuffAD_LeftDataByType(EnumDefinition.BuffADType buffADType)
     {
         return saveDataTotal.saveDataBuffAD.buffAD_LeftDatas.FirstOrDefault(x => x.buffADType == buffADType);
     }
@@ -912,6 +918,7 @@ public class SaveDataBuffAD_LeftData
 {
     public EnumDefinition.BuffADType buffADType;
     public float leftTime;
+    public bool isUsing;
 }
 
 #endregion

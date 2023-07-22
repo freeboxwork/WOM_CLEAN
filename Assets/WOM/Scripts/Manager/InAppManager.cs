@@ -4,46 +4,82 @@ using UnityEngine.Purchasing;
 using UnityEngine.Purchasing.Extension;
 using UnityEngine.UI;
 
+
+public enum ProductTYPE
+{
+
+    commongem1,
+    commongem2,
+    commongem3,
+    commongem4,
+    vipgem1,
+    vipgem2,
+    vipgem3,
+    vipgem4,
+    starterrpackage,
+    adbuffpass,
+    fastestpackage
+}
+
+
 public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListener
 {
     private static IStoreController storeController;
     private static IExtensionProvider extensionProvider;
 
-
-
-    public Button gem1Btn;
-    public Button gem2Btn;
-    public Button gem3Btn;
-    public Button gem4Btn;
-    public Button package1Btn;
-    public Button package2Btn;
-    public Button package3Btn;
-    
-
-
-    // 상품 ID
-    private string gem1 = "gem_1";
-    private string gem2 = "gem_2";
-    private string gem3 = "gem_3";
-    private string gem4 = "gem_4";
-    private string package1 = "package_1";
-    private string package2 = "package_2";
-    private string package3 = "package_3";
-
-
-
+    public Button[] productButtons;
 
     void Start()
     {
         // Unity IAP 초기화
         InitializePurchasing();
-        gem1Btn.onClick.AddListener(BuyGem1);
-        gem2Btn.onClick.AddListener(BuyGem2);
-        gem3Btn.onClick.AddListener(BuyGem3);
-        gem4Btn.onClick.AddListener(BuyGem4);
-        package1Btn.onClick.AddListener(Package1);
-        package2Btn.onClick.AddListener(Package2);
-        package3Btn.onClick.AddListener(Package3);
+
+        productButtons[(int)ProductTYPE.starterrpackage].onClick.AddListener(() =>
+        {
+            storeController.InitiatePurchase(ProductTYPE.starterrpackage.ToString());
+        });
+        productButtons[(int)ProductTYPE.adbuffpass].onClick.AddListener(() =>
+        {
+            storeController.InitiatePurchase(ProductTYPE.adbuffpass.ToString());
+        });
+        productButtons[(int)ProductTYPE.fastestpackage].onClick.AddListener(() =>
+        {
+            storeController.InitiatePurchase(ProductTYPE.fastestpackage.ToString());
+        });
+        productButtons[(int)ProductTYPE.commongem1].onClick.AddListener(() =>
+        {
+            storeController.InitiatePurchase(ProductTYPE.commongem1.ToString());
+        });
+        productButtons[(int)ProductTYPE.commongem2].onClick.AddListener(() =>
+        {
+            storeController.InitiatePurchase(ProductTYPE.commongem2.ToString());
+        });
+        productButtons[(int)ProductTYPE.commongem3].onClick.AddListener(() =>
+        {
+            storeController.InitiatePurchase(ProductTYPE.commongem3.ToString());
+        });
+        productButtons[(int)ProductTYPE.commongem4].onClick.AddListener(() =>
+        {
+            storeController.InitiatePurchase(ProductTYPE.commongem4.ToString());
+        });
+        productButtons[(int)ProductTYPE.vipgem1].onClick.AddListener(() =>
+        {
+            storeController.InitiatePurchase(ProductTYPE.vipgem1.ToString());
+        });
+        productButtons[(int)ProductTYPE.vipgem2].onClick.AddListener(() =>
+        {
+            storeController.InitiatePurchase(ProductTYPE.vipgem2.ToString());
+        });
+        productButtons[(int)ProductTYPE.vipgem3].onClick.AddListener(() =>
+        {
+            storeController.InitiatePurchase(ProductTYPE.vipgem3.ToString());
+        });
+        productButtons[(int)ProductTYPE.vipgem4].onClick.AddListener(() =>
+        {
+            storeController.InitiatePurchase(ProductTYPE.vipgem4.ToString());
+        });
+
+
     }
 
     public void InitializePurchasing()
@@ -51,14 +87,22 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
         // IAP 초기화
         ConfigurationBuilder builder = ConfigurationBuilder.Instance(StandardPurchasingModule.Instance());
 
-        // 상품 ID 추가
-        builder.AddProduct(gem1, ProductType.Consumable);
-        builder.AddProduct(gem2, ProductType.Consumable);
-        builder.AddProduct(gem3, ProductType.Consumable);
-        builder.AddProduct(gem4, ProductType.Consumable);
-        builder.AddProduct(package1, ProductType.NonConsumable);
-        builder.AddProduct(package2, ProductType.NonConsumable);
-        builder.AddProduct(package3, ProductType.NonConsumable);
+        //상품 ID 등록
+
+        //Consumable
+        builder.AddProduct(ProductTYPE.commongem1.ToString(), ProductType.Consumable);
+        builder.AddProduct(ProductTYPE.commongem2.ToString(), ProductType.Consumable);
+        builder.AddProduct(ProductTYPE.commongem3.ToString(), ProductType.Consumable);
+        builder.AddProduct(ProductTYPE.commongem4.ToString(), ProductType.Consumable);
+        //NonConsumable
+        builder.AddProduct(ProductTYPE.vipgem1.ToString(), ProductType.NonConsumable);
+        builder.AddProduct(ProductTYPE.vipgem2.ToString(), ProductType.NonConsumable);
+        builder.AddProduct(ProductTYPE.vipgem3.ToString(), ProductType.NonConsumable);
+        builder.AddProduct(ProductTYPE.vipgem4.ToString(), ProductType.NonConsumable);
+
+        builder.AddProduct(ProductTYPE.starterrpackage.ToString(), ProductType.NonConsumable);
+        builder.AddProduct(ProductTYPE.adbuffpass.ToString(), ProductType.NonConsumable);
+        builder.AddProduct(ProductTYPE.fastestpackage.ToString(), ProductType.NonConsumable);
 
         // Unity IAP 초기화
         UnityPurchasing.Initialize(this, builder);
@@ -77,78 +121,71 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
         Debug.Log("IAP initialization failed: " + error);
     }
 
-    public void BuyGem1()
-    {
-        storeController.InitiatePurchase(gem1);
-    }
-    public void BuyGem2()
-    {
-        storeController.InitiatePurchase(gem2);
-    }
-    public void BuyGem3()
-    {
-        storeController.InitiatePurchase(gem3);
-    }
-    public void BuyGem4()
-    {
-        storeController.InitiatePurchase(gem4);
-    }
-    public void Package1()
-    {
-        storeController.InitiatePurchase(package1);
-    }
-    public void Package2()
-    {
-        storeController.InitiatePurchase(package2);
-    }
-    public void Package3()
-    {
-        storeController.InitiatePurchase(package3);
-    }
-
-
-
-
     public PurchaseProcessingResult ProcessPurchase(PurchaseEventArgs args)
     {
         // 상품 구매 성공
         // 여기서 구매한 아이템을 처리하는 코드를 작성하세요.
         Debug.Log("Purchase successful: " + args.purchasedProduct.definition.id);
 
-        if (args.purchasedProduct.definition.id == gem1)
+        if (args.purchasedProduct.definition.id == ProductTYPE.commongem1.ToString())
         {
-            Debug.Log("보석 I 구매 성공");
+            Debug.Log("보석 1 구매 성공");
+            //보석1000개지급
         }
-        else if (args.purchasedProduct.definition.id == gem2)
+        else if (args.purchasedProduct.definition.id == ProductTYPE.commongem2.ToString())
         {
-            Debug.Log("보석 II 구매 성공");
+            Debug.Log("보석 2 구매 성공");
+            //보석5500개 지급
+        }
+        else if (args.purchasedProduct.definition.id == ProductTYPE.commongem3.ToString())
+        {
+            Debug.Log("보석 3 구매 성공");
+            //보석12000개 지급
+        }
+        else if (args.purchasedProduct.definition.id == ProductTYPE.commongem4.ToString())
+        {
+            Debug.Log("보석 4 구매 성공");
+            //보석 39000개 지급
+        }
+        else if (args.purchasedProduct.definition.id == ProductTYPE.vipgem1.ToString())
+        {
+            Debug.Log("VIP 보석 1 구매 성공");
+            //보석2000개 지급
+        }
+        else if (args.purchasedProduct.definition.id == ProductTYPE.vipgem2.ToString())
+        {
+            Debug.Log("VIP 보석 2 구매 성공");
+            //보석11000개 지급
+        }
+        else if (args.purchasedProduct.definition.id == ProductTYPE.vipgem3.ToString())
+        {
+            Debug.Log("VIP 보석 3 구매 성공");
+            //보석 24000개 지급
+        }
+        else if (args.purchasedProduct.definition.id == ProductTYPE.vipgem4.ToString())
+        {
+            Debug.Log("VIP 보석 4 구매 성공");
+            //보석78000개 지급
+        }
+        else if (args.purchasedProduct.definition.id == ProductTYPE.starterrpackage.ToString())
+        {
+            Debug.Log("초심자 패키지 구매 성공");
+            //보석3000개 유니온티켓10 dna티켓5 소탕권2 지급
+        }
+        else if (args.purchasedProduct.definition.id == ProductTYPE.adbuffpass.ToString())
+        {
+            Debug.Log("광고 패스 패키지 구매 성공");
+            //광고패스/버프무제한 보석10000개 소탕권5 지급
 
         }
-        else if (args.purchasedProduct.definition.id == gem3)
+        else if (args.purchasedProduct.definition.id == ProductTYPE.fastestpackage.ToString())
         {
-            Debug.Log("보석 III 구매 성공");
+            Debug.Log("초고속 성장 패키지 구매 성공");
+            //보석50000개 유니온티켓50 dna티켓20 소탕권20 유니온index 40번 지급
 
         }
-        else if (args.purchasedProduct.definition.id == gem4)
-        {
-            Debug.Log("보석 IIII 구매 성공");
 
-        }
-        else if (args.purchasedProduct.definition.id == package1)
-        {
-            Debug.Log("패키지 I 구매 성공");
 
-        }
-        else if (args.purchasedProduct.definition.id == package2)
-        {
-            Debug.Log("패키지 II 구매 성공");
-
-        }
-        else if (args.purchasedProduct.definition.id == package3)
-        {
-            Debug.Log("보패키지 III 구매 성공");
-
-        }
 
         // 구매 완료 처리
         return PurchaseProcessingResult.Complete;
@@ -161,18 +198,22 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
 
         if (failureReason == PurchaseFailureReason.DuplicateTransaction)
         {
-            if (String.Equals(product.definition.storeSpecificId, package1, StringComparison.Ordinal))
+            if (String.Equals(product.definition.storeSpecificId, ProductTYPE.starterrpackage.ToString(), StringComparison.Ordinal))
             {
-                Debug.Log("Pakace1을 이미 구매하였습니다");
-            }
-            else if (String.Equals(product.definition.storeSpecificId, package2, StringComparison.Ordinal))
-            {
-                Debug.Log("Pakace2를 이미 구매하였습니다");
+                Debug.Log("초심자 패키지 이미 구매하였습니다");
+                //보석3000개 유니온티켓10 dna티켓5 소탕권2 지급
 
             }
-            else if (String.Equals(product.definition.storeSpecificId, package3, StringComparison.Ordinal))
+            else if (String.Equals(product.definition.storeSpecificId, ProductTYPE.adbuffpass.ToString(), StringComparison.Ordinal))
             {
-                Debug.Log("Pakace3을 이미 구매하였습니다");
+                Debug.Log("광고 패스 패키지 이미 구매하였습니다");
+                //광고패스/버프무제한 보석10000개 소탕권5 지급
+
+            }
+            else if (String.Equals(product.definition.storeSpecificId, ProductTYPE.fastestpackage.ToString(), StringComparison.Ordinal))
+            {
+                Debug.Log("초고속 성장 패키지 이미 구매하였습니다");
+             //보석50000개 유니온티켓50 dna티켓20 소탕권20 유니온index 40번 지급
 
             }
             else
@@ -191,7 +232,9 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
 
     public void OnPurchaseFailed(Product product, PurchaseFailureDescription failureDescription)
     {
-        throw new NotImplementedException();
+        
+        Debug.Log($"구매 실패 - {product.definition.id}, {failureDescription.reason}");
+
     }
 }
 

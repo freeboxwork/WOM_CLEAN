@@ -11,22 +11,29 @@ public class AD_Manager : MonoBehaviour
 
     }
 
-    IEnumerator Init()
+    public IEnumerator Init()
     {
+        SetBuffAdSlotData();
         yield return null;
     }
 
 
     void SetBuffAdSlotData()
     {
-        // foreach (var slot in buffADSlots)
-        // {
-        //   var data = GlobalData.instance.saveDataManager.GetSaveDataBuffAD_LeftDataByType(slot.buffADType);
+        var datas = GlobalData.instance.saveDataManager.saveDataTotal.saveDataBuffAD.buffAD_LeftDatas;
+        foreach (var data in datas)
+        {
+            if (data.isUsing)
+            {
+                // 타이머 재개
+                var slot = GetBuffAdSlotByType(data.buffADType);
+                slot.buffTimer.ReloadTimer(data.leftTime);
+            }
+        }
 
-        // }
     }
 
-    BuffADSlot GetBuffAdSlotByType(EnumDefinition.RewardTypeAD buffADType)
+    public BuffADSlot GetBuffAdSlotByType(EnumDefinition.RewardTypeAD buffADType)
     {
         return buffADSlots.Where(x => x.buffADType == buffADType).FirstOrDefault();
     }
@@ -52,5 +59,19 @@ public class AD_Manager : MonoBehaviour
                 break;
         }
 
+    }
+
+    // 광고 시청 횟수 초기화
+    public void AllResetBuffAdLeftCount()
+    {
+        foreach (var slot in buffADSlots)
+        {
+            slot.ResetLeftCount();
+        }
+    }
+    public void ResetLeftCount(EnumDefinition.RewardTypeAD buffADType)
+    {
+        var slot = GetBuffAdSlotByType(buffADType);
+        slot.ResetLeftCount();
     }
 }

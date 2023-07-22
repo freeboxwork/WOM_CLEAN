@@ -30,12 +30,18 @@ public class BuffADSlot : MonoBehaviour
         if (PlayerPrefs.HasKey(buffADType.ToString()))
         {
             leftCount = PlayerPrefs.GetInt(buffADType.ToString());
+            if (leftCount <= 0)
+            {
+                DisableButton();
+            }
         }
         else
         {
             leftCount = 3;
             PlayerPrefs.SetInt(buffADType.ToString(), leftCount);
         }
+
+        UpdateUI();
     }
 
     void SetBtnEvent()
@@ -48,12 +54,6 @@ public class BuffADSlot : MonoBehaviour
         if (leftCount > 0)
         {
             Admob.instance.ShowRewardedAdByType(buffADType);
-            // 광고 재생
-            // 광고 재생 완료 후
-            // 광고 재생 완료 후 버프 적용
-
-            //buffTimer.ReloadTimer(30 * 60);
-            //leftCount -= 1;
         }
         else
         {
@@ -63,12 +63,9 @@ public class BuffADSlot : MonoBehaviour
 
     public void BuffTimerStart()
     {
-        leftCount -= 1;
+        --leftCount;
         PlayerPrefs.SetInt(buffADType.ToString(), leftCount);
-
-        buffTimer.gameObject.SetActive(true);
         buffTimer.StartCoroutine(buffTimer.StartTimer());
-
         UpdateUI();
         if (leftCount <= 0)
         {
@@ -86,7 +83,14 @@ public class BuffADSlot : MonoBehaviour
         txtLeftCount.text = "일일 시청 가능 " + leftCount.ToString() + "/" + totalCount.ToString();
     }
 
-
+    // 광고 보기 카운트 초기화
+    public void ResetLeftCount()
+    {
+        leftCount = totalCount;
+        PlayerPrefs.SetInt(buffADType.ToString(), leftCount);
+        UpdateUI();
+        bntAD.interactable = true;
+    }
 
 
 }

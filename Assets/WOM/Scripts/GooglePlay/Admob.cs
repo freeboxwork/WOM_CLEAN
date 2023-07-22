@@ -77,6 +77,7 @@ public class Admob : MonoBehaviour
 
                 rewardedAd = ad;
             });
+        RegisterEventHandlers(rewardedAd);
     }
 
     public void ShowRewardedAd()
@@ -159,5 +160,7 @@ public class Admob : MonoBehaviour
             // Reload the ad so that we can show another as soon as possible.
             LoadRewardedAd();
         };
+
+
     }
 }

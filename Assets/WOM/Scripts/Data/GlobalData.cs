@@ -42,12 +42,11 @@ public class GlobalData : MonoBehaviour
     public EventSystem eventSystem;
     public QuestManager questManager;
     public RewardManager rewardManager;
-
     public SpriteDataManager spriteDataManager;
-
     public GoldPigController goldPigController;
-
     public LabBuildingManager labBuildingManager;
+    public AD_Manager adManager;
+
 
 
     private void Awake()

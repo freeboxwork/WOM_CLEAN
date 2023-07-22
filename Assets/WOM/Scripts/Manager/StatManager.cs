@@ -62,7 +62,9 @@ public class StatManager : MonoBehaviour
         var itd = GetEvolutionData(insectType).damage;
         var ttd = GetTraningData(SaleStatType.trainingDamage).value;
         var value = itd + ttd + skill_InsectDamageUp;
-        return value;
+        // ad buff 적용 ( damage )
+        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffDamage).addValue;
+        return value * (float)buffValue;
     }
 
     /// <summary> 곤충 치명타 확율 </summary>
@@ -109,7 +111,10 @@ public class StatManager : MonoBehaviour
         var value = ies * (1 + ((tms + ims + diceIms + skill_AllUnitSpeedUp) * 0.01f));
         //var value = ies + (ies * ((tms + ims + diceIms + skill_AllUnitSpeedUp) * 0.01f));
         // Debug.Log($"진화속도:{ies}/특성속도:{tms}/DNA속도:{ims}/주사위속도{diceIms} = 합계 : {value}");
-        return value * 0.01f;
+        value = value * 0.01f;
+        // ad buff 적용 ( speed )
+        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffSpeed).addValue;
+        return value * (float)buffValue;
     }
 
     /// <summary> 곤충 생성 속도 </summary>

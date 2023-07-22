@@ -26,11 +26,11 @@ public class GlobalController : MonoBehaviour
     public StatManager statManager;
     public SaveDataManager saveDataManager;
     public QuestManager questManager;
-
     public SoundManager soundManager;
-
     public GoldPigController goldPigController;
     public LabBuildingManager labBuildingManager;
+    public AD_Manager adManager;
+
 
     void Start()
     {
@@ -141,6 +141,9 @@ public class GlobalController : MonoBehaviour
 
         // 사운드 매니저 초기화
         yield return StartCoroutine(soundManager.Init());
+
+        // 광고 매니저 초기화
+        yield return StartCoroutine(adManager.Init());
 
         // 한 프레임 대기
         yield return new WaitForEndOfFrame();

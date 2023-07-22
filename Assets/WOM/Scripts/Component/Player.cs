@@ -248,7 +248,13 @@ public class Player : MonoBehaviour
 
     public void AddGold(int value)
     {
-        gold += value;
+
+        // ad buff 적용
+        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffGold).addValue;
+        gold += (int)(value * buffValue);
+
+
+
         GlobalData.instance.traningManager.EnableBuyButtons(); // RELOAD BTN UI
         GlobalData.instance.skillManager.EnableBuyButtons();// RELOAD BTN UI
         GlobalData.instance.uiController.SetTxtGold(gold, value); // RELOAD UI

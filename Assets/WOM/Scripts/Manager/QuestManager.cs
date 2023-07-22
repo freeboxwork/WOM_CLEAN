@@ -111,6 +111,8 @@ public class QuestManager : MonoBehaviour
                     // 자정이 지난경우 던전 입장키 2개씩 보상.
                     Debug.Log("자정이 지났으므로 던전 입장 키를 2개씩 지급한다");
                     GlobalData.instance.player.AddAllDungeonKeys();
+                    // 자정이 지난경우 일일 광고 보기 회수 초기화
+                    GlobalData.instance.adManager.AllResetBuffAdLeftCount();
                 }
 
                 //자정을 지나지 않은 경우 유저 메모리에서 저장된 데이터를 로드한다.

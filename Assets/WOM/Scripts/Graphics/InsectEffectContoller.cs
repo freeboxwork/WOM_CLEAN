@@ -65,7 +65,7 @@ namespace ProjectGraphics
         #region ¹ø°³ ÀÌÆåÆ®
         public void ThunderEffect(bool on)
         {
-            Debug.Log("THUNDER EFFECT");
+            //Debug.Log("THUNDER EFFECT");
             if (on) anim.EffectEvent += ThunderEffectAnimation;
             else anim.EffectEvent -= ThunderEffectAnimation;
             thunder.enabled = on;
@@ -93,7 +93,7 @@ namespace ProjectGraphics
         public void AuraEffect(bool on)
         {
 
-            Debug.Log("AURA EFFECT");
+            //Debug.Log("AURA EFFECT");
             if (on) anim.EffectEvent += AuraEffectAnimation;
             else anim.EffectEvent -= AuraEffectAnimation;
             auraEffect.enabled = on;

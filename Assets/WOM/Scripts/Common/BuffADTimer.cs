@@ -15,6 +15,7 @@ public class BuffADTimer : MonoBehaviour
 
     public IEnumerator StartTimer()
     {
+        buffADSlot.isUsingBuff = true;
         buffADSlot.addValue = buffADSlot.addValueBuff;
         while (countdownTime > 0)
         {
@@ -30,9 +31,10 @@ public class BuffADTimer : MonoBehaviour
             countdownTime -= 1.0f;
 
         }
+        buffADSlot.isUsingBuff = false;
         buffADSlot.addValue = buffADSlot.addValueDefualt;
         ResetCountdownTime();
-        //countdownText.text = "Countdown complete!";
+        this.gameObject.SetActive(false);
     }
 
     public void ReloadTimer(float time)

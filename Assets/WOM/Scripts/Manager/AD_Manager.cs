@@ -26,8 +26,31 @@ public class AD_Manager : MonoBehaviour
         // }
     }
 
-    BuffADSlot GetBuffAdSlotByType(EnumDefinition.BuffADType buffADType)
+    BuffADSlot GetBuffAdSlotByType(EnumDefinition.RewardTypeAD buffADType)
     {
         return buffADSlots.Where(x => x.buffADType == buffADType).FirstOrDefault();
+    }
+
+    public void RewardAd(EnumDefinition.RewardTypeAD adRewardType, int reward = 0)
+    {
+
+        switch (adRewardType)
+        {
+            case EnumDefinition.RewardTypeAD.adGold:
+                break;
+            case EnumDefinition.RewardTypeAD.adGem:
+
+                break;
+            case EnumDefinition.RewardTypeAD.adBuffDamage:
+                GetBuffAdSlotByType(adRewardType).BuffTimerStart();
+                break;
+            case EnumDefinition.RewardTypeAD.adBuffSpeed:
+                GetBuffAdSlotByType(adRewardType).BuffTimerStart();
+                break;
+            case EnumDefinition.RewardTypeAD.adBuffGold:
+                GetBuffAdSlotByType(adRewardType).BuffTimerStart();
+                break;
+        }
+
     }
 }

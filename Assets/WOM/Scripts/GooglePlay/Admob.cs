@@ -10,6 +10,7 @@ public class Admob : MonoBehaviour
 
     private RewardedAd rewardedAd;
 
+    public static Admob instance;
 
 
 
@@ -23,8 +24,22 @@ public class Admob : MonoBehaviour
             Debug.Log("Admob 초기화 완료");
         });
         LoadRewardedAd();
+
+        SetInstance();
     }
 
+    // set instance
+    void SetInstance()
+    {
+        if (instance == null)
+            instance = this;
+        else
+        {
+            Destroy(instance);
+            instance = this;
+        }
+
+    }
 
 
     /// <summary>
@@ -91,7 +106,7 @@ public class Admob : MonoBehaviour
             {
 
                 // 리워드 지급
-                GlobalData.instance.rewardManager.RewardAd(adRewardType);
+                GlobalData.instance.adManager.RewardAd(adRewardType);
                 Debug.Log("광고 시청 완료");
                 Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
             });

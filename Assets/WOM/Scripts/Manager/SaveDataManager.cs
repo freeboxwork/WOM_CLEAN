@@ -184,9 +184,9 @@ public class SaveDataManager : MonoBehaviour
         // ad buff timer
         saveDataTotal.saveDataBuffAD = new SaveDataBuffAD();
         saveDataTotal.saveDataBuffAD.buffAD_LeftDatas = new List<SaveDataBuffAD_LeftData>(){
-            {new SaveDataBuffAD_LeftData(){ buffADType = EnumDefinition.BuffADType.buffAD_Damage, leftTime = 30*60 } },
-            {new SaveDataBuffAD_LeftData(){ buffADType = EnumDefinition.BuffADType.buffAD_Speed, leftTime = 30*60 } },
-            {new SaveDataBuffAD_LeftData(){ buffADType = EnumDefinition.BuffADType.buffAD_Gold, leftTime = 30*60 } },
+            {new SaveDataBuffAD_LeftData(){ buffADType = EnumDefinition.RewardTypeAD.adBuffDamage, leftTime = 30*60 } },
+            {new SaveDataBuffAD_LeftData(){ buffADType = EnumDefinition.RewardTypeAD.adBuffSpeed, leftTime = 30*60 } },
+            {new SaveDataBuffAD_LeftData(){ buffADType = EnumDefinition.RewardTypeAD.adBuffGold, leftTime = 30*60 } },
         };
     }
 
@@ -613,20 +613,20 @@ public class SaveDataManager : MonoBehaviour
     }
 
     // save left time buff ad 
-    public void SetSaveDataBuffAD_LeftTime(EnumDefinition.BuffADType buffADType, float leftTime)
+    public void SetSaveDataBuffAD_LeftTime(EnumDefinition.RewardTypeAD buffADType, float leftTime)
     {
         var buffAD_LeftData = GetSaveDataBuffAD_LeftDataByType(buffADType);
         buffAD_LeftData.leftTime = leftTime;
     }
 
     // set using buff ad
-    public void SetSaveDataBuffAD_Using(EnumDefinition.BuffADType buffADType, bool isUsing)
+    public void SetSaveDataBuffAD_Using(EnumDefinition.RewardTypeAD buffADType, bool isUsing)
     {
         var buffAD_LeftData = GetSaveDataBuffAD_LeftDataByType(buffADType);
         buffAD_LeftData.isUsing = isUsing;
     }
 
-    public SaveDataBuffAD_LeftData GetSaveDataBuffAD_LeftDataByType(EnumDefinition.BuffADType buffADType)
+    public SaveDataBuffAD_LeftData GetSaveDataBuffAD_LeftDataByType(EnumDefinition.RewardTypeAD buffADType)
     {
         return saveDataTotal.saveDataBuffAD.buffAD_LeftDatas.FirstOrDefault(x => x.buffADType == buffADType);
     }
@@ -916,7 +916,7 @@ public class SaveDataBuffAD
 [System.Serializable]
 public class SaveDataBuffAD_LeftData
 {
-    public EnumDefinition.BuffADType buffADType;
+    public EnumDefinition.RewardTypeAD buffADType;
     public float leftTime;
     public bool isUsing;
 }

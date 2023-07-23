@@ -56,7 +56,7 @@ public class StatManager : MonoBehaviour
 
     #region INSECT 
 
-    /// <summary> 곤충 공격력 </summary>
+    /// <summary> 곤충 공격력 (한글) </summary>
     public float GetInsectDamage(InsectType insectType)
     {
         var itd = GetEvolutionData(insectType).damage;

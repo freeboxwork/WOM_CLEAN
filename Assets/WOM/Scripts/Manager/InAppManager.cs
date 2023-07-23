@@ -129,61 +129,85 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
 
         if (args.purchasedProduct.definition.id == ProductTYPE.commongem1.ToString())
         {
-            Debug.Log("보석 1 구매 성공");
+            var rewardValue = 1000;
+            PopupController.instance.InitPopup(EnumDefinition.RewardType.gem, rewardValue);
+            Debug.Log("보석 1 구매 성공 : " + rewardValue);
             //보석1000개지급
         }
         else if (args.purchasedProduct.definition.id == ProductTYPE.commongem2.ToString())
         {
-            Debug.Log("보석 2 구매 성공");
+            var rewardValue = 5500;
+            PopupController.instance.InitPopup(EnumDefinition.RewardType.gem, rewardValue);
+            Debug.Log("보석 2 구매 성공 : " + rewardValue);
             //보석5500개 지급
         }
         else if (args.purchasedProduct.definition.id == ProductTYPE.commongem3.ToString())
         {
-            Debug.Log("보석 3 구매 성공");
+            var rewardValue = 12000;
+            PopupController.instance.InitPopup(EnumDefinition.RewardType.gem, rewardValue);
+            Debug.Log("보석 3 구매 성공 : " + rewardValue);
             //보석12000개 지급
         }
         else if (args.purchasedProduct.definition.id == ProductTYPE.commongem4.ToString())
         {
-            Debug.Log("보석 4 구매 성공");
+            var rewardValue = 39000;
+            PopupController.instance.InitPopup(EnumDefinition.RewardType.gem, rewardValue);
+            Debug.Log("보석 4 구매 성공 : " + rewardValue);
             //보석 39000개 지급
         }
         else if (args.purchasedProduct.definition.id == ProductTYPE.vipgem1.ToString())
         {
-            Debug.Log("VIP 보석 1 구매 성공");
+            var rewardValue = 2000;
+            PopupController.instance.InitPopup(EnumDefinition.RewardType.gem, rewardValue);
+            Debug.Log("VIP 보석 1 구매 성공 : " + rewardValue);
             //보석2000개 지급
         }
         else if (args.purchasedProduct.definition.id == ProductTYPE.vipgem2.ToString())
         {
-            Debug.Log("VIP 보석 2 구매 성공");
+            var rewardValue = 11000;
+            PopupController.instance.InitPopup(EnumDefinition.RewardType.gem, rewardValue);
+            Debug.Log("VIP 보석 2 구매 성공 : " + rewardValue);
             //보석11000개 지급
         }
         else if (args.purchasedProduct.definition.id == ProductTYPE.vipgem3.ToString())
         {
-            Debug.Log("VIP 보석 3 구매 성공");
+
+            var rewardValue = 24000;
+            PopupController.instance.InitPopup(EnumDefinition.RewardType.gem, rewardValue);
+            Debug.Log("VIP 보석 3 구매 성공 : " + rewardValue);
             //보석 24000개 지급
         }
         else if (args.purchasedProduct.definition.id == ProductTYPE.vipgem4.ToString())
         {
-            Debug.Log("VIP 보석 4 구매 성공");
+            var rewardValue = 78000;
+            PopupController.instance.InitPopup(EnumDefinition.RewardType.gem, rewardValue);
+            Debug.Log("VIP 보석 4 구매 성공 : " + rewardValue);
             //보석78000개 지급
         }
         else if (args.purchasedProduct.definition.id == ProductTYPE.starterrpackage.ToString())
         {
+            var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem, EnumDefinition.RewardType.unionTicket, EnumDefinition.RewardType.dnaTicket, EnumDefinition.RewardType.clearTicket };
+            var rewardValues = new int[] { 3000, 10, 5, 2 };
+            PopupController.instance.InitPopups(rewardTypes, rewardValues);
             Debug.Log("초심자 패키지 구매 성공");
             //보석3000개 유니온티켓10 dna티켓5 소탕권2 지급
         }
         else if (args.purchasedProduct.definition.id == ProductTYPE.adbuffpass.ToString())
         {
+
+            //todo: 광고 패스, 버프무제한 구현
             Debug.Log("광고 패스 패키지 구매 성공");
             //광고패스/버프무제한 보석10000개 소탕권5 지급
 
         }
         else if (args.purchasedProduct.definition.id == ProductTYPE.fastestpackage.ToString())
         {
+            var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem, EnumDefinition.RewardType.unionTicket, EnumDefinition.RewardType.dnaTicket, EnumDefinition.RewardType.clearTicket, EnumDefinition.RewardType.union };
+            var rewardValues = new int[] { 50000, 50, 20, 20, 40 };
             Debug.Log("초고속 성장 패키지 구매 성공");
             //보석50000개 유니온티켓50 dna티켓20 소탕권20 유니온index 40번 지급
-
         }
+
 
 
 
@@ -200,18 +224,25 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
         {
             if (String.Equals(product.definition.storeSpecificId, ProductTYPE.starterrpackage.ToString(), StringComparison.Ordinal))
             {
+
+                var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem, EnumDefinition.RewardType.unionTicket, EnumDefinition.RewardType.dnaTicket, EnumDefinition.RewardType.clearTicket };
+                var rewardValues = new int[] { 3000, 10, 5, 2 };
+                PopupController.instance.InitPopups(rewardTypes, rewardValues);
                 Debug.Log("초심자 패키지 이미 구매하였습니다");
                 //보석3000개 유니온티켓10 dna티켓5 소탕권2 지급
 
             }
             else if (String.Equals(product.definition.storeSpecificId, ProductTYPE.adbuffpass.ToString(), StringComparison.Ordinal))
             {
+                //todo: 광고 패스, 버프무제한 구현
                 Debug.Log("광고 패스 패키지 이미 구매하였습니다");
                 //광고패스/버프무제한 보석10000개 소탕권5 지급
 
             }
             else if (String.Equals(product.definition.storeSpecificId, ProductTYPE.fastestpackage.ToString(), StringComparison.Ordinal))
             {
+                var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem, EnumDefinition.RewardType.unionTicket, EnumDefinition.RewardType.dnaTicket, EnumDefinition.RewardType.clearTicket, EnumDefinition.RewardType.union };
+                var rewardValues = new int[] { 50000, 50, 20, 20, 40 };
                 Debug.Log("초고속 성장 패키지 이미 구매하였습니다");
                 //보석50000개 유니온티켓50 dna티켓20 소탕권20 유니온index 40번 지급
 
@@ -232,7 +263,7 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
 
     public void OnPurchaseFailed(Product product, PurchaseFailureDescription failureDescription)
     {
-        
+
         Debug.Log($"구매 실패 - {product.definition.id}, {failureDescription.reason}");
 
     }
@@ -310,7 +341,7 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
 //     {    
 //         BuyProductID(gem1);
 //     }
-   
+
 //     // 실제 구매가 실행되는 함수. 매개변수로 상품의 프로젝트ID 를 받는다.
 //     void BuyProductID(string productId)
 //     {
@@ -450,7 +481,7 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
 //                 //보석 1000원
 //                 Debug.Log("보석 I 구매 성공");
 //             }
-            
+
 
 //             return PurchaseProcessingResult.Complete;
 
@@ -478,7 +509,7 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
 //             //     GameController.Instance.isBuyAutoBox = true;
 //             //     AdvertiseManager.Instance.CheckClearGoldPurchase();
 //             // }
-            
+
 //         }
 
 

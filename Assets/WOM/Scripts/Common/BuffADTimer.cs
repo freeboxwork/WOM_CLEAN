@@ -7,13 +7,14 @@ public class BuffADTimer : MonoBehaviour
     float defaultTime = 30 * 60;
     private float countdownTime = 30 * 60;  // 30 minutes to seconds
     public TextMeshProUGUI countdownText;
+    public TextMeshProUGUI countdownTextAllwaysViwe;
     public BuffADSlot buffADSlot;
 
     public GameObject timerUI;
 
     void Start()
     {
-
+        ResetAllwaysCountDownText();
     }
 
     public IEnumerator StartTimer()
@@ -30,6 +31,7 @@ public class BuffADTimer : MonoBehaviour
             string leftTime = string.Format("{0:0}:{1:00}", minutes, seconds);
 
             countdownText.text = leftTime + " SEC";  // Update the UI text
+            countdownTextAllwaysViwe.text = leftTime;
             // save data
             GlobalData.instance.saveDataManager.SetSaveDataBuffAD_LeftTime(buffADSlot.buffADType, countdownTime);
 
@@ -42,6 +44,7 @@ public class BuffADTimer : MonoBehaviour
         // save data
         GlobalData.instance.saveDataManager.SetSaveDataBuffAD_Using(buffADSlot.buffADType, buffADSlot.isUsingBuff);
 
+        ResetAllwaysCountDownText();
         buffADSlot.addValue = buffADSlot.addValueDefualt;
         ResetCountdownTime();
         timerUI.SetActive(false);
@@ -62,6 +65,11 @@ public class BuffADTimer : MonoBehaviour
     public void ResetCountdownTime()
     {
         countdownTime = defaultTime;
+    }
+
+    void ResetAllwaysCountDownText()
+    {
+        countdownTextAllwaysViwe.text = "00:00";
     }
 
 

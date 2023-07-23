@@ -3,9 +3,17 @@ using System.Collections;
 using UnityEngine;
 using System.Linq;
 
+
 public class AD_Manager : MonoBehaviour
 {
+
+    // 광고 시청 후 랜덤한 보석 보상
+
+    public ADRandomRewardPopupController adRandomRewardPopupController;
     public List<BuffADSlot> buffADSlots = new List<BuffADSlot>();
+
+
+
     void Start()
     {
 
@@ -46,7 +54,7 @@ public class AD_Manager : MonoBehaviour
             case EnumDefinition.RewardTypeAD.adGold:
                 break;
             case EnumDefinition.RewardTypeAD.adGem:
-
+                adRandomRewardPopupController.GetRandomReward();
                 break;
             case EnumDefinition.RewardTypeAD.adBuffDamage:
                 GetBuffAdSlotByType(adRewardType).BuffTimerStart();

@@ -76,6 +76,7 @@ public class EnumDefinition
         attendData,
         newUserData,
         labBuildingData,
+        rewardAdGemData,
     }
 
     /// <summary> ?????? ??? </summary>

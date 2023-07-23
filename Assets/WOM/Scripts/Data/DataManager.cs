@@ -134,6 +134,10 @@ public class DataManager : MonoBehaviour
     // 캐슬 -> 연구소 데이터
     public LabBuidingDatas labBuildingDatas;
 
+    // 광고 보상 데이터 ( 보석 )
+    public RewardAdGemDats rewardAdGemDats;
+
+
     void Start()
     {
 
@@ -201,12 +205,17 @@ public class DataManager : MonoBehaviour
         // SET LABBUILDING DATA
         SetLabBuildingData();
 
-
+        // SET REWARD AD GEM DATA
+        SetRewardAdGemData();
 
         yield return new WaitForEndOfFrame();
     }
 
 
+    void SetRewardAdGemData()
+    {
+        rewardAdGemDats = GetData<RewardAdGemDats>(SheetDataType.rewardAdGemData);
+    }
 
     void AddSaleStatElements()
     {
@@ -737,3 +746,11 @@ public class LabBuidingDatas
 {
     public List<LabBuildingData> data = new List<LabBuildingData>();
 }
+
+[Serializable]
+
+public class RewardAdGemDats
+{
+    public List<RewardAdGemData> data = new List<RewardAdGemData>();
+}
+

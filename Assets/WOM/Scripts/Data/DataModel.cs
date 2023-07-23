@@ -591,6 +591,15 @@ public class LabBuildIngameData
 }
 
 
+[Serializable]
+public class RewardAdGemData
+{
+    public int level;
+    public string rewardType;
+    public int rewardValue;
+    public int probability;
+}
+
 
 // 퀘스트 관련
 

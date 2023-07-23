@@ -213,7 +213,7 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
             else if (String.Equals(product.definition.storeSpecificId, ProductTYPE.fastestpackage.ToString(), StringComparison.Ordinal))
             {
                 Debug.Log("초고속 성장 패키지 이미 구매하였습니다");
-             //보석50000개 유니온티켓50 dna티켓20 소탕권20 유니온index 40번 지급
+                //보석50000개 유니온티켓50 dna티켓20 소탕권20 유니온index 40번 지급
 
             }
             else

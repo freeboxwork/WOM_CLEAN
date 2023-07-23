@@ -105,7 +105,6 @@ public class Admob : MonoBehaviour
         {
             rewardedAd.Show((Reward reward) =>
             {
-
                 // 리워드 지급
                 GlobalData.instance.adManager.RewardAd(adRewardType);
                 Debug.Log("광고 시청 완료");

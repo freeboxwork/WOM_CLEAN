@@ -332,7 +332,7 @@ public class EnumDefinition
 
     public enum RewardTypeAD
     {
-        adGold,
+        adGoldPig,
         adGem,
         adBuffDamage,
         adBuffSpeed,

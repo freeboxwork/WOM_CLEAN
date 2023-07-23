@@ -128,7 +128,7 @@ public class InsectBullet : MonoBehaviour
 
     Vector3 GetMovePosition(Vector3 direction, float speed)
     {
-        return transform.position - direction * speed * Time.deltaTime;
+        return transform.position - direction * speed * Time.deltaTime * 5;
     }
 
     bool IsGoalTargetPoint(Vector3 targetPoint)

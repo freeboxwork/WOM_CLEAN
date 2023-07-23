@@ -56,50 +56,77 @@ public class StatManager : MonoBehaviour
 
     #region INSECT 
 
-    /// <summary> 곤충 공격력 (한글) </summary>
+    /// <summary> 곤충 공격력 damage(한글) </summary>
     public float GetInsectDamage(InsectType insectType)
     {
+        //진화 공격력
         var itd = GetEvolutionData(insectType).damage;
+        //훈련 공격력
         var ttd = GetTraningData(SaleStatType.trainingDamage).value;
-        var value = itd + ttd + skill_InsectDamageUp;
+
+        //특성,DNA,진화추가능력,곤충타입에 따른 공격력 증가율
+        var ittd = GetInsectTalentDamage(insectType);
+
+        //공식 : (((진화 공격력 + 훈련 공격력) * (특성증가율)) * 스킬증가율) * 버프 증가율
+        var value = ((itd + ttd) * (ittd * 0.01f)) * (1 + (skill_InsectDamageUp * 0.01f));
+        //Debug.Log($"<color=green>{insectType}진화공격력:{itd}+{insectType}훈련공격력:{ttd}+{insectType}공격력증가율{(ittd)}+스킬공격력:{skill_InsectDamageUp}</color>");
+        
         // ad buff 적용 ( damage )
         var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffDamage).addValue;
+        //Debug.Log($"<color=red>버프가 적용된 {insectType}공격력:{value * (float)buffValue}</color>");
+
         return value * (float)buffValue;
     }
-
-    /// <summary> 곤충 치명타 확율 </summary>
-    public float GetInsectCriticalChance(InsectType insectType)
+    /// <summary> 곤충 공격력 증가율 damageRate</summary>
+    float GetInsectTalentDamage(InsectType insectType)
     {
-        var trcc = GetTraningData(SaleStatType.trainingCriticalChance).value;
-        var tacc = GetTraningData(SaleStatType.talentCriticalChance).value;
-        var icc = GetDnaData(DNAType.insectCriticalChance).power;
-        var diceIcc = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectCriticalChance);
-        var value = trcc + tacc + icc + diceIcc + skill_AllUnitCriticalChanceUp;
-        return value;
-    }
-
-    /// <summary> 곤충 치명타 공격력 </summary>
-    public float GetInsectCriticalDamage(InsectType insectType)
-    {
-        var trcd = GetTraningData(SaleStatType.trainingCriticalDamage).value;
-        var tacd = GetTraningData(SaleStatType.talentCriticalDamage).value;
-        var icc = GetDnaData(DNAType.insectCriticalDamage).power;
-        var diceIcd = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectCriticalDamage);
-        var value = trcd + tacd + icc + diceIcd;
-        return value;
-    }
-
-    /// <summary> 곤충 공격력 증가율 </summary>
-    public float GetInsectTalentDamage(InsectType insectType)
-    {
+        var idr = GetEvolutionData(insectType).damageRate;
         var ttd = GetTraningData(SaleStatType.talentDamage).value;
         var upd = unionManager.GetAllUnionPassiveDamage();
         var did = GetDnaData(DNAType.insectDamage).power;
-        var idr = GetEvolutionData(insectType).damageRate;
         var diceId = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectDamage);
+        //Debug.Log($"{insectType}진화공격력증가율:{idr}+{insectType}훈련공격력증가율:{ttd}+유니온보유공격력증가율:{upd}+DNA공격력증가율:{did}+진화능력공격력증가율:{diceId}");
+
         var value = ttd + upd + did + idr + diceId;
+        //Debug.Log($"총 공격력 증가율:{value}");
+
         return value;
     }
+    /// <summary> 곤충 치명타 확율 Critical Chance</summary>
+    public float GetInsectCriticalChance(InsectType insectType)
+    {
+        var trcc = GetTraningData(SaleStatType.trainingCriticalChance).value;//소숫점
+        var idr = GetEvolutionData(insectType).criticalChance;
+        var tacc = GetTraningData(SaleStatType.talentCriticalChance).value;//소숫점
+        var icc = GetDnaData(DNAType.insectCriticalChance).power;//소숫점
+        var diceIcc = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectCriticalChance);//소수점
+        var value = trcc + tacc + icc + diceIcc+ idr + skill_AllUnitCriticalChanceUp;//스킬은 정수
+        //Debug.Log($"<color=blue>곤충치명타 확률 - 훈련:{trcc} 진화등급 : {idr} 특성 : {tacc} DNA : {icc} 진화추가능력 : {diceIcc} 총:{value}</color>");
+
+        return value;
+    }
+
+    /// <summary> 곤충 치명타 공격력 Critical Damage</summary>
+    public float GetInsectCriticalDamage(InsectType insectType)
+    {
+        var trcd = GetTraningData(SaleStatType.trainingCriticalDamage).value;//정수
+        var tacd = GetTraningData(SaleStatType.talentCriticalDamage).value;//정수
+        var icc = GetDnaData(DNAType.insectCriticalDamage).power;//정수
+        var diceIcd = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectCriticalDamage);//정수
+        var value = trcd + tacd + icc + diceIcd;
+
+        //Debug.Log($"훈련{trcd} 특성{tacd} DNA{icc} 주사위{diceIcd} 곤충 치명타 총 공격력:{value}");
+        return value;
+    }
+
+  
+
+
+
+
+
+
+
 
     /// <summary> 곤충 이동 속도 </summary>
     public float GetInsectMoveSpeed(InsectType insectType)

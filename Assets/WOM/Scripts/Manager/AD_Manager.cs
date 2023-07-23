@@ -48,6 +48,8 @@ public class AD_Manager : MonoBehaviour
 
     public void RewardAd(EnumDefinition.RewardTypeAD adRewardType, int reward = 0)
     {
+        // 일일 퀘스트 완료 : 광고보기 완료
+        EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.showAd);
 
         switch (adRewardType)
         {

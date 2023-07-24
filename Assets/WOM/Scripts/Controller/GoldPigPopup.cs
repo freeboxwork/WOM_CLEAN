@@ -46,7 +46,7 @@ public class GoldPigPopup : MonoBehaviour
         Admob.instance.ShowRewardedAdByType(adRewardType);
     }
 
-    public void AdReward()
+    public void RewardAD()
     {
         var rewardValue = GetRewardValue(adRewardValue);
         PopupController.instance.InitPopup(EnumDefinition.RewardType.gold, rewardValue);

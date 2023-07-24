@@ -13,8 +13,9 @@ public class PlayerDataManager : MonoBehaviour
 
     // save data key
     DateTime startDateTime;
+    TimeSpan offlineTime;
 
-    const string offlineTimeKey = "offlineTime";
+    public string offlineTimeKey = "offlineTime";
     const string playingTimeKey = "playingTime";
 
 
@@ -50,11 +51,15 @@ public class PlayerDataManager : MonoBehaviour
         var startOfflineTime = System.DateTime.Parse(offlineTime);
         var endTime = System.DateTime.Now;
         var timeSpan = endTime - startOfflineTime;
+        this.offlineTime = timeSpan;
         Debug.Log("offlineTime : " + timeSpan.Duration().ToString());
         return timeSpan.Duration().ToString();
     }
 
-
+    public TimeSpan GetOfflineTimeValue()
+    {
+        return offlineTime;
+    }
 
     public IEnumerator InitPlayerData()
     {

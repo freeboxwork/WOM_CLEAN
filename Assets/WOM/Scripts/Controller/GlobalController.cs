@@ -30,6 +30,7 @@ public class GlobalController : MonoBehaviour
     public GoldPigController goldPigController;
     public LabBuildingManager labBuildingManager;
     public AD_Manager adManager;
+    public OfflineRewardPopupContoller offlineRewardPopupContoller;
 
 
     void Start()
@@ -151,6 +152,8 @@ public class GlobalController : MonoBehaviour
         // 골드 피그 등장( 지정된 시간 지난뒤 등장 )
         yield return StartCoroutine(goldPigController.Init());
 
+        // 오프라인 보상 팝업 등장
+        yield return StartCoroutine(offlineRewardPopupContoller.Init());
 
         // 공격 가능 상태로 전환
         attackController.SetAttackableState(true);

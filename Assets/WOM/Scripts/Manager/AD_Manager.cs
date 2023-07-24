@@ -54,7 +54,7 @@ public class AD_Manager : MonoBehaviour
         switch (adRewardType)
         {
             case EnumDefinition.RewardTypeAD.adGoldPig:
-                GlobalData.instance.goldPigController.goldPigPopup.AdReward();
+                GlobalData.instance.goldPigController.goldPigPopup.RewardAD();
                 break;
             case EnumDefinition.RewardTypeAD.adGem:
                 adRandomRewardPopupController.GetRandomReward();
@@ -67,6 +67,9 @@ public class AD_Manager : MonoBehaviour
                 break;
             case EnumDefinition.RewardTypeAD.adBuffGold:
                 GetBuffAdSlotByType(adRewardType).BuffTimerStart();
+                break;
+            case EnumDefinition.RewardTypeAD.adOffline:
+                GlobalData.instance.offlineRewardPopupContoller.RewardAD();
                 break;
         }
 

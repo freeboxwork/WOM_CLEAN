@@ -46,6 +46,8 @@ public class GlobalData : MonoBehaviour
     public GoldPigController goldPigController;
     public LabBuildingManager labBuildingManager;
     public AD_Manager adManager;
+    public PlayerDataManager playerDataManager;
+    public OfflineRewardPopupContoller offlineRewardPopupContoller;
 
 
 

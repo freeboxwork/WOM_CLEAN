@@ -337,6 +337,7 @@ public class EnumDefinition
         adBuffDamage,
         adBuffSpeed,
         adBuffGold,
+        adOffline,
     }
 
 }

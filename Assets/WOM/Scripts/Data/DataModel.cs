@@ -616,6 +616,9 @@ public class QuestData
     public bool qusetComplete = false;
     // 보상을 받았는지 확인
     public bool usingReward = false;
+    // 광고 보상을 받았는지 확인
+    public bool usingRewardAD = false;
+    public QuestSlot questSlot;
 
     public QuestData ClonInstance()
     {
@@ -631,6 +634,7 @@ public class QuestData
         questData.qusetComplete = qusetComplete;
         questData.curCountValue = curCountValue;
         questData.usingReward = usingReward;
+        questData.usingRewardAD = usingRewardAD;
 
         return questData;
     }

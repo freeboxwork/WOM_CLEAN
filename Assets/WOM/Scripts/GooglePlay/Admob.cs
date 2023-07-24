@@ -113,6 +113,22 @@ public class Admob : MonoBehaviour
         }
     }
 
+    public void ShowRewardedAdQusetOneDay(QuestData data)
+    {
+        const string rewardMsg =
+            "Rewarded ad rewarded the user. Type: {0}, amount: {1}.";
+
+        if (rewardedAd != null && rewardedAd.CanShowAd())
+        {
+            rewardedAd.Show((Reward reward) =>
+            {
+                // 리워드 지급
+                GlobalData.instance.questManager.RewardAD_OneDayQuest(data);
+                Debug.Log("광고 시청 완료");
+                Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
+            });
+        }
+    }
 
 
 

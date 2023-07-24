@@ -14,6 +14,7 @@ public class CallBackEventType
         OnDungeonMonsterHit,            /// <summary> 곤충이 던전 몬스터를 타격 했을때  </summary>
         OnQusetClearOneDayCounting,     /// <summary> 일일 퀘스트 완료 하여 카운트 할때  </summary>
         OnQusetUsingRewardOneDay,       /// <summary> 일일 퀘스트 보상 받았을때  </summary>
+        OnQusetUsingRewardOneDayAD,     /// <summary> 일일 퀘스트 광고 보상 받았을때  </summary>
         OnQusetClearRepeatCounting,     /// <summary> 반복 퀘스트 완료 했을때  </summary>
         OnQuestCompleteBattlePassStage, /// <summary> 배틀패스 - 스테이지 퀘스트 완료 했을때  </summary>
         OnUsingRewardAttend,            /// <summary> 출석 보상 받았을때  </summary>

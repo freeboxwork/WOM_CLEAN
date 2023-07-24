@@ -1015,6 +1015,8 @@ MonoBehaviour:
     rewardValue: 0
     qusetComplete: 0
     usingReward: 0
+    usingRewardAD: 0
+    questSlot: {fileID: 0}
   imgNotifyIcon: {fileID: 5256588682335354828}
   imgRewardIcon: {fileID: 1414990512925557222}
   txtRewardValue: {fileID: 8583759517236154839}
@@ -1022,6 +1024,7 @@ MonoBehaviour:
   imgQuestProgress: {fileID: 8574376208877629999}
   txtQuestProgressCount: {fileID: 6479067947219466906}
   btnReward: {fileID: 2081078722389949908}
+  btnAD: {fileID: 9212705283127201881}
   txtDoing: {fileID: 8100435445203373987}
   questTypeOneDay: 0
 --- !u!1 &5256588681367499374

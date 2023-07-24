@@ -89,6 +89,7 @@ public class QuestPopup : MonoBehaviour
         slot.SetDoingText(data);
         slot.SetQuestTypeOneDay(ConvertStringToQuestType(data.questType));
         slot.SetQuestData(data);
+        slot.ActiveADButton(data);
     }
 
     public void SetUIBattlePassSlot(BattlePassSlot slot, BattlePassData data, int unlockCount)

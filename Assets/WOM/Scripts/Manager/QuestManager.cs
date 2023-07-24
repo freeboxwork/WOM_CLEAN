@@ -19,6 +19,7 @@ public class QuestManager : MonoBehaviour
 
     const string keyUsingReward = "_usingReward";
     const string keyQuestComplete = "_questComplete";
+    const string keyUsingRewardAd = "_usingRewardAD";
 
     public QuestResetTimer questResetTimer;
 
@@ -45,6 +46,7 @@ public class QuestManager : MonoBehaviour
     {
         EventManager.instance.AddCallBackEvent<QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, IncreaseCountOneDayQuest);
         EventManager.instance.AddCallBackEvent<QuestData>(CallBackEventType.TYPES.OnQusetUsingRewardOneDay, EvnUsingReward);
+        EventManager.instance.AddCallBackEvent<QuestData>(CallBackEventType.TYPES.OnQusetUsingRewardOneDayAD, EvnUsingRewardAD);
         EventManager.instance.AddCallBackEvent<string, int>(CallBackEventType.TYPES.OnQuestCompleteBattlePassStage, EvnUsingRewardBattlePassStage);
         EventManager.instance.AddCallBackEvent<string, int>(CallBackEventType.TYPES.OnUsingRewardAttend, EvnUsingRewardAttend);
         EventManager.instance.AddCallBackEvent<string[], int[]>(CallBackEventType.TYPES.OnUsingRewardNewUserEvent, EvnUsingRewardNewUserEvent);
@@ -54,6 +56,7 @@ public class QuestManager : MonoBehaviour
     {
         EventManager.instance.RemoveCallBackEvent<QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, IncreaseCountOneDayQuest);
         EventManager.instance.RemoveCallBackEvent<QuestData>(CallBackEventType.TYPES.OnQusetUsingRewardOneDay, EvnUsingReward);
+        EventManager.instance.RemoveCallBackEvent<QuestData>(CallBackEventType.TYPES.OnQusetUsingRewardOneDayAD, EvnUsingRewardAD);
         EventManager.instance.RemoveCallBackEvent<string, int>(CallBackEventType.TYPES.OnQuestCompleteBattlePassStage, EvnUsingRewardBattlePassStage);
         EventManager.instance.RemoveCallBackEvent<string[], int[]>(CallBackEventType.TYPES.OnUsingRewardNewUserEvent, EvnUsingRewardNewUserEvent);
     }
@@ -197,6 +200,12 @@ public class QuestManager : MonoBehaviour
         {
             data.usingReward = PlayerPrefs.GetInt(data.questType + keyUsingReward) == 1 ? true : false;
         }
+
+        if (PlayerPrefs.HasKey(data.questType + keyUsingRewardAd))
+        {
+            data.usingRewardAD = PlayerPrefs.GetInt(data.questType + keyUsingRewardAd) == 1 ? true : false;
+        }
+
     }
 
     QuestTypeOneDay GetQuestTypeOneDayByTypeName(string typeName)
@@ -275,10 +284,26 @@ public class QuestManager : MonoBehaviour
         data.usingReward = true;
         PlayerPrefs.SetInt(data.questType + keyUsingReward, data.usingReward ? 1 : 0);
 
-        // // 리워드 지급
         // 리워드 팝업 띄우기
         PopupController.instance.InitPopup(UtilityMethod.GetRewardTypeByTypeName(data.rewardType), data.rewardValue);
-        //GlobalData.instance.rewardManager.RewardByType(GetRewardTypeByTypeName(data.rewardType), data.rewardValue);
+    }
+
+    //일일퀘스트 버튼 이벤트 실행
+    void EvnUsingRewardAD(QuestData data)
+    {
+        Admob.instance.ShowRewardedAdQusetOneDay(data);
+    }
+
+    public void RewardAD_OneDayQuest(QuestData data)
+    {
+        data.usingRewardAD = true;
+        PlayerPrefs.SetInt(data.questType + keyUsingRewardAd, data.usingRewardAD ? 1 : 0);
+        // 광고 실행
+        // 리워드 팝업 띄우기
+        PopupController.instance.InitPopup(UtilityMethod.GetRewardTypeByTypeName(data.rewardType), data.rewardValue);
+
+        // 광고 버튼 비활성화
+        data.questSlot.ActiveADButton(data);
     }
 
     void EvnUsingRewardBattlePassStage(string rewardType, int rewardValue)

@@ -13,6 +13,7 @@ public class QuestSlot : MonoBehaviour
     public Image imgQuestProgress;
     public TextMeshProUGUI txtQuestProgressCount;
     public Button btnReward;
+    public Button btnAD;
     public TextMeshProUGUI txtDoing;
     public EnumDefinition.QuestTypeOneDay questTypeOneDay;
 
@@ -30,6 +31,15 @@ public class QuestSlot : MonoBehaviour
             ActiveNotifyIcon(questData);
             ActiveRewardButton(questData);
             SetDoingText(questData);
+
+            // 광고 버튼 활성화
+            ActiveADButton(questData);
+        });
+
+        btnAD.onClick.AddListener(() =>
+        {
+            // 광고 시청
+            EventManager.instance.RunEvent<QuestData>(CallBackEventType.TYPES.OnQusetUsingRewardOneDayAD, questData);
         });
     }
     public void SetNotifyIcon(Sprite sprite) // 알림 아이콘의 스프라이트를 설정합니다.
@@ -82,6 +92,12 @@ public class QuestSlot : MonoBehaviour
         txtDoing.text = txtValue;
     }
 
+    public void ActiveADButton(QuestData questData)
+    {
+        bool isActive = questData.qusetComplete && questData.usingReward && !questData.usingRewardAD;
+        btnAD.gameObject.SetActive(isActive);
+    }
+
     public void SetQuestTypeOneDay(EnumDefinition.QuestTypeOneDay type) // 사용자 지정 열거형을 사용하여 하루짜리 퀘스트 유형을 설정합니다.
     {
         questTypeOneDay = type;
@@ -91,6 +107,7 @@ public class QuestSlot : MonoBehaviour
     public void SetQuestData(QuestData data)
     {
         questData = data;
+        questData.questSlot = this;
     }
 
     public void UpdateUI(QuestData data)

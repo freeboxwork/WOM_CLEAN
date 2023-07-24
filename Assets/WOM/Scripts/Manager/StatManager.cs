@@ -68,7 +68,7 @@ public class StatManager : MonoBehaviour
         var ittd = GetInsectTalentDamage(insectType);
 
         //공식 : (((진화 공격력 + 훈련 공격력) * (특성증가율)) * 스킬증가율) * 버프 증가율
-        var value = ((itd + ttd) * (ittd * 0.01f)) * (1 + (skill_InsectDamageUp * 0.01f));
+        var value = (itd + ttd) * (1 + ((ittd + skill_InsectDamageUp) * 0.01f));
         //Debug.Log($"<color=green>{insectType}진화공격력:{itd}+{insectType}훈련공격력:{ttd}+{insectType}공격력증가율{(ittd)}+스킬공격력:{skill_InsectDamageUp}</color>");
         
         // ad buff 적용 ( damage )
@@ -119,26 +119,17 @@ public class StatManager : MonoBehaviour
         return value;
     }
 
-  
-
-
-
-
-
-
-
-
-    /// <summary> 곤충 이동 속도 </summary>
+    /// <summary> 곤충 이동 속도 버프,스킬 포함 최대값450이며 200내에서 조정이 필요</summary>
     public float GetInsectMoveSpeed(InsectType insectType)
     {
-        var ies = GetEvolutionData(insectType).speed;//150
-        var tms = GetTraningData(SaleStatType.talentMoveSpeed).value;//5
-        var ims = GetDnaData(DNAType.insectMoveSpeed).power;//1
-        var diceIms = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectMoveSpeed);//50
-        var value = ies * (1 + ((tms + ims + diceIms + skill_AllUnitSpeedUp) * 0.01f));
-        //var value = ies + (ies * ((tms + ims + diceIms + skill_AllUnitSpeedUp) * 0.01f));
-        // Debug.Log($"진화속도:{ies}/특성속도:{tms}/DNA속도:{ims}/주사위속도{diceIms} = 합계 : {value}");
-        value = value * 0.01f;
+        var ies = GetEvolutionData(insectType).speed;//정수
+        var tms = GetTraningData(SaleStatType.talentMoveSpeed).value;//정수
+        var ims = GetDnaData(DNAType.insectMoveSpeed).power;//정수
+        var diceIms = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectMoveSpeed);//정수
+
+        var value = ies + tms + ims + diceIms + skill_AllUnitSpeedUp;
+        //Debug.Log($"이동 속도 : 기본:{ies}/특성:{tms}/DNA:{ims}/주사위{diceIms} = 합계 : {value}");
+        
         // ad buff 적용 ( speed )
         var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffSpeed).addValue;
         return value * (float)buffValue;
@@ -147,10 +138,11 @@ public class StatManager : MonoBehaviour
     /// <summary> 곤충 생성 속도 </summary>
     public float GetInsectSpwanTime(InsectType insectType)
     {
-        var ist = GetEvolutionData(insectType).spawnTime;
-        var tst = GetTraningData(SaleStatType.talentSpawnSpeed).value;
-        var diceIst = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectSpawnTime);
-        var value = ist - (ist * (tst + diceIst));
+        var ist = GetEvolutionData(insectType).spawnTime;//소수
+        var tst = GetTraningData(SaleStatType.talentSpawnSpeed).value;//소수
+        var diceIst = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectSpawnTime);//소수
+        var value = ist - (tst+diceIst);
+        //Debug.Log($"곤충 소환시간 : 기본{ist} - 특성{tst}주사위{diceIst} 최종{value}");
         return value;
     }
 
@@ -165,18 +157,36 @@ public class StatManager : MonoBehaviour
     /// <summary> 유니온 공격력 </summary>
     public float GetUnionDamage(int unionIndex)
     {
-        var ud = GetUnionData(unionIndex).damage + skill_UnionDamageUp;
+       
+        //var ud = GetUnionData(unionIndex).damage + skill_UnionDamageUp;
+        var ud = GetUnionData(unionIndex).damage * (1 + (skill_UnionDamageUp * 0.01f));
         return ud;
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     /// <summary> 유니온 이동속도 </summary>
     public float GetUnionMoveSpeed(int unionIndex)
     {
         var ums = GetUnionData(unionIndex).moveSpeed;
         var dms = GetDnaData(DNAType.insectMoveSpeed).power;
-        var diceIms = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectMoveSpeed);
-        var value = ums + (ums * ((dms + diceIms + skill_AllUnitSpeedUp) * 0.01f));
-        return value * 0.01f;
+        //var diceIms = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectMoveSpeed);
+        var value = ums + dms + skill_AllUnitSpeedUp;
+        return value;
     }
 
     /// <summary> 유니온 생성속도 </summary>

@@ -33,7 +33,7 @@
    "id": 2,
    "skillType": "allUnitSpeedUp",
    "duration": 5,
-   "power": 50,
+   "power": 100,
    "name": "질주",
    "coolTime": 30,
    "addDurationTime": 0.5,

@@ -2,308 +2,308 @@
  {
    "level": 0,
    "salePrice": 0,
-   "value": 0,
-   "unitName": "%"
+   "value": 0.05,
+   "unitName": "s"
  },
  {
    "level": 1,
    "salePrice": 100,
-   "value": 0.01,
-   "unitName": "%"
+   "value": 0.1,
+   "unitName": "s"
  },
  {
    "level": 2,
    "salePrice": 200,
-   "value": 0.02,
-   "unitName": "%"
+   "value": 0.15,
+   "unitName": "s"
  },
  {
    "level": 3,
    "salePrice": 300,
-   "value": 0.03,
-   "unitName": "%"
+   "value": 0.2,
+   "unitName": "s"
  },
  {
    "level": 4,
    "salePrice": 400,
-   "value": 0.04,
-   "unitName": "%"
+   "value": 0.25,
+   "unitName": "s"
  },
  {
    "level": 5,
    "salePrice": 500,
-   "value": 0.05,
-   "unitName": "%"
+   "value": 0.3,
+   "unitName": "s"
  },
  {
    "level": 6,
    "salePrice": 600,
-   "value": 0.06,
-   "unitName": "%"
+   "value": 0.35,
+   "unitName": "s"
  },
  {
    "level": 7,
    "salePrice": 700,
-   "value": 0.07,
-   "unitName": "%"
+   "value": 0.4,
+   "unitName": "s"
  },
  {
    "level": 8,
    "salePrice": 800,
-   "value": 0.08,
-   "unitName": "%"
+   "value": 0.45,
+   "unitName": "s"
  },
  {
    "level": 9,
    "salePrice": 900,
-   "value": 0.09,
-   "unitName": "%"
+   "value": 0.5,
+   "unitName": "s"
  },
  {
    "level": 10,
    "salePrice": 1000,
-   "value": 0.1,
-   "unitName": "%"
+   "value": 0.55,
+   "unitName": "s"
  },
  {
    "level": 11,
    "salePrice": 1100,
-   "value": 0.11,
-   "unitName": "%"
+   "value": 0.6,
+   "unitName": "s"
  },
  {
    "level": 12,
    "salePrice": 1200,
-   "value": 0.12,
-   "unitName": "%"
+   "value": 0.65,
+   "unitName": "s"
  },
  {
    "level": 13,
    "salePrice": 1300,
-   "value": 0.13,
-   "unitName": "%"
+   "value": 0.7,
+   "unitName": "s"
  },
  {
    "level": 14,
    "salePrice": 1400,
-   "value": 0.14,
-   "unitName": "%"
+   "value": 0.75,
+   "unitName": "s"
  },
  {
    "level": 15,
    "salePrice": 1500,
-   "value": 0.15,
-   "unitName": "%"
+   "value": 0.8,
+   "unitName": "s"
  },
  {
    "level": 16,
    "salePrice": 1600,
-   "value": 0.16,
-   "unitName": "%"
+   "value": 0.85,
+   "unitName": "s"
  },
  {
    "level": 17,
    "salePrice": 1700,
-   "value": 0.17,
-   "unitName": "%"
+   "value": 0.9,
+   "unitName": "s"
  },
  {
    "level": 18,
    "salePrice": 1800,
-   "value": 0.18,
-   "unitName": "%"
+   "value": 0.95,
+   "unitName": "s"
  },
  {
    "level": 19,
    "salePrice": 1900,
-   "value": 0.19,
-   "unitName": "%"
+   "value": 1,
+   "unitName": "s"
  },
  {
    "level": 20,
    "salePrice": 2000,
-   "value": 0.2,
-   "unitName": "%"
+   "value": 1.05,
+   "unitName": "s"
  },
  {
    "level": 21,
    "salePrice": 2100,
-   "value": 0.21,
-   "unitName": "%"
+   "value": 1.1,
+   "unitName": "s"
  },
  {
    "level": 22,
    "salePrice": 2200,
-   "value": 0.22,
-   "unitName": "%"
+   "value": 1.15,
+   "unitName": "s"
  },
  {
    "level": 23,
    "salePrice": 2300,
-   "value": 0.23,
-   "unitName": "%"
+   "value": 1.2,
+   "unitName": "s"
  },
  {
    "level": 24,
    "salePrice": 2400,
-   "value": 0.24,
-   "unitName": "%"
+   "value": 1.25,
+   "unitName": "s"
  },
  {
    "level": 25,
    "salePrice": 2500,
-   "value": 0.25,
-   "unitName": "%"
+   "value": 1.3,
+   "unitName": "s"
  },
  {
    "level": 26,
    "salePrice": 2600,
-   "value": 0.26,
-   "unitName": "%"
+   "value": 1.35,
+   "unitName": "s"
  },
  {
    "level": 27,
    "salePrice": 2700,
-   "value": 0.27,
-   "unitName": "%"
+   "value": 1.4,
+   "unitName": "s"
  },
  {
    "level": 28,
    "salePrice": 2800,
-   "value": 0.28,
-   "unitName": "%"
+   "value": 1.45,
+   "unitName": "s"
  },
  {
    "level": 29,
    "salePrice": 2900,
-   "value": 0.29,
-   "unitName": "%"
+   "value": 1.5,
+   "unitName": "s"
  },
  {
    "level": 30,
    "salePrice": 3000,
-   "value": 0.3,
-   "unitName": "%"
+   "value": 1.55,
+   "unitName": "s"
  },
  {
    "level": 31,
    "salePrice": 3100,
-   "value": 0.31,
-   "unitName": "%"
+   "value": 1.6,
+   "unitName": "s"
  },
  {
    "level": 32,
    "salePrice": 3200,
-   "value": 0.32,
-   "unitName": "%"
+   "value": 1.65,
+   "unitName": "s"
  },
  {
    "level": 33,
    "salePrice": 3300,
-   "value": 0.33,
-   "unitName": "%"
+   "value": 1.7,
+   "unitName": "s"
  },
  {
    "level": 34,
    "salePrice": 3400,
-   "value": 0.34,
-   "unitName": "%"
+   "value": 1.75,
+   "unitName": "s"
  },
  {
    "level": 35,
    "salePrice": 3500,
-   "value": 0.35,
-   "unitName": "%"
+   "value": 1.8,
+   "unitName": "s"
  },
  {
    "level": 36,
    "salePrice": 3600,
-   "value": 0.36,
-   "unitName": "%"
+   "value": 1.85,
+   "unitName": "s"
  },
  {
    "level": 37,
    "salePrice": 3700,
-   "value": 0.37,
-   "unitName": "%"
+   "value": 1.9,
+   "unitName": "s"
  },
  {
    "level": 38,
    "salePrice": 3800,
-   "value": 0.38,
-   "unitName": "%"
+   "value": 1.95,
+   "unitName": "s"
  },
  {
    "level": 39,
    "salePrice": 3900,
-   "value": 0.39,
-   "unitName": "%"
+   "value": 2,
+   "unitName": "s"
  },
  {
    "level": 40,
    "salePrice": 4000,
-   "value": 0.4,
-   "unitName": "%"
+   "value": 2.05,
+   "unitName": "s"
  },
  {
    "level": 41,
    "salePrice": 4100,
-   "value": 0.41,
-   "unitName": "%"
+   "value": 2.1,
+   "unitName": "s"
  },
  {
    "level": 42,
    "salePrice": 4200,
-   "value": 0.42,
-   "unitName": "%"
+   "value": 2.15,
+   "unitName": "s"
  },
  {
    "level": 43,
    "salePrice": 4300,
-   "value": 0.43,
-   "unitName": "%"
+   "value": 2.2,
+   "unitName": "s"
  },
  {
    "level": 44,
    "salePrice": 4400,
-   "value": 0.44,
-   "unitName": "%"
+   "value": 2.25,
+   "unitName": "s"
  },
  {
    "level": 45,
    "salePrice": 4500,
-   "value": 0.45,
-   "unitName": "%"
+   "value": 2.3,
+   "unitName": "s"
  },
  {
    "level": 46,
    "salePrice": 4600,
-   "value": 0.46,
-   "unitName": "%"
+   "value": 2.35,
+   "unitName": "s"
  },
  {
    "level": 47,
    "salePrice": 4700,
-   "value": 0.47,
-   "unitName": "%"
+   "value": 2.4,
+   "unitName": "s"
  },
  {
    "level": 48,
    "salePrice": 4800,
-   "value": 0.48,
-   "unitName": "%"
+   "value": 2.45,
+   "unitName": "s"
  },
  {
    "level": 49,
    "salePrice": 4900,
-   "value": 0.49,
-   "unitName": "%"
+   "value": 2.5,
+   "unitName": "s"
  },
  {
    "level": 50,
    "salePrice": 5000,
-   "value": 0.5,
-   "unitName": "%"
+   "value": 2.55,
+   "unitName": "s"
  }
 ]
 }

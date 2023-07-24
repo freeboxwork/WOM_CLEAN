@@ -17,6 +17,8 @@ public class InsectBullet : MonoBehaviour
     public InsectSpriteAnimation spriteAnim;
 
     float speed = 1;
+    float maxSpeed = 500;
+
     Vector3 lookDir;
 
     // UNION
@@ -125,10 +127,14 @@ public class InsectBullet : MonoBehaviour
 
         gameObject.SetActive(false);
     }
-
     Vector3 GetMovePosition(Vector3 direction, float speed)
     {
-        return transform.position - direction * speed * Time.deltaTime * 5;
+        //0에서 1값으로 제한
+        float clampedSpeed = Mathf.Clamp(speed, 0f, maxSpeed);
+        //최대 500의 스피드를 가질 수 있으며 현재 스피드를 나눠서 0~1사이의 값을 뽑고 보정값4을 입력
+        float resultSpeed = (clampedSpeed / maxSpeed) * 4;
+
+        return transform.position - direction * resultSpeed * Time.deltaTime;
     }
 
     bool IsGoalTargetPoint(Vector3 targetPoint)

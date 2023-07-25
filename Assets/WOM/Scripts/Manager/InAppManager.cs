@@ -195,7 +195,14 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
         else if (args.purchasedProduct.definition.id == ProductTYPE.adbuffpass.ToString())
         {
 
-            //todo: 광고 패스, 버프무제한 구현
+            //광고 패스, 버프무제한 
+            // set pass value
+            var adKey = GlobalData.instance.adManager.adPassKey;
+            var buffKey = GlobalData.instance.adManager.buffPassKey;
+            PlayerPrefs.SetInt(adKey, 1);
+            PlayerPrefs.SetInt(buffKey, 1);
+            var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem, EnumDefinition.RewardType.clearTicket };
+            var rewardValues = new int[] { 10000, 5 };
             Debug.Log("광고 패스 패키지 구매 성공");
             //광고패스/버프무제한 보석10000개 소탕권5 지급
 
@@ -234,7 +241,14 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
             }
             else if (String.Equals(product.definition.storeSpecificId, ProductTYPE.adbuffpass.ToString(), StringComparison.Ordinal))
             {
-                //todo: 광고 패스, 버프무제한 구현
+                // 광고 패스, 버프무제한 
+                // set pass value
+                var adKey = GlobalData.instance.adManager.adPassKey;
+                var buffKey = GlobalData.instance.adManager.buffPassKey;
+                PlayerPrefs.SetInt(adKey, 1);
+                PlayerPrefs.SetInt(buffKey, 1);
+                var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem, EnumDefinition.RewardType.clearTicket };
+                var rewardValues = new int[] { 10000, 5 };
                 Debug.Log("광고 패스 패키지 이미 구매하였습니다");
                 //광고패스/버프무제한 보석10000개 소탕권5 지급
 

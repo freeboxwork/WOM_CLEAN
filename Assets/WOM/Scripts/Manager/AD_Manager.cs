@@ -12,12 +12,39 @@ public class AD_Manager : MonoBehaviour
     public ADRandomRewardPopupController adRandomRewardPopupController;
     public List<BuffADSlot> buffADSlots = new List<BuffADSlot>();
 
+    public string adPassKey = "_adPass";
+    public string buffPassKey = "_buffPass";
+
+    public bool isPassAD = false;
+    public bool isPassBuff = false;
+
+    public GameObject btnBuffOpen;
 
 
     void Start()
     {
-
+        LoadPassValues();
     }
+
+    // 광고,버프 패스 확인
+    void LoadPassValues()
+    {
+        isPassAD = LoadPassValue(adPassKey);
+        isPassBuff = LoadPassValue(buffPassKey);
+    }
+
+    bool LoadPassValue(string key)
+    {
+        if (!PlayerPrefs.HasKey(key))
+        {
+            PlayerPrefs.SetInt(key, 0);
+            return false;
+        }
+
+        return PlayerPrefs.GetInt(key) == 1;
+    }
+
+
 
     public IEnumerator Init()
     {
@@ -29,15 +56,32 @@ public class AD_Manager : MonoBehaviour
     void SetBuffAdSlotData()
     {
         var datas = GlobalData.instance.saveDataManager.saveDataTotal.saveDataBuffAD.buffAD_LeftDatas;
-        foreach (var data in datas)
+
+        // buff pass
+        if (isPassBuff)
         {
-            if (data.isUsing)
+            btnBuffOpen.SetActive(false);
+            foreach (var data in datas)
             {
-                // 타이머 재개
                 var slot = GetBuffAdSlotByType(data.buffADType);
-                slot.buffTimer.ReloadTimer(data.leftTime);
+                slot.addValue = slot.addValueBuff;
+                slot.buffTimer.SetTxtBuffPass();
             }
         }
+        else
+        {
+            foreach (var data in datas)
+            {
+                if (data.isUsing)
+                {
+                    // 타이머 재개
+                    var slot = GetBuffAdSlotByType(data.buffADType);
+                    slot.buffTimer.ReloadTimer(data.leftTime);
+                }
+            }
+        }
+
+        GetBuffAdSlotByType(datas[0].buffADType).buffTimer.SetTxtBuffPass();
 
     }
 

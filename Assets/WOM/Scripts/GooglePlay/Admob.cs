@@ -98,6 +98,16 @@ public class Admob : MonoBehaviour
 
     public void ShowRewardedAdByType(EnumDefinition.RewardTypeAD adRewardType)
     {
+
+        // check ad pass
+        var passValue = GlobalData.instance.adManager.isPassAD;
+        if (passValue)
+        {
+            // 리워드 지급
+            GlobalData.instance.adManager.RewardAd(adRewardType);
+            return;
+        }
+
         const string rewardMsg =
             "Rewarded ad rewarded the user. Type: {0}, amount: {1}.";
 
@@ -115,6 +125,16 @@ public class Admob : MonoBehaviour
 
     public void ShowRewardedAdQusetOneDay(QuestData data)
     {
+
+        // check ad pass
+        var passValue = GlobalData.instance.adManager.isPassAD;
+        if (passValue)
+        {
+            // 리워드 지급
+            GlobalData.instance.questManager.RewardAD_OneDayQuest(data);
+            return;
+        }
+
         const string rewardMsg =
             "Rewarded ad rewarded the user. Type: {0}, amount: {1}.";
 

@@ -72,5 +72,9 @@ public class BuffADTimer : MonoBehaviour
         countdownTextAllwaysViwe.text = "00:00";
     }
 
+    public void SetTxtBuffPass()
+    {
+        countdownTextAllwaysViwe.text = "99:99";
+    }
 
 }

@@ -19,7 +19,7 @@ public static class UtilityMethod
     public static T CustomGetComponet<T>() where T : UnityEngine.Object
     {
         var returnValue = GameObject.FindObjectOfType<T>();
-        if (returnValue == null) Debug.Log($"씬에 존재하지 않는 타입 입니다.");
+        if (returnValue == null) Debug.Log($"¾?¿¡ ?¸?????? ¾?´? ?¸?? ??´?´?.");
         return returnValue;
     }
 
@@ -31,7 +31,7 @@ public static class UtilityMethod
         }
         else
         {
-            //Debug.LogError($"{gameObject.name} 게임 오브젝트에 컴포넌트 타입이 없습니다.");
+            //Debug.LogError($"{gameObject.name} °??? ¿?º??§Æ®¿¡ ??Æ÷³?Æ® ?¸???? ¾ø½?´?´?.");
             return null;
         }
     }
@@ -62,7 +62,7 @@ public static class UtilityMethod
         }
         else
         {
-            Debug.LogError($"Custom Type Object - Text - {id} 오브젝트가 없습니다.");
+            Debug.LogError($"Custom Type Object - Text - {id} ¿?º??§Æ®°¡ ¾ø½?´?´?.");
         }
     }
 
@@ -88,7 +88,7 @@ public static class UtilityMethod
         }
         else
         {
-            Debug.LogError($"Custom Type Object - Button - {id} 오브젝트가 없습니다.");
+            Debug.LogError($"Custom Type Object - Button - {id} ¿?º??§Æ®°¡ ¾ø½?´?´?.");
         }
     }
 
@@ -101,7 +101,7 @@ public static class UtilityMethod
         }
         else
         {
-            Debug.LogError($"Custom Type Object - Button - {id} 오브젝트가 없습니다.");
+            Debug.LogError($"Custom Type Object - Button - {id} ¿?º??§Æ®°¡ ¾ø½?´?´?.");
         }
     }
 
@@ -116,7 +116,7 @@ public static class UtilityMethod
             }
             else
             {
-                Debug.LogError($"Custom Type Object - Button - {id} 오브젝트가 없습니다.");
+                Debug.LogError($"Custom Type Object - Button - {id} ¿?º??§Æ®°¡ ¾ø½?´?´?.");
             }
         }
     }
@@ -143,7 +143,7 @@ public static class UtilityMethod
         return GlobalData.instance.customTypeDataManager.GetCustomTypeData_Transform(id);
     }
 
-    /// <summary> 가중치 랜덤 뽑기 </summary>
+    /// <summary> °¡?ß?¡ ·?´? ??±? </summary>
     public static float GetWeightRandomValue(float[] probs)
     {
         float total = 0;
@@ -167,7 +167,7 @@ public static class UtilityMethod
         return probs.Length - 1;
     }
 
-    ///<summary> 진화 주사위 사용 개수 </summary>
+    ///<summary> ?ø?­ ?????§ ??¿? °³¼? </summary>
     public static int GetEvolutionDiceUsingCount()
     {
         return 10 + (10 * GetUnLockCount());
@@ -182,7 +182,7 @@ public static class UtilityMethod
         return unlock;
     }
 
-    ///<summary> 골드 및 뼛조각 숫자 Text를 심볼로 변경 </summary>
+    ///<summary> °??? ¹× ???¶°? ¼??? Text¸? ½?º¼·? º?°æ </summary>
     public static string ChangeSymbolNumber(float number)
     {
 
@@ -224,10 +224,10 @@ public static class UtilityMethod
             return zero;
         }
 
-        //  ???? ????? ?ε???
+        //  ???? ????? ??????
         int quotient = exponent / 3;
 
-        //  ???????? ?????? ????? ??꿡 ???(10?? ????????? ???)
+        //  ???????? ?????? ????? ??…Z ???(10?? ????????? ???)
         int remainder = exponent % 3;
 
         //  1A ????? ??? ???
@@ -240,7 +240,7 @@ public static class UtilityMethod
             //  10?? ????????? ????? ????? ??????? ????? ???.
             var temp = double.Parse(partsSplit[0].Replace("E", "")) * System.Math.Pow(10, remainder);
 
-            //  ??? ??°????????? ??????.
+            //  ??? ??¡Æ????????? ??????.
             //showNumber = temp.ToString("F").Replace(".0", "");
             showNumber = temp.ToString("F");
         }
@@ -249,6 +249,74 @@ public static class UtilityMethod
 
         return string.Format("{0}{1}{2}", significant, showNumber, unityString);
     }
+
+    public static string ChangeSymbolNumber(long number)
+    {
+
+
+        string zero = "0";
+
+        if (-1d < number && number < 1d)
+        {
+            return zero;
+        }
+
+        if (double.IsInfinity(number))
+        {
+            return "Max";
+        }
+
+        //  ??? ??? ?????
+        string significant = (number < 0) ? "-" : string.Empty;
+
+        //  ?????? ????
+        string showNumber = string.Empty;
+
+        //  ???? ?????
+        string unityString = string.Empty;
+
+        //  ?????? ???? ????? ???? ?????? ???? ????????? ?????? ?? ???
+        string[] partsSplit = number.ToString("E").Split('+');
+
+        //  ????
+        if (partsSplit.Length < 2)
+        {
+            return zero;
+        }
+
+        //  ???? (????? ???)
+        if (!int.TryParse(partsSplit[1], out int exponent))
+        {
+            Debug.LogWarningFormat("Failed - ToCurrentString({0}) : partSplit[1] = {1}", number, partsSplit[1]);
+            return zero;
+        }
+
+        //  ???? ????? ??????
+        int quotient = exponent / 3;
+
+        //  ???????? ?????? ????? ??…Z ???(10?? ????????? ???)
+        int remainder = exponent % 3;
+
+        //  1A ????? ??? ???
+        if (exponent < 3)
+        {
+            showNumber = System.Math.Truncate((double)number).ToString();
+        }
+        else
+        {
+            //  10?? ????????? ????? ????? ??????? ????? ???.
+            var temp = double.Parse(partsSplit[0].Replace("E", "")) * System.Math.Pow(10, remainder);
+
+            //  ??? ??¡Æ????????? ??????.
+            //showNumber = temp.ToString("F").Replace(".0", "");
+            showNumber = temp.ToString("F");
+        }
+
+        unityString = symbol[quotient];
+
+        return string.Format("{0}{1}{2}", significant, showNumber, unityString);
+    }
+
 
 
     public static EnumDefinition.RewardType GetRewardTypeByTypeName(string typeName)

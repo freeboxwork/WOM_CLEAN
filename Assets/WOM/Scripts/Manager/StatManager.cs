@@ -180,9 +180,11 @@ public class StatManager : MonoBehaviour
         var dms = GetDnaData(DNAType.insectMoveSpeed).power;
         //var diceIms = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectMoveSpeed);
         var value = ums + dms + skill_AllUnitSpeedUp;
-        Debug.Log($"유니온 이동속도 : 기본:{ums}//DNA:{dms}= 합계 : {value}");
+        // ad buff 적용 ( speed )
+        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffSpeed).addValue;
+        Debug.Log($"유니온 이동속도 : 기본:{ums}//DNA:{dms}  = 합계 : {value} BUFF:{(float)(value * buffValue)}");
 
-        return (float)value;
+        return (float)(value * buffValue);
     }
 
     /// <summary> 유니온 생성속도 </summary>

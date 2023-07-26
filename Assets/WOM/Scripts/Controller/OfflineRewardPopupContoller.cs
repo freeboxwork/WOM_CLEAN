@@ -49,8 +49,13 @@ public class OfflineRewardPopupContoller : MonoBehaviour
 
                 // get current boss monster data
                 var monData = GlobalData.instance.monsterManager.GetMonsterData(EnumDefinition.MonsterType.boss);
-                rewardGold = monData.gold * hour;
-                rewardBone = monData.bone * hour;
+
+
+                var mGold = monData.gold *  (1 + (GlobalData.instance.statManager.OfflineBonus() * 0.01f));
+                var mBone = monData.bone *  (1 + (GlobalData.instance.statManager.OfflineBonus() * 0.01f));
+
+                rewardGold = (long)mGold * hour;
+                rewardBone = (long)mBone * hour;
 
                 // 광고는 5배 보상
                 rewardAdGold = rewardGold * adValue;

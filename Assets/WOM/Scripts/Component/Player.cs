@@ -249,23 +249,27 @@ public class Player : MonoBehaviour
     public void AddGold(long value)
     {
 
+        var result = value * (1 + (GlobalData.instance.statManager.GetTalentGoldBonus() * 0.01f));
+
         // ad buff 적용
         var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffGold).addValue;
-        gold += (long)(value * buffValue);
+        gold += (long)(result * buffValue);
 
 
 
         GlobalData.instance.traningManager.EnableBuyButtons(); // RELOAD BTN UI
         GlobalData.instance.skillManager.EnableBuyButtons();// RELOAD BTN UI
-        GlobalData.instance.uiController.SetTxtGold(gold, value); // RELOAD UI
+        GlobalData.instance.uiController.SetTxtGold(gold, (long)result); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsGold(gold); // set save data
     }
 
     public void AddBone(long value)
     {
-        bone += value;
+        var result = value * (1 + (GlobalData.instance.statManager.BoneBonus() * 0.01f));
+
+        bone += (long)result;
         GlobalData.instance.traningManager.EnableBuyButtons(); // RELOAD BTN UI
-        GlobalData.instance.uiController.SetTxtBone(bone, value); // RELOAD UI
+        GlobalData.instance.uiController.SetTxtBone(bone, (long)result); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsBone(bone); // set save data
     }
     public void AddDice(long value)

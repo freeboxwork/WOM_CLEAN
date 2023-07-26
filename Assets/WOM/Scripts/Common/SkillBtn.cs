@@ -84,7 +84,7 @@ public class SkillBtn : MonoBehaviour
         // effect
         GlobalData.instance.effectManager.EnableTransitionEffSkillOnByType(skillType);
         var data = GlobalData.instance.skillManager.GetSkillInGameDataByType(skillType);
-        float totalCoolTime = data.coolTime * (1 - GlobalData.instance.statManager.SkillCoolTime());
+        float totalCoolTime = data.coolTime - GlobalData.instance.statManager.SkillCoolTime();
 
         animDataUsingSkill.animDuration = data.duaration;
         animDataReloadSkill.animDuration = totalCoolTime;

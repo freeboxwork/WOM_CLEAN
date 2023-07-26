@@ -173,8 +173,6 @@ public class StatManager : MonoBehaviour
         return value * buffValue;
     }
 
-
-
     /// <summary> 유니온 이동속도 </summary>
     public float GetUnionMoveSpeed(int unionIndex)
     {
@@ -198,10 +196,6 @@ public class StatManager : MonoBehaviour
 
         return value;
     }
-
-
-
-
 
 
     // /// <summary> 유니온 공격력 증가율 </summary>
@@ -293,7 +287,7 @@ public class StatManager : MonoBehaviour
 
 
         float elapsedTime = 0.0f;
-        var totalDuration = data.duaration * (1 + SkillDuration());
+        var totalDuration = data.duaration + SkillDuration();
         while (elapsedTime < totalDuration)
         {
             // ui 전환 효과가 발동되면 대기
@@ -330,6 +324,7 @@ public class StatManager : MonoBehaviour
 
 
         float elapsedTime = 0.0f;
+        var totalDuration = data.duaration + SkillDuration();
         while (elapsedTime < data.duaration)
         {
             // ui 전환 효과가 발동되면 대기
@@ -367,6 +362,7 @@ public class StatManager : MonoBehaviour
         SetUsingSkillSaveData(skilType, true);
 
         float elapsedTime = 0.0f;
+        var totalDuration = data.duaration + SkillDuration();
         while (elapsedTime < data.duaration)
         {
             // ui 전환 효과가 발동되면 대기
@@ -398,6 +394,7 @@ public class StatManager : MonoBehaviour
         SetUsingSkillSaveData(skilType, true);
 
         float elapsedTime = 0.0f;
+        var totalDuration = data.duaration + SkillDuration();
         while (elapsedTime < data.duaration)
         {
             // ui 전환 효과가 발동되면 대기
@@ -430,6 +427,7 @@ public class StatManager : MonoBehaviour
         SetUsingSkillSaveData(skilType, true);
 
         float elapsedTime = 0.0f;
+        var totalDuration = data.duaration + SkillDuration();
         while (elapsedTime < data.duaration)
         {
             // ui 전환 효과가 발동되면 대기
@@ -465,6 +463,7 @@ public class StatManager : MonoBehaviour
         SetUsingSkillSaveData(skilType, true);
 
         float elapsedTime = 0.0f;
+        var totalDuration = data.duaration + SkillDuration();
         while (elapsedTime < data.duaration)
         {
             // ui 전환 효과가 발동되면 대기
@@ -498,6 +497,7 @@ public class StatManager : MonoBehaviour
 
     #region 개별 DATA
 
+    //황금 돼지는 90초마다 40%확률로 등장하며 DNA를 적용하여 최대 90%확률로 등장합니다
     public float GoldPig()
     {
         return (float)GetDnaData(DNAType.goldPig).power;
@@ -513,11 +513,13 @@ public class StatManager : MonoBehaviour
         return (float)GetDnaData(DNAType.skillCoolTime).power;
     }
 
+    //보스,던전,진화 몬스터 추가 데미지
     public double BossDamage()
     {
         return GetDnaData(DNAType.bossDamage).power;
     }
 
+    //모든 타입의 적 체력 감소
     public double MonsterHpLess()
     {
         return GetDnaData(DNAType.monsterHpLess).power;

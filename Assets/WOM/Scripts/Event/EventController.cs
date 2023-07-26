@@ -66,16 +66,13 @@ public class EventController : MonoBehaviour
 
         var damage = globalData.insectManager.GetInsectDamage(insectType, insectType == InsectType.union ? unionIndex : 0, out bool isCritical);
 
-        // ENABLE Floting Text Effect 
-        globalData.effectManager.EnableFloatingText(damage, isCritical, tr);
-
 
         // GET MONSTER
         var currentMonster = globalData.player.currentMonster;
 
         var curDamage = damage;
         if (IsBossOrEvolutionMonster())
-            curDamage = damage * (1 + globalData.statManager.BossDamage());
+            curDamage = damage * (1 + globalData.statManager.BossDamage() * 0.01f);
 
         // set monster damage
         currentMonster.hp -= curDamage;
@@ -85,7 +82,8 @@ public class EventController : MonoBehaviour
 
         // monster hit shader effect
         currentMonster.inOutAnimator.MonsterHitAnim();
-
+        // ENABLE Floting Text Effect 
+        globalData.effectManager.EnableFloatingText(damage, isCritical, tr);
         // 몬스터 제거시 ( hp 로 판단 )
         if (IsMonseterKill(currentMonster.hp))
         {
@@ -206,8 +204,35 @@ public class EventController : MonoBehaviour
 
         yield return null;
 
-        // GOLD 획득 애니메이션
-        StartCoroutine(globalData.effectManager.goldPoolingCont.EnableGoldEffects(currentMonster.goldCount));
+
+        //금광 보스 인지 체크
+        if (currentMonster.monsterType == MonsterType.gold)
+        {
+            //금광 몬스터 2배 받을 확률 가져오기
+            float pbb = (float)globalData.statManager.GoldMonsterBonus();
+            //확률 계산
+            float ran = Random.Range(0f,100f);
+
+            if(ran <= pbb)
+            {
+                //2배 보상
+                currentMonster.gold = currentMonster.gold * 2;
+                // GOLD 획득 이미지도 2배로 뿌려줍니다
+                StartCoroutine(globalData.effectManager.bonePoolingCont.EnableGoldEffects(currentMonster.goldCount * 2));
+            }
+            else
+            {
+                // GOLD 획득 애니메이션
+                StartCoroutine(globalData.effectManager.bonePoolingCont.EnableGoldEffects(currentMonster.goldCount));
+            }
+        }
+        else
+        {
+            // GOLD 획득 애니메이션
+            StartCoroutine(globalData.effectManager.bonePoolingCont.EnableGoldEffects(currentMonster.goldCount));
+        }
+
+
         // 골드 획득
         GainGold(currentMonster);
 
@@ -648,7 +673,7 @@ public class EventController : MonoBehaviour
         var monsterData = globalData.monsterManager.GetMonsterData(monsterType);
 
         // set hp 
-        monsterData.hp = monsterData.hp * (1 - GlobalData.instance.statManager.MonsterHpLess());
+        monsterData.hp = monsterData.hp * (1 - (GlobalData.instance.statManager.MonsterHpLess() * 0.01f));
 
         // set current monster
         globalData.player.SetCurrentMonster(monsterData);

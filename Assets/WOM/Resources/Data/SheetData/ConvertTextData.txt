@@ -1,7 +1,7 @@
 {"data":[
  {
    "en_Front": "baseDamage",
-   "en_Back": "ADD",
+   "en_Back": "",
    "kr_Front": "곤충 공격력",
    "kr_Back": "증가",
    "type": "baseDamage"
@@ -50,7 +50,7 @@
  },
  {
    "en_Front": "talentMoveSpeed",
-   "en_Back": "ADD",
+   "en_Back": "",
    "kr_Front": "이동 속도",
    "kr_Back": "증가",
    "type": "talentMoveSpeed"
@@ -92,7 +92,7 @@
  },
  {
    "en_Front": "increase insectMoveSpeed",
-   "en_Back": "ADD",
+   "en_Back": "",
    "kr_Front": "곤충 이동 속도",
    "kr_Back": "증가",
    "type": "insectMoveSpeed"

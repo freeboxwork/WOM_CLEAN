@@ -81,8 +81,6 @@ public class AD_Manager : MonoBehaviour
             }
         }
 
-        GetBuffAdSlotByType(datas[0].buffADType).buffTimer.SetTxtBuffPass();
-
     }
 
     public BuffADSlot GetBuffAdSlotByType(EnumDefinition.RewardTypeAD buffADType)

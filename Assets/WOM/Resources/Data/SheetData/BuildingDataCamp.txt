@@ -7,22 +7,22 @@
  },
  {
    "level": 1,
-   "upgradeCount": 100,
+   "upgradeCount": 500,
    "reward": "Rare_8"
  },
  {
    "level": 2,
-   "upgradeCount": 300,
+   "upgradeCount": 1000,
    "reward": "Hero_8"
  },
  {
    "level": 3,
-   "upgradeCount": 500,
+   "upgradeCount": 2000,
    "reward": "Legend_8"
  },
  {
    "level": 4,
-   "upgradeCount": 1000,
+   "upgradeCount": 4000,
    "reward": "Unique_8"
  }
 ]

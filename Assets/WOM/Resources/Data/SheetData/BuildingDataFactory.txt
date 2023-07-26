@@ -1,44 +1,44 @@
 ﻿{
   "data": [
-    {
-      "currencyType": "Bone",
-      "level": 0,
-      "maxSupplyAmount": 0,
-      "price": 100,
-      "productionCount": 0,
-      "productionTime": 60
-    },
-    {
-      "currencyType": "Bone",
-      "level": 1,
-      "maxSupplyAmount": 100,
-      "price": 200,
-      "productionCount": 10,
-      "productionTime": 60
-    },
-    {
-      "currencyType": "Bone",
-      "level": 2,
-      "maxSupplyAmount": 200,
-      "price": 300,
-      "productionCount": 20,
-      "productionTime": 59
-    },
-    {
-      "currencyType": "Bone",
-      "level": 3,
-      "maxSupplyAmount": 300,
-      "price": 400,
-      "productionCount": 30,
-      "productionTime": 58
-    },
-    {
-      "currencyType": "Bone",
-      "level": 4,
-      "maxSupplyAmount": 400,
-      "price": 0,
-      "productionCount": 40,
-      "productionTime": 57
-    }
-  ]
+ {
+   "level": 0,
+   "productionCount": 0,
+   "maxSupplyAmount": 0,
+   "price": 100,
+   "productionTime": 60,
+   "currencyType": "Bone"
+ },
+ {
+   "level": 1,
+   "productionCount": 100,
+   "maxSupplyAmount": 1000,
+   "price": 250,
+   "productionTime": 60,
+   "currencyType": "Bone"
+ },
+ {
+   "level": 2,
+   "productionCount": 200,
+   "maxSupplyAmount": 3000,
+   "price": 625,
+   "productionTime": 60,
+   "currencyType": "Bone"
+ },
+ {
+   "level": 3,
+   "productionCount": 400,
+   "maxSupplyAmount": 9000,
+   "price": 1563,
+   "productionTime": 60,
+   "currencyType": "Bone"
+ },
+ {
+   "level": 4,
+   "productionCount": 800,
+   "maxSupplyAmount": 27000,
+   "price": 0,
+   "productionTime": 60,
+   "currencyType": "Bone"
+ }
+]
 }

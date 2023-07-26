@@ -76,7 +76,7 @@ public class LabBuildingManager : MonoBehaviour
         }
     }
 
-    bool IsValidLevelUp(int price)
+    bool IsValidLevelUp(long price)
     {
         return GlobalData.instance.player.coal >= price;
     }

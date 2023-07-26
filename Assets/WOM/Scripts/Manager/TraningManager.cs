@@ -208,7 +208,7 @@ public class TraningManager : MonoBehaviour
         GetTraningInGameData(statType).level = level;
     }
 
-    public float GetInGameStatValue(SaleStatType statType)
+    public double GetInGameStatValue(SaleStatType statType)
     {
         return GetTraningInGameData(statType).value;
     }
@@ -218,7 +218,7 @@ public class TraningManager : MonoBehaviour
         GetTraningInGameData(statType).value = value;
     }
 
-    public float GetStatPower(SaleStatType statType)
+    public double GetStatPower(SaleStatType statType)
     {
         return GetTraningInGameData(statType).value;
     }

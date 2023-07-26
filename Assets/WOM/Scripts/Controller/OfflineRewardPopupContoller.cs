@@ -15,12 +15,12 @@ public class OfflineRewardPopupContoller : MonoBehaviour
     public Button btnRewardAD;
     public Button btnRewardNormal;
 
-    public int rewardGold;
-    public int rewardBone;
+    public long rewardGold;
+    public long rewardBone;
 
 
-    public int rewardAdGold;
-    public int rewardAdBone;
+    public long rewardAdGold;
+    public long rewardAdBone;
 
     // 광고는 5배 보상
     int adValue = 5;
@@ -89,14 +89,14 @@ public class OfflineRewardPopupContoller : MonoBehaviour
     public void RewardNormal()
     {
         var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gold, EnumDefinition.RewardType.bone };
-        var rewardValues = new int[] { rewardGold, rewardBone };
+        var rewardValues = new long[] { rewardGold, rewardBone };
         PopupController.instance.InitPopups(rewardTypes, rewardValues);
     }
 
     public void RewardAD()
     {
         var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gold, EnumDefinition.RewardType.bone };
-        var rewardValues = new int[] { rewardAdGold, rewardAdBone };
+        var rewardValues = new long[] { rewardAdGold, rewardAdBone };
         PopupController.instance.InitPopups(rewardTypes, rewardValues);
     }
 

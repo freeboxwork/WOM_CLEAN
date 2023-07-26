@@ -295,12 +295,12 @@ public class SkillManager : MonoBehaviour
         return skillData.duration + (skill_InGameData.level + skillData.addDurationTime);
     }
 
-    float GetPowerValue(SkillData skillData, Skill_InGameData skill_InGameData)
+    double GetPowerValue(SkillData skillData, Skill_InGameData skill_InGameData)
     {
         return skillData.power + (skill_InGameData.level * skillData.addPowerRate);
     }
 
-    float GetDamangeValue(float power)
+    double GetDamangeValue(double power)
     {
         return GlobalData.instance.insectManager.GetInsectsDps() * power;
     }

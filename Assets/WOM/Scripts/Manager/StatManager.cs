@@ -15,12 +15,12 @@ public class StatManager : MonoBehaviour
     SkillManager skillManager;
 
     //SKILL VALUES
-    float skill_InsectDamageUp = 0;
-    float skill_UnionDamageUp = 0;
-    float skill_AllUnitSpeedUp = 0;
-    float skill_GoldBounsUp = 0;
-    float skill_MonsterKing = 0;
-    float skill_AllUnitCriticalChanceUp = 0;
+    double skill_InsectDamageUp = 0;
+    double skill_UnionDamageUp = 0;
+    double skill_AllUnitSpeedUp = 0;
+    double skill_GoldBounsUp = 0;
+    double skill_MonsterKing = 0;
+    double skill_AllUnitCriticalChanceUp = 0;
 
     //전환 효과로 스킬 UI 가 꺼질때 사용
     public bool transitionUI = false;
@@ -57,7 +57,7 @@ public class StatManager : MonoBehaviour
     #region INSECT 
 
     /// <summary> 곤충 공격력 damage(한글) </summary>
-    public float GetInsectDamage(InsectType insectType)
+    public double GetInsectDamage(InsectType insectType)
     {
         //진화 공격력
         var itd = GetEvolutionData(insectType).damage;
@@ -70,15 +70,15 @@ public class StatManager : MonoBehaviour
         //공식 : (((진화 공격력 + 훈련 공격력) * (특성증가율)) * 스킬증가율) * 버프 증가율
         var value = (itd + ttd) * (1 + ((ittd + skill_InsectDamageUp) * 0.01f));
         //Debug.Log($"<color=green>{insectType}진화공격력:{itd}+{insectType}훈련공격력:{ttd}+{insectType}공격력증가율{(ittd)}+스킬공격력:{skill_InsectDamageUp}</color>");
-        
+
         // ad buff 적용 ( damage )
         var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffDamage).addValue;
         //Debug.Log($"<color=red>버프가 적용된 {insectType}공격력:{value * (float)buffValue}</color>");
 
-        return value * (float)buffValue;
+        return value * buffValue;
     }
     /// <summary> 곤충 공격력 증가율 damageRate</summary>
-    float GetInsectTalentDamage(InsectType insectType)
+    double GetInsectTalentDamage(InsectType insectType)
     {
         var idr = GetEvolutionData(insectType).damageRate;
         var ttd = GetTraningData(SaleStatType.talentDamage).value;
@@ -93,21 +93,21 @@ public class StatManager : MonoBehaviour
         return value;
     }
     /// <summary> 곤충 치명타 확율 Critical Chance</summary>
-    public float GetInsectCriticalChance(InsectType insectType)
+    public double GetInsectCriticalChance(InsectType insectType)
     {
         var trcc = GetTraningData(SaleStatType.trainingCriticalChance).value;//소숫점
         var idr = GetEvolutionData(insectType).criticalChance;
         var tacc = GetTraningData(SaleStatType.talentCriticalChance).value;//소숫점
         var icc = GetDnaData(DNAType.insectCriticalChance).power;//소숫점
         var diceIcc = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectCriticalChance);//소수점
-        var value = trcc + tacc + icc + diceIcc+ idr + skill_AllUnitCriticalChanceUp;//스킬은 정수
+        var value = trcc + tacc + icc + diceIcc + idr + skill_AllUnitCriticalChanceUp;//스킬은 정수
         //Debug.Log($"<color=blue>곤충치명타 확률 - 훈련:{trcc} 진화등급 : {idr} 특성 : {tacc} DNA : {icc} 진화추가능력 : {diceIcc} 총:{value}</color>");
 
         return value;
     }
 
     /// <summary> 곤충 치명타 공격력 Critical Damage</summary>
-    public float GetInsectCriticalDamage(InsectType insectType)
+    public double GetInsectCriticalDamage(InsectType insectType)
     {
         var trcd = GetTraningData(SaleStatType.trainingCriticalDamage).value;//정수
         var tacd = GetTraningData(SaleStatType.talentCriticalDamage).value;//정수
@@ -120,7 +120,7 @@ public class StatManager : MonoBehaviour
     }
 
     /// <summary> 곤충 이동 속도 버프,스킬 포함 최대값450이며 200내에서 조정이 필요</summary>
-    public float GetInsectMoveSpeed(InsectType insectType)
+    public double GetInsectMoveSpeed(InsectType insectType)
     {
         var ies = GetEvolutionData(insectType).speed;//정수
         var tms = GetTraningData(SaleStatType.talentMoveSpeed).value;//정수
@@ -129,10 +129,10 @@ public class StatManager : MonoBehaviour
 
         var value = ies + tms + ims + diceIms + skill_AllUnitSpeedUp;
         //Debug.Log($"이동 속도 : 기본:{ies}/특성:{tms}/DNA:{ims}/주사위{diceIms} = 합계 : {value}");
-        
+
         // ad buff 적용 ( speed )
         var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffSpeed).addValue;
-        return value * (float)buffValue;
+        return value * buffValue;
     }
 
     /// <summary> 곤충 생성 속도 </summary>
@@ -141,9 +141,9 @@ public class StatManager : MonoBehaviour
         var ist = GetEvolutionData(insectType).spawnTime;//소수
         var tst = GetTraningData(SaleStatType.talentSpawnSpeed).value;//소수
         var diceIst = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectSpawnTime);//소수
-        var value = ist - (tst+diceIst);
+        var value = ist - (tst + diceIst);
         //Debug.Log($"곤충 소환시간 : 기본{ist} - 특성{tst}주사위{diceIst} 최종{value}");
-        return value;
+        return (float)value;
     }
 
     #endregion
@@ -155,9 +155,9 @@ public class StatManager : MonoBehaviour
     #region UNION
 
     /// <summary> 유니온 공격력 </summary>
-    public float GetUnionDamage(int unionIndex)
+    public double GetUnionDamage(int unionIndex)
     {
-       
+
         //var ud = GetUnionData(unionIndex).damage + skill_UnionDamageUp;
         var ud = GetUnionData(unionIndex).damage * (1 + (skill_UnionDamageUp * 0.01f));
         return ud;
@@ -186,18 +186,18 @@ public class StatManager : MonoBehaviour
         var dms = GetDnaData(DNAType.insectMoveSpeed).power;
         //var diceIms = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectMoveSpeed);
         var value = ums + dms + skill_AllUnitSpeedUp;
-        return value;
+        return (float)value;
     }
 
     /// <summary> 유니온 생성속도 </summary>
-    public float GetUnionSpwanSpeed(int unionIndex)
+    public double GetUnionSpwanSpeed(int unionIndex)
     {
         var dst = GetDnaData(DNAType.unionSpawnTime).power;
         return dst;
     }
 
     /// <summary> 유니온 공격력 증가율 </summary>
-    public float GetUnionTalentDamage(int unionIndex)
+    public double GetUnionTalentDamage(int unionIndex)
     {
         var dud = GetDnaData(DNAType.unionDamage).power;
         return dud;
@@ -212,7 +212,7 @@ public class StatManager : MonoBehaviour
     #region GOODS
 
     /// <summary> 골드 획득량 </summary>
-    public float GetTalentGoldBonus()
+    public double GetTalentGoldBonus()
     {
         var dgb = GetDnaData(DNAType.glodBonus).power;
         var tgb = GetTraningData(SaleStatType.talentGoldBonus).value;
@@ -492,40 +492,40 @@ public class StatManager : MonoBehaviour
 
     public float GoldPig()
     {
-        return GetDnaData(DNAType.goldPig).power;
+        return (float)GetDnaData(DNAType.goldPig).power;
     }
 
     public float SkillDuration()
     {
-        return GetDnaData(DNAType.skillDuration).power;
+        return (float)GetDnaData(DNAType.skillDuration).power;
     }
 
     public float SkillCoolTime()
     {
-        return GetDnaData(DNAType.skillCoolTime).power;
+        return (float)GetDnaData(DNAType.skillCoolTime).power;
     }
 
-    public float BossDamage()
+    public double BossDamage()
     {
         return GetDnaData(DNAType.bossDamage).power;
     }
 
-    public float MonsterHpLess()
+    public double MonsterHpLess()
     {
         return GetDnaData(DNAType.monsterHpLess).power;
     }
 
-    public float BoneBonus()
+    public double BoneBonus()
     {
         return GetDnaData(DNAType.boneBonus).power;
     }
 
-    public float GoldMonsterBonus()
+    public double GoldMonsterBonus()
     {
         return GetDnaData(DNAType.goldMonsterBonus).power;
     }
 
-    public float OfflineBonus()
+    public double OfflineBonus()
     {
         return GetDnaData(DNAType.offlineBonus).power;
     }

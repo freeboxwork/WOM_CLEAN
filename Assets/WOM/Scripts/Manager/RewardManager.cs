@@ -12,7 +12,7 @@ public class RewardManager : MonoBehaviour
 
     // 유니온 보상을 받을때 레벨이 오를때 마다 하나씩 넣고 리워드를 획득 할때마다 하나씩 빼서 리워드를 획득한다.
     public Queue<int> unionRewardQueue = new Queue<int>();
-    Dictionary<EnumDefinition.RewardType, UnityAction<int>> rewardDic = new Dictionary<EnumDefinition.RewardType, UnityAction<int>>();
+    Dictionary<EnumDefinition.RewardType, UnityAction<long>> rewardDic = new Dictionary<EnumDefinition.RewardType, UnityAction<long>>();
 
 
 
@@ -42,24 +42,24 @@ public class RewardManager : MonoBehaviour
     }
 
     // 보상이 정해지지 않았을때 호출되는 함수
-    void RewardNull(int value)
+    void RewardNull(long value)
     {
         Debug.Log("보상이 정해지지 않았습니다.");
     }
 
-    void AddDungeonKeyGold(int value)
+    void AddDungeonKeyGold(long value)
     {
         GlobalData.instance.player.AddDungeonKey(EnumDefinition.GoodsType.gold, value);
     }
-    void AddDungeonKeyBone(int value)
+    void AddDungeonKeyBone(long value)
     {
         GlobalData.instance.player.AddDungeonKey(EnumDefinition.GoodsType.bone, value);
     }
-    void AddDungeonKeyDice(int value)
+    void AddDungeonKeyDice(long value)
     {
         GlobalData.instance.player.AddDungeonKey(EnumDefinition.GoodsType.dice, value);
     }
-    void AddDungeonKeyCoal(int value)
+    void AddDungeonKeyCoal(long value)
     {
         GlobalData.instance.player.AddDungeonKey(EnumDefinition.GoodsType.coal, value);
     }

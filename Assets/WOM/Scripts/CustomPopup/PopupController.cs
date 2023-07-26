@@ -247,6 +247,39 @@ public class PopupController : MonoBehaviour
         SetupPopupInfo(data);
     }
 
+
+    public void InitPopup(EnumDefinition.RewardType rewardType, long amount)
+    {
+        PopupRewardInfoData data = new PopupRewardInfoData();
+        List<RewardInfoData> rewards = new List<RewardInfoData>();
+
+
+        //var sprite = GlobalData.instance.spriteDataManager.GetRewardIcon(rewardType);
+        var sprite = GetRewardIcon(rewardType, (int)amount);
+        rewards.Add(new RewardInfoData(rewardType, amount, sprite));
+
+        data.SetPopupData("REWARD", rewards);
+
+        SetupPopupInfo(data);
+    }
+
+    public void InitPopups(EnumDefinition.RewardType[] rewardTypes, long[] amounts)
+    {
+        PopupRewardInfoData data = new PopupRewardInfoData();
+        List<RewardInfoData> rewards = new List<RewardInfoData>();
+
+        for (int i = 0; i < rewardTypes.Length; i++)
+        {
+            //var sprite = GlobalData.instance.spriteDataManager.GetRewardIcon(rewardTypes[i]);
+            var sprite = GetRewardIcon(rewardTypes[i], (int)amounts[i]);
+            rewards.Add(new RewardInfoData(rewardTypes[i], amounts[i], sprite));
+        }
+        data.SetPopupData("REWARD", rewards);
+
+        SetupPopupInfo(data);
+    }
+
+
     Sprite GetRewardIcon(EnumDefinition.RewardType rewardType, int value)
     {
         if (rewardType == EnumDefinition.RewardType.union)

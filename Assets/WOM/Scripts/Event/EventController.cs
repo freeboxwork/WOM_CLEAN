@@ -64,9 +64,7 @@ public class EventController : MonoBehaviour
     {
         if (isMonsterDie) return;
 
-        float damage;
-
-        damage = globalData.insectManager.GetInsectDamage(insectType, insectType == InsectType.union ? unionIndex : 0, out bool isCritical);
+        var damage = globalData.insectManager.GetInsectDamage(insectType, insectType == InsectType.union ? unionIndex : 0, out bool isCritical);
 
         // ENABLE Floting Text Effect 
         globalData.effectManager.EnableFloatingText(damage, isCritical, tr);
@@ -109,9 +107,8 @@ public class EventController : MonoBehaviour
     {
         if (isDungeonMonsterNextLevel) return;
 
-        float damage;
 
-        damage = globalData.insectManager.GetInsectDamage(insectType, insectType == InsectType.union ? unionIndex : 0, out bool isCritical);
+        var damage = globalData.insectManager.GetInsectDamage(insectType, insectType == InsectType.union ? unionIndex : 0, out bool isCritical);
 
         // ENABLE Floting Text Effect 
         globalData.effectManager.EnableFloatingText(damage, isCritical, tr);
@@ -924,7 +921,7 @@ public class EventController : MonoBehaviour
 
         // 캐슬 -> 연구소에 따른 던전 추가보상량
         var addValue = globalData.labBuildingManager.GetInLabBuildGameData(goodsType).value;
-        totalCurrencyAmount = (int)(totalCurrencyAmount + (totalCurrencyAmount * addValue * 0.01f));
+        totalCurrencyAmount = (long)(totalCurrencyAmount + (totalCurrencyAmount * addValue * 0.01f));
 
 
         // sfx dungeon monster out
@@ -1013,7 +1010,7 @@ public class EventController : MonoBehaviour
         globalData.goldPigController.ExitOtherView();
     }
 
-    public void AddDungeonMonsterKillReward(GoodsType goodsType, int totalCurrencyAmount)
+    public void AddDungeonMonsterKillReward(GoodsType goodsType, long totalCurrencyAmount)
     {
         switch (goodsType)
         {
@@ -1125,7 +1122,7 @@ public class EventController : MonoBehaviour
     /* UTILITY METHOD */
     #region UTILITY MEHTOD
     // 몬스터 제거 판단
-    bool IsMonseterKill(float monster_hp)
+    bool IsMonseterKill(double monster_hp)
     {
         return monster_hp <= 0;
     }

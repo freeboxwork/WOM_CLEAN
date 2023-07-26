@@ -778,7 +778,7 @@ public class SaveDataDNAs
 public class SaveDataDNA
 {
     public int level;
-    public float power;
+    public double power;
     public int dnaIndex;
     public DNAType dnaType;
 }
@@ -801,7 +801,7 @@ public class SaveDataSkills
 public class SaveDataSkill
 {
     public int level;
-    public float damage;
+    public double damage;
     public bool isUsingSkill;     // 스킬 사용중 표시
     //public float leftSkillTime; // 스킬 남은 시간  
     public float leftCoolTime;    // 스킬 쿨타임 남은 시간
@@ -809,7 +809,7 @@ public class SaveDataSkill
     public EnumDefinition.SkillType skillType;
     public bool isUnLock;
     public float duaration;
-    public float power;
+    public double power;
 
     //public Skill_InGameData skill_InGameData;
 }

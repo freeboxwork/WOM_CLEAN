@@ -122,7 +122,7 @@ public class UiController : MonoBehaviour
 
 
     /* SET MONSTER UI */
-    public void SetTxtMonsterHp(float value)
+    public void SetTxtMonsterHp(double value)
     {
         txtMonsterHp.text = value.ToString();
     }
@@ -135,22 +135,22 @@ public class UiController : MonoBehaviour
 
     }
 
-    public void SetSliderMonsterHp(float value)
+    public void SetSliderMonsterHp(double value)
     {
-        var sliderValue = value / GlobalData.instance.player.currentMonsterHp;
-        UtilityMethod.GetCustomTypeImageById(41).fillAmount = sliderValue;
+        var sliderValue = (float)value / GlobalData.instance.player.currentMonsterHp;
+        UtilityMethod.GetCustomTypeImageById(41).fillAmount = (float)sliderValue;
 
         // 0.1초 뒤에 실행
-        StartCoroutine(SetSliderBgWithDelay(sliderValue, 0.15f));
+        StartCoroutine(SetSliderBgWithDelay((float)sliderValue, 0.15f));
     }
 
-    public void SetSliderDungeonMonsterHP(float value)
+    public void SetSliderDungeonMonsterHP(double value)
     {
-        var sliderValue = value / GlobalData.instance.monsterManager.GetMonsterDungeon().curMonsterHP;
-        UtilityMethod.GetCustomTypeImageById(41).fillAmount = sliderValue;
+        var sliderValue = (float)value / GlobalData.instance.monsterManager.GetMonsterDungeon().curMonsterHP;
+        UtilityMethod.GetCustomTypeImageById(41).fillAmount = (float)sliderValue;
 
         // 0.1초 뒤에 실행
-        StartCoroutine(SetSliderBgWithDelay(sliderValue, 0.15f));
+        StartCoroutine(SetSliderBgWithDelay((float)sliderValue, 0.15f));
     }
 
     public void SetSliderBg(float value)

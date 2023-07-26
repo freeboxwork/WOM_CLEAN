@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -19,20 +17,20 @@ public class DNASlot : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     public void SetTxtName(string value)
     {
         txtName.text = value;
     }
-    
+
     public void SetTxtMaxLevel(int vlaue)
     {
         txtMaxLevel.text = $"Max Lv : {vlaue}";
     }
 
-    public void SetTxtInfo(string front ,string color, float power, string back)
+    public void SetTxtInfo(string front, string color, double power, string back)
     {
         txtInfo.text = $"{front} <{color}> {power}% </color> {back}";
     }
@@ -46,7 +44,7 @@ public class DNASlot : MonoBehaviour
     {
         imgDnaFace.sprite = sprite;
     }
- 
+
     public void SetDnaType(EnumDefinition.DNAType type)
     {
         DNAType = type;

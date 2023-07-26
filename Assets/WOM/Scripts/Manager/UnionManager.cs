@@ -234,10 +234,10 @@ public class UnionManager : MonoBehaviour
         return unionSlots.FirstOrDefault(f => f.inGameData.unionIndex == id).inGameData;
     }
 
-    public void AddUnion(int unionId)
+    public void AddUnion(long unionId)
     {
         //var data = GlobalData.instance.dataManager.GetUnionDataByIdx(unionId);
-        var slot = GetUnionSlotByID(unionId);
+        var slot = GetUnionSlotByID((int)unionId);
 
         // 유니온 최대 레벨 계산
         // var currentCount = slot.inGameData.unionCount;

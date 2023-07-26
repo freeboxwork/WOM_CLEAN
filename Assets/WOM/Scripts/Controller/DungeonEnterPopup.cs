@@ -32,12 +32,12 @@ public class DungeonEnterPopup : MonoBehaviour
     int curLevel;
     public int clearTicketCount = 2;
     DungeonMonsterData curDungeonMonData;
-    Dictionary<MonsterType, UnityAction<int>> addRewardMap;
+    Dictionary<MonsterType, UnityAction<long>> addRewardMap;
 
     private void Start()
     {
         SetBtnEvents();
-        addRewardMap = new Dictionary<MonsterType, UnityAction<int>>() {
+        addRewardMap = new Dictionary<MonsterType, UnityAction<long>>() {
         { MonsterType.dungeonGold, GlobalData.instance.player.AddGold },
         { MonsterType.dungeonBone, GlobalData.instance.player.AddBone },
         { MonsterType.dungeonDice, GlobalData.instance.player.AddDice },

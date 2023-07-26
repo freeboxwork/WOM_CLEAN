@@ -64,14 +64,14 @@ public class EvolutionData
     public int depthId;
     public string name;
     public EnumDefinition.InsectType insectType;
-    public float damage;
-    public float damageRate;
-    public float criticalChance;
-    public float criticalDamage;
-    public float speed;
-    public float goldBonus;
-    public float bossDamage;
-    public float spawnTime;
+    public double damage;
+    public double damageRate;
+    public double criticalChance;
+    public double criticalDamage;
+    public double speed;
+    public double goldBonus;
+    public double bossDamage;
+    public double spawnTime;
 
     public EvolutionData CopyInstance()
     {
@@ -146,10 +146,10 @@ public class NewData
 public class MonsterData
 {
     public int id;
-    public float hp;
-    public float exp;
-    public int bone;
-    public int gold;
+    public double hp;
+    public double exp;
+    public long bone;
+    public long gold;
     public int boneCount;
     public int goldCount;
     public int imageId;
@@ -277,8 +277,8 @@ public class DNAInGameData
 {
     public int level;
     public int maxLevel;
-    public float power;
-    public float dataPower;
+    public double power;
+    public double dataPower;
     public string name;
 
     public void LevelUp()
@@ -329,7 +329,7 @@ public class TraningInGameData
 {
     public int level;
     public int salePrice;
-    public float value;
+    public double value;
     public string unitName;
     public string trainingName;
 }
@@ -438,8 +438,8 @@ public class Skill_InGameData
     public EnumDefinition.SkillType skillType;
     public int level;
     public float duaration;
-    public float power;
-    public float damage;
+    public double power;
+    public double damage;
     public float coolTime;
     public string skilName;
     public bool isSkilUsing = false;
@@ -516,8 +516,8 @@ public class DungeonMonsterBase : MonoBehaviour
 public class DungeonMonsterData
 {
     public int level;
-    public int currencyAmount;
-    public float monsterHP;
+    public long currencyAmount;
+    public double monsterHP;
 
     public DungeonMonsterData CloneInstance()
     {
@@ -563,11 +563,11 @@ public class LabBuildingData
 {
     public int id;
     public int level;
-    public int price;
-    public int gold;
-    public int bone;
-    public int dice;
-    public int coal;
+    public long price;
+    public long gold;
+    public long bone;
+    public long dice;
+    public long coal;
 }
 
 [Serializable]
@@ -575,8 +575,8 @@ public class LabBuildIngameData
 {
     public EnumDefinition.GoodsType goodsType;
     public int level;
-    public int value;
-    public int price;
+    public long value;
+    public long price;
 
     public LabBuildIngameData CloneInstance()
     {
@@ -596,7 +596,7 @@ public class RewardAdGemData
 {
     public int level;
     public string rewardType;
-    public int rewardValue;
+    public long rewardValue;
     public int probability;
 }
 

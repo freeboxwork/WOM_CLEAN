@@ -451,7 +451,7 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    public int GetDungeonMonsterKillRewardByLevel(MonsterType monsterType, int targetLevel)
+    public long GetDungeonMonsterKillRewardByLevel(MonsterType monsterType, int targetLevel)
     {
         var dataList = GetBuGetDungeonMonsterDatasByType(monsterType);
 
@@ -461,7 +461,7 @@ public class DataManager : MonoBehaviour
             return 0;
         }
 
-        int totalCurrencyAmount = dataList.data.Where(data => data.level <= targetLevel).Sum(data => data.currencyAmount);
+        var totalCurrencyAmount = dataList.data.Where(data => data.level <= targetLevel).Sum(data => data.currencyAmount);
         return totalCurrencyAmount;
     }
 
@@ -573,7 +573,7 @@ public class DataManager : MonoBehaviour
         return convertTextDatas.data.FirstOrDefault(f => f.type == type.ToString());
     }
 
-    public int GetLabBuindingDataValueByGoodsType(int level, GoodsType goodsType)
+    public long GetLabBuindingDataValueByGoodsType(int level, GoodsType goodsType)
     {
         var data = GetLabBuildingDataByLevel(level);
         switch (goodsType)

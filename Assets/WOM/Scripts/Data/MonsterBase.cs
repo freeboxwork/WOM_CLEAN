@@ -4,10 +4,10 @@ using UnityEngine;
 public class MonsterBase : MonoBehaviour
 {
     public int id;
-    public float hp;
-    public float exp;
-    public int bone;
-    public int gold;
+    public double hp;
+    public double exp;
+    public long bone;
+    public long gold;
     public int boneCount;
     public int goldCount;
     public int imageId;

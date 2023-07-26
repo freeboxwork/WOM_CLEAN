@@ -10,7 +10,7 @@ public class DungeonMonster : DungeonMonsterBase
     public DungenMonsterFileData curMonsterData;
 
     public int curLevel = 1;
-    public float curMonsterHP;
+    public double curMonsterHP;
     public DungeonMonsterData curData;
     public SpriteLibraryChanged spriteLibraryChanged;
     public MonsterInOutAnimator inOutAnimator;

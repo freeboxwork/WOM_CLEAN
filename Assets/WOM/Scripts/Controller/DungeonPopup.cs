@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
@@ -17,7 +15,7 @@ public class DungeonPopup : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
 
     private void Awake()
@@ -26,13 +24,13 @@ public class DungeonPopup : MonoBehaviour
 
     }
 
-    public void SetDungeonPopup(EnumDefinition.GoodsType goodsType,int reward)
+    public void SetDungeonPopup(EnumDefinition.GoodsType goodsType, long reward)
     {
-        txtRewardAmount.text = string.Format("{0}", reward);//��ȭ ����
-        imageCurrencyIcon.sprite = goodsToIconMap[goodsType];//���� ��ȭ�� ������ ����
+        txtRewardAmount.text = string.Format("{0}", reward);//??? ????
+        imageCurrencyIcon.sprite = goodsToIconMap[goodsType];//???? ????? ?????? ????
     }
 
-    //Ȯ�� ��ư Ŭ��
+    //??? ??? ???
     public void ButtonClickEvent()
     {
         OnButtonClick.Invoke();
@@ -44,7 +42,8 @@ public class DungeonPopup : MonoBehaviour
     public void SetBtnApplyEvent(UnityAction action)
     {
         btnApply.onClick.RemoveAllListeners();
-        btnApply.onClick.AddListener(() => {
+        btnApply.onClick.AddListener(() =>
+        {
             action.Invoke();
             gameObject.SetActive(false);
         });

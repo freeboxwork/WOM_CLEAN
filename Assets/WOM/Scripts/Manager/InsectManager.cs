@@ -29,13 +29,13 @@ public class InsectManager : MonoBehaviour
     public Transform trHalfPoint;
 
     public bool damageDebug = false;
-    public float debugDamage = 20;
+    public double debugDamage = 20;
     Player player;
     TraningManager traningManager;
     StatManager statManager;
     public InsectSpriteFileData insectSpriteFileData;
 
-    public float dps;
+    public double dps;
 
     public Transform insectTargetPoint;
 
@@ -172,7 +172,7 @@ public class InsectManager : MonoBehaviour
 
 
     /// <summary> 계산된 곤충 데미지 값 </summary>
-    public float GetInsectDamageOld(EnumDefinition.InsectType insectType, int unionIndex, out bool isCritical)
+    public double GetInsectDamageOld(EnumDefinition.InsectType insectType, int unionIndex, out bool isCritical)
     {
         isCritical = false;
         if (insectType == InsectType.union)
@@ -196,17 +196,17 @@ public class InsectManager : MonoBehaviour
         }
     }
 
-    public float GetInsectDamage(EnumDefinition.InsectType insectType, int unionIndex, out bool isCritical)
+    public double GetInsectDamage(EnumDefinition.InsectType insectType, int unionIndex, out bool isCritical)
     {
-        float damage = 0;
-        float talentDamage = 0;
+        double damage = 0;
+        double talentDamage = 0;
         isCritical = false;
 
         if (insectType == InsectType.union)
         {
             damage = statManager.GetUnionDamage(unionIndex);
             talentDamage = statManager.GetUnionTalentDamage(unionIndex);
-             damage += talentDamage;
+            damage += talentDamage;
 
         }
         else
@@ -239,7 +239,7 @@ public class InsectManager : MonoBehaviour
 
 
     // ---------- 훈련 업그레이드 시작
-    float GetInsectDamage(InsectBase insect)
+    double GetInsectDamage(InsectBase insect)
     {
         // 공격력 공식 : (damage+ (damage* damageRate))
         //return insect.damage + (insect.damage * insect.damageRate);
@@ -248,7 +248,7 @@ public class InsectManager : MonoBehaviour
     }
 
     // 치명타 데미지 계산
-    float GetInsectCriticalDamage(InsectBase insect)
+    double GetInsectCriticalDamage(InsectBase insect)
     {
         //return 2 + insect.criticalDamage;
         return 2 + insect.criticalDamage + traningManager.GetStatPower(SaleStatType.trainingCriticalChance) + traningManager.GetStatPower(SaleStatType.talentCriticalChance);
@@ -429,7 +429,7 @@ public class InsectManager : MonoBehaviour
     }
 
     /// <summary> 곤충 기본 공격력 DPS </summary>
-    public float GetInsectsDps()
+    public double GetInsectsDps()
     {
         //TODO: DPS 계산식 추가 필요함.
         return dps;

@@ -1,18 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class InsectBase : MonoBehaviour
 {
-    public string name;
+    public new string name;
     public EnumDefinition.InsectType insectType;
-    public float damage;
-    public float damageRate;
-    public float criticalChance;
-    public float criticalDamage;
-    public float speed;
-    public float goldBonus;
-    public float bossDamage;
+    public double damage;
+    public double damageRate;
+    public double criticalChance;
+    public double criticalDamage;
+    public double speed;
+    public double goldBonus;
+    public double bossDamage;
 
     public void Attack()
     {
@@ -22,13 +20,13 @@ public class InsectBase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
 

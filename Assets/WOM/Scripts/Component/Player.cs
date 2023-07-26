@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     //SerializableDictionary<RewardType, int> rewardToGoodsMap;
 
     public DateTime playTime;
-    public float currentMonsterHp;
+    public double currentMonsterHp;
 
     // 주사위 개수
     public long diceCount;
@@ -183,7 +183,7 @@ public class Player : MonoBehaviour
     }
 
 
-    public void SetCurrentMonsterHP(float hpValue)
+    public void SetCurrentMonsterHP(double hpValue)
     {
         currentMonsterHp = hpValue;
 
@@ -246,12 +246,12 @@ public class Player : MonoBehaviour
         pahseCountOriginalValue = stageData.phaseCount;
     }
 
-    public void AddGold(int value)
+    public void AddGold(long value)
     {
 
         // ad buff 적용
         var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffGold).addValue;
-        gold += (int)(value * buffValue);
+        gold += (long)(value * buffValue);
 
 
 
@@ -261,14 +261,14 @@ public class Player : MonoBehaviour
         GlobalData.instance.saveDataManager.SaveDataGoodsGold(gold); // set save data
     }
 
-    public void AddBone(int value)
+    public void AddBone(long value)
     {
         bone += value;
         GlobalData.instance.traningManager.EnableBuyButtons(); // RELOAD BTN UI
         GlobalData.instance.uiController.SetTxtBone(bone, value); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsBone(bone); // set save data
     }
-    public void AddDice(int value)
+    public void AddDice(long value)
     {
         diceCount += value;
         GlobalData.instance.uiController.SetTxtDice(diceCount); // RELOAD UI
@@ -276,7 +276,7 @@ public class Player : MonoBehaviour
     }
 
 
-    public void AddCoal(int value)
+    public void AddCoal(long value)
     {
         coal += value;
         // set ui;
@@ -284,7 +284,7 @@ public class Player : MonoBehaviour
         GlobalData.instance.saveDataManager.SaveDataGoodsCoal(coal);
     }
 
-    public void AddClearTicket(int value)
+    public void AddClearTicket(long value)
     {
         clearTicket += value;
 
@@ -296,28 +296,28 @@ public class Player : MonoBehaviour
 
 
 
-    public void AddGem(int value)
+    public void AddGem(long value)
     {
         gem += value;
         GlobalData.instance.uiController.SetTxtGem(gem, value); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsGem(gem); // set save data
     }
 
-    public void AddUnionTicket(int value)
+    public void AddUnionTicket(long value)
     {
         unionTicket += value;
         //GlobalData.instance.uiController.SetTxtUnionTicket(unionTicket, value); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsUnionTicket(unionTicket); // set save data
     }
 
-    public void AddDnaTicket(int value)
+    public void AddDnaTicket(long value)
     {
         dnaTicket += value;
         //GlobalData.instance.uiController.SetTxtDnaTicket(dnaTicket, value); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsDnaTicket(dnaTicket); // set save data
     }
 
-    public void PayUnionTicket(int value)
+    public void PayUnionTicket(long value)
     {
         unionTicket -= value;
         if (unionTicket < 0) unionTicket = 0;
@@ -328,7 +328,7 @@ public class Player : MonoBehaviour
         GlobalData.instance.uiController.ButtonInteractableCheck(EnumDefinition.RewardType.unionTicket);
     }
 
-    public void PayDnaTicket(int value)
+    public void PayDnaTicket(long value)
     {
         dnaTicket -= value;
         if (dnaTicket < 0) dnaTicket = 0;
@@ -339,7 +339,7 @@ public class Player : MonoBehaviour
         GlobalData.instance.uiController.ButtonInteractableCheck(EnumDefinition.RewardType.dnaTicket);
     }
 
-    public void PayGold(int value)
+    public void PayGold(long value)
     {
         gold -= value;
         if (gold < 0) gold = 0;
@@ -349,7 +349,7 @@ public class Player : MonoBehaviour
         GlobalData.instance.saveDataManager.SaveDataGoodsGold(gold); // set save data
     }
 
-    public void PayBone(int value)
+    public void PayBone(long value)
     {
         bone -= value;
         if (bone < 0) bone = 0;
@@ -357,14 +357,14 @@ public class Player : MonoBehaviour
         GlobalData.instance.uiController.SetTxtBone(bone, 0); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsBone(bone); // set save data
     }
-    public void PayDice(int value)
+    public void PayDice(long value)
     {
         diceCount -= value;
         if (diceCount < 0) diceCount = 0;
         GlobalData.instance.uiController.SetTxtDice(diceCount); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsDice(diceCount); // set save data
     }
-    public void PayGem(int value)
+    public void PayGem(long value)
     {
         gem -= value;
         if (gem < 0) gem = 0;
@@ -375,7 +375,7 @@ public class Player : MonoBehaviour
         GlobalData.instance.uiController.ButtonInteractableCheck(EnumDefinition.RewardType.gem);
     }
 
-    public void PayCoal(int value)
+    public void PayCoal(long value)
     {
         coal -= value;
         if (coal < 0) coal = 0;
@@ -386,7 +386,7 @@ public class Player : MonoBehaviour
         GlobalData.instance.saveDataManager.SaveDataGoodsCoal(coal);
     }
 
-    public void PayClearTicekt(int value)
+    public void PayClearTicekt(long value)
     {
         clearTicket -= value;
         if (clearTicket < 0) clearTicket = 0;
@@ -460,7 +460,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void PayDungeonKeyByMonsterType(MonsterType monsterType, int count)
+    public void PayDungeonKeyByMonsterType(MonsterType monsterType, long count)
     {
         switch (monsterType)
         {

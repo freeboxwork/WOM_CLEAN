@@ -12,21 +12,21 @@ public class Player : MonoBehaviour
     // 훈련 레벨
     public int traningLevelIdx;
 
-    public int gold;
-    public int bone;
-    public int gem;
-    public int coal;
-    // 소탕권
-    public int clearTicket;
+    public long gold;
+    public long bone;
+    public long gem;
+    public long coal;
 
-    public int unionTicket;
-    public int dnaTicket;
+    // 소탕권
+    public long clearTicket;
+    public long unionTicket;
+    public long dnaTicket;
 
     // Dungeon Key
-    public SerializableDictionary<GoodsType, int> dungeonKeys;
+    public SerializableDictionary<GoodsType, long> dungeonKeys;
 
     // Dungeon AD Key
-    public SerializableDictionary<GoodsType, int> dungeonADKeys;
+    public SerializableDictionary<GoodsType, long> dungeonADKeys;
 
     // Goods Map
     //SerializableDictionary<RewardType, int> rewardToGoodsMap;
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     public float currentMonsterHp;
 
     // 주사위 개수
-    public int diceCount;
+    public long diceCount;
 
 
     /// <summary> 현재 진행중인 스테이지 데이터 </summary>
@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
     // }
 
     // 인자로 RewardType 을 받고 switch를 이용하여 해당 재화를 리턴하는 함수
-    public int GetGoodsByRewardType(RewardType rewardType)
+    public long GetGoodsByRewardType(RewardType rewardType)
     {
         switch (rewardType)
         {
@@ -398,7 +398,7 @@ public class Player : MonoBehaviour
         GlobalData.instance.saveDataManager.SaveDataGoodsClearTicket(clearTicket);
     }
 
-    public void AddDungeonKey(GoodsType goodsType, int addKeyCount)
+    public void AddDungeonKey(GoodsType goodsType, long addKeyCount)
     {
         dungeonKeys[goodsType] += addKeyCount;
         if (dungeonKeys[goodsType] > 2) dungeonKeys[goodsType] = 2; // 던전 키 최대 보유수 2개 제한
@@ -410,7 +410,7 @@ public class Player : MonoBehaviour
         GlobalData.instance.saveDataManager.SaveDataGoodsDungeonKey(goodsType, dungeonKeys[goodsType]);
     }
 
-    public void PayDungeonKey(GoodsType goodsType, int keyCount)
+    public void PayDungeonKey(GoodsType goodsType, long keyCount)
     {
         dungeonKeys[goodsType] -= keyCount;
         if (dungeonKeys[goodsType] < 0) dungeonKeys[goodsType] = 0;
@@ -423,7 +423,7 @@ public class Player : MonoBehaviour
     }
 
     // ADD DUNGEON AD KEY BY GOODS TYPE
-    public void AddDungeonADKey(GoodsType goodsType, int addKeyCount)
+    public void AddDungeonADKey(GoodsType goodsType, long addKeyCount)
     {
         dungeonADKeys[goodsType] += addKeyCount;
         if (dungeonADKeys[goodsType] > 2) dungeonADKeys[goodsType] = 2; // 던전 키 최대 보유수 2개 제한
@@ -435,7 +435,7 @@ public class Player : MonoBehaviour
     }
 
     // PAY DUNGEON AD KEY BY GOODS TYPE
-    public void PayDungeonADKey(GoodsType goodsType, int keyCount)
+    public void PayDungeonADKey(GoodsType goodsType, long keyCount)
     {
         dungeonADKeys[goodsType] -= keyCount;
         if (dungeonADKeys[goodsType] < 0) dungeonADKeys[goodsType] = 0;
@@ -448,7 +448,7 @@ public class Player : MonoBehaviour
     }
 
 
-    public int GetCurrentDungeonKeyCount(MonsterType monsterType)
+    public long GetCurrentDungeonKeyCount(MonsterType monsterType)
     {
         switch (monsterType)
         {
@@ -472,7 +472,7 @@ public class Player : MonoBehaviour
     }
 
     // get dungeon ad key count by monster type
-    public int GetDungeonADKeyCountByMonsterType(MonsterType monsterType)
+    public long GetDungeonADKeyCountByMonsterType(MonsterType monsterType)
     {
         switch (monsterType)
         {
@@ -485,7 +485,7 @@ public class Player : MonoBehaviour
     }
 
     // pay dungeon ad key by monster type
-    public void PayDungeonADKeyByMonsterType(MonsterType monsterType, int count)
+    public void PayDungeonADKeyByMonsterType(MonsterType monsterType, long count)
     {
         switch (monsterType)
         {

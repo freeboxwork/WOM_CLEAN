@@ -174,7 +174,7 @@ public class UiController : MonoBehaviour
         EnableGlodMonsterIconOutlineEffect(sliderValue >= 1);
     }
 
-    public void SetTxtGold(int value, int flotingValue)
+    public void SetTxtGold(long value, long flotingValue)
     {
         var changeValue = UtilityMethod.ChangeSymbolNumber(value);
         var flotingValueChange = UtilityMethod.ChangeSymbolNumber(flotingValue);
@@ -186,11 +186,10 @@ public class UiController : MonoBehaviour
             floatingTextGold.SetText(flotingValueChange, FloatingTextValues.ValueType.Gold);
         }
 
-
         txtGold.text = changeValue.ToString();
     }
 
-    public void SetTxtBone(int value, int flotingValue)
+    public void SetTxtBone(long value, long flotingValue)
     {
         var changeValue = UtilityMethod.ChangeSymbolNumber(value);
         var flotingValueChange = UtilityMethod.ChangeSymbolNumber(flotingValue);
@@ -204,7 +203,7 @@ public class UiController : MonoBehaviour
         UtilityMethod.SetTxtCustomTypeByID(60, changeValue.ToString());
     }
 
-    public void SetTxtGem(int value, int flotingValue)
+    public void SetTxtGem(long value, long flotingValue)
     {
         var changeValue = UtilityMethod.ChangeSymbolNumber(value);
         var flotingValueChange = UtilityMethod.ChangeSymbolNumber(flotingValue);
@@ -220,7 +219,7 @@ public class UiController : MonoBehaviour
         UtilityMethod.SetTxtCustomTypeByID(79, changeValue.ToString());
     }
 
-    public void SetTxtDice(int value)
+    public void SetTxtDice(long value)
     {
         var changeValue = UtilityMethod.ChangeSymbolNumber(value);
         UtilityMethod.SetTxtCustomTypeByID(65, changeValue);

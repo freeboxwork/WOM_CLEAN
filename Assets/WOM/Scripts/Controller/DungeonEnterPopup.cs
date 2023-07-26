@@ -123,7 +123,7 @@ public class DungeonEnterPopup : MonoBehaviour
     }
 
 
-    public void SetTxtClierTicket(int ticketCount)
+    public void SetTxtClierTicket(long ticketCount)
     {
         textClearTicket.text = ticketCount.ToString();
     }
@@ -153,7 +153,7 @@ public class DungeonEnterPopup : MonoBehaviour
     {
         var usingKeyCount = GlobalData.instance.monsterManager.GetMonsterDungeon().monsterToDataMap[monsterType].usingKeyCount;
 
-        int curKeyCount = 0;
+        long curKeyCount = 0;
         if (GlobalData.instance.player.GetCurrentDungeonKeyCount(monsterType) > 0)
         {
             curKeyCount = GlobalData.instance.player.GetCurrentDungeonKeyCount(monsterType);

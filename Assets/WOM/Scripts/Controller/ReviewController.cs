@@ -16,11 +16,11 @@ public class ReviewController : MonoBehaviour
 
     void AddBtnEvnet()
     {
-        btnReview.onClick.AddListener(() =>
-        {
-            // two button popup 띄우기
-            GlobalData.instance.globalPopupController.EnableMessageTwoBtnPopup(19, BtnApply_GoToReview, BtnCancel_GoToMail);
-        });
+        // btnReview.onClick.AddListener(() =>
+        // {
+        //     // two button popup 띄우기
+        //     GlobalData.instance.globalPopupController.EnableMessageTwoBtnPopup(19, BtnApply_GoToReview, BtnCancel_GoToMail);
+        // });
     }
 
 

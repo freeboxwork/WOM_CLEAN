@@ -282,4 +282,6 @@ public class EvolutionManager : MonoBehaviour
         UtilityMethod.GetCustomTypeBtnByID(20).interactable = value;
     }
 
+
+
 }

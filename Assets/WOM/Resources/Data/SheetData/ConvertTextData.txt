@@ -1,138 +1,115 @@
 {"data":[
  {
-   "baseDamage": [
-      "baseCriticalChance",
-      "baseCriticalChance"
-   ],
-   "FIELD2": "%",
-   "곤충 공격력": "곤충 치명타 확률",
-   "FIELD4": "%"
-},
+   "en_Front": "baseDamage",
+   "en_Back": "ADD",
+   "kr_Front": "곤충 공격력",
+   "kr_Back": "증가",
+   "type": "baseDamage"
+ },
  {
-   "baseDamage": [
-      "baseCriticalDamage",
-      "baseCriticalDamage"
-   ],
-   "FIELD2": "%",
-   "곤충 공격력": "곤충 치명타 공격력",
-   "FIELD4": "%"
-},
+   "en_Front": "baseCriticalChance",
+   "en_Back": "%",
+   "kr_Front": "곤충 치명타 확률",
+   "kr_Back": "%",
+   "type": "baseCriticalChance"
+ },
  {
-   "baseDamage": [
-      "talentDamage",
-      "talentDamage"
-   ],
-   "FIELD2": "%",
-   "곤충 공격력": "곤충 데미지",
-   "FIELD4": "%"
-},
+   "en_Front": "baseCriticalDamage",
+   "en_Back": "%",
+   "kr_Front": "곤충 치명타 공격력",
+   "kr_Back": "%",
+   "type": "baseCriticalDamage"
+ },
  {
-   "baseDamage": [
-      "talentCriticalChance",
-      "talentCriticalChance"
-   ],
-   "FIELD2": "%",
-   "곤충 공격력": "추가 치명타 확률",
-   "FIELD4": "%"
-},
+   "en_Front": "talentDamage",
+   "en_Back": "%",
+   "kr_Front": "곤충 데미지",
+   "kr_Back": "%",
+   "type": "talentDamage"
+ },
  {
-   "baseDamage": [
-      "talentCriticalDamage",
-      "talentCriticalDamage"
-   ],
-   "FIELD2": "%",
-   "곤충 공격력": "추가 치명타 공격력",
-   "FIELD4": "%"
-},
+   "en_Front": "talentCriticalChance",
+   "en_Back": "%",
+   "kr_Front": "추가 치명타 확률",
+   "kr_Back": "%",
+   "type": "talentCriticalChance"
+ },
  {
-   "baseDamage": [
-      "talentSpawnSpeed",
-      "talentSpawnSpeed"
-   ],
-   "FIELD2": "s",
-   "곤충 공격력": "소환 속도",
-   "FIELD4": "초 감소"
-},
+   "en_Front": "talentCriticalDamage",
+   "en_Back": "%",
+   "kr_Front": "추가 치명타 공격력",
+   "kr_Back": "%",
+   "type": "talentCriticalDamage"
+ },
  {
-   "baseDamage": [
-      "talentMoveSpeed",
-      "talentMoveSpeed"
-   ],
-   "FIELD2": "",
-   "곤충 공격력": "이동 속도",
-   "FIELD4": ""
-},
+   "en_Front": "talentSpawnSpeed",
+   "en_Back": "s",
+   "kr_Front": "소환 속도",
+   "kr_Back": "초 감소",
+   "type": "talentSpawnSpeed"
+ },
  {
-   "baseDamage": [
-      "talentGoldBonus",
-      "talentGoldBonus"
-   ],
-   "FIELD2": "%",
-   "곤충 공격력": "골드 보너스",
-   "FIELD4": "%"
-},
+   "en_Front": "talentMoveSpeed",
+   "en_Back": "ADD",
+   "kr_Front": "이동 속도",
+   "kr_Back": "증가",
+   "type": "talentMoveSpeed"
+ },
  {
-   "baseDamage": [
-      "increase insectDamage",
-      "insectDamage"
-   ],
-   "FIELD2": "%",
-   "곤충 공격력": "곤충 공격력",
-   "FIELD4": "% 증가"
-},
+   "en_Front": "talentGoldBonus",
+   "en_Back": "%",
+   "kr_Front": "골드 보너스",
+   "kr_Back": "%",
+   "type": "talentGoldBonus"
+ },
  {
-   "baseDamage": [
-      "increase insectCriticalChance",
-      "insectCriticalChance"
-   ],
-   "FIELD2": "%",
-   "곤충 공격력": "곤충 치명타 확률",
-   "FIELD4": "% 증가"
-},
+   "en_Front": "increase insectDamage",
+   "en_Back": "%",
+   "kr_Front": "곤충 공격력",
+   "kr_Back": "% 증가",
+   "type": "insectDamage"
+ },
  {
-   "baseDamage": [
-      "increase insectCriticalDamage",
-      "insectCriticalDamage"
-   ],
-   "FIELD2": "%",
-   "곤충 공격력": "곤충 치명타 공격력",
-   "FIELD4": "% 증가"
-},
+   "en_Front": "increase insectCriticalChance",
+   "en_Back": "%",
+   "kr_Front": "곤충 치명타 확률",
+   "kr_Back": "% 증가",
+   "type": "insectCriticalChance"
+ },
  {
-   "baseDamage": [
-      "increase goldBonus",
-      "goldBonus"
-   ],
-   "FIELD2": "%",
-   "곤충 공격력": "골드 보너스",
-   "FIELD4": "% 증가"
-},
+   "en_Front": "increase insectCriticalDamage",
+   "en_Back": "%",
+   "kr_Front": "곤충 치명타 공격력",
+   "kr_Back": "% 증가",
+   "type": "insectCriticalDamage"
+ },
  {
-   "baseDamage": [
-      "increase insectMoveSpeed",
-      "insectMoveSpeed"
-   ],
-   "FIELD2": "",
-   "곤충 공격력": "곤충 이동 속도",
-   "FIELD4": ""
-},
+   "en_Front": "increase goldBonus",
+   "en_Back": "%",
+   "kr_Front": "골드 보너스",
+   "kr_Back": "% 증가",
+   "type": "goldBonus"
+ },
  {
-   "baseDamage": [
-      "reduce insectSpawnTime",
-      "insectSpawnTime"
-   ],
-   "FIELD2": "s",
-   "곤충 공격력": "곤충 소환 시간",
-   "FIELD4": "초 감소"
-},
+   "en_Front": "increase insectMoveSpeed",
+   "en_Back": "ADD",
+   "kr_Front": "곤충 이동 속도",
+   "kr_Back": "증가",
+   "type": "insectMoveSpeed"
+ },
  {
-   "baseDamage": [
-      "increase insectBossDamage",
-      "insectBossDamage"
-   ],
-   "FIELD2": "%",
-   "곤충 공격력": "보스에게 피해",
-   "FIELD4": "% 증가"
-}
+   "en_Front": "reduce insectSpawnTime",
+   "en_Back": "s",
+   "kr_Front": "곤충 소환 시간",
+   "kr_Back": "초 감소",
+   "type": "insectSpawnTime"
+ },
+ {
+   "en_Front": "increase insectBossDamage",
+   "en_Back": "%",
+   "kr_Front": "보스에게 피해",
+   "kr_Back": "% 증가",
+   "type": "insectBossDamage"
+ }
 ]
 }

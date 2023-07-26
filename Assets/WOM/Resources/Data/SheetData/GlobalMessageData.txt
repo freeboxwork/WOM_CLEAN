@@ -1,204 +1,204 @@
 {
   "data": [
-    {
-      "id": 0,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "진화에 실패 했습니다.",
-      "message_eng": "Evolution failed.",
-      "비고": ""
-    },
-    {
-      "id": 1,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "주사위 개수가 충분하지 않습니다.",
-      "message_eng": "Insufficient number of dice.",
-      "비고": ""
-    },
-    {
-      "id": 2,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "골드가 부족합니다",
-      "message_eng": "Not enough gold.",
-      "비고": ""
-    },
-    {
-      "id": 3,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "보석이 부족합니다",
-      "message_eng": "Insufficient gems.",
-      "비고": ""
-    },
-    {
-      "id": 4,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "뼈조각이 부족합니다",
-      "message_eng": "Not enough bone fragments.",
-      "비고": ""
-    },
-    {
-      "id": 5,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "네트워크가 원할하지 않습니다",
-      "message_eng": "The network is not smooth.",
-      "비고": ""
-    },
-    {
-      "id": 6,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "골드량 증가 버프가 활성화 되었습니다",
-      "message_eng": "Gold boost has been activated.",
-      "비고": ""
-    },
-    {
-      "id": 7,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "광고 시청 횟수가 소진되었습니다",
-      "message_eng": "Ad viewing limit has been reached.",
-      "비고": ""
-    },
-    {
-      "id": 8,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "보스, 금광전갈 전투중엔 진화전에 도전할 수 없습니다",
-      "message_eng": "You cannot challenge the evolution battle during a boss or gold mine battle.",
-      "비고": ""
-    },
-    {
-      "id": 9,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "주사위가 부족합니다",
-      "message_eng": "Not enough dice.",
-      "비고": ""
-    },
-    {
-      "id": 10,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "모든 자물쇠가 잠겨 있습니다",
-      "message_eng": "All locks are locked.",
-      "비고": ""
-    },
-    {
-      "id": 11,
-      "popupType": "messageTwoBtn",
-      "title": "message",
-      "message_kor": "최고 등급의 능력치가 있습니다. 그래도 변경하시겠습니까?",
-      "message_eng": "This is the highest grade option. Do you still want to change it?",
-      "비고": ""
-    },
-    {
-      "id": 12,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "골드 던전 열쇠가 부족 합니다.",
-      "message_eng": "Not enough gold dungeon keys.",
-      "비고": ""
-    },
-    {
-      "id": 13,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "뼈조각 던전 열쇠가 부족 합니다.",
-      "message_eng": "Not enough bone fragment dungeon keys.",
-      "비고": ""
-    },
-    {
-      "id": 14,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "주사위 던전 열쇠가 부족 합니다.",
-      "message_eng": "Not enough dice dungeon keys.",
-      "비고": ""
-    },
-    {
-      "id": 15,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "석탄 던전 열쇠가 부족 합니다.",
-      "message_eng": "Not enough coal dungeon keys.",
-      "비고": ""
-    },
-    {
-      "id": 16,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "석탄이 부족 합니다.",
-      "message_eng": "Not enough coal.",
-      "비고": ""
-    },
-    {
-      "id": 17,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "소탕권이 부족 합니다.",
-      "message_eng": "Not enough clear ticket.",
-      "비고": ""
-    },
-    {
-      "id": 18,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "게임을 종료 하시겠습니까?",
-      "message_eng": "Are you sure you want to quit the game?",
-      "비고": ""
-    },
-    {
-      "id": 19,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "리뷰를 남겨 주세요.",
-      "message_eng": "Please leave a review.",
-      "비고": ""
-    },
-    {
-      "id": 20,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "강화에 필요한 보유 유니온이 부족합니다.",
-      "message_eng": "You don't have enough union possession required for leveling up.",
-      "비고": ""
-    },
-    {
-      "id": 21,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "모든 DNA 레벨이 MAX 상태에 도달 했습니다.",
-      "message_eng": "All DNA levels have reached MAX status.",
-      "비고": ""
-    },
-    {
-      "id": 22,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "석탄이 부족합니다.",
-      "message_eng": "Need more coal.",
-      "비고": ""
-    },
-    {
-      "id": 23,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "유니온 티켓이 부족합니다.",
-      "message_eng": "Need more union tickets.",
-      "비고": ""
-    },
-    {
-      "id": 24,
-      "popupType": "message",
-      "title": "message",
-      "message_kor": "유전자 티켓이 부족합니다.",
-      "message_eng": "Need more gene tickets.",
-      "비고": ""
-    }
-  ]
+ {
+   "id": 0,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "진화에 실패 했습니다.",
+   "message_eng": "Evolution failed.",
+   "비고": ""
+ },
+ {
+   "id": 1,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "주사위가 충분하지 않습니다",
+   "message_eng": "Insufficient number of dice.",
+   "비고": ""
+ },
+ {
+   "id": 2,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "골드가 충분하지 않습니다",
+   "message_eng": "Not enough gold.",
+   "비고": ""
+ },
+ {
+   "id": 3,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "보석이 충분하지 않습니다",
+   "message_eng": "Insufficient gems.",
+   "비고": ""
+ },
+ {
+   "id": 4,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "뼛조각이 충분하지 않습니다",
+   "message_eng": "Not enough bone fragments.",
+   "비고": ""
+ },
+ {
+   "id": 5,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "네트워크가 원할하지 않습니다",
+   "message_eng": "The network is not smooth.",
+   "비고": ""
+ },
+ {
+   "id": 6,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "골드량 증가 버프가 활성화 되었습니다",
+   "message_eng": "Gold boost has been activated.",
+   "비고": ""
+ },
+ {
+   "id": 7,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "광고 시청 횟수가 소진되었습니다",
+   "message_eng": "Ad viewing limit has been reached.",
+   "비고": ""
+ },
+ {
+   "id": 8,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "보스급 적과 전투중엔 진화전에 도전할 수 없습니다",
+   "message_eng": "You cannot challenge the evolution battle during a boss or gold mine battle.",
+   "비고": ""
+ },
+ {
+   "id": 9,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "주사위가 충분하지 않습니다",
+   "message_eng": "Not enough dice.",
+   "비고": ""
+ },
+ {
+   "id": 10,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "모든 자물쇠가 잠겨 있습니다",
+   "message_eng": "All locks are locked.",
+   "비고": ""
+ },
+ {
+   "id": 11,
+   "popupType": "messageTwoBtn",
+   "title": "message",
+   "message_kor": "최고 등급의 능력치가 있습니다\n그래도 변경하시겠습니까?",
+   "message_eng": "This is the highest grade option. Do you still want to change it?",
+   "비고": ""
+ },
+ {
+   "id": 12,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "골드 던전 열쇠가 충분하지 않습니다",
+   "message_eng": "Not enough gold dungeon keys.",
+   "비고": ""
+ },
+ {
+   "id": 13,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "뼛조각 던전 열쇠가 충분하지 않습니다",
+   "message_eng": "Not enough bone fragment dungeon keys.",
+   "비고": ""
+ },
+ {
+   "id": 14,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "주사위 던전 열쇠가 충분하지 않습니다",
+   "message_eng": "Not enough dice dungeon keys.",
+   "비고": ""
+ },
+ {
+   "id": 15,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "석탄 던전 열쇠가 충분하지 않습니다",
+   "message_eng": "Not enough coal dungeon keys.",
+   "비고": ""
+ },
+ {
+   "id": 16,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "석탄이 충분하지 않습니다",
+   "message_eng": "Not enough coal.",
+   "비고": ""
+ },
+ {
+   "id": 17,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "소탕권이 충분하지 않습니다",
+   "message_eng": "Not enough clear ticket.",
+   "비고": ""
+ },
+ {
+   "id": 18,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "벌써 떠나실 건가요? ㅜ.ㅜ",
+   "message_eng": "Are you sure you want to quit the game?",
+   "비고": ""
+ },
+ {
+   "id": 19,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "리뷰를 남겨 주세요.",
+   "message_eng": "Please leave a review.",
+   "비고": ""
+ },
+ {
+   "id": 20,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "강화에 필요한 유니온 보유량이 충분하지 않습니다",
+   "message_eng": "You don't have enough union possession required for leveling up.",
+   "비고": ""
+ },
+ {
+   "id": 21,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "모든 DNA 레벨이 최대치에 도달 했습니다.",
+   "message_eng": "All DNA levels have reached MAX status.",
+   "비고": ""
+ },
+ {
+   "id": 22,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "석탄이 충분하지 않습니다",
+   "message_eng": "Need more coal.",
+   "비고": ""
+ },
+ {
+   "id": 23,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "유니온 티켓이 충분하지 않습니다",
+   "message_eng": "Need more union tickets.",
+   "비고": ""
+ },
+ {
+   "id": 24,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "유전자 티켓이 충분하지 않습니다",
+   "message_eng": "Need more gene tickets.",
+   "비고": ""
+ }
+]
 }

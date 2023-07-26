@@ -159,23 +159,19 @@ public class StatManager : MonoBehaviour
     {
 
         //var ud = GetUnionData(unionIndex).damage + skill_UnionDamageUp;
-        var ud = GetUnionData(unionIndex).damage * (1 + (skill_UnionDamageUp * 0.01f));
-        return ud;
+        var ud = GetUnionData(unionIndex).damage; 
+        var dms = GetDnaData(DNAType.unionDamage).power;
+        var value = ud * (1 + ((dms + skill_UnionDamageUp)) * 0.01f);
+
+         // ad buff 적용 ( damage )
+        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffDamage).addValue;
+       
+
+
+        Debug.Log($"유니온 공격력 : 기본:{ud}//DNA:{dms}= 합계 : {value}");
+
+        return value * buffValue;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -186,22 +182,34 @@ public class StatManager : MonoBehaviour
         var dms = GetDnaData(DNAType.insectMoveSpeed).power;
         //var diceIms = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectMoveSpeed);
         var value = ums + dms + skill_AllUnitSpeedUp;
+        Debug.Log($"유니온 이동속도 : 기본:{ums}//DNA:{dms}= 합계 : {value}");
+
         return (float)value;
     }
 
     /// <summary> 유니온 생성속도 </summary>
     public double GetUnionSpwanSpeed(int unionIndex)
     {
+
+        var ums = GetUnionData(unionIndex).spawnTime;
         var dst = GetDnaData(DNAType.unionSpawnTime).power;
-        return dst;
+        var value= ums - dst;
+        Debug.Log($"유니온 스폰시간 : 기본:{ums}//DNA:{dst}= 합계 : {value}");
+
+        return value;
     }
 
-    /// <summary> 유니온 공격력 증가율 </summary>
-    public double GetUnionTalentDamage(int unionIndex)
-    {
-        var dud = GetDnaData(DNAType.unionDamage).power;
-        return dud;
-    }
+
+
+
+
+
+    // /// <summary> 유니온 공격력 증가율 </summary>
+    // public double GetUnionTalentDamage(int unionIndex)
+    // {
+    //     var dud = GetDnaData(DNAType.unionDamage).power;
+    //     return dud;
+    // }
 
     #endregion
 

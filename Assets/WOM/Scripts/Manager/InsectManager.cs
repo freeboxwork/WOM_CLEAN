@@ -178,8 +178,9 @@ public class InsectManager : MonoBehaviour
         if (insectType == InsectType.union)
         {
             var damage = statManager.GetUnionDamage(unionIndex);
-            var talentDamage = statManager.GetUnionTalentDamage(unionIndex);
-            return damage + talentDamage;
+            //var talentDamage = statManager.GetUnionTalentDamage(unionIndex);
+            //return damage + talentDamage;
+            return damage;
         }
         else
         {
@@ -199,14 +200,14 @@ public class InsectManager : MonoBehaviour
     public double GetInsectDamage(EnumDefinition.InsectType insectType, int unionIndex, out bool isCritical)
     {
         double damage = 0;
-        double talentDamage = 0;
+        //double talentDamage = 0;
         isCritical = false;
 
         if (insectType == InsectType.union)
         {
             damage = statManager.GetUnionDamage(unionIndex);
-            talentDamage = statManager.GetUnionTalentDamage(unionIndex);
-            damage += talentDamage;
+            //talentDamage = statManager.GetUnionTalentDamage(unionIndex);
+            //damage += talentDamage;
 
         }
         else
@@ -231,7 +232,7 @@ public class InsectManager : MonoBehaviour
         }
 
 
-        damage += talentDamage;
+        //damage += talentDamage;
         if (damageDebug) return debugDamage;
         return damage;
     }

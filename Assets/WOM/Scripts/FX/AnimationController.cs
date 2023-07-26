@@ -38,6 +38,22 @@ public class AnimationController : MonoBehaviour
         isAnimPlay = false;
     }
 
+    public IEnumerator AnimPositionEndEvent(Vector3 startPos, Vector3 enaPos, UnityAction action)
+    {
+        isAnimPlay = true;
+        animData.ResetAnimData();
+        while (animData.animTime < 0.999f)
+        {
+            animData.animTime = (Time.time - animData.animStartTime) / animData.animDuration;
+            //Debug.Log(animData.animTime);
+            animData.animValue = EaseValues.instance.GetAnimCurve(animData.animCurveType, animData.animTime);
+            m_transform.localPosition = Vector3.Lerp(startPos, enaPos, animData.animValue);
+            yield return null;
+        }
+        action.Invoke();
+        isAnimPlay = false;
+    }
+
     // TODO: ANIM ROTATION
 
     // TODO: ANIM SCALE

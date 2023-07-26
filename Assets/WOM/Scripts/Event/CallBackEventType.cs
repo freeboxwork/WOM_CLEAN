@@ -20,6 +20,7 @@ public class CallBackEventType
         OnUsingRewardAttend,            /// <summary> 출석 보상 받았을때  </summary>
         OnUsingRewardNewUserEvent,      /// <summary> 신규 유저 이벤트 보상 받았을때  </summary>
         OnGoldPigEvent,                 /// <summary> 황금 돼지 이벤트 획득 했을때 </summary>
+        OnMonsterKingHit,               /// <summary> 몬스터 킹 스킬 사용 후 몬스터를 타격 했을때 ( 콜라이더가 부딪혔을때 ) </summary>
 
         None,
     }

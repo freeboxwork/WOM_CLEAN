@@ -103,6 +103,49 @@ public class EventController : MonoBehaviour
         }
     }
 
+    void EvnOnMonsterHitMonsterKing(Transform tr = null)
+    {
+        if (isMonsterDie) return;
+
+        // todo : data 에서 불러와야함
+        var damage = 500;
+
+        // ENABLE Floting Text Effect 
+        globalData.effectManager.EnableFloatingText(damage, tr);
+
+
+        // GET MONSTER
+        var currentMonster = globalData.player.currentMonster;
+
+
+        // set monster damage
+        currentMonster.hp -= damage;
+
+        // monster hit animation 
+        currentMonster.inOutAnimator.monsterAnim.SetBool("Hit", true);
+
+        // monster hit shader effect
+        currentMonster.inOutAnimator.MonsterHitAnim();
+
+        // 몬스터 제거시 ( hp 로 판단 )
+        if (IsMonseterKill(currentMonster.hp))
+        {
+            StartCoroutine(MonsterKill(currentMonster));
+        }
+        // 몬스터 단순 피격시
+        else
+        {
+            // 몬스터 hp text
+            globalData.uiController.SetTxtMonsterHp(currentMonster.hp);
+
+            // 몬스터 hp slider
+            globalData.uiController.SetSliderMonsterHp(currentMonster.hp);
+
+        }
+    }
+
+
+
     void EvnOnDungeonMonsterHit(EnumDefinition.InsectType insectType, int unionIndex = 0, Transform tr = null)
     {
         if (isDungeonMonsterNextLevel) return;

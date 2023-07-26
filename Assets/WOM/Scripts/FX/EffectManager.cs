@@ -207,6 +207,16 @@ public class EffectManager : MonoBehaviour
 
     }
 
+    public void EnableFloatingText(float damage, Transform tr)
+    {
+        // var flotingTxt = GetFloatingText();
+        // flotingTxt.transform.position = tr.position;
+        // flotingTxt.gameObject.SetActive(true);
+        // flotingTxt.SetText(damage.ToString(), isCritical);
+        DamageNumber damageNumber = numberPrefab.Spawn(tr.position, damage);
+
+    }
+
     public void EnableFloatingText(double damage, bool isCritical, Transform tr)
     {
         // var flotingTxt = GetFloatingText();

@@ -1,6 +1,7 @@
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
+using Sirenix.Utilities;
 
 public class CampPopup : CastlePopupBase
 {
@@ -12,13 +13,14 @@ public class CampPopup : CastlePopupBase
     public Button btnGetReward;
 
     public Button btnClose;
-
-    public ProjectGraphics.LotteryAnimationController lotteryAnim;
+    public Toggle[] togglesUnion;
+    public Toggle[] togglesDNA;
 
     void Start()
     {
         SetBtnEvent();
-        lotteryAnim = FindObjectOfType<ProjectGraphics.LotteryAnimationController>();
+        foreach(var to in togglesDNA) to.isOn = false; 
+        foreach(var to in togglesUnion) to.isOn = false;
     }
 
     public void SetSummonCountProgress(int curValue, int totalValue)
@@ -54,15 +56,4 @@ public class CampPopup : CastlePopupBase
             gameObject.SetActive(false);
         });
     }
-
-    public void OnCheckSkipUnion(UnityEngine.UI.Toggle isOn)
-    {
-        lotteryAnim.OnClickSkipUnion(isOn.isOn);
-    }
-
-    public void OnCheckSkipDNA(UnityEngine.UI.Toggle isOn)
-    {
-        lotteryAnim.OnClickSkipDNA(isOn.isOn);
-    }
-
 }

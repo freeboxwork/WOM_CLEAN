@@ -1,5 +1,7 @@
 using Sirenix.OdinInspector;
+using Sirenix.Utilities;
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,37 +20,47 @@ namespace ProjectGraphics
         [Header("스킵은 두종류로 분류 하고 프로세스 끝나도 스킵 변수 유지")]
         private bool isSkip = true;
         private bool isSkipDNA = true;
-        private bool isUnion = true;
+        public bool isUnion = true;
         public bool isEnd = false;
-        private Toggle toggle;
+
+        [Header("캠프팝업")]
+        public CampPopup campPopup;
 
         public Image titleImage;
         public Sprite unionTitle;
         public Sprite dnaTitle;
+        public Toggle[] toggles;
 
         [SerializeField] AudioSource audio;
+
 
 #if UNITY_EDITOR
         //[SerializeField] int ii;
 #endif
-
-        private void Awake()
+        private void OnEnable()
         {
-            // slots = GetComponentsInChildren<Lottery_Slot>();
-            // foreach(var slot in slots) slot.gameObject.SetActive(false);
+            foreach (var toggle in toggles) toggle.isOn = false;
+
+            //캠프팝업에서 토글 정보를 불러와서 적용
+            if (isUnion)
+            {
+                for (int s = 0; s < campPopup.togglesUnion.Length; s++)
+                {
+                    toggles[s].isOn = campPopup.togglesUnion[s].isOn;
+                }
+            }
+            else
+            {
+                for (int s = 0; s < campPopup.togglesDNA.Length; s++)
+                {
+                    toggles[s].isOn = campPopup.togglesDNA[s].isOn;
+                }
+            }
         }
 
         void Start()
         {
             audio = GetComponent<AudioSource>();
-            /*
-            int[] uIndex = new int[ii];
-            for (int i = 0; i < uIndex.Length; i++)
-            {
-                uIndex[i] = Random.Range(0, data.GetDataSize());
-            }
-            StartCoroutine(ShowUnionSlotCardOpenProcess(uIndex));
-            */
         }
 
         public void StartLotteryAnimation(int[] unionIndex)
@@ -63,12 +75,13 @@ namespace ProjectGraphics
             foreach (var slot in slots) slot.gameObject.SetActive(false);
         }
 
-
         public IEnumerator ShowUnionSlotCardOpenProcess(int[] u)
         {
+            if (toggles[0].isOn || toggles[1].isOn) isSkip = true;
+            else isSkip = false;
+
             isEnd = false;
             isUnion = true;         //유니온인지 아닌지
-            toggle.isOn = isSkip;   //연출스킵
 
             //changed to image and title text
             titleImage.sprite = unionTitle;
@@ -91,15 +104,16 @@ namespace ProjectGraphics
             }
 
             isEnd = true;
-            //isSkip = false;
         }
 
         //슬롯 형태 확인 하고, 백 이미지 지우고 아이콘 이미지만 처리 이펙트 컬러 통일.
         public IEnumerator ShowDNAIconSlotCardOpenProcess(int[] u)
-        {
+        {   
+            if (toggles[0].isOn || toggles[1].isOn) isSkipDNA = true;
+            else isSkipDNA = false;
+
             isEnd = false;
             isUnion = false;            //유니온인지 아닌지
-            toggle.isOn = isSkipDNA;    //연출스킵 DNA 
 
             titleImage.sprite = dnaTitle;
 
@@ -110,10 +124,6 @@ namespace ProjectGraphics
 
             for (int i = 0; i < u.Length; i++)
             {
-                //타입 없음
-                //GradeBackImage = DNA Icon
-                //int typeIndex = 0;
-
                 //DNA 는 타입이 존재 안함.
                 slots[i].SetSlotImage(dnaIcons[u[i]]);
                 slots[i].gameObject.SetActive(true);
@@ -127,7 +137,6 @@ namespace ProjectGraphics
             }
 
             isEnd = true;
-            //isSkipDNA = false;
         }
 
         int SetImageFromUnionType(EnumDefinition.UnionGradeType type)
@@ -157,9 +166,11 @@ namespace ProjectGraphics
         {
             isSkipDNA = on;
         }
-               
+
+        //로터리 애니메이션 종료
         private void OnDisable()
         {
+            foreach (var toggle in toggles) toggle.isOn = false;
             foreach (var slot in slots) slot.gameObject.SetActive(false);
         }
     }

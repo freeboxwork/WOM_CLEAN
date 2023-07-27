@@ -15,9 +15,12 @@ namespace ProjectGraphics
         public Sprite[] gradeBackImage;
         public Lottery_Slot[] slots;
 
-        [SerializeField]
+        [Header("스킵은 두종류로 분류 하고 프로세스 끝나도 스킵 변수 유지")]
         private bool isSkip = true;
+        private bool isSkipDNA = true;
+        private bool isUnion = true;
         public bool isEnd = false;
+        private Toggle toggle;
 
         public Image titleImage;
         public Sprite unionTitle;
@@ -64,6 +67,9 @@ namespace ProjectGraphics
         public IEnumerator ShowUnionSlotCardOpenProcess(int[] u)
         {
             isEnd = false;
+            isUnion = true;         //유니온인지 아닌지
+            toggle.isOn = isSkip;   //연출스킵
+
             //changed to image and title text
             titleImage.sprite = unionTitle;
 
@@ -85,13 +91,16 @@ namespace ProjectGraphics
             }
 
             isEnd = true;
-            isSkip = false;
+            //isSkip = false;
         }
 
         //슬롯 형태 확인 하고, 백 이미지 지우고 아이콘 이미지만 처리 이펙트 컬러 통일.
         public IEnumerator ShowDNAIconSlotCardOpenProcess(int[] u)
         {
             isEnd = false;
+            isUnion = false;            //유니온인지 아닌지
+            toggle.isOn = isSkipDNA;    //연출스킵 DNA 
+
             titleImage.sprite = dnaTitle;
 
             foreach (var slot in slots) slot.gameObject.SetActive(false);
@@ -113,12 +122,12 @@ namespace ProjectGraphics
                 //여기 출현 사운드 필요함.
                 audio.Play();
 
-                if (isSkip) continue;
+                if (isSkipDNA) continue;
                 yield return new WaitForSeconds(0.03f);
             }
 
             isEnd = true;
-            isSkip = false;
+            //isSkipDNA = false;
         }
 
         int SetImageFromUnionType(EnumDefinition.UnionGradeType type)
@@ -136,7 +145,17 @@ namespace ProjectGraphics
 
         public void OnClickSkipButton(Toggle togle)
         {
-            isSkip = togle.isOn;
+            if(isUnion) isSkip = togle.isOn;
+            else isSkipDNA = togle.isOn;
+        }
+
+        public void OnClickSkipUnion(bool on)
+        {
+            isSkip = on;
+        }
+        public void OnClickSkipDNA(bool on)
+        {
+            isSkipDNA = on;
         }
                
         private void OnDisable()

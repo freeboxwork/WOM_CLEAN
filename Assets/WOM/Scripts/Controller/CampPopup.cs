@@ -18,6 +18,7 @@ public class CampPopup : CastlePopupBase
     void Start()
     {
         SetBtnEvent();
+        lotteryAnim = FindObjectOfType<ProjectGraphics.LotteryAnimationController>();
     }
 
     public void SetSummonCountProgress(int curValue, int totalValue)
@@ -54,9 +55,14 @@ public class CampPopup : CastlePopupBase
         });
     }
 
-    public void GetToggleCheck(UnityEngine.UI.Toggle isOn)
+    public void OnCheckSkipUnion(UnityEngine.UI.Toggle isOn)
     {
-        lotteryAnim.OnClickSkipButton(isOn);
+        lotteryAnim.OnClickSkipUnion(isOn.isOn);
+    }
+
+    public void OnCheckSkipDNA(UnityEngine.UI.Toggle isOn)
+    {
+        lotteryAnim.OnClickSkipDNA(isOn.isOn);
     }
 
 }

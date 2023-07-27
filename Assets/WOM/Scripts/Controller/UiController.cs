@@ -205,18 +205,19 @@ public class UiController : MonoBehaviour
 
     public void SetTxtGem(long value, long flotingValue)
     {
-        var changeValue = UtilityMethod.ChangeSymbolNumber(value);
-        var flotingValueChange = UtilityMethod.ChangeSymbolNumber(flotingValue);
+        // GEM TEXT 는 단위 변환 없음
+        // var changeValue = UtilityMethod.ChangeSymbolNumber(value);
+        // var flotingValueChange = UtilityMethod.ChangeSymbolNumber(flotingValue);
 
         // floting text effect
         if (flotingValue > 0)
         {
             floatingTextGem.gameObject.SetActive(true);
-            floatingTextGem.SetText(flotingValueChange, FloatingTextValues.ValueType.jewel);
+            floatingTextGem.SetText(flotingValue.ToString(), FloatingTextValues.ValueType.jewel);
         }
 
 
-        UtilityMethod.SetTxtCustomTypeByID(79, changeValue.ToString());
+        UtilityMethod.SetTxtCustomTypeByID(79, value.ToString());
     }
 
     public void SetTxtDice(long value)

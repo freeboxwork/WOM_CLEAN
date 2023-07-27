@@ -79,24 +79,27 @@ public class TraningManager : MonoBehaviour
 
         foreach (SaleStatType statType in Enum.GetValues(typeof(SaleStatType)))
         {
-            var slot = GetTraningInSlotByType(statType);
-            var inGameData = GetTraningInGameData(statType);
 
-            // SET UI
-            var txtInfoValue = $"Lv {inGameData.level} {inGameData.trainingName}";
-            var txtPowerValue = $"{inGameData.value} {inGameData.unitName}";
-            var txtCostValue = GetCostStrValue(statType, inGameData);
+            SetUI_TraningSlot(statType);
 
-            slot.SetTxtInfo(txtInfoValue);
-            slot.SetTxtPower(txtPowerValue);
-            slot.SetTxtCost(txtCostValue);
+            // var slot = GetTraningInSlotByType(statType);
+            // var inGameData = GetTraningInGameData(statType);
 
-            // max stat
-            var lastData = GlobalData.instance.dataManager.GetSaleStatDataByType(statType).data.Last();
-            if (inGameData.level == lastData.level)
-            {
-                SetUI_Max(statType);
-            }
+            // // SET UI
+            // var txtInfoValue = $"Lv {inGameData.level} {inGameData.trainingName}";
+            // var txtPowerValue = $"{inGameData.value} {inGameData.unitName}";
+            // var txtCostValue = GetCostStrValue(statType, inGameData);
+
+            // slot.SetTxtInfo(txtInfoValue);
+            // slot.SetTxtPower(txtPowerValue);
+            // slot.SetTxtCost(txtCostValue);
+
+            // // max stat
+            // var lastData = GlobalData.instance.dataManager.GetSaleStatDataByType(statType).data.Last();
+            // if (inGameData.level == lastData.level)
+            // {
+            //     SetUI_Max(statType);
+            // }
 
             yield return null;
 
@@ -176,8 +179,27 @@ public class TraningManager : MonoBehaviour
         slot.SetTxtCost(txtCostValue);
 
         // POWER TEXT
-        var txtPowerValue = $"{inGameData.value} {inGameData.unitName}";
+        var txtPower = "";
+        if (statType == SaleStatType.talentGoldBonus || statType == SaleStatType.trainingDamage)
+        {
+            // 정수
+            txtPower = UtilityMethod.ConvertDoubleToLong(inGameData.value).ToString();
+        }
+        else
+        {
+            // 소수점 첫째자리
+            txtPower = UtilityMethod.FormatDoubleToOneDecimal(inGameData.value);
+
+        }
+        var txtPowerValue = $"{txtPower} {inGameData.unitName}";
         slot.SetTxtPower(txtPowerValue);
+
+        // max stat
+        var lastData = GlobalData.instance.dataManager.GetSaleStatDataByType(statType).data.Last();
+        if (inGameData.level == lastData.level)
+        {
+            SetUI_Max(statType);
+        }
     }
 
     public void SetUI_Max(SaleStatType statType)

@@ -19,7 +19,7 @@ public static class UtilityMethod
     public static T CustomGetComponet<T>() where T : UnityEngine.Object
     {
         var returnValue = GameObject.FindObjectOfType<T>();
-        if (returnValue == null) Debug.Log($"¾?¿¡ ?¸?????? ¾?´? ?¸?? ??´?´?.");
+        if (returnValue == null) Debug.Log($"씬에 존재하지 않는 타입 입니다.");
         return returnValue;
     }
 
@@ -31,7 +31,7 @@ public static class UtilityMethod
         }
         else
         {
-            //Debug.LogError($"{gameObject.name} °??? ¿?º??§Æ®¿¡ ??Æ÷³?Æ® ?¸???? ¾ø½?´?´?.");
+            //Debug.LogError($"{gameObject.name} 게임 오브젝트에 컴포넌트 타입이 없습니다.");
             return null;
         }
     }
@@ -62,7 +62,7 @@ public static class UtilityMethod
         }
         else
         {
-            Debug.LogError($"Custom Type Object - Text - {id} ¿?º??§Æ®°¡ ¾ø½?´?´?.");
+            Debug.LogError($"Custom Type Object - Text - {id} 오브젝트가 없습니다.");
         }
     }
 
@@ -88,7 +88,7 @@ public static class UtilityMethod
         }
         else
         {
-            Debug.LogError($"Custom Type Object - Button - {id} ¿?º??§Æ®°¡ ¾ø½?´?´?.");
+            Debug.LogError($"Custom Type Object - Button - {id} 오브젝트가 없습니다.");
         }
     }
 
@@ -101,7 +101,7 @@ public static class UtilityMethod
         }
         else
         {
-            Debug.LogError($"Custom Type Object - Button - {id} ¿?º??§Æ®°¡ ¾ø½?´?´?.");
+            Debug.LogError($"Custom Type Object - Button - {id} 오브젝트가 없습니다.");
         }
     }
 
@@ -116,7 +116,7 @@ public static class UtilityMethod
             }
             else
             {
-                Debug.LogError($"Custom Type Object - Button - {id} ¿?º??§Æ®°¡ ¾ø½?´?´?.");
+                Debug.LogError($"Custom Type Object - Button - {id} 오브젝트가 없습니다.");
             }
         }
     }
@@ -143,7 +143,7 @@ public static class UtilityMethod
         return GlobalData.instance.customTypeDataManager.GetCustomTypeData_Transform(id);
     }
 
-    /// <summary> °¡?ß?¡ ·?´? ??±? </summary>
+    /// <summary> 가중치 랜덤 뽑기 </summary>
     public static float GetWeightRandomValue(float[] probs)
     {
         float total = 0;
@@ -167,7 +167,7 @@ public static class UtilityMethod
         return probs.Length - 1;
     }
 
-    ///<summary> ?ø?­ ?????§ ??¿? °³¼? </summary>
+    ///<summary> 진화 주사위 사용 개수 </summary>
     public static int GetEvolutionDiceUsingCount()
     {
         return 10 + (10 * GetUnLockCount());
@@ -182,7 +182,7 @@ public static class UtilityMethod
         return unlock;
     }
 
-    ///<summary> °??? ¹× ???¶°? ¼??? Text¸? ½?º¼·? º?°æ </summary>
+    ///<summary> 골드 및 뼛조각 숫자 Text를 심볼로 변경 </summary>
     public static string ChangeSymbolNumber(float number)
     {
 
@@ -227,7 +227,7 @@ public static class UtilityMethod
         //  ???? ????? ??????
         int quotient = exponent / 3;
 
-        //  ???????? ?????? ????? ??…Z ???(10?? ????????? ???)
+        //  ???????? ?????? ????? ??¡?Z ???(10?? ????????? ???)
         int remainder = exponent % 3;
 
         //  1A ????? ??? ???
@@ -240,7 +240,7 @@ public static class UtilityMethod
             //  10?? ????????? ????? ????? ??????? ????? ???.
             var temp = double.Parse(partsSplit[0].Replace("E", "")) * System.Math.Pow(10, remainder);
 
-            //  ??? ??¡Æ????????? ??????.
+            //  ??? ???®¨¡????????? ??????.
             //showNumber = temp.ToString("F").Replace(".0", "");
             showNumber = temp.ToString("F");
         }
@@ -294,7 +294,7 @@ public static class UtilityMethod
         //  ???? ????? ??????
         int quotient = exponent / 3;
 
-        //  ???????? ?????? ????? ??…Z ???(10?? ????????? ???)
+        //  ???????? ?????? ????? ??¡?Z ???(10?? ????????? ???)
         int remainder = exponent % 3;
 
         //  1A ????? ??? ???
@@ -307,7 +307,7 @@ public static class UtilityMethod
             //  10?? ????????? ????? ????? ??????? ????? ???.
             var temp = double.Parse(partsSplit[0].Replace("E", "")) * System.Math.Pow(10, remainder);
 
-            //  ??? ??¡Æ????????? ??????.
+            //  ??? ???®¨¡????????? ??????.
             //showNumber = temp.ToString("F").Replace(".0", "");
             showNumber = temp.ToString("F");
         }
@@ -328,6 +328,16 @@ public static class UtilityMethod
     }
 
 
+    public static string FormatDoubleToOneDecimal(double value)
+    {
+        //return string.Format("{0:F1}", value);
+        return string.Format("{0:0.0}", value);
+    }
+
+    public static long ConvertDoubleToLong(double number)
+    {
+        return (long)System.Math.Round(number);
+    }
 
 
 #if UNITY_EDITOR

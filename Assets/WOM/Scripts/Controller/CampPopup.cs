@@ -13,7 +13,7 @@ public class CampPopup : CastlePopupBase
 
     public Button btnClose;
 
-
+    public ProjectGraphics.LotteryAnimationController lotteryAnim;
 
     void Start()
     {
@@ -52,6 +52,11 @@ public class CampPopup : CastlePopupBase
         {
             gameObject.SetActive(false);
         });
+    }
+
+    public void GetToggleCheck(UnityEngine.UI.Toggle isOn)
+    {
+        lotteryAnim.OnClickSkipButton(isOn);
     }
 
 }

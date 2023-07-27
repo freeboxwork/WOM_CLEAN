@@ -15,7 +15,8 @@ namespace ProjectGraphics
         public Sprite[] gradeBackImage;
         public Lottery_Slot[] slots;
 
-        private bool isSkip = false;
+        [SerializeField]
+        private bool isSkip = true;
         public bool isEnd = false;
 
         public Image titleImage;
@@ -133,9 +134,9 @@ namespace ProjectGraphics
             }
         }
 
-        public void OnClickSkipButton(bool on)
+        public void OnClickSkipButton(Toggle togle)
         {
-            isSkip = on;
+            isSkip = togle.isOn;
         }
                
         private void OnDisable()

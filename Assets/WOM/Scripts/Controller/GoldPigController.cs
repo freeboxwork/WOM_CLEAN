@@ -166,7 +166,8 @@ public class GoldPigController : MonoBehaviour
     // 300~500초 사이 등장
     IEnumerator EnableGoldPigCor()
     {
-        var enableTime = (float)Random.Range(enableGoldPigRange[0], enableGoldPigRange[1]);
+
+        var enableTime = 90.0f;//(float)Random.Range(enableGoldPigRange[0], enableGoldPigRange[1]);
 
         var startTime = Time.time;
         float waitTime = enableTime;
@@ -177,6 +178,7 @@ public class GoldPigController : MonoBehaviour
             yield return null;
         }
         enableWaitTime = 0;
+
         StartCoroutine(MoveGoldPig());
     }
 

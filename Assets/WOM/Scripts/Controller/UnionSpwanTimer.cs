@@ -25,7 +25,9 @@ public class UnionSpwanTimer : MonoBehaviour
     {
         this.unionSlot = unionSlot;
         isTimerReady = true;
-        SetSpwanTime(unionSlot.inGameData.spawnTime);
+        var _spwanTime = GlobalData.instance.statManager.GetUnionSpwanSpeed(unionSlot.inGameData.unionIndex);
+        //SetSpwanTime(unionSlot.inGameData.spawnTime);
+        SetSpwanTime((float)_spwanTime);
         StartCoroutine(SpwanTimer());
     }
 

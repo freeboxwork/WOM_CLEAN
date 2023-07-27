@@ -91,8 +91,6 @@ public class GlobalController : MonoBehaviour
         // 유니온 스폰 매니저 세팅
         yield return StartCoroutine(unionSpwanManager.Init());
 
-        // 유니온 데이터및 UI 세팅
-        yield return StartCoroutine(unionManager.Init());
 
         // 유전자 데이터및 UI 세팅
         yield return StartCoroutine(dnaManager.Init());
@@ -115,6 +113,9 @@ public class GlobalController : MonoBehaviour
 
         // 퀘스트 매니저 세팅
         yield return StartCoroutine(questManager.Init());
+
+        // 유니온 데이터및 UI 세팅
+        yield return StartCoroutine(unionManager.Init());
 
         // 타겟 몬스터 지정 -> 첫 시작은 노멀 몬스터
         player.SetCurrentMonster(monsterManager.monsterNormal);

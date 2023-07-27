@@ -16,6 +16,7 @@ namespace ProjectGraphics
         public Lottery_Slot[] slots;
 
         private bool isSkip = false;
+        public bool isEnd = false;
 
         public Image titleImage;
         public Sprite unionTitle;
@@ -61,6 +62,7 @@ namespace ProjectGraphics
 
         public IEnumerator ShowUnionSlotCardOpenProcess(int[] u)
         {
+            isEnd = false;
             //changed to image and title text
             titleImage.sprite = unionTitle;
 
@@ -81,13 +83,14 @@ namespace ProjectGraphics
                 yield return new WaitForSeconds(0.03f);
             }
 
+            isEnd = true;
             isSkip = false;
         }
 
         //슬롯 형태 확인 하고, 백 이미지 지우고 아이콘 이미지만 처리 이펙트 컬러 통일.
         public IEnumerator ShowDNAIconSlotCardOpenProcess(int[] u)
         {
-
+            isEnd = false;
             titleImage.sprite = dnaTitle;
 
             foreach (var slot in slots) slot.gameObject.SetActive(false);
@@ -113,6 +116,7 @@ namespace ProjectGraphics
                 yield return new WaitForSeconds(0.03f);
             }
 
+            isEnd = true;
             isSkip = false;
         }
 
@@ -129,11 +133,11 @@ namespace ProjectGraphics
             }
         }
 
-        public void OnClickSkipButton()
+        public void OnClickSkipButton(bool on)
         {
-            isSkip = true;
+            isSkip = on;
         }
-
+               
         private void OnDisable()
         {
             foreach (var slot in slots) slot.gameObject.SetActive(false);

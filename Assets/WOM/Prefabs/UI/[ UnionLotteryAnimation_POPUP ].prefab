@@ -372,7 +372,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000
+  m_text: 100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d395484b884950845850dc7f49675c2d, type: 2}
   m_sharedMaterial: {fileID: -4530486144835215442, guid: d395484b884950845850dc7f49675c2d, type: 2}
@@ -1026,7 +1026,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4156316653085295651}
+        m_TargetAssemblyTypeName: ProjectGraphics.LotteryAnimationController, Assembly-CSharp
+        m_MethodName: OnClickSkipButton
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &2688590826756702828
 GameObject:
@@ -1189,7 +1201,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4156316653085295651}
+        m_TargetAssemblyTypeName: ProjectGraphics.LotteryAnimationController, Assembly-CSharp
+        m_MethodName: OnClickSkipButton
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 1
 --- !u!1 &4156316653085295660
 GameObject:
@@ -1320,6 +1344,7 @@ MonoBehaviour:
   - {fileID: 8724275286990455137}
   - {fileID: 388910178843330361}
   - {fileID: 3996117828703759496}
+  isEnd: 0
   titleImage: {fileID: 4156316654154741574}
   unionTitle: {fileID: 21300000, guid: c579211cf90f44bf2a8b6e3dd8fc4f36, type: 3}
   dnaTitle: {fileID: 21300000, guid: 99a7f4d3b149b40bca0a84abd1526b6c, type: 3}
@@ -1887,7 +1912,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000
+  m_text: 3000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d395484b884950845850dc7f49675c2d, type: 2}
   m_sharedMaterial: {fileID: -4530486144835215442, guid: d395484b884950845850dc7f49675c2d, type: 2}
@@ -2334,6 +2359,7 @@ GameObject:
   - component: {fileID: 5738097061373756555}
   - component: {fileID: 5738097061373756554}
   - component: {fileID: 5738097061848992473}
+  - component: {fileID: 1392062991}
   m_Layer: 5
   m_Name: btnClose
   m_TagString: Untagged
@@ -2478,6 +2504,20 @@ MonoBehaviour:
     gm: {fileID: 5738097061373756552}
   customType: 0
   index: 44
+--- !u!114 &1392062991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5738097061373756552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5b573dad2f9694c9836d65dae22410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxType: 2
+  btn: {fileID: 0}
 --- !u!1 &5738097061423701259
 GameObject:
   m_ObjectHideFlags: 0
@@ -2491,6 +2531,8 @@ GameObject:
   - component: {fileID: 5738097061423701263}
   - component: {fileID: 5738097061423701262}
   - component: {fileID: 5738097061423701261}
+  - component: {fileID: 1796406923}
+  - component: {fileID: 1796406928}
   m_Layer: 5
   m_Name: DNALottoButton3
   m_TagString: Untagged
@@ -2625,6 +2667,35 @@ MonoBehaviour:
     gm: {fileID: 0}
   customType: 0
   index: 29
+--- !u!114 &1796406923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5738097061423701259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5b573dad2f9694c9836d65dae22410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxType: 2
+  btn: {fileID: 0}
+--- !u!114 &1796406928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5738097061423701259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47286f392a22ff74ab22d7ed12f52079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  enableCount: 1000
+  btn: {fileID: 0}
 --- !u!1 &5738097061449841766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2742,6 +2813,7 @@ GameObject:
   - component: {fileID: 5738097061655746802}
   - component: {fileID: 5738097061655746801}
   - component: {fileID: 5738097062498534717}
+  - component: {fileID: 1774134339}
   m_Layer: 5
   m_Name: Skip
   m_TagString: Untagged
@@ -2764,10 +2836,10 @@ RectTransform:
   m_Father: {fileID: 4156316653085295661}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 836.25, y: -1688.125}
-  m_SizeDelta: {x: 271.5, y: 91.25}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5738097061655746803
 CanvasRenderer:
@@ -2850,19 +2922,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5738097061655746802}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4156316653085295651}
-        m_TargetAssemblyTypeName: ProjectGraphics.LotteryAnimationController, Assembly-CSharp
-        m_MethodName: OnClickSkipButton
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &5738097062498534717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2885,6 +2945,20 @@ MonoBehaviour:
     gm: {fileID: 5738097061655746815}
   customType: 0
   index: 33
+--- !u!114 &1774134339
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5738097061655746815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5b573dad2f9694c9836d65dae22410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxType: 2
+  btn: {fileID: 0}
 --- !u!1 &5738097062246728198
 GameObject:
   m_ObjectHideFlags: 0
@@ -2898,6 +2972,8 @@ GameObject:
   - component: {fileID: 5738097062246728218}
   - component: {fileID: 5738097062246728217}
   - component: {fileID: 5738097062246728216}
+  - component: {fileID: 1487069984}
+  - component: {fileID: 1487069989}
   m_Layer: 5
   m_Name: DNALottoButton1
   m_TagString: Untagged
@@ -3032,6 +3108,35 @@ MonoBehaviour:
     gm: {fileID: 0}
   customType: 0
   index: 27
+--- !u!114 &1487069984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5738097062246728198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5b573dad2f9694c9836d65dae22410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxType: 2
+  btn: {fileID: 0}
+--- !u!114 &1487069989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5738097062246728198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47286f392a22ff74ab22d7ed12f52079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  enableCount: 10
+  btn: {fileID: 0}
 --- !u!1 &5738097062350716060
 GameObject:
   m_ObjectHideFlags: 0
@@ -3098,7 +3203,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBF51\uAE30 30\uD68C"
+  m_text: "\uBF51\uAE30 33\uD68C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d395484b884950845850dc7f49675c2d, type: 2}
   m_sharedMaterial: {fileID: -4530486144835215442, guid: d395484b884950845850dc7f49675c2d, type: 2}
@@ -3164,7 +3269,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5738097062428723956
@@ -3299,7 +3404,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5738097062485928746
@@ -3315,6 +3420,8 @@ GameObject:
   - component: {fileID: 5738097062485928750}
   - component: {fileID: 5738097062485928749}
   - component: {fileID: 5738097062485928748}
+  - component: {fileID: 1767934516}
+  - component: {fileID: 1767934521}
   m_Layer: 5
   m_Name: DNALottoButton2
   m_TagString: Untagged
@@ -3449,6 +3556,35 @@ MonoBehaviour:
     gm: {fileID: 0}
   customType: 0
   index: 28
+--- !u!114 &1767934516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5738097062485928746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5b573dad2f9694c9836d65dae22410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxType: 2
+  btn: {fileID: 0}
+--- !u!114 &1767934521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5738097062485928746}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47286f392a22ff74ab22d7ed12f52079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  enableCount: 100
+  btn: {fileID: 0}
 --- !u!1 &5738097062637620062
 GameObject:
   m_ObjectHideFlags: 0
@@ -3581,7 +3717,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &5738097062809852116
@@ -3650,7 +3786,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBF51\uAE30 10\uD68C"
+  m_text: "\uBF51\uAE30 11\uD68C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d395484b884950845850dc7f49675c2d, type: 2}
   m_sharedMaterial: {fileID: -4530486144835215442, guid: d395484b884950845850dc7f49675c2d, type: 2}
@@ -3716,7 +3852,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &6561901843183366963
@@ -3861,7 +3997,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000
+  m_text: 3000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d395484b884950845850dc7f49675c2d, type: 2}
   m_sharedMaterial: {fileID: -4530486144835215442, guid: d395484b884950845850dc7f49675c2d, type: 2}
@@ -4009,6 +4145,8 @@ GameObject:
   - component: {fileID: 6985531665942608112}
   - component: {fileID: 6985531665942608115}
   - component: {fileID: 6985531665942608118}
+  - component: {fileID: 3409305087956179450}
+  - component: {fileID: 3409305087956179455}
   m_Layer: 5
   m_Name: UnionLotteryButton2
   m_TagString: Untagged
@@ -4143,6 +4281,35 @@ MonoBehaviour:
     gm: {fileID: 0}
   customType: 0
   index: 18
+--- !u!114 &3409305087956179450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6985531665942608117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5b573dad2f9694c9836d65dae22410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxType: 2
+  btn: {fileID: 0}
+--- !u!114 &3409305087956179455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6985531665942608117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47286f392a22ff74ab22d7ed12f52079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  enableCount: 100
+  btn: {fileID: 0}
 --- !u!1 &6985531666176377883
 GameObject:
   m_ObjectHideFlags: 0
@@ -4275,7 +4442,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &6985531666291046399
@@ -4344,7 +4511,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBF51\uAE30 30\uD68C"
+  m_text: "\uBF51\uAE30 33\uD68C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d395484b884950845850dc7f49675c2d, type: 2}
   m_sharedMaterial: {fileID: -4530486144835215442, guid: d395484b884950845850dc7f49675c2d, type: 2}
@@ -4410,7 +4577,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &6985531666833870931
@@ -4530,6 +4697,8 @@ GameObject:
   - component: {fileID: 6985531667459864237}
   - component: {fileID: 6985531667459864236}
   - component: {fileID: 6985531667459864224}
+  - component: {fileID: 3409305089513412520}
+  - component: {fileID: 3409305089513412525}
   m_Layer: 5
   m_Name: UnionLotteryButton1
   m_TagString: Untagged
@@ -4664,6 +4833,35 @@ MonoBehaviour:
     gm: {fileID: 0}
   customType: 0
   index: 17
+--- !u!114 &3409305089513412520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6985531667459864238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5b573dad2f9694c9836d65dae22410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxType: 2
+  btn: {fileID: 0}
+--- !u!114 &3409305089513412525
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6985531667459864238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47286f392a22ff74ab22d7ed12f52079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  enableCount: 10
+  btn: {fileID: 0}
 --- !u!1 &6985531667816638839
 GameObject:
   m_ObjectHideFlags: 0
@@ -4677,6 +4875,8 @@ GameObject:
   - component: {fileID: 6985531667816638834}
   - component: {fileID: 6985531667816638837}
   - component: {fileID: 6985531667816638792}
+  - component: {fileID: 3409305089829816400}
+  - component: {fileID: 3409305089829816405}
   m_Layer: 5
   m_Name: UnionLotteryButton3
   m_TagString: Untagged
@@ -4811,6 +5011,35 @@ MonoBehaviour:
     gm: {fileID: 0}
   customType: 0
   index: 19
+--- !u!114 &3409305089829816400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6985531667816638839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5b573dad2f9694c9836d65dae22410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxType: 2
+  btn: {fileID: 0}
+--- !u!114 &3409305089829816405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6985531667816638839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47286f392a22ff74ab22d7ed12f52079, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2
+  enableCount: 1000
+  btn: {fileID: 0}
 --- !u!1 &6985531667889278146
 GameObject:
   m_ObjectHideFlags: 0
@@ -4877,7 +5106,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBF51\uAE30 10\uD68C"
+  m_text: "\uBF51\uAE30 11\uD68C"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d395484b884950845850dc7f49675c2d, type: 2}
   m_sharedMaterial: {fileID: -4530486144835215442, guid: d395484b884950845850dc7f49675c2d, type: 2}
@@ -4943,7 +5172,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7004403953467616375
@@ -5530,7 +5759,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1000
+  m_text: 100
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d395484b884950845850dc7f49675c2d, type: 2}
   m_sharedMaterial: {fileID: -4530486144835215442, guid: d395484b884950845850dc7f49675c2d, type: 2}

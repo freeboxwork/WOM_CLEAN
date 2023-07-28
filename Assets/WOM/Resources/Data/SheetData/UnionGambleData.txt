@@ -1,49 +1,85 @@
 ﻿{
   "data": [
-    {
-      "summonGrade": 0,
-      "normal": 20,
-      "high": 20,
-      "rare": 20,
-      "hero": 20,
-      "legend": 20,
-      "unique": 0
-    },
-    {
-      "summonGrade": 1,
-      "normal": 20,
-      "high": 25,
-      "rare": 28,
-      "hero": 26,
-      "legend": 1,
-      "unique": 0
-    },
-    {
-      "summonGrade": 2,
-      "normal": 20,
-      "high": 22,
-      "rare": 34,
-      "hero": 22.459,
-      "legend": 1.5,
-      "unique": 0.041
-    },
-    {
-      "summonGrade": 3,
-      "normal": 10,
-      "high": 10,
-      "rare": 10,
-      "hero": 67.95,
-      "legend": 1.85,
-      "unique": 0.2
-    },
-    {
-      "summonGrade": 4,
-      "normal": 10,
-      "high": 10,
-      "rare": 10,
-      "hero": 67.5,
-      "legend": 2.1,
-      "unique": 0.4
-    }
-  ]
+ {
+   "summonGrade": 0,
+   "normal": 45,
+   "high": 35,
+   "rare": 15,
+   "hero": 5,
+   "legend": 0,
+   "unique": 0
+ },
+ {
+   "summonGrade": 1,
+   "normal": 40,
+   "high": 40,
+   "rare": 20,
+   "hero": 0,
+   "legend": 0,
+   "unique": 0
+ },
+ {
+   "summonGrade": 2,
+   "normal": 35,
+   "high": 45,
+   "rare": 20,
+   "hero": 0,
+   "legend": 0,
+   "unique": 0
+ },
+ {
+   "summonGrade": 3,
+   "normal": 30,
+   "high": 40,
+   "rare": 30,
+   "hero": 0,
+   "legend": 0,
+   "unique": 0
+ },
+ {
+   "summonGrade": 4,
+   "normal": 25,
+   "high": 35,
+   "rare": 35,
+   "hero": 4.5,
+   "legend": 0.5,
+   "unique": 0
+ },
+ {
+   "summonGrade": 5,
+   "normal": 20,
+   "high": 30,
+   "rare": 40,
+   "hero": 8.9,
+   "legend": 1,
+   "unique": 0.1
+ },
+ {
+   "summonGrade": 6,
+   "normal": 15,
+   "high": 25,
+   "rare": 35,
+   "hero": 20.5,
+   "legend": 4,
+   "unique": 0.5
+ },
+ {
+   "summonGrade": 7,
+   "normal": 10,
+   "high": 20,
+   "rare": 30,
+   "hero": 32,
+   "legend": 7,
+   "unique": 1
+ },
+ {
+   "summonGrade": 8,
+   "normal": 5,
+   "high": 15,
+   "rare": 25,
+   "hero": 43.5,
+   "legend": 10,
+   "unique": 1.5
+ }
+]
 }

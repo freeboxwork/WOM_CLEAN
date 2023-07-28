@@ -6,7 +6,7 @@
    "name": "플릭스",
    "textColor": "B7B7B7",
    "gradeName": "노멀",
-   "damage": 10,
+   "damage": 100,
    "passiveDamage": 5,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -14,7 +14,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 1,
-   "addDamage": 2,
+   "addDamage": 20,
    "maxLevel": 100
  },
  {
@@ -24,7 +24,7 @@
    "name": "스파크",
    "textColor": "B7B7B7",
    "gradeName": "노멀",
-   "damage": 20,
+   "damage": 200,
    "passiveDamage": 10,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -32,7 +32,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 2,
-   "addDamage": 4,
+   "addDamage": 40,
    "maxLevel": 100
  },
  {
@@ -42,7 +42,7 @@
    "name": "레이저",
    "textColor": "B7B7B7",
    "gradeName": "노멀",
-   "damage": 40,
+   "damage": 400,
    "passiveDamage": 15,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -50,7 +50,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 3,
-   "addDamage": 8,
+   "addDamage": 80,
    "maxLevel": 100
  },
  {
@@ -60,7 +60,7 @@
    "name": "블레이드",
    "textColor": "B7B7B7",
    "gradeName": "노멀",
-   "damage": 72,
+   "damage": 720,
    "passiveDamage": 20,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -68,7 +68,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 4,
-   "addDamage": 14,
+   "addDamage": 144,
    "maxLevel": 100
  },
  {
@@ -78,7 +78,7 @@
    "name": "스케일",
    "textColor": "B7B7B7",
    "gradeName": "노멀",
-   "damage": 144,
+   "damage": 1440,
    "passiveDamage": 25,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -86,7 +86,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 5,
-   "addDamage": 29,
+   "addDamage": 288,
    "maxLevel": 100
  },
  {
@@ -96,7 +96,7 @@
    "name": "레빌",
    "textColor": "B7B7B7",
    "gradeName": "노멀",
-   "damage": 216,
+   "damage": 2160,
    "passiveDamage": 30,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -104,7 +104,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 6,
-   "addDamage": 43,
+   "addDamage": 432,
    "maxLevel": 100
  },
  {
@@ -114,7 +114,7 @@
    "name": "네오",
    "textColor": "B7B7B7",
    "gradeName": "노멀",
-   "damage": 324,
+   "damage": 3240,
    "passiveDamage": 35,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -122,7 +122,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 7,
-   "addDamage": 65,
+   "addDamage": 648,
    "maxLevel": 100
  },
  {
@@ -132,7 +132,7 @@
    "name": "코브",
    "textColor": "B7B7B7",
    "gradeName": "노멀",
-   "damage": 454,
+   "damage": 4536,
    "passiveDamage": 40,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -140,7 +140,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 8,
-   "addDamage": 91,
+   "addDamage": 907,
    "maxLevel": 100
  },
  {
@@ -148,9 +148,9 @@
    "gradeType": "high",
    "grade": 8,
    "name": "렉스",
-   "textColor": "00CBFF",
+   "textColor": "46D732",
    "gradeName": "하이",
-   "damage": 907,
+   "damage": 9072,
    "passiveDamage": 45,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -158,7 +158,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 9,
-   "addDamage": 181,
+   "addDamage": 1814,
    "maxLevel": 100
  },
  {
@@ -166,9 +166,9 @@
    "gradeType": "high",
    "grade": 7,
    "name": "피니",
-   "textColor": "00CBFF",
+   "textColor": "46D733",
    "gradeName": "하이",
-   "damage": 1361,
+   "damage": 13608,
    "passiveDamage": 50,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -176,7 +176,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 10,
-   "addDamage": 272,
+   "addDamage": 2722,
    "maxLevel": 100
  },
  {
@@ -184,9 +184,9 @@
    "gradeType": "high",
    "grade": 6,
    "name": "아이스",
-   "textColor": "00CBFF",
+   "textColor": "46D734",
    "gradeName": "하이",
-   "damage": 1769,
+   "damage": 17690,
    "passiveDamage": 55,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -194,7 +194,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 11,
-   "addDamage": 354,
+   "addDamage": 3538,
    "maxLevel": 100
  },
  {
@@ -202,9 +202,9 @@
    "gradeType": "high",
    "grade": 5,
    "name": "레이즌",
-   "textColor": "00CBFF",
+   "textColor": "46D735",
    "gradeName": "하이",
-   "damage": 2123,
+   "damage": 21228,
    "passiveDamage": 60,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -212,7 +212,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 12,
-   "addDamage": 425,
+   "addDamage": 4246,
    "maxLevel": 100
  },
  {
@@ -220,9 +220,9 @@
    "gradeType": "high",
    "grade": 4,
    "name": "피카",
-   "textColor": "00CBFF",
+   "textColor": "46D736",
    "gradeName": "하이",
-   "damage": 2547,
+   "damage": 25474,
    "passiveDamage": 65,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -230,7 +230,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 13,
-   "addDamage": 509,
+   "addDamage": 5095,
    "maxLevel": 100
  },
  {
@@ -238,9 +238,9 @@
    "gradeType": "high",
    "grade": 3,
    "name": "크롤",
-   "textColor": "00CBFF",
+   "textColor": "46D737",
    "gradeName": "하이",
-   "damage": 2802,
+   "damage": 28022,
    "passiveDamage": 70,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -248,7 +248,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 14,
-   "addDamage": 560,
+   "addDamage": 5604,
    "maxLevel": 100
  },
  {
@@ -256,9 +256,9 @@
    "gradeType": "high",
    "grade": 2,
    "name": "레이븐",
-   "textColor": "00CBFF",
+   "textColor": "46D738",
    "gradeName": "하이",
-   "damage": 3082,
+   "damage": 30824,
    "passiveDamage": 75,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -266,7 +266,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 15,
-   "addDamage": 616,
+   "addDamage": 6165,
    "maxLevel": 100
  },
  {
@@ -274,9 +274,9 @@
    "gradeType": "high",
    "grade": 1,
    "name": "피니",
-   "textColor": "00CBFF",
+   "textColor": "46D739",
    "gradeName": "하이",
-   "damage": 3699,
+   "damage": 36989,
    "passiveDamage": 80,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -284,7 +284,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 16,
-   "addDamage": 740,
+   "addDamage": 7398,
    "maxLevel": 100
  },
  {
@@ -292,9 +292,9 @@
    "gradeType": "rare",
    "grade": 8,
    "name": "코볼",
-   "textColor": "FFBE00",
+   "textColor": "00CBFF",
    "gradeName": "레어",
-   "damage": 7398,
+   "damage": 73977,
    "passiveDamage": 85,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -302,7 +302,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 17,
-   "addDamage": 1480,
+   "addDamage": 14795,
    "maxLevel": 100
  },
  {
@@ -310,9 +310,9 @@
    "gradeType": "rare",
    "grade": 7,
    "name": "플럭스",
-   "textColor": "FFBE00",
+   "textColor": "00CBFF",
    "gradeName": "레어",
-   "damage": 8137,
+   "damage": 81375,
    "passiveDamage": 90,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -320,7 +320,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 18,
-   "addDamage": 1627,
+   "addDamage": 16275,
    "maxLevel": 100
  },
  {
@@ -328,9 +328,9 @@
    "gradeType": "rare",
    "grade": 6,
    "name": "넥스",
-   "textColor": "FFBE00",
+   "textColor": "00CBFF",
    "gradeName": "레어",
-   "damage": 8951,
+   "damage": 89512,
    "passiveDamage": 95,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -338,7 +338,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 19,
-   "addDamage": 1790,
+   "addDamage": 17902,
    "maxLevel": 100
  },
  {
@@ -346,9 +346,9 @@
    "gradeType": "rare",
    "grade": 5,
    "name": "블릿",
-   "textColor": "FFBE00",
+   "textColor": "00CBFF",
    "gradeName": "레어",
-   "damage": 9846,
+   "damage": 98463,
    "passiveDamage": 100,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -356,7 +356,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 20,
-   "addDamage": 1969,
+   "addDamage": 19693,
    "maxLevel": 100
  },
  {
@@ -364,9 +364,9 @@
    "gradeType": "rare",
    "grade": 4,
    "name": "블라스트",
-   "textColor": "FFBE00",
+   "textColor": "00CBFF",
    "gradeName": "레어",
-   "damage": 10831,
+   "damage": 108310,
    "passiveDamage": 105,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -374,7 +374,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 21,
-   "addDamage": 2166,
+   "addDamage": 21662,
    "maxLevel": 100
  },
  {
@@ -382,9 +382,9 @@
    "gradeType": "rare",
    "grade": 3,
    "name": "셰이드",
-   "textColor": "FFBE00",
+   "textColor": "00CBFF",
    "gradeName": "레어",
-   "damage": 11914,
+   "damage": 119141,
    "passiveDamage": 110,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -392,7 +392,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 22,
-   "addDamage": 2383,
+   "addDamage": 23828,
    "maxLevel": 100
  },
  {
@@ -400,9 +400,9 @@
    "gradeType": "rare",
    "grade": 2,
    "name": "플럼",
-   "textColor": "FFBE00",
+   "textColor": "00CBFF",
    "gradeName": "레어",
-   "damage": 13105,
+   "damage": 131055,
    "passiveDamage": 115,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -410,7 +410,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 23,
-   "addDamage": 2621,
+   "addDamage": 26211,
    "maxLevel": 100
  },
  {
@@ -418,9 +418,9 @@
    "gradeType": "rare",
    "grade": 1,
    "name": "스콜",
-   "textColor": "FFBE00",
+   "textColor": "00CBFF",
    "gradeName": "레어",
-   "damage": 14416,
+   "damage": 144160,
    "passiveDamage": 120,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -428,7 +428,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 2,
    "addPassiveDamage": 24,
-   "addDamage": 2883,
+   "addDamage": 28832,
    "maxLevel": 100
  },
  {
@@ -438,7 +438,7 @@
    "name": "브릭",
    "textColor": "FF0E8C",
    "gradeName": "히어로",
-   "damage": 28832,
+   "damage": 288321,
    "passiveDamage": 125,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -446,7 +446,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 25,
-   "addDamage": 5766,
+   "addDamage": 57664,
    "maxLevel": 100
  },
  {
@@ -456,7 +456,7 @@
    "name": "캔드",
    "textColor": "FF0E8C",
    "gradeName": "히어로",
-   "damage": 60547,
+   "damage": 605473,
    "passiveDamage": 130,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -464,7 +464,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 26,
-   "addDamage": 12109,
+   "addDamage": 121095,
    "maxLevel": 100
  },
  {
@@ -474,7 +474,7 @@
    "name": "피즐",
    "textColor": "FF0E8C",
    "gradeName": "히어로",
-   "damage": 66602,
+   "damage": 666020,
    "passiveDamage": 135,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -482,7 +482,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 27,
-   "addDamage": 13320,
+   "addDamage": 133204,
    "maxLevel": 100
  },
  {
@@ -492,7 +492,7 @@
    "name": "네빌",
    "textColor": "FF0E8C",
    "gradeName": "히어로",
-   "damage": 99903,
+   "damage": 999031,
    "passiveDamage": 140,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -500,7 +500,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 28,
-   "addDamage": 19981,
+   "addDamage": 199806,
    "maxLevel": 100
  },
  {
@@ -510,7 +510,7 @@
    "name": "라즈",
    "textColor": "FF0E8C",
    "gradeName": "히어로",
-   "damage": 109893,
+   "damage": 1098934,
    "passiveDamage": 145,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -518,7 +518,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 29,
-   "addDamage": 21979,
+   "addDamage": 219787,
    "maxLevel": 100
  },
  {
@@ -528,7 +528,7 @@
    "name": "맥스",
    "textColor": "FF0E8C",
    "gradeName": "히어로",
-   "damage": 120883,
+   "damage": 1208827,
    "passiveDamage": 150,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -536,7 +536,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 30,
-   "addDamage": 24177,
+   "addDamage": 241765,
    "maxLevel": 100
  },
  {
@@ -546,7 +546,7 @@
    "name": "파이",
    "textColor": "FF0E8C",
    "gradeName": "히어로",
-   "damage": 132971,
+   "damage": 1329710,
    "passiveDamage": 155,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -554,7 +554,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 31,
-   "addDamage": 26594,
+   "addDamage": 265942,
    "maxLevel": 100
  },
  {
@@ -564,7 +564,7 @@
    "name": "아이오",
    "textColor": "FF0E8C",
    "gradeName": "히어로",
-   "damage": 146268,
+   "damage": 1462681,
    "passiveDamage": 160,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -572,7 +572,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 32,
-   "addDamage": 29254,
+   "addDamage": 292536,
    "maxLevel": 100
  },
  {
@@ -582,7 +582,7 @@
    "name": "케이브",
    "textColor": "FF9900",
    "gradeName": "레전드",
-   "damage": 292536,
+   "damage": 2925361,
    "passiveDamage": 165,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -590,7 +590,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 33,
-   "addDamage": 58507,
+   "addDamage": 585072,
    "maxLevel": 100
  },
  {
@@ -600,7 +600,7 @@
    "name": "베이너",
    "textColor": "FF9900",
    "gradeName": "레전드",
-   "damage": 380297,
+   "damage": 3802970,
    "passiveDamage": 170,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -608,7 +608,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 34,
-   "addDamage": 76059,
+   "addDamage": 760594,
    "maxLevel": 100
  },
  {
@@ -618,7 +618,7 @@
    "name": "클로크",
    "textColor": "FF9900",
    "gradeName": "레전드",
-   "damage": 532416,
+   "damage": 5324158,
    "passiveDamage": 175,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -626,7 +626,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 35,
-   "addDamage": 106483,
+   "addDamage": 1064832,
    "maxLevel": 100
  },
  {
@@ -636,7 +636,7 @@
    "name": "스팬",
    "textColor": "FF9900",
    "gradeName": "레전드",
-   "damage": 798624,
+   "damage": 7986237,
    "passiveDamage": 180,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -644,7 +644,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 36,
-   "addDamage": 159725,
+   "addDamage": 1597247,
    "maxLevel": 100
  },
  {
@@ -654,7 +654,7 @@
    "name": "샤드",
    "textColor": "FF9900",
    "gradeName": "레전드",
-   "damage": 1118073,
+   "damage": 11180731,
    "passiveDamage": 185,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -662,7 +662,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 37,
-   "addDamage": 223615,
+   "addDamage": 2236146,
    "maxLevel": 100
  },
  {
@@ -672,7 +672,7 @@
    "name": "라잇",
    "textColor": "FF9900",
    "gradeName": "레전드",
-   "damage": 1006266,
+   "damage": 10062658,
    "passiveDamage": 190,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -680,7 +680,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 38,
-   "addDamage": 201253,
+   "addDamage": 2012532,
    "maxLevel": 100
  },
  {
@@ -690,7 +690,7 @@
    "name": "니톤",
    "textColor": "FF9900",
    "gradeName": "레전드",
-   "damage": 1006266,
+   "damage": 10062658,
    "passiveDamage": 195,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -698,7 +698,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 39,
-   "addDamage": 201253,
+   "addDamage": 2012532,
    "maxLevel": 100
  },
  {
@@ -708,7 +708,7 @@
    "name": "캐스",
    "textColor": "FF9900",
    "gradeName": "레전드",
-   "damage": 1006266,
+   "damage": 10062658,
    "passiveDamage": 200,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -716,7 +716,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 40,
-   "addDamage": 201253,
+   "addDamage": 2012532,
    "maxLevel": 100
  },
  {
@@ -726,7 +726,7 @@
    "name": "블레프",
    "textColor": "FFC8A5",
    "gradeName": "유니크",
-   "damage": 2012532,
+   "damage": 20125316,
    "passiveDamage": 205,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -734,7 +734,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 41,
-   "addDamage": 402506,
+   "addDamage": 4025063,
    "maxLevel": 100
  },
  {
@@ -744,7 +744,7 @@
    "name": "토니",
    "textColor": "FFC8A5",
    "gradeName": "유니크",
-   "damage": 1811278,
+   "damage": 18112785,
    "passiveDamage": 210,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -752,7 +752,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 42,
-   "addDamage": 362256,
+   "addDamage": 3622557,
    "maxLevel": 100
  },
  {
@@ -762,7 +762,7 @@
    "name": "에더",
    "textColor": "FFC8A5",
    "gradeName": "유니크",
-   "damage": 1811278,
+   "damage": 18112785,
    "passiveDamage": 215,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -770,7 +770,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 43,
-   "addDamage": 362256,
+   "addDamage": 3622557,
    "maxLevel": 100
  },
  {
@@ -780,7 +780,7 @@
    "name": "플루",
    "textColor": "FFC8A5",
    "gradeName": "유니크",
-   "damage": 1811278,
+   "damage": 18112785,
    "passiveDamage": 220,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -788,7 +788,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 44,
-   "addDamage": 362256,
+   "addDamage": 3622557,
    "maxLevel": 100
  },
  {
@@ -798,7 +798,7 @@
    "name": "클라우드",
    "textColor": "FFC8A5",
    "gradeName": "유니크",
-   "damage": 1811278,
+   "damage": 18112785,
    "passiveDamage": 225,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -806,7 +806,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 45,
-   "addDamage": 362256,
+   "addDamage": 3622557,
    "maxLevel": 100
  },
  {
@@ -816,7 +816,7 @@
    "name": "태즈",
    "textColor": "FFC8A5",
    "gradeName": "유니크",
-   "damage": 1449023,
+   "damage": 14490228,
    "passiveDamage": 230,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -824,7 +824,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 46,
-   "addDamage": 289805,
+   "addDamage": 2898046,
    "maxLevel": 100
  },
  {
@@ -834,7 +834,7 @@
    "name": "모스",
    "textColor": "FFC8A5",
    "gradeName": "유니크",
-   "damage": 1883730,
+   "damage": 18837296,
    "passiveDamage": 235,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -842,7 +842,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 47,
-   "addDamage": 376746,
+   "addDamage": 3767459,
    "maxLevel": 100
  },
  {
@@ -852,7 +852,7 @@
    "name": "팬톰",
    "textColor": "FFC8A5",
    "gradeName": "유니크",
-   "damage": 1883730,
+   "damage": 18837296,
    "passiveDamage": 240,
    "spawnTime": 5,
    "moveSpeed": 50,
@@ -860,7 +860,7 @@
    "reqirementCount": 5,
    "addReqirementCount": 1,
    "addPassiveDamage": 48,
-   "addDamage": 376746,
+   "addDamage": 3767459,
    "maxLevel": 100
  }
 ]

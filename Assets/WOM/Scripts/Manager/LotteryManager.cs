@@ -225,7 +225,10 @@ public class LotteryManager : MonoBehaviour
                     // save data
                     GlobalData.instance.saveDataManager.SaveDataUnionSummonGradeLevel(summonGradeLevel);
 
+
                     totalGambleCount = totalGambleCount - curSummonGradeData.count;
+
+                    GlobalData.instance.saveDataManager.SaveDataUnionTotalGambleCount(totalGambleCount);
                     //++unionGradeLevel;
                     SetSummonGradeData(GlobalData.instance.dataManager.GetSummonGradeDataByLevel(summonGradeLevel));
                     SetGambleData(GlobalData.instance.dataManager.GetUnionGambleDataBySummonGrade(summonGradeLevel));

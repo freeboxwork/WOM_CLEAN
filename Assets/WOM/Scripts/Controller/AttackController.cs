@@ -74,6 +74,11 @@ public class AttackController : MonoBehaviour
     // 포인터 위치가 UI 위에 있는지 판단
     private bool IsPointerOverUIObject()
     {
+        if (EventSystem.current == null || Input.mousePosition == null)
+        {
+            return true;
+        }
+
         PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
         eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         List<RaycastResult> results = new List<RaycastResult>();

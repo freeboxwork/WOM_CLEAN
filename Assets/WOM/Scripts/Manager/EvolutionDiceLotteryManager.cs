@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+
 using static EnumDefinition;
 
 public class EvolutionDiceLotteryManager : MonoBehaviour
@@ -24,9 +25,91 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
 
     public Sprite[] symbols;
 
+    public List<DiceStatValue> diceStatValues;
+
     void Start()
     {
+        SetDiceStatValuesByEvolutionDiceStatType();
+    }
 
+    void SetDiceStatValuesByEvolutionDiceStatType()
+    {
+        diceStatValues = new List<DiceStatValue>();
+
+        var slots = GlobalData.instance.evolutionManager.evolutionSlots;
+        for (int i = 0; i < slots.Count; i++)
+        {
+            var slot = slots[i];
+            var diceStatValue = new DiceStatValue();
+            diceStatValue.slotIdx = slot.slotId;
+            diceStatValue.gradeType = slot.evolutionRewardGrade;
+            diceStatValue.statValue = 0f;
+            diceStatValue.isSelected = false;
+            diceStatValues.Add(diceStatValue);
+        }
+
+    }
+
+    void AllRestStatValues()
+    {
+        foreach (var diceStatValue in diceStatValues)
+        {
+            diceStatValue.statValue = 0;
+            diceStatValue.isSelected = false;
+            diceStatValue.statType = EvolutionDiceStatType.none;
+            diceStatValue.gradeType = EvolutionRewardGrade.NONE;
+        }
+
+
+    }
+
+    void SetDiceStatValue(DiceStatValue diceStatValue, EvolutionRewardGrade gradeType, EvolutionDiceStatType statType, float statValue)
+    {
+        diceStatValue.gradeType = gradeType;
+        diceStatValue.statValue = statValue;
+        diceStatValue.statType = statType;
+        diceStatValue.isSelected = true;
+    }
+
+    DiceStatValue GetDiceStatValueBySlotIdx(int slotIdx)
+    {
+        return diceStatValues.FirstOrDefault(a => a.slotIdx == slotIdx);
+    }
+
+    // 주사위로 뽑은 능력치 한꺼번에 적용
+    void ApplyAllStatValue()
+    {
+        List<DiceStatValue> valuse = new List<DiceStatValue>();
+        for (int i = 0; i < diceStatValues.Count; i++)
+        {
+            var diceStatValue = diceStatValues[i];
+            if (diceStatValue.isSelected)
+            {
+                DiceStatValue statValue = new DiceStatValue();
+                if (valuse.Any(a => a.statType == diceStatValue.statType))
+                {
+                    var value = valuse.FirstOrDefault(a => a.statType == diceStatValue.statType);
+                    value.statValue += diceStatValue.statValue;
+                    continue;
+                }
+                else
+                {
+                    statValue.statType = diceStatValue.statType;
+                    statValue.statValue = diceStatValue.statValue;
+                }
+                valuse.Add(statValue);
+            }
+        }
+
+        for (int i = 0; i < valuse.Count; i++)
+        {
+            var value = valuse[i];
+            GlobalData.instance.evolutionManager.SetDiceEvolutionData(value.statType, value.statValue);
+        }
+    }
+    bool IsContainsSameGrade(EvolutionRewardGrade grade)
+    {
+        return diceStatValues.Any(a => a.gradeType == grade);
     }
 
     /// <summary> 뽑기 필요 데이터 세팅</summary>
@@ -79,6 +162,9 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
             }
 
 
+            // stat reset
+            AllRestStatValues();
+            GlobalData.instance.evolutionManager.AllResetDiceEvolutionStats();
 
             for (int i = 0; i < slots.Count; i++)
             {
@@ -88,7 +174,8 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
                     yield return StartCoroutine(DiceRoll(slot));
                 }
             }
-
+            //기존 값 모두 초기화 후 주사위 값 한번에 적용 ( 같은 등급은 더해준다 )
+            ApplyAllStatValue();
             rollDice = false;
         }
 
@@ -143,6 +230,7 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
 
             // SET SLOT UI
             slot.SetSymbol(symbols[randomGradeData.grade]);
+
             //slot.SetGradeTxtColor(randomGradeData.gradeColor);
 
             // 랜덤 능력치 뽑기
@@ -150,8 +238,12 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
 
             Debug.Log($"랜덤하게 뽑은 능력치값 :{randomStatType.ToString()} / {statValue}");
 
-            // 능력치 적용
-            GlobalData.instance.evolutionManager.SetDiceEvolutionData(randomStatType, statValue);
+            // 뽑은 데이터 저장
+            var diceStatValueData = GetDiceStatValueBySlotIdx(slot.slotId);
+            SetDiceStatValue(diceStatValueData, (EvolutionRewardGrade)randomGradeData.grade, randomStatType, statValue);
+
+            // 능력치 적용 -> 능력치 적용은 한꺼번에 한다.
+            // GlobalData.instance.evolutionManager.SetDiceEvolutionData(randomStatType, statValue);
 
             // UI TEXT 적용
             GlobalData.instance.evolutionManager.SetEvolutuinSlotName(randomStatType, slot, statValue, randomGradeData.gradeColor, randomGradeData.grade);
@@ -219,5 +311,16 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
     //    var value = $"grade : {data.grade} / probability :{data.gradeProbability}";
     //    Debug.Log(value);
     //}
+}
+
+[System.Serializable]
+public class DiceStatValue
+{
+    public int slotIdx;
+
+    public float statValue;
+    public EvolutionRewardGrade gradeType;
+    public EvolutionDiceStatType statType;
+    public bool isSelected = false;
 }
 

@@ -265,6 +265,20 @@ public class EvolutionManager : MonoBehaviour
         }
     }
 
+    public void AllResetDiceEvolutionStats()
+    {
+        diceEvolutionData.insectDamage = 0;
+        diceEvolutionData.insectCriticalChance = 0;
+        diceEvolutionData.insectCriticalDamage = 0;
+        diceEvolutionData.goldBonus = 0;
+        diceEvolutionData.insectMoveSpeed = 0;
+        diceEvolutionData.insectSpawnTime = 0;
+        diceEvolutionData.insectBossDamage = 0;
+
+        // set save data
+        GlobalData.instance.saveDataManager.SetEvolutionInGameData(diceEvolutionData);
+    }
+
     // 유니온 뽑기
     public void UnionLotteryGameStart(int roundCount, int payValye, EnumDefinition.RewardType rewardType)
     {

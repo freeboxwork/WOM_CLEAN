@@ -157,7 +157,7 @@ public class EventController : MonoBehaviour
         // GET MONSTER
         var currentMonster = globalData.monsterManager.GetMonsterDungeon();
 
-        var curDamage = damage;
+        var curDamage = damage * (1 + globalData.statManager.BossDamage() * 0.01f);
 
         // 사용 확인 필요
         /*
@@ -211,9 +211,9 @@ public class EventController : MonoBehaviour
             //금광 몬스터 2배 받을 확률 가져오기
             float pbb = (float)globalData.statManager.GoldMonsterBonus();
             //확률 계산
-            float ran = Random.Range(0f,100f);
+            float ran = Random.Range(0f, 100f);
 
-            if(ran <= pbb)
+            if (ran <= pbb)
             {
                 //2배 보상
                 currentMonster.gold = currentMonster.gold * 2;

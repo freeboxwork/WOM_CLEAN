@@ -30,6 +30,7 @@ public class GoldPigController : MonoBehaviour
 
     public float enableWaitTime;
 
+    float spawnProbability;
 
     void Start()
     {
@@ -167,7 +168,9 @@ public class GoldPigController : MonoBehaviour
     IEnumerator EnableGoldPigCor()
     {
 
-        var enableTime = 90.0f;//(float)Random.Range(enableGoldPigRange[0], enableGoldPigRange[1]);
+        var enableTime = 5.0f;//(float)Random.Range(enableGoldPigRange[0], enableGoldPigRange[1]);
+
+
 
         var startTime = Time.time;
         float waitTime = enableTime;
@@ -179,7 +182,19 @@ public class GoldPigController : MonoBehaviour
         }
         enableWaitTime = 0;
 
-        StartCoroutine(MoveGoldPig());
+
+        //  확률에 따라 등장
+        spawnProbability = 40.0f + GlobalData.instance.statManager.GoldPig();
+        float randomNumber = Random.Range(0f, 100f);
+        if (randomNumber < spawnProbability)
+        {
+            StartCoroutine(MoveGoldPig());
+        }
+        else
+        {
+            Debug.Log("확률에 따라 골드피그 등장하지 않음");
+        }
+
     }
 
 

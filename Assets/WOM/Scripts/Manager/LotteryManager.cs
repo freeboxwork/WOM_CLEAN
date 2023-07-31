@@ -162,11 +162,25 @@ public class LotteryManager : MonoBehaviour
 
     public void LotteryStart(int roundCount, int payValue, UnityAction gameEndEvent, EnumDefinition.RewardType rewardType)
     {
-        StartCoroutine(CardOpen(roundCount, payValue, gameEndEvent, rewardType));
+        if (lotteryAnimationController.toggleRepeatGame.isOn)
+            StartCoroutine(RepeatGame(roundCount, payValue, gameEndEvent, rewardType));
+        else
+            StartCoroutine(CardOpen(roundCount, payValue, gameEndEvent, rewardType));
+    }
+
+    IEnumerator RepeatGame(int roundCount, int payValue, UnityAction gameEndEvent, EnumDefinition.RewardType rewardType)
+    {
+        while (lotteryAnimationController.toggleRepeatGame.isOn)
+        {
+            yield return StartCoroutine(CardOpen(roundCount, payValue, gameEndEvent, rewardType));
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     public IEnumerator CardOpen(int roundCount, int payValue, UnityAction gameEndEvent, EnumDefinition.RewardType rewardType)
     {
+
+
         if (IsValidGemCount(payValue, rewardType))
         {
 
@@ -234,8 +248,6 @@ public class LotteryManager : MonoBehaviour
                     SetGambleData(GlobalData.instance.dataManager.GetUnionGambleDataBySummonGrade(summonGradeLevel));
                 }
 
-
-
                 PopupUIUpdate();
             }
 
@@ -249,6 +261,8 @@ public class LotteryManager : MonoBehaviour
         {
             // message popup (보석이 부족합니다)
             GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("Message", 3);
+            StopAllCoroutines();
+            yield break;
         }
 
     }

@@ -1,7 +1,7 @@
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
-using Sirenix.Utilities;
+using ProjectGraphics;
 
 public class CampPopup : CastlePopupBase
 {
@@ -16,11 +16,52 @@ public class CampPopup : CastlePopupBase
     public Toggle[] togglesUnion;
     public Toggle[] togglesDNA;
 
+    public Toggle toggleUnionEffSkip;
+    public Toggle toggleUnionRepeatGame;
+
+    public Toggle toggleDnaEffSkip;
+    public Toggle toggleDnaRepeatGame;
+
+    public LotteryAnimationController lotteryAnimationController;
+
     void Start()
     {
         SetBtnEvent();
-        foreach(var to in togglesDNA) to.isOn = false; 
-        foreach(var to in togglesUnion) to.isOn = false;
+        SetToggleEvent();
+        foreach (var to in togglesDNA) to.isOn = false;
+        foreach (var to in togglesUnion) to.isOn = false;
+    }
+
+    void SetToggleEvent()
+    {
+        // Union
+        toggleUnionEffSkip.onValueChanged.AddListener((isOn) =>
+        {
+            lotteryAnimationController.toggleEffSkip.isOn = isOn;
+        });
+        toggleUnionRepeatGame.onValueChanged.AddListener((isOn) =>
+        {
+            lotteryAnimationController.toggleRepeatGame.isOn = isOn;
+        });
+
+        // DNA
+        toggleDnaEffSkip.onValueChanged.AddListener((isOn) =>
+        {
+            lotteryAnimationController.toggleEffSkip.isOn = isOn;
+        });
+        toggleDnaRepeatGame.onValueChanged.AddListener((isOn) =>
+        {
+            lotteryAnimationController.toggleRepeatGame.isOn = isOn;
+        });
+
+    }
+
+    public void ToggleReset()
+    {
+        toggleUnionEffSkip.isOn = false;
+        toggleUnionRepeatGame.isOn = false;
+        toggleDnaEffSkip.isOn = false;
+        toggleDnaRepeatGame.isOn = false;
     }
 
     public void SetSummonCountProgress(int curValue, int totalValue)

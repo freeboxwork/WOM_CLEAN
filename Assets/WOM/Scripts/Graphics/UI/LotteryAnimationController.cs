@@ -1,7 +1,4 @@
-using Sirenix.OdinInspector;
-using Sirenix.Utilities;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,9 +26,11 @@ namespace ProjectGraphics
         public Image titleImage;
         public Sprite unionTitle;
         public Sprite dnaTitle;
-        public Toggle[] toggles;
+        public Toggle[] toggles; // 0 : 연속소환 , 1 : 연출 스킵
+        public Toggle toggleEffSkip;
+        public Toggle toggleRepeatGame;
 
-        [SerializeField] AudioSource audio;
+        [SerializeField] new AudioSource audio;
 
 
 #if UNITY_EDITOR
@@ -39,23 +38,32 @@ namespace ProjectGraphics
 #endif
         private void OnEnable()
         {
-            foreach (var toggle in toggles) toggle.isOn = false;
+            // foreach (var toggle in toggles) toggle.isOn = false;
 
-            //캠프팝업에서 토글 정보를 불러와서 적용
-            if (isUnion)
-            {
-                for (int s = 0; s < campPopup.togglesUnion.Length; s++)
-                {
-                    toggles[s].isOn = campPopup.togglesUnion[s].isOn;
-                }
-            }
-            else
-            {
-                for (int s = 0; s < campPopup.togglesDNA.Length; s++)
-                {
-                    toggles[s].isOn = campPopup.togglesDNA[s].isOn;
-                }
-            }
+            // //캠프팝업에서 토글 정보를 불러와서 적용
+            // if (isUnion)
+            // {
+            //     for (int s = 0; s < campPopup.togglesUnion.Length; s++)
+            //     {
+            //         toggles[s].isOn = campPopup.togglesUnion[s].isOn;
+            //     }
+            // }
+            // else
+            // {
+            //     for (int s = 0; s < campPopup.togglesDNA.Length; s++)
+            //     {
+            //         toggles[s].isOn = campPopup.togglesDNA[s].isOn;
+            //     }
+            // }
+        }
+
+
+
+
+        void ToggleReset()
+        {
+            toggleEffSkip.isOn = false;
+            toggleRepeatGame.isOn = false;
         }
 
         void Start()
@@ -108,7 +116,7 @@ namespace ProjectGraphics
 
         //슬롯 형태 확인 하고, 백 이미지 지우고 아이콘 이미지만 처리 이펙트 컬러 통일.
         public IEnumerator ShowDNAIconSlotCardOpenProcess(int[] u)
-        {   
+        {
             if (toggles[0].isOn || toggles[1].isOn) isSkipDNA = true;
             else isSkipDNA = false;
 
@@ -127,7 +135,7 @@ namespace ProjectGraphics
                 //DNA 는 타입이 존재 안함.
                 slots[i].SetSlotImage(dnaIcons[u[i]]);
                 slots[i].gameObject.SetActive(true);
-                slots[i].SetActiveAction(0); 
+                slots[i].SetActiveAction(0);
 
                 //여기 출현 사운드 필요함.
                 audio.Play();
@@ -154,7 +162,7 @@ namespace ProjectGraphics
 
         public void OnClickSkipButton(Toggle togle)
         {
-            if(isUnion) isSkip = togle.isOn;
+            if (isUnion) isSkip = togle.isOn;
             else isSkipDNA = togle.isOn;
         }
 
@@ -168,9 +176,10 @@ namespace ProjectGraphics
         }
 
         //로터리 애니메이션 종료
-        private void OnDisable()
+        void OnDisable()
         {
-            foreach (var toggle in toggles) toggle.isOn = false;
+            ToggleReset();
+            campPopup.ToggleReset();
             foreach (var slot in slots) slot.gameObject.SetActive(false);
         }
     }

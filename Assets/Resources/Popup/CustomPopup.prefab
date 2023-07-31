@@ -3301,6 +3301,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4149163789628676807}
     m_Modifications:
+    - target: {fileID: 654022375507208356, guid: fbfc6dce45fa442089afe9fd0efc43d1, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 654022375507208378, guid: fbfc6dce45fa442089afe9fd0efc43d1, type: 3}
       propertyPath: m_Materials.Array.size
       value: 1
@@ -3396,6 +3400,10 @@ PrefabInstance:
     - target: {fileID: 1526750906894032834, guid: fbfc6dce45fa442089afe9fd0efc43d1, type: 3}
       propertyPath: m_Material
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1526750906894032834, guid: fbfc6dce45fa442089afe9fd0efc43d1, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1526750906894032835, guid: fbfc6dce45fa442089afe9fd0efc43d1, type: 3}
       propertyPath: m_Materials.Array.size

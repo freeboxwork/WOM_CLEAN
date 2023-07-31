@@ -221,18 +221,18 @@ public class EventController : MonoBehaviour
                 //2배 보상
                 currentMonster.gold = currentMonster.gold * 2;
                 // GOLD 획득 이미지도 2배로 뿌려줍니다
-                StartCoroutine(globalData.effectManager.bonePoolingCont.EnableGoldEffects(currentMonster.goldCount * 2));
+                StartCoroutine(globalData.effectManager.goldPoolingCont.EnableGoldEffects(currentMonster.goldCount * 2));
             }
             else
             {
                 // GOLD 획득 애니메이션
-                StartCoroutine(globalData.effectManager.bonePoolingCont.EnableGoldEffects(currentMonster.goldCount));
+                StartCoroutine(globalData.effectManager.goldPoolingCont.EnableGoldEffects(currentMonster.goldCount));
             }
         }
         else
         {
             // GOLD 획득 애니메이션
-            StartCoroutine(globalData.effectManager.bonePoolingCont.EnableGoldEffects(currentMonster.goldCount));
+            StartCoroutine(globalData.effectManager.goldPoolingCont.EnableGoldEffects(currentMonster.goldCount));
         }
 
 

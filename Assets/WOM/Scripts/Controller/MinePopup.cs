@@ -126,7 +126,7 @@ public class MinePopup : CastlePopupBase
         string _productionCountText = $"{data.productionCount}";
         string _maxSupplyText = $"{data.maxSupplyAmount}";
         string _productionTimeText = $"{data.productionTime}";
-        string _levelText = $"{data.level}";
+        string _levelText = $"Lv {data.level}";
         string _priceText = data.price.ToString();
 
         // 다음 레벨 정보가 존재하는 경우 문자열값 업데이트
@@ -135,7 +135,7 @@ public class MinePopup : CastlePopupBase
             _productionCountText += $" / {productionCount}";
             _maxSupplyText += $" / {maxSupply}";
             _productionTimeText += $" / {productionTime}";
-            _levelText += $" > {nextLevelData.level}";
+            _levelText += $" > Lv {nextLevelData.level}";
             _priceText = nextLevelData.price.ToString();
         }
 

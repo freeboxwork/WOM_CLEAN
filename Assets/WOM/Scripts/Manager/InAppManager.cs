@@ -18,7 +18,8 @@ public enum ProductTYPE
     vipgem4,
     starterrpackage,
     adbuffpass,
-    fastestpackage
+    fastestpackage,
+    dungeonpackage
 }
 
 
@@ -34,6 +35,10 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
         // Unity IAP 초기화
         InitializePurchasing();
 
+        productButtons[(int)ProductTYPE.dungeonpackage].onClick.AddListener(() =>
+        {
+            storeController.InitiatePurchase(ProductTYPE.dungeonpackage.ToString());
+        });
         productButtons[(int)ProductTYPE.starterrpackage].onClick.AddListener(() =>
         {
             storeController.InitiatePurchase(ProductTYPE.starterrpackage.ToString());
@@ -103,6 +108,7 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
         builder.AddProduct(ProductTYPE.starterrpackage.ToString(), ProductType.NonConsumable);
         builder.AddProduct(ProductTYPE.adbuffpass.ToString(), ProductType.NonConsumable);
         builder.AddProduct(ProductTYPE.fastestpackage.ToString(), ProductType.NonConsumable);
+        builder.AddProduct(ProductTYPE.dungeonpackage.ToString(), ProductType.NonConsumable);
 
         // Unity IAP 초기화
         UnityPurchasing.Initialize(this, builder);
@@ -216,7 +222,14 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
             Debug.Log("초고속 성장 패키지 구매 성공");
             //보석50000개 유니온티켓50 dna티켓20 소탕권20 유니온index 40번 지급
         }
-
+        else if (args.purchasedProduct.definition.id == ProductTYPE.dungeonpackage.ToString())
+        {
+            var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.goldKey, EnumDefinition.RewardType.boneKey, EnumDefinition.RewardType.diceKey, EnumDefinition.RewardType.coalKey, EnumDefinition.RewardType.clearTicket };
+            var rewardValues = new long[] { 10, 10, 10, 10, 2 };
+            PopupController.instance.InitPopups(rewardTypes, rewardValues);
+            Debug.Log("던전 패키지 구매 성공");
+            //던전키4종 10개씩 소탕권2개 지급
+        }
 
 
 
@@ -231,42 +244,7 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
 
         if (failureReason == PurchaseFailureReason.DuplicateTransaction)
         {
-            if (String.Equals(product.definition.storeSpecificId, ProductTYPE.starterrpackage.ToString(), StringComparison.Ordinal))
-            {
 
-                var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem, EnumDefinition.RewardType.unionTicket, EnumDefinition.RewardType.dnaTicket, EnumDefinition.RewardType.clearTicket };
-                var rewardValues = new long[] { 3000, 10, 5, 2 };
-                PopupController.instance.InitPopups(rewardTypes, rewardValues);
-                Debug.Log("초심자 패키지 이미 구매하였습니다");
-                //보석3000개 유니온티켓10 dna티켓5 소탕권2 지급
-
-            }
-            else if (String.Equals(product.definition.storeSpecificId, ProductTYPE.adbuffpass.ToString(), StringComparison.Ordinal))
-            {
-                // 광고 패스, 버프무제한 
-                // set pass value
-                var adKey = GlobalData.instance.adManager.adPassKey;
-                var buffKey = GlobalData.instance.adManager.buffPassKey;
-                PlayerPrefs.SetInt(adKey, 1);
-                PlayerPrefs.SetInt(buffKey, 1);
-                var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem, EnumDefinition.RewardType.clearTicket };
-                var rewardValues = new int[] { 10000, 5 };
-                Debug.Log("광고 패스 패키지 이미 구매하였습니다");
-                //광고패스/버프무제한 보석10000개 소탕권5 지급
-
-            }
-            else if (String.Equals(product.definition.storeSpecificId, ProductTYPE.fastestpackage.ToString(), StringComparison.Ordinal))
-            {
-                var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem, EnumDefinition.RewardType.unionTicket, EnumDefinition.RewardType.dnaTicket, EnumDefinition.RewardType.clearTicket, EnumDefinition.RewardType.union };
-                var rewardValues = new int[] { 50000, 50, 20, 20, 40 };
-                Debug.Log("초고속 성장 패키지 이미 구매하였습니다");
-                //보석50000개 유니온티켓50 dna티켓20 소탕권20 유니온index 40번 지급
-
-            }
-            else
-            {
-
-            }
         }
 
     }

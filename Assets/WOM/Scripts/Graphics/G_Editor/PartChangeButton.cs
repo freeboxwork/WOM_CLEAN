@@ -10,6 +10,8 @@ namespace ProjectGraphics
     [CustomEditor(typeof(PartsChangeTest))]
     public class PartChangeButton : Editor
     {
+        string minValue;
+        string maxValue;
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
@@ -40,6 +42,23 @@ namespace ProjectGraphics
             {
                 change.SaveCSVFileMonsterParts();
             }
+
+
+            
+            if (GUILayout.Button("무작위 이미지 조합 생성"))
+            {
+                change.ChangedRandomPart(int.Parse(minValue),int.Parse(maxValue));
+            }
+            
+            minValue = EditorGUILayout.TextField("Min: ", minValue);
+
+            maxValue = EditorGUILayout.TextField("Max", maxValue);
+
+
+
+
+
+
 
             /*
             if (GUILayout.Button("CaptureImage On Playable"))

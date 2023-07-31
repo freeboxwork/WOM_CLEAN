@@ -21,6 +21,8 @@ namespace ProjectGraphics
         [SerializeField] Camera captureCam;
         SavePartsList save;
 
+
+
         private int num = 0;
         private int maxNum = 5;
 
@@ -32,7 +34,7 @@ namespace ProjectGraphics
         public bool BackAlpha = true;
 
         [Header("Parts Change"), Tooltip("0~4, 5~9, 10~14, 15~19, 20~24 = 동일한 모습에 색만 다른 일반형 , 25~29 = 메카닉 , 30,31,32 = 레이드보스")]
-        public PartNumbesrs partNum;
+        public PartNumbesrs partNum; //이거 변경?
         private Dictionary<string, int> parts = new Dictionary<string, int>();
 
         void Start()
@@ -57,8 +59,37 @@ namespace ProjectGraphics
             parts.Add("leg_2", partNum.leg2);
         }
 
+
+
+        public void ChangedRandomPart(int min, int max)
+        {
+
+
+            //값 들어가는거.
+            parts["tail"] = partNum.tail = UnityEngine.Random.Range(min, max);
+            parts["hand"] = partNum.hand = UnityEngine.Random.Range(min, max);
+            parts["finger"] = partNum.finger = UnityEngine.Random.Range(min, max);
+            parts["foreArm"] = partNum.foreArm = UnityEngine.Random.Range(min, max);
+            parts["upperArm"] = partNum.upperArm = UnityEngine.Random.Range(min, max);
+            parts["head"] = partNum.head = UnityEngine.Random.Range(min, max);
+            parts["body"] = partNum.body = UnityEngine.Random.Range(min, max);
+            parts["leg_0"] = partNum.leg0 = UnityEngine.Random.Range(min, max);
+            parts["leg_1"] = partNum.leg1 = UnityEngine.Random.Range(min, max);
+            parts["leg_2"] = partNum.leg2 = UnityEngine.Random.Range(min, max);
+
+            //부위 변환
+            foreach (var item in parts)
+            {
+                spritesController.ChangedSpritePartImage(item.Key, item.Value);
+            }
+
+            ChangePartNumberDatas();
+        }
+
+
         public void ChangedPartDictionaryValue()
         {
+            //값 들어가는거.
             parts["tail"] = partNum.tail;
             parts["hand"] = partNum.hand;
             parts["finger"] = partNum.finger;

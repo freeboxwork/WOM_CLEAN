@@ -74,6 +74,10 @@ public class EffectManager : MonoBehaviour
     // castle tranition effect
     public GameObject transitionAnimEffCastleIn;
 
+    // king monster effect
+    public GameObject[] effectKingMonsterHits;
+
+
     void Start()
     {
 
@@ -340,4 +344,12 @@ public class EffectManager : MonoBehaviour
     {
         transitionAnimEffCastleIn.gameObject.SetActive(true);
     }
+
+    public void EnableKingMonsterHitEffect(Transform tr, int hitIndex)
+    {
+        effectKingMonsterHits[hitIndex].transform.position = tr.position;
+        effectKingMonsterHits[hitIndex].SetActive(true);
+    }
+
+
 }

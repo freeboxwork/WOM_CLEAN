@@ -61,7 +61,7 @@ public class NewUserSlot : MonoBehaviour
     {
         var icon = GlobalData.instance.spriteDataManager.GetRewardIcon(UtilityMethod.GetRewardTypeByTypeName(name));
 
-        Debug.Log($"name : {name} , icon : {icon} ");
+        //Debug.Log($"name : {name} , icon : {icon} ");
 
         if (icon == null)
             icon = null;

@@ -159,13 +159,13 @@ public class StatManager : MonoBehaviour
     {
 
         //var ud = GetUnionData(unionIndex).damage + skill_UnionDamageUp;
-        var ud = GetUnionData(unionIndex).damage; 
+        var ud = GetUnionData(unionIndex).damage;
         var dms = GetDnaData(DNAType.unionDamage).power;
         var value = ud * (1 + ((dms + skill_UnionDamageUp)) * 0.01f);
 
-         // ad buff 적용 ( damage )
+        // ad buff 적용 ( damage )
         var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffDamage).addValue;
-       
+
 
 
         Debug.Log($"유니온 공격력 : 기본:{ud}//DNA:{dms}= 합계 : {value}");
@@ -193,7 +193,7 @@ public class StatManager : MonoBehaviour
 
         var ums = GetUnionData(unionIndex).spawnTime;
         var dst = GetDnaData(DNAType.unionSpawnTime).power;
-        var value= ums - dst;
+        var value = ums - dst;
         Debug.Log($"유니온 스폰시간 : 기본:{ums}//DNA:{dst}= 합계 : {value}");
 
         return value;
@@ -423,6 +423,9 @@ public class StatManager : MonoBehaviour
         var data = GetSkillData(SkillType.monsterKing);
         skill_MonsterKing = data.power;
         data.isSkilUsing = true;
+
+        // monster king move animation
+        GlobalData.instance.monsterKingController.MonsterKingMove();
 
         // set save data
         var skilType = SkillType.insectDamageUp;

@@ -10,6 +10,7 @@ public class MonsterKingController : MonoBehaviour
     public Transform endPoint;
     public Transform trMonsterKing;
 
+    public Transform trHitPoint;
 
     public float hitTimingMin = 0.05f;
     public float hitTimingMax = 0.2f;
@@ -17,35 +18,22 @@ public class MonsterKingController : MonoBehaviour
 
     void Start()
     {
-        AddEvent();
+
     }
 
-    void OnDestroy()
-    {
-        RemoveEvent();
-    }
 
-    void AddEvent()
-    {
-        EventManager.instance.AddCallBackEvent(CallBackEventType.TYPES.OnMonsterKingHit, HitMonster);
-    }
 
-    void RemoveEvent()
-    {
-        EventManager.instance.RemoveCallBackEvent(CallBackEventType.TYPES.OnMonsterKingHit, HitMonster);
-    }
+
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            MonsterKingMove();
-        }
+
     }
 
     public void MonsterKingMove()
     {
+        trMonsterKing.gameObject.SetActive(true);
         StartCoroutine(animController.AnimPositionEndEvent(startPoint.position, endPoint.position, () =>
         {
             trMonsterKing.gameObject.SetActive(false);
@@ -53,25 +41,37 @@ public class MonsterKingController : MonoBehaviour
         }));
     }
 
-    void HitMonster()
+    public void HitMonster()
     {
-        if (animController.isAnimPlay == false)
-            StartCoroutine(HitMonsterCot());
+        StartCoroutine(HitMonsterCor());
     }
     //5 회 가격
-    public IEnumerator HitMonsterCot()
+    public IEnumerator HitMonsterCor()
     {
         for (int i = 0; i < totalHitCount; i++)
         {
-            AttackMonster();
+            AttackMonster(i);
             var waitTime = RaddomHitTiming();
             yield return new WaitForSeconds(waitTime);
+
+            if (GlobalData.instance.attackController.GetAttackableState() == false)
+                yield break;
+            if (IsMonsterDead() == true)
+                yield break;
         }
     }
 
-    void AttackMonster()
+    bool IsMonsterDead()
     {
+        var hp = GlobalData.instance.player.currentMonster.hp;
+        return hp < 0;
+    }
 
+    void AttackMonster(int hitIndex)
+    {
+        // enable Hit Effect pariicle
+        GlobalData.instance.effectManager.EnableKingMonsterHitEffect(trHitPoint, hitIndex);
+        EventManager.instance.RunEvent<Transform>(CallBackEventType.TYPES.OnMonsterKingHit, trHitPoint);
     }
 
     float RaddomHitTiming()

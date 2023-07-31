@@ -48,7 +48,7 @@ public class GlobalData : MonoBehaviour
     public AD_Manager adManager;
     public PlayerDataManager playerDataManager;
     public OfflineRewardPopupContoller offlineRewardPopupContoller;
-
+    public MonsterKingController monsterKingController;
 
 
     private void Awake()

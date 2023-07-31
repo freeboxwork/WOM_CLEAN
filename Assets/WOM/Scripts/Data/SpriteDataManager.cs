@@ -17,7 +17,7 @@ public class SpriteDataManager : MonoBehaviour
         foreach (var item in System.Enum.GetValues(typeof(RewardType)))
         {
             rewardIconDic.Add((RewardType)item, iconSpriteFileData.GetIconData((int)item));
-            Debug.Log(rewardIconDic[(RewardType)item].name);
+            // Debug.Log(rewardIconDic[(RewardType)item].name);
         }
     }
 

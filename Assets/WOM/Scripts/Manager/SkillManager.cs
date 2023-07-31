@@ -40,25 +40,31 @@ public class SkillManager : MonoBehaviour
         {
             var skillData = GetSkillData(type);
 
-            Skill_InGameData data = new Skill_InGameData();
-            data.skillType = type;
+            Skill_InGameData inGameData = new Skill_InGameData();
+            inGameData.skillType = type;
 
             //저장된 값에서 불러옴
             var saveData = GlobalData.instance.saveDataManager.GetSaveDataSkill(type);
 
-            data.level = saveData.level;
-            data.damage = saveData.damage;
-            data.isSkilUsing = saveData.isUsingSkill;
+            inGameData.level = saveData.level;
+
+            inGameData.isSkilUsing = saveData.isUsingSkill;
             //data.skillLeftTime = saveData.leftSkillTime;
 
-            data.duaration = saveData.duaration;
-            data.power = saveData.power;
-            data.coolTime = skillData.coolTime;
-            data.skilName = skillData.name;
+
+
+            inGameData.coolTime = skillData.coolTime;
+            inGameData.skilName = skillData.name;
 
             //data = saveData.skill_InGameData;
 
-            skill_InGameDatas.Add(data);
+            inGameData.power = GetInitPowerValue(skillData, inGameData);
+            inGameData.damage = GetDamangeValue(inGameData.power);
+            inGameData.duaration = GetInitDurationValue(skillData, inGameData);
+            //inGamedata.damage = saveData.damage; // 계산식 필요
+            //inGamedata.power = saveData.power; // 계산식 필요
+
+            skill_InGameDatas.Add(inGameData);
 
             if (saveData.isUnLock)
             {
@@ -289,15 +295,34 @@ public class SkillManager : MonoBehaviour
         return orl_description.Replace("<Duration>초", $"<#40ff80>{inGameData.duaration}초</color>");
     }
 
-
-    float GetDurationValue(SkillData skillData, Skill_InGameData skill_InGameData)
+    double GetInitPowerValue(SkillData skillData, Skill_InGameData skill_InGameData)
     {
-        return skillData.duration + (skill_InGameData.level + skillData.addDurationTime);
+        double power = 0;
+        for (int i = 0; i < skill_InGameData.level; i++)
+        {
+            power += skillData.power + (i * skillData.addPowerRate);
+        }
+        return power;
     }
+    float GetInitDurationValue(SkillData skillData, Skill_InGameData skill_InGameData)
+    {
+        float duration = 0;
+        for (int i = 0; i < skill_InGameData.level; i++)
+        {
+            duration += skillData.duration + (i * skillData.addDurationTime);
+        }
+        return duration;
+    }
+
+
 
     double GetPowerValue(SkillData skillData, Skill_InGameData skill_InGameData)
     {
         return skillData.power + (skill_InGameData.level * skillData.addPowerRate);
+    }
+    float GetDurationValue(SkillData skillData, Skill_InGameData skill_InGameData)
+    {
+        return skillData.duration + (skill_InGameData.level + skillData.addDurationTime);
     }
 
     double GetDamangeValue(double power)

@@ -20,6 +20,9 @@ public class LabBuildingManager : MonoBehaviour
         for (int i = 0; i < data.Count; i++)
         {
             var buildData = data[i].CloneInstance();
+            // 레벨에 따른 데이터 세팅
+            buildData.value = GlobalData.instance.dataManager.GetLabBuindingDataValueByGoodsType(data[i].level, data[i].goodsType);
+            buildData.price = GlobalData.instance.dataManager.GetLabBuildingDataByLevel(data[i].level).price;
             labBuildIngameDataList.Add(buildData);
         }
 

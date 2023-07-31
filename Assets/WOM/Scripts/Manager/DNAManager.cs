@@ -78,8 +78,10 @@ public class DNAManager : MonoBehaviour
             // set in game data (  )
             var saveData = GlobalData.instance.saveDataManager.GetSaveDataDNA(type);
 
-            slot.inGameData.power = saveData.power;
             slot.inGameData.level = saveData.level;
+            slot.inGameData.power = (saveData.level * data.power);
+
+
             slot.inGameData.maxLevel = data.maxLevel;
             slot.inGameData.name = data.dnaName;
             slot.inGameData.dataPower = data.power;

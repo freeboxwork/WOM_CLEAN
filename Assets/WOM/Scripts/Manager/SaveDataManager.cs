@@ -235,7 +235,7 @@ public class SaveDataManager : MonoBehaviour
         SaveDataDNA dnaData = GetSaveDataByType(saveDataTotal.saveDataDNAs.saveDatas,
             f => f.dnaType == dnaType, dnaType.ToString());
         dnaData.level = inGameData.level;
-        dnaData.power = inGameData.power;
+        //dnaData.power = inGameData.power;
     }
 
     public SaveDataDNA GetSaveDataDNA(DNAType dnaType)
@@ -343,12 +343,12 @@ public class SaveDataManager : MonoBehaviour
 
         skillData.skillType = skillType;
         skillData.level = skill_InGameData.level;
-        skillData.damage = skill_InGameData.damage;
+        //skillData.damage = skill_InGameData.damage;
         skillData.isUsingSkill = skill_InGameData.isSkilUsing;
         skillData.leftCoolTime = skill_InGameData.skillLeftCoolTime;
         skillData.isUnLock = true;
-        skillData.duaration = skill_InGameData.duaration;
-        skillData.power = skill_InGameData.power;
+        //skillData.duaration = skill_InGameData.duaration;
+        //skillData.power = skill_InGameData.power;
 
 
         //skillData.skill_InGameData = skill_InGameData;
@@ -778,7 +778,7 @@ public class SaveDataDNAs
 public class SaveDataDNA
 {
     public int level;
-    public double power;
+    //public double power;
     public int dnaIndex;
     public DNAType dnaType;
 }
@@ -801,15 +801,15 @@ public class SaveDataSkills
 public class SaveDataSkill
 {
     public int level;
-    public double damage;
+    //public double damage;
     public bool isUsingSkill;     // 스킬 사용중 표시
     //public float leftSkillTime; // 스킬 남은 시간  
     public float leftCoolTime;    // 스킬 쿨타임 남은 시간
     public bool isCooltime;       // 스킬 쿨타임중 표시
     public EnumDefinition.SkillType skillType;
     public bool isUnLock;
-    public float duaration;
-    public double power;
+    //public float duaration;
+    //public double power;
 
     //public Skill_InGameData skill_InGameData;
 }

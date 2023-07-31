@@ -105,12 +105,11 @@ public class EventController : MonoBehaviour
     {
         if (isMonsterDie) return;
 
-        // todo : data 에서 불러와야함
-        var damage = 500;
+        // skill data 의 power 를 가져온다.
+        var damage = GlobalData.instance.skillManager.GetSkillInGameDataByType(SkillType.monsterKing).power;
 
         // ENABLE Floting Text Effect 
-        globalData.effectManager.EnableFloatingText(damage, tr);
-
+        globalData.effectManager.EnableFloatingText((float)damage, tr);
 
         // GET MONSTER
         var currentMonster = globalData.player.currentMonster;

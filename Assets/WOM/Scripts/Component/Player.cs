@@ -229,14 +229,23 @@ public class Player : MonoBehaviour
     // 던전 입장 키 초기화 ( 2개씩 지급 )
     public void AddAllDungeonKeys()
     {
+        if (dungeonKeys[GoodsType.gold] < 2)
+            AddDungeonKey(GoodsType.gold, 2);
+
+        if (dungeonKeys[GoodsType.bone] < 2)
+            AddDungeonKey(GoodsType.bone, 2);
+
+        if (dungeonKeys[GoodsType.dice] < 2)
+            AddDungeonKey(GoodsType.dice, 2);
+
+        if (dungeonKeys[GoodsType.coal] < 2)
+            AddDungeonKey(GoodsType.coal, 2);
+
+
         AddDungeonADKey(GoodsType.gold, 2);
         AddDungeonADKey(GoodsType.bone, 2);
         AddDungeonADKey(GoodsType.dice, 2);
         AddDungeonADKey(GoodsType.coal, 2);
-        AddDungeonKey(GoodsType.gold, 2);
-        AddDungeonKey(GoodsType.bone, 2);
-        AddDungeonKey(GoodsType.dice, 2);
-        AddDungeonKey(GoodsType.coal, 2);
     }
 
     public void SetCurrentStageData(int stageIdx)
@@ -405,7 +414,7 @@ public class Player : MonoBehaviour
     public void AddDungeonKey(GoodsType goodsType, long addKeyCount)
     {
         dungeonKeys[goodsType] += addKeyCount;
-        if (dungeonKeys[goodsType] > 2) dungeonKeys[goodsType] = 2; // 던전 키 최대 보유수 2개 제한
+        //if (dungeonKeys[goodsType] > 2) dungeonKeys[goodsType] = 2; // 던전 키 최대 보유수 2개 제한
 
         // RELOAD UI
         // ...

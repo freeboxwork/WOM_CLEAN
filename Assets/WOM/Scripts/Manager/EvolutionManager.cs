@@ -166,10 +166,10 @@ public class EvolutionManager : MonoBehaviour
 
     void SetButtonEvents()
     {
-        // 뽑기 게임 10 , 11 , 30회 , 
+        // 뽑기 게임 10 , 11 , 33회 , 
         UtilityMethod.SetBtnEventCustomTypeByID(17, () => UnionLotteryGameStart(1, 10, EnumDefinition.RewardType.gem));
         UtilityMethod.SetBtnEventCustomTypeByID(18, () => UnionLotteryGameStart(11, 100, EnumDefinition.RewardType.gem));
-        UtilityMethod.SetBtnEventCustomTypeByID(19, () => UnionLotteryGameStart(30, 1000, EnumDefinition.RewardType.gem));
+        UtilityMethod.SetBtnEventCustomTypeByID(19, () => UnionLotteryGameStart(33, 1000, EnumDefinition.RewardType.gem));
 
 
         /* 진화전 */

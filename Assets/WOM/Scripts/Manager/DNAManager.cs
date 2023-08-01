@@ -25,17 +25,17 @@ public class DNAManager : MonoBehaviour
         // 뽑기버튼 3종
         // 27 : 1회 , 28: 11회 , 29 : 33회
 
-        SetBtnEventCustomTypeByID(btnLottery01, () =>
+        SetBtnEventCustomTypeByID(27, () =>
         {
             DNALotteryGameStart(1, 10, EnumDefinition.RewardType.gem);
         });
 
-        SetBtnEventCustomTypeByID(btnLottery10, () =>
+        SetBtnEventCustomTypeByID(28, () =>
         {
             DNALotteryGameStart(11, 100, EnumDefinition.RewardType.gem);
         });
 
-        SetBtnEventCustomTypeByID(btnLottery30, () =>
+        SetBtnEventCustomTypeByID(29, () =>
         {
             DNALotteryGameStart(33, 1000, EnumDefinition.RewardType.gem);
         });

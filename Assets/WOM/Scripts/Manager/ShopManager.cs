@@ -55,7 +55,7 @@ public class ShopManager : MonoBehaviour
         });
 
 
-        // UNION 1 -> unionTicket 사용
+        // // UNION 1 -> unionTicket 사용
         UtilityMethod.SetBtnEventCustomTypeByID(70, () =>
         {
             Debug.Log("UNION 1 -> unionTicket 사용");

@@ -39,7 +39,7 @@ public class OfflineRewardPopupContoller : MonoBehaviour
         if (PlayerPrefs.HasKey(key))
         {
             var offlineTime = GlobalData.instance.playerDataManager.GetOfflineTimeValue();
-            var hour = offlineTime.Hours;
+            var hour = (int)offlineTime.TotalHours;
             if (hour >= 1)
             {
                 // 최대 보상 8시간 제한
@@ -51,8 +51,8 @@ public class OfflineRewardPopupContoller : MonoBehaviour
                 var monData = GlobalData.instance.monsterManager.GetMonsterData(EnumDefinition.MonsterType.boss);
 
 
-                var mGold = monData.gold *  (1 + (GlobalData.instance.statManager.OfflineBonus() * 0.01f));
-                var mBone = monData.bone *  (1 + (GlobalData.instance.statManager.OfflineBonus() * 0.01f));
+                var mGold = monData.gold * (1 + (GlobalData.instance.statManager.OfflineBonus() * 0.01f));
+                var mBone = monData.bone * (1 + (GlobalData.instance.statManager.OfflineBonus() * 0.01f));
 
                 rewardGold = (long)mGold * hour;
                 rewardBone = (long)mBone * hour;

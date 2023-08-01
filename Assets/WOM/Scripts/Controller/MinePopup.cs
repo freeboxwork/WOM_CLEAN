@@ -177,7 +177,7 @@ public class MinePopup : CastlePopupBase
         SetTextPrice(_priceText);
 
         //TOD0: 저장된 데이터에서 불러 와야 함
-        data.TotlaMiningValue = 0;
+        // data.TotlaMiningValue = 0;
 
         //data 의 모든 변수값 출력
         // Debug.Log($"data.productionCount : {data.productionCount}");

@@ -52,7 +52,7 @@ public class DNAManager : MonoBehaviour
             }
             else
             {
-                StartCoroutine(LotteryStart(gameCount, payValue, rewardType));
+                Lottery_Start(gameCount, payValue, rewardType);
             }
         }
     }
@@ -111,6 +111,22 @@ public class DNAManager : MonoBehaviour
     }
 
 
+    public void Lottery_Start(int roundCount, int payValue, EnumDefinition.RewardType rewardType)
+    {
+        if (lotteryAnimCont.toggleRepeatGame.isOn)
+            StartCoroutine(RepeatGame(roundCount, payValue, rewardType));
+        else
+            StartCoroutine(LotteryStart(roundCount, payValue, rewardType));
+    }
+
+    IEnumerator RepeatGame(int roundCount, int payValue, EnumDefinition.RewardType rewardType)
+    {
+        while (lotteryAnimCont.toggleRepeatGame.isOn)
+        {
+            yield return StartCoroutine(LotteryStart(roundCount, payValue, rewardType));
+            yield return new WaitForSeconds(1f);
+        }
+    }
     // DNA 뽑기
     IEnumerator LotteryStart(int gameCount, int payValue, EnumDefinition.RewardType rewardType)
     {
@@ -186,6 +202,8 @@ public class DNAManager : MonoBehaviour
         {
             // message popup (보석이 부족합니다) -> 재화가 부족 합니다.
             GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("Message", 3);
+            StopAllCoroutines();
+            yield break;
         }
 
 

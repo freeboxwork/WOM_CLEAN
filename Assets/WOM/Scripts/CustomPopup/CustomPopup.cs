@@ -29,7 +29,7 @@ public class CustomPopup : MonoBehaviour
     IEnumerator Show()
     {
         // sfx 팝업 보여질때 효과음
-        GlobalData.instance.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.Reward);
+        // GlobalData.instance.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.Reward);
 
         popupButton.gameObject.SetActive(false);
 

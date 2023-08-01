@@ -124,7 +124,8 @@ public class UiController : MonoBehaviour
     /* SET MONSTER UI */
     public void SetTxtMonsterHp(double value)
     {
-        txtMonsterHp.text = value.ToString();
+        var txtHP = UtilityMethod.ConvertDoubleToLong(value);
+        txtMonsterHp.text = txtHP.ToString();
     }
 
     public void SetTxtPhaseCount(int value)

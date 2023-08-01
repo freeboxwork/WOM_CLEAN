@@ -69,6 +69,8 @@ public class ADRandomRewardPopupController : MonoBehaviour
         {
             Debug.Log("광고 재생 횟수 초과");
         }
+
+        this.gameObject.SetActive(false);
     }
 
 

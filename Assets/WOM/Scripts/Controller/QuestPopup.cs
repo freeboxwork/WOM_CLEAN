@@ -173,7 +173,8 @@ public class QuestPopup : MonoBehaviour
     public void UnlockBattlePassSlot(int stageId)
     {
         var slot = GetBattlePassSlotByStage(stageId);
-        slot.SetBlockImage(false);
+        if (slot != null)
+            slot.SetBlockImage(false);
     }
 
     public void UnlockBattlePassSlotItem(int stageId)

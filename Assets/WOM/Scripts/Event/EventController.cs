@@ -246,6 +246,8 @@ public class EventController : MonoBehaviour
             StartCoroutine(globalData.effectManager.bonePoolingCont.EnableGoldEffects(currentMonster.boneCount));
             // 뼈 조각 획득
             GainBone(currentMonster);
+
+
         }
 
         // hp text 0으로 표시
@@ -343,7 +345,6 @@ public class EventController : MonoBehaviour
     IEnumerator MonsterDie_Gold()
     {
 
-
         // BG Scroll Animation
         globalData.stageManager.PlayAnimBgScroll();
 
@@ -355,6 +356,9 @@ public class EventController : MonoBehaviour
 
         // phaseCount 리셋
         PhaseCountReset();
+
+        // phase count UI 활성화
+        globalData.uiController.SetEnablePhaseCountUI(true);
 
         // 일일 퀘스트 완료 : 금광보스
         EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.killGoldBoss);
@@ -851,6 +855,9 @@ public class EventController : MonoBehaviour
         // 포기 버튼 활성화
         UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(true);
 
+        // phase count UI 숨김
+        globalData.uiController.SetEnablePhaseCountUI(false);
+
         // 보스 몬스터 등장
         StartCoroutine(MonsterAppearCor(MonsterType.boss));
 
@@ -893,6 +900,9 @@ public class EventController : MonoBehaviour
 
         // 보스 도전 타이머 비활성화
         globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(false);
+
+        // phase count UI 활성화
+        globalData.uiController.SetEnablePhaseCountUI(true);
 
         // 일반 몬스터 등장
         StartCoroutine(MonsterAppearCor(MonsterType.normal));

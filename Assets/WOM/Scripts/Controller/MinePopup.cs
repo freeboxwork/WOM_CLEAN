@@ -65,8 +65,11 @@ public class MinePopup : CastlePopupBase
         });
     }
 
-
-
+    public void SetMaxUI()
+    {
+        btnUpgrade.interactable = false;
+        SetTextPrice("MAX");
+    }
     //CastleBuildingData 객체를 인자로 받아서 각각의 맴버변수의 text 값을 설정하는 함수
     /*
     public void SetUpGradeText(CastleBuildingData data, CastleBuildingData nextLevelData =null)

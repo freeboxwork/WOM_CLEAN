@@ -149,13 +149,18 @@ public class CastleManager : MonoBehaviour
             case CastlePopupType.mine:
                 var minePopup = (MinePopup)GetCastlePopupByType(popupType);
                 var mineNextLevelData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel + 1);
-                minePopup.btnUpgrade.interactable = mineNextLevelData != null;
+                if (mineNextLevelData == null)
+                    minePopup.SetMaxUI();
+                // else
+                //     minePopup.btnUpgrade.interactable = true;
 
                 break;
             case CastlePopupType.factory:
                 var factoryPopup = (MinePopup)GetCastlePopupByType(popupType);
                 var factoryNextLevelData = GlobalData.instance.dataManager.GetBuildDataFactoryByLevel(factoryLevel + 1);
-                factoryPopup.btnUpgrade.interactable = factoryNextLevelData != null;
+                if (factoryNextLevelData == null)
+                    factoryPopup.SetMaxUI();
+                //factoryPopup.btnUpgrade.interactable = factoryNextLevelData != null;
                 break;
         }
         // 업그레이트 버튼 활성/비활성
@@ -183,7 +188,7 @@ public class CastleManager : MonoBehaviour
                         popup.SetUpGradeText(upgradeData, nextBuildData);
                         castleController.SetBuildUpgrade(BuildingType.MINE, mineLevel);
                         if (nextBuildData == null)
-                            popup.btnUpgrade.interactable = false;
+                            popup.SetMaxUI();
 
                         Debug.Log("Upgrade Success " + type);
                     }
@@ -213,7 +218,7 @@ public class CastleManager : MonoBehaviour
                         castleController.SetBuildUpgrade(BuildingType.FACTORY, factoryLevel);
 
                         if (nextBuildData == null)
-                            popup.btnUpgrade.interactable = false;
+                            popup.SetMaxUI();
 
                         // 성공 로그
                         Debug.Log("Upgrade Success " + type);

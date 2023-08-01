@@ -128,20 +128,50 @@ public class MinePopup : CastlePopupBase
         var productionTime = data.productionTime;
 
         // 문자열 초기값 설정
-        string _productionCountText = $"{data.productionCount}";
-        string _maxSupplyText = $"{data.maxSupplyAmount}";
-        string _productionTimeText = $"{data.productionTime}";
+        // string _productionCountText = $"{data.productionCount}";
+        // string _maxSupplyText = $"{data.maxSupplyAmount}";
+        // string _productionTimeText = $"{data.productionTime}";
+
+        string _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount);
+        string _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount);
+        string _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime);
+
         string _levelText = $"Lv {data.level}";
         string _priceText = data.price.ToString();
-        var nextProduct = nextLevelData.productionCount - productionCount;
-        var nextSupply = nextLevelData.maxSupplyAmount - maxSupply;
-        var nextTime = nextLevelData.productionTime - productionTime;
+
+
+
         // 다음 레벨 정보가 존재하는 경우 문자열값 업데이트
         if (nextLevelData != null)
         {
-            _productionCountText = string.Format("{0}<color=#00FF00> + {1}</color>",data.productionCount, nextProduct);
-            _maxSupplyText = string.Format("{0}<color=#00FF00> + {1}</color>",data.maxSupplyAmount, nextSupply);
-            _productionTimeText = string.Format("{0}<color=#00FF00> - {1}</color>",data.productionTime, nextTime);
+            var nextProduct = nextLevelData.productionCount - productionCount;
+            var nextSupply = nextLevelData.maxSupplyAmount - maxSupply;
+            var nextTime = productionTime - nextLevelData.productionTime;
+
+            // _productionCountText = string.Format("{0}", data.productionCount);
+            // _maxSupplyText = string.Format("{0}", data.maxSupplyAmount);
+            // _productionTimeText = string.Format("{0}", data.productionTime);
+
+            _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount);
+            _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount);
+            _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime);
+
+
+
+            if(!CheckEqualZeroByCalculation(nextProduct))
+            {
+                _productionCountText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextProduct));
+            }
+            if(!CheckEqualZeroByCalculation(nextSupply))
+            {
+                _maxSupplyText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextSupply));
+            }
+            if(!CheckEqualZeroByCalculation(nextTime))
+            {
+                _productionTimeText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextTime));
+            }
+
+
 //            _levelText += $" > Lv {nextLevelData.level}";
 //            _priceText = nextLevelData.price.ToString();
         }
@@ -156,6 +186,13 @@ public class MinePopup : CastlePopupBase
 
     }
 
+    bool CheckEqualZeroByCalculation(int calc)
+    {
+        if(calc > 0) return  false;
+        return true;        
+    }
+    
+    
 
 
     //CastleBuildingData 객체를 인자로 받아서 각각의 맴버변수의 text 값을 설정하는 함수
@@ -167,9 +204,12 @@ public class MinePopup : CastlePopupBase
         var productionTime = data.productionTime;
 
         // 문자열 초기값 설정
-        string _productionCountText = $"{data.productionCount}";
-        string _maxSupplyText = $"{data.maxSupplyAmount}";
-        string _productionTimeText = $"{data.productionTime}";
+        // string _productionCountText = $"{data.productionCount}";
+        // string _maxSupplyText = $"{data.maxSupplyAmount}";
+        // string _productionTimeText = $"{data.productionTime}";
+        string _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount);
+        string _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount);
+        string _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime);
         string _levelText = $"Lv {data.level}";
         string _priceText = data.price.ToString();
 

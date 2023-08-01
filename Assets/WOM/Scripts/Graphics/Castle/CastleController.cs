@@ -82,24 +82,27 @@ namespace ProjectGraphics
 
         public void SetFactoryBuild(int level)
         {
+            int lv = level / 4;
+
             for (int i = 0; i < factoryBuild.Length; i++)
             {
-                if (i <= level) factoryBuild[i].SetActive(true);
+                if (i <= lv) factoryBuild[i].SetActive(true);
                 else factoryBuild[i].SetActive(false);
             }
 
-            SetBuildEffect(factoryBuild[level].transform.position);
+            SetBuildEffect(factoryBuild[lv].transform.position);
         }
 
         public void SetMineBuild(int level)
         {
+            int lv = level / 4;
             for (int i = 0; i < mineBuild.Length; i++)
             {
-                if (i <= level) mineBuild[i].SetActive(true);
+                if (i <= lv) mineBuild[i].SetActive(true);
                 else mineBuild[i].SetActive(false);
             }
 
-            SetBuildEffect(mineBuild[level].transform.position);
+            SetBuildEffect(mineBuild[lv].transform.position);
         }
 
         private void SetLabBuild(int level)

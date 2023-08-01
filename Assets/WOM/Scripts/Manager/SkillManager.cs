@@ -277,9 +277,12 @@ public class SkillManager : MonoBehaviour
     }
     void SetUI_MonsterKing(ref SkilSlot skillSlot, SkillData skillData, Skill_InGameData inGameData)
     {
-        skillSlot.SetTxt_Cost(GetSkillPrice(skillData, inGameData).ToString());
-        var levelName = $"Lv{inGameData.level} {inGameData.skilName}";
-        skillSlot.SetTxt_Level(levelName);
+        // skillSlot.SetTxt_Cost(GetSkillPrice(skillData, inGameData).ToString());
+        // var levelName = $"Lv{inGameData.level} {inGameData.skilName}";
+        // skillSlot.SetTxt_Level(levelName);
+
+        var description = GetDesicriptionDP(skillSlot.skillType, skillData, inGameData);
+        skillSlot.SetTxt_Description(description);
     }
 
     // duration , power

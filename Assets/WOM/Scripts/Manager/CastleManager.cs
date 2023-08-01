@@ -61,19 +61,27 @@ public class CastleManager : MonoBehaviour
         var offlineTime = GlobalData.instance.playerDataManager.GetOfflineTimeValue();
         var second = (int)offlineTime.TotalSeconds;
         Debug.Log("오프라인 타임! : " + second + " 초 ");
-        //광산 -> 골드
-        int mineCount = (second / buildDataMine.productionTime);
-        var mineAddValue = buildDataMine.productionCount * mineCount;
-        var mineResulValue = Mathf.Min(buildDataMine.totlaMiningValue + mineAddValue, buildDataMine.maxSupplyAmount);
-        buildDataMine.TotlaMiningValue = mineResulValue;
-        Debug.Log("캐슬 -> 광산 오프라인 획득 금액 : " + mineAddValue + " 실제 적용된 값 : " + mineResulValue + " count " + mineCount);
+        if (buildDataMine.productionTime > 0)
+        {
+            //광산 -> 골드
+            int mineCount = (second / buildDataMine.productionTime);
+            var mineAddValue = buildDataMine.productionCount * mineCount;
+            var mineResulValue = Mathf.Min(buildDataMine.totlaMiningValue + mineAddValue, buildDataMine.maxSupplyAmount);
+            buildDataMine.TotlaMiningValue = mineResulValue;
+            Debug.Log("캐슬 -> 광산 오프라인 획득 금액 : " + mineAddValue + " 실제 적용된 값 : " + mineResulValue + " count " + mineCount);
+        }
 
-        //가공소 -> 뼈조각
-        int factoryCount = (second / buildDataFactory.productionTime);
-        var factoryAddValue = buildDataFactory.productionCount * factoryCount;
-        var factoryResulValue = Mathf.Min(buildDataFactory.totlaMiningValue + factoryAddValue, buildDataFactory.maxSupplyAmount);
-        buildDataFactory.TotlaMiningValue = factoryResulValue;
-        Debug.Log("캐슬 -> 가공소 오프라인 획득 금액 : " + factoryAddValue + " 실제 적용된 값 : " + factoryResulValue + " count " + factoryCount);
+        if (buildDataFactory.productionTime > 0)
+        {
+            //가공소 -> 뼈조각
+            int factoryCount = (second / buildDataFactory.productionTime);
+            var factoryAddValue = buildDataFactory.productionCount * factoryCount;
+            var factoryResulValue = Mathf.Min(buildDataFactory.totlaMiningValue + factoryAddValue, buildDataFactory.maxSupplyAmount);
+            buildDataFactory.TotlaMiningValue = factoryResulValue;
+            Debug.Log("캐슬 -> 가공소 오프라인 획득 금액 : " + factoryAddValue + " 실제 적용된 값 : " + factoryResulValue + " count " + factoryCount);
+        }
+
+
 
         // 초기 UI 설정 ( POPUP )
         var minePopup = (MinePopup)GetCastlePopupByType(CastlePopupType.mine);

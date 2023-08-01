@@ -604,6 +604,8 @@ public class EventController : MonoBehaviour
         // 훈련 메뉴 -> 진화 메뉴 UI 활성화
         // UtilityMethod.GetCustomTypeGMById(0).SetActive(true);
 
+
+
         // 금광보스 카운트 UI 활성화
         globalData.uiController.SetEnablePhaseCountUI(true);
 
@@ -644,6 +646,9 @@ public class EventController : MonoBehaviour
         globalData.uiController.MainMenuAllUnSelect();
         globalData.uiController.MainMenuShow();
 
+        // 사이드 메뉴 활성화
+        SideUIMenuHide(false);
+
         yield return new WaitForSeconds(0.5f);// 메인메뉴 등장 애니메이션 연출이 끝날때까지 대기
         // 등급 업그레이트 연출 시간 후 몬스터 등장
         //yield return new WaitForSeconds(3f);
@@ -657,8 +662,6 @@ public class EventController : MonoBehaviour
 
         // 메뉴 판넬 활성/비활성화 버튼 보임
         // UtilityMethod.GetCustomTypeImageById(47).raycastTarget = true;
-
-
 
 
         // 황금돼지 활성화

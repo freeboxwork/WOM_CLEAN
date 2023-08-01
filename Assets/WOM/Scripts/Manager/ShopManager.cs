@@ -43,7 +43,7 @@ public class ShopManager : MonoBehaviour
             // 유니온 뽑기 버튼 셋트 활성화
             EnableLotteryBtnsSet(LotteryPageType.UNION);
             // 뽑기 1회 시작
-            GlobalData.instance.evolutionManager.UnionLotteryGameStart(1, 10, EnumDefinition.RewardType.gem);
+            GlobalData.instance.evolutionManager.UnionLotteryGameStart(1, 100, EnumDefinition.RewardType.gem);
 
         });
 
@@ -51,7 +51,7 @@ public class ShopManager : MonoBehaviour
         UtilityMethod.SetBtnEventCustomTypeByID(35, () =>
         {
             EnableLotteryBtnsSet(LotteryPageType.UNION);
-            GlobalData.instance.evolutionManager.UnionLotteryGameStart(11, 100, EnumDefinition.RewardType.gem);
+            GlobalData.instance.evolutionManager.UnionLotteryGameStart(11, 1000, EnumDefinition.RewardType.gem);
         });
 
 
@@ -75,14 +75,14 @@ public class ShopManager : MonoBehaviour
         UtilityMethod.SetBtnEventCustomTypeByID(36, () =>
         {
             EnableLotteryBtnsSet(LotteryPageType.DNA);
-            GlobalData.instance.dnaManger.DNALotteryGameStart(1, 10, EnumDefinition.RewardType.gem);
+            GlobalData.instance.dnaManger.DNALotteryGameStart(1, 100, EnumDefinition.RewardType.gem);
         });
 
         // DNA 11
         UtilityMethod.SetBtnEventCustomTypeByID(37, () =>
         {
             EnableLotteryBtnsSet(LotteryPageType.DNA);
-            GlobalData.instance.dnaManger.DNALotteryGameStart(11, 100, EnumDefinition.RewardType.gem);
+            GlobalData.instance.dnaManger.DNALotteryGameStart(11, 1000, EnumDefinition.RewardType.gem);
         });
 
         // DNA 1 -> dnaTicket 사용

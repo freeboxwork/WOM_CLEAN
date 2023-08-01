@@ -27,17 +27,17 @@ public class DNAManager : MonoBehaviour
 
         SetBtnEventCustomTypeByID(27, () =>
         {
-            DNALotteryGameStart(1, 10, EnumDefinition.RewardType.gem);
+            DNALotteryGameStart(1, 100, EnumDefinition.RewardType.gem);
         });
 
         SetBtnEventCustomTypeByID(28, () =>
         {
-            DNALotteryGameStart(11, 100, EnumDefinition.RewardType.gem);
+            DNALotteryGameStart(11, 1000, EnumDefinition.RewardType.gem);
         });
 
         SetBtnEventCustomTypeByID(29, () =>
         {
-            DNALotteryGameStart(33, 1000, EnumDefinition.RewardType.gem);
+            DNALotteryGameStart(33, 3000, EnumDefinition.RewardType.gem);
         });
     }
 

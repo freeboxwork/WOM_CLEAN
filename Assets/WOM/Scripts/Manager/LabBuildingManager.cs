@@ -99,7 +99,7 @@ public class LabBuildingManager : MonoBehaviour
         GlobalData.instance.saveDataManager.SaveDataLabBuildIngameData(data);
     }
 
-    LabBuildSlot GetLabBuildSlot(EnumDefinition.GoodsType goodsType)
+    public LabBuildSlot GetLabBuildSlot(EnumDefinition.GoodsType goodsType)
     {
         return labBuildSlotList.Where(x => x.goodsType == goodsType).FirstOrDefault();
     }

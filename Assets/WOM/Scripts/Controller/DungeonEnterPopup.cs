@@ -136,16 +136,36 @@ public class DungeonEnterPopup : MonoBehaviour
         curDungeonMonData = GlobalData.instance.dataManager.GetDungeonMonsterDataByTypeLevel(curMonsterType, curLevel);
 
         SetKeyUI(monsterType);
-        SetRewardUI(curLevel, curDungeonMonData);
+        SetRewardUI(curLevel, curDungeonMonData, monsterType);
 
         contents.SetActive(true);
     }
 
-    void SetRewardUI(int level, DungeonMonsterData data)
+    void SetRewardUI(int level, DungeonMonsterData data, EnumDefinition.MonsterType monsterType)
     {
-        textPervClearLevel.text = $"{level}단계";
-        textRewardValue.text = data.currencyAmount.ToString();
+        var addValue = GetAddValue(monsterType);
+        long totalCurrencyAmount = (long)(data.currencyAmount + (data.currencyAmount * addValue * 0.01f));
 
+        textPervClearLevel.text = $"{level}단계";
+        textRewardValue.text = totalCurrencyAmount.ToString();
+    }
+
+    // 추가 보상 값
+    long GetAddValue(EnumDefinition.MonsterType monsterType)
+    {
+
+        switch (monsterType)
+        {
+            case EnumDefinition.MonsterType.dungeonGold:
+                return GlobalData.instance.labBuildingManager.GetInLabBuildGameData(EnumDefinition.GoodsType.gold).value;
+            case EnumDefinition.MonsterType.dungeonBone:
+                return GlobalData.instance.labBuildingManager.GetInLabBuildGameData(EnumDefinition.GoodsType.bone).value;
+            case EnumDefinition.MonsterType.dungeonDice:
+                return GlobalData.instance.labBuildingManager.GetInLabBuildGameData(EnumDefinition.GoodsType.dice).value;
+            case EnumDefinition.MonsterType.dungeonCoal:
+                return GlobalData.instance.labBuildingManager.GetInLabBuildGameData(EnumDefinition.GoodsType.coal).value;
+        }
+        return 0;
     }
 
     // 던전 몬스터 열쇠 사용 가능 체크

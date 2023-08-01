@@ -85,8 +85,8 @@ namespace ProjectGraphics
 
         public IEnumerator ShowUnionSlotCardOpenProcess(int[] u)
         {
-            if (toggles[0].isOn || toggles[1].isOn) isSkip = true;
-            else isSkip = false;
+            // if (toggles[0].isOn || toggles[1].isOn) isSkip = true;
+            // else isSkip = false;
 
             isEnd = false;
             isUnion = true;         //유니온인지 아닌지
@@ -107,7 +107,7 @@ namespace ProjectGraphics
                 //여기 출현 사운드 필요함.
                 audio.Play();
 
-                if (isSkip) continue;
+                if (toggleEffSkip.isOn) continue;
                 yield return new WaitForSeconds(0.03f);
             }
 
@@ -117,8 +117,8 @@ namespace ProjectGraphics
         //슬롯 형태 확인 하고, 백 이미지 지우고 아이콘 이미지만 처리 이펙트 컬러 통일.
         public IEnumerator ShowDNAIconSlotCardOpenProcess(int[] u)
         {
-            if (toggles[0].isOn || toggles[1].isOn) isSkipDNA = true;
-            else isSkipDNA = false;
+            // if (toggles[0].isOn || toggles[1].isOn) isSkipDNA = true;
+            // else isSkipDNA = false;
 
             isEnd = false;
             isUnion = false;            //유니온인지 아닌지
@@ -140,7 +140,7 @@ namespace ProjectGraphics
                 //여기 출현 사운드 필요함.
                 audio.Play();
 
-                if (isSkipDNA) continue;
+                if (toggleEffSkip.isOn) continue;
                 yield return new WaitForSeconds(0.03f);
             }
 

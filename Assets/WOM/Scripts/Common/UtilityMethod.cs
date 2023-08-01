@@ -10,8 +10,18 @@ using System.Reflection;
 
 public static class UtilityMethod
 {
+    private const string FillZeroFormat = "D{0}";
+    public static string ToString_Fill_Func(this int _value, int _fillZero)
+    {
+        string _fillZeroFormat = string.Format(FillZeroFormat, _fillZero);
+        return _value.ToString(_fillZeroFormat);
+    }
     static readonly string[] symbol = new string[] { "", "K", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", };
-
+    // 1000 1k
+    // 10000 10k 
+    // 100000 100k
+    // 1000000 1a
+    // 1000000000 1b
     public static void EnableUIEventSystem(bool value)
     {
         GlobalData.instance.eventSystem.enabled = value;
@@ -260,7 +270,6 @@ public static class UtilityMethod
         {
             return zero;
         }
-
         if (double.IsInfinity(number))
         {
             return "Max";

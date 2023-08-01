@@ -13,7 +13,7 @@
    "productionCount": 100,
    "maxSupplyAmount": 1000,
    "price": 250,
-   "productionTime": 60,
+   "productionTime": 100,
    "currencyType": "Bone"
  },
  {
@@ -21,7 +21,7 @@
    "productionCount": 200,
    "maxSupplyAmount": 3000,
    "price": 625,
-   "productionTime": 60,
+   "productionTime": 90,
    "currencyType": "Bone"
  },
  {
@@ -29,7 +29,7 @@
    "productionCount": 400,
    "maxSupplyAmount": 9000,
    "price": 1563,
-   "productionTime": 60,
+   "productionTime": 80,
    "currencyType": "Bone"
  },
  {
@@ -37,7 +37,7 @@
    "productionCount": 800,
    "maxSupplyAmount": 27000,
    "price": 0,
-   "productionTime": 60,
+   "productionTime": 70,
    "currencyType": "Bone"
  }
 ]

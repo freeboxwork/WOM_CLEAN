@@ -133,16 +133,18 @@ public class MinePopup : CastlePopupBase
         string _productionTimeText = $"{data.productionTime}";
         string _levelText = $"Lv {data.level}";
         string _priceText = data.price.ToString();
-
+        var nextProduct = nextLevelData.productionCount - productionCount;
+        var nextSupply = nextLevelData.maxSupplyAmount - maxSupply;
+        var nextTime = nextLevelData.productionTime - productionTime;
         // 다음 레벨 정보가 존재하는 경우 문자열값 업데이트
-        // if (nextLevelData != null)
-        // {
-        //     _productionCountText += $" / {productionCount}";
-        //     _maxSupplyText += $" / {maxSupply}";
-        //     _productionTimeText += $" / {productionTime}";
-        //     _levelText += $" > Lv {nextLevelData.level}";
-        //     _priceText = nextLevelData.price.ToString();
-        // }
+        if (nextLevelData != null)
+        {
+            _productionCountText = string.Format("{0}<color=#00FF00> + {1}</color>",data.productionCount, nextProduct);
+            _maxSupplyText = string.Format("{0}<color=#00FF00> + {1}</color>",data.maxSupplyAmount, nextSupply);
+            _productionTimeText = string.Format("{0}<color=#00FF00> - {1}</color>",data.productionTime, nextTime);
+//            _levelText += $" > Lv {nextLevelData.level}";
+//            _priceText = nextLevelData.price.ToString();
+        }
 
         // UI에 값을 설정
         SetTextProductionCount(_productionCountText);
@@ -153,6 +155,8 @@ public class MinePopup : CastlePopupBase
 
 
     }
+
+
 
     //CastleBuildingData 객체를 인자로 받아서 각각의 맴버변수의 text 값을 설정하는 함수
     public void InitUIText(CastleBuildingData data)

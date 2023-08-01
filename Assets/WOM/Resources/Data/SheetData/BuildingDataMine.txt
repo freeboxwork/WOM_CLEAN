@@ -13,7 +13,7 @@
    "productionCount": 500,
    "maxSupplyAmount": 10000,
    "price": 200,
-   "productionTime": 60,
+   "productionTime": 100,
    "currencyType": "Gold"
  },
  {
@@ -21,7 +21,7 @@
    "productionCount": 1000,
    "maxSupplyAmount": 30000,
    "price": 400,
-   "productionTime": 60,
+   "productionTime": 90,
    "currencyType": "Gold"
  },
  {
@@ -29,7 +29,7 @@
    "productionCount": 2000,
    "maxSupplyAmount": 90000,
    "price": 800,
-   "productionTime": 60,
+   "productionTime": 80,
    "currencyType": "Gold"
  },
  {
@@ -37,7 +37,7 @@
    "productionCount": 4000,
    "maxSupplyAmount": 270000,
    "price": 0,
-   "productionTime": 60,
+   "productionTime": 70,
    "currencyType": "Gold"
  }
 ]

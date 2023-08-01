@@ -7,7 +7,8 @@
    "type": "EVOLUTION",
    "bgId": 5,
    "attackType": "TAIL",
-   "grade": "D"
+   "grade": "D",
+   "stageName": "진화 1단계"
  },
  {
    "id": 1,
@@ -16,7 +17,8 @@
    "type": "EVOLUTION",
    "bgId": 5,
    "attackType": "TAIL",
-   "grade": "C"
+   "grade": "C",
+   "stageName": "진화 2단계"
  },
  {
    "id": 2,
@@ -25,7 +27,8 @@
    "type": "EVOLUTION",
    "bgId": 5,
    "attackType": "TAIL",
-   "grade": "B"
+   "grade": "B",
+   "stageName": "진화 3단계"
  },
  {
    "id": 3,
@@ -34,7 +37,8 @@
    "type": "EVOLUTION",
    "bgId": 5,
    "attackType": "TAIL",
-   "grade": "A"
+   "grade": "A",
+   "stageName": "진화 4단계"
  }
 ]
 }

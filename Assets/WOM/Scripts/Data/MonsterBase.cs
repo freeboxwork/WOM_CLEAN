@@ -36,6 +36,10 @@ public class MonsterBase : MonoBehaviour
     //{
     //    Debug.Log(collision.transform.name);
     //}
+    public void SetSkinById(int id)
+    {
+        spriteLibraryChanged.ChangedSpriteAllImage(id);
+    }
 
 
 }

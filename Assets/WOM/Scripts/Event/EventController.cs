@@ -698,6 +698,8 @@ public class EventController : MonoBehaviour
         if (monsterType == MonsterType.evolution)
         {
             globalData.monsterManager.SetMonsterDataOther(monsterType, globalData.evolutionManager.evalutionLeveldx);
+            // set monster skin
+            globalData.player.currentMonster.SetSkinById(globalData.evolutionManager.evalutionLeveldx);
         }
         else
         {

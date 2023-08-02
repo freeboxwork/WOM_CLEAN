@@ -515,6 +515,8 @@ public class EventController : MonoBehaviour
             // side menu hide
             SideUIMenuHide(true);
 
+            GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.dungeon);
+
         }));
 
         // BGM CHANGE
@@ -532,7 +534,7 @@ public class EventController : MonoBehaviour
         // Set Stage Name
         var stageName = monster.stageName;
         GlobalData.instance.stageNameSetManager.SetTxtStageName(EnumDefinition.StageNameType.dungeon, stageName);
-        GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.dungeon);
+
 
         // 던전 몬스터 등장
         yield return StartCoroutine(monster.inOutAnimator.AnimPositionIn());

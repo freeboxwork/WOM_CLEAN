@@ -6,7 +6,7 @@ public class ShopKeyProductSlot : MonoBehaviour
 {
     public TextMeshProUGUI txtKeyCount;
     public Button btnBuy;
-    public EnumDefinition.RewardType rewardType;
+    public EnumDefinition.GoodsType goodsType;
     const string loadDataKey = "_shopKeyProduct";
     // 구매 가능한 키 수
     int leftKeyCount;
@@ -17,37 +17,77 @@ public class ShopKeyProductSlot : MonoBehaviour
 
     void Start()
     {
+        SetButtonEvent();
+    }
 
+    void SetButtonEvent()
+    {
+        btnBuy.onClick.AddListener(BuyKey);
     }
 
     public void LoadData()
     {
-        var keyName = loadDataKey + rewardType.ToString();
+        var keyName = loadDataKey + goodsType.ToString();
         if (PlayerPrefs.HasKey(keyName))
         {
             leftKeyCount = PlayerPrefs.GetInt(keyName);
+            if (leftKeyCount == 0)
+            {
+                btnBuy.interactable = false;
+            }
         }
         else
         {
             PlayerPrefs.SetInt(keyName, maxKeyCount);
             leftKeyCount = maxKeyCount;
         }
+        UpdateUI();
     }
 
-    void ResetKeyCount()
+    public void ResetKeyCount()
     {
-        var keyName = loadDataKey + rewardType.ToString();
+        var keyName = loadDataKey + goodsType.ToString();
         PlayerPrefs.SetInt(keyName, maxKeyCount);
+        UpdateUI();
     }
 
     void BuyKey()
     {
+        if (IsValidGemCount() && leftKeyCount > 0)
+        {
+            // pay gem
+            GlobalData.instance.player.PayGem(price);
+            // add key
+            GlobalData.instance.player.AddDungeonKey(goodsType, 1);
+            // left key count
+            leftKeyCount--;
+            // save
+            var keyName = loadDataKey + goodsType.ToString();
+            PlayerPrefs.SetInt(keyName, leftKeyCount);
 
+            if (leftKeyCount == 0)
+            {
+                btnBuy.interactable = false;
+            }
+        }
+        UpdateUI();
     }
 
     bool IsValidGemCount()
     {
-        return GlobalData.instance.player.gem >= price;
+        var value = GlobalData.instance.player.gem >= price;
+        if (value == false)
+        {
+            GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("Message", 3);
+        }
+
+        return value;
+    }
+
+    void UpdateUI()
+    {
+        var txtVelue = $"{leftKeyCount} / {maxKeyCount}";
+        txtKeyCount.text = txtVelue;
     }
 
 }

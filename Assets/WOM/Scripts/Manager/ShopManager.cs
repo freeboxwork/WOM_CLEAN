@@ -7,6 +7,7 @@ using static EnumDefinition;
 public class ShopManager : MonoBehaviour
 {
     public List<ShopSlot> shopSlots = new List<ShopSlot>();
+    public List<ShopKeyProductSlot> shopKeyProductSlots = new List<ShopKeyProductSlot>();
     LotteryPageType curLotteryPageType;
     void Start()
     {
@@ -17,6 +18,7 @@ public class ShopManager : MonoBehaviour
     public IEnumerator Init()
     {
         SetButtonEvents();
+        SetKeyProductSlots();
 
         // Set Shop Slot UI ( 필요시 사용 )
         // SetShopSlots(); 
@@ -33,6 +35,21 @@ public class ShopManager : MonoBehaviour
         }
     }
 
+
+    void SetKeyProductSlots()
+    {
+        for (int i = 0; i < shopKeyProductSlots.Count; i++)
+        {
+            var slot = shopKeyProductSlots[i];
+
+            // 자정이 지날경우 리셋
+            if (GlobalData.instance.questManager.questResetTimer.HasCrossedMidnight())
+                slot.ResetKeyCount();
+
+            // load data
+            slot.LoadData();
+        }
+    }
 
 
     private void SetButtonEvents()

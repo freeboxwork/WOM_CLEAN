@@ -95,9 +95,6 @@ public class GlobalController : MonoBehaviour
         // 유전자 데이터및 UI 세팅
         yield return StartCoroutine(dnaManager.Init());
 
-        // 상점 데이터및 UI 세팅
-        yield return StartCoroutine(shopManager.Init());
-
         // 훈련 데이터및 UI 세팅
         yield return StartCoroutine(traningManager.Init());
 
@@ -155,6 +152,9 @@ public class GlobalController : MonoBehaviour
 
         // 오프라인 보상 팝업 등장
         yield return StartCoroutine(offlineRewardPopupContoller.Init());
+
+        // 상점 데이터및 UI 세팅
+        yield return StartCoroutine(shopManager.Init());
 
         // 공격 가능 상태로 전환
         attackController.SetAttackableState(true);

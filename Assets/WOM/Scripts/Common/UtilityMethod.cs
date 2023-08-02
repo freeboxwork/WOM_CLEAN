@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 using System.Reflection;
+using Cargold.Infinite;
 
 
 #if UNITY_EDITOR
@@ -195,8 +196,9 @@ public static class UtilityMethod
     ///<summary> 골드 및 뼛조각 숫자 Text를 심볼로 변경 </summary>
     public static string ChangeSymbolNumber(float number)
     {
-
-
+        Infinite value = number;
+        return value.ToString();
+        #region  NOT USED
         string zero = "0";
 
         if (-1d < number && number < 1d)
@@ -258,12 +260,16 @@ public static class UtilityMethod
         unityString = symbol[quotient];
 
         return string.Format("{0}{1}{2}", significant, showNumber, unityString);
+        #endregion
     }
 
     public static string ChangeSymbolNumber(long number)
     {
 
+        Infinite value = number;
+        return value.ToString();
 
+        #region  NOT USED
         string zero = "0";
 
         if (-1d < number && number < 1d)
@@ -324,6 +330,7 @@ public static class UtilityMethod
         unityString = symbol[quotient];
 
         return string.Format("{0}{1}{2}", significant, showNumber, unityString);
+        #endregion
     }
 
 

@@ -195,6 +195,7 @@ public class MonsterManager : MonoBehaviour
         monster.bgId = monsterData.bgId;
         monster.monsterType = monsterData.monsterType;
         monster.attackType = monsterData.attackType;
+        monster.stageName = monsterData.stageName;
 
     }
 

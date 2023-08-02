@@ -154,6 +154,7 @@ public class MonsterData
     public int goldCount;
     public int imageId;
     public int bgId;
+    public string stageName;
     public EnumDefinition.MonsterType monsterType;
     public EnumDefinition.AttackType attackType;
 }
@@ -518,6 +519,7 @@ public class DungeonMonsterData
     public int level;
     public long currencyAmount;
     public double monsterHP;
+    public string stageName;
 
     public DungeonMonsterData CloneInstance()
     {
@@ -525,6 +527,7 @@ public class DungeonMonsterData
         dungeonMonsterData.level = level;
         dungeonMonsterData.currencyAmount = currencyAmount;
         dungeonMonsterData.monsterHP = monsterHP;
+        dungeonMonsterData.stageName = stageName;
         return dungeonMonsterData;
     }
 }

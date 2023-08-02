@@ -340,4 +340,11 @@ public class EnumDefinition
         adOffline,
     }
 
+    public enum StageNameType
+    {
+        normal,
+        evolution,
+        dungeon,
+    }
+
 }

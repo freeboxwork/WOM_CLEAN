@@ -36,12 +36,14 @@ public class StageManager : MonoBehaviour
         // set data
         SetStageData(stageIdx, out bool isBgImgChange);
 
-        // 배경 변경
+        // 배경 변경    
         if (isBgImgChange)
         {
             var nextBgImg = GetCurrentBgImg();
             yield return StartCoroutine(bgAnimController.TransitinBG(nextBgImg));
         }
+
+
 
         yield return null;
     }
@@ -50,6 +52,11 @@ public class StageManager : MonoBehaviour
     {
         var data = GlobalData.instance.dataManager.GetStageDataById(stageId);
         stageData = data.CopyInstance();
+
+        // Set Stage Name
+        var stageName = stageData.stageName;
+        GlobalData.instance.stageNameSetManager.SetTxtStageName(EnumDefinition.StageNameType.normal, stageName);
+        GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.normal);
     }
 
     void SetStageData(int stageId, out bool isBgImgChange)

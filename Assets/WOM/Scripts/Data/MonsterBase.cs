@@ -12,6 +12,7 @@ public class MonsterBase : MonoBehaviour
     public int goldCount;
     public int imageId;
     public int bgId;
+    public string stageName;
     public EnumDefinition.MonsterType monsterType;
     public EnumDefinition.AttackType attackType;
 

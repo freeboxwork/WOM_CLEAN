@@ -158,7 +158,7 @@ public class EventController : MonoBehaviour
         globalData.effectManager.EnableFloatingText(damage, isCritical, tr);
 
         // GET MONSTER
-        var currentMonster = globalData.monsterManager.GetMonsterDungeon();
+        DungeonMonster currentMonster = globalData.monsterManager.GetMonsterDungeon();
 
         var curDamage = damage * (1 + globalData.statManager.BossDamage() * 0.01f);
 
@@ -186,7 +186,12 @@ public class EventController : MonoBehaviour
             // level setting
             var level = currentMonster.curData.level;
             UtilityMethod.SetTxtCustomTypeByID(107, $"{level}");
-            // 재화 획득
+
+            // Set Stage Name
+            var stageName = currentMonster.stageName;
+            GlobalData.instance.stageNameSetManager.SetTxtStageName(EnumDefinition.StageNameType.dungeon, stageName);
+
+
         }
 
         // 몬스터 hp text
@@ -512,8 +517,6 @@ public class EventController : MonoBehaviour
 
         }));
 
-
-
         // BGM CHANGE
         GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_DungeonBoss);
 
@@ -525,6 +528,11 @@ public class EventController : MonoBehaviour
 
         // 던전 몬스터 데이터 세팅
         yield return StartCoroutine(monster.Init(monsterType));
+
+        // Set Stage Name
+        var stageName = monster.stageName;
+        GlobalData.instance.stageNameSetManager.SetTxtStageName(EnumDefinition.StageNameType.dungeon, stageName);
+        GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.dungeon);
 
         // 던전 몬스터 등장
         yield return StartCoroutine(monster.inOutAnimator.AnimPositionIn());
@@ -606,6 +614,7 @@ public class EventController : MonoBehaviour
 
 
 
+
         // 금광보스 카운트 UI 활성화
         globalData.uiController.SetEnablePhaseCountUI(true);
 
@@ -632,6 +641,9 @@ public class EventController : MonoBehaviour
 
         // sfx 진화 성공
         globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.Evolution_Victory);
+
+        // 스테이지 텍스트 변경
+        GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.normal);
 
         yield return new WaitUntil(() => evalGradeEffectShow == false); // 등급업그레이드 연출이 끝날때까지 대기
 
@@ -808,6 +820,12 @@ public class EventController : MonoBehaviour
             var monsterData = globalData.monsterManager.GetMonsterData(MonsterType.evolution, globalData.evolutionManager.evalutionLeveldx);
             globalData.stageManager.SetDungeonBgImage(monsterData.bgId);
 
+            // 스테이지 텍스트 변경
+            var stageName = monsterData.stageName;
+            GlobalData.instance.stageNameSetManager.SetTxtStageName(EnumDefinition.StageNameType.evolution, stageName);
+            GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.evolution);
+
+
         }));
 
         // BGM CHANGE
@@ -949,6 +967,9 @@ public class EventController : MonoBehaviour
               // 배경 이미지 변경
               globalData.stageManager.SetBgImage();
 
+              // 스테이지 텍스트 변경
+              GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.normal);
+
           }));
 
         // BGM CHANGE
@@ -1057,6 +1078,9 @@ public class EventController : MonoBehaviour
             // side menu show
             SideUIMenuHide(false);
 
+            // 스테이지 텍스트 변경
+            GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.normal);
+
         }));
 
         // BGM CHANGE
@@ -1138,6 +1162,9 @@ public class EventController : MonoBehaviour
 
             // 배경 이미지 변경
             globalData.stageManager.SetBgImage();
+
+            // 스테이지 텍스트 변경
+            GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.normal);
 
         }));
 

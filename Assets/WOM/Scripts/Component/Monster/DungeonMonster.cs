@@ -11,6 +11,7 @@ public class DungeonMonster : DungeonMonsterBase
 
     public int curLevel = 1;
     public double curMonsterHP;
+    public string stageName;
     public DungeonMonsterData curData;
     public SpriteLibraryChanged spriteLibraryChanged;
     public MonsterInOutAnimator inOutAnimator;
@@ -45,6 +46,7 @@ public class DungeonMonster : DungeonMonsterBase
         curData = GlobalData.instance.dataManager.GetDungeonMonsterDataByTypeLevel(monsterType, curLevel).CloneInstance();
 
         curMonsterHP = curData.monsterHP;
+        stageName = curData.stageName;
 
         yield return new WaitForEndOfFrame();
 
@@ -78,6 +80,7 @@ public class DungeonMonster : DungeonMonsterBase
         curLevel++;
         curData = GlobalData.instance.dataManager.GetDungeonMonsterDataByTypeLevel(curMonsterData.monsterType, curLevel).CloneInstance();
         curMonsterHP = curData.monsterHP;
+        stageName = curData.stageName;
 
         // 레벨업 데이터 저장
         GlobalData.instance.player.dungeonMonsterClearLevel.SetLevelFromMonsterType(curMonsterData.monsterType, curLevel);
@@ -86,6 +89,8 @@ public class DungeonMonster : DungeonMonsterBase
     public void DungeonMonsterOut()
     {
         curLevel = 1;
+        curData = GlobalData.instance.dataManager.GetDungeonMonsterDataByTypeLevel(curMonsterData.monsterType, curLevel).CloneInstance();
+        stageName = curData.stageName;
     }
 
 

@@ -1,4 +1,5 @@
 
+using Cargold.Infinite;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -6,7 +7,8 @@ using UnityEngine;
 
 // 0.1.4 ('20.08.06)
 // Developed By Cargold
-
+namespace Cargold.Infinite
+{
     [System.Serializable]
     public partial struct Infinite : IEquatable<Infinite>, IEqualityComparer<Infinite>
     {
@@ -15,11 +17,11 @@ using UnityEngine;
         private static decimal Thousand = new decimal(1000);
 
 #if ODIN_INSPECTOR
-        [Sirenix.OdinInspector.FoldoutGroup("ë°ì´í„°")]
+        [Sirenix.OdinInspector.FoldoutGroup("µ¥ÀÌÅÍ")]
 #endif
         [SerializeField] private int currentDigit;
 #if ODIN_INSPECTOR
-        [Sirenix.OdinInspector.FoldoutGroup("ë°ì´í„°")]
+        [Sirenix.OdinInspector.FoldoutGroup("µ¥ÀÌÅÍ")]
 #endif
         [SerializeField] private IntArrangement values;
 
@@ -124,10 +126,10 @@ using UnityEngine;
         #endregion
 
 #if ODIN_INSPECTOR
-        [Sirenix.OdinInspector.ShowInInspector, Sirenix.OdinInspector.HorizontalGroup("1"), Sirenix.OdinInspector.BoxGroup("1/ì¶•ì•½")]
+        [Sirenix.OdinInspector.ShowInInspector, Sirenix.OdinInspector.HorizontalGroup("1"), Sirenix.OdinInspector.BoxGroup("1/Ãà¾à")]
         private string GetValueStr => this.ToString();
 
-        [Sirenix.OdinInspector.ShowInInspector, Sirenix.OdinInspector.HorizontalGroup("1"), Sirenix.OdinInspector.BoxGroup("1/ì „ì²´")]
+        [Sirenix.OdinInspector.ShowInInspector, Sirenix.OdinInspector.HorizontalGroup("1"), Sirenix.OdinInspector.BoxGroup("1/ÀüÃ¼")]
         private string GetValueFullStr => this.ToStringFull(3);
 #endif
 
@@ -323,7 +325,7 @@ using UnityEngine;
                 }
                 else if (500 <= value)
                 {
-                    // ë°˜ì˜¬ë¦¼
+                    // ¹Ý¿Ã¸²
 
                     digit = 0;
 
@@ -339,31 +341,31 @@ using UnityEngine;
                 return;
             }
             
-            // 5ì´ìƒì´ë©´ ë¬´ì‹œí•  ìˆ˜ ìžˆëŠ” ê°’
-            // 0~4ì´ë©´ í—ˆìš© ë²”ìœ„ì˜ ê°’
-            // ìŒìˆ˜ê°’ì´ë©´ ê¸°ì¡´ë³´ë‹¤ ë†’ì€ ê°’
+            // 5ÀÌ»óÀÌ¸é ¹«½ÃÇÒ ¼ö ÀÖ´Â °ª
+            // 0~4ÀÌ¸é Çã¿ë ¹üÀ§ÀÇ °ª
+            // À½¼ö°ªÀÌ¸é ±âÁ¸º¸´Ù ³ôÀº °ª
             int _digitGap = this.currentDigit - digit;
 
-            // í—ˆìš© ë²”ìœ„ì˜ ê°’ì¸ê°€?
+            // Çã¿ë ¹üÀ§ÀÇ °ªÀÎ°¡?
             if (_digitGap < 5)
             {
                 int _addDigitID = 0;
 
-                // í˜„ ë””ì§€íŠ¸ ì´ë‚´ì˜ ê°’ì¸ ê²½ìš°
+                // Çö µðÁöÆ® ÀÌ³»ÀÇ °ªÀÎ °æ¿ì
                 if (0 <= _digitGap)
                 {
                     _addDigitID = _digitGap;
                 }
 
-                // í˜„ ë””ì§€íŠ¸ë³´ë‹¤ í° ê°’ì¸ ê²½ìš°
+                // Çö µðÁöÆ®º¸´Ù Å« °ªÀÎ °æ¿ì
                 else
                 {
                     this.currentDigit -= _digitGap;
 
-                    // ê¸°ì¡´ê°’ë“¤ì´ í—ˆìš©ë²”ìœ„ ì•ˆì— ìžˆëŠ”ê°€?
+                    // ±âÁ¸°ªµéÀÌ Çã¿ë¹üÀ§ ¾È¿¡ ÀÖ´Â°¡?
                     if (-5 < _digitGap)
                     {
-                        // ê¸°ì¡´ê°’ë“¤ì„ ë””ì§€íŠ¸ ê²©ì°¨ë§Œí¼ ë°€ì–´ë‚´ê¸°
+                        // ±âÁ¸°ªµéÀ» µðÁöÆ® °ÝÂ÷¸¸Å­ ¹Ð¾î³»±â
                         
                         this.values.ShiftDigit(_digitGap);
                     }
@@ -381,11 +383,11 @@ using UnityEngine;
                     this.values[_addDigitID] = _addValue;
                 }
 
-                // Digitì˜ ë§ì…ˆê°’ì´ 1ì²œ ì´ìƒì¸ê°€?
+                // DigitÀÇ µ¡¼À°ªÀÌ 1Ãµ ÀÌ»óÀÎ°¡?
                 else
                 {
                     int _quotientValue = _addValue / 1000;
-                    int _remainValue = _addValue - (_quotientValue * 1000); // ë‚˜ë¨¸ì§€
+                    int _remainValue = _addValue - (_quotientValue * 1000); // ³ª¸ÓÁö
 
                     this.values[_addDigitID] = _remainValue;
 
@@ -410,8 +412,8 @@ using UnityEngine;
 
             return inf - _floatInf;
 
-            // ìµœì í™”
-            //// Infiniteê°€ Floatë³´ë‹¤ í°ê°€?
+            // ÃÖÀûÈ­
+            //// Infinite°¡ Floatº¸´Ù Å«°¡?
             //if (true)
             //{
             //    int _quotientValue = 0;
@@ -442,8 +444,8 @@ using UnityEngine;
 
             return _floatInf - inf;
 
-            // ìµœì í™”
-            //// Floatê°€ Infiniteë³´ë‹¤ ìž‘ì€ê°€?
+            // ÃÖÀûÈ­
+            //// Float°¡ Infiniteº¸´Ù ÀÛÀº°¡?
             //if (true)
             //{
             //    inf.Clear();
@@ -516,15 +518,15 @@ using UnityEngine;
                     this.Subtraction(_quotientValue, digit + 1);
                 }
 
-                // í˜„ìž¬ê°’ì´ ëº„ì…ˆê°’ ì´ìƒì¸ê°€?
+                // ÇöÀç°ªÀÌ »¬¼À°ª ÀÌ»óÀÎ°¡?
                 if (digit <= this.currentDigit)
                 {
-                    // 5ì´ìƒì´ë©´ ë¬´ì‹œí•´ë„ ë˜ëŠ” ìž‘ì€ê°’
-                    // 0~4ì´ë©´ í—ˆìš© ë²”ìœ„ì˜ ê°’
-                    // ìŒìˆ˜ê°’ì´ë©´ í˜„ìž¬ë³´ë‹¤ ë†’ì€ ê°’
+                    // 5ÀÌ»óÀÌ¸é ¹«½ÃÇØµµ µÇ´Â ÀÛÀº°ª
+                    // 0~4ÀÌ¸é Çã¿ë ¹üÀ§ÀÇ °ª
+                    // À½¼ö°ªÀÌ¸é ÇöÀçº¸´Ù ³ôÀº °ª
                     int _digitGap = this.currentDigit - digit;
 
-                    // í—ˆìš© ë²”ìœ„ì˜ ê°’ì¸ê°€?
+                    // Çã¿ë ¹üÀ§ÀÇ °ªÀÎ°¡?
                     if (_digitGap < 5)
                     {
                         int _subValue = this.values[_digitGap] - value;
@@ -533,23 +535,23 @@ using UnityEngine;
                             this.values[_digitGap] = _subValue;
                         }
                         
-                        // ëº„ì…ˆê°’ì´ ë™ Digit ë‚´ í˜„ìž¬ê°’ë³´ë‹¤ í° ê²½ìš°
+                        // »¬¼À°ªÀÌ µ¿ Digit ³» ÇöÀç°ªº¸´Ù Å« °æ¿ì
                         else
                         {
-                            // ë‚´ë¦¼ ê³„ì‚°ì„ í•´ì•¼ í•¨
+                            // ³»¸² °è»êÀ» ÇØ¾ß ÇÔ
 
-                            // í˜„ìž¬ê°’ì˜ Digitê°€ ëº„ì…ˆê°’ì˜ Digitë³´ë‹¤ ë” ë†’ì€ê°€?
+                            // ÇöÀç°ªÀÇ Digit°¡ »¬¼À°ªÀÇ Digitº¸´Ù ´õ ³ôÀº°¡?
                             if (0 < _digitGap)
                             {
                                 bool _isNeedShift = false;
 
-                                // ê°’ì´ ì¡´ìž¬í•˜ëŠ” Digitë¥¼ ì°¾ì•„ì„œ ê°’ ê°€ì ¸ì˜¤ê¸°
+                                // °ªÀÌ Á¸ÀçÇÏ´Â Digit¸¦ Ã£¾Æ¼­ °ª °¡Á®¿À±â
                                 for (int i = _digitGap - 1; 0 <= i; --i)
                                 {
-                                    // Digitì— ê°’ì´ 0ë³´ë‹¤ ë§Žë‹¤ë©´
+                                    // Digit¿¡ °ªÀÌ 0º¸´Ù ¸¹´Ù¸é
                                     if (0 < this.values[i])
                                     {
-                                        // ë‚´ë¦¼
+                                        // ³»¸²
 
                                         --this.values[i];
 
@@ -559,24 +561,24 @@ using UnityEngine;
                                         break;
                                     }
 
-                                    // Digitì— ê°’ì´ 0 ì´ë¼ë©´
+                                    // Digit¿¡ °ªÀÌ 0 ÀÌ¶ó¸é
                                     else if (this.values[i] == 0)
                                     {
-                                        // ë‚´ë¦¼ìœ¼ë¡œ ì¸í•´ 999ê°’ ì‚½ìž…
+                                        // ³»¸²À¸·Î ÀÎÇØ 999°ª »ðÀÔ
 
                                         this.values[i] = 999;
                                     }
 
                                     else
                                     {
-                                        // IntArrì— ë§ˆì´ë„ˆìŠ¤ê°’ì´ ì¡´ìž¬í•¨
+                                        // IntArr¿¡ ¸¶ÀÌ³Ê½º°ªÀÌ Á¸ÀçÇÔ
 
-                                        Debug.LogError("[Infinite] ì§„ìž…í•  ìˆ˜ ì—†ëŠ” ì½”ë“œìž…ë‹ˆë‹¤.\ni : " + i);
+                                        Debug.LogError("[Infinite] ÁøÀÔÇÒ ¼ö ¾ø´Â ÄÚµåÀÔ´Ï´Ù.\ni : " + i);
                                     }
                                 }
 
-                                // ìƒìœ„ Digitì˜ ë‚´ë¦¼ê°’ê³¼ ëº„ì…ˆê°’ì„ ê³„ì‚°í•œ ë’¤ í•´ë‹¹ Digitì— ì‚½ìž…
-                                // ë§ì…ˆì„ í•˜ëŠ” ê±´, ëº„ì…ˆê°’ì´ ì´ ë¡œì§ì—ì„  ìŒìˆ˜ê°’ì´ê¸° ë•Œë¬¸
+                                // »óÀ§ DigitÀÇ ³»¸²°ª°ú »¬¼À°ªÀ» °è»êÇÑ µÚ ÇØ´ç Digit¿¡ »ðÀÔ
+                                // µ¡¼ÀÀ» ÇÏ´Â °Ç, »¬¼À°ªÀÌ ÀÌ ·ÎÁ÷¿¡¼± À½¼ö°ªÀÌ±â ¶§¹®
                                 this.values[_digitGap] = 1000 + _subValue;
 
                                 if(_isNeedShift == true)
@@ -587,7 +589,7 @@ using UnityEngine;
                                 }
                             }
 
-                            // í˜„ìž¬ê°’ì˜ Digitê°€ ëº„ì…ˆê°’ Digitì™€ ê°™ê±°ë‚˜ ë” ì ì€ê°€?
+                            // ÇöÀç°ªÀÇ Digit°¡ »¬¼À°ª Digit¿Í °°°Å³ª ´õ ÀûÀº°¡?
                             else
                             {
                                 this.Clear();
@@ -597,9 +599,9 @@ using UnityEngine;
 
                     else if(_digitGap < 0)
                     {
-                        // ì´ë¯¸ í˜„ìž¬ê°’ë³´ë‹¤ ë†’ì€ ëº„ì…ˆê°’ì„ ê±¸ëŸ¬ë‚´ëŠ” IFë¬¸ì´ ìžˆì—ˆìœ¼ë¯€ë¡œ ì—¬ê¸°ë¡œ ì§„ìž…í•˜ëŠ” ê±´ ë…¼ë¦¬ ì˜¤ë¥˜
+                        // ÀÌ¹Ì ÇöÀç°ªº¸´Ù ³ôÀº »¬¼À°ªÀ» °É·¯³»´Â IF¹®ÀÌ ÀÖ¾úÀ¸¹Ç·Î ¿©±â·Î ÁøÀÔÇÏ´Â °Ç ³í¸® ¿À·ù
 
-                        Debug.LogError("[Infinite] ì§„ìž…í•  ìˆ˜ ì—†ëŠ” ì½”ë“œìž…ë‹ˆë‹¤.\n_digitGap : " + _digitGap);
+                        Debug.LogError("[Infinite] ÁøÀÔÇÒ ¼ö ¾ø´Â ÄÚµåÀÔ´Ï´Ù.\n_digitGap : " + _digitGap);
 
                         this.Clear();
                     }
@@ -737,7 +739,7 @@ using UnityEngine;
             else
             {
 #if UNITY_EDITOR
-                Debug.LogWarning("0ìœ¼ë¡œ ë‚˜ëˆŒ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
+                Debug.LogWarning("0À¸·Î ³ª´­ ¼ö ¾ø½À´Ï´Ù.");
 #endif
                 return new Infinite();
             }
@@ -765,7 +767,7 @@ using UnityEngine;
 
                 long _quotientValue = 0 < divideValue ? _originValue / divideValue : _originValue;
 
-                // ì˜ì—­ : í—ˆìš© ê°€ëŠ¥í•œ ì†Œìˆ˜ì ì¸ê°€? (ì§ì—­ : 0 ì´ìƒì˜ ë””ì§€íŠ¸ì¸ê°€?)
+                // ÀÇ¿ª : Çã¿ë °¡´ÉÇÑ ¼Ò¼öÁ¡ÀÎ°¡? (Á÷¿ª : 0 ÀÌ»óÀÇ µðÁöÆ®ÀÎ°¡?)
                 if (-1 <= _dividedDigit)
                 {
                     if (0 < _quotientValue)
@@ -984,7 +986,7 @@ using UnityEngine;
             {
                 if (_arrID < 5)
                 {
-                    // ì •ìˆ˜ê°’
+                    // Á¤¼ö°ª
                     if (0 < this.currentDigit - _arrID)
                     {
                         int _digitValue = this.values[_arrID];
@@ -995,7 +997,7 @@ using UnityEngine;
                             Infinite.StringBuilder.AppendFormat("{0:000}", _digitValue);
                     }
 
-                    // ì‹¤ìˆ˜ê°’
+                    // ½Ç¼ö°ª
                     else
                     {
                         if (0 < point)
@@ -1013,7 +1015,7 @@ using UnityEngine;
                 }
                 else
                 {
-                    // ì •ìˆ˜ê°’
+                    // Á¤¼ö°ª
                     if (0 < this.currentDigit - _arrID)
                     {
                         if (isHaveComma == true)
@@ -1022,7 +1024,7 @@ using UnityEngine;
                             Infinite.StringBuilder.Append("000");
                     }
 
-                    // ì‹¤ìˆ˜ê°’
+                    // ½Ç¼ö°ª
                     else
                     {
                         if (0 < point)
@@ -1162,7 +1164,7 @@ using UnityEngine;
             {
 #if UNITY_EDITOR
                 if (3 < point)
-                    Debug.LogWarning("ì†Œìˆ˜ì (Point)ì€ 1~3ì„ ë„˜ê¸¸ ìˆ˜ ì—†ìŠµë‹ˆë‹¤. / Point : " + point);
+                    Debug.LogWarning("¼Ò¼öÁ¡(Point)Àº 1~3À» ³Ñ±æ ¼ö ¾ø½À´Ï´Ù. / Point : " + point);
 #endif
 
                 if (100 <= pointValue)
@@ -1185,7 +1187,7 @@ using UnityEngine;
         }
         private static Infinite GetInfinite(string value)
         {
-            // Optimization : ê°€ìž¥ ë‚®ì€ ê°’ë¶€í„° 3ìžë¦¬ì”© ìºìŠ¤íŒ…í•˜ê³  ìžˆìŒ. ê°€ìž¥ ë†’ì€ ê°’ë¶€í„° 5 Digitë§Œ í•˜ê²Œë” ë³€ê²½.
+            // Optimization : °¡Àå ³·Àº °ªºÎÅÍ 3ÀÚ¸®¾¿ Ä³½ºÆÃÇÏ°í ÀÖÀ½. °¡Àå ³ôÀº °ªºÎÅÍ 5 Digit¸¸ ÇÏ°Ô²û º¯°æ.
 
             Infinite _inf = new Infinite();
             int _digit = 1;
@@ -1267,7 +1269,7 @@ using UnityEngine;
 
                                 default:
     #if UNITY_EDITOR
-                                    Debug.LogError("ìž˜ëª»ëœ ë¹„êµ íƒ€ìž… : " + compareType);
+                                    Debug.LogError("Àß¸øµÈ ºñ±³ Å¸ÀÔ : " + compareType);
     #endif
                                     return false;
                             }
@@ -1292,14 +1294,14 @@ using UnityEngine;
 
                                 default:
     #if UNITY_EDITOR
-                                    Debug.LogError("ìž˜ëª»ëœ ë¹„êµ íƒ€ìž… : " + compareType);
+                                    Debug.LogError("Àß¸øµÈ ºñ±³ Å¸ÀÔ : " + compareType);
     #endif
                                     return false;
                             }
                         }
                     }
                     
-                    // Int 0ê³¼ ë¹„êµ
+                    // Int 0°ú ºñ±³
                     else
                     {
                         switch (compareType)
@@ -1326,7 +1328,7 @@ using UnityEngine;
 
                             default:
     #if UNITY_EDITOR
-                                    Debug.LogError("ìž˜ëª»ëœ ë¹„êµ íƒ€ìž… : " + compareType);
+                                    Debug.LogError("Àß¸øµÈ ºñ±³ Å¸ÀÔ : " + compareType);
     #endif
                                     return false;
                             }
@@ -1365,7 +1367,7 @@ using UnityEngine;
 
                             default:
 #if UNITY_EDITOR
-                                Debug.LogError("ìž˜ëª»ëœ ë¹„êµ íƒ€ìž… : " + compareType);
+                                Debug.LogError("Àß¸øµÈ ºñ±³ Å¸ÀÔ : " + compareType);
 #endif
                                 return false;
                         }
@@ -1390,7 +1392,7 @@ using UnityEngine;
 
                             default:
 #if UNITY_EDITOR
-                                Debug.LogError("ìž˜ëª»ëœ ë¹„êµ íƒ€ìž… : " + compareType);
+                                Debug.LogError("Àß¸øµÈ ºñ±³ Å¸ÀÔ : " + compareType);
 #endif
                                 return false;
                         }
@@ -1430,7 +1432,7 @@ using UnityEngine;
 
                             default:
 #if UNITY_EDITOR
-                                Debug.LogError("ìž˜ëª»ëœ ë¹„êµ íƒ€ìž… : " + compareType);
+                                Debug.LogError("Àß¸øµÈ ºñ±³ Å¸ÀÔ : " + compareType);
 #endif
                                 return false;
                         }
@@ -1455,7 +1457,7 @@ using UnityEngine;
 
                             default:
 #if UNITY_EDITOR
-                                Debug.LogError("ìž˜ëª»ëœ ë¹„êµ íƒ€ìž… : " + compareType);
+                                Debug.LogError("Àß¸øµÈ ºñ±³ Å¸ÀÔ : " + compareType);
 #endif
                                 return false;
                         }
@@ -1489,7 +1491,7 @@ using UnityEngine;
 
                         default:
 #if UNITY_EDITOR
-                            Debug.LogError("ìž˜ëª»ëœ ë¹„êµ íƒ€ìž… : " + compareType);
+                            Debug.LogError("Àß¸øµÈ ºñ±³ Å¸ÀÔ : " + compareType);
 #endif
                             return false;
                     }
@@ -1511,7 +1513,7 @@ using UnityEngine;
 
                     default:
 #if UNITY_EDITOR
-                        Debug.LogError("ìž˜ëª»ëœ ë¹„êµ íƒ€ìž… : " + compareType);
+                        Debug.LogError("Àß¸øµÈ ºñ±³ Å¸ÀÔ : " + compareType);
 #endif
                         return false;
                 }
@@ -1618,7 +1620,7 @@ using UnityEngine;
         }
         public static Infinite ToInfinite(string value, bool isCommaHave)
         {
-            // Optimization : ê°€ìž¥ ë‚®ì€ String Type Digitë¶€í„° ìºìŠ¤íŒ…í•˜ê³  ìžˆìŒ. ê°€ìž¥ ë†’ì€ ê°’ë¶€í„° 5 Digitë§Œ í•˜ê²Œë” ë³€ê²½.
+            // Optimization : °¡Àå ³·Àº String Type DigitºÎÅÍ Ä³½ºÆÃÇÏ°í ÀÖÀ½. °¡Àå ³ôÀº °ªºÎÅÍ 5 Digit¸¸ ÇÏ°Ô²û º¯°æ.
 
             if (isCommaHave == true)
             {
@@ -1820,7 +1822,7 @@ using UnityEngine;
                 {
                     if (this.powValueDic.TryGetValue(cnt, out Infinite powValue) == false)
                     {
-                        powValue = Infinite.Pow(this.defaultPowValue, cnt); // ì´ì „ ì œê³±ì„ ì°¾ì•„ ê±°ê¸°ì„œ ë¶€í„° ì œê³± ë°˜ë³µë¬¸ ëŒë¦¬ê¸° ã„±ã„±
+                        powValue = Infinite.Pow(this.defaultPowValue, cnt); // ÀÌÀü Á¦°öÀ» Ã£¾Æ °Å±â¼­ ºÎÅÍ Á¦°ö ¹Ýº¹¹® µ¹¸®±â ¤¡¤¡
                         this.powValueDic.Add(cnt, powValue);
                     }
 
@@ -1872,3 +1874,4 @@ using UnityEngine;
         //    return _eventLogValue;
         //}
     }
+}

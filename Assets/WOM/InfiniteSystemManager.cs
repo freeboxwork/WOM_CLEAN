@@ -1,8 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cargold.Infinite;
 
-
+namespace Cargold.Infinite
+{
     public class InfiniteSystemManager
     {
         protected static InfiniteSystemManager instance;
@@ -115,3 +117,4 @@ using UnityEngine;
             public int longValue;
         }
     }
+}

@@ -448,6 +448,7 @@ public class EventController : MonoBehaviour
 
         StartCoroutine(DungeonMonsterAppear(monsterType));
     }
+    public IconSpriteFileData iconSpriteFileData;
 
     IEnumerator DungeonMonsterAppear(MonsterType monsterType)
     {
@@ -516,6 +517,9 @@ public class EventController : MonoBehaviour
             SideUIMenuHide(true);
 
             GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.dungeon);
+            
+            UtilityMethod.GetCustomTypeImageById(46).sprite = iconSpriteFileData.GetBoxIcon(monsterType);
+
 
         }));
 

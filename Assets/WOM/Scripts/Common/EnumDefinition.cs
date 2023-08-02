@@ -338,6 +338,7 @@ public class EnumDefinition
         adBuffSpeed,
         adBuffGold,
         adOffline,
+        adDungeon,
     }
 
     public enum StageNameType

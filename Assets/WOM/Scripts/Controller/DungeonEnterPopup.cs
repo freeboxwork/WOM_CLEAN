@@ -64,14 +64,8 @@ public class DungeonEnterPopup : MonoBehaviour
         {
             if (IsValidDungeonKeyCount(curMonsterType))
             {
-                // 일일 퀘스트 완료 : 던전
-                EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.clearDungeon);
-                EventManager.instance.RunEvent(CallBackEventType.TYPES.OnDungeonMonsterChallenge, curMonsterType);
-
-                if (GlobalData.instance.player.GetDungeonADKeyCountByMonsterType(curMonsterType) <= 0)
-                {
-                    btn_AD_Dungeon.interactable = false;
-                }
+                // 광고 시청 후 던전 진입
+                Admob.instance.ShowRewardedAdByType(EnumDefinition.RewardTypeAD.adDungeon);
             }
             contents.SetActive(false);
         });
@@ -82,6 +76,17 @@ public class DungeonEnterPopup : MonoBehaviour
         });
     }
 
+    public void AD_DungeonIn()
+    {
+        // 일일 퀘스트 완료 : 던전
+        EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.clearDungeon);
+        EventManager.instance.RunEvent(CallBackEventType.TYPES.OnDungeonMonsterChallenge, curMonsterType);
+
+        if (GlobalData.instance.player.GetDungeonADKeyCountByMonsterType(curMonsterType) <= 0)
+        {
+            btn_AD_Dungeon.interactable = false;
+        }
+    }
 
 
 

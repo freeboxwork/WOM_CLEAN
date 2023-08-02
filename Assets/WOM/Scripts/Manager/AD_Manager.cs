@@ -113,6 +113,9 @@ public class AD_Manager : MonoBehaviour
             case EnumDefinition.RewardTypeAD.adOffline:
                 GlobalData.instance.offlineRewardPopupContoller.RewardAD();
                 break;
+            case EnumDefinition.RewardTypeAD.adDungeon:
+                GlobalData.instance.dungeonEnterPopup.AD_DungeonIn();
+                break;
         }
 
     }

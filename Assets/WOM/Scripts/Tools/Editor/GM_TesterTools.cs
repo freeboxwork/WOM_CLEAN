@@ -12,15 +12,15 @@ public class GM_TesterTools : EditorWindow
     bool otherFold = false;
     bool saveDataFold = false;
 
-    int addGold;
-    int addBone;
-    int addGem;
-    int addCoal;
-    int addDice;
+    long addGold;
+    long addBone;
+    long addGem;
+    long addCoal;
+    long addDice;
 
-    int addClertTicekt;
-    int addUnionTicket;
-    int addDnaTicket;
+    long addClertTicekt;
+    long addUnionTicket;
+    long addDnaTicket;
 
     float insectAutoEnableTime = 0.1f;
 
@@ -140,11 +140,11 @@ public class GM_TesterTools : EditorWindow
 
     }
 
-    void GUI_AddGoodsCustom(string title, EnumDefinition.RewardType goodsType, ref int value)
+    void GUI_AddGoodsCustom(string title, EnumDefinition.RewardType goodsType, ref long value)
     {
         GUILayout.BeginHorizontal();
         GUILayout.Label(title, GUILayout.Width(100));
-        value = EditorGUILayout.IntField(value);
+        value = EditorGUILayout.LongField(value);
         if (GUILayout.Button("추가"))
         {
             AddGoods(goodsType, value);
@@ -154,7 +154,7 @@ public class GM_TesterTools : EditorWindow
 
     // RewardByType
 
-    public void AddGoods(EnumDefinition.RewardType goodsType, int value)
+    public void AddGoods(EnumDefinition.RewardType goodsType, long value)
     {
         GlobalData.instance.rewardManager.RewardByType(goodsType, value);
     }

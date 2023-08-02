@@ -131,6 +131,15 @@ public class RewardManager : MonoBehaviour
         // 획득 이벤트 타입과 획득량을 로그로 출력함
         Debug.Log($"획득 이벤트 타입 : {rewardType}, 획득량 : {rewardValye}");
     }
+    public void RewardByType(EnumDefinition.RewardType rewardType, long rewardValye)
+    {
+        rewardDic[rewardType].Invoke(rewardValye);
+
+        //TODO: 획득 연출 추가
+
+        // 획득 이벤트 타입과 획득량을 로그로 출력함
+        Debug.Log($"획득 이벤트 타입 : {rewardType}, 획득량 : {rewardValye}");
+    }
 
 
     public void RewardUnion(int unionIndex)

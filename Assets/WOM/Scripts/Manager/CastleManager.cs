@@ -66,7 +66,7 @@ public class CastleManager : MonoBehaviour
             //광산 -> 골드
             int mineCount = (second / buildDataMine.productionTime);
             var mineAddValue = buildDataMine.productionCount * mineCount;
-            var mineResulValue = Mathf.Min(buildDataMine.totlaMiningValue + mineAddValue, buildDataMine.maxSupplyAmount);
+            var mineResulValue = (long)Mathf.Min(buildDataMine.totlaMiningValue + mineAddValue, buildDataMine.maxSupplyAmount);
             buildDataMine.TotlaMiningValue = mineResulValue;
             Debug.Log("캐슬 -> 광산 오프라인 획득 금액 : " + mineAddValue + " 실제 적용된 값 : " + mineResulValue + " count " + mineCount);
         }
@@ -76,7 +76,7 @@ public class CastleManager : MonoBehaviour
             //가공소 -> 뼈조각
             int factoryCount = (second / buildDataFactory.productionTime);
             var factoryAddValue = buildDataFactory.productionCount * factoryCount;
-            var factoryResulValue = Mathf.Min(buildDataFactory.totlaMiningValue + factoryAddValue, buildDataFactory.maxSupplyAmount);
+            var factoryResulValue = (long)Mathf.Min(buildDataFactory.totlaMiningValue + factoryAddValue, buildDataFactory.maxSupplyAmount);
             buildDataFactory.TotlaMiningValue = factoryResulValue;
             Debug.Log("캐슬 -> 가공소 오프라인 획득 금액 : " + factoryAddValue + " 실제 적용된 값 : " + factoryResulValue + " count " + factoryCount);
         }
@@ -85,9 +85,11 @@ public class CastleManager : MonoBehaviour
 
         // 초기 UI 설정 ( POPUP )
         var minePopup = (MinePopup)GetCastlePopupByType(CastlePopupType.mine);
+        buildDataMine.goodsType = GoodsType.gold;
         minePopup.InitUIText(buildDataMine);
 
         var factoryPopup = (MinePopup)GetCastlePopupByType(CastlePopupType.factory);
+        buildDataFactory.goodsType = GoodsType.bone;
         factoryPopup.InitUIText(buildDataFactory);
 
         // 초기 UI 설정 ( CASTLE )
@@ -404,7 +406,7 @@ public class CastleManager : MonoBehaviour
             {
                 // 아래 두 줄은 player의 coal을 사용하여 채굴하고, productionCount만큼 totlaMiningValue를 업데이트합니다. 단, maxSupplyAmount를 넘지 않도록 합니다.
                 GlobalData.instance.player.PayCoal(buildDataMine.price);
-                buildDataMine.TotlaMiningValue = Mathf.Min(buildDataMine.totlaMiningValue + buildDataMine.productionCount, buildDataMine.maxSupplyAmount);
+                buildDataMine.TotlaMiningValue = System.Math.Min(buildDataMine.totlaMiningValue + buildDataMine.productionCount, buildDataMine.maxSupplyAmount);
 
                 // MinePopup UI를 설정하고 현재의 totalMiningValue를 팝업에 표시합니다. 
                 popup.SetTextTotalMiningValue(buildDataMine.totlaMiningValue.ToString());
@@ -422,7 +424,7 @@ public class CastleManager : MonoBehaviour
     public void WithdrawGold()
     {
         // BuildDataMine이 가지고 있는 총 채굴량을 withdrawnGold 변수에 저장합니다.
-        int withdrawnGold = buildDataMine.totlaMiningValue;
+        long withdrawnGold = buildDataMine.totlaMiningValue;
 
         if (withdrawnGold > 0)
         {
@@ -460,7 +462,7 @@ public class CastleManager : MonoBehaviour
             if (GlobalData.instance.player.coal >= buildDataFactory.price && buildDataFactory.level > 0)
             {
                 GlobalData.instance.player.PayCoal(buildDataFactory.price);
-                buildDataFactory.TotlaMiningValue = Mathf.Min(buildDataFactory.totlaMiningValue + buildDataFactory.productionCount, buildDataFactory.maxSupplyAmount);
+                buildDataFactory.TotlaMiningValue = System.Math.Min(buildDataFactory.totlaMiningValue + buildDataFactory.productionCount, buildDataFactory.maxSupplyAmount);
                 // set ui  
 
                 popup.SetTextTotalMiningValue(buildDataFactory.totlaMiningValue.ToString());
@@ -474,7 +476,7 @@ public class CastleManager : MonoBehaviour
     /// <summary> 뼈조각 인출 </summary>
     public void WithdrawBone()
     {
-        int withdrawnBone = buildDataFactory.totlaMiningValue;
+        long withdrawnBone = buildDataFactory.totlaMiningValue;
 
         if (withdrawnBone > 0)
         {
@@ -497,19 +499,19 @@ public class CastleBuildingData
     // 레벨
     public int level;
     // 골드 생산량
-    public int productionCount;
+    public long productionCount;
     // 골드 최대 저장량 
-    public int maxSupplyAmount;
+    public long maxSupplyAmount;
     // 생산 시간
     public int productionTime;
     // 석탄 필요량
     public int price;
     public string currencyType;
     // 생산되는 재화 타입    
-    EnumDefinition.GoodsType goodsType;
+    public EnumDefinition.GoodsType goodsType;
     // 총 생산량
-    public int totlaMiningValue;
-    public int TotlaMiningValue
+    public long totlaMiningValue;
+    public long TotlaMiningValue
     {
 
         get => totlaMiningValue;

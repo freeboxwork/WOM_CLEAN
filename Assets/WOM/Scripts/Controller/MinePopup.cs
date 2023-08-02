@@ -158,22 +158,22 @@ public class MinePopup : CastlePopupBase
 
 
 
-            if(!CheckEqualZeroByCalculation(nextProduct))
+            if (!CheckEqualZeroByCalculation(nextProduct))
             {
                 _productionCountText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextProduct));
             }
-            if(!CheckEqualZeroByCalculation(nextSupply))
+            if (!CheckEqualZeroByCalculation(nextSupply))
             {
                 _maxSupplyText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextSupply));
             }
-            if(!CheckEqualZeroByCalculation(nextTime))
+            if (!CheckEqualZeroByCalculation(nextTime))
             {
                 _productionTimeText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextTime));
             }
 
 
-//            _levelText += $" > Lv {nextLevelData.level}";
-//            _priceText = nextLevelData.price.ToString();
+            //            _levelText += $" > Lv {nextLevelData.level}";
+            //            _priceText = nextLevelData.price.ToString();
         }
 
         // UI에 값을 설정
@@ -186,13 +186,13 @@ public class MinePopup : CastlePopupBase
 
     }
 
-    bool CheckEqualZeroByCalculation(int calc)
+    bool CheckEqualZeroByCalculation(long calc)
     {
-        if(calc > 0) return  false;
-        return true;        
+        if (calc > 0) return false;
+        return true;
     }
-    
-    
+
+
 
 
     //CastleBuildingData 객체를 인자로 받아서 각각의 맴버변수의 text 값을 설정하는 함수
@@ -212,6 +212,42 @@ public class MinePopup : CastlePopupBase
         string _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime);
         string _levelText = $"Lv {data.level}";
         string _priceText = data.price.ToString();
+
+
+        var nextLevelData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(data.level + 1);
+        CastleBuildingData nextBuildData = null;
+        if (nextLevelData != null)
+        {
+            nextBuildData = new CastleBuildingData().Create().SetGoodsType(data.goodsType).Clone(nextLevelData);
+
+            var nextProduct = nextLevelData.productionCount - productionCount;
+            var nextSupply = nextLevelData.maxSupplyAmount - maxSupply;
+            var nextTime = productionTime - nextLevelData.productionTime;
+
+            // _productionCountText = string.Format("{0}", data.productionCount);
+            // _maxSupplyText = string.Format("{0}", data.maxSupplyAmount);
+            // _productionTimeText = string.Format("{0}", data.productionTime);
+
+            _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount);
+            _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount);
+            _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime);
+
+
+
+            if (!CheckEqualZeroByCalculation(nextProduct))
+            {
+                _productionCountText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextProduct));
+            }
+            if (!CheckEqualZeroByCalculation(nextSupply))
+            {
+                _maxSupplyText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextSupply));
+            }
+            if (!CheckEqualZeroByCalculation(nextTime))
+            {
+                _productionTimeText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextTime));
+            }
+
+        }
 
         // UI에 값을 설정
         SetTextProductionCount(_productionCountText);

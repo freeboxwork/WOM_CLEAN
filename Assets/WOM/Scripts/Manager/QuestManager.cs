@@ -116,6 +116,7 @@ public class QuestManager : MonoBehaviour
                     GlobalData.instance.player.AddAllDungeonKeys();
                     // 자정이 지난경우 일일 광고 보기 회 수 초기화
                     GlobalData.instance.adManager.AllResetBuffAdLeftCount();
+
                 }
 
                 //자정을 지나지 않은 경우 유저 메모리에서 저장된 데이터를 로드한다.

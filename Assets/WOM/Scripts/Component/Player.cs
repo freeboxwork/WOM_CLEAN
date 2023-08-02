@@ -460,6 +460,17 @@ public class Player : MonoBehaviour
         GlobalData.instance.saveDataManager.SaveDataGoodsDungeonADKey(goodsType, dungeonADKeys[goodsType]);
     }
 
+    public void ResetDungeonADKeys()
+    {
+        dungeonADKeys[GoodsType.gold] = 2;
+        dungeonADKeys[GoodsType.bone] = 2;
+        dungeonADKeys[GoodsType.dice] = 2;
+        dungeonADKeys[GoodsType.coal] = 2;
+        GlobalData.instance.saveDataManager.SaveDataGoodsDungeonADKey(GoodsType.gold, 2);
+        GlobalData.instance.saveDataManager.SaveDataGoodsDungeonADKey(GoodsType.bone, 2);
+        GlobalData.instance.saveDataManager.SaveDataGoodsDungeonADKey(GoodsType.dice, 2);
+        GlobalData.instance.saveDataManager.SaveDataGoodsDungeonADKey(GoodsType.coal, 2);
+    }
 
     public long GetCurrentDungeonKeyCount(MonsterType monsterType)
     {

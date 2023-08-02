@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+
 public class LabBuildingManager : MonoBehaviour
 {
     public List<LabBuildIngameData> labBuildIngameDataList = new List<LabBuildIngameData>();

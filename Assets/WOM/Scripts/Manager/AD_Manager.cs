@@ -133,4 +133,18 @@ public class AD_Manager : MonoBehaviour
         var slot = GetBuffAdSlotByType(buffADType);
         slot.ResetLeftCount();
     }
+
+    public void AllResetADLeftCount()
+    {
+        // 던전 광고 키 2개로 초기화
+        GlobalData.instance.player.ResetDungeonADKeys();
+        // 광고 버프 카운드 2개로 초기화
+        foreach (var slot in buffADSlots)
+        {
+            slot.ResetLeftCount();
+        }
+        // 보석 광고 카운트 2개로 초기화
+        adRandomRewardPopupController.ResetLeftCount();
+    }
+
 }

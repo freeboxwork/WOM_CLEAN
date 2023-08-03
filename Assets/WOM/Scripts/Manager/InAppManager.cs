@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Purchasing;
 using UnityEngine.Purchasing.Extension;
 using UnityEngine.UI;
@@ -207,6 +206,10 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
             var buffKey = GlobalData.instance.adManager.buffPassKey;
             PlayerPrefs.SetInt(adKey, 1);
             PlayerPrefs.SetInt(buffKey, 1);
+
+            // 광고 카운트 초기화
+            GlobalData.instance.adManager.AllResetADLeftCount();
+
             var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem, EnumDefinition.RewardType.clearTicket };
             var rewardValues = new long[] { 10000, 5 };
             PopupController.instance.InitPopups(rewardTypes, rewardValues);

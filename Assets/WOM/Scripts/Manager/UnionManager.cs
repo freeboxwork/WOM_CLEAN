@@ -356,7 +356,7 @@ public class UnionManager : MonoBehaviour
 
         foreach (var slot in unionSlots)
         {
-            if (slot.inGameData.level > 0)
+            if (slot.inGameData.unionCount > 0)
                 totalPassiveValue += slot.inGameData.passiveDamage;
         }
         return totalPassiveValue;

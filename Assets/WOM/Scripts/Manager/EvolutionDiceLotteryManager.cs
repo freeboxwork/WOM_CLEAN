@@ -207,6 +207,8 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
     {
         yield return null;
 
+        //순서 : 등급 > 능력
+
         // 현재 주사위 사용 개수 판단
         // 기본 10 + (10 X unlock count)
         var usingDice = UtilityMethod.GetEvolutionDiceUsingCount();
@@ -233,7 +235,7 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
 
             //slot.SetGradeTxtColor(randomGradeData.gradeColor);
 
-            // 랜덤 능력치 뽑기
+            // 동일한 확률로 랜덤 능력치 뽑기
             var statValue = GetRandomStatValue(randomGradeData);
 
             Debug.Log($"랜덤하게 뽑은 능력치값 :{randomStatType.ToString()} / {statValue}");

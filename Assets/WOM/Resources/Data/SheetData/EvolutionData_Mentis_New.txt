@@ -1,3 +1,63 @@
-{"data":[{"depthId":0,"damage":300,"damageRate":100,"criticalChance":11,"criticalDamage":0,"speed":100,"goldBonus":0,"bossDamage":0,"name":"Mantis00","spawnTime":3},{"depthId":1,"damage":3000,"damageRate":200,"criticalChance":12,"criticalDamage":0,"speed":50,"goldBonus":0,"bossDamage":0,"name":"Mantis01","spawnTime":3},{"depthId":2,"damage":30000,"damageRate":400,"criticalChance":13,"criticalDamage":0,"speed":60,"goldBonus":0,"bossDamage":0,"name":"Mantis02","spawnTime":3},{"depthId":3,"damage":300000,"damageRate":800,"criticalChance":14,"criticalDamage":0,"speed":70,"goldBonus":0,"bossDamage":0,"name":"Mantis03","spawnTime":3},{"depthId":4,"damage":3000000,"damageRate":1600,"criticalChance":15,"criticalDamage":0,"speed":80,"goldBonus":0,"bossDamage":0,"name":"Mantis04","spawnTime":3}]
-
+{"data":[
+ {
+   "depthId": 0,
+   "damage": 100,
+   "damageRate": 100,
+   "criticalChance": 0,
+   "criticalDamage": 0,
+   "speed": 100,
+   "goldBonus": 0,
+   "bossDamage": 0,
+   "name": "Mantis00",
+   "spawnTime": 3
+ },
+ {
+   "depthId": 1,
+   "damage": 200,
+   "damageRate": 200,
+   "criticalChance": 0,
+   "criticalDamage": 0,
+   "speed": 100,
+   "goldBonus": 0,
+   "bossDamage": 0,
+   "name": "Mantis01",
+   "spawnTime": 3
+ },
+ {
+   "depthId": 2,
+   "damage": 400,
+   "damageRate": 400,
+   "criticalChance": 0,
+   "criticalDamage": 0,
+   "speed": 100,
+   "goldBonus": 0,
+   "bossDamage": 0,
+   "name": "Mantis02",
+   "spawnTime": 3
+ },
+ {
+   "depthId": 3,
+   "damage": 800,
+   "damageRate": 800,
+   "criticalChance": 0,
+   "criticalDamage": 0,
+   "speed": 100,
+   "goldBonus": 0,
+   "bossDamage": 0,
+   "name": "Mantis03",
+   "spawnTime": 3
+ },
+ {
+   "depthId": 4,
+   "damage": 1600,
+   "damageRate": 1600,
+   "criticalChance": 0,
+   "criticalDamage": 0,
+   "speed": 100,
+   "goldBonus": 0,
+   "bossDamage": 0,
+   "name": "Mantis04",
+   "spawnTime": 3
+ }
+]
 }

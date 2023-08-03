@@ -32,7 +32,7 @@ public class DNASlot : MonoBehaviour
 
     public void SetTxtInfo(string front, string color, double power, string back)
     {
-        txtInfo.text = $"{front} <{color}> {power}% </color> {back}";
+        txtInfo.text = $"{front} <{color}> {power} </color> {back}";
     }
 
     public void SetTxtHasCount(int level, int maxCount)

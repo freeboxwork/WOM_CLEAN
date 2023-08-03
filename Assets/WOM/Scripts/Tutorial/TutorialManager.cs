@@ -23,17 +23,25 @@ public class TutorialManager : MonoBehaviour
 
     public TutorialUiController tutorialUiCont;
 
+    public List<PatternBase> patterns = new List<PatternBase>();
+
+
     void Start()
     {
         StartCoroutine(Init());
     }
 
-    public void Update()
+    // public void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.Q))
+    //     {
+    //         EnableTutorialSet();
+    //     }
+    // }
+
+    public void TutorialStart()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            EnableTutorialSet();
-        }
+        EnableTutorialSet();
     }
 
     IEnumerator Init()
@@ -83,7 +91,19 @@ public class TutorialManager : MonoBehaviour
         var tutorialSet = GetTutorialSetById(curTutorialSetID);
         var step = tutorialSet.steps[curTutorialStepID];
         var tutoBtn = GetTutorialButtonById(step.tutorialBtnId);
-        tutorialUiCont.EnableTutorial(step.description, tutoBtn.image, tutoBtn.button);
+        //tutorialUiCont.EnableTutorial(step.description, tutoBtn.image, tutoBtn.button);
+        EnableTutorialStep(step);
+    }
+
+    void EnableTutorialStep(TutorialStep stepData)
+    {
+        var partern = GetPatternByType(stepData.patternType);
+        partern.EventStart(stepData);
+    }
+
+    PatternBase GetPatternByType(EnumDefinition.PatternType type)
+    {
+        return patterns.FirstOrDefault(f => f.patternType == type);
     }
 
     public void CompleteStep()
@@ -99,9 +119,10 @@ public class TutorialManager : MonoBehaviour
         {
             // 다음 스텝 실행
             ++curTutorialStepID;
-            var step = tutorialSet.steps[curTutorialStepID];
-            var tutoBtn = GetTutorialButtonById(step.tutorialBtnId);
-            tutorialUiCont.EnableTutorial(step.description, tutoBtn.image, tutoBtn.button);
+            var stepData = tutorialSet.steps[curTutorialStepID];
+            EnableTutorialStep(stepData);
+            // var tutoBtn = GetTutorialButtonById(step.tutorialBtnId);
+            // tutorialUiCont.EnableTutorial(step.description, tutoBtn.image, tutoBtn.button);
         }
         else
         {
@@ -112,10 +133,12 @@ public class TutorialManager : MonoBehaviour
             curTutorialSetID++;
             curTutorialStepID = 0;
 
-            tutorialUiCont.DisableTutorial();
+            // tutorialUiCont.DisableTutorial();
 
             // set save data
             GlobalData.instance.saveDataManager.SaveDataTutorialStep(curTutorialSetID);
+
+            EnableTutorialSet();
         }
 
         //Debug.Log(curTutorialStepID);

@@ -2,6 +2,18 @@
 public class EnumDefinition
 {
 
+    public enum PatternType
+    {
+        pattern_01,
+        pattern_02,
+        pattern_03,
+        pattern_04,
+        pattern_05,
+        pattern_06,
+        pattern_07,
+        pattern_08,
+        pattern_09,
+    }
     public enum CustomDataType
     {
         button,

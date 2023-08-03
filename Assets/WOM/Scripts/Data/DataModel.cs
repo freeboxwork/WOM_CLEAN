@@ -481,10 +481,14 @@ public class TutorialStep
     public int id;              // 튜토리얼 스텝 ID
     public int setId;           // 튜토리얼 세트 ID
     public int step;            // 튜토리얼 스텝 번호
+    public EnumDefinition.PatternType patternType; // 튜토리얼 패턴 타입
+    public string patternDescription; // 튜토리얼 패턴 설명
+    public int customConditions;// 추가 조건
     public int tutorialBtnId;   // 버튼 ID
     public string goal;         // 튜토리얼 목표
     public string description;  // 튜토리얼 설명
     public bool isStepComplete = false; // 현재 스탭 완료 판단
+
 }
 
 // 던전 몬스터 기본 정보 클래스

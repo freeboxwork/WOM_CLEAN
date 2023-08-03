@@ -14,6 +14,7 @@ public class EnumDefinition
         pattern_08,
         pattern_09,
     }
+
     public enum CustomDataType
     {
         button,

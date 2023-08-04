@@ -91,4 +91,9 @@ public class StageManager : MonoBehaviour
     {
         return bgSpriteFileData.background[id];
     }
+
+    public int GetStageId()
+    {
+        return stageData.stageId;
+    }
 }

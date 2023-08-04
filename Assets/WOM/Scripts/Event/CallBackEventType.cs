@@ -25,6 +25,10 @@ public class CallBackEventType
         OnTutorialAddGold,              /// <summary> 튜토리얼 - 골드 획득 했을때 </summary>
         OnTutorialBtnClick,             /// <summary> 튜토리얼 - 버튼 클릭 했을때 </summary>
         OnTutorialScreenClick,          /// <summary> 튜토리얼 - Pattern2에 해당하는 바탕화면(버튼) 클릭 했을때 </summary>
+        OnStageInGoldMonster,           /// <summary> 튜토리얼 - 골드 몬스터 도달 했을때 </summary>
+        OnMonsterKillGoldMonster,       /// <summary> 튜토리얼 - 골드 몬스터를 처치 했을때 </summary>
+        OnMonsterKillBossMonster,       /// <summary> 튜토리얼 - 보스 몬스터를 처치 했을때 </summary>
+        OnMonsterKillFailedBossMonster,  /// <summary> 튜토리얼 - 보스 몬스터를 처치 실패 했을때 </summary>   
         None,
     }
 }

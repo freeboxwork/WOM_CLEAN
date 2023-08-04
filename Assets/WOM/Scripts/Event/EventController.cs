@@ -279,6 +279,18 @@ public class EventController : MonoBehaviour
         // monster kill animation 사망 애니메이션 대기
         yield return StartCoroutine(currentMonster.inOutAnimator.MonsterKillMatAnim());
 
+
+
+        // tutorial event ( 골드 몬스터 사망 )
+        if (currentMonster.monsterType == MonsterType.gold)
+            EventManager.instance.RunEvent(CallBackEventType.TYPES.OnMonsterKillGoldMonster);
+
+        // tutorial event ( 보스 몬스터 사망 )
+        if (currentMonster.monsterType == MonsterType.boss)
+            EventManager.instance.RunEvent(CallBackEventType.TYPES.OnMonsterKillBossMonster);
+
+
+
         switch (currentMonster.monsterType)
         {
             case MonsterType.normal: StartCoroutine(MonsterDie_Normal()); break;
@@ -737,6 +749,10 @@ public class EventController : MonoBehaviour
         // TODO: 이펙트 연출 추가
         globalData.player.SetCurrentMonsterHP(monsterData.hp);
 
+        // Tutorial Event ( 골드 몬스터 등장 )
+        if (monsterType == MonsterType.gold)
+            EventManager.instance.RunEvent(CallBackEventType.TYPES.OnStageInGoldMonster);
+
 
         // 몬스터 UI 리셋 
         MonsterUiReset();
@@ -938,6 +954,9 @@ public class EventController : MonoBehaviour
 
         // 일반 몬스터 등장
         StartCoroutine(MonsterAppearCor(MonsterType.normal));
+
+        // tutorial event ( 보스 몬스터 도전 실패 )
+        EventManager.instance.RunEvent(CallBackEventType.TYPES.OnMonsterKillFailedBossMonster);
 
     }
 
@@ -1227,6 +1246,9 @@ public class EventController : MonoBehaviour
 
         // 일반 몬스터 등장
         StartCoroutine(MonsterAppearCor(MonsterType.normal));
+
+        // tutorial event ( 보스 몬스터 도전 실패 )
+        EventManager.instance.RunEvent(CallBackEventType.TYPES.OnMonsterKillFailedBossMonster);
     }
 
 

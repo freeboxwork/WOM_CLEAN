@@ -339,7 +339,7 @@ public class SkillManager : MonoBehaviour
         return GlobalData.instance.player.gold >= price;
     }
 
-    float GetSkillPrice(SkillData data, Skill_InGameData skill_InGameData)
+    long GetSkillPrice(SkillData data, Skill_InGameData skill_InGameData)
     {
         return data.defaultCost + (data.addCostAmount * skill_InGameData.level);
     }

@@ -11,18 +11,7 @@ using Cargold.Infinite;
 
 public static class UtilityMethod
 {
-    private const string FillZeroFormat = "D{0}";
-    public static string ToString_Fill_Func(this int _value, int _fillZero)
-    {
-        string _fillZeroFormat = string.Format(FillZeroFormat, _fillZero);
-        return _value.ToString(_fillZeroFormat);
-    }
-    static readonly string[] symbol = new string[] { "", "K", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", };
-    // 1000 1k
-    // 10000 10k 
-    // 100000 100k
-    // 1000000 1a
-    // 1000000000 1b
+
     public static void EnableUIEventSystem(bool value)
     {
         GlobalData.instance.eventSystem.enabled = value;
@@ -193,76 +182,20 @@ public static class UtilityMethod
         return unlock;
     }
 
-    ///<summary> 골드 및 뼛조각 숫자 Text를 심볼로 변경 </summary>
-    public static string ChangeSymbolNumber(float number)
+    private const string FillZeroFormat = "D{0}";
+    public static string ToString_Fill_Func(this int _value, int _fillZero)
     {
-        Infinite value = number;
-        return value.ToString();
-        #region  NOT USED
-        string zero = "0";
-
-        if (-1d < number && number < 1d)
-        {
-            return zero;
-        }
-
-        if (double.IsInfinity(number))
-        {
-            return "Max";
-        }
-
-        //  ??? ??? ?????
-        string significant = (number < 0) ? "-" : string.Empty;
-
-        //  ?????? ????
-        string showNumber = string.Empty;
-
-        //  ???? ?????
-        string unityString = string.Empty;
-
-        //  ?????? ???? ????? ???? ?????? ???? ????????? ?????? ?? ???
-        string[] partsSplit = number.ToString("E").Split('+');
-
-        //  ????
-        if (partsSplit.Length < 2)
-        {
-            return zero;
-        }
-
-        //  ???? (????? ???)
-        if (!int.TryParse(partsSplit[1], out int exponent))
-        {
-            Debug.LogWarningFormat("Failed - ToCurrentString({0}) : partSplit[1] = {1}", number, partsSplit[1]);
-            return zero;
-        }
-
-        //  ???? ????? ??????
-        int quotient = exponent / 3;
-
-        //  ???????? ?????? ????? ??¡?Z ???(10?? ????????? ???)
-        int remainder = exponent % 3;
-
-        //  1A ????? ??? ???
-        if (exponent < 3)
-        {
-            showNumber = System.Math.Truncate(number).ToString();
-        }
-        else
-        {
-            //  10?? ????????? ????? ????? ??????? ????? ???.
-            var temp = double.Parse(partsSplit[0].Replace("E", "")) * System.Math.Pow(10, remainder);
-
-            //  ??? ???®¨¡????????? ??????.
-            //showNumber = temp.ToString("F").Replace(".0", "");
-            showNumber = temp.ToString("F");
-        }
-
-        unityString = symbol[quotient];
-
-        return string.Format("{0}{1}{2}", significant, showNumber, unityString);
-        #endregion
+        string _fillZeroFormat = string.Format(FillZeroFormat, _fillZero);
+        return _value.ToString(_fillZeroFormat);
     }
-
+    static readonly string[] symbol = new string[] { "", "K", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", };
+    // 1000 1k
+    // 10000 10k 
+    // 100000 100k
+    // 1000000 1a
+    // 1000000000 1b
+    
+    
     public static string ChangeSymbolNumber(long number)
     {
 

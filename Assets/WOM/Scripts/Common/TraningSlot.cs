@@ -47,7 +47,7 @@ public class TraningSlot : MonoBehaviour
     {
         if (value != "Max")
         {
-            var txtSymbolValue = UtilityMethod.ChangeSymbolNumber(float.Parse(value));
+            var txtSymbolValue = UtilityMethod.ChangeSymbolNumber(long.Parse(value));
             txtCost.text = txtSymbolValue;
         }
         else

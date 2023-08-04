@@ -138,7 +138,7 @@ public class TraningManager : MonoBehaviour
         EnableSubMenuPanel(EnumDefinition.TrainingSubPanelType.training);
     }
 
-    int GetCostIntValue(SaleStatType statType, TraningInGameData inGameData)
+    long GetCostIntValue(SaleStatType statType, TraningInGameData inGameData)
     {
         var data = GlobalData.instance.dataManager.GetSaleStatDataByType(statType).data;
         if (data.Last().level > inGameData.level)
@@ -266,9 +266,9 @@ public class TraningManager : MonoBehaviour
     }
 
     // 구매 가능한지 확인
-    bool IsValidPayItem(int price, GoodsType goodsType)
+    bool IsValidPayItem(long price, GoodsType goodsType)
     {
-        switch (goodsType)
+        switch(goodsType)
         {
             case GoodsType.gold: return GlobalData.instance.player.gold >= price;
             case GoodsType.bone: return GlobalData.instance.player.bone >= price;

@@ -183,13 +183,13 @@ public class SaleManager : MonoBehaviour
 
     //UTILITY 
 
-    bool IsValidPurchaseGold(int value)
+    bool IsValidPurchaseGold(long value)
     {
         return 0 <= player.gold - value;
     }
 
 
-    bool IsValidPurchaseBone(int value)
+    bool IsValidPurchaseBone(long value)
     {
         return 0 <= player.bone - value;
     }

@@ -315,7 +315,7 @@ public class SummonGradeData
 public class StatSaleData
 {
     public int level;
-    public int salePrice;
+    public long salePrice;
 
     // gold 로 획득
     public float value;
@@ -329,7 +329,7 @@ public class StatSaleData
 public class TraningInGameData
 {
     public int level;
-    public int salePrice;
+    public long salePrice;
     public double value;
     public string unitName;
     public string trainingName;
@@ -428,8 +428,8 @@ public class SkillData
     public float addPowerRate;
     public int maxLevel;
     public string desctiption;
-    public float defaultCost;
-    public float addCostAmount;
+    public long defaultCost;
+    public long addCostAmount;
     public int unLockLevel;
 }
 

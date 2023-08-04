@@ -7,12 +7,12 @@ using System;
 
 public class RewardInfoData
 {
-    public float amount;
+    public long amount;
     public EnumDefinition.RewardType type;
 
     public Sprite icon;
 
-    public RewardInfoData(EnumDefinition.RewardType type, float amount, Sprite sp)
+    public RewardInfoData(EnumDefinition.RewardType type, long amount, Sprite sp)
     {
         this.type = type;
         this.amount = amount;

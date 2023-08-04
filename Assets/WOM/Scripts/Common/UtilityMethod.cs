@@ -355,6 +355,19 @@ public static class UtilityMethod
         return (long)System.Math.Round(number);
     }
 
+    /// <summary>
+    /// 값을 한 범위에서 다른 범위로 재매핑합니다.
+    /// </summary>
+    /// <param name="value">재매핑할 값입니다.</param>
+    /// <param name="from1">현재 범위의 최소값입니다.</param>
+    /// <param name="to1">현재 범위의 최대값입니다.</param>
+    /// <param name="from2">대상 범위의 최소값입니다.</param>
+    /// <param name="to2">대상 범위의 최대값입니다.</param>
+    public static float RemapValue(float value, float from1, float to1, float from2, float to2)
+    {
+        return (value - from1) / (to1 - from1) * (to2 - from2) + from2;
+    }
+
 
 #if UNITY_EDITOR
 

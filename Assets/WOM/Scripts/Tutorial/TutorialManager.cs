@@ -25,6 +25,8 @@ public class TutorialManager : MonoBehaviour
 
     public List<PatternBase> patterns = new List<PatternBase>();
 
+    public bool isTutorial = false;
+
 
     void Start()
     {
@@ -41,6 +43,7 @@ public class TutorialManager : MonoBehaviour
 
     public void TutorialStart()
     {
+        isTutorial = true;
         EnableTutorialSet();
     }
 
@@ -94,11 +97,16 @@ public class TutorialManager : MonoBehaviour
     public void EnableTutorialSet()
     {
         var tutorialSet = GetTutorialSetById(curTutorialSetID);
+
+        if (tutorialSet == null)
+        {
+            Debug.LogError($"{curTutorialSetID}에 해당하는 투토리얼 세트가 없습니다.");
+
+            // 투토리얼 종료
+            isTutorial = false;
+            return;
+        }
         var step = tutorialSet.steps[curTutorialStepID];
-
-        //var tutoBtn = GetTutorialButtonById(step.tutorialBtnId);
-        //tutorialUiCont.EnableTutorial(step.description, tutoBtn.image, tutoBtn.button);
-
         EnableTutorialStep(step);
     }
 

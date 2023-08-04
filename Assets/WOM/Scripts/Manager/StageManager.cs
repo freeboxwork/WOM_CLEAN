@@ -55,8 +55,9 @@ public class StageManager : MonoBehaviour
 
         // Set Stage Name
         var stageName = stageData.stageName;
-        GlobalData.instance.stageNameSetManager.SetTxtStageName(EnumDefinition.StageNameType.normal, stageName);
         GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.normal);
+        GlobalData.instance.stageNameSetManager.SetTxtStageName(EnumDefinition.StageNameType.normal, stageName);
+
     }
 
     void SetStageData(int stageId, out bool isBgImgChange)
@@ -67,6 +68,11 @@ public class StageManager : MonoBehaviour
         isBgImgChange = stageData.bgId != data.bgId;
 
         stageData = data.CopyInstance();
+
+        // Set Stage Name
+        var stageName = stageData.stageName;
+        GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.normal);
+        GlobalData.instance.stageNameSetManager.SetTxtStageName(EnumDefinition.StageNameType.normal, stageName);
     }
 
     public void SetBgImage()

@@ -1,44 +1,44 @@
 {
   "data": [
- {
-   "id": 0,
-   "hp": 10000,
-   "imageId": 0,
-   "type": "EVOLUTION",
-   "bgId": 5,
-   "attackType": "TAIL",
-   "grade": "D",
-   "stageName": "ÁøÈ­ 1´Ü°è"
- },
- {
-   "id": 1,
-   "hp": 100000,
-   "imageId": 1,
-   "type": "EVOLUTION",
-   "bgId": 5,
-   "attackType": "TAIL",
-   "grade": "C",
-   "stageName": "ÁøÈ­ 2´Ü°è"
- },
- {
-   "id": 2,
-   "hp": 1000000,
-   "imageId": 2,
-   "type": "EVOLUTION",
-   "bgId": 5,
-   "attackType": "TAIL",
-   "grade": "B",
-   "stageName": "ÁøÈ­ 3´Ü°è"
- },
- {
-   "id": 3,
-   "hp": 10000000,
-   "imageId": 3,
-   "type": "EVOLUTION",
-   "bgId": 5,
-   "attackType": "TAIL",
-   "grade": "A",
-   "stageName": "ÁøÈ­ 4´Ü°è"
- }
-]
+    {
+      "id": 0,
+      "hp": 10000,
+      "imageId": 0,
+      "type": "EVOLUTION",
+      "bgId": 5,
+      "attackType": "TAIL",
+      "grade": "D",
+      "stageName": "ì§„í™” 1ë‹¨ê³„"
+    },
+    {
+      "id": 1,
+      "hp": 100000,
+      "imageId": 1,
+      "type": "EVOLUTION",
+      "bgId": 5,
+      "attackType": "TAIL",
+      "grade": "C",
+      "stageName": "ì§„í™” 2ë‹¨ê³„"
+    },
+    {
+      "id": 2,
+      "hp": 1000000,
+      "imageId": 2,
+      "type": "EVOLUTION",
+      "bgId": 5,
+      "attackType": "TAIL",
+      "grade": "B",
+      "stageName": "ì§„í™” 3ë‹¨ê³„"
+    },
+    {
+      "id": 3,
+      "hp": 10000000,
+      "imageId": 3,
+      "type": "EVOLUTION",
+      "bgId": 5,
+      "attackType": "TAIL",
+      "grade": "A",
+      "stageName": "ì§„í™” 4ë‹¨ê³„"
+    }
+  ]
 }

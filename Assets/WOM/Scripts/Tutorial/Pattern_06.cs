@@ -18,11 +18,11 @@ public class Pattern_06 : PatternBase
 
     void AddEvent()
     {
-        EventManager.instance.AddCallBackEvent(CallBackEventType.TYPES.OnMonsterKillBossMonster, OnBossMonsterKillFailed);
+        EventManager.instance.AddCallBackEvent(CallBackEventType.TYPES.OnMonsterKillFailedBossMonster, OnBossMonsterKillFailed);
     }
     void RemoveEvent()
     {
-        EventManager.instance.RemoveCallBackEvent(CallBackEventType.TYPES.OnMonsterKillBossMonster, OnBossMonsterKillFailed);
+        EventManager.instance.RemoveCallBackEvent(CallBackEventType.TYPES.OnMonsterKillFailedBossMonster, OnBossMonsterKillFailed);
     }
 
     void OnBossMonsterKillFailed()

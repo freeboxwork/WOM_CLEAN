@@ -45,13 +45,15 @@ public class Pattern_03 : PatternBase
     public override void ResetGoalData()
     {
         btnIndex = null;
+        tutorialManager.tutorialUiCont.SetMaskParentImgRaycastTarget(false);
     }
 
     public override void SetGoalData(TutorialStep stepData)
     {
         btnIndex = stepData.tutorialBtnId;
+        // 버튼 이외의 영역을 클릭 못하게 막음
+        tutorialManager.tutorialUiCont.SetMaskParentImgRaycastTarget(true);
     }
-
     public override void StepClear()
     {
         ResetGoalData();

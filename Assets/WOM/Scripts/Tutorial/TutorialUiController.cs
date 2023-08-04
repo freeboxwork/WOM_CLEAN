@@ -15,9 +15,14 @@ public class TutorialUiController : MonoBehaviour
     public bool isTypeAnim = false;
     public Image imgBlackBg;
 
+    public Image imgMaskParent;
+
+
     float typingSpeed = 0.01f;
     private string fullText;
     private string currentText = "";
+
+
 
     // 스크린 터치 버튼
     public GameObject btnScreen;
@@ -97,5 +102,11 @@ public class TutorialUiController : MonoBehaviour
     {
         btnScreen.SetActive(value);
     }
+
+    public void SetMaskParentImgRaycastTarget(bool value)
+    {
+        imgMaskParent.raycastTarget = value;
+    }
+
 
 }

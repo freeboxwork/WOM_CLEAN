@@ -13,13 +13,17 @@ public class TutorialUiController : MonoBehaviour
     public Button tutoBtn;
     public TutorialManager tutorialManager;
     public bool isTypeAnim = false;
+    public Image imgBlackBg;
 
     float typingSpeed = 0.01f;
     private string fullText;
     private string currentText = "";
 
+    // 스크린 터치 버튼
+    public GameObject btnScreen;
     public void EnableTutorialMask(string message, Image image, Button button)
     {
+        ShowOnlyText(false);
         tutoSet.gameObject.SetActive(true);
 
         SetTxtDesc(message);
@@ -62,13 +66,20 @@ public class TutorialUiController : MonoBehaviour
 
     public void EnableDiscriptionText(string text)
     {
+        ShowOnlyText(true);
         tutoSet.gameObject.SetActive(true);
-        imgUnmask.sprite = null;
-        unmask.fitTarget = null;
+        // imgUnmask.sprite = null;
+        // unmask.fitTarget = null;
         SetTxtDesc(text);
     }
 
-    void SetTxtDesc(string value)
+    void ShowOnlyText(bool value)
+    {
+        imgBlackBg.gameObject.SetActive(!value);
+        imgUnmask.gameObject.SetActive(!value);
+    }
+
+    public void SetTxtDesc(string value)
     {
         fullText = value;
         currentText = "";
@@ -81,4 +92,10 @@ public class TutorialUiController : MonoBehaviour
     {
         tutoSet.gameObject.SetActive(false);
     }
+
+    public void ActiveScreenBtn(bool value)
+    {
+        btnScreen.SetActive(value);
+    }
+
 }

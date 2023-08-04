@@ -6,20 +6,32 @@ public class Pattern_02 : PatternBase
 {
     int touchCount = 0;
     int targetTouchCount = 1;
-    public TutorialManager tutorialManager;
 
     bool isTextTypeEnd = false;
 
     void Start()
     {
-
+        AddEvent();
+    }
+    void OnDestroy()
+    {
+        RemoveEvent();
     }
 
-    void Update()
+    void AddEvent()
+    {
+        EventManager.instance.AddCallBackEvent(CallBackEventType.TYPES.OnTutorialScreenClick, OnBtnCkickScreen);
+    }
+    void RemoveEvent()
+    {
+        EventManager.instance.RemoveCallBackEvent(CallBackEventType.TYPES.OnTutorialScreenClick, OnBtnCkickScreen);
+    }
+
+    void OnBtnCkickScreen()
     {
         if (enableEvent)
         {
-            if (Input.GetMouseButtonDown(0) && IsTypeTextAnimEnd())
+            if (IsTypeTextAnimEnd())
             {
                 touchCount++;
                 if (touchCount >= targetTouchCount)
@@ -30,13 +42,10 @@ public class Pattern_02 : PatternBase
         }
     }
 
-    bool IsTypeTextAnimEnd()
-    {
-        return tutorialManager.tutorialUiCont.isTypeAnim;
-    }
 
     public override void EventStart(TutorialStep stepData)
     {
+        Debug.Log("투토리얼 패턴 이벤트 시작 " + stepData.patternType);
         SetGoalData(stepData);
         EnableText(stepData);
         EnableEvent(true);
@@ -56,12 +65,14 @@ public class Pattern_02 : PatternBase
 
     public override void ResetGoalData()
     {
-
+        tutorialManager.tutorialUiCont.ActiveScreenBtn(false);
+        touchCount = 0;
     }
 
     public override void SetGoalData(TutorialStep stepData)
     {
-
+        tutorialManager.tutorialUiCont.ActiveScreenBtn(true);
+        touchCount = 0;
     }
 
 }

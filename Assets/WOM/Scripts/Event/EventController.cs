@@ -244,6 +244,9 @@ public class EventController : MonoBehaviour
         // 골드 획득
         GainGold(currentMonster);
 
+        // tutorial event ( 몬스터 골드 드랍 획득 )
+        EventManager.instance.RunEvent(CallBackEventType.TYPES.OnTutorialAddGold);
+
 
         // 보스일경우 뼈조각 추가 획득
         if (currentMonster.monsterType == MonsterType.boss)
@@ -517,7 +520,7 @@ public class EventController : MonoBehaviour
             SideUIMenuHide(true);
 
             GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.dungeon);
-            
+
             UtilityMethod.GetCustomTypeImageById(46).sprite = iconSpriteFileData.GetBoxIcon(monsterType);
 
 

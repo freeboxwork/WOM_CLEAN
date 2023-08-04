@@ -43,7 +43,13 @@ public class AttackController : MonoBehaviour
                     {
                         var isPointerOnUI = EventSystem.current.IsPointerOverGameObject();
                         if (isPointerOnUI == false)
+                        {
+                            // 투토리얼 곤충 생성 이벤트
+                            EventManager.instance.RunEvent(CallBackEventType.TYPES.OnTutoInsectCreate);
+                            // 곤충 생성
                             EnableInsectBullet(pos);
+                        }
+
                     }
                 }
 

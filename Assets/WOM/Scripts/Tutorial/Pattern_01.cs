@@ -1,35 +1,63 @@
 /// <summary>
-/// 화면 터치 N회 ( N = customConditions)
+/// 곤충생성 N회 ( N = customConditions)
 /// </summary>
 using UnityEngine;
 public class Pattern_01 : PatternBase
 {
-    int touchCount = 0;
-    int targetTouchCount = 0;
-    public TutorialManager tutorialManager;
+    public int touchCount = 0;
+    public int targetTouchCount = 0;
+
+
+
 
     void Start()
     {
-
+        AddEvent();
+    }
+    void OnDestroy()
+    {
+        RemoveEvent();
     }
 
-    void Update()
+    void AddEvent()
+    {
+        EventManager.instance.AddCallBackEvent(CallBackEventType.TYPES.OnTutoInsectCreate, CountingInsectCreate);
+    }
+    void RemoveEvent()
+    {
+        EventManager.instance.RemoveCallBackEvent(CallBackEventType.TYPES.OnTutoInsectCreate, CountingInsectCreate);
+    }
+
+    void CountingInsectCreate()
     {
         if (enableEvent)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && IsTypeTextAnimEnd())
             {
                 touchCount++;
                 if (touchCount >= targetTouchCount)
                 {
                     StepClear();
                 }
+                else
+                {
+                    var txt = $"남은 곤충 생성 횟 수 <#00AFFF>{targetTouchCount - touchCount}</color>";
+                    tutorialManager.tutorialUiCont.SetTxtDesc(txt);
+                    Debug.Log(" 투토리얼 1 현재 곤충 생성 횟수 : " + touchCount);
+                }
             }
         }
     }
 
+
+
     public override void EventStart(TutorialStep stepData)
     {
+        // Debug.Log("투토리얼 패턴 이벤트 시작 " + stepData.patternType);
+        // UI hide
+        GlobalData.instance.uiController.MainMenuHide();
+        SideUIMenuHide(true);
+
         SetGoalData(stepData);
         EnableText(stepData);
         EnableEvent(true);
@@ -42,6 +70,8 @@ public class Pattern_01 : PatternBase
 
     public override void StepClear()
     {
+        GlobalData.instance.uiController.MainMenuShow();
+        SideUIMenuHide(false);
         ResetGoalData();
         EnableEvent(false);
         tutorialManager.CompleteStep();
@@ -55,7 +85,15 @@ public class Pattern_01 : PatternBase
 
     public override void SetGoalData(TutorialStep stepData)
     {
+        touchCount = 0;
         targetTouchCount = stepData.customConditions;
+    }
+
+
+    void SideUIMenuHide(bool isHide)
+    {
+        UtilityMethod.GetCustomTypeGMById(15).SetActive(!isHide);
+        UtilityMethod.GetCustomTypeGMById(16).SetActive(!isHide);
     }
 
 }

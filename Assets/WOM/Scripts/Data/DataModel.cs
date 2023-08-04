@@ -481,7 +481,7 @@ public class TutorialStep
     public int id;              // 튜토리얼 스텝 ID
     public int setId;           // 튜토리얼 세트 ID
     public int step;            // 튜토리얼 스텝 번호
-    public EnumDefinition.PatternType patternType; // 튜토리얼 패턴 타입
+    public string patternType; // 튜토리얼 패턴 타입
     public string patternDescription; // 튜토리얼 패턴 설명
     public int customConditions;// 추가 조건
     public int tutorialBtnId;   // 버튼 ID

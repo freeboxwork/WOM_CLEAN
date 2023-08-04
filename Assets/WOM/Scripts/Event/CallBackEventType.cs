@@ -21,7 +21,10 @@ public class CallBackEventType
         OnUsingRewardNewUserEvent,      /// <summary> 신규 유저 이벤트 보상 받았을때  </summary>
         OnGoldPigEvent,                 /// <summary> 황금 돼지 이벤트 획득 했을때 </summary>
         OnMonsterKingHit,               /// <summary> 몬스터 킹 스킬 사용 후 몬스터를 타격 했을때 ( 콜라이더가 부딪혔을때 ) </summary>
-
+        OnTutoInsectCreate,             /// <summary> 튜토리얼 - 곤충 생성 했을때 </summary>
+        OnTutorialAddGold,              /// <summary> 튜토리얼 - 골드 획득 했을때 </summary>
+        OnTutorialBtnClick,             /// <summary> 튜토리얼 - 버튼 클릭 했을때 </summary>
+        OnTutorialScreenClick,          /// <summary> 튜토리얼 - Pattern2에 해당하는 바탕화면(버튼) 클릭 했을때 </summary>
         None,
     }
 }

@@ -31,13 +31,13 @@ public class TutorialManager : MonoBehaviour
         StartCoroutine(Init());
     }
 
-    // public void Update()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.Q))
-    //     {
-    //         EnableTutorialSet();
-    //     }
-    // }
+    public void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            EnableTutorialSet();
+        }
+    }
 
     public void TutorialStart()
     {
@@ -82,6 +82,11 @@ public class TutorialManager : MonoBehaviour
 
     TutorialStepSetData GetTutorialSetById(int setID)
     {
+        var set = tutorialStepSetDatas.FirstOrDefault(f => f.setId == setID);
+        if (set == null)
+        {
+            Debug.LogError($"{setID}에 해당하는 투토리얼 세트가 없습니다.");
+        }
         return tutorialStepSetDatas.FirstOrDefault(f => f.setId == setID);
     }
 
@@ -90,8 +95,10 @@ public class TutorialManager : MonoBehaviour
     {
         var tutorialSet = GetTutorialSetById(curTutorialSetID);
         var step = tutorialSet.steps[curTutorialStepID];
-        var tutoBtn = GetTutorialButtonById(step.tutorialBtnId);
+
+        //var tutoBtn = GetTutorialButtonById(step.tutorialBtnId);
         //tutorialUiCont.EnableTutorial(step.description, tutoBtn.image, tutoBtn.button);
+
         EnableTutorialStep(step);
     }
 
@@ -101,9 +108,10 @@ public class TutorialManager : MonoBehaviour
         partern.EventStart(stepData);
     }
 
-    PatternBase GetPatternByType(EnumDefinition.PatternType type)
+    PatternBase GetPatternByType(string type)
     {
-        return patterns.FirstOrDefault(f => f.patternType == type);
+        var patternType = (EnumDefinition.PatternType)System.Enum.Parse(typeof(EnumDefinition.PatternType), type);
+        return patterns.FirstOrDefault(f => f.patternType == patternType);
     }
 
     public void CompleteStep()
@@ -127,14 +135,14 @@ public class TutorialManager : MonoBehaviour
         else
         {
             // 투토리얼 세트 완료
+            Debug.Log("Tutorial Complete : " + curTutorialSetID);
             tutorialSet.isSetComplete = true;
             tutorialSet.steps[curTutorialStepID].isStepComplete = true;
 
             curTutorialSetID++;
             curTutorialStepID = 0;
 
-            // tutorialUiCont.DisableTutorial();
-
+            tutorialUiCont.DisableTutorial();
             // set save data
             GlobalData.instance.saveDataManager.SaveDataTutorialStep(curTutorialSetID);
 
@@ -144,8 +152,13 @@ public class TutorialManager : MonoBehaviour
         //Debug.Log(curTutorialStepID);
     }
 
-    TutorialButton GetTutorialButtonById(int id)
+    public TutorialButton GetTutorialButtonById(int id)
     {
+        var btn = tutorialButtons.FirstOrDefault(f => f.id == id);
+        if (btn == null)
+        {
+            Debug.LogError($"{id}에 해당하는 투토리얼 버튼이 없습니다.");
+        }
         return tutorialButtons.FirstOrDefault(f => f.id == id);
     }
 

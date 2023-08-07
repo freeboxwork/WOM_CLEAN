@@ -348,7 +348,7 @@ public class SkillBtn : MonoBehaviour
                     {
                         coolTimeWait = calcCooltime - (Time.time - startTime);
                         GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, coolTimeWait);
-                        Debug.Log("reload skill coolTimeWait : " + coolTimeWait);
+                        //Debug.Log("reload skill coolTimeWait : " + coolTimeWait);
                         yield return null;
                     }
 

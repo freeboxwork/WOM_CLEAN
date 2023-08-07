@@ -1,18 +1,57 @@
-using System.Collections;
-using System.Collections.Generic;
+/// <summary>
+/// 유니온 뽑기 완료 대기
+/// </summary>
 using UnityEngine;
-
-public class Pattern_08 : MonoBehaviour
+public class Pattern_08 : PatternBase
 {
-    // Start is called before the first frame update
+
     void Start()
     {
-        
+        AddEvent();
+    }
+    void OnDestroy()
+    {
+        RemoveEvent();
     }
 
-    // Update is called once per frame
-    void Update()
+    void AddEvent()
     {
-        
+        EventManager.instance.AddCallBackEvent(CallBackEventType.TYPES.OnTutorialUnionGamblingEnd, OnUnionGamblingEnd);
+    }
+    void RemoveEvent()
+    {
+        EventManager.instance.RemoveCallBackEvent(CallBackEventType.TYPES.OnTutorialUnionGamblingEnd, OnUnionGamblingEnd);
+    }
+
+    void OnUnionGamblingEnd()
+    {
+        if (enableEvent)
+        {
+            StepClear();
+        }
+    }
+
+
+    public override void EventStart(TutorialStep stepData)
+    {
+        Debug.Log("투토리얼 패턴 이벤트 시작 " + stepData.patternType);
+        EnableEvent(true);
+    }
+
+    public override void ResetGoalData()
+    {
+
+    }
+
+    public override void SetGoalData(TutorialStep stepData)
+    {
+
+    }
+
+    public override void StepClear()
+    {
+        ResetGoalData();
+        EnableEvent(false);
+        tutorialManager.CompleteStep();
     }
 }

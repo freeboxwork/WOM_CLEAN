@@ -29,6 +29,7 @@ public class CallBackEventType
         OnMonsterKillGoldMonster,       /// <summary> 튜토리얼 - 골드 몬스터를 처치 했을때 </summary>
         OnMonsterKillBossMonster,       /// <summary> 튜토리얼 - 보스 몬스터를 처치 했을때 </summary>
         OnMonsterKillFailedBossMonster,  /// <summary> 튜토리얼 - 보스 몬스터를 처치 실패 했을때 </summary>   
+        OnTutorialUnionGamblingEnd,      /// <summary> 튜토리얼 - 유니온 갬블링 종료 했을때 </summary>
         None,
     }
 }

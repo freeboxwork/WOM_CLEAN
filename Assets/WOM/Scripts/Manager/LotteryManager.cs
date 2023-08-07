@@ -314,14 +314,23 @@ public class LotteryManager : MonoBehaviour
     public IEnumerator CardsOpenEffect()
     {
         List<int> unionIndexList = new List<int>();
-        for (int i = 0; i < openedUnionTypeCards.Count; i++)
+        if (GlobalData.instance.tutorialManager.isUnionGamblingTutorial)
         {
-            var unionType = openedUnionTypeCards[i];
-            var faceIndex = GetRandomFaceIndex();
-            var unionIdex = GetUnionIndex(unionType, faceIndex);
-            unionIndexList.Add(unionIdex);
-            yield return null;
+            // 투토리얼 일때 무조건 0번 뽑기
+            unionIndexList.Add(0);
         }
+        else
+        {
+            for (int i = 0; i < openedUnionTypeCards.Count; i++)
+            {
+                var unionType = openedUnionTypeCards[i];
+                var faceIndex = GetRandomFaceIndex();
+                var unionIdex = GetUnionIndex(unionType, faceIndex);
+                unionIndexList.Add(unionIdex);
+                yield return null;
+            }
+        }
+
 
         lotteryAnimationController.gameObject.SetActive(true);
         lotteryAnimationController.StartLotteryAnimation();

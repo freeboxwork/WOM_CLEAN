@@ -27,6 +27,7 @@ public class TutorialManager : MonoBehaviour
 
     public bool isTutorial = false;
 
+    public bool isUnionGamblingTutorial = false;
 
     void Start()
     {

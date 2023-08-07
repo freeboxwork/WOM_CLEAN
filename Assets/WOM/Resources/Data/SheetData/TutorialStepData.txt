@@ -245,7 +245,7 @@
    "step": 0,
    "patternType": "pattern_07",
    "patternDescription": "보스 도전 성공 ",
-   "customConditions": 5,
+   "customConditions": 4,
    "tutorialBtnId": 999,
    "튜토리얼 활성 조건": "5번스테이지 보스 도전 성공",
    "goal": "",
@@ -293,7 +293,7 @@
    "step": 0,
    "patternType": "pattern_07",
    "patternDescription": "보스 도전 성공 ",
-   "customConditions": 10,
+   "customConditions": 9,
    "tutorialBtnId": 999,
    "튜토리얼 활성 조건": "10스테이지 보스 처치 후",
    "goal": "",
@@ -312,9 +312,21 @@
    "description": "든든한 아군이 필요하지 않으세요?"
  },
  {
-   "id": 26,
+   "id": null,
    "setId": 8,
    "step": 2,
+   "patternType": "pattern_11",
+   "patternDescription": "gem 100개 증정",
+   "customConditions": 100,
+   "tutorialBtnId": null,
+   "튜토리얼 활성 조건": "",
+   "goal": "",
+   "description": ""
+ },
+ {
+   "id": 26,
+   "setId": 8,
+   "step": 3,
    "patternType": "pattern_03",
    "patternDescription": "",
    "customConditions": null,
@@ -326,7 +338,7 @@
  {
    "id": 27,
    "setId": 8,
-   "step": 3,
+   "step": 4,
    "patternType": "pattern_03",
    "patternDescription": "unionIndex 0번의 유니온이 뽑혀야 합니다 \n( 유니온 투토리얼 셋 7번 진행 시 무조건 0번 유니온 뽑도록 구현 )",
    "customConditions": null,
@@ -338,7 +350,7 @@
  {
    "id": 28,
    "setId": 8,
-   "step": 4,
+   "step": 5,
    "patternType": "pattern_08",
    "patternDescription": "유니온 뽑기 완료 대기",
    "customConditions": null,
@@ -350,7 +362,7 @@
  {
    "id": 29,
    "setId": 8,
-   "step": 5,
+   "step": 6,
    "patternType": "pattern_03",
    "patternDescription": "",
    "customConditions": null,
@@ -362,7 +374,7 @@
  {
    "id": 30,
    "setId": 8,
-   "step": 6,
+   "step": 7,
    "patternType": "pattern_03",
    "patternDescription": "",
    "customConditions": null,
@@ -374,7 +386,7 @@
  {
    "id": 31,
    "setId": 8,
-   "step": 7,
+   "step": 8,
    "patternType": "pattern_03",
    "patternDescription": "",
    "customConditions": null,
@@ -386,7 +398,7 @@
  {
    "id": 32,
    "setId": 8,
-   "step": 8,
+   "step": 9,
    "patternType": "pattern_03",
    "patternDescription": "",
    "customConditions": null,
@@ -398,7 +410,7 @@
  {
    "id": 33,
    "setId": 8,
-   "step": 9,
+   "step": 10,
    "patternType": "pattern_03",
    "patternDescription": "",
    "customConditions": null,
@@ -410,7 +422,7 @@
  {
    "id": 34,
    "setId": 8,
-   "step": 10,
+   "step": 11,
    "patternType": "pattern_03",
    "patternDescription": "",
    "customConditions": null,
@@ -422,7 +434,7 @@
  {
    "id": 35,
    "setId": 8,
-   "step": 11,
+   "step": 12,
    "patternType": "pattern_02",
    "patternDescription": "텍스트 출력 종료 후 바탕화면 터치 1회",
    "customConditions": null,
@@ -434,7 +446,7 @@
  {
    "id": 36,
    "setId": 8,
-   "step": 12,
+   "step": 13,
    "patternType": "pattern_02",
    "patternDescription": "텍스트 출력 종료 후 바탕화면 터치 1회",
    "customConditions": null,

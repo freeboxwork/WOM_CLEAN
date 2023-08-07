@@ -50,6 +50,7 @@ public class GlobalData : MonoBehaviour
     public OfflineRewardPopupContoller offlineRewardPopupContoller;
     public MonsterKingController monsterKingController;
     public StageNameSetManager stageNameSetManager;
+    public TutorialManager tutorialManager;
 
 
     private void Awake()

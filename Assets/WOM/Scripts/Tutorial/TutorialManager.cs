@@ -42,6 +42,7 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
+
     public void TutorialStart()
     {
         isTutorial = true;
@@ -169,6 +170,11 @@ public class TutorialManager : MonoBehaviour
             Debug.LogError($"{id}에 해당하는 투토리얼 버튼이 없습니다.");
         }
         return tutorialButtons.FirstOrDefault(f => f.id == id);
+    }
+
+    public void SetUnionGambleingState(bool state)
+    {
+        isUnionGamblingTutorial = state;
     }
 
 

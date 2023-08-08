@@ -351,6 +351,12 @@ public class UiController : MonoBehaviour
 
     }
 
+    public void CloseMainMenuPanel()
+    {
+        EnableMenuPanel(curMenuPanelType);
+        EnableMainMenuCloseBtn(false);
+    }
+
     public void EnableMainMenuCloseBtn(bool value)
     {
         btnMainMenuClose.image.raycastTarget = value;

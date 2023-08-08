@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pattern_03 : PatternBase
 {
     int? btnIndex = null;
+    bool isMenuClose = false;
 
     void Start()
     {
@@ -28,8 +29,16 @@ public class Pattern_03 : PatternBase
     {
         if (enableEvent)
         {
+            // if (isMenuClose)
+            // {
+            //     GlobalData.instance.uiController.CloseMainMenuPanel();
+            // }
+
             if (IsTypeTextAnimEnd())
+            {
+
                 StepClear();
+            }
         }
     }
 
@@ -45,12 +54,14 @@ public class Pattern_03 : PatternBase
     public override void ResetGoalData()
     {
         btnIndex = null;
+        isMenuClose = false;
         tutorialManager.tutorialUiCont.SetMaskParentImgRaycastTarget(false);
     }
 
     public override void SetGoalData(TutorialStep stepData)
     {
         btnIndex = stepData.tutorialBtnId;
+        isMenuClose = stepData.customConditions == 1 ? true : false;
         // 버튼 이외의 영역을 클릭 못하게 막음
         tutorialManager.tutorialUiCont.SetMaskParentImgRaycastTarget(true);
     }

@@ -211,7 +211,9 @@ public class LotteryManager : MonoBehaviour
 
             yield return StartCoroutine(CardsOpenEffect());
 
-            // 다시 뽑기 버튼 활성화
+
+
+            // 뽑기 버튼 활성화
             UtilityMethod.SetBtnsInteractableEnable(new List<int> { 17, 18, 19 }, true);
 
             // 스킵 버튼 비활성화
@@ -219,6 +221,9 @@ public class LotteryManager : MonoBehaviour
 
             // 닫기 버튼 활성화
             UtilityMethod.GetCustomTypeBtnByID(44).interactable = true;
+
+            if (GlobalData.instance.tutorialManager.isUnionGamblingTutorial)
+                EventManager.instance.RunEvent(CallBackEventType.TYPES.OnTutorialUnionGamblingEnd);
 
             //curLotteryCount += roundCount;
             //totalDrawCount += roundCount;

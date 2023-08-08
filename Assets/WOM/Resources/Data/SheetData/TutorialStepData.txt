@@ -53,7 +53,7 @@
    "step": 2,
    "patternType": "pattern_03",
    "patternDescription": "tutorialButton click",
-   "customConditions": null,
+   "customConditions": 1,
    "tutorialBtnId": 1,
    "튜토리얼 활성 조건": "",
    "goal": "공격력 강화 버튼 입력을 하였는가?",
@@ -161,7 +161,7 @@
    "step": 3,
    "patternType": "pattern_03",
    "patternDescription": "",
-   "customConditions": null,
+   "customConditions": 1,
    "tutorialBtnId": 4,
    "튜토리얼 활성 조건": "",
    "goal": "스킬 업그레이드 버튼 입력을 하였는가?",
@@ -336,9 +336,21 @@
    "description": "어서 아군을 얻으로 가봐요!"
  },
  {
-   "id": 27,
+   "id": null,
    "setId": 8,
    "step": 4,
+   "patternType": "pattern_12",
+   "patternDescription": "is union gambling ? => true",
+   "customConditions": 1,
+   "tutorialBtnId": null,
+   "튜토리얼 활성 조건": "",
+   "goal": "유니온 뽑기 진행중인지 확인",
+   "description": ""
+ },
+ {
+   "id": 27,
+   "setId": 8,
+   "step": 5,
    "patternType": "pattern_03",
    "patternDescription": "unionIndex 0번의 유니온이 뽑혀야 합니다 \n( 유니온 투토리얼 셋 7번 진행 시 무조건 0번 유니온 뽑도록 구현 )",
    "customConditions": null,
@@ -350,7 +362,7 @@
  {
    "id": 28,
    "setId": 8,
-   "step": 5,
+   "step": 6,
    "patternType": "pattern_08",
    "patternDescription": "유니온 뽑기 완료 대기",
    "customConditions": null,
@@ -360,9 +372,21 @@
    "description": ""
  },
  {
+   "id": null,
+   "setId": 8,
+   "step": 7,
+   "patternType": "pattern_12",
+   "patternDescription": "is union gambling ? => false",
+   "customConditions": 0,
+   "tutorialBtnId": null,
+   "튜토리얼 활성 조건": "",
+   "goal": "유니온 뽑기 완료 확인",
+   "description": ""
+ },
+ {
    "id": 29,
    "setId": 8,
-   "step": 6,
+   "step": 8,
    "patternType": "pattern_03",
    "patternDescription": "",
    "customConditions": null,
@@ -374,7 +398,7 @@
  {
    "id": 30,
    "setId": 8,
-   "step": 7,
+   "step": 9,
    "patternType": "pattern_03",
    "patternDescription": "",
    "customConditions": null,
@@ -386,7 +410,7 @@
  {
    "id": 31,
    "setId": 8,
-   "step": 8,
+   "step": 10,
    "patternType": "pattern_03",
    "patternDescription": "",
    "customConditions": null,
@@ -398,7 +422,7 @@
  {
    "id": 32,
    "setId": 8,
-   "step": 9,
+   "step": 11,
    "patternType": "pattern_03",
    "patternDescription": "",
    "customConditions": null,
@@ -410,7 +434,7 @@
  {
    "id": 33,
    "setId": 8,
-   "step": 10,
+   "step": 12,
    "patternType": "pattern_03",
    "patternDescription": "",
    "customConditions": null,
@@ -422,7 +446,7 @@
  {
    "id": 34,
    "setId": 8,
-   "step": 11,
+   "step": 13,
    "patternType": "pattern_03",
    "patternDescription": "",
    "customConditions": null,
@@ -434,7 +458,7 @@
  {
    "id": 35,
    "setId": 8,
-   "step": 12,
+   "step": 14,
    "patternType": "pattern_02",
    "patternDescription": "텍스트 출력 종료 후 바탕화면 터치 1회",
    "customConditions": null,
@@ -446,7 +470,7 @@
  {
    "id": 36,
    "setId": 8,
-   "step": 13,
+   "step": 15,
    "patternType": "pattern_02",
    "patternDescription": "텍스트 출력 종료 후 바탕화면 터치 1회",
    "customConditions": null,

@@ -32,6 +32,8 @@ public class GlobalController : MonoBehaviour
     public AD_Manager adManager;
     public OfflineRewardPopupContoller offlineRewardPopupContoller;
 
+    public TutorialManager tutorialManager;
+
 
     void Start()
     {
@@ -156,11 +158,15 @@ public class GlobalController : MonoBehaviour
         // 상점 데이터및 UI 세팅
         yield return StartCoroutine(shopManager.Init());
 
+        // 투토리얼 초기화
+        yield return StartCoroutine(tutorialManager.Init());
+
         // 공격 가능 상태로 전환
         attackController.SetAttackableState(true);
 
         // 곤충 스폰 활성화 -> tutorial pattenr 10 에서 활성화
-        //insectSpwanManager.AllTimerStart();
+        if (tutorialManager.isTutorial == false)
+            insectSpwanManager.AllTimerStart();
 
         // 버튼 가능 상태로 전환
         UtilityMethod.EnableUIEventSystem(true);

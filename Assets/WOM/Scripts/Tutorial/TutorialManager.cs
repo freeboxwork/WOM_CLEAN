@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using System.Linq;
 
 public class TutorialManager : MonoBehaviour
@@ -29,9 +30,24 @@ public class TutorialManager : MonoBehaviour
 
     public bool isUnionGamblingTutorial = false;
 
+    // 신규 유저 선물 닫기 버튼
+    public List<Button> tutoStartBtns = new List<Button>();
+
     void Start()
     {
-        StartCoroutine(Init());
+        //StartCoroutine(Init());
+        SetBtnEvent();
+    }
+
+    void SetBtnEvent()
+    {
+        foreach (var btn in tutoStartBtns)
+        {
+            btn.onClick.AddListener(() =>
+            {
+                TutorialStart();
+            });
+        }
     }
 
     public void Update()
@@ -45,14 +61,23 @@ public class TutorialManager : MonoBehaviour
 
     public void TutorialStart()
     {
-        isTutorial = true;
-        EnableTutorialSet();
+        // max check
+        if (IsTutorialAllComplete() == false)
+        {
+            isTutorial = true;
+            EnableTutorialSet();
+        }
+        else
+        {
+            isTutorial = false;
+            Debug.Log("모든 투토리얼 완료");
+        }
     }
 
-    IEnumerator Init()
+    public IEnumerator Init()
     {
         // get tutorial set id ( load data )
-        curTutorialSetID = GlobalData.instance.saveDataManager.saveDataTotal.saveDataTutorial.tutorial_step;
+        curTutorialSetID = GlobalData.instance.saveDataManager.saveDataTotal.saveDataTutorial.tutorialSetId;
 
         // get json data
         tutorialStepData = JsonUtility.FromJson<TutorialStepDatas>(tutorialJsonData.text);
@@ -60,6 +85,8 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         SetData();
+
+        isTutorial = !IsTutorialAllComplete();
         yield return null;
     }
 
@@ -112,6 +139,7 @@ public class TutorialManager : MonoBehaviour
         EnableTutorialStep(step);
     }
 
+
     void EnableTutorialStep(TutorialStep stepData)
     {
         var partern = GetPatternByType(stepData.patternType);
@@ -153,13 +181,28 @@ public class TutorialManager : MonoBehaviour
             curTutorialStepID = 0;
 
             tutorialUiCont.DisableTutorial();
-            // set save data
-            GlobalData.instance.saveDataManager.SaveDataTutorialStep(curTutorialSetID);
 
-            EnableTutorialSet();
+            // set save data
+            GlobalData.instance.saveDataManager.SaveDataTutorialSetID(curTutorialSetID);
+
+            if (IsTutorialAllComplete() == false)
+            {
+                EnableTutorialSet();
+            }
+            else
+            {
+                Debug.Log("투토리얼 종료");
+            }
+
         }
 
         //Debug.Log(curTutorialStepID);
+    }
+
+    bool IsTutorialAllComplete()
+    {
+        var lastSetID = tutorialStepData.data.Max(m => m.setId);
+        return lastSetID < curTutorialSetID;
     }
 
     public TutorialButton GetTutorialButtonById(int id)

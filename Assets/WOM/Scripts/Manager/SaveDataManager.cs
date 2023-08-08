@@ -381,7 +381,6 @@ public class SaveDataManager : MonoBehaviour
     }
 
 
-
     // SHOP 데이터 세팅
 
 
@@ -578,6 +577,13 @@ public class SaveDataManager : MonoBehaviour
         saveDataTotal.saveDataSystem.tutorial_step = step;
     }
 
+    // 투토리얼 세트 데이터 세팅
+    public void SaveDataTutorialSetID(int setId)
+    {
+        saveDataTotal.saveDataTutorial.tutorialSetId = setId;
+    }
+
+
     // 유니온 소환 등급 데이터 세팅
     public void SaveDataUnionSummonGradeLevel(int gradeLevel)
     {
@@ -689,6 +695,7 @@ public class SaveDataTotal
 public class SaveDataTutorial
 {
     public int tutorial_step;
+    public int tutorialSetId;
 }
 
 [System.Serializable]

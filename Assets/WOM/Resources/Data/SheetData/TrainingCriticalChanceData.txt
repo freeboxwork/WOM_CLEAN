@@ -1,607 +1,2407 @@
 {"data":[
  {
    "level": 0,
-   "salePrice": 0,
+   "FIELD2": 0,
    "value": 0,
    "unitName": "%"
  },
  {
    "level": 1,
-   "salePrice": 1500,
-   "value": 0.2,
+   "FIELD2": 4350,
+   "value": 0.05,
    "unitName": "%"
  },
  {
    "level": 2,
-   "salePrice": 9708,
-   "value": 0.4,
+   "FIELD2": 15900,
+   "value": 0.1,
    "unitName": "%"
  },
  {
    "level": 3,
-   "salePrice": 33978,
-   "value": 0.6,
+   "FIELD2": 34800,
+   "value": 0.15,
    "unitName": "%"
  },
  {
    "level": 4,
-   "salePrice": 56630,
-   "value": 0.8,
+   "FIELD2": 61050,
+   "value": 0.2,
    "unitName": "%"
  },
  {
    "level": 5,
-   "salePrice": 94653,
-   "value": 1,
+   "FIELD2": 94650,
+   "value": 0.25,
    "unitName": "%"
  },
  {
    "level": 6,
-   "salePrice": 129440,
-   "value": 1.2,
+   "FIELD2": 135600,
+   "value": 0.3,
    "unitName": "%"
  },
  {
    "level": 7,
-   "salePrice": 184452,
-   "value": 1.4,
+   "FIELD2": 183900,
+   "value": 0.35,
    "unitName": "%"
  },
  {
    "level": 8,
-   "salePrice": 231374,
-   "value": 1.6,
+   "FIELD2": 239550,
+   "value": 0.4,
    "unitName": "%"
  },
  {
    "level": 9,
-   "salePrice": 303375,
-   "value": 1.8,
+   "FIELD2": 302550,
+   "value": 0.45,
    "unitName": "%"
  },
  {
    "level": 10,
-   "salePrice": 362432,
-   "value": 2,
+   "FIELD2": 372900,
+   "value": 0.5,
    "unitName": "%"
  },
  {
    "level": 11,
-   "salePrice": 451422,
-   "value": 2.2,
+   "FIELD2": 450600,
+   "value": 0.55,
    "unitName": "%"
  },
  {
    "level": 12,
-   "salePrice": 522614,
-   "value": 2.4,
+   "FIELD2": 535650,
+   "value": 0.6,
    "unitName": "%"
  },
  {
    "level": 13,
-   "salePrice": 628593,
-   "value": 2.6,
+   "FIELD2": 628050,
+   "value": 0.65,
    "unitName": "%"
  },
  {
    "level": 14,
-   "salePrice": 711920,
-   "value": 2.8,
+   "FIELD2": 727800,
+   "value": 0.7,
    "unitName": "%"
  },
  {
    "level": 15,
-   "salePrice": 834888,
-   "value": 3,
+   "FIELD2": 1391500,
+   "value": 0.75,
    "unitName": "%"
  },
  {
    "level": 16,
-   "salePrice": 930350,
-   "value": 3.2,
+   "FIELD2": 1582250,
+   "value": 0.8,
    "unitName": "%"
  },
  {
    "level": 17,
-   "salePrice": 1070307,
-   "value": 3.4,
+   "FIELD2": 1785250,
+   "value": 0.85,
    "unitName": "%"
  },
  {
    "level": 18,
-   "salePrice": 1177904,
-   "value": 3.6,
+   "FIELD2": 2000500,
+   "value": 0.9,
    "unitName": "%"
  },
  {
    "level": 19,
-   "salePrice": 1334850,
-   "value": 3.8,
+   "FIELD2": 2228000,
+   "value": 0.95,
    "unitName": "%"
  },
  {
    "level": 20,
-   "salePrice": 1454582,
-   "value": 4,
+   "FIELD2": 2467750,
+   "value": 1,
    "unitName": "%"
  },
  {
    "level": 21,
-   "salePrice": 1628517,
-   "value": 4.2,
+   "FIELD2": 2719750,
+   "value": 1.05,
    "unitName": "%"
  },
  {
    "level": 22,
-   "salePrice": 1760384,
-   "value": 4.4,
+   "FIELD2": 2984000,
+   "value": 1.1,
    "unitName": "%"
  },
  {
    "level": 23,
-   "salePrice": 1951308,
-   "value": 4.6,
+   "FIELD2": 3260500,
+   "value": 1.15,
    "unitName": "%"
  },
  {
    "level": 24,
-   "salePrice": 2095310,
-   "value": 4.8,
+   "FIELD2": 3549250,
+   "value": 1.2,
    "unitName": "%"
  },
  {
    "level": 25,
-   "salePrice": 2303223,
-   "value": 5,
+   "FIELD2": 3850250,
+   "value": 1.25,
    "unitName": "%"
  },
  {
    "level": 26,
-   "salePrice": 2459360,
-   "value": 5.2,
+   "FIELD2": 4163500,
+   "value": 1.3,
    "unitName": "%"
  },
  {
    "level": 27,
-   "salePrice": 2684262,
-   "value": 5.4,
+   "FIELD2": 4489000,
+   "value": 1.35,
    "unitName": "%"
  },
  {
    "level": 28,
-   "salePrice": 2852534,
-   "value": 5.6,
+   "FIELD2": 4826750,
+   "value": 1.4,
    "unitName": "%"
  },
  {
    "level": 29,
-   "salePrice": 3094425,
-   "value": 5.8,
+   "FIELD2": 7247450,
+   "value": 1.45,
    "unitName": "%"
  },
  {
    "level": 30,
-   "salePrice": 3274832,
-   "value": 6,
+   "FIELD2": 7754600,
+   "value": 1.5,
    "unitName": "%"
  },
  {
    "level": 31,
-   "salePrice": 3533712,
-   "value": 6.2,
+   "FIELD2": 8278900,
+   "value": 1.55,
    "unitName": "%"
  },
  {
    "level": 32,
-   "salePrice": 3726254,
-   "value": 6.4,
+   "FIELD2": 8820350,
+   "value": 1.6,
    "unitName": "%"
  },
  {
    "level": 33,
-   "salePrice": 4002123,
-   "value": 6.6,
+   "FIELD2": 9378950,
+   "value": 1.65,
    "unitName": "%"
  },
  {
    "level": 34,
-   "salePrice": 4206800,
-   "value": 6.8,
+   "FIELD2": 9954700,
+   "value": 1.7,
    "unitName": "%"
  },
  {
    "level": 35,
-   "salePrice": 4499658,
-   "value": 7,
+   "FIELD2": 10547600,
+   "value": 1.75,
    "unitName": "%"
  },
  {
    "level": 36,
-   "salePrice": 4716470,
-   "value": 7.2,
+   "FIELD2": 11157650,
+   "value": 1.8,
    "unitName": "%"
  },
  {
    "level": 37,
-   "salePrice": 5026317,
-   "value": 7.4,
+   "FIELD2": 11784850,
+   "value": 1.85,
    "unitName": "%"
  },
  {
    "level": 38,
-   "salePrice": 5255264,
-   "value": 7.6,
+   "FIELD2": 12429200,
+   "value": 1.9,
    "unitName": "%"
  },
  {
    "level": 39,
-   "salePrice": 5582100,
-   "value": 7.8,
+   "FIELD2": 13090700,
+   "value": 1.95,
    "unitName": "%"
  },
  {
    "level": 40,
-   "salePrice": 5823182,
-   "value": 8,
+   "FIELD2": 13769350,
+   "value": 2,
    "unitName": "%"
  },
  {
    "level": 41,
-   "salePrice": 6167007,
-   "value": 8.2,
+   "FIELD2": 14465150,
+   "value": 2.05,
    "unitName": "%"
  },
  {
    "level": 42,
-   "salePrice": 6420224,
-   "value": 8.4,
+   "FIELD2": 15178100,
+   "value": 2.1,
    "unitName": "%"
  },
  {
    "level": 43,
-   "salePrice": 6781038,
-   "value": 8.6,
+   "FIELD2": 22726000,
+   "value": 2.15,
    "unitName": "%"
  },
  {
    "level": 44,
-   "salePrice": 7046390,
-   "value": 8.8,
+   "FIELD2": 23793500,
+   "value": 2.2,
    "unitName": "%"
  },
  {
    "level": 45,
-   "salePrice": 7424193,
-   "value": 9,
+   "FIELD2": 24885500,
+   "value": 2.25,
    "unitName": "%"
  },
  {
    "level": 46,
-   "salePrice": 7701680,
-   "value": 9.2,
+   "FIELD2": 26002000,
+   "value": 2.3,
    "unitName": "%"
  },
  {
    "level": 47,
-   "salePrice": 8096472,
-   "value": 9.4,
+   "FIELD2": 27143000,
+   "value": 2.35,
    "unitName": "%"
  },
  {
    "level": 48,
-   "salePrice": 8386094,
-   "value": 9.6,
+   "FIELD2": 28308500,
+   "value": 2.4,
    "unitName": "%"
  },
  {
    "level": 49,
-   "salePrice": 8797875,
-   "value": 9.8,
+   "FIELD2": 29498500,
+   "value": 2.45,
    "unitName": "%"
  },
  {
    "level": 50,
-   "salePrice": 9099632,
-   "value": 10,
+   "FIELD2": 30713000,
+   "value": 2.5,
    "unitName": "%"
  },
  {
    "level": 51,
-   "salePrice": 9528402,
-   "value": 10.2,
+   "FIELD2": 31952000,
+   "value": 2.55,
    "unitName": "%"
  },
  {
    "level": 52,
-   "salePrice": 9842294,
-   "value": 10.4,
+   "FIELD2": 33215500,
+   "value": 2.6,
    "unitName": "%"
  },
  {
    "level": 53,
-   "salePrice": 10288053,
-   "value": 10.6,
+   "FIELD2": 34503500,
+   "value": 2.65,
    "unitName": "%"
  },
  {
    "level": 54,
-   "salePrice": 10614080,
-   "value": 10.8,
+   "FIELD2": 35816000,
+   "value": 2.7,
    "unitName": "%"
  },
  {
    "level": 55,
-   "salePrice": 11076828,
-   "value": 11,
+   "FIELD2": 37153000,
+   "value": 2.75,
    "unitName": "%"
  },
  {
    "level": 56,
-   "salePrice": 11414990,
-   "value": 11.2,
+   "FIELD2": 38514500,
+   "value": 2.8,
    "unitName": "%"
  },
  {
    "level": 57,
-   "salePrice": 11894727,
-   "value": 11.4,
+   "FIELD2": 39900500,
+   "value": 2.85,
    "unitName": "%"
  },
  {
    "level": 58,
-   "salePrice": 12245024,
-   "value": 11.6,
+   "FIELD2": 61966500,
+   "value": 2.9,
    "unitName": "%"
  },
  {
    "level": 59,
-   "salePrice": 12741750,
-   "value": 11.8,
+   "FIELD2": 64119000,
+   "value": 2.95,
    "unitName": "%"
  },
  {
    "level": 60,
-   "salePrice": 13104182,
-   "value": 12,
+   "FIELD2": 66308250,
+   "value": 3,
    "unitName": "%"
  },
  {
    "level": 61,
-   "salePrice": 13617897,
-   "value": 12.2,
+   "FIELD2": 68534250,
+   "value": 3.05,
    "unitName": "%"
  },
  {
    "level": 62,
-   "salePrice": 13992464,
-   "value": 12.4,
+   "FIELD2": 70797000,
+   "value": 3.1,
    "unitName": "%"
  },
  {
    "level": 63,
-   "salePrice": 14523168,
-   "value": 12.6,
+   "FIELD2": 73096500,
+   "value": 3.15,
    "unitName": "%"
  },
  {
    "level": 64,
-   "salePrice": 14909870,
-   "value": 12.8,
+   "FIELD2": 75432750,
+   "value": 3.2,
    "unitName": "%"
  },
  {
    "level": 65,
-   "salePrice": 15457563,
-   "value": 13,
+   "FIELD2": 77805750,
+   "value": 3.25,
    "unitName": "%"
  },
  {
    "level": 66,
-   "salePrice": 15856400,
-   "value": 13.2,
+   "FIELD2": 80215500,
+   "value": 3.3,
    "unitName": "%"
  },
  {
    "level": 67,
-   "salePrice": 16421082,
-   "value": 13.4,
+   "FIELD2": 82662000,
+   "value": 3.35,
    "unitName": "%"
  },
  {
    "level": 68,
-   "salePrice": 16832054,
-   "value": 13.6,
+   "FIELD2": 85145250,
+   "value": 3.4,
    "unitName": "%"
  },
  {
    "level": 69,
-   "salePrice": 17413725,
-   "value": 13.8,
+   "FIELD2": 87665250,
+   "value": 3.45,
    "unitName": "%"
  },
  {
    "level": 70,
-   "salePrice": 17836832,
-   "value": 14,
+   "FIELD2": 90222000,
+   "value": 3.5,
    "unitName": "%"
  },
  {
    "level": 71,
-   "salePrice": 18435492,
-   "value": 14.2,
+   "FIELD2": 92815500,
+   "value": 3.55,
    "unitName": "%"
  },
  {
    "level": 72,
-   "salePrice": 18870734,
-   "value": 14.4,
+   "FIELD2": 127261000,
+   "value": 3.6,
    "unitName": "%"
  },
  {
    "level": 73,
-   "salePrice": 19486383,
-   "value": 14.6,
+   "FIELD2": 130817000,
+   "value": 3.65,
    "unitName": "%"
  },
  {
    "level": 74,
-   "salePrice": 19933760,
-   "value": 14.8,
+   "FIELD2": 134422000,
+   "value": 3.7,
    "unitName": "%"
  },
  {
    "level": 75,
-   "salePrice": 20566398,
-   "value": 15,
+   "FIELD2": 138076000,
+   "value": 3.75,
    "unitName": "%"
  },
  {
    "level": 76,
-   "salePrice": 21025910,
-   "value": 15.2,
+   "FIELD2": 141779000,
+   "value": 3.8,
    "unitName": "%"
  },
  {
    "level": 77,
-   "salePrice": 21675537,
-   "value": 15.4,
+   "FIELD2": 145531000,
+   "value": 3.85,
    "unitName": "%"
  },
  {
    "level": 78,
-   "salePrice": 22147184,
-   "value": 15.6,
+   "FIELD2": 149332000,
+   "value": 3.9,
    "unitName": "%"
  },
  {
    "level": 79,
-   "salePrice": 22813800,
-   "value": 15.8,
+   "FIELD2": 153182000,
+   "value": 3.95,
    "unitName": "%"
  },
  {
    "level": 80,
-   "salePrice": 23297582,
-   "value": 16,
+   "FIELD2": 157081000,
+   "value": 4,
    "unitName": "%"
  },
  {
    "level": 81,
-   "salePrice": 23981187,
-   "value": 16.2,
+   "FIELD2": 161029000,
+   "value": 4.05,
    "unitName": "%"
  },
  {
    "level": 82,
-   "salePrice": 24477104,
-   "value": 16.4,
+   "FIELD2": 165026000,
+   "value": 4.1,
    "unitName": "%"
  },
  {
    "level": 83,
-   "salePrice": 25177698,
-   "value": 16.6,
+   "FIELD2": 169072000,
+   "value": 4.15,
    "unitName": "%"
  },
  {
    "level": 84,
-   "salePrice": 25685750,
-   "value": 16.8,
+   "FIELD2": 173167000,
+   "value": 4.2,
    "unitName": "%"
  },
  {
    "level": 85,
-   "salePrice": 26403333,
-   "value": 17,
+   "FIELD2": 177311000,
+   "value": 4.25,
    "unitName": "%"
  },
  {
    "level": 86,
-   "salePrice": 26923520,
-   "value": 17.2,
+   "FIELD2": 226880000,
+   "value": 4.3,
    "unitName": "%"
  },
  {
    "level": 87,
-   "salePrice": 27658092,
-   "value": 17.4,
+   "FIELD2": 232182500,
+   "value": 4.35,
    "unitName": "%"
  },
  {
    "level": 88,
-   "salePrice": 28190414,
-   "value": 17.6,
+   "FIELD2": 237546250,
+   "value": 4.4,
    "unitName": "%"
  },
  {
    "level": 89,
-   "salePrice": 28941975,
-   "value": 17.8,
+   "FIELD2": 242971250,
+   "value": 4.45,
    "unitName": "%"
  },
  {
    "level": 90,
-   "salePrice": 29486432,
-   "value": 18,
+   "FIELD2": 248457500,
+   "value": 4.5,
    "unitName": "%"
  },
  {
    "level": 91,
-   "salePrice": 30254982,
-   "value": 18.2,
+   "FIELD2": 254005000,
+   "value": 4.55,
    "unitName": "%"
  },
  {
    "level": 92,
-   "salePrice": 30811574,
-   "value": 18.4,
+   "FIELD2": 259613750,
+   "value": 4.6,
    "unitName": "%"
  },
  {
    "level": 93,
-   "salePrice": 31597113,
-   "value": 18.6,
+   "FIELD2": 265283750,
+   "value": 4.65,
    "unitName": "%"
  },
  {
    "level": 94,
-   "salePrice": 32165840,
-   "value": 18.8,
+   "FIELD2": 271015000,
+   "value": 4.7,
    "unitName": "%"
  },
  {
    "level": 95,
-   "salePrice": 32968368,
-   "value": 19,
+   "FIELD2": 276807500,
+   "value": 4.75,
    "unitName": "%"
  },
  {
    "level": 96,
-   "salePrice": 33549230,
-   "value": 19.2,
+   "FIELD2": 282661250,
+   "value": 4.8,
    "unitName": "%"
  },
  {
    "level": 97,
-   "salePrice": 34368747,
-   "value": 19.4,
+   "FIELD2": 288576250,
+   "value": 4.85,
    "unitName": "%"
  },
  {
    "level": 98,
-   "salePrice": 34961744,
-   "value": 19.6,
+   "FIELD2": 294552500,
+   "value": 4.9,
    "unitName": "%"
  },
  {
    "level": 99,
-   "salePrice": 35798250,
-   "value": 19.8,
+   "FIELD2": 300590000,
+   "value": 4.95,
    "unitName": "%"
  },
  {
    "level": 100,
-   "salePrice": 36403382,
+   "FIELD2": 306688750,
+   "value": 5,
+   "unitName": "%"
+ },
+ {
+   "level": 101,
+   "FIELD2": 375418500,
+   "value": 5.05,
+   "unitName": "%"
+ },
+ {
+   "level": 102,
+   "FIELD2": 382884000,
+   "value": 5.1,
+   "unitName": "%"
+ },
+ {
+   "level": 103,
+   "FIELD2": 390423000,
+   "value": 5.15,
+   "unitName": "%"
+ },
+ {
+   "level": 104,
+   "FIELD2": 398035500,
+   "value": 5.2,
+   "unitName": "%"
+ },
+ {
+   "level": 105,
+   "FIELD2": 405721500,
+   "value": 5.25,
+   "unitName": "%"
+ },
+ {
+   "level": 106,
+   "FIELD2": 413481000,
+   "value": 5.3,
+   "unitName": "%"
+ },
+ {
+   "level": 107,
+   "FIELD2": 421314000,
+   "value": 5.35,
+   "unitName": "%"
+ },
+ {
+   "level": 108,
+   "FIELD2": 429220500,
+   "value": 5.4,
+   "unitName": "%"
+ },
+ {
+   "level": 109,
+   "FIELD2": 437200500,
+   "value": 5.45,
+   "unitName": "%"
+ },
+ {
+   "level": 110,
+   "FIELD2": 445254000,
+   "value": 5.5,
+   "unitName": "%"
+ },
+ {
+   "level": 111,
+   "FIELD2": 453381000,
+   "value": 5.55,
+   "unitName": "%"
+ },
+ {
+   "level": 112,
+   "FIELD2": 461581500,
+   "value": 5.6,
+   "unitName": "%"
+ },
+ {
+   "level": 113,
+   "FIELD2": 469855500,
+   "value": 5.65,
+   "unitName": "%"
+ },
+ {
+   "level": 114,
+   "FIELD2": 478203000,
+   "value": 5.7,
+   "unitName": "%"
+ },
+ {
+   "level": 115,
+   "FIELD2": 567728000,
+   "value": 5.75,
+   "unitName": "%"
+ },
+ {
+   "level": 116,
+   "FIELD2": 577638250,
+   "value": 5.8,
+   "unitName": "%"
+ },
+ {
+   "level": 117,
+   "FIELD2": 587634250,
+   "value": 5.85,
+   "unitName": "%"
+ },
+ {
+   "level": 118,
+   "FIELD2": 597716000,
+   "value": 5.9,
+   "unitName": "%"
+ },
+ {
+   "level": 119,
+   "FIELD2": 607883500,
+   "value": 5.95,
+   "unitName": "%"
+ },
+ {
+   "level": 120,
+   "FIELD2": 618136750,
+   "value": 6,
+   "unitName": "%"
+ },
+ {
+   "level": 121,
+   "FIELD2": 628475750,
+   "value": 6.05,
+   "unitName": "%"
+ },
+ {
+   "level": 122,
+   "FIELD2": 638900500,
+   "value": 6.1,
+   "unitName": "%"
+ },
+ {
+   "level": 123,
+   "FIELD2": 649411000,
+   "value": 6.15,
+   "unitName": "%"
+ },
+ {
+   "level": 124,
+   "FIELD2": 660007250,
+   "value": 6.2,
+   "unitName": "%"
+ },
+ {
+   "level": 125,
+   "FIELD2": 670689250,
+   "value": 6.25,
+   "unitName": "%"
+ },
+ {
+   "level": 126,
+   "FIELD2": 681457000,
+   "value": 6.3,
+   "unitName": "%"
+ },
+ {
+   "level": 127,
+   "FIELD2": 692310500,
+   "value": 6.35,
+   "unitName": "%"
+ },
+ {
+   "level": 128,
+   "FIELD2": 703249750,
+   "value": 6.4,
+   "unitName": "%"
+ },
+ {
+   "level": 129,
+   "FIELD2": 816314000,
+   "value": 6.45,
+   "unitName": "%"
+ },
+ {
+   "level": 130,
+   "FIELD2": 829012000,
+   "value": 6.5,
+   "unitName": "%"
+ },
+ {
+   "level": 131,
+   "FIELD2": 841808000,
+   "value": 6.55,
+   "unitName": "%"
+ },
+ {
+   "level": 132,
+   "FIELD2": 854702000,
+   "value": 6.6,
+   "unitName": "%"
+ },
+ {
+   "level": 133,
+   "FIELD2": 867694000,
+   "value": 6.65,
+   "unitName": "%"
+ },
+ {
+   "level": 134,
+   "FIELD2": 880784000,
+   "value": 6.7,
+   "unitName": "%"
+ },
+ {
+   "level": 135,
+   "FIELD2": 893972000,
+   "value": 6.75,
+   "unitName": "%"
+ },
+ {
+   "level": 136,
+   "FIELD2": 907258000,
+   "value": 6.8,
+   "unitName": "%"
+ },
+ {
+   "level": 137,
+   "FIELD2": 920642000,
+   "value": 6.85,
+   "unitName": "%"
+ },
+ {
+   "level": 138,
+   "FIELD2": 934124000,
+   "value": 6.9,
+   "unitName": "%"
+ },
+ {
+   "level": 139,
+   "FIELD2": 947704000,
+   "value": 6.95,
+   "unitName": "%"
+ },
+ {
+   "level": 140,
+   "FIELD2": 961382000,
+   "value": 7,
+   "unitName": "%"
+ },
+ {
+   "level": 141,
+   "FIELD2": 975158000,
+   "value": 7.05,
+   "unitName": "%"
+ },
+ {
+   "level": 142,
+   "FIELD2": 989032000,
+   "value": 7.1,
+   "unitName": "%"
+ },
+ {
+   "level": 143,
+   "FIELD2": 1128379500,
+   "value": 7.15,
+   "unitName": "%"
+ },
+ {
+   "level": 144,
+   "FIELD2": 1144208250,
+   "value": 7.2,
+   "unitName": "%"
+ },
+ {
+   "level": 145,
+   "FIELD2": 1160147250,
+   "value": 7.25,
+   "unitName": "%"
+ },
+ {
+   "level": 146,
+   "FIELD2": 1176196500,
+   "value": 7.3,
+   "unitName": "%"
+ },
+ {
+   "level": 147,
+   "FIELD2": 1192356000,
+   "value": 7.35,
+   "unitName": "%"
+ },
+ {
+   "level": 148,
+   "FIELD2": 1208625750,
+   "value": 7.4,
+   "unitName": "%"
+ },
+ {
+   "level": 149,
+   "FIELD2": 1225005750,
+   "value": 7.45,
+   "unitName": "%"
+ },
+ {
+   "level": 150,
+   "FIELD2": 1241496000,
+   "value": 7.5,
+   "unitName": "%"
+ },
+ {
+   "level": 151,
+   "FIELD2": 1258096500,
+   "value": 7.55,
+   "unitName": "%"
+ },
+ {
+   "level": 152,
+   "FIELD2": 1274807250,
+   "value": 7.6,
+   "unitName": "%"
+ },
+ {
+   "level": 153,
+   "FIELD2": 1291628250,
+   "value": 7.65,
+   "unitName": "%"
+ },
+ {
+   "level": 154,
+   "FIELD2": 1308559500,
+   "value": 7.7,
+   "unitName": "%"
+ },
+ {
+   "level": 155,
+   "FIELD2": 1325601000,
+   "value": 7.75,
+   "unitName": "%"
+ },
+ {
+   "level": 156,
+   "FIELD2": 1342752750,
+   "value": 7.8,
+   "unitName": "%"
+ },
+ {
+   "level": 157,
+   "FIELD2": 1360014750,
+   "value": 7.85,
+   "unitName": "%"
+ },
+ {
+   "level": 158,
+   "FIELD2": 1530430000,
+   "value": 7.9,
+   "unitName": "%"
+ },
+ {
+   "level": 159,
+   "FIELD2": 1549855000,
+   "value": 7.95,
+   "unitName": "%"
+ },
+ {
+   "level": 160,
+   "FIELD2": 1569402500,
+   "value": 8,
+   "unitName": "%"
+ },
+ {
+   "level": 161,
+   "FIELD2": 1589072500,
+   "value": 8.05,
+   "unitName": "%"
+ },
+ {
+   "level": 162,
+   "FIELD2": 1608865000,
+   "value": 8.1,
+   "unitName": "%"
+ },
+ {
+   "level": 163,
+   "FIELD2": 1628780000,
+   "value": 8.15,
+   "unitName": "%"
+ },
+ {
+   "level": 164,
+   "FIELD2": 1648817500,
+   "value": 8.2,
+   "unitName": "%"
+ },
+ {
+   "level": 165,
+   "FIELD2": 1668977500,
+   "value": 8.25,
+   "unitName": "%"
+ },
+ {
+   "level": 166,
+   "FIELD2": 1689260000,
+   "value": 8.3,
+   "unitName": "%"
+ },
+ {
+   "level": 167,
+   "FIELD2": 1709665000,
+   "value": 8.35,
+   "unitName": "%"
+ },
+ {
+   "level": 168,
+   "FIELD2": 1730192500,
+   "value": 8.4,
+   "unitName": "%"
+ },
+ {
+   "level": 169,
+   "FIELD2": 1750842500,
+   "value": 8.45,
+   "unitName": "%"
+ },
+ {
+   "level": 170,
+   "FIELD2": 1771615000,
+   "value": 8.5,
+   "unitName": "%"
+ },
+ {
+   "level": 171,
+   "FIELD2": 1792510000,
+   "value": 8.55,
+   "unitName": "%"
+ },
+ {
+   "level": 172,
+   "FIELD2": 1994880250,
+   "value": 8.6,
+   "unitName": "%"
+ },
+ {
+   "level": 173,
+   "FIELD2": 2018134250,
+   "value": 8.65,
+   "unitName": "%"
+ },
+ {
+   "level": 174,
+   "FIELD2": 2041523000,
+   "value": 8.7,
+   "unitName": "%"
+ },
+ {
+   "level": 175,
+   "FIELD2": 2065046500,
+   "value": 8.75,
+   "unitName": "%"
+ },
+ {
+   "level": 176,
+   "FIELD2": 2088704750,
+   "value": 8.8,
+   "unitName": "%"
+ },
+ {
+   "level": 177,
+   "FIELD2": 2112497750,
+   "value": 8.85,
+   "unitName": "%"
+ },
+ {
+   "level": 178,
+   "FIELD2": 2136425500,
+   "value": 8.9,
+   "unitName": "%"
+ },
+ {
+   "level": 179,
+   "FIELD2": 2160488000,
+   "value": 8.95,
+   "unitName": "%"
+ },
+ {
+   "level": 180,
+   "FIELD2": 2184685250,
+   "value": 9,
+   "unitName": "%"
+ },
+ {
+   "level": 181,
+   "FIELD2": 2209017250,
+   "value": 9.05,
+   "unitName": "%"
+ },
+ {
+   "level": 182,
+   "FIELD2": 2233484000,
+   "value": 9.1,
+   "unitName": "%"
+ },
+ {
+   "level": 183,
+   "FIELD2": 2258085500,
+   "value": 9.15,
+   "unitName": "%"
+ },
+ {
+   "level": 184,
+   "FIELD2": 2282821750,
+   "value": 9.2,
+   "unitName": "%"
+ },
+ {
+   "level": 185,
+   "FIELD2": 2307692750,
+   "value": 9.25,
+   "unitName": "%"
+ },
+ {
+   "level": 186,
+   "FIELD2": 2544762000,
+   "value": 9.3,
+   "unitName": "%"
+ },
+ {
+   "level": 187,
+   "FIELD2": 2572188000,
+   "value": 9.35,
+   "unitName": "%"
+ },
+ {
+   "level": 188,
+   "FIELD2": 2599761000,
+   "value": 9.4,
+   "unitName": "%"
+ },
+ {
+   "level": 189,
+   "FIELD2": 2627481000,
+   "value": 9.45,
+   "unitName": "%"
+ },
+ {
+   "level": 190,
+   "FIELD2": 2655348000,
+   "value": 9.5,
+   "unitName": "%"
+ },
+ {
+   "level": 191,
+   "FIELD2": 2683362000,
+   "value": 9.55,
+   "unitName": "%"
+ },
+ {
+   "level": 192,
+   "FIELD2": 2711523000,
+   "value": 9.6,
+   "unitName": "%"
+ },
+ {
+   "level": 193,
+   "FIELD2": 2739831000,
+   "value": 9.65,
+   "unitName": "%"
+ },
+ {
+   "level": 194,
+   "FIELD2": 2768286000,
+   "value": 9.7,
+   "unitName": "%"
+ },
+ {
+   "level": 195,
+   "FIELD2": 2796888000,
+   "value": 9.75,
+   "unitName": "%"
+ },
+ {
+   "level": 196,
+   "FIELD2": 2825637000,
+   "value": 9.8,
+   "unitName": "%"
+ },
+ {
+   "level": 197,
+   "FIELD2": 2854533000,
+   "value": 9.85,
+   "unitName": "%"
+ },
+ {
+   "level": 198,
+   "FIELD2": 2883576000,
+   "value": 9.9,
+   "unitName": "%"
+ },
+ {
+   "level": 199,
+   "FIELD2": 2912766000,
+   "value": 9.95,
+   "unitName": "%"
+ },
+ {
+   "level": 200,
+   "FIELD2": 2942103000,
+   "value": 10,
+   "unitName": "%"
+ },
+ {
+   "level": 201,
+   "FIELD2": 3219219250,
+   "value": 10.05,
+   "unitName": "%"
+ },
+ {
+   "level": 202,
+   "FIELD2": 3251319500,
+   "value": 10.1,
+   "unitName": "%"
+ },
+ {
+   "level": 203,
+   "FIELD2": 3283579000,
+   "value": 10.15,
+   "unitName": "%"
+ },
+ {
+   "level": 204,
+   "FIELD2": 3315997750,
+   "value": 10.2,
+   "unitName": "%"
+ },
+ {
+   "level": 205,
+   "FIELD2": 3348575750,
+   "value": 10.25,
+   "unitName": "%"
+ },
+ {
+   "level": 206,
+   "FIELD2": 3381313000,
+   "value": 10.3,
+   "unitName": "%"
+ },
+ {
+   "level": 207,
+   "FIELD2": 3414209500,
+   "value": 10.35,
+   "unitName": "%"
+ },
+ {
+   "level": 208,
+   "FIELD2": 3447265250,
+   "value": 10.4,
+   "unitName": "%"
+ },
+ {
+   "level": 209,
+   "FIELD2": 3480480250,
+   "value": 10.45,
+   "unitName": "%"
+ },
+ {
+   "level": 210,
+   "FIELD2": 3513854500,
+   "value": 10.5,
+   "unitName": "%"
+ },
+ {
+   "level": 211,
+   "FIELD2": 3547388000,
+   "value": 10.55,
+   "unitName": "%"
+ },
+ {
+   "level": 212,
+   "FIELD2": 3581080750,
+   "value": 10.6,
+   "unitName": "%"
+ },
+ {
+   "level": 213,
+   "FIELD2": 3614932750,
+   "value": 10.65,
+   "unitName": "%"
+ },
+ {
+   "level": 214,
+   "FIELD2": 3648944000,
+   "value": 10.7,
+   "unitName": "%"
+ },
+ {
+   "level": 215,
+   "FIELD2": 3966431000,
+   "value": 10.75,
+   "unitName": "%"
+ },
+ {
+   "level": 216,
+   "FIELD2": 4003401500,
+   "value": 10.8,
+   "unitName": "%"
+ },
+ {
+   "level": 217,
+   "FIELD2": 4040543500,
+   "value": 10.85,
+   "unitName": "%"
+ },
+ {
+   "level": 218,
+   "FIELD2": 4077857000,
+   "value": 10.9,
+   "unitName": "%"
+ },
+ {
+   "level": 219,
+   "FIELD2": 4115342000,
+   "value": 10.95,
+   "unitName": "%"
+ },
+ {
+   "level": 220,
+   "FIELD2": 4152998500,
+   "value": 11,
+   "unitName": "%"
+ },
+ {
+   "level": 221,
+   "FIELD2": 4190826500,
+   "value": 11.05,
+   "unitName": "%"
+ },
+ {
+   "level": 222,
+   "FIELD2": 4228826000,
+   "value": 11.1,
+   "unitName": "%"
+ },
+ {
+   "level": 223,
+   "FIELD2": 4266997000,
+   "value": 11.15,
+   "unitName": "%"
+ },
+ {
+   "level": 224,
+   "FIELD2": 4305339500,
+   "value": 11.2,
+   "unitName": "%"
+ },
+ {
+   "level": 225,
+   "FIELD2": 4343853500,
+   "value": 11.25,
+   "unitName": "%"
+ },
+ {
+   "level": 226,
+   "FIELD2": 4382539000,
+   "value": 11.3,
+   "unitName": "%"
+ },
+ {
+   "level": 227,
+   "FIELD2": 4421396000,
+   "value": 11.35,
+   "unitName": "%"
+ },
+ {
+   "level": 228,
+   "FIELD2": 4460424500,
+   "value": 11.4,
+   "unitName": "%"
+ },
+ {
+   "level": 229,
+   "FIELD2": 5142428000,
+   "value": 11.45,
+   "unitName": "%"
+ },
+ {
+   "level": 230,
+   "FIELD2": 5187424000,
+   "value": 11.5,
+   "unitName": "%"
+ },
+ {
+   "level": 231,
+   "FIELD2": 5232616000,
+   "value": 11.55,
+   "unitName": "%"
+ },
+ {
+   "level": 232,
+   "FIELD2": 5278004000,
+   "value": 11.6,
+   "unitName": "%"
+ },
+ {
+   "level": 233,
+   "FIELD2": 5323588000,
+   "value": 11.65,
+   "unitName": "%"
+ },
+ {
+   "level": 234,
+   "FIELD2": 5369368000,
+   "value": 11.7,
+   "unitName": "%"
+ },
+ {
+   "level": 235,
+   "FIELD2": 5415344000,
+   "value": 11.75,
+   "unitName": "%"
+ },
+ {
+   "level": 236,
+   "FIELD2": 5461516000,
+   "value": 11.8,
+   "unitName": "%"
+ },
+ {
+   "level": 237,
+   "FIELD2": 5507884000,
+   "value": 11.85,
+   "unitName": "%"
+ },
+ {
+   "level": 238,
+   "FIELD2": 5554448000,
+   "value": 11.9,
+   "unitName": "%"
+ },
+ {
+   "level": 239,
+   "FIELD2": 5601208000,
+   "value": 11.95,
+   "unitName": "%"
+ },
+ {
+   "level": 240,
+   "FIELD2": 5648164000,
+   "value": 12,
+   "unitName": "%"
+ },
+ {
+   "level": 241,
+   "FIELD2": 5695316000,
+   "value": 12.05,
+   "unitName": "%"
+ },
+ {
+   "level": 242,
+   "FIELD2": 5742664000,
+   "value": 12.1,
+   "unitName": "%"
+ },
+ {
+   "level": 243,
+   "FIELD2": 6513984000,
+   "value": 12.15,
+   "unitName": "%"
+ },
+ {
+   "level": 244,
+   "FIELD2": 6567691500,
+   "value": 12.2,
+   "unitName": "%"
+ },
+ {
+   "level": 245,
+   "FIELD2": 6621619500,
+   "value": 12.25,
+   "unitName": "%"
+ },
+ {
+   "level": 246,
+   "FIELD2": 6675768000,
+   "value": 12.3,
+   "unitName": "%"
+ },
+ {
+   "level": 247,
+   "FIELD2": 6730137000,
+   "value": 12.35,
+   "unitName": "%"
+ },
+ {
+   "level": 248,
+   "FIELD2": 6784726500,
+   "value": 12.4,
+   "unitName": "%"
+ },
+ {
+   "level": 249,
+   "FIELD2": 6839536500,
+   "value": 12.45,
+   "unitName": "%"
+ },
+ {
+   "level": 250,
+   "FIELD2": 6894567000,
+   "value": 12.5,
+   "unitName": "%"
+ },
+ {
+   "level": 251,
+   "FIELD2": 6949818000,
+   "value": 12.55,
+   "unitName": "%"
+ },
+ {
+   "level": 252,
+   "FIELD2": 7005289500,
+   "value": 12.6,
+   "unitName": "%"
+ },
+ {
+   "level": 253,
+   "FIELD2": 7060981500,
+   "value": 12.65,
+   "unitName": "%"
+ },
+ {
+   "level": 254,
+   "FIELD2": 7116894000,
+   "value": 12.7,
+   "unitName": "%"
+ },
+ {
+   "level": 255,
+   "FIELD2": 7173027000,
+   "value": 12.75,
+   "unitName": "%"
+ },
+ {
+   "level": 256,
+   "FIELD2": 7229380500,
+   "value": 12.8,
+   "unitName": "%"
+ },
+ {
+   "level": 257,
+   "FIELD2": 7285954500,
+   "value": 12.85,
+   "unitName": "%"
+ },
+ {
+   "level": 258,
+   "FIELD2": 8158610000,
+   "value": 12.9,
+   "unitName": "%"
+ },
+ {
+   "level": 259,
+   "FIELD2": 8221960000,
+   "value": 12.95,
+   "unitName": "%"
+ },
+ {
+   "level": 260,
+   "FIELD2": 8285555000,
+   "value": 13,
+   "unitName": "%"
+ },
+ {
+   "level": 261,
+   "FIELD2": 8349395000,
+   "value": 13.05,
+   "unitName": "%"
+ },
+ {
+   "level": 262,
+   "FIELD2": 8413480000,
+   "value": 13.1,
+   "unitName": "%"
+ },
+ {
+   "level": 263,
+   "FIELD2": 8477810000,
+   "value": 13.15,
+   "unitName": "%"
+ },
+ {
+   "level": 264,
+   "FIELD2": 8542385000,
+   "value": 13.2,
+   "unitName": "%"
+ },
+ {
+   "level": 265,
+   "FIELD2": 8607205000,
+   "value": 13.25,
+   "unitName": "%"
+ },
+ {
+   "level": 266,
+   "FIELD2": 8672270000,
+   "value": 13.3,
+   "unitName": "%"
+ },
+ {
+   "level": 267,
+   "FIELD2": 8737580000,
+   "value": 13.35,
+   "unitName": "%"
+ },
+ {
+   "level": 268,
+   "FIELD2": 8803135000,
+   "value": 13.4,
+   "unitName": "%"
+ },
+ {
+   "level": 269,
+   "FIELD2": 8868935000,
+   "value": 13.45,
+   "unitName": "%"
+ },
+ {
+   "level": 270,
+   "FIELD2": 8934980000,
+   "value": 13.5,
+   "unitName": "%"
+ },
+ {
+   "level": 271,
+   "FIELD2": 9001270000,
+   "value": 13.55,
+   "unitName": "%"
+ },
+ {
+   "level": 272,
+   "FIELD2": 9974585500,
+   "value": 13.6,
+   "unitName": "%"
+ },
+ {
+   "level": 273,
+   "FIELD2": 10048043500,
+   "value": 13.65,
+   "unitName": "%"
+ },
+ {
+   "level": 274,
+   "FIELD2": 10121771000,
+   "value": 13.7,
+   "unitName": "%"
+ },
+ {
+   "level": 275,
+   "FIELD2": 10195768000,
+   "value": 13.75,
+   "unitName": "%"
+ },
+ {
+   "level": 276,
+   "FIELD2": 10270034500,
+   "value": 13.8,
+   "unitName": "%"
+ },
+ {
+   "level": 277,
+   "FIELD2": 10344570500,
+   "value": 13.85,
+   "unitName": "%"
+ },
+ {
+   "level": 278,
+   "FIELD2": 10419376000,
+   "value": 13.9,
+   "unitName": "%"
+ },
+ {
+   "level": 279,
+   "FIELD2": 10494451000,
+   "value": 13.95,
+   "unitName": "%"
+ },
+ {
+   "level": 280,
+   "FIELD2": 10569795500,
+   "value": 14,
+   "unitName": "%"
+ },
+ {
+   "level": 281,
+   "FIELD2": 10645409500,
+   "value": 14.05,
+   "unitName": "%"
+ },
+ {
+   "level": 282,
+   "FIELD2": 10721293000,
+   "value": 14.1,
+   "unitName": "%"
+ },
+ {
+   "level": 283,
+   "FIELD2": 10797446000,
+   "value": 14.15,
+   "unitName": "%"
+ },
+ {
+   "level": 284,
+   "FIELD2": 10873868500,
+   "value": 14.2,
+   "unitName": "%"
+ },
+ {
+   "level": 285,
+   "FIELD2": 10950560500,
+   "value": 14.25,
+   "unitName": "%"
+ },
+ {
+   "level": 286,
+   "FIELD2": 13032526000,
+   "value": 14.3,
+   "unitName": "%"
+ },
+ {
+   "level": 287,
+   "FIELD2": 13123799000,
+   "value": 14.35,
+   "unitName": "%"
+ },
+ {
+   "level": 288,
+   "FIELD2": 13215390500,
+   "value": 14.4,
+   "unitName": "%"
+ },
+ {
+   "level": 289,
+   "FIELD2": 13307300500,
+   "value": 14.45,
+   "unitName": "%"
+ },
+ {
+   "level": 290,
+   "FIELD2": 13399529000,
+   "value": 14.5,
+   "unitName": "%"
+ },
+ {
+   "level": 291,
+   "FIELD2": 13492076000,
+   "value": 14.55,
+   "unitName": "%"
+ },
+ {
+   "level": 292,
+   "FIELD2": 13584941500,
+   "value": 14.6,
+   "unitName": "%"
+ },
+ {
+   "level": 293,
+   "FIELD2": 13678125500,
+   "value": 14.65,
+   "unitName": "%"
+ },
+ {
+   "level": 294,
+   "FIELD2": 13771628000,
+   "value": 14.7,
+   "unitName": "%"
+ },
+ {
+   "level": 295,
+   "FIELD2": 13865449000,
+   "value": 14.75,
+   "unitName": "%"
+ },
+ {
+   "level": 296,
+   "FIELD2": 13959588500,
+   "value": 14.8,
+   "unitName": "%"
+ },
+ {
+   "level": 297,
+   "FIELD2": 14054046500,
+   "value": 14.85,
+   "unitName": "%"
+ },
+ {
+   "level": 298,
+   "FIELD2": 14148823000,
+   "value": 14.9,
+   "unitName": "%"
+ },
+ {
+   "level": 299,
+   "FIELD2": 14243918000,
+   "value": 14.95,
+   "unitName": "%"
+ },
+ {
+   "level": 300,
+   "FIELD2": 14339331500,
+   "value": 15,
+   "unitName": "%"
+ },
+ {
+   "level": 301,
+   "FIELD2": 16655842500,
+   "value": 15.05,
+   "unitName": "%"
+ },
+ {
+   "level": 302,
+   "FIELD2": 16766670000,
+   "value": 15.1,
+   "unitName": "%"
+ },
+ {
+   "level": 303,
+   "FIELD2": 16877865000,
+   "value": 15.15,
+   "unitName": "%"
+ },
+ {
+   "level": 304,
+   "FIELD2": 16989427500,
+   "value": 15.2,
+   "unitName": "%"
+ },
+ {
+   "level": 305,
+   "FIELD2": 17101357500,
+   "value": 15.25,
+   "unitName": "%"
+ },
+ {
+   "level": 306,
+   "FIELD2": 17213655000,
+   "value": 15.3,
+   "unitName": "%"
+ },
+ {
+   "level": 307,
+   "FIELD2": 17326320000,
+   "value": 15.35,
+   "unitName": "%"
+ },
+ {
+   "level": 308,
+   "FIELD2": 17439352500,
+   "value": 15.4,
+   "unitName": "%"
+ },
+ {
+   "level": 309,
+   "FIELD2": 17552752500,
+   "value": 15.45,
+   "unitName": "%"
+ },
+ {
+   "level": 310,
+   "FIELD2": 17666520000,
+   "value": 15.5,
+   "unitName": "%"
+ },
+ {
+   "level": 311,
+   "FIELD2": 17780655000,
+   "value": 15.55,
+   "unitName": "%"
+ },
+ {
+   "level": 312,
+   "FIELD2": 17895157500,
+   "value": 15.6,
+   "unitName": "%"
+ },
+ {
+   "level": 313,
+   "FIELD2": 18010027500,
+   "value": 15.65,
+   "unitName": "%"
+ },
+ {
+   "level": 314,
+   "FIELD2": 18125265000,
+   "value": 15.7,
+   "unitName": "%"
+ },
+ {
+   "level": 315,
+   "FIELD2": 20672986000,
+   "value": 15.75,
+   "unitName": "%"
+ },
+ {
+   "level": 316,
+   "FIELD2": 20804421500,
+   "value": 15.8,
+   "unitName": "%"
+ },
+ {
+   "level": 317,
+   "FIELD2": 20936273500,
+   "value": 15.85,
+   "unitName": "%"
+ },
+ {
+   "level": 318,
+   "FIELD2": 21068542000,
+   "value": 15.9,
+   "unitName": "%"
+ },
+ {
+   "level": 319,
+   "FIELD2": 21201227000,
+   "value": 15.95,
+   "unitName": "%"
+ },
+ {
+   "level": 320,
+   "FIELD2": 21334328500,
+   "value": 16,
+   "unitName": "%"
+ },
+ {
+   "level": 321,
+   "FIELD2": 21467846500,
+   "value": 16.05,
+   "unitName": "%"
+ },
+ {
+   "level": 322,
+   "FIELD2": 21601781000,
+   "value": 16.1,
+   "unitName": "%"
+ },
+ {
+   "level": 323,
+   "FIELD2": 21736132000,
+   "value": 16.15,
+   "unitName": "%"
+ },
+ {
+   "level": 324,
+   "FIELD2": 21870899500,
+   "value": 16.2,
+   "unitName": "%"
+ },
+ {
+   "level": 325,
+   "FIELD2": 22006083500,
+   "value": 16.25,
+   "unitName": "%"
+ },
+ {
+   "level": 326,
+   "FIELD2": 22141684000,
+   "value": 16.3,
+   "unitName": "%"
+ },
+ {
+   "level": 327,
+   "FIELD2": 22277701000,
+   "value": 16.35,
+   "unitName": "%"
+ },
+ {
+   "level": 328,
+   "FIELD2": 22414134500,
+   "value": 16.4,
+   "unitName": "%"
+ },
+ {
+   "level": 329,
+   "FIELD2": 25204041500,
+   "value": 16.45,
+   "unitName": "%"
+ },
+ {
+   "level": 330,
+   "FIELD2": 25357457000,
+   "value": 16.5,
+   "unitName": "%"
+ },
+ {
+   "level": 331,
+   "FIELD2": 25511338000,
+   "value": 16.55,
+   "unitName": "%"
+ },
+ {
+   "level": 332,
+   "FIELD2": 25665684500,
+   "value": 16.6,
+   "unitName": "%"
+ },
+ {
+   "level": 333,
+   "FIELD2": 25820496500,
+   "value": 16.65,
+   "unitName": "%"
+ },
+ {
+   "level": 334,
+   "FIELD2": 25975774000,
+   "value": 16.7,
+   "unitName": "%"
+ },
+ {
+   "level": 335,
+   "FIELD2": 26131517000,
+   "value": 16.75,
+   "unitName": "%"
+ },
+ {
+   "level": 336,
+   "FIELD2": 26287725500,
+   "value": 16.8,
+   "unitName": "%"
+ },
+ {
+   "level": 337,
+   "FIELD2": 26444399500,
+   "value": 16.85,
+   "unitName": "%"
+ },
+ {
+   "level": 338,
+   "FIELD2": 26601539000,
+   "value": 16.9,
+   "unitName": "%"
+ },
+ {
+   "level": 339,
+   "FIELD2": 26759144000,
+   "value": 16.95,
+   "unitName": "%"
+ },
+ {
+   "level": 340,
+   "FIELD2": 26917214500,
+   "value": 17,
+   "unitName": "%"
+ },
+ {
+   "level": 341,
+   "FIELD2": 27075750500,
+   "value": 17.05,
+   "unitName": "%"
+ },
+ {
+   "level": 342,
+   "FIELD2": 27234752000,
+   "value": 17.1,
+   "unitName": "%"
+ },
+ {
+   "level": 343,
+   "FIELD2": 30277821000,
+   "value": 17.15,
+   "unitName": "%"
+ },
+ {
+   "level": 344,
+   "FIELD2": 30454588500,
+   "value": 17.2,
+   "unitName": "%"
+ },
+ {
+   "level": 345,
+   "FIELD2": 30631870500,
+   "value": 17.25,
+   "unitName": "%"
+ },
+ {
+   "level": 346,
+   "FIELD2": 30809667000,
+   "value": 17.3,
+   "unitName": "%"
+ },
+ {
+   "level": 347,
+   "FIELD2": 30987978000,
+   "value": 17.35,
+   "unitName": "%"
+ },
+ {
+   "level": 348,
+   "FIELD2": 31166803500,
+   "value": 17.4,
+   "unitName": "%"
+ },
+ {
+   "level": 349,
+   "FIELD2": 31346143500,
+   "value": 17.45,
+   "unitName": "%"
+ },
+ {
+   "level": 350,
+   "FIELD2": 31525998000,
+   "value": 17.5,
+   "unitName": "%"
+ },
+ {
+   "level": 351,
+   "FIELD2": 31706367000,
+   "value": 17.55,
+   "unitName": "%"
+ },
+ {
+   "level": 352,
+   "FIELD2": 31887250500,
+   "value": 17.6,
+   "unitName": "%"
+ },
+ {
+   "level": 353,
+   "FIELD2": 32068648500,
+   "value": 17.65,
+   "unitName": "%"
+ },
+ {
+   "level": 354,
+   "FIELD2": 32250561000,
+   "value": 17.7,
+   "unitName": "%"
+ },
+ {
+   "level": 355,
+   "FIELD2": 32432988000,
+   "value": 17.75,
+   "unitName": "%"
+ },
+ {
+   "level": 356,
+   "FIELD2": 32615929500,
+   "value": 17.8,
+   "unitName": "%"
+ },
+ {
+   "level": 357,
+   "FIELD2": 32799385500,
+   "value": 17.85,
+   "unitName": "%"
+ },
+ {
+   "level": 358,
+   "FIELD2": 37695264000,
+   "value": 17.9,
+   "unitName": "%"
+ },
+ {
+   "level": 359,
+   "FIELD2": 37906104000,
+   "value": 17.95,
+   "unitName": "%"
+ },
+ {
+   "level": 360,
+   "FIELD2": 38117532000,
+   "value": 18,
+   "unitName": "%"
+ },
+ {
+   "level": 361,
+   "FIELD2": 38329548000,
+   "value": 18.05,
+   "unitName": "%"
+ },
+ {
+   "level": 362,
+   "FIELD2": 38542152000,
+   "value": 18.1,
+   "unitName": "%"
+ },
+ {
+   "level": 363,
+   "FIELD2": 38755344000,
+   "value": 18.15,
+   "unitName": "%"
+ },
+ {
+   "level": 364,
+   "FIELD2": 38969124000,
+   "value": 18.2,
+   "unitName": "%"
+ },
+ {
+   "level": 365,
+   "FIELD2": 39183492000,
+   "value": 18.25,
+   "unitName": "%"
+ },
+ {
+   "level": 366,
+   "FIELD2": 39398448000,
+   "value": 18.3,
+   "unitName": "%"
+ },
+ {
+   "level": 367,
+   "FIELD2": 39613992000,
+   "value": 18.35,
+   "unitName": "%"
+ },
+ {
+   "level": 368,
+   "FIELD2": 39830124000,
+   "value": 18.4,
+   "unitName": "%"
+ },
+ {
+   "level": 369,
+   "FIELD2": 40046844000,
+   "value": 18.45,
+   "unitName": "%"
+ },
+ {
+   "level": 370,
+   "FIELD2": 40264152000,
+   "value": 18.5,
+   "unitName": "%"
+ },
+ {
+   "level": 371,
+   "FIELD2": 40482048000,
+   "value": 18.55,
+   "unitName": "%"
+ },
+ {
+   "level": 372,
+   "FIELD2": 45788098500,
+   "value": 18.6,
+   "unitName": "%"
+ },
+ {
+   "level": 373,
+   "FIELD2": 46034554500,
+   "value": 18.65,
+   "unitName": "%"
+ },
+ {
+   "level": 374,
+   "FIELD2": 46281672000,
+   "value": 18.7,
+   "unitName": "%"
+ },
+ {
+   "level": 375,
+   "FIELD2": 46529451000,
+   "value": 18.75,
+   "unitName": "%"
+ },
+ {
+   "level": 376,
+   "FIELD2": 46777891500,
+   "value": 18.8,
+   "unitName": "%"
+ },
+ {
+   "level": 377,
+   "FIELD2": 47026993500,
+   "value": 18.85,
+   "unitName": "%"
+ },
+ {
+   "level": 378,
+   "FIELD2": 47276757000,
+   "value": 18.9,
+   "unitName": "%"
+ },
+ {
+   "level": 379,
+   "FIELD2": 47527182000,
+   "value": 18.95,
+   "unitName": "%"
+ },
+ {
+   "level": 380,
+   "FIELD2": 47778268500,
+   "value": 19,
+   "unitName": "%"
+ },
+ {
+   "level": 381,
+   "FIELD2": 48030016500,
+   "value": 19.05,
+   "unitName": "%"
+ },
+ {
+   "level": 382,
+   "FIELD2": 48282426000,
+   "value": 19.1,
+   "unitName": "%"
+ },
+ {
+   "level": 383,
+   "FIELD2": 48535497000,
+   "value": 19.15,
+   "unitName": "%"
+ },
+ {
+   "level": 384,
+   "FIELD2": 48789229500,
+   "value": 19.2,
+   "unitName": "%"
+ },
+ {
+   "level": 385,
+   "FIELD2": 49043623500,
+   "value": 19.25,
+   "unitName": "%"
+ },
+ {
+   "level": 386,
+   "FIELD2": 54776310000,
+   "value": 19.3,
+   "unitName": "%"
+ },
+ {
+   "level": 387,
+   "FIELD2": 55060440000,
+   "value": 19.35,
+   "unitName": "%"
+ },
+ {
+   "level": 388,
+   "FIELD2": 55345305000,
+   "value": 19.4,
+   "unitName": "%"
+ },
+ {
+   "level": 389,
+   "FIELD2": 55630905000,
+   "value": 19.45,
+   "unitName": "%"
+ },
+ {
+   "level": 390,
+   "FIELD2": 55917240000,
+   "value": 19.5,
+   "unitName": "%"
+ },
+ {
+   "level": 391,
+   "FIELD2": 56204310000,
+   "value": 19.55,
+   "unitName": "%"
+ },
+ {
+   "level": 392,
+   "FIELD2": 56492115000,
+   "value": 19.6,
+   "unitName": "%"
+ },
+ {
+   "level": 393,
+   "FIELD2": 56780655000,
+   "value": 19.65,
+   "unitName": "%"
+ },
+ {
+   "level": 394,
+   "FIELD2": 57069930000,
+   "value": 19.7,
+   "unitName": "%"
+ },
+ {
+   "level": 395,
+   "FIELD2": 57359940000,
+   "value": 19.75,
+   "unitName": "%"
+ },
+ {
+   "level": 396,
+   "FIELD2": 57650685000,
+   "value": 19.8,
+   "unitName": "%"
+ },
+ {
+   "level": 397,
+   "FIELD2": 57942165000,
+   "value": 19.85,
+   "unitName": "%"
+ },
+ {
+   "level": 398,
+   "FIELD2": 58234380000,
+   "value": 19.9,
+   "unitName": "%"
+ },
+ {
+   "level": 399,
+   "FIELD2": 58527330000,
+   "value": 19.95,
+   "unitName": "%"
+ },
+ {
+   "level": 400,
+   "FIELD2": 58821015000,
    "value": 20,
    "unitName": "%"
  }

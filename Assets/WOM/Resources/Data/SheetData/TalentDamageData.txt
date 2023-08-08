@@ -7,302 +7,6002 @@
  },
  {
    "level": 1,
-   "salePrice": 100,
-   "value": 5,
+   "salePrice": 210,
+   "value": 0.5,
    "unitName": "%"
  },
  {
    "level": 2,
-   "salePrice": 200,
-   "value": 10,
+   "salePrice": 660,
+   "value": 1,
    "unitName": "%"
  },
  {
    "level": 3,
-   "salePrice": 300,
-   "value": 15,
+   "salePrice": 1380,
+   "value": 1.5,
    "unitName": "%"
  },
  {
    "level": 4,
-   "salePrice": 400,
-   "value": 20,
+   "salePrice": 2370,
+   "value": 2,
    "unitName": "%"
  },
  {
    "level": 5,
-   "salePrice": 500,
-   "value": 25,
+   "salePrice": 3630,
+   "value": 2.5,
    "unitName": "%"
  },
  {
    "level": 6,
-   "salePrice": 600,
-   "value": 30,
+   "salePrice": 5160,
+   "value": 3,
    "unitName": "%"
  },
  {
    "level": 7,
-   "salePrice": 700,
-   "value": 35,
+   "salePrice": 6960,
+   "value": 3.5,
    "unitName": "%"
  },
  {
    "level": 8,
-   "salePrice": 800,
-   "value": 40,
+   "salePrice": 9030,
+   "value": 4,
    "unitName": "%"
  },
  {
    "level": 9,
-   "salePrice": 900,
-   "value": 45,
+   "salePrice": 11370,
+   "value": 4.5,
    "unitName": "%"
  },
  {
    "level": 10,
-   "salePrice": 1000,
-   "value": 50,
+   "salePrice": 13980,
+   "value": 5,
    "unitName": "%"
  },
  {
    "level": 11,
-   "salePrice": 1100,
-   "value": 55,
+   "salePrice": 16860,
+   "value": 5.5,
    "unitName": "%"
  },
  {
    "level": 12,
-   "salePrice": 1200,
-   "value": 60,
+   "salePrice": 20010,
+   "value": 6,
    "unitName": "%"
  },
  {
    "level": 13,
-   "salePrice": 1300,
-   "value": 65,
+   "salePrice": 23430,
+   "value": 6.5,
    "unitName": "%"
  },
  {
    "level": 14,
-   "salePrice": 1400,
-   "value": 70,
+   "salePrice": 27120,
+   "value": 7,
    "unitName": "%"
  },
  {
    "level": 15,
-   "salePrice": 1500,
-   "value": 75,
+   "salePrice": 31080,
+   "value": 7.5,
    "unitName": "%"
  },
  {
    "level": 16,
-   "salePrice": 1600,
-   "value": 80,
+   "salePrice": 35310,
+   "value": 8,
    "unitName": "%"
  },
  {
    "level": 17,
-   "salePrice": 1700,
-   "value": 85,
+   "salePrice": 39810,
+   "value": 8.5,
    "unitName": "%"
  },
  {
    "level": 18,
-   "salePrice": 1800,
-   "value": 90,
+   "salePrice": 44580,
+   "value": 9,
    "unitName": "%"
  },
  {
    "level": 19,
-   "salePrice": 1900,
-   "value": 95,
+   "salePrice": 49620,
+   "value": 9.5,
    "unitName": "%"
  },
  {
    "level": 20,
-   "salePrice": 2000,
-   "value": 100,
+   "salePrice": 54930,
+   "value": 10,
    "unitName": "%"
  },
  {
    "level": 21,
-   "salePrice": 2100,
-   "value": 105,
+   "salePrice": 60510,
+   "value": 10.5,
    "unitName": "%"
  },
  {
    "level": 22,
-   "salePrice": 2200,
-   "value": 110,
+   "salePrice": 66360,
+   "value": 11,
    "unitName": "%"
  },
  {
    "level": 23,
-   "salePrice": 2300,
-   "value": 115,
+   "salePrice": 72480,
+   "value": 11.5,
    "unitName": "%"
  },
  {
    "level": 24,
-   "salePrice": 2400,
-   "value": 120,
+   "salePrice": 78870,
+   "value": 12,
    "unitName": "%"
  },
  {
    "level": 25,
-   "salePrice": 2500,
-   "value": 125,
+   "salePrice": 85530,
+   "value": 12.5,
    "unitName": "%"
  },
  {
    "level": 26,
-   "salePrice": 2600,
-   "value": 130,
+   "salePrice": 92460,
+   "value": 13,
    "unitName": "%"
  },
  {
    "level": 27,
-   "salePrice": 2700,
-   "value": 135,
+   "salePrice": 99660,
+   "value": 13.5,
    "unitName": "%"
  },
  {
    "level": 28,
-   "salePrice": 2800,
-   "value": 140,
+   "salePrice": 107130,
+   "value": 14,
    "unitName": "%"
  },
  {
    "level": 29,
-   "salePrice": 2900,
-   "value": 145,
+   "salePrice": 114870,
+   "value": 14.5,
    "unitName": "%"
  },
  {
    "level": 30,
-   "salePrice": 3000,
-   "value": 150,
+   "salePrice": 122880,
+   "value": 15,
    "unitName": "%"
  },
  {
    "level": 31,
-   "salePrice": 3100,
-   "value": 155,
+   "salePrice": 131160,
+   "value": 15.5,
    "unitName": "%"
  },
  {
    "level": 32,
-   "salePrice": 3200,
-   "value": 160,
+   "salePrice": 139710,
+   "value": 16,
    "unitName": "%"
  },
  {
    "level": 33,
-   "salePrice": 3300,
-   "value": 165,
+   "salePrice": 148530,
+   "value": 16.5,
    "unitName": "%"
  },
  {
    "level": 34,
-   "salePrice": 3400,
-   "value": 170,
+   "salePrice": 262700,
+   "value": 17,
    "unitName": "%"
  },
  {
    "level": 35,
-   "salePrice": 3500,
-   "value": 175,
+   "salePrice": 278300,
+   "value": 17.5,
    "unitName": "%"
  },
  {
    "level": 36,
-   "salePrice": 3600,
-   "value": 180,
+   "salePrice": 294350,
+   "value": 18,
    "unitName": "%"
  },
  {
    "level": 37,
-   "salePrice": 3700,
-   "value": 185,
+   "salePrice": 310850,
+   "value": 18.5,
    "unitName": "%"
  },
  {
    "level": 38,
-   "salePrice": 3800,
-   "value": 190,
+   "salePrice": 327800,
+   "value": 19,
    "unitName": "%"
  },
  {
    "level": 39,
-   "salePrice": 3900,
-   "value": 195,
+   "salePrice": 345200,
+   "value": 19.5,
    "unitName": "%"
  },
  {
    "level": 40,
-   "salePrice": 4000,
-   "value": 200,
+   "salePrice": 363050,
+   "value": 20,
    "unitName": "%"
  },
  {
    "level": 41,
-   "salePrice": 4100,
-   "value": 205,
+   "salePrice": 381350,
+   "value": 20.5,
    "unitName": "%"
  },
  {
    "level": 42,
-   "salePrice": 4200,
-   "value": 210,
+   "salePrice": 400100,
+   "value": 21,
    "unitName": "%"
  },
  {
    "level": 43,
-   "salePrice": 4300,
-   "value": 215,
+   "salePrice": 419300,
+   "value": 21.5,
    "unitName": "%"
  },
  {
    "level": 44,
-   "salePrice": 4400,
-   "value": 220,
+   "salePrice": 438950,
+   "value": 22,
    "unitName": "%"
  },
  {
    "level": 45,
-   "salePrice": 4500,
-   "value": 225,
+   "salePrice": 459050,
+   "value": 22.5,
    "unitName": "%"
  },
  {
    "level": 46,
-   "salePrice": 4600,
-   "value": 230,
+   "salePrice": 479600,
+   "value": 23,
    "unitName": "%"
  },
  {
    "level": 47,
-   "salePrice": 4700,
-   "value": 235,
+   "salePrice": 500600,
+   "value": 23.5,
    "unitName": "%"
  },
  {
    "level": 48,
-   "salePrice": 4800,
-   "value": 240,
+   "salePrice": 522050,
+   "value": 24,
    "unitName": "%"
  },
  {
    "level": 49,
-   "salePrice": 4900,
-   "value": 245,
+   "salePrice": 543950,
+   "value": 24.5,
    "unitName": "%"
  },
  {
    "level": 50,
-   "salePrice": 5000,
+   "salePrice": 566300,
+   "value": 25,
+   "unitName": "%"
+ },
+ {
+   "level": 51,
+   "salePrice": 589100,
+   "value": 25.5,
+   "unitName": "%"
+ },
+ {
+   "level": 52,
+   "salePrice": 612350,
+   "value": 26,
+   "unitName": "%"
+ },
+ {
+   "level": 53,
+   "salePrice": 636050,
+   "value": 26.5,
+   "unitName": "%"
+ },
+ {
+   "level": 54,
+   "salePrice": 660200,
+   "value": 27,
+   "unitName": "%"
+ },
+ {
+   "level": 55,
+   "salePrice": 684800,
+   "value": 27.5,
+   "unitName": "%"
+ },
+ {
+   "level": 56,
+   "salePrice": 709850,
+   "value": 28,
+   "unitName": "%"
+ },
+ {
+   "level": 57,
+   "salePrice": 735350,
+   "value": 28.5,
+   "unitName": "%"
+ },
+ {
+   "level": 58,
+   "salePrice": 761300,
+   "value": 29,
+   "unitName": "%"
+ },
+ {
+   "level": 59,
+   "salePrice": 787700,
+   "value": 29.5,
+   "unitName": "%"
+ },
+ {
+   "level": 60,
+   "salePrice": 814550,
+   "value": 30,
+   "unitName": "%"
+ },
+ {
+   "level": 61,
+   "salePrice": 841850,
+   "value": 30.5,
+   "unitName": "%"
+ },
+ {
+   "level": 62,
+   "salePrice": 869600,
+   "value": 31,
+   "unitName": "%"
+ },
+ {
+   "level": 63,
+   "salePrice": 897800,
+   "value": 31.5,
+   "unitName": "%"
+ },
+ {
+   "level": 64,
+   "salePrice": 926450,
+   "value": 32,
+   "unitName": "%"
+ },
+ {
+   "level": 65,
+   "salePrice": 955550,
+   "value": 32.5,
+   "unitName": "%"
+ },
+ {
+   "level": 66,
+   "salePrice": 985100,
+   "value": 33,
+   "unitName": "%"
+ },
+ {
+   "level": 67,
+   "salePrice": 1421140,
+   "value": 33.5,
+   "unitName": "%"
+ },
+ {
+   "level": 68,
+   "salePrice": 1463770,
+   "value": 34,
+   "unitName": "%"
+ },
+ {
+   "level": 69,
+   "salePrice": 1507030,
+   "value": 34.5,
+   "unitName": "%"
+ },
+ {
+   "level": 70,
+   "salePrice": 1550920,
+   "value": 35,
+   "unitName": "%"
+ },
+ {
+   "level": 71,
+   "salePrice": 1595440,
+   "value": 35.5,
+   "unitName": "%"
+ },
+ {
+   "level": 72,
+   "salePrice": 1640590,
+   "value": 36,
+   "unitName": "%"
+ },
+ {
+   "level": 73,
+   "salePrice": 1686370,
+   "value": 36.5,
+   "unitName": "%"
+ },
+ {
+   "level": 74,
+   "salePrice": 1732780,
+   "value": 37,
+   "unitName": "%"
+ },
+ {
+   "level": 75,
+   "salePrice": 1779820,
+   "value": 37.5,
+   "unitName": "%"
+ },
+ {
+   "level": 76,
+   "salePrice": 1827490,
+   "value": 38,
+   "unitName": "%"
+ },
+ {
+   "level": 77,
+   "salePrice": 1875790,
+   "value": 38.5,
+   "unitName": "%"
+ },
+ {
+   "level": 78,
+   "salePrice": 1924720,
+   "value": 39,
+   "unitName": "%"
+ },
+ {
+   "level": 79,
+   "salePrice": 1974280,
+   "value": 39.5,
+   "unitName": "%"
+ },
+ {
+   "level": 80,
+   "salePrice": 2024470,
+   "value": 40,
+   "unitName": "%"
+ },
+ {
+   "level": 81,
+   "salePrice": 2075290,
+   "value": 40.5,
+   "unitName": "%"
+ },
+ {
+   "level": 82,
+   "salePrice": 2126740,
+   "value": 41,
+   "unitName": "%"
+ },
+ {
+   "level": 83,
+   "salePrice": 2178820,
+   "value": 41.5,
+   "unitName": "%"
+ },
+ {
+   "level": 84,
+   "salePrice": 2231530,
+   "value": 42,
+   "unitName": "%"
+ },
+ {
+   "level": 85,
+   "salePrice": 2284870,
+   "value": 42.5,
+   "unitName": "%"
+ },
+ {
+   "level": 86,
+   "salePrice": 2338840,
+   "value": 43,
+   "unitName": "%"
+ },
+ {
+   "level": 87,
+   "salePrice": 2393440,
+   "value": 43.5,
+   "unitName": "%"
+ },
+ {
+   "level": 88,
+   "salePrice": 2448670,
+   "value": 44,
+   "unitName": "%"
+ },
+ {
+   "level": 89,
+   "salePrice": 2504530,
+   "value": 44.5,
+   "unitName": "%"
+ },
+ {
+   "level": 90,
+   "salePrice": 2561020,
+   "value": 45,
+   "unitName": "%"
+ },
+ {
+   "level": 91,
+   "salePrice": 2618140,
+   "value": 45.5,
+   "unitName": "%"
+ },
+ {
+   "level": 92,
+   "salePrice": 2675890,
+   "value": 46,
+   "unitName": "%"
+ },
+ {
+   "level": 93,
+   "salePrice": 2734270,
+   "value": 46.5,
+   "unitName": "%"
+ },
+ {
+   "level": 94,
+   "salePrice": 2793280,
+   "value": 47,
+   "unitName": "%"
+ },
+ {
+   "level": 95,
+   "salePrice": 2852920,
+   "value": 47.5,
+   "unitName": "%"
+ },
+ {
+   "level": 96,
+   "salePrice": 2913190,
+   "value": 48,
+   "unitName": "%"
+ },
+ {
+   "level": 97,
+   "salePrice": 2974090,
+   "value": 48.5,
+   "unitName": "%"
+ },
+ {
+   "level": 98,
+   "salePrice": 3035620,
+   "value": 49,
+   "unitName": "%"
+ },
+ {
+   "level": 99,
+   "salePrice": 3097780,
+   "value": 49.5,
+   "unitName": "%"
+ },
+ {
+   "level": 100,
+   "salePrice": 3160570,
+   "value": 50,
+   "unitName": "%"
+ },
+ {
+   "level": 101,
+   "salePrice": 4605700,
+   "value": 50.5,
+   "unitName": "%"
+ },
+ {
+   "level": 102,
+   "salePrice": 4697200,
+   "value": 51,
+   "unitName": "%"
+ },
+ {
+   "level": 103,
+   "salePrice": 4789600,
+   "value": 51.5,
+   "unitName": "%"
+ },
+ {
+   "level": 104,
+   "salePrice": 4882900,
+   "value": 52,
+   "unitName": "%"
+ },
+ {
+   "level": 105,
+   "salePrice": 4977100,
+   "value": 52.5,
+   "unitName": "%"
+ },
+ {
+   "level": 106,
+   "salePrice": 5072200,
+   "value": 53,
+   "unitName": "%"
+ },
+ {
+   "level": 107,
+   "salePrice": 5168200,
+   "value": 53.5,
+   "unitName": "%"
+ },
+ {
+   "level": 108,
+   "salePrice": 5265100,
+   "value": 54,
+   "unitName": "%"
+ },
+ {
+   "level": 109,
+   "salePrice": 5362900,
+   "value": 54.5,
+   "unitName": "%"
+ },
+ {
+   "level": 110,
+   "salePrice": 5461600,
+   "value": 55,
+   "unitName": "%"
+ },
+ {
+   "level": 111,
+   "salePrice": 5561200,
+   "value": 55.5,
+   "unitName": "%"
+ },
+ {
+   "level": 112,
+   "salePrice": 5661700,
+   "value": 56,
+   "unitName": "%"
+ },
+ {
+   "level": 113,
+   "salePrice": 5763100,
+   "value": 56.5,
+   "unitName": "%"
+ },
+ {
+   "level": 114,
+   "salePrice": 5865400,
+   "value": 57,
+   "unitName": "%"
+ },
+ {
+   "level": 115,
+   "salePrice": 5968600,
+   "value": 57.5,
+   "unitName": "%"
+ },
+ {
+   "level": 116,
+   "salePrice": 6072700,
+   "value": 58,
+   "unitName": "%"
+ },
+ {
+   "level": 117,
+   "salePrice": 6177700,
+   "value": 58.5,
+   "unitName": "%"
+ },
+ {
+   "level": 118,
+   "salePrice": 6283600,
+   "value": 59,
+   "unitName": "%"
+ },
+ {
+   "level": 119,
+   "salePrice": 6390400,
+   "value": 59.5,
+   "unitName": "%"
+ },
+ {
+   "level": 120,
+   "salePrice": 6498100,
+   "value": 60,
+   "unitName": "%"
+ },
+ {
+   "level": 121,
+   "salePrice": 6606700,
+   "value": 60.5,
+   "unitName": "%"
+ },
+ {
+   "level": 122,
+   "salePrice": 6716200,
+   "value": 61,
+   "unitName": "%"
+ },
+ {
+   "level": 123,
+   "salePrice": 6826600,
+   "value": 61.5,
+   "unitName": "%"
+ },
+ {
+   "level": 124,
+   "salePrice": 6937900,
+   "value": 62,
+   "unitName": "%"
+ },
+ {
+   "level": 125,
+   "salePrice": 7050100,
+   "value": 62.5,
+   "unitName": "%"
+ },
+ {
+   "level": 126,
+   "salePrice": 7163200,
+   "value": 63,
+   "unitName": "%"
+ },
+ {
+   "level": 127,
+   "salePrice": 7277200,
+   "value": 63.5,
+   "unitName": "%"
+ },
+ {
+   "level": 128,
+   "salePrice": 7392100,
+   "value": 64,
+   "unitName": "%"
+ },
+ {
+   "level": 129,
+   "salePrice": 7507900,
+   "value": 64.5,
+   "unitName": "%"
+ },
+ {
+   "level": 130,
+   "salePrice": 7624600,
+   "value": 65,
+   "unitName": "%"
+ },
+ {
+   "level": 131,
+   "salePrice": 7742200,
+   "value": 65.5,
+   "unitName": "%"
+ },
+ {
+   "level": 132,
+   "salePrice": 7860700,
+   "value": 66,
+   "unitName": "%"
+ },
+ {
+   "level": 133,
+   "salePrice": 7980100,
+   "value": 66.5,
+   "unitName": "%"
+ },
+ {
+   "level": 134,
+   "salePrice": 12150600,
+   "value": 67,
+   "unitName": "%"
+ },
+ {
+   "level": 135,
+   "salePrice": 12332400,
+   "value": 67.5,
+   "unitName": "%"
+ },
+ {
+   "level": 136,
+   "salePrice": 12515550,
+   "value": 68,
+   "unitName": "%"
+ },
+ {
+   "level": 137,
+   "salePrice": 12700050,
+   "value": 68.5,
+   "unitName": "%"
+ },
+ {
+   "level": 138,
+   "salePrice": 12885900,
+   "value": 69,
+   "unitName": "%"
+ },
+ {
+   "level": 139,
+   "salePrice": 13073100,
+   "value": 69.5,
+   "unitName": "%"
+ },
+ {
+   "level": 140,
+   "salePrice": 13261650,
+   "value": 70,
+   "unitName": "%"
+ },
+ {
+   "level": 141,
+   "salePrice": 13451550,
+   "value": 70.5,
+   "unitName": "%"
+ },
+ {
+   "level": 142,
+   "salePrice": 13642800,
+   "value": 71,
+   "unitName": "%"
+ },
+ {
+   "level": 143,
+   "salePrice": 13835400,
+   "value": 71.5,
+   "unitName": "%"
+ },
+ {
+   "level": 144,
+   "salePrice": 14029350,
+   "value": 72,
+   "unitName": "%"
+ },
+ {
+   "level": 145,
+   "salePrice": 14224650,
+   "value": 72.5,
+   "unitName": "%"
+ },
+ {
+   "level": 146,
+   "salePrice": 14421300,
+   "value": 73,
+   "unitName": "%"
+ },
+ {
+   "level": 147,
+   "salePrice": 14619300,
+   "value": 73.5,
+   "unitName": "%"
+ },
+ {
+   "level": 148,
+   "salePrice": 14818650,
+   "value": 74,
+   "unitName": "%"
+ },
+ {
+   "level": 149,
+   "salePrice": 15019350,
+   "value": 74.5,
+   "unitName": "%"
+ },
+ {
+   "level": 150,
+   "salePrice": 15221400,
+   "value": 75,
+   "unitName": "%"
+ },
+ {
+   "level": 151,
+   "salePrice": 15424800,
+   "value": 75.5,
+   "unitName": "%"
+ },
+ {
+   "level": 152,
+   "salePrice": 15629550,
+   "value": 76,
+   "unitName": "%"
+ },
+ {
+   "level": 153,
+   "salePrice": 15835650,
+   "value": 76.5,
+   "unitName": "%"
+ },
+ {
+   "level": 154,
+   "salePrice": 16043100,
+   "value": 77,
+   "unitName": "%"
+ },
+ {
+   "level": 155,
+   "salePrice": 16251900,
+   "value": 77.5,
+   "unitName": "%"
+ },
+ {
+   "level": 156,
+   "salePrice": 16462050,
+   "value": 78,
+   "unitName": "%"
+ },
+ {
+   "level": 157,
+   "salePrice": 16673550,
+   "value": 78.5,
+   "unitName": "%"
+ },
+ {
+   "level": 158,
+   "salePrice": 16886400,
+   "value": 79,
+   "unitName": "%"
+ },
+ {
+   "level": 159,
+   "salePrice": 17100600,
+   "value": 79.5,
+   "unitName": "%"
+ },
+ {
+   "level": 160,
+   "salePrice": 17316150,
+   "value": 80,
+   "unitName": "%"
+ },
+ {
+   "level": 161,
+   "salePrice": 17533050,
+   "value": 80.5,
+   "unitName": "%"
+ },
+ {
+   "level": 162,
+   "salePrice": 17751300,
+   "value": 81,
+   "unitName": "%"
+ },
+ {
+   "level": 163,
+   "salePrice": 17970900,
+   "value": 81.5,
+   "unitName": "%"
+ },
+ {
+   "level": 164,
+   "salePrice": 18191850,
+   "value": 82,
+   "unitName": "%"
+ },
+ {
+   "level": 165,
+   "salePrice": 18414150,
+   "value": 82.5,
+   "unitName": "%"
+ },
+ {
+   "level": 166,
+   "salePrice": 18637800,
+   "value": 83,
+   "unitName": "%"
+ },
+ {
+   "level": 167,
+   "salePrice": 25150400,
+   "value": 83.5,
+   "unitName": "%"
+ },
+ {
+   "level": 168,
+   "salePrice": 25452200,
+   "value": 84,
+   "unitName": "%"
+ },
+ {
+   "level": 169,
+   "salePrice": 25755800,
+   "value": 84.5,
+   "unitName": "%"
+ },
+ {
+   "level": 170,
+   "salePrice": 26061200,
+   "value": 85,
+   "unitName": "%"
+ },
+ {
+   "level": 171,
+   "salePrice": 26368400,
+   "value": 85.5,
+   "unitName": "%"
+ },
+ {
+   "level": 172,
+   "salePrice": 26677400,
+   "value": 86,
+   "unitName": "%"
+ },
+ {
+   "level": 173,
+   "salePrice": 26988200,
+   "value": 86.5,
+   "unitName": "%"
+ },
+ {
+   "level": 174,
+   "salePrice": 27300800,
+   "value": 87,
+   "unitName": "%"
+ },
+ {
+   "level": 175,
+   "salePrice": 27615200,
+   "value": 87.5,
+   "unitName": "%"
+ },
+ {
+   "level": 176,
+   "salePrice": 27931400,
+   "value": 88,
+   "unitName": "%"
+ },
+ {
+   "level": 177,
+   "salePrice": 28249400,
+   "value": 88.5,
+   "unitName": "%"
+ },
+ {
+   "level": 178,
+   "salePrice": 28569200,
+   "value": 89,
+   "unitName": "%"
+ },
+ {
+   "level": 179,
+   "salePrice": 28890800,
+   "value": 89.5,
+   "unitName": "%"
+ },
+ {
+   "level": 180,
+   "salePrice": 29214200,
+   "value": 90,
+   "unitName": "%"
+ },
+ {
+   "level": 181,
+   "salePrice": 29539400,
+   "value": 90.5,
+   "unitName": "%"
+ },
+ {
+   "level": 182,
+   "salePrice": 29866400,
+   "value": 91,
+   "unitName": "%"
+ },
+ {
+   "level": 183,
+   "salePrice": 30195200,
+   "value": 91.5,
+   "unitName": "%"
+ },
+ {
+   "level": 184,
+   "salePrice": 30525800,
+   "value": 92,
+   "unitName": "%"
+ },
+ {
+   "level": 185,
+   "salePrice": 30858200,
+   "value": 92.5,
+   "unitName": "%"
+ },
+ {
+   "level": 186,
+   "salePrice": 31192400,
+   "value": 93,
+   "unitName": "%"
+ },
+ {
+   "level": 187,
+   "salePrice": 31528400,
+   "value": 93.5,
+   "unitName": "%"
+ },
+ {
+   "level": 188,
+   "salePrice": 31866200,
+   "value": 94,
+   "unitName": "%"
+ },
+ {
+   "level": 189,
+   "salePrice": 32205800,
+   "value": 94.5,
+   "unitName": "%"
+ },
+ {
+   "level": 190,
+   "salePrice": 32547200,
+   "value": 95,
+   "unitName": "%"
+ },
+ {
+   "level": 191,
+   "salePrice": 32890400,
+   "value": 95.5,
+   "unitName": "%"
+ },
+ {
+   "level": 192,
+   "salePrice": 33235400,
+   "value": 96,
+   "unitName": "%"
+ },
+ {
+   "level": 193,
+   "salePrice": 33582200,
+   "value": 96.5,
+   "unitName": "%"
+ },
+ {
+   "level": 194,
+   "salePrice": 33930800,
+   "value": 97,
+   "unitName": "%"
+ },
+ {
+   "level": 195,
+   "salePrice": 34281200,
+   "value": 97.5,
+   "unitName": "%"
+ },
+ {
+   "level": 196,
+   "salePrice": 34633400,
+   "value": 98,
+   "unitName": "%"
+ },
+ {
+   "level": 197,
+   "salePrice": 34987400,
+   "value": 98.5,
+   "unitName": "%"
+ },
+ {
+   "level": 198,
+   "salePrice": 35343200,
+   "value": 99,
+   "unitName": "%"
+ },
+ {
+   "level": 199,
+   "salePrice": 35700800,
+   "value": 99.5,
+   "unitName": "%"
+ },
+ {
+   "level": 200,
+   "salePrice": 36060200,
+   "value": 100,
+   "unitName": "%"
+ },
+ {
+   "level": 201,
+   "salePrice": 45526750,
+   "value": 100.5,
+   "unitName": "%"
+ },
+ {
+   "level": 202,
+   "salePrice": 45980500,
+   "value": 101,
+   "unitName": "%"
+ },
+ {
+   "level": 203,
+   "salePrice": 46436500,
+   "value": 101.5,
+   "unitName": "%"
+ },
+ {
+   "level": 204,
+   "salePrice": 46894750,
+   "value": 102,
+   "unitName": "%"
+ },
+ {
+   "level": 205,
+   "salePrice": 47355250,
+   "value": 102.5,
+   "unitName": "%"
+ },
+ {
+   "level": 206,
+   "salePrice": 47818000,
+   "value": 103,
+   "unitName": "%"
+ },
+ {
+   "level": 207,
+   "salePrice": 48283000,
+   "value": 103.5,
+   "unitName": "%"
+ },
+ {
+   "level": 208,
+   "salePrice": 48750250,
+   "value": 104,
+   "unitName": "%"
+ },
+ {
+   "level": 209,
+   "salePrice": 49219750,
+   "value": 104.5,
+   "unitName": "%"
+ },
+ {
+   "level": 210,
+   "salePrice": 49691500,
+   "value": 105,
+   "unitName": "%"
+ },
+ {
+   "level": 211,
+   "salePrice": 50165500,
+   "value": 105.5,
+   "unitName": "%"
+ },
+ {
+   "level": 212,
+   "salePrice": 50641750,
+   "value": 106,
+   "unitName": "%"
+ },
+ {
+   "level": 213,
+   "salePrice": 51120250,
+   "value": 106.5,
+   "unitName": "%"
+ },
+ {
+   "level": 214,
+   "salePrice": 51601000,
+   "value": 107,
+   "unitName": "%"
+ },
+ {
+   "level": 215,
+   "salePrice": 52084000,
+   "value": 107.5,
+   "unitName": "%"
+ },
+ {
+   "level": 216,
+   "salePrice": 52569250,
+   "value": 108,
+   "unitName": "%"
+ },
+ {
+   "level": 217,
+   "salePrice": 53056750,
+   "value": 108.5,
+   "unitName": "%"
+ },
+ {
+   "level": 218,
+   "salePrice": 53546500,
+   "value": 109,
+   "unitName": "%"
+ },
+ {
+   "level": 219,
+   "salePrice": 54038500,
+   "value": 109.5,
+   "unitName": "%"
+ },
+ {
+   "level": 220,
+   "salePrice": 54532750,
+   "value": 110,
+   "unitName": "%"
+ },
+ {
+   "level": 221,
+   "salePrice": 55029250,
+   "value": 110.5,
+   "unitName": "%"
+ },
+ {
+   "level": 222,
+   "salePrice": 55528000,
+   "value": 111,
+   "unitName": "%"
+ },
+ {
+   "level": 223,
+   "salePrice": 56029000,
+   "value": 111.5,
+   "unitName": "%"
+ },
+ {
+   "level": 224,
+   "salePrice": 56532250,
+   "value": 112,
+   "unitName": "%"
+ },
+ {
+   "level": 225,
+   "salePrice": 57037750,
+   "value": 112.5,
+   "unitName": "%"
+ },
+ {
+   "level": 226,
+   "salePrice": 57545500,
+   "value": 113,
+   "unitName": "%"
+ },
+ {
+   "level": 227,
+   "salePrice": 58055500,
+   "value": 113.5,
+   "unitName": "%"
+ },
+ {
+   "level": 228,
+   "salePrice": 58567750,
+   "value": 114,
+   "unitName": "%"
+ },
+ {
+   "level": 229,
+   "salePrice": 59082250,
+   "value": 114.5,
+   "unitName": "%"
+ },
+ {
+   "level": 230,
+   "salePrice": 59599000,
+   "value": 115,
+   "unitName": "%"
+ },
+ {
+   "level": 231,
+   "salePrice": 60118000,
+   "value": 115.5,
+   "unitName": "%"
+ },
+ {
+   "level": 232,
+   "salePrice": 60639250,
+   "value": 116,
+   "unitName": "%"
+ },
+ {
+   "level": 233,
+   "salePrice": 61162750,
+   "value": 116.5,
+   "unitName": "%"
+ },
+ {
+   "level": 234,
+   "salePrice": 74026200,
+   "value": 117,
+   "unitName": "%"
+ },
+ {
+   "level": 235,
+   "salePrice": 74659800,
+   "value": 117.5,
+   "unitName": "%"
+ },
+ {
+   "level": 236,
+   "salePrice": 75296100,
+   "value": 118,
+   "unitName": "%"
+ },
+ {
+   "level": 237,
+   "salePrice": 75935100,
+   "value": 118.5,
+   "unitName": "%"
+ },
+ {
+   "level": 238,
+   "salePrice": 76576800,
+   "value": 119,
+   "unitName": "%"
+ },
+ {
+   "level": 239,
+   "salePrice": 77221200,
+   "value": 119.5,
+   "unitName": "%"
+ },
+ {
+   "level": 240,
+   "salePrice": 77868300,
+   "value": 120,
+   "unitName": "%"
+ },
+ {
+   "level": 241,
+   "salePrice": 78518100,
+   "value": 120.5,
+   "unitName": "%"
+ },
+ {
+   "level": 242,
+   "salePrice": 79170600,
+   "value": 121,
+   "unitName": "%"
+ },
+ {
+   "level": 243,
+   "salePrice": 79825800,
+   "value": 121.5,
+   "unitName": "%"
+ },
+ {
+   "level": 244,
+   "salePrice": 80483700,
+   "value": 122,
+   "unitName": "%"
+ },
+ {
+   "level": 245,
+   "salePrice": 81144300,
+   "value": 122.5,
+   "unitName": "%"
+ },
+ {
+   "level": 246,
+   "salePrice": 81807600,
+   "value": 123,
+   "unitName": "%"
+ },
+ {
+   "level": 247,
+   "salePrice": 82473600,
+   "value": 123.5,
+   "unitName": "%"
+ },
+ {
+   "level": 248,
+   "salePrice": 83142300,
+   "value": 124,
+   "unitName": "%"
+ },
+ {
+   "level": 249,
+   "salePrice": 83813700,
+   "value": 124.5,
+   "unitName": "%"
+ },
+ {
+   "level": 250,
+   "salePrice": 84487800,
+   "value": 125,
+   "unitName": "%"
+ },
+ {
+   "level": 251,
+   "salePrice": 85164600,
+   "value": 125.5,
+   "unitName": "%"
+ },
+ {
+   "level": 252,
+   "salePrice": 85844100,
+   "value": 126,
+   "unitName": "%"
+ },
+ {
+   "level": 253,
+   "salePrice": 86526300,
+   "value": 126.5,
+   "unitName": "%"
+ },
+ {
+   "level": 254,
+   "salePrice": 87211200,
+   "value": 127,
+   "unitName": "%"
+ },
+ {
+   "level": 255,
+   "salePrice": 87898800,
+   "value": 127.5,
+   "unitName": "%"
+ },
+ {
+   "level": 256,
+   "salePrice": 88589100,
+   "value": 128,
+   "unitName": "%"
+ },
+ {
+   "level": 257,
+   "salePrice": 89282100,
+   "value": 128.5,
+   "unitName": "%"
+ },
+ {
+   "level": 258,
+   "salePrice": 89977800,
+   "value": 129,
+   "unitName": "%"
+ },
+ {
+   "level": 259,
+   "salePrice": 90676200,
+   "value": 129.5,
+   "unitName": "%"
+ },
+ {
+   "level": 260,
+   "salePrice": 91377300,
+   "value": 130,
+   "unitName": "%"
+ },
+ {
+   "level": 261,
+   "salePrice": 92081100,
+   "value": 130.5,
+   "unitName": "%"
+ },
+ {
+   "level": 262,
+   "salePrice": 92787600,
+   "value": 131,
+   "unitName": "%"
+ },
+ {
+   "level": 263,
+   "salePrice": 93496800,
+   "value": 131.5,
+   "unitName": "%"
+ },
+ {
+   "level": 264,
+   "salePrice": 94208700,
+   "value": 132,
+   "unitName": "%"
+ },
+ {
+   "level": 265,
+   "salePrice": 94923300,
+   "value": 132.5,
+   "unitName": "%"
+ },
+ {
+   "level": 266,
+   "salePrice": 95640600,
+   "value": 133,
+   "unitName": "%"
+ },
+ {
+   "level": 267,
+   "salePrice": 112420700,
+   "value": 133.5,
+   "unitName": "%"
+ },
+ {
+   "level": 268,
+   "salePrice": 113263850,
+   "value": 134,
+   "unitName": "%"
+ },
+ {
+   "level": 269,
+   "salePrice": 114110150,
+   "value": 134.5,
+   "unitName": "%"
+ },
+ {
+   "level": 270,
+   "salePrice": 114959600,
+   "value": 135,
+   "unitName": "%"
+ },
+ {
+   "level": 271,
+   "salePrice": 115812200,
+   "value": 135.5,
+   "unitName": "%"
+ },
+ {
+   "level": 272,
+   "salePrice": 116667950,
+   "value": 136,
+   "unitName": "%"
+ },
+ {
+   "level": 273,
+   "salePrice": 117526850,
+   "value": 136.5,
+   "unitName": "%"
+ },
+ {
+   "level": 274,
+   "salePrice": 118388900,
+   "value": 137,
+   "unitName": "%"
+ },
+ {
+   "level": 275,
+   "salePrice": 119254100,
+   "value": 137.5,
+   "unitName": "%"
+ },
+ {
+   "level": 276,
+   "salePrice": 120122450,
+   "value": 138,
+   "unitName": "%"
+ },
+ {
+   "level": 277,
+   "salePrice": 120993950,
+   "value": 138.5,
+   "unitName": "%"
+ },
+ {
+   "level": 278,
+   "salePrice": 121868600,
+   "value": 139,
+   "unitName": "%"
+ },
+ {
+   "level": 279,
+   "salePrice": 122746400,
+   "value": 139.5,
+   "unitName": "%"
+ },
+ {
+   "level": 280,
+   "salePrice": 123627350,
+   "value": 140,
+   "unitName": "%"
+ },
+ {
+   "level": 281,
+   "salePrice": 124511450,
+   "value": 140.5,
+   "unitName": "%"
+ },
+ {
+   "level": 282,
+   "salePrice": 125398700,
+   "value": 141,
+   "unitName": "%"
+ },
+ {
+   "level": 283,
+   "salePrice": 126289100,
+   "value": 141.5,
+   "unitName": "%"
+ },
+ {
+   "level": 284,
+   "salePrice": 127182650,
+   "value": 142,
+   "unitName": "%"
+ },
+ {
+   "level": 285,
+   "salePrice": 128079350,
+   "value": 142.5,
+   "unitName": "%"
+ },
+ {
+   "level": 286,
+   "salePrice": 128979200,
+   "value": 143,
+   "unitName": "%"
+ },
+ {
+   "level": 287,
+   "salePrice": 129882200,
+   "value": 143.5,
+   "unitName": "%"
+ },
+ {
+   "level": 288,
+   "salePrice": 130788350,
+   "value": 144,
+   "unitName": "%"
+ },
+ {
+   "level": 289,
+   "salePrice": 131697650,
+   "value": 144.5,
+   "unitName": "%"
+ },
+ {
+   "level": 290,
+   "salePrice": 132610100,
+   "value": 145,
+   "unitName": "%"
+ },
+ {
+   "level": 291,
+   "salePrice": 133525700,
+   "value": 145.5,
+   "unitName": "%"
+ },
+ {
+   "level": 292,
+   "salePrice": 134444450,
+   "value": 146,
+   "unitName": "%"
+ },
+ {
+   "level": 293,
+   "salePrice": 135366350,
+   "value": 146.5,
+   "unitName": "%"
+ },
+ {
+   "level": 294,
+   "salePrice": 136291400,
+   "value": 147,
+   "unitName": "%"
+ },
+ {
+   "level": 295,
+   "salePrice": 137219600,
+   "value": 147.5,
+   "unitName": "%"
+ },
+ {
+   "level": 296,
+   "salePrice": 138150950,
+   "value": 148,
+   "unitName": "%"
+ },
+ {
+   "level": 297,
+   "salePrice": 139085450,
+   "value": 148.5,
+   "unitName": "%"
+ },
+ {
+   "level": 298,
+   "salePrice": 140023100,
+   "value": 149,
+   "unitName": "%"
+ },
+ {
+   "level": 299,
+   "salePrice": 140963900,
+   "value": 149.5,
+   "unitName": "%"
+ },
+ {
+   "level": 300,
+   "salePrice": 141907850,
+   "value": 150,
+   "unitName": "%"
+ },
+ {
+   "level": 301,
+   "salePrice": 163262800,
+   "value": 150.5,
+   "unitName": "%"
+ },
+ {
+   "level": 302,
+   "salePrice": 164348800,
+   "value": 151,
+   "unitName": "%"
+ },
+ {
+   "level": 303,
+   "salePrice": 165438400,
+   "value": 151.5,
+   "unitName": "%"
+ },
+ {
+   "level": 304,
+   "salePrice": 166531600,
+   "value": 152,
+   "unitName": "%"
+ },
+ {
+   "level": 305,
+   "salePrice": 167628400,
+   "value": 152.5,
+   "unitName": "%"
+ },
+ {
+   "level": 306,
+   "salePrice": 168728800,
+   "value": 153,
+   "unitName": "%"
+ },
+ {
+   "level": 307,
+   "salePrice": 169832800,
+   "value": 153.5,
+   "unitName": "%"
+ },
+ {
+   "level": 308,
+   "salePrice": 170940400,
+   "value": 154,
+   "unitName": "%"
+ },
+ {
+   "level": 309,
+   "salePrice": 172051600,
+   "value": 154.5,
+   "unitName": "%"
+ },
+ {
+   "level": 310,
+   "salePrice": 173166400,
+   "value": 155,
+   "unitName": "%"
+ },
+ {
+   "level": 311,
+   "salePrice": 174284800,
+   "value": 155.5,
+   "unitName": "%"
+ },
+ {
+   "level": 312,
+   "salePrice": 175406800,
+   "value": 156,
+   "unitName": "%"
+ },
+ {
+   "level": 313,
+   "salePrice": 176532400,
+   "value": 156.5,
+   "unitName": "%"
+ },
+ {
+   "level": 314,
+   "salePrice": 177661600,
+   "value": 157,
+   "unitName": "%"
+ },
+ {
+   "level": 315,
+   "salePrice": 178794400,
+   "value": 157.5,
+   "unitName": "%"
+ },
+ {
+   "level": 316,
+   "salePrice": 179930800,
+   "value": 158,
+   "unitName": "%"
+ },
+ {
+   "level": 317,
+   "salePrice": 181070800,
+   "value": 158.5,
+   "unitName": "%"
+ },
+ {
+   "level": 318,
+   "salePrice": 182214400,
+   "value": 159,
+   "unitName": "%"
+ },
+ {
+   "level": 319,
+   "salePrice": 183361600,
+   "value": 159.5,
+   "unitName": "%"
+ },
+ {
+   "level": 320,
+   "salePrice": 184512400,
+   "value": 160,
+   "unitName": "%"
+ },
+ {
+   "level": 321,
+   "salePrice": 185666800,
+   "value": 160.5,
+   "unitName": "%"
+ },
+ {
+   "level": 322,
+   "salePrice": 186824800,
+   "value": 161,
+   "unitName": "%"
+ },
+ {
+   "level": 323,
+   "salePrice": 187986400,
+   "value": 161.5,
+   "unitName": "%"
+ },
+ {
+   "level": 324,
+   "salePrice": 189151600,
+   "value": 162,
+   "unitName": "%"
+ },
+ {
+   "level": 325,
+   "salePrice": 190320400,
+   "value": 162.5,
+   "unitName": "%"
+ },
+ {
+   "level": 326,
+   "salePrice": 191492800,
+   "value": 163,
+   "unitName": "%"
+ },
+ {
+   "level": 327,
+   "salePrice": 192668800,
+   "value": 163.5,
+   "unitName": "%"
+ },
+ {
+   "level": 328,
+   "salePrice": 193848400,
+   "value": 164,
+   "unitName": "%"
+ },
+ {
+   "level": 329,
+   "salePrice": 195031600,
+   "value": 164.5,
+   "unitName": "%"
+ },
+ {
+   "level": 330,
+   "salePrice": 196218400,
+   "value": 165,
+   "unitName": "%"
+ },
+ {
+   "level": 331,
+   "salePrice": 197408800,
+   "value": 165.5,
+   "unitName": "%"
+ },
+ {
+   "level": 332,
+   "salePrice": 198602800,
+   "value": 166,
+   "unitName": "%"
+ },
+ {
+   "level": 333,
+   "salePrice": 199800400,
+   "value": 166.5,
+   "unitName": "%"
+ },
+ {
+   "level": 334,
+   "salePrice": 226126800,
+   "value": 167,
+   "unitName": "%"
+ },
+ {
+   "level": 335,
+   "salePrice": 227482200,
+   "value": 167.5,
+   "unitName": "%"
+ },
+ {
+   "level": 336,
+   "salePrice": 228841650,
+   "value": 168,
+   "unitName": "%"
+ },
+ {
+   "level": 337,
+   "salePrice": 230205150,
+   "value": 168.5,
+   "unitName": "%"
+ },
+ {
+   "level": 338,
+   "salePrice": 231572700,
+   "value": 169,
+   "unitName": "%"
+ },
+ {
+   "level": 339,
+   "salePrice": 232944300,
+   "value": 169.5,
+   "unitName": "%"
+ },
+ {
+   "level": 340,
+   "salePrice": 234319950,
+   "value": 170,
+   "unitName": "%"
+ },
+ {
+   "level": 341,
+   "salePrice": 235699650,
+   "value": 170.5,
+   "unitName": "%"
+ },
+ {
+   "level": 342,
+   "salePrice": 237083400,
+   "value": 171,
+   "unitName": "%"
+ },
+ {
+   "level": 343,
+   "salePrice": 238471200,
+   "value": 171.5,
+   "unitName": "%"
+ },
+ {
+   "level": 344,
+   "salePrice": 239863050,
+   "value": 172,
+   "unitName": "%"
+ },
+ {
+   "level": 345,
+   "salePrice": 241258950,
+   "value": 172.5,
+   "unitName": "%"
+ },
+ {
+   "level": 346,
+   "salePrice": 242658900,
+   "value": 173,
+   "unitName": "%"
+ },
+ {
+   "level": 347,
+   "salePrice": 244062900,
+   "value": 173.5,
+   "unitName": "%"
+ },
+ {
+   "level": 348,
+   "salePrice": 245470950,
+   "value": 174,
+   "unitName": "%"
+ },
+ {
+   "level": 349,
+   "salePrice": 246883050,
+   "value": 174.5,
+   "unitName": "%"
+ },
+ {
+   "level": 350,
+   "salePrice": 248299200,
+   "value": 175,
+   "unitName": "%"
+ },
+ {
+   "level": 351,
+   "salePrice": 249719400,
+   "value": 175.5,
+   "unitName": "%"
+ },
+ {
+   "level": 352,
+   "salePrice": 251143650,
+   "value": 176,
+   "unitName": "%"
+ },
+ {
+   "level": 353,
+   "salePrice": 252571950,
+   "value": 176.5,
+   "unitName": "%"
+ },
+ {
+   "level": 354,
+   "salePrice": 254004300,
+   "value": 177,
+   "unitName": "%"
+ },
+ {
+   "level": 355,
+   "salePrice": 255440700,
+   "value": 177.5,
+   "unitName": "%"
+ },
+ {
+   "level": 356,
+   "salePrice": 256881150,
+   "value": 178,
+   "unitName": "%"
+ },
+ {
+   "level": 357,
+   "salePrice": 258325650,
+   "value": 178.5,
+   "unitName": "%"
+ },
+ {
+   "level": 358,
+   "salePrice": 259774200,
+   "value": 179,
+   "unitName": "%"
+ },
+ {
+   "level": 359,
+   "salePrice": 261226800,
+   "value": 179.5,
+   "unitName": "%"
+ },
+ {
+   "level": 360,
+   "salePrice": 262683450,
+   "value": 180,
+   "unitName": "%"
+ },
+ {
+   "level": 361,
+   "salePrice": 264144150,
+   "value": 180.5,
+   "unitName": "%"
+ },
+ {
+   "level": 362,
+   "salePrice": 265608900,
+   "value": 181,
+   "unitName": "%"
+ },
+ {
+   "level": 363,
+   "salePrice": 267077700,
+   "value": 181.5,
+   "unitName": "%"
+ },
+ {
+   "level": 364,
+   "salePrice": 268550550,
+   "value": 182,
+   "unitName": "%"
+ },
+ {
+   "level": 365,
+   "salePrice": 270027450,
+   "value": 182.5,
+   "unitName": "%"
+ },
+ {
+   "level": 366,
+   "salePrice": 271508400,
+   "value": 183,
+   "unitName": "%"
+ },
+ {
+   "level": 367,
+   "salePrice": 303326000,
+   "value": 183.5,
+   "unitName": "%"
+ },
+ {
+   "level": 368,
+   "salePrice": 304980500,
+   "value": 184,
+   "unitName": "%"
+ },
+ {
+   "level": 369,
+   "salePrice": 306639500,
+   "value": 184.5,
+   "unitName": "%"
+ },
+ {
+   "level": 370,
+   "salePrice": 308303000,
+   "value": 185,
+   "unitName": "%"
+ },
+ {
+   "level": 371,
+   "salePrice": 309971000,
+   "value": 185.5,
+   "unitName": "%"
+ },
+ {
+   "level": 372,
+   "salePrice": 311643500,
+   "value": 186,
+   "unitName": "%"
+ },
+ {
+   "level": 373,
+   "salePrice": 313320500,
+   "value": 186.5,
+   "unitName": "%"
+ },
+ {
+   "level": 374,
+   "salePrice": 315002000,
+   "value": 187,
+   "unitName": "%"
+ },
+ {
+   "level": 375,
+   "salePrice": 316688000,
+   "value": 187.5,
+   "unitName": "%"
+ },
+ {
+   "level": 376,
+   "salePrice": 318378500,
+   "value": 188,
+   "unitName": "%"
+ },
+ {
+   "level": 377,
+   "salePrice": 320073500,
+   "value": 188.5,
+   "unitName": "%"
+ },
+ {
+   "level": 378,
+   "salePrice": 321773000,
+   "value": 189,
+   "unitName": "%"
+ },
+ {
+   "level": 379,
+   "salePrice": 323477000,
+   "value": 189.5,
+   "unitName": "%"
+ },
+ {
+   "level": 380,
+   "salePrice": 325185500,
+   "value": 190,
+   "unitName": "%"
+ },
+ {
+   "level": 381,
+   "salePrice": 326898500,
+   "value": 190.5,
+   "unitName": "%"
+ },
+ {
+   "level": 382,
+   "salePrice": 328616000,
+   "value": 191,
+   "unitName": "%"
+ },
+ {
+   "level": 383,
+   "salePrice": 330338000,
+   "value": 191.5,
+   "unitName": "%"
+ },
+ {
+   "level": 384,
+   "salePrice": 332064500,
+   "value": 192,
+   "unitName": "%"
+ },
+ {
+   "level": 385,
+   "salePrice": 333795500,
+   "value": 192.5,
+   "unitName": "%"
+ },
+ {
+   "level": 386,
+   "salePrice": 335531000,
+   "value": 193,
+   "unitName": "%"
+ },
+ {
+   "level": 387,
+   "salePrice": 337271000,
+   "value": 193.5,
+   "unitName": "%"
+ },
+ {
+   "level": 388,
+   "salePrice": 339015500,
+   "value": 194,
+   "unitName": "%"
+ },
+ {
+   "level": 389,
+   "salePrice": 340764500,
+   "value": 194.5,
+   "unitName": "%"
+ },
+ {
+   "level": 390,
+   "salePrice": 342518000,
+   "value": 195,
+   "unitName": "%"
+ },
+ {
+   "level": 391,
+   "salePrice": 344276000,
+   "value": 195.5,
+   "unitName": "%"
+ },
+ {
+   "level": 392,
+   "salePrice": 346038500,
+   "value": 196,
+   "unitName": "%"
+ },
+ {
+   "level": 393,
+   "salePrice": 347805500,
+   "value": 196.5,
+   "unitName": "%"
+ },
+ {
+   "level": 394,
+   "salePrice": 349577000,
+   "value": 197,
+   "unitName": "%"
+ },
+ {
+   "level": 395,
+   "salePrice": 351353000,
+   "value": 197.5,
+   "unitName": "%"
+ },
+ {
+   "level": 396,
+   "salePrice": 353133500,
+   "value": 198,
+   "unitName": "%"
+ },
+ {
+   "level": 397,
+   "salePrice": 354918500,
+   "value": 198.5,
+   "unitName": "%"
+ },
+ {
+   "level": 398,
+   "salePrice": 356708000,
+   "value": 199,
+   "unitName": "%"
+ },
+ {
+   "level": 399,
+   "salePrice": 358502000,
+   "value": 199.5,
+   "unitName": "%"
+ },
+ {
+   "level": 400,
+   "salePrice": 360300500,
+   "value": 200,
+   "unitName": "%"
+ },
+ {
+   "level": 401,
+   "salePrice": 398313850,
+   "value": 200.5,
+   "unitName": "%"
+ },
+ {
+   "level": 402,
+   "salePrice": 400302100,
+   "value": 201,
+   "unitName": "%"
+ },
+ {
+   "level": 403,
+   "salePrice": 402295300,
+   "value": 201.5,
+   "unitName": "%"
+ },
+ {
+   "level": 404,
+   "salePrice": 404293450,
+   "value": 202,
+   "unitName": "%"
+ },
+ {
+   "level": 405,
+   "salePrice": 406296550,
+   "value": 202.5,
+   "unitName": "%"
+ },
+ {
+   "level": 406,
+   "salePrice": 408304600,
+   "value": 203,
+   "unitName": "%"
+ },
+ {
+   "level": 407,
+   "salePrice": 410317600,
+   "value": 203.5,
+   "unitName": "%"
+ },
+ {
+   "level": 408,
+   "salePrice": 412335550,
+   "value": 204,
+   "unitName": "%"
+ },
+ {
+   "level": 409,
+   "salePrice": 414358450,
+   "value": 204.5,
+   "unitName": "%"
+ },
+ {
+   "level": 410,
+   "salePrice": 416386300,
+   "value": 205,
+   "unitName": "%"
+ },
+ {
+   "level": 411,
+   "salePrice": 418419100,
+   "value": 205.5,
+   "unitName": "%"
+ },
+ {
+   "level": 412,
+   "salePrice": 420456850,
+   "value": 206,
+   "unitName": "%"
+ },
+ {
+   "level": 413,
+   "salePrice": 422499550,
+   "value": 206.5,
+   "unitName": "%"
+ },
+ {
+   "level": 414,
+   "salePrice": 424547200,
+   "value": 207,
+   "unitName": "%"
+ },
+ {
+   "level": 415,
+   "salePrice": 426599800,
+   "value": 207.5,
+   "unitName": "%"
+ },
+ {
+   "level": 416,
+   "salePrice": 428657350,
+   "value": 208,
+   "unitName": "%"
+ },
+ {
+   "level": 417,
+   "salePrice": 430719850,
+   "value": 208.5,
+   "unitName": "%"
+ },
+ {
+   "level": 418,
+   "salePrice": 432787300,
+   "value": 209,
+   "unitName": "%"
+ },
+ {
+   "level": 419,
+   "salePrice": 434859700,
+   "value": 209.5,
+   "unitName": "%"
+ },
+ {
+   "level": 420,
+   "salePrice": 436937050,
+   "value": 210,
+   "unitName": "%"
+ },
+ {
+   "level": 421,
+   "salePrice": 439019350,
+   "value": 210.5,
+   "unitName": "%"
+ },
+ {
+   "level": 422,
+   "salePrice": 441106600,
+   "value": 211,
+   "unitName": "%"
+ },
+ {
+   "level": 423,
+   "salePrice": 443198800,
+   "value": 211.5,
+   "unitName": "%"
+ },
+ {
+   "level": 424,
+   "salePrice": 445295950,
+   "value": 212,
+   "unitName": "%"
+ },
+ {
+   "level": 425,
+   "salePrice": 447398050,
+   "value": 212.5,
+   "unitName": "%"
+ },
+ {
+   "level": 426,
+   "salePrice": 449505100,
+   "value": 213,
+   "unitName": "%"
+ },
+ {
+   "level": 427,
+   "salePrice": 451617100,
+   "value": 213.5,
+   "unitName": "%"
+ },
+ {
+   "level": 428,
+   "salePrice": 453734050,
+   "value": 214,
+   "unitName": "%"
+ },
+ {
+   "level": 429,
+   "salePrice": 455855950,
+   "value": 214.5,
+   "unitName": "%"
+ },
+ {
+   "level": 430,
+   "salePrice": 457982800,
+   "value": 215,
+   "unitName": "%"
+ },
+ {
+   "level": 431,
+   "salePrice": 460114600,
+   "value": 215.5,
+   "unitName": "%"
+ },
+ {
+   "level": 432,
+   "salePrice": 462251350,
+   "value": 216,
+   "unitName": "%"
+ },
+ {
+   "level": 433,
+   "salePrice": 464393050,
+   "value": 216.5,
+   "unitName": "%"
+ },
+ {
+   "level": 434,
+   "salePrice": 508952400,
+   "value": 217,
+   "unitName": "%"
+ },
+ {
+   "level": 435,
+   "salePrice": 511299600,
+   "value": 217.5,
+   "unitName": "%"
+ },
+ {
+   "level": 436,
+   "salePrice": 513652200,
+   "value": 218,
+   "unitName": "%"
+ },
+ {
+   "level": 437,
+   "salePrice": 516010200,
+   "value": 218.5,
+   "unitName": "%"
+ },
+ {
+   "level": 438,
+   "salePrice": 518373600,
+   "value": 219,
+   "unitName": "%"
+ },
+ {
+   "level": 439,
+   "salePrice": 520742400,
+   "value": 219.5,
+   "unitName": "%"
+ },
+ {
+   "level": 440,
+   "salePrice": 523116600,
+   "value": 220,
+   "unitName": "%"
+ },
+ {
+   "level": 441,
+   "salePrice": 525496200,
+   "value": 220.5,
+   "unitName": "%"
+ },
+ {
+   "level": 442,
+   "salePrice": 527881200,
+   "value": 221,
+   "unitName": "%"
+ },
+ {
+   "level": 443,
+   "salePrice": 530271600,
+   "value": 221.5,
+   "unitName": "%"
+ },
+ {
+   "level": 444,
+   "salePrice": 532667400,
+   "value": 222,
+   "unitName": "%"
+ },
+ {
+   "level": 445,
+   "salePrice": 535068600,
+   "value": 222.5,
+   "unitName": "%"
+ },
+ {
+   "level": 446,
+   "salePrice": 537475200,
+   "value": 223,
+   "unitName": "%"
+ },
+ {
+   "level": 447,
+   "salePrice": 539887200,
+   "value": 223.5,
+   "unitName": "%"
+ },
+ {
+   "level": 448,
+   "salePrice": 542304600,
+   "value": 224,
+   "unitName": "%"
+ },
+ {
+   "level": 449,
+   "salePrice": 544727400,
+   "value": 224.5,
+   "unitName": "%"
+ },
+ {
+   "level": 450,
+   "salePrice": 547155600,
+   "value": 225,
+   "unitName": "%"
+ },
+ {
+   "level": 451,
+   "salePrice": 549589200,
+   "value": 225.5,
+   "unitName": "%"
+ },
+ {
+   "level": 452,
+   "salePrice": 552028200,
+   "value": 226,
+   "unitName": "%"
+ },
+ {
+   "level": 453,
+   "salePrice": 554472600,
+   "value": 226.5,
+   "unitName": "%"
+ },
+ {
+   "level": 454,
+   "salePrice": 556922400,
+   "value": 227,
+   "unitName": "%"
+ },
+ {
+   "level": 455,
+   "salePrice": 559377600,
+   "value": 227.5,
+   "unitName": "%"
+ },
+ {
+   "level": 456,
+   "salePrice": 561838200,
+   "value": 228,
+   "unitName": "%"
+ },
+ {
+   "level": 457,
+   "salePrice": 564304200,
+   "value": 228.5,
+   "unitName": "%"
+ },
+ {
+   "level": 458,
+   "salePrice": 566775600,
+   "value": 229,
+   "unitName": "%"
+ },
+ {
+   "level": 459,
+   "salePrice": 569252400,
+   "value": 229.5,
+   "unitName": "%"
+ },
+ {
+   "level": 460,
+   "salePrice": 571734600,
+   "value": 230,
+   "unitName": "%"
+ },
+ {
+   "level": 461,
+   "salePrice": 574222200,
+   "value": 230.5,
+   "unitName": "%"
+ },
+ {
+   "level": 462,
+   "salePrice": 576715200,
+   "value": 231,
+   "unitName": "%"
+ },
+ {
+   "level": 463,
+   "salePrice": 579213600,
+   "value": 231.5,
+   "unitName": "%"
+ },
+ {
+   "level": 464,
+   "salePrice": 581717400,
+   "value": 232,
+   "unitName": "%"
+ },
+ {
+   "level": 465,
+   "salePrice": 584226600,
+   "value": 232.5,
+   "unitName": "%"
+ },
+ {
+   "level": 466,
+   "salePrice": 586741200,
+   "value": 233,
+   "unitName": "%"
+ },
+ {
+   "level": 467,
+   "salePrice": 638366300,
+   "value": 233.5,
+   "unitName": "%"
+ },
+ {
+   "level": 468,
+   "salePrice": 641102150,
+   "value": 234,
+   "unitName": "%"
+ },
+ {
+   "level": 469,
+   "salePrice": 643843850,
+   "value": 234.5,
+   "unitName": "%"
+ },
+ {
+   "level": 470,
+   "salePrice": 646591400,
+   "value": 235,
+   "unitName": "%"
+ },
+ {
+   "level": 471,
+   "salePrice": 649344800,
+   "value": 235.5,
+   "unitName": "%"
+ },
+ {
+   "level": 472,
+   "salePrice": 652104050,
+   "value": 236,
+   "unitName": "%"
+ },
+ {
+   "level": 473,
+   "salePrice": 654869150,
+   "value": 236.5,
+   "unitName": "%"
+ },
+ {
+   "level": 474,
+   "salePrice": 657640100,
+   "value": 237,
+   "unitName": "%"
+ },
+ {
+   "level": 475,
+   "salePrice": 660416900,
+   "value": 237.5,
+   "unitName": "%"
+ },
+ {
+   "level": 476,
+   "salePrice": 663199550,
+   "value": 238,
+   "unitName": "%"
+ },
+ {
+   "level": 477,
+   "salePrice": 665988050,
+   "value": 238.5,
+   "unitName": "%"
+ },
+ {
+   "level": 478,
+   "salePrice": 668782400,
+   "value": 239,
+   "unitName": "%"
+ },
+ {
+   "level": 479,
+   "salePrice": 671582600,
+   "value": 239.5,
+   "unitName": "%"
+ },
+ {
+   "level": 480,
+   "salePrice": 674388650,
+   "value": 240,
+   "unitName": "%"
+ },
+ {
+   "level": 481,
+   "salePrice": 677200550,
+   "value": 240.5,
+   "unitName": "%"
+ },
+ {
+   "level": 482,
+   "salePrice": 680018300,
+   "value": 241,
+   "unitName": "%"
+ },
+ {
+   "level": 483,
+   "salePrice": 682841900,
+   "value": 241.5,
+   "unitName": "%"
+ },
+ {
+   "level": 484,
+   "salePrice": 685671350,
+   "value": 242,
+   "unitName": "%"
+ },
+ {
+   "level": 485,
+   "salePrice": 688506650,
+   "value": 242.5,
+   "unitName": "%"
+ },
+ {
+   "level": 486,
+   "salePrice": 691347800,
+   "value": 243,
+   "unitName": "%"
+ },
+ {
+   "level": 487,
+   "salePrice": 694194800,
+   "value": 243.5,
+   "unitName": "%"
+ },
+ {
+   "level": 488,
+   "salePrice": 697047650,
+   "value": 244,
+   "unitName": "%"
+ },
+ {
+   "level": 489,
+   "salePrice": 699906350,
+   "value": 244.5,
+   "unitName": "%"
+ },
+ {
+   "level": 490,
+   "salePrice": 702770900,
+   "value": 245,
+   "unitName": "%"
+ },
+ {
+   "level": 491,
+   "salePrice": 705641300,
+   "value": 245.5,
+   "unitName": "%"
+ },
+ {
+   "level": 492,
+   "salePrice": 708517550,
+   "value": 246,
+   "unitName": "%"
+ },
+ {
+   "level": 493,
+   "salePrice": 711399650,
+   "value": 246.5,
+   "unitName": "%"
+ },
+ {
+   "level": 494,
+   "salePrice": 714287600,
+   "value": 247,
+   "unitName": "%"
+ },
+ {
+   "level": 495,
+   "salePrice": 717181400,
+   "value": 247.5,
+   "unitName": "%"
+ },
+ {
+   "level": 496,
+   "salePrice": 720081050,
+   "value": 248,
+   "unitName": "%"
+ },
+ {
+   "level": 497,
+   "salePrice": 722986550,
+   "value": 248.5,
+   "unitName": "%"
+ },
+ {
+   "level": 498,
+   "salePrice": 725897900,
+   "value": 249,
+   "unitName": "%"
+ },
+ {
+   "level": 499,
+   "salePrice": 728815100,
+   "value": 249.5,
+   "unitName": "%"
+ },
+ {
+   "level": 500,
+   "salePrice": 731738150,
    "value": 250,
+   "unitName": "%"
+ },
+ {
+   "level": 501,
+   "salePrice": 791179900,
+   "value": 250.5,
+   "unitName": "%"
+ },
+ {
+   "level": 502,
+   "salePrice": 794340400,
+   "value": 251,
+   "unitName": "%"
+ },
+ {
+   "level": 503,
+   "salePrice": 797507200,
+   "value": 251.5,
+   "unitName": "%"
+ },
+ {
+   "level": 504,
+   "salePrice": 800680300,
+   "value": 252,
+   "unitName": "%"
+ },
+ {
+   "level": 505,
+   "salePrice": 803859700,
+   "value": 252.5,
+   "unitName": "%"
+ },
+ {
+   "level": 506,
+   "salePrice": 807045400,
+   "value": 253,
+   "unitName": "%"
+ },
+ {
+   "level": 507,
+   "salePrice": 810237400,
+   "value": 253.5,
+   "unitName": "%"
+ },
+ {
+   "level": 508,
+   "salePrice": 813435700,
+   "value": 254,
+   "unitName": "%"
+ },
+ {
+   "level": 509,
+   "salePrice": 816640300,
+   "value": 254.5,
+   "unitName": "%"
+ },
+ {
+   "level": 510,
+   "salePrice": 819851200,
+   "value": 255,
+   "unitName": "%"
+ },
+ {
+   "level": 511,
+   "salePrice": 823068400,
+   "value": 255.5,
+   "unitName": "%"
+ },
+ {
+   "level": 512,
+   "salePrice": 826291900,
+   "value": 256,
+   "unitName": "%"
+ },
+ {
+   "level": 513,
+   "salePrice": 829521700,
+   "value": 256.5,
+   "unitName": "%"
+ },
+ {
+   "level": 514,
+   "salePrice": 832757800,
+   "value": 257,
+   "unitName": "%"
+ },
+ {
+   "level": 515,
+   "salePrice": 836000200,
+   "value": 257.5,
+   "unitName": "%"
+ },
+ {
+   "level": 516,
+   "salePrice": 839248900,
+   "value": 258,
+   "unitName": "%"
+ },
+ {
+   "level": 517,
+   "salePrice": 842503900,
+   "value": 258.5,
+   "unitName": "%"
+ },
+ {
+   "level": 518,
+   "salePrice": 845765200,
+   "value": 259,
+   "unitName": "%"
+ },
+ {
+   "level": 519,
+   "salePrice": 849032800,
+   "value": 259.5,
+   "unitName": "%"
+ },
+ {
+   "level": 520,
+   "salePrice": 852306700,
+   "value": 260,
+   "unitName": "%"
+ },
+ {
+   "level": 521,
+   "salePrice": 855586900,
+   "value": 260.5,
+   "unitName": "%"
+ },
+ {
+   "level": 522,
+   "salePrice": 858873400,
+   "value": 261,
+   "unitName": "%"
+ },
+ {
+   "level": 523,
+   "salePrice": 862166200,
+   "value": 261.5,
+   "unitName": "%"
+ },
+ {
+   "level": 524,
+   "salePrice": 865465300,
+   "value": 262,
+   "unitName": "%"
+ },
+ {
+   "level": 525,
+   "salePrice": 868770700,
+   "value": 262.5,
+   "unitName": "%"
+ },
+ {
+   "level": 526,
+   "salePrice": 872082400,
+   "value": 263,
+   "unitName": "%"
+ },
+ {
+   "level": 527,
+   "salePrice": 875400400,
+   "value": 263.5,
+   "unitName": "%"
+ },
+ {
+   "level": 528,
+   "salePrice": 878724700,
+   "value": 264,
+   "unitName": "%"
+ },
+ {
+   "level": 529,
+   "salePrice": 882055300,
+   "value": 264.5,
+   "unitName": "%"
+ },
+ {
+   "level": 530,
+   "salePrice": 885392200,
+   "value": 265,
+   "unitName": "%"
+ },
+ {
+   "level": 531,
+   "salePrice": 888735400,
+   "value": 265.5,
+   "unitName": "%"
+ },
+ {
+   "level": 532,
+   "salePrice": 892084900,
+   "value": 266,
+   "unitName": "%"
+ },
+ {
+   "level": 533,
+   "salePrice": 895440700,
+   "value": 266.5,
+   "unitName": "%"
+ },
+ {
+   "level": 534,
+   "salePrice": 1027203200,
+   "value": 267,
+   "unitName": "%"
+ },
+ {
+   "level": 535,
+   "salePrice": 1031052800,
+   "value": 267.5,
+   "unitName": "%"
+ },
+ {
+   "level": 536,
+   "salePrice": 1034909600,
+   "value": 268,
+   "unitName": "%"
+ },
+ {
+   "level": 537,
+   "salePrice": 1038773600,
+   "value": 268.5,
+   "unitName": "%"
+ },
+ {
+   "level": 538,
+   "salePrice": 1042644800,
+   "value": 269,
+   "unitName": "%"
+ },
+ {
+   "level": 539,
+   "salePrice": 1046523200,
+   "value": 269.5,
+   "unitName": "%"
+ },
+ {
+   "level": 540,
+   "salePrice": 1050408800,
+   "value": 270,
+   "unitName": "%"
+ },
+ {
+   "level": 541,
+   "salePrice": 1054301600,
+   "value": 270.5,
+   "unitName": "%"
+ },
+ {
+   "level": 542,
+   "salePrice": 1058201600,
+   "value": 271,
+   "unitName": "%"
+ },
+ {
+   "level": 543,
+   "salePrice": 1062108800,
+   "value": 271.5,
+   "unitName": "%"
+ },
+ {
+   "level": 544,
+   "salePrice": 1066023200,
+   "value": 272,
+   "unitName": "%"
+ },
+ {
+   "level": 545,
+   "salePrice": 1069944800,
+   "value": 272.5,
+   "unitName": "%"
+ },
+ {
+   "level": 546,
+   "salePrice": 1073873600,
+   "value": 273,
+   "unitName": "%"
+ },
+ {
+   "level": 547,
+   "salePrice": 1077809600,
+   "value": 273.5,
+   "unitName": "%"
+ },
+ {
+   "level": 548,
+   "salePrice": 1081752800,
+   "value": 274,
+   "unitName": "%"
+ },
+ {
+   "level": 549,
+   "salePrice": 1085703200,
+   "value": 274.5,
+   "unitName": "%"
+ },
+ {
+   "level": 550,
+   "salePrice": 1089660800,
+   "value": 275,
+   "unitName": "%"
+ },
+ {
+   "level": 551,
+   "salePrice": 1093625600,
+   "value": 275.5,
+   "unitName": "%"
+ },
+ {
+   "level": 552,
+   "salePrice": 1097597600,
+   "value": 276,
+   "unitName": "%"
+ },
+ {
+   "level": 553,
+   "salePrice": 1101576800,
+   "value": 276.5,
+   "unitName": "%"
+ },
+ {
+   "level": 554,
+   "salePrice": 1105563200,
+   "value": 277,
+   "unitName": "%"
+ },
+ {
+   "level": 555,
+   "salePrice": 1109556800,
+   "value": 277.5,
+   "unitName": "%"
+ },
+ {
+   "level": 556,
+   "salePrice": 1113557600,
+   "value": 278,
+   "unitName": "%"
+ },
+ {
+   "level": 557,
+   "salePrice": 1117565600,
+   "value": 278.5,
+   "unitName": "%"
+ },
+ {
+   "level": 558,
+   "salePrice": 1121580800,
+   "value": 279,
+   "unitName": "%"
+ },
+ {
+   "level": 559,
+   "salePrice": 1125603200,
+   "value": 279.5,
+   "unitName": "%"
+ },
+ {
+   "level": 560,
+   "salePrice": 1129632800,
+   "value": 280,
+   "unitName": "%"
+ },
+ {
+   "level": 561,
+   "salePrice": 1133669600,
+   "value": 280.5,
+   "unitName": "%"
+ },
+ {
+   "level": 562,
+   "salePrice": 1137713600,
+   "value": 281,
+   "unitName": "%"
+ },
+ {
+   "level": 563,
+   "salePrice": 1141764800,
+   "value": 281.5,
+   "unitName": "%"
+ },
+ {
+   "level": 564,
+   "salePrice": 1145823200,
+   "value": 282,
+   "unitName": "%"
+ },
+ {
+   "level": 565,
+   "salePrice": 1149888800,
+   "value": 282.5,
+   "unitName": "%"
+ },
+ {
+   "level": 566,
+   "salePrice": 1153961600,
+   "value": 283,
+   "unitName": "%"
+ },
+ {
+   "level": 567,
+   "salePrice": 1302796800,
+   "value": 283.5,
+   "unitName": "%"
+ },
+ {
+   "level": 568,
+   "salePrice": 1307394900,
+   "value": 284,
+   "unitName": "%"
+ },
+ {
+   "level": 569,
+   "salePrice": 1312001100,
+   "value": 284.5,
+   "unitName": "%"
+ },
+ {
+   "level": 570,
+   "salePrice": 1316615400,
+   "value": 285,
+   "unitName": "%"
+ },
+ {
+   "level": 571,
+   "salePrice": 1321237800,
+   "value": 285.5,
+   "unitName": "%"
+ },
+ {
+   "level": 572,
+   "salePrice": 1325868300,
+   "value": 286,
+   "unitName": "%"
+ },
+ {
+   "level": 573,
+   "salePrice": 1330506900,
+   "value": 286.5,
+   "unitName": "%"
+ },
+ {
+   "level": 574,
+   "salePrice": 1335153600,
+   "value": 287,
+   "unitName": "%"
+ },
+ {
+   "level": 575,
+   "salePrice": 1339808400,
+   "value": 287.5,
+   "unitName": "%"
+ },
+ {
+   "level": 576,
+   "salePrice": 1344471300,
+   "value": 288,
+   "unitName": "%"
+ },
+ {
+   "level": 577,
+   "salePrice": 1349142300,
+   "value": 288.5,
+   "unitName": "%"
+ },
+ {
+   "level": 578,
+   "salePrice": 1353821400,
+   "value": 289,
+   "unitName": "%"
+ },
+ {
+   "level": 579,
+   "salePrice": 1358508600,
+   "value": 289.5,
+   "unitName": "%"
+ },
+ {
+   "level": 580,
+   "salePrice": 1363203900,
+   "value": 290,
+   "unitName": "%"
+ },
+ {
+   "level": 581,
+   "salePrice": 1367907300,
+   "value": 290.5,
+   "unitName": "%"
+ },
+ {
+   "level": 582,
+   "salePrice": 1372618800,
+   "value": 291,
+   "unitName": "%"
+ },
+ {
+   "level": 583,
+   "salePrice": 1377338400,
+   "value": 291.5,
+   "unitName": "%"
+ },
+ {
+   "level": 584,
+   "salePrice": 1382066100,
+   "value": 292,
+   "unitName": "%"
+ },
+ {
+   "level": 585,
+   "salePrice": 1386801900,
+   "value": 292.5,
+   "unitName": "%"
+ },
+ {
+   "level": 586,
+   "salePrice": 1391545800,
+   "value": 293,
+   "unitName": "%"
+ },
+ {
+   "level": 587,
+   "salePrice": 1396297800,
+   "value": 293.5,
+   "unitName": "%"
+ },
+ {
+   "level": 588,
+   "salePrice": 1401057900,
+   "value": 294,
+   "unitName": "%"
+ },
+ {
+   "level": 589,
+   "salePrice": 1405826100,
+   "value": 294.5,
+   "unitName": "%"
+ },
+ {
+   "level": 590,
+   "salePrice": 1410602400,
+   "value": 295,
+   "unitName": "%"
+ },
+ {
+   "level": 591,
+   "salePrice": 1415386800,
+   "value": 295.5,
+   "unitName": "%"
+ },
+ {
+   "level": 592,
+   "salePrice": 1420179300,
+   "value": 296,
+   "unitName": "%"
+ },
+ {
+   "level": 593,
+   "salePrice": 1424979900,
+   "value": 296.5,
+   "unitName": "%"
+ },
+ {
+   "level": 594,
+   "salePrice": 1429788600,
+   "value": 297,
+   "unitName": "%"
+ },
+ {
+   "level": 595,
+   "salePrice": 1434605400,
+   "value": 297.5,
+   "unitName": "%"
+ },
+ {
+   "level": 596,
+   "salePrice": 1439430300,
+   "value": 298,
+   "unitName": "%"
+ },
+ {
+   "level": 597,
+   "salePrice": 1444263300,
+   "value": 298.5,
+   "unitName": "%"
+ },
+ {
+   "level": 598,
+   "salePrice": 1449104400,
+   "value": 299,
+   "unitName": "%"
+ },
+ {
+   "level": 599,
+   "salePrice": 1453953600,
+   "value": 299.5,
+   "unitName": "%"
+ },
+ {
+   "level": 600,
+   "salePrice": 1458810900,
+   "value": 300,
+   "unitName": "%"
+ },
+ {
+   "level": 601,
+   "salePrice": 1626307000,
+   "value": 300.5,
+   "unitName": "%"
+ },
+ {
+   "level": 602,
+   "salePrice": 1631722000,
+   "value": 301,
+   "unitName": "%"
+ },
+ {
+   "level": 603,
+   "salePrice": 1637146000,
+   "value": 301.5,
+   "unitName": "%"
+ },
+ {
+   "level": 604,
+   "salePrice": 1642579000,
+   "value": 302,
+   "unitName": "%"
+ },
+ {
+   "level": 605,
+   "salePrice": 1648021000,
+   "value": 302.5,
+   "unitName": "%"
+ },
+ {
+   "level": 606,
+   "salePrice": 1653472000,
+   "value": 303,
+   "unitName": "%"
+ },
+ {
+   "level": 607,
+   "salePrice": 1658932000,
+   "value": 303.5,
+   "unitName": "%"
+ },
+ {
+   "level": 608,
+   "salePrice": 1664401000,
+   "value": 304,
+   "unitName": "%"
+ },
+ {
+   "level": 609,
+   "salePrice": 1669879000,
+   "value": 304.5,
+   "unitName": "%"
+ },
+ {
+   "level": 610,
+   "salePrice": 1675366000,
+   "value": 305,
+   "unitName": "%"
+ },
+ {
+   "level": 611,
+   "salePrice": 1680862000,
+   "value": 305.5,
+   "unitName": "%"
+ },
+ {
+   "level": 612,
+   "salePrice": 1686367000,
+   "value": 306,
+   "unitName": "%"
+ },
+ {
+   "level": 613,
+   "salePrice": 1691881000,
+   "value": 306.5,
+   "unitName": "%"
+ },
+ {
+   "level": 614,
+   "salePrice": 1697404000,
+   "value": 307,
+   "unitName": "%"
+ },
+ {
+   "level": 615,
+   "salePrice": 1702936000,
+   "value": 307.5,
+   "unitName": "%"
+ },
+ {
+   "level": 616,
+   "salePrice": 1708477000,
+   "value": 308,
+   "unitName": "%"
+ },
+ {
+   "level": 617,
+   "salePrice": 1714027000,
+   "value": 308.5,
+   "unitName": "%"
+ },
+ {
+   "level": 618,
+   "salePrice": 1719586000,
+   "value": 309,
+   "unitName": "%"
+ },
+ {
+   "level": 619,
+   "salePrice": 1725154000,
+   "value": 309.5,
+   "unitName": "%"
+ },
+ {
+   "level": 620,
+   "salePrice": 1730731000,
+   "value": 310,
+   "unitName": "%"
+ },
+ {
+   "level": 621,
+   "salePrice": 1736317000,
+   "value": 310.5,
+   "unitName": "%"
+ },
+ {
+   "level": 622,
+   "salePrice": 1741912000,
+   "value": 311,
+   "unitName": "%"
+ },
+ {
+   "level": 623,
+   "salePrice": 1747516000,
+   "value": 311.5,
+   "unitName": "%"
+ },
+ {
+   "level": 624,
+   "salePrice": 1753129000,
+   "value": 312,
+   "unitName": "%"
+ },
+ {
+   "level": 625,
+   "salePrice": 1758751000,
+   "value": 312.5,
+   "unitName": "%"
+ },
+ {
+   "level": 626,
+   "salePrice": 1764382000,
+   "value": 313,
+   "unitName": "%"
+ },
+ {
+   "level": 627,
+   "salePrice": 1770022000,
+   "value": 313.5,
+   "unitName": "%"
+ },
+ {
+   "level": 628,
+   "salePrice": 1775671000,
+   "value": 314,
+   "unitName": "%"
+ },
+ {
+   "level": 629,
+   "salePrice": 1781329000,
+   "value": 314.5,
+   "unitName": "%"
+ },
+ {
+   "level": 630,
+   "salePrice": 1786996000,
+   "value": 315,
+   "unitName": "%"
+ },
+ {
+   "level": 631,
+   "salePrice": 1792672000,
+   "value": 315.5,
+   "unitName": "%"
+ },
+ {
+   "level": 632,
+   "salePrice": 1798357000,
+   "value": 316,
+   "unitName": "%"
+ },
+ {
+   "level": 633,
+   "salePrice": 1804051000,
+   "value": 316.5,
+   "unitName": "%"
+ },
+ {
+   "level": 634,
+   "salePrice": 1990729400,
+   "value": 317,
+   "unitName": "%"
+ },
+ {
+   "level": 635,
+   "salePrice": 1997012600,
+   "value": 317.5,
+   "unitName": "%"
+ },
+ {
+   "level": 636,
+   "salePrice": 2003305700,
+   "value": 318,
+   "unitName": "%"
+ },
+ {
+   "level": 637,
+   "salePrice": 2009608700,
+   "value": 318.5,
+   "unitName": "%"
+ },
+ {
+   "level": 638,
+   "salePrice": 2015921600,
+   "value": 319,
+   "unitName": "%"
+ },
+ {
+   "level": 639,
+   "salePrice": 2022244400,
+   "value": 319.5,
+   "unitName": "%"
+ },
+ {
+   "level": 640,
+   "salePrice": 2028577100,
+   "value": 320,
+   "unitName": "%"
+ },
+ {
+   "level": 641,
+   "salePrice": 2034919700,
+   "value": 320.5,
+   "unitName": "%"
+ },
+ {
+   "level": 642,
+   "salePrice": 2041272200,
+   "value": 321,
+   "unitName": "%"
+ },
+ {
+   "level": 643,
+   "salePrice": 2047634600,
+   "value": 321.5,
+   "unitName": "%"
+ },
+ {
+   "level": 644,
+   "salePrice": 2054006900,
+   "value": 322,
+   "unitName": "%"
+ },
+ {
+   "level": 645,
+   "salePrice": 2060389100,
+   "value": 322.5,
+   "unitName": "%"
+ },
+ {
+   "level": 646,
+   "salePrice": 2066781200,
+   "value": 323,
+   "unitName": "%"
+ },
+ {
+   "level": 647,
+   "salePrice": 2073183200,
+   "value": 323.5,
+   "unitName": "%"
+ },
+ {
+   "level": 648,
+   "salePrice": 2079595100,
+   "value": 324,
+   "unitName": "%"
+ },
+ {
+   "level": 649,
+   "salePrice": 2086016900,
+   "value": 324.5,
+   "unitName": "%"
+ },
+ {
+   "level": 650,
+   "salePrice": 2092448600,
+   "value": 325,
+   "unitName": "%"
+ },
+ {
+   "level": 651,
+   "salePrice": 2098890200,
+   "value": 325.5,
+   "unitName": "%"
+ },
+ {
+   "level": 652,
+   "salePrice": 2105341700,
+   "value": 326,
+   "unitName": "%"
+ },
+ {
+   "level": 653,
+   "salePrice": 2111803100,
+   "value": 326.5,
+   "unitName": "%"
+ },
+ {
+   "level": 654,
+   "salePrice": 2118274400,
+   "value": 327,
+   "unitName": "%"
+ },
+ {
+   "level": 655,
+   "salePrice": 2124755600,
+   "value": 327.5,
+   "unitName": "%"
+ },
+ {
+   "level": 656,
+   "salePrice": 2131246700,
+   "value": 328,
+   "unitName": "%"
+ },
+ {
+   "level": 657,
+   "salePrice": 2137747700,
+   "value": 328.5,
+   "unitName": "%"
+ },
+ {
+   "level": 658,
+   "salePrice": 2144258600,
+   "value": 329,
+   "unitName": "%"
+ },
+ {
+   "level": 659,
+   "salePrice": 2150779400,
+   "value": 329.5,
+   "unitName": "%"
+ },
+ {
+   "level": 660,
+   "salePrice": 2157310100,
+   "value": 330,
+   "unitName": "%"
+ },
+ {
+   "level": 661,
+   "salePrice": 2163850700,
+   "value": 330.5,
+   "unitName": "%"
+ },
+ {
+   "level": 662,
+   "salePrice": 2170401200,
+   "value": 331,
+   "unitName": "%"
+ },
+ {
+   "level": 663,
+   "salePrice": 2176961600,
+   "value": 331.5,
+   "unitName": "%"
+ },
+ {
+   "level": 664,
+   "salePrice": 2183531900,
+   "value": 332,
+   "unitName": "%"
+ },
+ {
+   "level": 665,
+   "salePrice": 2190112100,
+   "value": 332.5,
+   "unitName": "%"
+ },
+ {
+   "level": 666,
+   "salePrice": 2196702200,
+   "value": 333,
+   "unitName": "%"
+ },
+ {
+   "level": 667,
+   "salePrice": 2603902600,
+   "value": 333.5,
+   "unitName": "%"
+ },
+ {
+   "level": 668,
+   "salePrice": 2611714300,
+   "value": 334,
+   "unitName": "%"
+ },
+ {
+   "level": 669,
+   "salePrice": 2619537700,
+   "value": 334.5,
+   "unitName": "%"
+ },
+ {
+   "level": 670,
+   "salePrice": 2627372800,
+   "value": 335,
+   "unitName": "%"
+ },
+ {
+   "level": 671,
+   "salePrice": 2635219600,
+   "value": 335.5,
+   "unitName": "%"
+ },
+ {
+   "level": 672,
+   "salePrice": 2643078100,
+   "value": 336,
+   "unitName": "%"
+ },
+ {
+   "level": 673,
+   "salePrice": 2650948300,
+   "value": 336.5,
+   "unitName": "%"
+ },
+ {
+   "level": 674,
+   "salePrice": 2658830200,
+   "value": 337,
+   "unitName": "%"
+ },
+ {
+   "level": 675,
+   "salePrice": 2666723800,
+   "value": 337.5,
+   "unitName": "%"
+ },
+ {
+   "level": 676,
+   "salePrice": 2674629100,
+   "value": 338,
+   "unitName": "%"
+ },
+ {
+   "level": 677,
+   "salePrice": 2682546100,
+   "value": 338.5,
+   "unitName": "%"
+ },
+ {
+   "level": 678,
+   "salePrice": 2690474800,
+   "value": 339,
+   "unitName": "%"
+ },
+ {
+   "level": 679,
+   "salePrice": 2698415200,
+   "value": 339.5,
+   "unitName": "%"
+ },
+ {
+   "level": 680,
+   "salePrice": 2706367300,
+   "value": 340,
+   "unitName": "%"
+ },
+ {
+   "level": 681,
+   "salePrice": 2714331100,
+   "value": 340.5,
+   "unitName": "%"
+ },
+ {
+   "level": 682,
+   "salePrice": 2722306600,
+   "value": 341,
+   "unitName": "%"
+ },
+ {
+   "level": 683,
+   "salePrice": 2730293800,
+   "value": 341.5,
+   "unitName": "%"
+ },
+ {
+   "level": 684,
+   "salePrice": 2738292700,
+   "value": 342,
+   "unitName": "%"
+ },
+ {
+   "level": 685,
+   "salePrice": 2746303300,
+   "value": 342.5,
+   "unitName": "%"
+ },
+ {
+   "level": 686,
+   "salePrice": 2754325600,
+   "value": 343,
+   "unitName": "%"
+ },
+ {
+   "level": 687,
+   "salePrice": 2762359600,
+   "value": 343.5,
+   "unitName": "%"
+ },
+ {
+   "level": 688,
+   "salePrice": 2770405300,
+   "value": 344,
+   "unitName": "%"
+ },
+ {
+   "level": 689,
+   "salePrice": 2778462700,
+   "value": 344.5,
+   "unitName": "%"
+ },
+ {
+   "level": 690,
+   "salePrice": 2786531800,
+   "value": 345,
+   "unitName": "%"
+ },
+ {
+   "level": 691,
+   "salePrice": 2794612600,
+   "value": 345.5,
+   "unitName": "%"
+ },
+ {
+   "level": 692,
+   "salePrice": 2802705100,
+   "value": 346,
+   "unitName": "%"
+ },
+ {
+   "level": 693,
+   "salePrice": 2810809300,
+   "value": 346.5,
+   "unitName": "%"
+ },
+ {
+   "level": 694,
+   "salePrice": 2818925200,
+   "value": 347,
+   "unitName": "%"
+ },
+ {
+   "level": 695,
+   "salePrice": 2827052800,
+   "value": 347.5,
+   "unitName": "%"
+ },
+ {
+   "level": 696,
+   "salePrice": 2835192100,
+   "value": 348,
+   "unitName": "%"
+ },
+ {
+   "level": 697,
+   "salePrice": 2843343100,
+   "value": 348.5,
+   "unitName": "%"
+ },
+ {
+   "level": 698,
+   "salePrice": 2851505800,
+   "value": 349,
+   "unitName": "%"
+ },
+ {
+   "level": 699,
+   "salePrice": 2859680200,
+   "value": 349.5,
+   "unitName": "%"
+ },
+ {
+   "level": 700,
+   "salePrice": 2867866300,
+   "value": 350,
+   "unitName": "%"
+ },
+ {
+   "level": 701,
+   "salePrice": 3318535500,
+   "value": 350.5,
+   "unitName": "%"
+ },
+ {
+   "level": 702,
+   "salePrice": 3328008000,
+   "value": 351,
+   "unitName": "%"
+ },
+ {
+   "level": 703,
+   "salePrice": 3337494000,
+   "value": 351.5,
+   "unitName": "%"
+ },
+ {
+   "level": 704,
+   "salePrice": 3346993500,
+   "value": 352,
+   "unitName": "%"
+ },
+ {
+   "level": 705,
+   "salePrice": 3356506500,
+   "value": 352.5,
+   "unitName": "%"
+ },
+ {
+   "level": 706,
+   "salePrice": 3366033000,
+   "value": 353,
+   "unitName": "%"
+ },
+ {
+   "level": 707,
+   "salePrice": 3375573000,
+   "value": 353.5,
+   "unitName": "%"
+ },
+ {
+   "level": 708,
+   "salePrice": 3385126500,
+   "value": 354,
+   "unitName": "%"
+ },
+ {
+   "level": 709,
+   "salePrice": 3394693500,
+   "value": 354.5,
+   "unitName": "%"
+ },
+ {
+   "level": 710,
+   "salePrice": 3404274000,
+   "value": 355,
+   "unitName": "%"
+ },
+ {
+   "level": 711,
+   "salePrice": 3413868000,
+   "value": 355.5,
+   "unitName": "%"
+ },
+ {
+   "level": 712,
+   "salePrice": 3423475500,
+   "value": 356,
+   "unitName": "%"
+ },
+ {
+   "level": 713,
+   "salePrice": 3433096500,
+   "value": 356.5,
+   "unitName": "%"
+ },
+ {
+   "level": 714,
+   "salePrice": 3442731000,
+   "value": 357,
+   "unitName": "%"
+ },
+ {
+   "level": 715,
+   "salePrice": 3452379000,
+   "value": 357.5,
+   "unitName": "%"
+ },
+ {
+   "level": 716,
+   "salePrice": 3462040500,
+   "value": 358,
+   "unitName": "%"
+ },
+ {
+   "level": 717,
+   "salePrice": 3471715500,
+   "value": 358.5,
+   "unitName": "%"
+ },
+ {
+   "level": 718,
+   "salePrice": 3481404000,
+   "value": 359,
+   "unitName": "%"
+ },
+ {
+   "level": 719,
+   "salePrice": 3491106000,
+   "value": 359.5,
+   "unitName": "%"
+ },
+ {
+   "level": 720,
+   "salePrice": 3500821500,
+   "value": 360,
+   "unitName": "%"
+ },
+ {
+   "level": 721,
+   "salePrice": 3510550500,
+   "value": 360.5,
+   "unitName": "%"
+ },
+ {
+   "level": 722,
+   "salePrice": 3520293000,
+   "value": 361,
+   "unitName": "%"
+ },
+ {
+   "level": 723,
+   "salePrice": 3530049000,
+   "value": 361.5,
+   "unitName": "%"
+ },
+ {
+   "level": 724,
+   "salePrice": 3539818500,
+   "value": 362,
+   "unitName": "%"
+ },
+ {
+   "level": 725,
+   "salePrice": 3549601500,
+   "value": 362.5,
+   "unitName": "%"
+ },
+ {
+   "level": 726,
+   "salePrice": 3559398000,
+   "value": 363,
+   "unitName": "%"
+ },
+ {
+   "level": 727,
+   "salePrice": 3569208000,
+   "value": 363.5,
+   "unitName": "%"
+ },
+ {
+   "level": 728,
+   "salePrice": 3579031500,
+   "value": 364,
+   "unitName": "%"
+ },
+ {
+   "level": 729,
+   "salePrice": 3588868500,
+   "value": 364.5,
+   "unitName": "%"
+ },
+ {
+   "level": 730,
+   "salePrice": 3598719000,
+   "value": 365,
+   "unitName": "%"
+ },
+ {
+   "level": 731,
+   "salePrice": 3608583000,
+   "value": 365.5,
+   "unitName": "%"
+ },
+ {
+   "level": 732,
+   "salePrice": 3618460500,
+   "value": 366,
+   "unitName": "%"
+ },
+ {
+   "level": 733,
+   "salePrice": 3628351500,
+   "value": 366.5,
+   "unitName": "%"
+ },
+ {
+   "level": 734,
+   "salePrice": 4123356800,
+   "value": 367,
+   "unitName": "%"
+ },
+ {
+   "level": 735,
+   "salePrice": 4134597200,
+   "value": 367.5,
+   "unitName": "%"
+ },
+ {
+   "level": 736,
+   "salePrice": 4145852900,
+   "value": 368,
+   "unitName": "%"
+ },
+ {
+   "level": 737,
+   "salePrice": 4157123900,
+   "value": 368.5,
+   "unitName": "%"
+ },
+ {
+   "level": 738,
+   "salePrice": 4168410200,
+   "value": 369,
+   "unitName": "%"
+ },
+ {
+   "level": 739,
+   "salePrice": 4179711800,
+   "value": 369.5,
+   "unitName": "%"
+ },
+ {
+   "level": 740,
+   "salePrice": 4191028700,
+   "value": 370,
+   "unitName": "%"
+ },
+ {
+   "level": 741,
+   "salePrice": 4202360900,
+   "value": 370.5,
+   "unitName": "%"
+ },
+ {
+   "level": 742,
+   "salePrice": 4213708400,
+   "value": 371,
+   "unitName": "%"
+ },
+ {
+   "level": 743,
+   "salePrice": 4225071200,
+   "value": 371.5,
+   "unitName": "%"
+ },
+ {
+   "level": 744,
+   "salePrice": 4236449300,
+   "value": 372,
+   "unitName": "%"
+ },
+ {
+   "level": 745,
+   "salePrice": 4247842700,
+   "value": 372.5,
+   "unitName": "%"
+ },
+ {
+   "level": 746,
+   "salePrice": 4259251400,
+   "value": 373,
+   "unitName": "%"
+ },
+ {
+   "level": 747,
+   "salePrice": 4270675400,
+   "value": 373.5,
+   "unitName": "%"
+ },
+ {
+   "level": 748,
+   "salePrice": 4282114700,
+   "value": 374,
+   "unitName": "%"
+ },
+ {
+   "level": 749,
+   "salePrice": 4293569300,
+   "value": 374.5,
+   "unitName": "%"
+ },
+ {
+   "level": 750,
+   "salePrice": 4305039200,
+   "value": 375,
+   "unitName": "%"
+ },
+ {
+   "level": 751,
+   "salePrice": 4316524400,
+   "value": 375.5,
+   "unitName": "%"
+ },
+ {
+   "level": 752,
+   "salePrice": 4328024900,
+   "value": 376,
+   "unitName": "%"
+ },
+ {
+   "level": 753,
+   "salePrice": 4339540700,
+   "value": 376.5,
+   "unitName": "%"
+ },
+ {
+   "level": 754,
+   "salePrice": 4351071800,
+   "value": 377,
+   "unitName": "%"
+ },
+ {
+   "level": 755,
+   "salePrice": 4362618200,
+   "value": 377.5,
+   "unitName": "%"
+ },
+ {
+   "level": 756,
+   "salePrice": 4374179900,
+   "value": 378,
+   "unitName": "%"
+ },
+ {
+   "level": 757,
+   "salePrice": 4385756900,
+   "value": 378.5,
+   "unitName": "%"
+ },
+ {
+   "level": 758,
+   "salePrice": 4397349200,
+   "value": 379,
+   "unitName": "%"
+ },
+ {
+   "level": 759,
+   "salePrice": 4408956800,
+   "value": 379.5,
+   "unitName": "%"
+ },
+ {
+   "level": 760,
+   "salePrice": 4420579700,
+   "value": 380,
+   "unitName": "%"
+ },
+ {
+   "level": 761,
+   "salePrice": 4432217900,
+   "value": 380.5,
+   "unitName": "%"
+ },
+ {
+   "level": 762,
+   "salePrice": 4443871400,
+   "value": 381,
+   "unitName": "%"
+ },
+ {
+   "level": 763,
+   "salePrice": 4455540200,
+   "value": 381.5,
+   "unitName": "%"
+ },
+ {
+   "level": 764,
+   "salePrice": 4467224300,
+   "value": 382,
+   "unitName": "%"
+ },
+ {
+   "level": 765,
+   "salePrice": 4478923700,
+   "value": 382.5,
+   "unitName": "%"
+ },
+ {
+   "level": 766,
+   "salePrice": 4490638400,
+   "value": 383,
+   "unitName": "%"
+ },
+ {
+   "level": 767,
+   "salePrice": 5032058800,
+   "value": 383.5,
+   "unitName": "%"
+ },
+ {
+   "level": 768,
+   "salePrice": 5045185900,
+   "value": 384,
+   "unitName": "%"
+ },
+ {
+   "level": 769,
+   "salePrice": 5058330100,
+   "value": 384.5,
+   "unitName": "%"
+ },
+ {
+   "level": 770,
+   "salePrice": 5071491400,
+   "value": 385,
+   "unitName": "%"
+ },
+ {
+   "level": 771,
+   "salePrice": 5084669800,
+   "value": 385.5,
+   "unitName": "%"
+ },
+ {
+   "level": 772,
+   "salePrice": 5097865300,
+   "value": 386,
+   "unitName": "%"
+ },
+ {
+   "level": 773,
+   "salePrice": 5111077900,
+   "value": 386.5,
+   "unitName": "%"
+ },
+ {
+   "level": 774,
+   "salePrice": 5124307600,
+   "value": 387,
+   "unitName": "%"
+ },
+ {
+   "level": 775,
+   "salePrice": 5137554400,
+   "value": 387.5,
+   "unitName": "%"
+ },
+ {
+   "level": 776,
+   "salePrice": 5150818300,
+   "value": 388,
+   "unitName": "%"
+ },
+ {
+   "level": 777,
+   "salePrice": 5164099300,
+   "value": 388.5,
+   "unitName": "%"
+ },
+ {
+   "level": 778,
+   "salePrice": 5177397400,
+   "value": 389,
+   "unitName": "%"
+ },
+ {
+   "level": 779,
+   "salePrice": 5190712600,
+   "value": 389.5,
+   "unitName": "%"
+ },
+ {
+   "level": 780,
+   "salePrice": 5204044900,
+   "value": 390,
+   "unitName": "%"
+ },
+ {
+   "level": 781,
+   "salePrice": 5217394300,
+   "value": 390.5,
+   "unitName": "%"
+ },
+ {
+   "level": 782,
+   "salePrice": 5230760800,
+   "value": 391,
+   "unitName": "%"
+ },
+ {
+   "level": 783,
+   "salePrice": 5244144400,
+   "value": 391.5,
+   "unitName": "%"
+ },
+ {
+   "level": 784,
+   "salePrice": 5257545100,
+   "value": 392,
+   "unitName": "%"
+ },
+ {
+   "level": 785,
+   "salePrice": 5270962900,
+   "value": 392.5,
+   "unitName": "%"
+ },
+ {
+   "level": 786,
+   "salePrice": 5284397800,
+   "value": 393,
+   "unitName": "%"
+ },
+ {
+   "level": 787,
+   "salePrice": 5297849800,
+   "value": 393.5,
+   "unitName": "%"
+ },
+ {
+   "level": 788,
+   "salePrice": 5311318900,
+   "value": 394,
+   "unitName": "%"
+ },
+ {
+   "level": 789,
+   "salePrice": 5324805100,
+   "value": 394.5,
+   "unitName": "%"
+ },
+ {
+   "level": 790,
+   "salePrice": 5338308400,
+   "value": 395,
+   "unitName": "%"
+ },
+ {
+   "level": 791,
+   "salePrice": 5351828800,
+   "value": 395.5,
+   "unitName": "%"
+ },
+ {
+   "level": 792,
+   "salePrice": 5365366300,
+   "value": 396,
+   "unitName": "%"
+ },
+ {
+   "level": 793,
+   "salePrice": 5378920900,
+   "value": 396.5,
+   "unitName": "%"
+ },
+ {
+   "level": 794,
+   "salePrice": 5392492600,
+   "value": 397,
+   "unitName": "%"
+ },
+ {
+   "level": 795,
+   "salePrice": 5406081400,
+   "value": 397.5,
+   "unitName": "%"
+ },
+ {
+   "level": 796,
+   "salePrice": 5419687300,
+   "value": 398,
+   "unitName": "%"
+ },
+ {
+   "level": 797,
+   "salePrice": 5433310300,
+   "value": 398.5,
+   "unitName": "%"
+ },
+ {
+   "level": 798,
+   "salePrice": 5446950400,
+   "value": 399,
+   "unitName": "%"
+ },
+ {
+   "level": 799,
+   "salePrice": 5460607600,
+   "value": 399.5,
+   "unitName": "%"
+ },
+ {
+   "level": 800,
+   "salePrice": 5474281900,
+   "value": 400,
+   "unitName": "%"
+ },
+ {
+   "level": 801,
+   "salePrice": 6065654700,
+   "value": 400.5,
+   "unitName": "%"
+ },
+ {
+   "level": 802,
+   "salePrice": 6080806200,
+   "value": 401,
+   "unitName": "%"
+ },
+ {
+   "level": 803,
+   "salePrice": 6095976600,
+   "value": 401.5,
+   "unitName": "%"
+ },
+ {
+   "level": 804,
+   "salePrice": 6111165900,
+   "value": 402,
+   "unitName": "%"
+ },
+ {
+   "level": 805,
+   "salePrice": 6126374100,
+   "value": 402.5,
+   "unitName": "%"
+ },
+ {
+   "level": 806,
+   "salePrice": 6141601200,
+   "value": 403,
+   "unitName": "%"
+ },
+ {
+   "level": 807,
+   "salePrice": 6156847200,
+   "value": 403.5,
+   "unitName": "%"
+ },
+ {
+   "level": 808,
+   "salePrice": 6172112100,
+   "value": 404,
+   "unitName": "%"
+ },
+ {
+   "level": 809,
+   "salePrice": 6187395900,
+   "value": 404.5,
+   "unitName": "%"
+ },
+ {
+   "level": 810,
+   "salePrice": 6202698600,
+   "value": 405,
+   "unitName": "%"
+ },
+ {
+   "level": 811,
+   "salePrice": 6218020200,
+   "value": 405.5,
+   "unitName": "%"
+ },
+ {
+   "level": 812,
+   "salePrice": 6233360700,
+   "value": 406,
+   "unitName": "%"
+ },
+ {
+   "level": 813,
+   "salePrice": 6248720100,
+   "value": 406.5,
+   "unitName": "%"
+ },
+ {
+   "level": 814,
+   "salePrice": 6264098400,
+   "value": 407,
+   "unitName": "%"
+ },
+ {
+   "level": 815,
+   "salePrice": 6279495600,
+   "value": 407.5,
+   "unitName": "%"
+ },
+ {
+   "level": 816,
+   "salePrice": 6294911700,
+   "value": 408,
+   "unitName": "%"
+ },
+ {
+   "level": 817,
+   "salePrice": 6310346700,
+   "value": 408.5,
+   "unitName": "%"
+ },
+ {
+   "level": 818,
+   "salePrice": 6325800600,
+   "value": 409,
+   "unitName": "%"
+ },
+ {
+   "level": 819,
+   "salePrice": 6341273400,
+   "value": 409.5,
+   "unitName": "%"
+ },
+ {
+   "level": 820,
+   "salePrice": 6356765100,
+   "value": 410,
+   "unitName": "%"
+ },
+ {
+   "level": 821,
+   "salePrice": 6372275700,
+   "value": 410.5,
+   "unitName": "%"
+ },
+ {
+   "level": 822,
+   "salePrice": 6387805200,
+   "value": 411,
+   "unitName": "%"
+ },
+ {
+   "level": 823,
+   "salePrice": 6403353600,
+   "value": 411.5,
+   "unitName": "%"
+ },
+ {
+   "level": 824,
+   "salePrice": 6418920900,
+   "value": 412,
+   "unitName": "%"
+ },
+ {
+   "level": 825,
+   "salePrice": 6434507100,
+   "value": 412.5,
+   "unitName": "%"
+ },
+ {
+   "level": 826,
+   "salePrice": 6450112200,
+   "value": 413,
+   "unitName": "%"
+ },
+ {
+   "level": 827,
+   "salePrice": 6465736200,
+   "value": 413.5,
+   "unitName": "%"
+ },
+ {
+   "level": 828,
+   "salePrice": 6481379100,
+   "value": 414,
+   "unitName": "%"
+ },
+ {
+   "level": 829,
+   "salePrice": 6497040900,
+   "value": 414.5,
+   "unitName": "%"
+ },
+ {
+   "level": 830,
+   "salePrice": 6512721600,
+   "value": 415,
+   "unitName": "%"
+ },
+ {
+   "level": 831,
+   "salePrice": 6528421200,
+   "value": 415.5,
+   "unitName": "%"
+ },
+ {
+   "level": 832,
+   "salePrice": 6544139700,
+   "value": 416,
+   "unitName": "%"
+ },
+ {
+   "level": 833,
+   "salePrice": 6559877100,
+   "value": 416.5,
+   "unitName": "%"
+ },
+ {
+   "level": 834,
+   "salePrice": 7515009600,
+   "value": 417,
+   "unitName": "%"
+ },
+ {
+   "level": 835,
+   "salePrice": 7533038400,
+   "value": 417.5,
+   "unitName": "%"
+ },
+ {
+   "level": 836,
+   "salePrice": 7551088800,
+   "value": 418,
+   "unitName": "%"
+ },
+ {
+   "level": 837,
+   "salePrice": 7569160800,
+   "value": 418.5,
+   "unitName": "%"
+ },
+ {
+   "level": 838,
+   "salePrice": 7587254400,
+   "value": 419,
+   "unitName": "%"
+ },
+ {
+   "level": 839,
+   "salePrice": 7605369600,
+   "value": 419.5,
+   "unitName": "%"
+ },
+ {
+   "level": 840,
+   "salePrice": 7623506400,
+   "value": 420,
+   "unitName": "%"
+ },
+ {
+   "level": 841,
+   "salePrice": 7641664800,
+   "value": 420.5,
+   "unitName": "%"
+ },
+ {
+   "level": 842,
+   "salePrice": 7659844800,
+   "value": 421,
+   "unitName": "%"
+ },
+ {
+   "level": 843,
+   "salePrice": 7678046400,
+   "value": 421.5,
+   "unitName": "%"
+ },
+ {
+   "level": 844,
+   "salePrice": 7696269600,
+   "value": 422,
+   "unitName": "%"
+ },
+ {
+   "level": 845,
+   "salePrice": 7714514400,
+   "value": 422.5,
+   "unitName": "%"
+ },
+ {
+   "level": 846,
+   "salePrice": 7732780800,
+   "value": 423,
+   "unitName": "%"
+ },
+ {
+   "level": 847,
+   "salePrice": 7751068800,
+   "value": 423.5,
+   "unitName": "%"
+ },
+ {
+   "level": 848,
+   "salePrice": 7769378400,
+   "value": 424,
+   "unitName": "%"
+ },
+ {
+   "level": 849,
+   "salePrice": 7787709600,
+   "value": 424.5,
+   "unitName": "%"
+ },
+ {
+   "level": 850,
+   "salePrice": 7806062400,
+   "value": 425,
+   "unitName": "%"
+ },
+ {
+   "level": 851,
+   "salePrice": 7824436800,
+   "value": 425.5,
+   "unitName": "%"
+ },
+ {
+   "level": 852,
+   "salePrice": 7842832800,
+   "value": 426,
+   "unitName": "%"
+ },
+ {
+   "level": 853,
+   "salePrice": 7861250400,
+   "value": 426.5,
+   "unitName": "%"
+ },
+ {
+   "level": 854,
+   "salePrice": 7879689600,
+   "value": 427,
+   "unitName": "%"
+ },
+ {
+   "level": 855,
+   "salePrice": 7898150400,
+   "value": 427.5,
+   "unitName": "%"
+ },
+ {
+   "level": 856,
+   "salePrice": 7916632800,
+   "value": 428,
+   "unitName": "%"
+ },
+ {
+   "level": 857,
+   "salePrice": 7935136800,
+   "value": 428.5,
+   "unitName": "%"
+ },
+ {
+   "level": 858,
+   "salePrice": 7953662400,
+   "value": 429,
+   "unitName": "%"
+ },
+ {
+   "level": 859,
+   "salePrice": 7972209600,
+   "value": 429.5,
+   "unitName": "%"
+ },
+ {
+   "level": 860,
+   "salePrice": 7990778400,
+   "value": 430,
+   "unitName": "%"
+ },
+ {
+   "level": 861,
+   "salePrice": 8009368800,
+   "value": 430.5,
+   "unitName": "%"
+ },
+ {
+   "level": 862,
+   "salePrice": 8027980800,
+   "value": 431,
+   "unitName": "%"
+ },
+ {
+   "level": 863,
+   "salePrice": 8046614400,
+   "value": 431.5,
+   "unitName": "%"
+ },
+ {
+   "level": 864,
+   "salePrice": 8065269600,
+   "value": 432,
+   "unitName": "%"
+ },
+ {
+   "level": 865,
+   "salePrice": 8083946400,
+   "value": 432.5,
+   "unitName": "%"
+ },
+ {
+   "level": 866,
+   "salePrice": 8102644800,
+   "value": 433,
+   "unitName": "%"
+ },
+ {
+   "level": 867,
+   "salePrice": 9136535400,
+   "value": 433.5,
+   "unitName": "%"
+ },
+ {
+   "level": 868,
+   "salePrice": 9157619700,
+   "value": 434,
+   "unitName": "%"
+ },
+ {
+   "level": 869,
+   "salePrice": 9178728300,
+   "value": 434.5,
+   "unitName": "%"
+ },
+ {
+   "level": 870,
+   "salePrice": 9199861200,
+   "value": 435,
+   "unitName": "%"
+ },
+ {
+   "level": 871,
+   "salePrice": 9221018400,
+   "value": 435.5,
+   "unitName": "%"
+ },
+ {
+   "level": 872,
+   "salePrice": 9242199900,
+   "value": 436,
+   "unitName": "%"
+ },
+ {
+   "level": 873,
+   "salePrice": 9263405700,
+   "value": 436.5,
+   "unitName": "%"
+ },
+ {
+   "level": 874,
+   "salePrice": 9284635800,
+   "value": 437,
+   "unitName": "%"
+ },
+ {
+   "level": 875,
+   "salePrice": 9305890200,
+   "value": 437.5,
+   "unitName": "%"
+ },
+ {
+   "level": 876,
+   "salePrice": 9327168900,
+   "value": 438,
+   "unitName": "%"
+ },
+ {
+   "level": 877,
+   "salePrice": 9348471900,
+   "value": 438.5,
+   "unitName": "%"
+ },
+ {
+   "level": 878,
+   "salePrice": 9369799200,
+   "value": 439,
+   "unitName": "%"
+ },
+ {
+   "level": 879,
+   "salePrice": 9391150800,
+   "value": 439.5,
+   "unitName": "%"
+ },
+ {
+   "level": 880,
+   "salePrice": 9412526700,
+   "value": 440,
+   "unitName": "%"
+ },
+ {
+   "level": 881,
+   "salePrice": 9433926900,
+   "value": 440.5,
+   "unitName": "%"
+ },
+ {
+   "level": 882,
+   "salePrice": 9455351400,
+   "value": 441,
+   "unitName": "%"
+ },
+ {
+   "level": 883,
+   "salePrice": 9476800200,
+   "value": 441.5,
+   "unitName": "%"
+ },
+ {
+   "level": 884,
+   "salePrice": 9498273300,
+   "value": 442,
+   "unitName": "%"
+ },
+ {
+   "level": 885,
+   "salePrice": 9519770700,
+   "value": 442.5,
+   "unitName": "%"
+ },
+ {
+   "level": 886,
+   "salePrice": 9541292400,
+   "value": 443,
+   "unitName": "%"
+ },
+ {
+   "level": 887,
+   "salePrice": 9562838400,
+   "value": 443.5,
+   "unitName": "%"
+ },
+ {
+   "level": 888,
+   "salePrice": 9584408700,
+   "value": 444,
+   "unitName": "%"
+ },
+ {
+   "level": 889,
+   "salePrice": 9606003300,
+   "value": 444.5,
+   "unitName": "%"
+ },
+ {
+   "level": 890,
+   "salePrice": 9627622200,
+   "value": 445,
+   "unitName": "%"
+ },
+ {
+   "level": 891,
+   "salePrice": 9649265400,
+   "value": 445.5,
+   "unitName": "%"
+ },
+ {
+   "level": 892,
+   "salePrice": 9670932900,
+   "value": 446,
+   "unitName": "%"
+ },
+ {
+   "level": 893,
+   "salePrice": 9692624700,
+   "value": 446.5,
+   "unitName": "%"
+ },
+ {
+   "level": 894,
+   "salePrice": 9714340800,
+   "value": 447,
+   "unitName": "%"
+ },
+ {
+   "level": 895,
+   "salePrice": 9736081200,
+   "value": 447.5,
+   "unitName": "%"
+ },
+ {
+   "level": 896,
+   "salePrice": 9757845900,
+   "value": 448,
+   "unitName": "%"
+ },
+ {
+   "level": 897,
+   "salePrice": 9779634900,
+   "value": 448.5,
+   "unitName": "%"
+ },
+ {
+   "level": 898,
+   "salePrice": 9801448200,
+   "value": 449,
+   "unitName": "%"
+ },
+ {
+   "level": 899,
+   "salePrice": 9823285800,
+   "value": 449.5,
+   "unitName": "%"
+ },
+ {
+   "level": 900,
+   "salePrice": 9845147700,
+   "value": 450,
+   "unitName": "%"
+ },
+ {
+   "level": 901,
+   "salePrice": 10963371000,
+   "value": 450.5,
+   "unitName": "%"
+ },
+ {
+   "level": 902,
+   "salePrice": 10987716000,
+   "value": 451,
+   "unitName": "%"
+ },
+ {
+   "level": 903,
+   "salePrice": 11012088000,
+   "value": 451.5,
+   "unitName": "%"
+ },
+ {
+   "level": 904,
+   "salePrice": 11036487000,
+   "value": 452,
+   "unitName": "%"
+ },
+ {
+   "level": 905,
+   "salePrice": 11060913000,
+   "value": 452.5,
+   "unitName": "%"
+ },
+ {
+   "level": 906,
+   "salePrice": 11085366000,
+   "value": 453,
+   "unitName": "%"
+ },
+ {
+   "level": 907,
+   "salePrice": 11109846000,
+   "value": 453.5,
+   "unitName": "%"
+ },
+ {
+   "level": 908,
+   "salePrice": 11134353000,
+   "value": 454,
+   "unitName": "%"
+ },
+ {
+   "level": 909,
+   "salePrice": 11158887000,
+   "value": 454.5,
+   "unitName": "%"
+ },
+ {
+   "level": 910,
+   "salePrice": 11183448000,
+   "value": 455,
+   "unitName": "%"
+ },
+ {
+   "level": 911,
+   "salePrice": 11208036000,
+   "value": 455.5,
+   "unitName": "%"
+ },
+ {
+   "level": 912,
+   "salePrice": 11232651000,
+   "value": 456,
+   "unitName": "%"
+ },
+ {
+   "level": 913,
+   "salePrice": 11257293000,
+   "value": 456.5,
+   "unitName": "%"
+ },
+ {
+   "level": 914,
+   "salePrice": 11281962000,
+   "value": 457,
+   "unitName": "%"
+ },
+ {
+   "level": 915,
+   "salePrice": 11306658000,
+   "value": 457.5,
+   "unitName": "%"
+ },
+ {
+   "level": 916,
+   "salePrice": 11331381000,
+   "value": 458,
+   "unitName": "%"
+ },
+ {
+   "level": 917,
+   "salePrice": 11356131000,
+   "value": 458.5,
+   "unitName": "%"
+ },
+ {
+   "level": 918,
+   "salePrice": 11380908000,
+   "value": 459,
+   "unitName": "%"
+ },
+ {
+   "level": 919,
+   "salePrice": 11405712000,
+   "value": 459.5,
+   "unitName": "%"
+ },
+ {
+   "level": 920,
+   "salePrice": 11430543000,
+   "value": 460,
+   "unitName": "%"
+ },
+ {
+   "level": 921,
+   "salePrice": 11455401000,
+   "value": 460.5,
+   "unitName": "%"
+ },
+ {
+   "level": 922,
+   "salePrice": 11480286000,
+   "value": 461,
+   "unitName": "%"
+ },
+ {
+   "level": 923,
+   "salePrice": 11505198000,
+   "value": 461.5,
+   "unitName": "%"
+ },
+ {
+   "level": 924,
+   "salePrice": 11530137000,
+   "value": 462,
+   "unitName": "%"
+ },
+ {
+   "level": 925,
+   "salePrice": 11555103000,
+   "value": 462.5,
+   "unitName": "%"
+ },
+ {
+   "level": 926,
+   "salePrice": 11580096000,
+   "value": 463,
+   "unitName": "%"
+ },
+ {
+   "level": 927,
+   "salePrice": 11605116000,
+   "value": 463.5,
+   "unitName": "%"
+ },
+ {
+   "level": 928,
+   "salePrice": 11630163000,
+   "value": 464,
+   "unitName": "%"
+ },
+ {
+   "level": 929,
+   "salePrice": 11655237000,
+   "value": 464.5,
+   "unitName": "%"
+ },
+ {
+   "level": 930,
+   "salePrice": 11680338000,
+   "value": 465,
+   "unitName": "%"
+ },
+ {
+   "level": 931,
+   "salePrice": 11705466000,
+   "value": 465.5,
+   "unitName": "%"
+ },
+ {
+   "level": 932,
+   "salePrice": 11730621000,
+   "value": 466,
+   "unitName": "%"
+ },
+ {
+   "level": 933,
+   "salePrice": 11755803000,
+   "value": 466.5,
+   "unitName": "%"
+ },
+ {
+   "level": 934,
+   "salePrice": 12959113200,
+   "value": 467,
+   "unitName": "%"
+ },
+ {
+   "level": 935,
+   "salePrice": 12986872800,
+   "value": 467.5,
+   "unitName": "%"
+ },
+ {
+   "level": 936,
+   "salePrice": 13014662100,
+   "value": 468,
+   "unitName": "%"
+ },
+ {
+   "level": 937,
+   "salePrice": 13042481100,
+   "value": 468.5,
+   "unitName": "%"
+ },
+ {
+   "level": 938,
+   "salePrice": 13070329800,
+   "value": 469,
+   "unitName": "%"
+ },
+ {
+   "level": 939,
+   "salePrice": 13098208200,
+   "value": 469.5,
+   "unitName": "%"
+ },
+ {
+   "level": 940,
+   "salePrice": 13126116300,
+   "value": 470,
+   "unitName": "%"
+ },
+ {
+   "level": 941,
+   "salePrice": 13154054100,
+   "value": 470.5,
+   "unitName": "%"
+ },
+ {
+   "level": 942,
+   "salePrice": 13182021600,
+   "value": 471,
+   "unitName": "%"
+ },
+ {
+   "level": 943,
+   "salePrice": 13210018800,
+   "value": 471.5,
+   "unitName": "%"
+ },
+ {
+   "level": 944,
+   "salePrice": 13238045700,
+   "value": 472,
+   "unitName": "%"
+ },
+ {
+   "level": 945,
+   "salePrice": 13266102300,
+   "value": 472.5,
+   "unitName": "%"
+ },
+ {
+   "level": 946,
+   "salePrice": 13294188600,
+   "value": 473,
+   "unitName": "%"
+ },
+ {
+   "level": 947,
+   "salePrice": 13322304600,
+   "value": 473.5,
+   "unitName": "%"
+ },
+ {
+   "level": 948,
+   "salePrice": 13350450300,
+   "value": 474,
+   "unitName": "%"
+ },
+ {
+   "level": 949,
+   "salePrice": 13378625700,
+   "value": 474.5,
+   "unitName": "%"
+ },
+ {
+   "level": 950,
+   "salePrice": 13406830800,
+   "value": 475,
+   "unitName": "%"
+ },
+ {
+   "level": 951,
+   "salePrice": 13435065600,
+   "value": 475.5,
+   "unitName": "%"
+ },
+ {
+   "level": 952,
+   "salePrice": 13463330100,
+   "value": 476,
+   "unitName": "%"
+ },
+ {
+   "level": 953,
+   "salePrice": 13491624300,
+   "value": 476.5,
+   "unitName": "%"
+ },
+ {
+   "level": 954,
+   "salePrice": 13519948200,
+   "value": 477,
+   "unitName": "%"
+ },
+ {
+   "level": 955,
+   "salePrice": 13548301800,
+   "value": 477.5,
+   "unitName": "%"
+ },
+ {
+   "level": 956,
+   "salePrice": 13576685100,
+   "value": 478,
+   "unitName": "%"
+ },
+ {
+   "level": 957,
+   "salePrice": 13605098100,
+   "value": 478.5,
+   "unitName": "%"
+ },
+ {
+   "level": 958,
+   "salePrice": 13633540800,
+   "value": 479,
+   "unitName": "%"
+ },
+ {
+   "level": 959,
+   "salePrice": 13662013200,
+   "value": 479.5,
+   "unitName": "%"
+ },
+ {
+   "level": 960,
+   "salePrice": 13690515300,
+   "value": 480,
+   "unitName": "%"
+ },
+ {
+   "level": 961,
+   "salePrice": 13719047100,
+   "value": 480.5,
+   "unitName": "%"
+ },
+ {
+   "level": 962,
+   "salePrice": 13747608600,
+   "value": 481,
+   "unitName": "%"
+ },
+ {
+   "level": 963,
+   "salePrice": 13776199800,
+   "value": 481.5,
+   "unitName": "%"
+ },
+ {
+   "level": 964,
+   "salePrice": 13804820700,
+   "value": 482,
+   "unitName": "%"
+ },
+ {
+   "level": 965,
+   "salePrice": 13833471300,
+   "value": 482.5,
+   "unitName": "%"
+ },
+ {
+   "level": 966,
+   "salePrice": 13862151600,
+   "value": 483,
+   "unitName": "%"
+ },
+ {
+   "level": 967,
+   "salePrice": 15153667200,
+   "value": 483.5,
+   "unitName": "%"
+ },
+ {
+   "level": 968,
+   "salePrice": 15185019600,
+   "value": 484,
+   "unitName": "%"
+ },
+ {
+   "level": 969,
+   "salePrice": 15216404400,
+   "value": 484.5,
+   "unitName": "%"
+ },
+ {
+   "level": 970,
+   "salePrice": 15247821600,
+   "value": 485,
+   "unitName": "%"
+ },
+ {
+   "level": 971,
+   "salePrice": 15279271200,
+   "value": 485.5,
+   "unitName": "%"
+ },
+ {
+   "level": 972,
+   "salePrice": 15310753200,
+   "value": 486,
+   "unitName": "%"
+ },
+ {
+   "level": 973,
+   "salePrice": 15342267600,
+   "value": 486.5,
+   "unitName": "%"
+ },
+ {
+   "level": 974,
+   "salePrice": 15373814400,
+   "value": 487,
+   "unitName": "%"
+ },
+ {
+   "level": 975,
+   "salePrice": 15405393600,
+   "value": 487.5,
+   "unitName": "%"
+ },
+ {
+   "level": 976,
+   "salePrice": 15437005200,
+   "value": 488,
+   "unitName": "%"
+ },
+ {
+   "level": 977,
+   "salePrice": 15468649200,
+   "value": 488.5,
+   "unitName": "%"
+ },
+ {
+   "level": 978,
+   "salePrice": 15500325600,
+   "value": 489,
+   "unitName": "%"
+ },
+ {
+   "level": 979,
+   "salePrice": 15532034400,
+   "value": 489.5,
+   "unitName": "%"
+ },
+ {
+   "level": 980,
+   "salePrice": 15563775600,
+   "value": 490,
+   "unitName": "%"
+ },
+ {
+   "level": 981,
+   "salePrice": 15595549200,
+   "value": 490.5,
+   "unitName": "%"
+ },
+ {
+   "level": 982,
+   "salePrice": 15627355200,
+   "value": 491,
+   "unitName": "%"
+ },
+ {
+   "level": 983,
+   "salePrice": 15659193600,
+   "value": 491.5,
+   "unitName": "%"
+ },
+ {
+   "level": 984,
+   "salePrice": 15691064400,
+   "value": 492,
+   "unitName": "%"
+ },
+ {
+   "level": 985,
+   "salePrice": 15722967600,
+   "value": 492.5,
+   "unitName": "%"
+ },
+ {
+   "level": 986,
+   "salePrice": 15754903200,
+   "value": 493,
+   "unitName": "%"
+ },
+ {
+   "level": 987,
+   "salePrice": 15786871200,
+   "value": 493.5,
+   "unitName": "%"
+ },
+ {
+   "level": 988,
+   "salePrice": 15818871600,
+   "value": 494,
+   "unitName": "%"
+ },
+ {
+   "level": 989,
+   "salePrice": 15850904400,
+   "value": 494.5,
+   "unitName": "%"
+ },
+ {
+   "level": 990,
+   "salePrice": 15882969600,
+   "value": 495,
+   "unitName": "%"
+ },
+ {
+   "level": 991,
+   "salePrice": 15915067200,
+   "value": 495.5,
+   "unitName": "%"
+ },
+ {
+   "level": 992,
+   "salePrice": 15947197200,
+   "value": 496,
+   "unitName": "%"
+ },
+ {
+   "level": 993,
+   "salePrice": 15979359600,
+   "value": 496.5,
+   "unitName": "%"
+ },
+ {
+   "level": 994,
+   "salePrice": 16011554400,
+   "value": 497,
+   "unitName": "%"
+ },
+ {
+   "level": 995,
+   "salePrice": 16043781600,
+   "value": 497.5,
+   "unitName": "%"
+ },
+ {
+   "level": 996,
+   "salePrice": 16076041200,
+   "value": 498,
+   "unitName": "%"
+ },
+ {
+   "level": 997,
+   "salePrice": 16108333200,
+   "value": 498.5,
+   "unitName": "%"
+ },
+ {
+   "level": 998,
+   "salePrice": 16140657600,
+   "value": 499,
+   "unitName": "%"
+ },
+ {
+   "level": 999,
+   "salePrice": 16173014400,
+   "value": 499.5,
+   "unitName": "%"
+ },
+ {
+   "level": 1000,
+   "salePrice": 16205403600,
+   "value": 500,
    "unitName": "%"
  }
 ]

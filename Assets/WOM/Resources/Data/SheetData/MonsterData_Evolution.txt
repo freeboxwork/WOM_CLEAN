@@ -1,44 +1,44 @@
 {
   "data": [
-    {
-      "id": 0,
-      "hp": 10000,
-      "imageId": 0,
-      "type": "EVOLUTION",
-      "bgId": 5,
-      "attackType": "TAIL",
-      "grade": "D",
-      "stageName": "진화 1단계"
-    },
-    {
-      "id": 1,
-      "hp": 100000,
-      "imageId": 1,
-      "type": "EVOLUTION",
-      "bgId": 5,
-      "attackType": "TAIL",
-      "grade": "C",
-      "stageName": "진화 2단계"
-    },
-    {
-      "id": 2,
-      "hp": 1000000,
-      "imageId": 2,
-      "type": "EVOLUTION",
-      "bgId": 5,
-      "attackType": "TAIL",
-      "grade": "B",
-      "stageName": "진화 3단계"
-    },
-    {
-      "id": 3,
-      "hp": 10000000,
-      "imageId": 3,
-      "type": "EVOLUTION",
-      "bgId": 5,
-      "attackType": "TAIL",
-      "grade": "A",
-      "stageName": "진화 4단계"
-    }
-  ]
+ {
+   "id": 0,
+   "hp": 516747840,
+   "imageId": 0,
+   "type": "EVOLUTION",
+   "bgId": 5,
+   "attackType": "TAIL",
+   "grade": "D",
+   "stageName": "진화 1단계"
+ },
+ {
+   "id": 1,
+   "hp": 3302346600,
+   "imageId": 1,
+   "type": "EVOLUTION",
+   "bgId": 5,
+   "attackType": "TAIL",
+   "grade": "C",
+   "stageName": "진화 2단계"
+ },
+ {
+   "id": 2,
+   "hp": 20833448818,
+   "imageId": 2,
+   "type": "EVOLUTION",
+   "bgId": 5,
+   "attackType": "TAIL",
+   "grade": "B",
+   "stageName": "진화 3단계"
+ },
+ {
+   "id": 3,
+   "hp": 135665523000,
+   "imageId": 3,
+   "type": "EVOLUTION",
+   "bgId": 5,
+   "attackType": "TAIL",
+   "grade": "A",
+   "stageName": "진화 4단계"
+ }
+]
 }

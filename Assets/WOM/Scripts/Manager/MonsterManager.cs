@@ -32,6 +32,8 @@ public class MonsterManager : MonoBehaviour
         monsters.Add(monsterGold);
         monsters.Add(monsterBoss);
         monsters.Add(monsterEvolution);
+
+
     }
 
     public IEnumerator Init(int stageId)

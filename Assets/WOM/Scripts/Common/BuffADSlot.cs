@@ -46,19 +46,29 @@ public class BuffADSlot : MonoBehaviour
 
     void SetBtnEvent()
     {
-        bntAD.onClick.AddListener(AdCheck);
+        // check tutorial
+        var tutorialAdPass = GlobalData.instance.tutorialManager.isAdPass;
+        if (tutorialAdPass && buffADType == EnumDefinition.RewardTypeAD.adBuffDamage)
+        {
+            BuffTimerStart();
+        }
+        else
+        {
+            bntAD.onClick.AddListener(AdCheck);
+        }
+
+    }
+
+    bool IsTutorial()
+    {
+        var isTuto = GlobalData.instance.tutorialManager.isTutorial;
+        var isSameSet = GlobalData.instance.tutorialManager.curTutorialSetID == 6;
+        return isTuto && isSameSet;
     }
 
     void AdCheck()
     {
-        if (leftCount > 0)
-        {
-            Admob.instance.ShowRewardedAdByType(buffADType);
-        }
-        else
-        {
-            Debug.Log("광고 재생 횟수 초과");
-        }
+        Admob.instance.ShowRewardedAdByType(buffADType);
     }
 
     public void BuffTimerStart()

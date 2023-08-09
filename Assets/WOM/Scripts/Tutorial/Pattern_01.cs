@@ -41,7 +41,7 @@ public class Pattern_01 : PatternBase
                 }
                 else
                 {
-                    var txt = $"남은 곤충 생성 횟 수 <#00AFFF>{targetTouchCount - touchCount}</color>";
+                    var txt = $"화면을 터치하여 곤충을 생성 하세요!\n남은 곤충 생성 횟 수 <#00AFFF>{targetTouchCount - touchCount}</color>";
                     tutorialManager.tutorialUiCont.SetTxtDesc(txt);
                     Debug.Log(" 투토리얼 1 현재 곤충 생성 횟수 : " + touchCount);
                 }

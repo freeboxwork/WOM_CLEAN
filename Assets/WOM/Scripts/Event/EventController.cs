@@ -423,6 +423,9 @@ public class EventController : MonoBehaviour
         // phaseCount 리셋
         PhaseCountReset();
 
+        // 금광보스 카운트 UI 활성
+        globalData.uiController.SetEnablePhaseCountUI(true);
+
         // stage setting - stage manager 스테이지 데이터와 배경 이미지 전환 애니메이션
         yield return StartCoroutine(globalData.stageManager.SetStageById(globalData.player.stageIdx));
 

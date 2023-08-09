@@ -1,3 +1,6 @@
+/// <summary>
+/// is union gambling ? => true : false
+/// </summary>
 using UnityEngine;
 
 public class Pattern_12 : PatternBase
@@ -25,6 +28,7 @@ public class Pattern_12 : PatternBase
         SetGoalData(stepData);
         EnableEvent(true);
         SetUnionGambleingState();
+
     }
 
     public override void ResetGoalData()

@@ -33,6 +33,8 @@ public class TutorialManager : MonoBehaviour
     // 신규 유저 선물 닫기 버튼
     public List<Button> tutoStartBtns = new List<Button>();
 
+    public bool isAdPass = false;
+
     void Start()
     {
         //StartCoroutine(Init());
@@ -102,17 +104,30 @@ public class TutorialManager : MonoBehaviour
                 {
                     setId = data.setId,
                     steps = new List<TutorialStep> { data }
+
+
                 });
             }
             else
             {
                 tutorialStepSetDatas.First(s => s.setId == data.setId).steps.Add(data);
             }
+
+
         }
+
+        foreach (var set in tutorialStepSetDatas)
+        {
+            if (set.setId < curTutorialSetID)
+            {
+                set.isSetComplete = true;
+            }
+        }
+
     }
 
 
-    TutorialStepSetData GetTutorialSetById(int setID)
+    public TutorialStepSetData GetTutorialSetById(int setID)
     {
         var set = tutorialStepSetDatas.FirstOrDefault(f => f.setId == setID);
         if (set == null)
@@ -121,6 +136,7 @@ public class TutorialManager : MonoBehaviour
         }
         return tutorialStepSetDatas.FirstOrDefault(f => f.setId == setID);
     }
+
 
 
     public void EnableTutorialSet()
@@ -191,6 +207,7 @@ public class TutorialManager : MonoBehaviour
             }
             else
             {
+                isTutorial = false;
                 Debug.Log("투토리얼 종료");
             }
 

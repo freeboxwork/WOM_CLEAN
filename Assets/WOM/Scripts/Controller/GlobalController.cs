@@ -167,6 +167,12 @@ public class GlobalController : MonoBehaviour
         // 곤충 스폰 활성화 -> tutorial pattenr 10 에서 활성화
         if (tutorialManager.isTutorial == false)
             insectSpwanManager.AllTimerStart();
+        else if (tutorialManager.GetTutorialSetById(5).isSetComplete)
+        {
+            // 투토리얼 5번 세트 완료시 곤충 스폰 활성화
+            insectSpwanManager.AllTimerStart();
+        }
+
 
         // 버튼 가능 상태로 전환
         UtilityMethod.EnableUIEventSystem(true);

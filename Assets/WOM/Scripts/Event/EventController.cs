@@ -113,36 +113,88 @@ public class EventController : MonoBehaviour
         // ENABLE Floting Text Effect 
         globalData.effectManager.EnableFloatingText((float)damage, tr);
 
-        // GET MONSTER
-        var currentMonster = globalData.player.currentMonster;
+        var monsterType = GlobalData.instance.player.curMonsterType;
 
-
-        // set monster damage
-        currentMonster.hp -= damage;
-
-        // monster hit animation 
-        currentMonster.inOutAnimator.monsterAnim.SetBool("Hit", true);
-
-        // monster hit shader effect
-        currentMonster.inOutAnimator.MonsterHitAnim();
-
-
-
-        // 몬스터 제거시 ( hp 로 판단 )
-        if (IsMonseterKill(currentMonster.hp))
+        // BOSS MONSTER //
+        if (monsterType != EnumDefinition.MonsterType.dungeon)
         {
-            StartCoroutine(MonsterKill(currentMonster));
+            // GET MONSTER
+            var currentMonster = globalData.player.currentMonster;
+
+
+            // set monster damage
+            currentMonster.hp -= damage;
+
+            // monster hit animation 
+            currentMonster.inOutAnimator.monsterAnim.SetBool("Hit", true);
+
+            // monster hit shader effect
+            currentMonster.inOutAnimator.MonsterHitAnim();
+
+
+
+            // 몬스터 제거시 ( hp 로 판단 )
+            if (IsMonseterKill(currentMonster.hp))
+            {
+                StartCoroutine(MonsterKill(currentMonster));
+            }
+            // 몬스터 단순 피격시
+            else
+            {
+                // 몬스터 hp text
+                globalData.uiController.SetTxtMonsterHp(currentMonster.hp);
+
+                // 몬스터 hp slider
+                globalData.uiController.SetSliderMonsterHp(currentMonster.hp);
+
+            }
+
         }
-        // 몬스터 단순 피격시
-        else
+        else // dungeon monster
         {
+            DungeonMonster currentMonster = globalData.monsterManager.GetMonsterDungeon();
+
+            var curDamage = damage * (1 + globalData.statManager.BossDamage() * 0.01f);
+
+            // 사용 확인 필요
+            /*
+            if (IsBossOrEvolutionMonster())
+                curDamage = damage * (1 + globalData.statManager.BossDamage());
+            */
+
+            // set monster damage
+            currentMonster.curData.monsterHP -= curDamage;
+
+            // monster hit animation 
+            currentMonster.inOutAnimator.monsterAnim.SetBool("Hit", true);
+
+            // monster hit shader effect
+            currentMonster.inOutAnimator.MonsterHitAnim();
+
+            // 레벨 클리어 ( hp 로 판단 )
+            if (IsMonseterKill(currentMonster.curData.monsterHP))
+            {
+                // set next level
+                currentMonster.SetNextLevelData();
+
+                // level setting
+                var level = currentMonster.curData.level;
+                UtilityMethod.SetTxtCustomTypeByID(107, $"{level}");
+
+                // Set Stage Name
+                var stageName = currentMonster.stageName;
+                GlobalData.instance.stageNameSetManager.SetTxtStageName(EnumDefinition.StageNameType.dungeon, stageName);
+
+
+            }
+
             // 몬스터 hp text
-            globalData.uiController.SetTxtMonsterHp(currentMonster.hp);
-
+            globalData.uiController.SetTxtMonsterHp(currentMonster.curData.monsterHP);
             // 몬스터 hp slider
-            globalData.uiController.SetSliderMonsterHp(currentMonster.hp);
+            globalData.uiController.SetSliderDungeonMonsterHP(currentMonster.curData.monsterHP);
 
         }
+
     }
 
 
@@ -156,6 +208,8 @@ public class EventController : MonoBehaviour
 
         // ENABLE Floting Text Effect 
         globalData.effectManager.EnableFloatingText(damage, isCritical, tr);
+
+
 
         // GET MONSTER
         DungeonMonster currentMonster = globalData.monsterManager.GetMonsterDungeon();
@@ -393,6 +447,9 @@ public class EventController : MonoBehaviour
 
         // side menu show
         SideUIMenuHide(false);
+
+        //하단 메인 메뉴 활성화
+        globalData.uiController.MainMenuShow();
 
         // 타이머 종료
         globalData.bossChallengeTimer.StopAllCoroutines();
@@ -888,6 +945,9 @@ public class EventController : MonoBehaviour
         // side menu hide
         SideUIMenuHide(true);
 
+        //하단 메인 메뉴 비활성화
+        globalData.uiController.MainMenuHide();
+
         // 하프 라인 위 곤충 모두 제거
         globalData.insectManager.DisableHalfLineInsects();
 
@@ -936,6 +996,9 @@ public class EventController : MonoBehaviour
 
         // side menu show
         SideUIMenuHide(false);
+
+        //하단 메인 메뉴 활성화
+        globalData.uiController.MainMenuShow();
 
         // 하프 라인 위 곤충 모두 제거
         globalData.insectManager.DisableHalfLineInsects();
@@ -1225,6 +1288,9 @@ public class EventController : MonoBehaviour
 
         // side menu show
         SideUIMenuHide(false);
+
+        //하단 메인 메뉴 활성화
+        globalData.uiController.MainMenuShow();
 
         // 공격 불가능 상태로 전환
         globalData.attackController.SetAttackableState(false);

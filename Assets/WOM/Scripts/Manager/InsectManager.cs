@@ -324,24 +324,51 @@ public class InsectManager : MonoBehaviour
     // pooling system
     public void EnableBullet(EnumDefinition.InsectType insectType, Vector2 targetPos)
     {
+        // var bullets = GetBulletsByInsectType(insectType);
+        // var bullet = bullets.FirstOrDefault(f => !f.gameObject.activeSelf);
+        // if (bullet != null)
+        // {
+
+
+        //     SetOrderInLayerID(insectType, bullet);
+        //     bullet.transform.position = targetPos;
+        //     bullet.gameObject.SetActive(true);
+        //     AddEnableInsects(bullet);
+
+        //     // SKILL EFFECT
+        //     if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.insectDamageUp))
+        //         bullet.effectContoller.AuraEffect(true);
+        //     if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.unionDamageUp))
+        //         bullet.effectContoller.FireEffect(true);
+        //     if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.allUnitSpeedUp))
+        //         bullet.effectContoller.TrailEffect(true);
+        //     if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.glodBonusUp))
+        //         bullet.effectContoller.GoldEffect(true);
+        //     if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.allUnitCriticalChanceUp))
+        //         bullet.effectContoller.ThunderEffect(true);
+
+        // }
+        // else
+        // {
+        //     //TODO 모든 오브젝트 ENABLE 상태일때 새로운 BULLET 추가 
+
+        // }
+
+        StartCoroutine(EnableBulletCor(insectType, targetPos));
+    }
+
+    IEnumerator EnableBulletCor(EnumDefinition.InsectType insectType, Vector2 targetPos)
+    {
         var bullets = GetBulletsByInsectType(insectType);
         var bullet = bullets.FirstOrDefault(f => !f.gameObject.activeSelf);
         if (bullet != null)
         {
-            // if (insectType == EnumDefinition.InsectType.beetle)
-            // {
-            //     bullet.spriteRenderer.sortingOrder = beetleOrderInLayerID;
-            //     beetleOrderInLayerID++;
-            //     if (beetleOrderInLayerID > 9)
-            //     {
-            //         beetleOrderInLayerID = 0;
-            //     }
-            // }
-
             SetOrderInLayerID(insectType, bullet);
             bullet.transform.position = targetPos;
             bullet.gameObject.SetActive(true);
             AddEnableInsects(bullet);
+
+            yield return new WaitForEndOfFrame();
 
             // SKILL EFFECT
             if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.insectDamageUp))
@@ -361,6 +388,8 @@ public class InsectManager : MonoBehaviour
             //TODO 모든 오브젝트 ENABLE 상태일때 새로운 BULLET 추가 
 
         }
+
+        yield return null;
     }
 
     void SetOrderInLayerID(EnumDefinition.InsectType insectType, InsectBullet bullet)

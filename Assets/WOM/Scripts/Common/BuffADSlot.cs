@@ -50,13 +50,12 @@ public class BuffADSlot : MonoBehaviour
         var tutorialAdPass = GlobalData.instance.tutorialManager.isAdPass;
         if (tutorialAdPass && buffADType == EnumDefinition.RewardTypeAD.adBuffDamage)
         {
-            BuffTimerStart();
+            bntAD.onClick.AddListener(BuffTimerStart);
         }
         else
         {
             bntAD.onClick.AddListener(AdCheck);
         }
-
     }
 
     bool IsTutorial()

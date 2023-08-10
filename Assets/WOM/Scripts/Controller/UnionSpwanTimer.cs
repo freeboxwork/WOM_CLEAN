@@ -62,7 +62,21 @@ public class UnionSpwanTimer : MonoBehaviour
 
             // enable insect
             union.gameObject.SetActive(true);
+            GlobalData.instance.insectManager.AddEnableInsects(union);
 
+            // skill effect
+            yield return new WaitForEndOfFrame();
+
+            if (GlobalData.instance.skillManager.IsUsingSkillByType(EnumDefinition.SkillType.insectDamageUp))
+                union.effectContoller.AuraEffect(true);
+            if (GlobalData.instance.skillManager.IsUsingSkillByType(EnumDefinition.SkillType.unionDamageUp))
+                union.effectContoller.FireEffect(true);
+            if (GlobalData.instance.skillManager.IsUsingSkillByType(EnumDefinition.SkillType.allUnitSpeedUp))
+                union.effectContoller.TrailEffect(true);
+            if (GlobalData.instance.skillManager.IsUsingSkillByType(EnumDefinition.SkillType.glodBonusUp))
+                union.effectContoller.GoldEffect(true);
+            if (GlobalData.instance.skillManager.IsUsingSkillByType(EnumDefinition.SkillType.allUnitCriticalChanceUp))
+                union.effectContoller.ThunderEffect(true);
             // Debug.Log($"타이머 인덱스 : {timerIndex} _ 스폰 유니온 : {sprite[0].name} _ 스폰 타임 : {spwanTime}");
 
 

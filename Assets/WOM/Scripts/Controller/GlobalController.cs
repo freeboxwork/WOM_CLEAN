@@ -161,8 +161,6 @@ public class GlobalController : MonoBehaviour
         // 투토리얼 초기화
         yield return StartCoroutine(tutorialManager.Init());
 
-        // 공격 가능 상태로 전환
-        attackController.SetAttackableState(true);
 
         // 곤충 스폰 활성화 -> tutorial pattenr 10 에서 활성화
         if (tutorialManager.isTutorial == false)
@@ -173,6 +171,9 @@ public class GlobalController : MonoBehaviour
             insectSpwanManager.AllTimerStart();
         }
 
+
+        // 공격 가능 상태로 전환
+        attackController.SetAttackableState(true);
 
         // 버튼 가능 상태로 전환
         UtilityMethod.EnableUIEventSystem(true);

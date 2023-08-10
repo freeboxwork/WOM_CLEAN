@@ -45,6 +45,7 @@ public class InsectSpwanTimer : MonoBehaviour
                 insect.gameObject.SetActive(true);
                 GlobalData.instance.insectManager.AddEnableInsects(insect);
 
+                yield return new WaitForEndOfFrame();
 
                 if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.insectDamageUp))
                     insect.effectContoller.AuraEffect(true);

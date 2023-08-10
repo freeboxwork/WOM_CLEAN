@@ -166,10 +166,10 @@ public class SaveDataManager : MonoBehaviour
         saveDataTotal.saveDataGoods.dungeonKeyADCoal = 2;
 
         saveDataTotal.saveDataDungeonLevel = new SaveDataDungeonLevel();
-        saveDataTotal.saveDataDungeonLevel.dungeonLvGold = 1;
-        saveDataTotal.saveDataDungeonLevel.dungeonLvBone = 1;
-        saveDataTotal.saveDataDungeonLevel.dungeonLvDice = 1;
-        saveDataTotal.saveDataDungeonLevel.dungeonLvCoal = 1;
+        saveDataTotal.saveDataDungeonLevel.dungeonLvGold = 0;
+        saveDataTotal.saveDataDungeonLevel.dungeonLvBone = 0;
+        saveDataTotal.saveDataDungeonLevel.dungeonLvDice = 0;
+        saveDataTotal.saveDataDungeonLevel.dungeonLvCoal = 0;
 
         saveDataTotal.saveDataLabBuildingData = new SaveDataLabBuildingData();
         var zeroLevelPrice = globalData.dataManager.GetLabBuildingDataByLevel(0).price;
@@ -824,10 +824,10 @@ public class SaveDataSkill
 [System.Serializable]
 public class SaveDataDungeonLevel
 {
-    public int dungeonLvGold = 1;
-    public int dungeonLvBone = 1;
-    public int dungeonLvDice = 1;
-    public int dungeonLvCoal = 1;
+    public int dungeonLvGold = 0;
+    public int dungeonLvBone = 0;
+    public int dungeonLvDice = 0;
+    public int dungeonLvCoal = 0;
 }
 
 [System.Serializable]

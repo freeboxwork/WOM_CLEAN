@@ -529,10 +529,10 @@ public class Player : MonoBehaviour
 [System.Serializable]
 public class DungeonMonsterClearLevel
 {
-    public int goldLv = 1;
-    public int boneLv = 1;
-    public int diceLv = 1;
-    public int coalLv = 1;
+    public int goldLv = 0;
+    public int boneLv = 0;
+    public int diceLv = 0;
+    public int coalLv = 0;
 
     public void SetLevelGold(int level)
     {

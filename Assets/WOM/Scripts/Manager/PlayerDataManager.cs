@@ -119,10 +119,10 @@ public class PlayerDataManager : MonoBehaviour
             saveData.dungeonKeyADDice = 2;
             saveData.dungeonKeyADCoal = 2;
 
-            saveData.dungeonLvGold = 1;
-            saveData.dungeonLvBone = 1;
-            saveData.dungeonLvDice = 1;
-            saveData.dungeonLvCoal = 1;
+            saveData.dungeonLvGold = 0;
+            saveData.dungeonLvBone = 0;
+            saveData.dungeonLvDice = 0;
+            saveData.dungeonLvCoal = 0;
 
             // set insect save data
             saveData.beeSaveData = GetFirstConnectInsectData(EnumDefinition.InsectType.bee);

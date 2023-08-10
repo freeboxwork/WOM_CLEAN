@@ -561,8 +561,8 @@ public class MineAndFactoryBuildingData
 public class CampBuildingData
 {
     public int level;
-    public int upgradeCount;
-    public string reward;
+    public int count;
+    public int rewardUnionIndex;
 }
 
 [Serializable]

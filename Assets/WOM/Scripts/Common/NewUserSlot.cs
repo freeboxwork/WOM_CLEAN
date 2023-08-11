@@ -21,8 +21,9 @@ public class NewUserSlot : MonoBehaviour
     public void SetUI(NewUserData data, int unlockCount)
     {
         newUserData = data;
-        var icons = new Sprite[] { GetRewardIcon(newUserData.rewardType_1), GetRewardIcon(newUserData.rewardType_2), GetRewardIcon(newUserData.rewardType_3) };
         var values = new int[] { newUserData.rewardValue_1, newUserData.rewardValue_2, newUserData.rewardValue_3 };
+        var icons = new Sprite[] { GetRewardIcon(newUserData.rewardType_1, values[0]), GetRewardIcon(newUserData.rewardType_2, values[1]), GetRewardIcon(newUserData.rewardType_3, values[2]) };
+
 
 
         var isLock = data.id > unlockCount;
@@ -57,9 +58,9 @@ public class NewUserSlot : MonoBehaviour
     }
 
 
-    Sprite GetRewardIcon(string name)
+    Sprite GetRewardIcon(string name, int value)
     {
-        var icon = GlobalData.instance.spriteDataManager.GetRewardIcon(UtilityMethod.GetRewardTypeByTypeName(name));
+        var icon = GlobalData.instance.spriteDataManager.GetRewardIcon(UtilityMethod.GetRewardTypeByTypeName(name), value);
 
         //Debug.Log($"name : {name} , icon : {icon} ");
 

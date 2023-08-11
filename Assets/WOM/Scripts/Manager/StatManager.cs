@@ -182,7 +182,7 @@ public class StatManager : MonoBehaviour
         var value = ums + dms + skill_AllUnitSpeedUp;
         // ad buff 적용 ( speed )
         var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffSpeed).addValue;
-        Debug.Log($"유니온 이동속도 : 기본:{ums}//DNA:{dms}  = 합계 : {value} BUFF:{(float)(value * buffValue)}");
+        //Debug.Log($"유니온 이동속도 : 기본:{ums}//DNA:{dms}  = 합계 : {value} BUFF:{(float)(value * buffValue)}");
 
         return (float)(value * buffValue);
     }

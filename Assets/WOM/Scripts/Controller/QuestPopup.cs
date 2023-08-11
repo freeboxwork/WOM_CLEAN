@@ -99,7 +99,8 @@ public class QuestPopup : MonoBehaviour
         slot.SetTxtPassRewardValue(data.passRewardCount.ToString());
         slot.battlePassData = data;
 
-        var rewardIcon = GlobalData.instance.spriteDataManager.GetRewardIcon(UtilityMethod.GetRewardTypeByTypeName(data.rewardType));
+        var rewardIconType = UtilityMethod.GetRewardTypeByTypeName(data.passRewardType);
+        var rewardIcon = GlobalData.instance.spriteDataManager.GetRewardIcon(rewardIconType);
         slot.SetRewardIcon(rewardIcon);
         slot.SetPassRewardIcon(rewardIcon);
 

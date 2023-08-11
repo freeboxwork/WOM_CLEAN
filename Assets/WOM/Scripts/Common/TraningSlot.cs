@@ -54,6 +54,12 @@ public class TraningSlot : MonoBehaviour
             txtCost.text = value;
     }
 
+    public void BuyEvent()
+    {
+        GlobalData.instance.saleManager.AddData(new SaleStatMsgData(statType));
+        effLevelUp.Play();
+    }
+
     public void SetBtnEvent()
     {
         btnBuy.onClick.AddListener(() =>

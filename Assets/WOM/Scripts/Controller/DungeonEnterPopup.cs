@@ -143,6 +143,8 @@ public class DungeonEnterPopup : MonoBehaviour
         SetKeyUI(monsterType);
         SetRewardUI(curLevel, curDungeonMonData, monsterType);
 
+        Debug.Log($"curLevel : {curLevel}, curDungeonMonData : {curDungeonMonData}");
+        btn_Ticket_Dungeon.interactable = curLevel > 0;
         contents.SetActive(true);
     }
 

@@ -50,6 +50,7 @@ public class UiController : MonoBehaviour
 
     public List<ButtonInteractableCheck> btnInteractableCheckList = new List<ButtonInteractableCheck>();
 
+    public List<GameObject> disablePopups = new List<GameObject>();
 
     void Start()
     {
@@ -86,6 +87,23 @@ public class UiController : MonoBehaviour
         GetMainPannelsScrollViewPosY();
 
         yield return null;
+
+    }
+
+    // 투토리얼 진행시 UI 초기화
+    public void AllDisableUI()
+    {
+        // Disable main menu
+        if (curMenuPanelType != MenuPanelType.none)
+        {
+            EnableMenuPanel(curMenuPanelType);
+            EnableMainMenuCloseBtn(false);
+        }
+        // disable popup object
+        foreach (var popup in disablePopups)
+        {
+            popup.SetActive(false);
+        }
 
     }
 
@@ -484,6 +502,10 @@ public class UiController : MonoBehaviour
                 }
 
                 Debug.Log("EnableMenuPanel : " + type + " / " + enableValue);
+                if (enableValue == false)
+                {
+                    curMenuPanelType = MenuPanelType.none;
+                }
             }
             else
             {

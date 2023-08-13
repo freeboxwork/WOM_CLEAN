@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 
@@ -13,7 +11,7 @@ public class IntroTimeLineController : MonoBehaviour
     [Range(0.0f, 2.0f)]
     public float deleyTime = 0.8f;
     private bool dontTouch = false;
-    
+
     private void OnEnable()
     {
         director.initialTime = cutFrames[currentTimeIndex = 0];
@@ -21,9 +19,13 @@ public class IntroTimeLineController : MonoBehaviour
     }
 
     float t = 0.0f;
+    bool endTime = false;
+
+    public IntroManager introManager;
+
     void Update()
     {
-        if (!dontTouch && currentTimeIndex != (cutFrames.Length-1))
+        if (!dontTouch && currentTimeIndex != (cutFrames.Length - 1))
         {
             if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.P))
             {
@@ -44,12 +46,20 @@ public class IntroTimeLineController : MonoBehaviour
         else
         {
             t += Time.deltaTime;
-            if(t >= deleyTime)
+            if (t >= deleyTime)
             {
                 t = 0.0f;
                 dontTouch = false;
             }
         }
+
+        if (director.time > 18 && !endTime)
+        {
+            endTime = true;
+            introManager.GoogleLogin();
+        }
+
+
     }
 
     public void OnMarkableIntroSignal()
@@ -62,6 +72,14 @@ public class IntroTimeLineController : MonoBehaviour
     private void OnDisable()
     {
         currentTimeIndex = 0;
-        director.Stop();    
+        director.Stop();
+    }
+
+
+
+    public void SkipIntro()
+    {
+        director.time = cutFrames[6];
+        director.Evaluate();
     }
 }

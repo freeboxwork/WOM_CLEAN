@@ -378,7 +378,7 @@ public class StatManager : MonoBehaviour
         }
 
         data.isSkilUsing = false;
-        skill_UnionDamageUp = 0;
+        skill_AllUnitSpeedUp = 0;
 
         // set save data
         // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);

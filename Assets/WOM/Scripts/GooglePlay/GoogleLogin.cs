@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using GooglePlayGames;
@@ -24,12 +22,12 @@ public class GoogleLogin : MonoBehaviour
         btnLogIn.onClick.AddListener(LogIn);
         btnLogOut.onClick.AddListener(LogOut);
     }
-    
 
-    void LogIn()
+
+    public void LogIn()
     {
-        Debug.Log("ï¿½Î±ï¿½ï¿½ï¿½ ï¿½Ãµï¿½");
-        //ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ÈµÇ¾ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        Debug.Log("?¥á??? ???");
+        //?¥á????? ???? ??????
         if (!Social.localUser.authenticated)
         {
 
@@ -37,23 +35,23 @@ public class GoogleLogin : MonoBehaviour
             {
                 if (isSuccess)
                 {
-                    Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+                    Debug.Log("???? ?¥á??? ????");
                     SceneManager.LoadScene("Main");
                 }
                 else
                 {
-                    Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
+                    Debug.Log("???? ?¥á??? ????");
 
                 }
             });
 
         }
-        
+
     }
 
     void LogOut()
     {
         ((PlayGamesPlatform)Social.Active).SignOut();
-        Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½Î±×¾Æ¿ï¿½"); 
+        Debug.Log("???? ?¥á???");
     }
 }

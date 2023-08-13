@@ -105,7 +105,8 @@ public class TutorialUiController : MonoBehaviour
 
     public void SetMaskParentImgRaycastTarget(bool value)
     {
-        imgMaskParent.raycastTarget = value;
+        GlobalData.instance.attackController.SetAttackableState(value);
+        //imgMaskParent.raycastTarget = value;
     }
 
 

@@ -615,8 +615,11 @@ public class SaveDataManager : MonoBehaviour
     // SaveData Remove UnionRewardId
     public void SaveDataRemoveUnionRewardId(int id)
     {
-        saveDataTotal.saveDataUnionSummonGrade.rewaedUnionIds.Remove(id);
+        //saveDataTotal.saveDataUnionSummonGrade.rewaedUnionIds.Remove(id);
+        saveDataTotal.saveDataUnionSummonGrade.rewaedUnionIds_Remove.Add(id);
     }
+
+
 
     // save left time buff ad 
     public void SetSaveDataBuffAD_LeftTime(EnumDefinition.RewardTypeAD buffADType, float leftTime)
@@ -904,6 +907,7 @@ public class SaveDataUnionSummonGrade
     public int summonGradeLevel = 0;
     public int totalGambleCount = 0;
     public List<int> rewaedUnionIds = new List<int>();
+    public List<int> rewaedUnionIds_Remove = new List<int>();
 }
 
 

@@ -112,10 +112,12 @@ public class LotteryManager : MonoBehaviour
         //획득할 유니온 저장
         if (curSummonGradeData.rewardUnionIndex > 0)
         {
-            GlobalData.instance.rewardManager.AddUnionReward(curSummonGradeData.rewardUnionIndex);
+            var index = curSummonGradeData.rewardUnionIndex;
+            if (!GlobalData.instance.saveDataManager.saveDataTotal.saveDataUnionSummonGrade.rewaedUnionIds_Remove.Contains(index))
+                GlobalData.instance.rewardManager.AddUnionReward(curSummonGradeData.rewardUnionIndex);
+
             var campPopup = (CampPopup)GlobalData.instance.castleManager.GetCastlePopupByType(EnumDefinition.CastlePopupType.camp);
             campPopup.SetTxtGradeLevel(curSummonGradeData.level);
-
         }
 
     }

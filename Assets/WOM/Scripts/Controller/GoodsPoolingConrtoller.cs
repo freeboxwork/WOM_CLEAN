@@ -39,23 +39,32 @@ public class GoodsPoolingConrtoller : MonoBehaviour
 
     public IEnumerator EnableGoldEffects(int enableCount)
     {
+
         StopAllCoroutines();
+
         yield return new WaitForEndOfFrame();
+
         for (int i = 0; i < enableCount; i++)
         {
             var gold = GetDisableGold();
+
             if (gold != null)
             {
                 gold.gameObject.SetActive(true);
+
                 gold.GoldInAnimStart();
+
                 enableGoldAnimConts.Add(gold);
+
                 yield return new WaitForSeconds(0.01f);
             }
             else
             {
                 Debug.Log(goodsType + " Pool 이 비어 있습니다.");
             }
+
         }
+
     }
 
     public IEnumerator DisableGoldEffects()
@@ -86,6 +95,5 @@ public class GoodsPoolingConrtoller : MonoBehaviour
         else return null;
         //return goldAnimConts.FirstOrDefault(f => !f.gameObject.activeSelf);
     }
-
 
 }

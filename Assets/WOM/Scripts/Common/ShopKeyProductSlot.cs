@@ -11,7 +11,7 @@ public class ShopKeyProductSlot : MonoBehaviour
     // 구매 가능한 키 수
     int leftKeyCount;
 
-    int maxKeyCount = 2;
+    int maxKeyCount = 1;
 
     public long price;
 
@@ -31,8 +31,9 @@ public class ShopKeyProductSlot : MonoBehaviour
         if (PlayerPrefs.HasKey(keyName))
         {
             leftKeyCount = PlayerPrefs.GetInt(keyName);
-            if (leftKeyCount == 0)
+            if (leftKeyCount <= 0)
             {
+                leftKeyCount = 0;
                 btnBuy.interactable = false;
             }
         }

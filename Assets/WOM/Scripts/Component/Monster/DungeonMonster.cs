@@ -9,7 +9,7 @@ public class DungeonMonster : DungeonMonsterBase
     [HideInInspector]
     public DungenMonsterFileData curMonsterData;
 
-    public int curLevel = 1;
+    public int curLevel = 0;
     public double curMonsterHP;
     public string stageName;
     public DungeonMonsterData curData;
@@ -42,6 +42,7 @@ public class DungeonMonster : DungeonMonsterBase
         // SET TYPE
         SetMonsterType(monsterType);
 
+        Debug.Log(curLevel);
         // SET DATA
         curData = GlobalData.instance.dataManager.GetDungeonMonsterDataByTypeLevel(monsterType, curLevel).CloneInstance();
 
@@ -88,7 +89,7 @@ public class DungeonMonster : DungeonMonsterBase
 
     public void DungeonMonsterOut()
     {
-        curLevel = 1;
+        curLevel = 0;
         curData = GlobalData.instance.dataManager.GetDungeonMonsterDataByTypeLevel(curMonsterData.monsterType, curLevel).CloneInstance();
         stageName = curData.stageName;
     }

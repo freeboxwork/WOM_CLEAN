@@ -23,6 +23,8 @@ public class GoldAnimController : MonoBehaviour
     Vector2 pos_targetPoint;
     float rot_randomValue;
 
+    public bool IsFinishAnim;
+
     // 재화 타입
     public EnumDefinition.GoodsType goodsType;
 
@@ -128,7 +130,6 @@ public class GoldAnimController : MonoBehaviour
         goalEvent.Invoke();
 
         yield return new WaitForEndOfFrame();
-        
         gameObject.SetActive(false);
     }
 

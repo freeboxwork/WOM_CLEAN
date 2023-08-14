@@ -17,8 +17,10 @@ public enum ProductTYPE
     vipgem4,
     starterrpackage,
     adbuffpass,
-    fastestpackage,
-    dungeonpackage
+    dungeonpackage,
+    battlepass,
+    fastestpackage
+
 }
 
 
@@ -33,11 +35,6 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
     {
         // Unity IAP 초기화
         InitializePurchasing();
-
-        productButtons[(int)ProductTYPE.dungeonpackage].onClick.AddListener(() =>
-        {
-            storeController.InitiatePurchase(ProductTYPE.dungeonpackage.ToString());
-        });
         productButtons[(int)ProductTYPE.starterrpackage].onClick.AddListener(() =>
         {
             storeController.InitiatePurchase(ProductTYPE.starterrpackage.ToString());
@@ -46,10 +43,20 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
         {
             storeController.InitiatePurchase(ProductTYPE.adbuffpass.ToString());
         });
+
+        productButtons[(int)ProductTYPE.dungeonpackage].onClick.AddListener(() =>
+        {
+            storeController.InitiatePurchase(ProductTYPE.dungeonpackage.ToString());
+        });
+        productButtons[(int)ProductTYPE.battlepass].onClick.AddListener(() =>
+        {
+            storeController.InitiatePurchase(ProductTYPE.battlepass.ToString());
+        });
         productButtons[(int)ProductTYPE.fastestpackage].onClick.AddListener(() =>
         {
             storeController.InitiatePurchase(ProductTYPE.fastestpackage.ToString());
         });
+
         productButtons[(int)ProductTYPE.commongem1].onClick.AddListener(() =>
         {
             storeController.InitiatePurchase(ProductTYPE.commongem1.ToString());
@@ -66,6 +73,7 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
         {
             storeController.InitiatePurchase(ProductTYPE.commongem4.ToString());
         });
+        
         productButtons[(int)ProductTYPE.vipgem1].onClick.AddListener(() =>
         {
             storeController.InitiatePurchase(ProductTYPE.vipgem1.ToString());
@@ -108,6 +116,7 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
         builder.AddProduct(ProductTYPE.adbuffpass.ToString(), ProductType.NonConsumable);
         builder.AddProduct(ProductTYPE.fastestpackage.ToString(), ProductType.NonConsumable);
         builder.AddProduct(ProductTYPE.dungeonpackage.ToString(), ProductType.NonConsumable);
+        builder.AddProduct(ProductTYPE.battlepass.ToString(), ProductType.NonConsumable);
 
         // Unity IAP 초기화
         UnityPurchasing.Initialize(this, builder);
@@ -233,7 +242,14 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
             Debug.Log("던전 패키지 구매 성공");
             //던전키4종 10개씩 소탕권2개 지급
         }
-
+        else if (args.purchasedProduct.definition.id == ProductTYPE.battlepass.ToString())
+        {
+            var rewardTypes = new EnumDefinition.RewardType[] {EnumDefinition.RewardType.gem};
+            var rewardValues = new long[] {1000};
+            PopupController.instance.InitPopups(rewardTypes, rewardValues);
+            Debug.Log("배틀 패스 패키지 구매 성공");
+           
+        }
 
 
         // 구매 완료 처리

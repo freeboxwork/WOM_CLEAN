@@ -208,7 +208,6 @@ public class EffectManager : MonoBehaviour
         // flotingTxt.gameObject.SetActive(true);
         // flotingTxt.SetText(damage.ToString(), isCritical);
         DamageNumber damageNumber = numberPrefab.Spawn(tr.position, damage);
-
     }
 
     public void EnableFloatingText(float damage, Transform tr)
@@ -218,6 +217,7 @@ public class EffectManager : MonoBehaviour
         // flotingTxt.gameObject.SetActive(true);
         // flotingTxt.SetText(damage.ToString(), isCritical);
         DamageNumber damageNumber = numberPrefab.Spawn(tr.position, damage);
+        damageNumber.SetScale(0.5f);
 
     }
 
@@ -228,6 +228,8 @@ public class EffectManager : MonoBehaviour
         // flotingTxt.gameObject.SetActive(true);
         // flotingTxt.SetText(damage.ToString(), isCritical);
         DamageNumber damageNumber = numberPrefab.Spawn(tr.position, (float)damage);
+           damageNumber.SetScale(1f);
+
     }
 
     // 플로팅 텍스트 Pool

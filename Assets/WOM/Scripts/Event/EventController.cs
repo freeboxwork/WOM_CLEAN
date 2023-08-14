@@ -267,50 +267,7 @@ public class EventController : MonoBehaviour
         yield return null;
 
 
-        //금광 보스 인지 체크
-        if (currentMonster.monsterType == MonsterType.gold)
-        {
-            //금광 몬스터 2배 받을 확률 가져오기
-            float pbb = (float)globalData.statManager.GoldMonsterBonus();
-            //확률 계산
-            float ran = Random.Range(0f, 100f);
-
-            if (ran <= pbb)
-            {
-                //2배 보상
-                currentMonster.gold = currentMonster.gold * 2;
-                // GOLD 획득 이미지도 2배로 뿌려줍니다
-                StartCoroutine(globalData.effectManager.goldPoolingCont.EnableGoldEffects(currentMonster.goldCount * 2));
-            }
-            else
-            {
-                // GOLD 획득 애니메이션
-                StartCoroutine(globalData.effectManager.goldPoolingCont.EnableGoldEffects(currentMonster.goldCount));
-            }
-        }
-        else
-        {
-            // GOLD 획득 애니메이션
-            StartCoroutine(globalData.effectManager.goldPoolingCont.EnableGoldEffects(currentMonster.goldCount));
-        }
-
-
-        // 골드 획득
-        GainGold(currentMonster);
-
-        // tutorial event ( 몬스터 골드 드랍 획득 )
-        EventManager.instance.RunEvent(CallBackEventType.TYPES.OnTutorialAddGold);
-
-
-        // 보스일경우 뼈조각 추가 획득
-        if (currentMonster.monsterType == MonsterType.boss)
-        {
-            StartCoroutine(globalData.effectManager.bonePoolingCont.EnableGoldEffects(currentMonster.boneCount));
-            // 뼈 조각 획득
-            GainBone(currentMonster);
-
-
-        }
+        
 
         // hp text 0으로 표시
         globalData.uiController.SetTxtMonsterHp(0);
@@ -329,6 +286,55 @@ public class EventController : MonoBehaviour
 
         // sfx monster die
         globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.BossDie);
+
+
+
+        //금광 보스 인지 체크
+        if (currentMonster.monsterType == MonsterType.gold)
+        {
+            //금광 몬스터 2배 받을 확률 가져오기
+            float pbb = (float)globalData.statManager.GoldMonsterBonus();
+            //확률 계산
+            float ran = Random.Range(0f, 100f);
+
+            if (ran <= pbb)
+            {
+                //2배 보상
+                currentMonster.gold = currentMonster.gold * 2;
+                // GOLD 획득 이미지도 2배로 뿌려줍니다
+                yield return StartCoroutine(globalData.effectManager.goldPoolingCont.EnableGoldEffects(currentMonster.goldCount * 2));
+            }
+            else
+            {
+                // GOLD 획득 애니메이션
+                yield return StartCoroutine(globalData.effectManager.goldPoolingCont.EnableGoldEffects(currentMonster.goldCount));
+            }
+        }
+        else
+        {
+            // GOLD 획득 애니메이션
+            yield return StartCoroutine(globalData.effectManager.goldPoolingCont.EnableGoldEffects(currentMonster.goldCount));
+        }
+
+
+        // 골드 획득
+        GainGold(currentMonster);
+
+        // tutorial event ( 몬스터 골드 드랍 획득 )
+        EventManager.instance.RunEvent(CallBackEventType.TYPES.OnTutorialAddGold);
+
+
+        // 보스일경우 뼈조각 추가 획득
+        if (currentMonster.monsterType == MonsterType.boss)
+        {
+            yield return StartCoroutine(globalData.effectManager.bonePoolingCont.EnableGoldEffects(currentMonster.boneCount));
+            // 뼈 조각 획득
+            GainBone(currentMonster);
+        }
+
+
+
+
 
         // monster kill animation 사망 애니메이션 대기
         yield return StartCoroutine(currentMonster.inOutAnimator.MonsterKillMatAnim());
@@ -355,6 +361,10 @@ public class EventController : MonoBehaviour
 
         isMonsterDie = false;
     }
+
+
+
+
 
     void GainGold(MonsterBase monster)
     {

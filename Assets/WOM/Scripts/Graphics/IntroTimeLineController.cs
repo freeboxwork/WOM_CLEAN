@@ -23,41 +23,50 @@ public class IntroTimeLineController : MonoBehaviour
 
     public IntroManager introManager;
 
+    bool bEndIntro = false;
+
+
     void Update()
     {
-        if (!dontTouch && currentTimeIndex != (cutFrames.Length - 1))
+        if (!bEndIntro)
         {
-            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.P))
+            if (!dontTouch && currentTimeIndex != (cutFrames.Length - 1))
             {
-                double currentTime = director.time;
-                for (int i = 0; i < cutFrames.Length; i++)
+                if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.P))
                 {
-                    if (currentTime <= cutFrames[i])
+                    double currentTime = director.time;
+                    for (int i = 0; i < cutFrames.Length; i++)
                     {
-                        currentTimeIndex = i;
-                        break;
+                        if (currentTime <= cutFrames[i])
+                        {
+                            currentTimeIndex = i;
+                            break;
+                        }
                     }
+
+                    director.time = cutFrames[currentTimeIndex];
+                    dontTouch = true;
                 }
-
-                director.time = cutFrames[currentTimeIndex];
-                dontTouch = true;
             }
-        }
-        else
-        {
-            t += Time.deltaTime;
-            if (t >= deleyTime)
+            else
             {
-                t = 0.0f;
-                dontTouch = false;
+                t += Time.deltaTime;
+                if (t >= deleyTime)
+                {
+                    t = 0.0f;
+                    dontTouch = false;
+                }
+            }
+
+            if (director.time > 18 && !endTime)
+            {
+                bEndIntro = true;
+                endTime = true;
+                introManager.ShowMainCanvas(true);
+                StartCoroutine(introManager.SceneLoad());
             }
         }
 
-        if (director.time > 18 && !endTime)
-        {
-            endTime = true;
-            introManager.GoogleLogin();
-        }
 
 
     }
@@ -79,6 +88,7 @@ public class IntroTimeLineController : MonoBehaviour
 
     public void SkipIntro()
     {
+        bEndIntro = true;
         director.time = cutFrames[6];
         director.Evaluate();
     }

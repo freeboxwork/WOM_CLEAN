@@ -206,9 +206,11 @@ public class UnionInGameData
 
     // stat
     public float damage;
+    public float damageNextLevel;
     public float spawnTime;
     public float moveSpeed;
     public float passiveDamage;
+    public float passiveDamageNextLevel;
 
 
 

@@ -96,6 +96,13 @@ public class EnumDefinition
         newUserData,
         labBuildingData,
         rewardAdGemData,
+        traningInsectDamageUpData,
+        traningUnionDamageUpData,
+        traningAllUnitSpeedUpData,
+        traningGlodBonusUpData,
+        traningAllUnitCriticalChanceUpData,
+        traningMonsterKingData
+
     }
 
     /// <summary> ?????? ??? </summary>

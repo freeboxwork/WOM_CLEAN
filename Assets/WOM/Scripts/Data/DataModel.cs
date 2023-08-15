@@ -722,3 +722,16 @@ public class NewUserData
         return rewardValueArray;
     }
 }
+
+[Serializable]
+public class TraningeLevelData
+{
+    public int level;
+    public int salePrice;
+    public double duration;
+    public int power;
+    public string name;
+    public int coolTime;
+    public int maxLevel;
+    public string desctiption;
+}

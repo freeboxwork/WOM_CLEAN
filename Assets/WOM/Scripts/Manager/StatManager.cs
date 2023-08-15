@@ -285,18 +285,18 @@ public class StatManager : MonoBehaviour
         // set save data
         var skilType = SkillType.insectDamageUp;
         SetUsingSkillSaveData(skilType, true);
-
-
-
-        float elapsedTime = 0.0f;
         var totalDuration = data.duaration + SkillDuration();
-        while (elapsedTime < totalDuration)
+        var startTime = Time.time;
+        var skillLeftTime = totalDuration;
+        //Debug.Log("실제 스킬 시간 값  : " + totalDuration);
+
+        while (skillLeftTime > 0)
         {
             // ui 전환 효과가 발동되면 대기
             yield return new WaitUntil(() => transitionUI == false);
+            skillLeftTime = totalDuration - (Time.time - startTime);
+            data.skillLeftTime = skillLeftTime;
 
-            elapsedTime += Time.deltaTime;
-            data.skillLeftTime = totalDuration - elapsedTime;
             // set save data
             //SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
             yield return null;
@@ -323,17 +323,17 @@ public class StatManager : MonoBehaviour
         var skilType = SkillType.insectDamageUp;
         SetUsingSkillSaveData(skilType, true);
 
-
-
-        float elapsedTime = 0.0f;
         var totalDuration = data.duaration + SkillDuration();
-        while (elapsedTime < data.duaration)
+        var startTime = Time.time;
+        var skillLeftTime = totalDuration;
+
+        while (skillLeftTime > 0)
         {
             // ui 전환 효과가 발동되면 대기
             yield return new WaitUntil(() => transitionUI == false);
 
-            elapsedTime += Time.deltaTime;
-            data.skillLeftTime = data.duaration - elapsedTime;
+            skillLeftTime = totalDuration - (Time.time - startTime);
+            data.skillLeftTime = skillLeftTime;
             // set save data
             // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
             yield return null;
@@ -345,10 +345,6 @@ public class StatManager : MonoBehaviour
         // set save data
         // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
         SetUsingSkillSaveData(skilType, false);
-
-
-
-
     }
 
 
@@ -363,15 +359,17 @@ public class StatManager : MonoBehaviour
         var skilType = SkillType.insectDamageUp;
         SetUsingSkillSaveData(skilType, true);
 
-        float elapsedTime = 0.0f;
         var totalDuration = data.duaration + SkillDuration();
-        while (elapsedTime < data.duaration)
+        var startTime = Time.time;
+        var skillLeftTime = totalDuration;
+        //Debug.Log("실제 스킬 시간 값  : " + totalDuration);
+
+        while (skillLeftTime > 0)
         {
             // ui 전환 효과가 발동되면 대기
             yield return new WaitUntil(() => transitionUI == false);
-
-            elapsedTime += Time.deltaTime;
-            data.skillLeftTime = data.duaration - elapsedTime;
+            skillLeftTime = totalDuration - (Time.time - startTime);
+            data.skillLeftTime = skillLeftTime;
             // set save data
             // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
             yield return null;
@@ -395,15 +393,17 @@ public class StatManager : MonoBehaviour
         var skilType = SkillType.insectDamageUp;
         SetUsingSkillSaveData(skilType, true);
 
-        float elapsedTime = 0.0f;
         var totalDuration = data.duaration + SkillDuration();
-        while (elapsedTime < data.duaration)
+        var startTime = Time.time;
+        var skillLeftTime = totalDuration;
+        //Debug.Log("실제 스킬 시간 값  : " + totalDuration);
+
+        while (skillLeftTime > 0)
         {
             // ui 전환 효과가 발동되면 대기
             yield return new WaitUntil(() => transitionUI == false);
-
-            elapsedTime += Time.deltaTime;
-            data.skillLeftTime = data.duaration - elapsedTime;
+            skillLeftTime = totalDuration - (Time.time - startTime);
+            data.skillLeftTime = skillLeftTime;
             // set save data
             // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
             yield return null;
@@ -431,15 +431,17 @@ public class StatManager : MonoBehaviour
         var skilType = SkillType.insectDamageUp;
         SetUsingSkillSaveData(skilType, true);
 
-        float elapsedTime = 0.0f;
         var totalDuration = data.duaration + SkillDuration();
-        while (elapsedTime < data.duaration)
+        var startTime = Time.time;
+        var skillLeftTime = totalDuration;
+        //Debug.Log("실제 스킬 시간 값  : " + totalDuration);
+
+        while (skillLeftTime > 0)
         {
             // ui 전환 효과가 발동되면 대기
             yield return new WaitUntil(() => transitionUI == false);
-
-            elapsedTime += Time.deltaTime;
-            data.skillLeftTime = data.duaration - elapsedTime;
+            skillLeftTime = totalDuration - (Time.time - startTime);
+            data.skillLeftTime = skillLeftTime;
             // set save data
             // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
             yield return null;
@@ -467,15 +469,17 @@ public class StatManager : MonoBehaviour
         var skilType = SkillType.insectDamageUp;
         SetUsingSkillSaveData(skilType, true);
 
-        float elapsedTime = 0.0f;
         var totalDuration = data.duaration + SkillDuration();
-        while (elapsedTime < data.duaration)
+        var startTime = Time.time;
+        var skillLeftTime = totalDuration;
+        //Debug.Log("실제 스킬 시간 값  : " + totalDuration);
+
+        while (skillLeftTime > 0)
         {
             // ui 전환 효과가 발동되면 대기
             yield return new WaitUntil(() => transitionUI == false);
-
-            elapsedTime += Time.deltaTime;
-            data.skillLeftTime = data.duaration - elapsedTime;
+            skillLeftTime = totalDuration - (Time.time - startTime);
+            data.skillLeftTime = skillLeftTime;
             // set save data
             // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
             yield return null;

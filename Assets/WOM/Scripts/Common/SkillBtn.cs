@@ -86,8 +86,12 @@ public class SkillBtn : MonoBehaviour
         var data = GlobalData.instance.skillManager.GetSkillInGameDataByType(skillType);
         float totalCoolTime = data.coolTime - GlobalData.instance.statManager.SkillCoolTime();
 
-        animDataUsingSkill.animDuration = data.duaration;
+        var skillDuration = data.duaration + GlobalData.instance.statManager.SkillDuration();
+        //animDataUsingSkill.animDuration = data.duaration;
+        animDataUsingSkill.animDuration = skillDuration;
         animDataReloadSkill.animDuration = totalCoolTime;
+
+        //Debug.Log("스킬 애니메이션 시간 :  " + skillDuration);
         if (skillReady == true)
         {
             btnSkill.enabled = false;
@@ -108,7 +112,7 @@ public class SkillBtn : MonoBehaviour
             txtTime.enabled = false;
             skillAddValue = true;
             txtTimeAnim.enabled = true;
-            StartCoroutine(animCont.UI_TextAnim(txtTimeAnim, data.duaration, 0));
+            StartCoroutine(animCont.UI_TextAnim(txtTimeAnim, skillDuration, 0));
             StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 0, 1));
 
             // skill effect on!
@@ -116,7 +120,7 @@ public class SkillBtn : MonoBehaviour
 
 
             // 스킬 사용 대기
-            float calcSkillTime = data.duaration;
+            float calcSkillTime = skillDuration;
             var skillStartTime = Time.time;
             skillLeftTime = calcSkillTime;
             while (skillLeftTime > 0)

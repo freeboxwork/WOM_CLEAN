@@ -125,9 +125,11 @@ public class UnionManager : MonoBehaviour
             // TODO: 저장된 데이터에서 불러와야 함
             // SET IN GAME DATA (  ) 
             slot.inGameData.damage = GetUnionDamage(slot); // data.damage;
+            slot.inGameData.damageNextLevel = GetUnionDamageNextLevel(slot);
             slot.inGameData.spawnTime = data.spawnTime;
             slot.inGameData.moveSpeed = data.moveSpeed;
             slot.inGameData.passiveDamage = GetUnionPassiveDamage(slot); //data.passiveDamage;
+            slot.inGameData.passiveDamageNextLevel = GetUnionPassiveDamageNextLevel(slot);
             slot.inGameData.unionGradeType = (EnumDefinition.UnionGradeType)System.Enum.Parse(typeof(EnumDefinition.UnionGradeType), data.gradeType);
             //Debug.Log(slot.inGameData.passiveDamage);
 
@@ -276,10 +278,33 @@ public class UnionManager : MonoBehaviour
         var damage = slot.unionData.damage + (slot.inGameData.level * slot.unionData.addDamage);
         return damage;
     }
+    public float GetUnionDamageNextLevel(UnionSlot slot)
+    {
+        var nextLevel = slot.inGameData.level + 1;
+        var maxLevel = slot.unionData.maxLevel;
+        // max level 체크
+        if (nextLevel > maxLevel)
+            return 0;
+
+        var damage = slot.unionData.damage + ((nextLevel) * slot.unionData.addDamage);
+        return damage;
+    }
 
     public float GetUnionPassiveDamage(UnionSlot slot)
     {
         var passiveDamage = slot.unionData.passiveDamage + (slot.inGameData.level * slot.unionData.addPassiveDamage);
+        return passiveDamage;
+    }
+
+    public float GetUnionPassiveDamageNextLevel(UnionSlot slot)
+    {
+        var nextLevel = slot.inGameData.level + 1;
+        var maxLevel = slot.unionData.maxLevel;
+        // max level 체크
+        if (nextLevel > maxLevel)
+            return 0;
+
+        var passiveDamage = slot.unionData.passiveDamage + ((nextLevel) * slot.unionData.addPassiveDamage);
         return passiveDamage;
     }
 
@@ -304,7 +329,9 @@ public class UnionManager : MonoBehaviour
             slot.LevelUp();
             slot.inGameData.LevelUpReqirementCount = GetUnionReqireCount(slot);
             slot.inGameData.damage = GetUnionDamage(slot);
+            slot.inGameData.damageNextLevel = GetUnionDamageNextLevel(slot);
             slot.inGameData.passiveDamage = GetUnionPassiveDamage(slot);
+            slot.inGameData.passiveDamageNextLevel = GetUnionPassiveDamageNextLevel(slot);
             slot.RelodUISet();
 
             EnableBtnTotalLevelUp();

@@ -9,6 +9,7 @@ public class UnionInfoPopupController : MonoBehaviour
     public TextMeshProUGUI txtUinonName;
     public TextMeshProUGUI txtUinonGrade;
     public TextMeshProUGUI txtDamage;
+    public TextMeshProUGUI txtDamageAfter;
     public TextMeshProUGUI txtSpawnTime;
     public TextMeshProUGUI txtMoveSpeed;
     public TextMeshProUGUI txtPassiveDamage;
@@ -62,9 +63,11 @@ public class UnionInfoPopupController : MonoBehaviour
 
         // SET STAT UI
         SetTxtDamage(inGameData.damage.ToString());
+        SetTxtDamageAfter(inGameData.damageNextLevel.ToString());
         SetTxtSpawnTime(inGameData.spawnTime.ToString());
         SetTxtMoveSpeed(inGameData.moveSpeed.ToString());
-        SetTxtPassiveDamage(inGameData.passiveDamage.ToString());
+        var passiveDamage = $"{inGameData.passiveDamage}% + {inGameData.passiveDamageNextLevel}";
+        SetTxtPassiveDamage(passiveDamage);
         SetSlider(slot.sliderReqirement.value);
         SetTxtReqirementCount(slot.txtReqirementCount.text);
 
@@ -74,9 +77,11 @@ public class UnionInfoPopupController : MonoBehaviour
     void ReloadUiSet()
     {
         SetTxtDamage(unionSlot.inGameData.damage.ToString());
+        SetTxtDamageAfter(unionSlot.inGameData.damageNextLevel.ToString());
         SetTxtSpawnTime(unionSlot.inGameData.spawnTime.ToString());
         SetTxtMoveSpeed(unionSlot.inGameData.moveSpeed.ToString());
-        SetTxtPassiveDamage(unionSlot.inGameData.passiveDamage.ToString());
+        var passiveDamage = $"{unionSlot.inGameData.passiveDamage}% + {unionSlot.inGameData.passiveDamageNextLevel}";
+        SetTxtPassiveDamage(passiveDamage);
         SetSlider(unionSlot.sliderReqirement.value);
         SetTxtReqirementCount(unionSlot.txtReqirementCount.text);
     }
@@ -94,6 +99,11 @@ public class UnionInfoPopupController : MonoBehaviour
     public void SetTxtDamage(string value)
     {
         txtDamage.text = value;
+    }
+
+    public void SetTxtDamageAfter(string value)
+    {
+        txtDamageAfter.text = value;
     }
 
     public void SetTxtSpawnTime(string value)

@@ -242,10 +242,10 @@ public class Player : MonoBehaviour
             AddDungeonKey(GoodsType.coal, 2);
 
 
-        AddDungeonADKey(GoodsType.gold, 2);
-        AddDungeonADKey(GoodsType.bone, 2);
-        AddDungeonADKey(GoodsType.dice, 2);
-        AddDungeonADKey(GoodsType.coal, 2);
+        AddDungeonADKey(GoodsType.gold, 1);
+        AddDungeonADKey(GoodsType.bone, 1);
+        AddDungeonADKey(GoodsType.dice, 1);
+        AddDungeonADKey(GoodsType.coal, 1);
     }
 
     public void SetCurrentStageData(int stageIdx)
@@ -464,14 +464,14 @@ public class Player : MonoBehaviour
 
     public void ResetDungeonADKeys()
     {
-        dungeonADKeys[GoodsType.gold] = 2;
-        dungeonADKeys[GoodsType.bone] = 2;
-        dungeonADKeys[GoodsType.dice] = 2;
-        dungeonADKeys[GoodsType.coal] = 2;
-        GlobalData.instance.saveDataManager.SaveDataGoodsDungeonADKey(GoodsType.gold, 2);
-        GlobalData.instance.saveDataManager.SaveDataGoodsDungeonADKey(GoodsType.bone, 2);
-        GlobalData.instance.saveDataManager.SaveDataGoodsDungeonADKey(GoodsType.dice, 2);
-        GlobalData.instance.saveDataManager.SaveDataGoodsDungeonADKey(GoodsType.coal, 2);
+        dungeonADKeys[GoodsType.gold] = 1;
+        dungeonADKeys[GoodsType.bone] = 1;
+        dungeonADKeys[GoodsType.dice] = 1;
+        dungeonADKeys[GoodsType.coal] = 1;
+        GlobalData.instance.saveDataManager.SaveDataGoodsDungeonADKey(GoodsType.gold, 1);
+        GlobalData.instance.saveDataManager.SaveDataGoodsDungeonADKey(GoodsType.bone, 1);
+        GlobalData.instance.saveDataManager.SaveDataGoodsDungeonADKey(GoodsType.dice, 1);
+        GlobalData.instance.saveDataManager.SaveDataGoodsDungeonADKey(GoodsType.coal, 1);
     }
 
     public long GetCurrentDungeonKeyCount(MonsterType monsterType)

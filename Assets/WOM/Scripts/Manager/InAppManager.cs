@@ -73,7 +73,7 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
         {
             storeController.InitiatePurchase(ProductTYPE.commongem4.ToString());
         });
-        
+
         productButtons[(int)ProductTYPE.vipgem1].onClick.AddListener(() =>
         {
             storeController.InitiatePurchase(ProductTYPE.vipgem1.ToString());
@@ -244,11 +244,17 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
         }
         else if (args.purchasedProduct.definition.id == ProductTYPE.battlepass.ToString())
         {
-            var rewardTypes = new EnumDefinition.RewardType[] {EnumDefinition.RewardType.gem};
-            var rewardValues = new long[] {1000};
+            var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem };
+            var rewardValues = new long[] { 1000 };
             PopupController.instance.InitPopups(rewardTypes, rewardValues);
+
+            // UNLOCK BATTLE PASS SLOT
+            var saveKey = GlobalData.instance.questManager.keyBuyBattlePass;
+            PlayerPrefs.SetInt(saveKey, 1);
+            GlobalData.instance.questManager.questPopup.AllUnlockBattlePassSlotItem();
+
             Debug.Log("배틀 패스 패키지 구매 성공");
-           
+
         }
 
 

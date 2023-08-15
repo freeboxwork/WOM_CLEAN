@@ -29,6 +29,7 @@ public class QuestManager : MonoBehaviour
     public string keyAttendUsedReawrd = "_attendUsedReward";
     public string keyNewUserEventUsedReward = "_newUserEventUsedReward";
     public string keyBattlePassUsedReward = "_battlePassUsedReward";
+    public string keyBuyBattlePass = "_buyBattlePass";
 
 
 
@@ -136,10 +137,23 @@ public class QuestManager : MonoBehaviour
         {
             var clonData = battlePassData[i].ClonInstance();
             var slot = questPopup.battlePassSlots[i];
-
+            slot.SetBlockPassImage(IsBattlePassBuy());
             var unlockCount = GlobalData.instance.player.stageIdx;
             questPopup.SetUIBattlePassSlot(slot, clonData, unlockCount);
         }
+    }
+
+    public bool IsBattlePassBuy()
+    {
+        if (PlayerPrefs.HasKey(keyBuyBattlePass))
+        {
+            return PlayerPrefs.GetInt(keyBuyBattlePass) == 1 ? true : false;
+        }
+        else
+        {
+            return false;
+        }
+
     }
 
     void AddAttendData()

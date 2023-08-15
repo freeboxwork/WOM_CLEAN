@@ -72,7 +72,7 @@ public class BattlePassSlot : MonoBehaviour
 
     public void SetBlockPassImage(bool isBlock)
     {
-        blockPassImage.gameObject.SetActive(isBlock);
+        blockPassImage.gameObject.SetActive(!isBlock);
     }
 
     public void SetBtnRewardInteractable(bool isActive)

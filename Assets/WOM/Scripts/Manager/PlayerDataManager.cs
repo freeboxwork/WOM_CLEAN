@@ -114,10 +114,10 @@ public class PlayerDataManager : MonoBehaviour
             saveData.dungeonKeyBone = 2;
             saveData.dungeonKeyDice = 2;
             saveData.dungeonKeyCoal = 2;
-            saveData.dungeonKeyADGold = 2;
-            saveData.dungeonKeyADBone = 2;
-            saveData.dungeonKeyADDice = 2;
-            saveData.dungeonKeyADCoal = 2;
+            saveData.dungeonKeyADGold = 1;
+            saveData.dungeonKeyADBone = 1;
+            saveData.dungeonKeyADDice = 1;
+            saveData.dungeonKeyADCoal = 1;
 
             saveData.dungeonLvGold = 0;
             saveData.dungeonLvBone = 0;

@@ -295,6 +295,8 @@ public class Player : MonoBehaviour
         // set ui;
         // set save data;
         GlobalData.instance.saveDataManager.SaveDataGoodsCoal(coal);
+        // ui update
+        GlobalData.instance.uiController.SetTxtCoal(coal);
     }
 
     public void AddClearTicket(long value)
@@ -326,7 +328,7 @@ public class Player : MonoBehaviour
     public void AddDnaTicket(long value)
     {
         dnaTicket += value;
-        //GlobalData.instance.uiController.SetTxtDnaTicket(dnaTicket, value); // RELOAD UI
+        GlobalData.instance.uiController.SetTxtDnaTicket(dnaTicket); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsDnaTicket(dnaTicket); // set save data
     }
 
@@ -334,7 +336,7 @@ public class Player : MonoBehaviour
     {
         unionTicket -= value;
         if (unionTicket < 0) unionTicket = 0;
-        //GlobalData.instance.uiController.SetTxtUnionTicket(unionTicket, 0); // RELOAD UI
+        GlobalData.instance.uiController.SetTxtUnionTicket(unionTicket); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsUnionTicket(unionTicket); // set save data
 
         // button interactable check    

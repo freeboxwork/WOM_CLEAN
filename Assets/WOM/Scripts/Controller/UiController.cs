@@ -52,6 +52,11 @@ public class UiController : MonoBehaviour
 
     public List<GameObject> disablePopups = new List<GameObject>();
 
+    // 추가 재화 표시 항목 
+    public TextMeshProUGUI txtUnionTicketCount;
+    public TextMeshProUGUI txtDnaTicketCount;
+    public TextMeshProUGUI txtCoalCount;
+
     void Start()
     {
     }
@@ -127,6 +132,9 @@ public class UiController : MonoBehaviour
         SetTxtBone(player.bone, 0);
         SetTxtGem(player.gem, 0);
         SetTxtDice(player.diceCount);  // 현재 남은 진화 주사위 개수 UI 적용
+        SetTxtDnaTicket(player.dnaTicket);
+        SetTxtUnionTicket(player.unionTicket);
+        SetTxtCoal(player.coal);
         // 소탕권
         //SetTxtClearTicket();
     }
@@ -245,6 +253,18 @@ public class UiController : MonoBehaviour
         UtilityMethod.SetTxtCustomTypeByID(65, changeValue);
     }
 
+    public void SetTxtUnionTicket(long value)
+    {
+        txtUnionTicketCount.text = value.ToString();
+    }
+    public void SetTxtDnaTicket(long value)
+    {
+        txtDnaTicketCount.text = value.ToString();
+    }
+    public void SetTxtCoal(long value)
+    {
+        txtCoalCount.text = value.ToString();
+    }
 
 
 

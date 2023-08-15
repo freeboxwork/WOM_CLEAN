@@ -201,26 +201,6 @@ public class EffectManager : MonoBehaviour
         return goldSFX_RandomPoints[(int)pointType];
     }
 
-    public void EnableFloatingText(float damage, bool isCritical, Transform tr)
-    {
-        // var flotingTxt = GetFloatingText();
-        // flotingTxt.transform.position = tr.position;
-        // flotingTxt.gameObject.SetActive(true);
-        // flotingTxt.SetText(damage.ToString(), isCritical);
-        DamageNumber damageNumber = numberPrefab.Spawn(tr.position, damage);
-
-    }
-
-    public void EnableFloatingText(float damage, Transform tr)
-    {
-        // var flotingTxt = GetFloatingText();
-        // flotingTxt.transform.position = tr.position;
-        // flotingTxt.gameObject.SetActive(true);
-        // flotingTxt.SetText(damage.ToString(), isCritical);
-        DamageNumber damageNumber = numberPrefab.Spawn(tr.position, damage);
-
-    }
-
     public void EnableFloatingText(double damage, bool isCritical, Transform tr)
     {
         // var flotingTxt = GetFloatingText();
@@ -228,6 +208,17 @@ public class EffectManager : MonoBehaviour
         // flotingTxt.gameObject.SetActive(true);
         // flotingTxt.SetText(damage.ToString(), isCritical);
         DamageNumber damageNumber = numberPrefab.Spawn(tr.position, (float)damage);
+
+        if (isCritical)
+        {
+            damageNumber.SetScale(1.5f);
+            damageNumber.SetColor(Color.magenta);
+        }
+        else
+        {
+            damageNumber.SetScale(1);
+        }
+
     }
 
     // 플로팅 텍스트 Pool

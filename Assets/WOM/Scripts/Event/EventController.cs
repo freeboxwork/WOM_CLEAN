@@ -111,7 +111,7 @@ public class EventController : MonoBehaviour
         var damage = GlobalData.instance.skillManager.GetSkillInGameDataByType(SkillType.monsterKing).power;
 
         // ENABLE Floting Text Effect 
-        globalData.effectManager.EnableFloatingText((float)damage, tr);
+        globalData.effectManager.EnableFloatingText(damage,false, tr);
 
         var monsterType = GlobalData.instance.player.curMonsterType;
 

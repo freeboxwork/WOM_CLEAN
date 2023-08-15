@@ -24,6 +24,7 @@ public class UnionManager : MonoBehaviour
         {
             unionEquipSlots[i].UnLockSlot();
         }
+
     }
 
     // void Update()

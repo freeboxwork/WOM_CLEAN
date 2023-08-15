@@ -112,6 +112,14 @@ public class DataManager : MonoBehaviour
     StatSaleDatas talentGoldBonusData;
     public List<StatSaleDatas> statSaleDatas = new List<StatSaleDatas>();
 
+    // 훈련 데이터 ( 판매 데이터 )
+    public TraningInsectDamageUpDatas traningInsectDamageUpDatas;
+    public TraningUnionDamageUpDatas traningUnionMoveSpeedUpDatas;
+    public TraningAllUnitSpeedUpDatas traningAllUnitSpeedUpDatas;
+    public TraningGlodBonusUpDatas traningGlodBonusUpDatas;
+    public TraningAllUnitCriticalChanceUpDatas traningAllUnitCriticalChanceUpDatas;
+    public TraningMonsterKingDatas traningMonsterKingDatas;
+
 
     // 캐슬 데이터.
     public MineAndFactoryBuildingDatas buildDatasMine;
@@ -136,6 +144,8 @@ public class DataManager : MonoBehaviour
 
     // 광고 보상 데이터 ( 보석 )
     public RewardAdGemDats rewardAdGemDats;
+
+
 
 
     void Start()
@@ -208,9 +218,21 @@ public class DataManager : MonoBehaviour
         // SET REWARD AD GEM DATA
         SetRewardAdGemData();
 
+        // SET TRANING DATA
+        SetTraningData();
+
         yield return new WaitForEndOfFrame();
     }
 
+    void SetTraningData()
+    {
+        traningInsectDamageUpDatas = GetData<TraningInsectDamageUpDatas>(SheetDataType.traningInsectDamageUpData);
+        traningUnionMoveSpeedUpDatas = GetData<TraningUnionDamageUpDatas>(SheetDataType.traningUnionDamageUpData);
+        traningAllUnitSpeedUpDatas = GetData<TraningAllUnitSpeedUpDatas>(SheetDataType.traningAllUnitSpeedUpData);
+        traningGlodBonusUpDatas = GetData<TraningGlodBonusUpDatas>(SheetDataType.traningGlodBonusUpData);
+        traningAllUnitCriticalChanceUpDatas = GetData<TraningAllUnitCriticalChanceUpDatas>(SheetDataType.traningAllUnitCriticalChanceUpData);
+        traningMonsterKingDatas = GetData<TraningMonsterKingDatas>(SheetDataType.traningMonsterKingData);
+    }
 
     void SetRewardAdGemData()
     {
@@ -754,3 +776,38 @@ public class RewardAdGemDats
     public List<RewardAdGemData> data = new List<RewardAdGemData>();
 }
 
+[Serializable]
+public class TraningInsectDamageUpDatas
+{
+    public List<TraningeLevelData> data = new List<TraningeLevelData>();
+}
+
+[Serializable]
+public class TraningUnionDamageUpDatas
+{
+    public List<TraningeLevelData> data = new List<TraningeLevelData>();
+}
+
+[Serializable]
+public class TraningAllUnitSpeedUpDatas
+{
+    public List<TraningeLevelData> data = new List<TraningeLevelData>();
+}
+
+[Serializable]
+public class TraningGlodBonusUpDatas
+{
+    public List<TraningeLevelData> data = new List<TraningeLevelData>();
+}
+
+[Serializable]
+public class TraningAllUnitCriticalChanceUpDatas
+{
+    public List<TraningeLevelData> data = new List<TraningeLevelData>();
+}
+
+[Serializable]
+public class TraningMonsterKingDatas
+{
+    public List<TraningeLevelData> data = new List<TraningeLevelData>();
+}

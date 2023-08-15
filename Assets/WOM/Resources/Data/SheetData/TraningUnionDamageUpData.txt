@@ -1,0 +1,214 @@
+{
+  "data": [
+    {
+      "level": 0,
+      "salePrice": 1050,
+      "duration": 20,
+      "power": 100,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    },
+    {
+      "level": 1,
+      "salePrice": 13800,
+      "duration": 20.3,
+      "power": 110,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    },
+    {
+      "level": 2,
+      "salePrice": 79350,
+      "duration": 20.6,
+      "power": 120,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    },
+    {
+      "level": 3,
+      "salePrice": 274650,
+      "duration": 20.9,
+      "power": 130,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    },
+    {
+      "level": 4,
+      "salePrice": 713100,
+      "duration": 21.2,
+      "power": 140,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    },
+    {
+      "level": 5,
+      "salePrice": 2574250,
+      "duration": 21.5,
+      "power": 150,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    },
+    {
+      "level": 6,
+      "salePrice": 4925500,
+      "duration": 21.8,
+      "power": 160,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    },
+    {
+      "level": 7,
+      "salePrice": 12995150,
+      "duration": 22.1,
+      "power": 170,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    },
+    {
+      "level": 8,
+      "salePrice": 33398000,
+      "duration": 22.4,
+      "power": 180,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    },
+    {
+      "level": 9,
+      "salePrice": 85503000,
+      "duration": 22.7,
+      "power": 190,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    },
+    {
+      "level": 10,
+      "salePrice": 231421250,
+      "duration": 23,
+      "power": 200,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    },
+    {
+      "level": 11,
+      "salePrice": 431493000,
+      "duration": 23.3,
+      "power": 210,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    },
+    {
+      "level": 12,
+      "salePrice": 860258000,
+      "duration": 23.6,
+      "power": 220,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    },
+    {
+      "level": 13,
+      "salePrice": 1555427500,
+      "duration": 23.9,
+      "power": 230,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    },
+    {
+      "level": 14,
+      "salePrice": 2623512000,
+      "duration": 24.2,
+      "power": 240,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    },
+    {
+      "level": 15,
+      "salePrice": 4196244500,
+      "duration": 24.5,
+      "power": 250,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    },
+    {
+      "level": 16,
+      "salePrice": 7237449000,
+      "duration": 24.8,
+      "power": 260,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    },
+    {
+      "level": 17,
+      "salePrice": 13758251000,
+      "duration": 25.1,
+      "power": 270,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    },
+    {
+      "level": 18,
+      "salePrice": 26020224500,
+      "duration": 25.4,
+      "power": 280,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    },
+    {
+      "level": 19,
+      "salePrice": 47133954000,
+      "duration": 25.7,
+      "power": 290,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    },
+    {
+      "level": 20,
+      "salePrice": 79041006000,
+      "duration": 26,
+      "power": 300,
+      "name": "사기의 외침",
+      "coolTime": 390,
+      "maxLevel": 20,
+      "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+    }
+  ]
+}

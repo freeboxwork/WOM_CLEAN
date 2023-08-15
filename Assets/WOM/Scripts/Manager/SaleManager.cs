@@ -121,7 +121,7 @@ public class SaleManager : MonoBehaviour
         else
         {
             // 최대 레벨 도달
-            Debug.Log($"{statType} - 최대 레벨에 도달했습니다..");
+            //Debug.Log($"{statType} - 최대 레벨에 도달했습니다..");
         }
 
         yield return null;

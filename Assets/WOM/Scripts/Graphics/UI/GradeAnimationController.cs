@@ -25,6 +25,10 @@ namespace ProjectGraphics
         public Image glareColor;
         public Image shinyColor;
         public Image iconUI;
+
+        public Image beforeGradeIcon;
+        public Image afterGradeIcon;
+
         public TextMeshProUGUI gradeText;
 
         public List<GameObject> enableObjects;
@@ -40,7 +44,6 @@ namespace ProjectGraphics
         void Awake()
         {
             anim = GetComponent<Animator>();
-            btnClose = GetComponent<Button>();
             audioSource = GetComponent<AudioSource>();
 
         }
@@ -70,7 +73,6 @@ namespace ProjectGraphics
         }
         private void OnEnable()
         {
-            btnClose.interactable = false;
             //시작시 gradeIndex 값을 정의 해주세요.
             int startIndex = 0;
             if (gradeIndex <= 0 || gradeIndex >= imageResources.Length) startIndex = 0;
@@ -92,10 +94,14 @@ namespace ProjectGraphics
             glareColor.color = imageResources[num].glareColor;
             shinyColor.color = imageResources[num].backShinyColor;
             iconUI.sprite = imageResources[num].icon;
+
+
         }
 
         public void AnimEventChangeGradeAction()
         {
+            beforeGradeIcon.sprite = imageResources[gradeIndex - 1].icon;
+            afterGradeIcon.sprite = imageResources[gradeIndex].icon;
             SetImageResources(gradeIndex);
         }
 
@@ -105,10 +111,6 @@ namespace ProjectGraphics
                 element.SetActive(value);
         }
 
-        public void TrueButtonInteractable()
-        {
-            btnClose.interactable = true;
-        }
 
     }
 }

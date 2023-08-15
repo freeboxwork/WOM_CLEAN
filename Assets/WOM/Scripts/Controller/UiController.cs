@@ -382,8 +382,15 @@ public class UiController : MonoBehaviour
 
     }
 
+    bool isActiveBossChallengeBtn = false;
+
     IEnumerator EnableCastlePanel()
     {
+
+        // 보스 도전 버튼 활성화 되어 있을경우 비활성화 처리
+        isActiveBossChallengeBtn = GlobalData.instance.uiController.btnBossChallenge.gameObject.activeSelf;
+        if (isActiveBossChallengeBtn)
+            GlobalData.instance.uiController.btnBossChallenge.gameObject.SetActive(false);
 
         isCastleOpen = true;
         // 공격 불가능 상태 전환
@@ -433,6 +440,13 @@ public class UiController : MonoBehaviour
 
     IEnumerator ExitCastlePanel()
     {
+        if (isActiveBossChallengeBtn)
+        {
+            isActiveBossChallengeBtn = false;
+            GlobalData.instance.uiController.btnBossChallenge.gameObject.SetActive(true);
+        }
+
+
         UtilityMethod.EnableUIEventSystem(false);
         isCastleOpen = false;
         // 화면전환 효과

@@ -132,9 +132,9 @@ public class MinePopup : CastlePopupBase
         // string _maxSupplyText = $"{data.maxSupplyAmount}";
         // string _productionTimeText = $"{data.productionTime}";
 
-        string _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount);
-        string _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount);
-        string _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime);
+        string _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount.ToString());
+        string _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount.ToString());
+        string _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime.ToString());
 
         string _levelText = $"Lv {data.level}";
         string _priceText = data.price.ToString();
@@ -152,23 +152,23 @@ public class MinePopup : CastlePopupBase
             // _maxSupplyText = string.Format("{0}", data.maxSupplyAmount);
             // _productionTimeText = string.Format("{0}", data.productionTime);
 
-            _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount);
-            _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount);
-            _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime);
+            _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount.ToString());
+            _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount.ToString());
+            _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime.ToString());
 
 
 
             if (!CheckEqualZeroByCalculation(nextProduct))
             {
-                _productionCountText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextProduct));
+                _productionCountText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextProduct.ToString()));
             }
             if (!CheckEqualZeroByCalculation(nextSupply))
             {
-                _maxSupplyText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextSupply));
+                _maxSupplyText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextSupply.ToString()));
             }
             if (!CheckEqualZeroByCalculation(nextTime))
             {
-                _productionTimeText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextTime));
+                _productionTimeText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextTime.ToString()));
             }
 
 
@@ -207,9 +207,9 @@ public class MinePopup : CastlePopupBase
         // string _productionCountText = $"{data.productionCount}";
         // string _maxSupplyText = $"{data.maxSupplyAmount}";
         // string _productionTimeText = $"{data.productionTime}";
-        string _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount);
-        string _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount);
-        string _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime);
+        string _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount.ToString());
+        string _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount.ToString());
+        string _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime.ToString());
         string _levelText = $"Lv {data.level}";
         string _priceText = data.price.ToString();
 
@@ -228,23 +228,23 @@ public class MinePopup : CastlePopupBase
             // _maxSupplyText = string.Format("{0}", data.maxSupplyAmount);
             // _productionTimeText = string.Format("{0}", data.productionTime);
 
-            _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount);
-            _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount);
-            _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime);
+            _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount.ToString());
+            _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount.ToString());
+            _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime.ToString());
 
 
 
             if (!CheckEqualZeroByCalculation(nextProduct))
             {
-                _productionCountText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextProduct));
+                _productionCountText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextProduct.ToString()));
             }
             if (!CheckEqualZeroByCalculation(nextSupply))
             {
-                _maxSupplyText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextSupply));
+                _maxSupplyText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextSupply.ToString()));
             }
             if (!CheckEqualZeroByCalculation(nextTime))
             {
-                _productionTimeText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextTime));
+                _productionTimeText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextTime.ToString()));
             }
 
         }

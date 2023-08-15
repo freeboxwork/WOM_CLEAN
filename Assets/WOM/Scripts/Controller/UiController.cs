@@ -195,8 +195,8 @@ public class UiController : MonoBehaviour
 
     public void SetTxtGold(long value, long flotingValue)
     {
-        var changeValue = UtilityMethod.ChangeSymbolNumber(value);
-        var flotingValueChange = UtilityMethod.ChangeSymbolNumber(flotingValue);
+        var changeValue = UtilityMethod.ChangeSymbolNumber(value.ToString());
+        var flotingValueChange = UtilityMethod.ChangeSymbolNumber(flotingValue.ToString());
 
         // floting text effect
         if (flotingValue > 0)
@@ -210,8 +210,8 @@ public class UiController : MonoBehaviour
 
     public void SetTxtBone(long value, long flotingValue)
     {
-        var changeValue = UtilityMethod.ChangeSymbolNumber(value);
-        var flotingValueChange = UtilityMethod.ChangeSymbolNumber(flotingValue);
+        var changeValue = UtilityMethod.ChangeSymbolNumber(value.ToString());
+        var flotingValueChange = UtilityMethod.ChangeSymbolNumber(flotingValue.ToString());
 
         // floting text effect
         if (flotingValue > 0)
@@ -241,7 +241,7 @@ public class UiController : MonoBehaviour
 
     public void SetTxtDice(long value)
     {
-        var changeValue = UtilityMethod.ChangeSymbolNumber(value);
+        var changeValue = UtilityMethod.ChangeSymbolNumber(value.ToString());
         UtilityMethod.SetTxtCustomTypeByID(65, changeValue);
     }
 

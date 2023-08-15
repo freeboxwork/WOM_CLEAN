@@ -13,6 +13,6 @@ public class PopupRewardIcon : MonoBehaviour
     {
         Debug.Log(reward.icon);
         icon.sprite = reward.icon;
-        amount.text = UtilityMethod.ChangeSymbolNumber(reward.amount);
+        amount.text = UtilityMethod.ChangeSymbolNumber(reward.amount.ToString());
     }
 }

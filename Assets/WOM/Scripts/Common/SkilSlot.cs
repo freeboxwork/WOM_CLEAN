@@ -74,6 +74,7 @@ public class SkilSlot : MonoBehaviour
     {
         infoCommon.SetActive(false);
         infoMax.SetActive(true);
+        btnPay.interactable = false;
     }
 
 }

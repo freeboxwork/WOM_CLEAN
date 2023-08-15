@@ -111,7 +111,7 @@ public class EventController : MonoBehaviour
         var damage = GlobalData.instance.skillManager.GetSkillInGameDataByType(SkillType.monsterKing).power;
 
         // ENABLE Floting Text Effect 
-        globalData.effectManager.EnableFloatingText(damage,false, tr);
+        globalData.effectManager.EnableFloatingText(damage, false, tr);
 
         var monsterType = GlobalData.instance.player.curMonsterType;
 
@@ -267,7 +267,7 @@ public class EventController : MonoBehaviour
         yield return null;
 
 
-        
+
 
         // hp text 0으로 표시
         globalData.uiController.SetTxtMonsterHp(0);
@@ -594,10 +594,6 @@ public class EventController : MonoBehaviour
             // 던전 몬스터 레벨 표시
             UtilityMethod.SetTxtCustomTypeByID(107, $"{1}");
 
-            // 배경 리셋
-            globalData.stageManager.bgAnimController.StopAllCoroutines();
-            globalData.stageManager.bgAnimController.SetOffsetY(0f);
-
             // side menu hide
             SideUIMenuHide(true);
 
@@ -605,8 +601,14 @@ public class EventController : MonoBehaviour
 
             UtilityMethod.GetCustomTypeImageById(46).sprite = iconSpriteFileData.GetBoxIcon(monsterType);
 
+            // 배경 리셋
+            globalData.stageManager.bgAnimController.ResetBg();
+
 
         }));
+
+        // 배경 리셋
+        globalData.stageManager.bgAnimController.SetOffsetY(0f);
 
         // BGM CHANGE
         GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_DungeonBoss);
@@ -902,8 +904,8 @@ public class EventController : MonoBehaviour
             globalData.bossChallengeTimer.StartTimer();
 
             // 배경 리셋
-            globalData.stageManager.bgAnimController.StopAllCoroutines();
-            globalData.stageManager.bgAnimController.SetOffsetY(0f);
+            globalData.stageManager.bgAnimController.ResetBg();
+
 
             // side menu hide
             // 메뉴 판넬 비활성화
@@ -922,7 +924,7 @@ public class EventController : MonoBehaviour
 
 
         }));
-
+        globalData.stageManager.bgAnimController.SetOffsetY(0f);
         // BGM CHANGE
         GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_EvolutionBoss);
 

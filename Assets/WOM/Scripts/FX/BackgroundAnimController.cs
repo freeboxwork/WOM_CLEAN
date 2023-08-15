@@ -81,6 +81,12 @@ public class BackgroundAnimController : MonoBehaviour
         bgMat.SetFloat("_transition", 0);
     }
 
+    public void ResetBg()
+    {
+        animData_BgScrollAnim.animValue = 1;
+        SetOffsetY(0);
+    }
+
 
     public IEnumerator ScrollAnim_BG()
     {

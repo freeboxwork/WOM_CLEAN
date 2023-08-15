@@ -15,9 +15,9 @@ public class SkillManager : MonoBehaviour
 
     }
 
-    public void UnLockSkillButton(SkillType skillType)
+    public void UnLockSkillButton(SkillType skillType, int level)
     {
-        var skillData = GetSkillData(skillType);
+        var skillData = GetSkillData(skillType, level);
         var btn = skillBtns[(int)skillType];
         btn.SetTxtCoolTime((int)skillData.coolTime);
         btn.gameObject.SetActive(true);
@@ -38,19 +38,18 @@ public class SkillManager : MonoBehaviour
     {
         foreach (SkillType type in System.Enum.GetValues(typeof(SkillType)))
         {
-            var skillData = GetSkillData(type);
+
 
             Skill_InGameData inGameData = new Skill_InGameData();
             inGameData.skillType = type;
 
             //저장된 값에서 불러옴
             var saveData = GlobalData.instance.saveDataManager.GetSaveDataSkill(type);
-
             inGameData.level = saveData.level;
-
             inGameData.isSkilUsing = saveData.isUsingSkill;
             //data.skillLeftTime = saveData.leftSkillTime;
 
+            var skillData = GetSkillData(type, inGameData.level);
 
 
             inGameData.coolTime = skillData.coolTime;
@@ -68,7 +67,7 @@ public class SkillManager : MonoBehaviour
 
             if (saveData.isUnLock)
             {
-                UnLockSkillButton(type);
+                UnLockSkillButton(type, inGameData.level);
                 if (saveData.isCooltime)
                     skillBtns[(int)type].ReloadCoolTime();
             }
@@ -82,9 +81,9 @@ public class SkillManager : MonoBehaviour
         for (int i = 0; i < skillSlots.Count; i++)
         {
             var slot = skillSlots[i];
-            var data = GetSkillData(slot.skillType);
             var inGameData = GetSkillInGameDataByType(slot.skillType);
             var levelName = $"Lv{inGameData.level} {inGameData.skilName}";
+            var data = GetSkillData(slot.skillType, inGameData.level);
 
             slot.SetTxt_Level(levelName);
             // slot.SetTxt_Name(data.name);
@@ -157,11 +156,13 @@ public class SkillManager : MonoBehaviour
     public void LevelUpSkill(SkillType skillType)
     {
         var inGameData = GetSkillInGameDataByType(skillType);
-        var skillData = GetSkillData(skillType);
+        var skillData = GetSkillData(skillType, inGameData.level);
         var skillSlot = GetSkillSlotByType(skillType);
 
         // 최대 레벨 판단
         var isMaximumLevel = IsMaximumLevel(skillData, inGameData);
+
+
 
         // 현재 가격
         var skillPrice = GetSkillPrice(skillData, inGameData);
@@ -177,6 +178,7 @@ public class SkillManager : MonoBehaviour
 
             // 레벨업
             ++inGameData.level;
+            skillData = GetSkillData(skillType, inGameData.level);
 
             var slot = GetSkillSlotByType(skillType);
 
@@ -214,11 +216,12 @@ public class SkillManager : MonoBehaviour
             }
 
             // UNLOCK SKILL
-            UnLockSkillButton(skillType);
+            UnLockSkillButton(skillType, inGameData.level);
 
             // set save data
             GlobalData.instance.saveDataManager.SaveSkillData(skillType, inGameData);
 
+            isMaximumLevel = IsMaximumLevel(skillData, inGameData);
             if (isMaximumLevel)
             {
                 slot.MaxStat();
@@ -240,21 +243,37 @@ public class SkillManager : MonoBehaviour
         }
     }
 
-    SkillData GetSkillData(SkillType skillType)
+    // SkillData GetSkillData(SkillType skillType)
+    // {
+    //     return GlobalData.instance.dataManager.GetSkillDataById((int)skillType);
+    // }
+
+    SkillData GetSkillData(SkillType skillType, int level)
     {
-        return GlobalData.instance.dataManager.GetSkillDataById((int)skillType);
+        SkillLevelData data = GlobalData.instance.dataManager.GetSkillLevelData(skillType, level);
+        SkillData skillData = new SkillData();
+
+        skillData.maxLevel = data.maxLevel;
+        skillData.duration = data.duration;
+        skillData.power = data.power;
+        skillData.name = data.name;
+        skillData.coolTime = data.coolTime;
+        skillData.desctiption = data.desctiption;
+        skillData.salePrice = data.salePrice;
+        return skillData;
     }
+
 
     void AddInGameDataDamage(SkillData skillData, ref Skill_InGameData inGameData)
     {
-        inGameData.power += GetPowerValue(skillData, inGameData);
+        inGameData.power = GetPowerValue(skillData, inGameData);
         inGameData.damage += GetDamangeValue(inGameData.power);
     }
 
     void AddInGameDataValue(SkillData skillData, ref Skill_InGameData inGameData)
     {
-        inGameData.duaration += GetDurationValue(skillData, inGameData);
-        inGameData.power += GetPowerValue(skillData, inGameData);
+        inGameData.duaration = GetDurationValue(skillData, inGameData);
+        inGameData.power = GetPowerValue(skillData, inGameData);
     }
 
     void SetUI(ref SkilSlot skillSlot, SkillData skillData, Skill_InGameData inGameData)
@@ -266,6 +285,11 @@ public class SkillManager : MonoBehaviour
 
         skillSlot.SetTxt_Description(description);
 
+        var isMaximumLevel = IsMaximumLevel(skillData, inGameData);
+        if (isMaximumLevel)
+        {
+            skillSlot.MaxStat();
+        }
     }
     void SetUIAllUnitCDU(ref SkilSlot skillSlot, SkillData skillData, Skill_InGameData inGameData)
     {
@@ -300,32 +324,37 @@ public class SkillManager : MonoBehaviour
 
     double GetInitPowerValue(SkillData skillData, Skill_InGameData skill_InGameData)
     {
-        double power = 0;
-        for (int i = 0; i < skill_InGameData.level; i++)
-        {
-            power += skillData.power + (i * skillData.addPowerRate);
-        }
-        return power;
+        // double power = 0;
+        // for (int i = 0; i < skill_InGameData.level; i++)
+        // {
+        //     power += skillData.power + (i * skillData.addPowerRate);
+        // }
+        // return power;
+
+        return skillData.power;
     }
     float GetInitDurationValue(SkillData skillData, Skill_InGameData skill_InGameData)
     {
-        float duration = 0;
-        for (int i = 0; i < skill_InGameData.level; i++)
-        {
-            duration += skillData.duration + (i * skillData.addDurationTime);
-        }
-        return duration;
+        // float duration = 0;
+        // for (int i = 0; i < skill_InGameData.level; i++)
+        // {
+        //     duration += skillData.duration + (i * skillData.addDurationTime);
+        // }
+        // return duration;
+        return skillData.duration;
     }
 
 
 
     double GetPowerValue(SkillData skillData, Skill_InGameData skill_InGameData)
     {
-        return skillData.power + (skill_InGameData.level * skillData.addPowerRate);
+        //return skillData.power + (skill_InGameData.level * skillData.addPowerRate);
+        return skillData.power;
     }
     float GetDurationValue(SkillData skillData, Skill_InGameData skill_InGameData)
     {
-        return skillData.duration + (skill_InGameData.level + skillData.addDurationTime);
+        // return skillData.duration + (skill_InGameData.level + skillData.addDurationTime);
+        return skillData.duration;
     }
 
     double GetDamangeValue(double power)
@@ -341,7 +370,8 @@ public class SkillManager : MonoBehaviour
 
     long GetSkillPrice(SkillData data, Skill_InGameData skill_InGameData)
     {
-        return data.defaultCost + (data.addCostAmount * skill_InGameData.level);
+        return data.salePrice;
+        // return data.defaultCost + (data.addCostAmount * skill_InGameData.level);
     }
 
     // 최대 레벨 도달 판단
@@ -372,8 +402,8 @@ public class SkillManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
         foreach (var slot in skillSlots)
         {
-            var data = GetSkillData(slot.skillType);
             var inGameData = GetSkillInGameDataByType(slot.skillType);
+            var data = GetSkillData(slot.skillType, inGameData.level);
             var price = GetSkillPrice(data, inGameData);
             slot.btnPay.interactable = IsPaySkill(price);
         }

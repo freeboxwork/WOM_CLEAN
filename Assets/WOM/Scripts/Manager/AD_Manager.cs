@@ -136,7 +136,7 @@ public class AD_Manager : MonoBehaviour
 
     public void AllResetADLeftCount()
     {
-        // 던전 광고 키 2개로 초기화
+        // 던전 광고 키 1개로 초기화
         GlobalData.instance.player.ResetDungeonADKeys();
         // 광고 버프 카운드 2개로 초기화
         foreach (var slot in buffADSlots)

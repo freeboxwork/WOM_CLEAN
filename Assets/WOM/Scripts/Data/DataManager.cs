@@ -112,13 +112,13 @@ public class DataManager : MonoBehaviour
     StatSaleDatas talentGoldBonusData;
     public List<StatSaleDatas> statSaleDatas = new List<StatSaleDatas>();
 
-    // 훈련 데이터 ( 판매 데이터 )
-    public TraningInsectDamageUpDatas traningInsectDamageUpDatas;
-    public TraningUnionDamageUpDatas traningUnionMoveSpeedUpDatas;
-    public TraningAllUnitSpeedUpDatas traningAllUnitSpeedUpDatas;
-    public TraningGlodBonusUpDatas traningGlodBonusUpDatas;
-    public TraningAllUnitCriticalChanceUpDatas traningAllUnitCriticalChanceUpDatas;
-    public TraningMonsterKingDatas traningMonsterKingDatas;
+    // 스킬 데이터 ( 판매 데이터 )
+    public SkillInsectDamageUpDatas skillInsectDamageUpDatas;
+    public SkillUnionDamageUpDatas skillUnionDamageUpDatas;
+    public SkillAllUnitSpeedUpDatas skillAllUnitSpeedUpDatas;
+    public SkillGlodBonusUpDatas skillGlodBonusUpDatas;
+    public SkillAllUnitCriticalChanceUpDatas skillAllUnitCriticalChanceUpDatas;
+    public SkillMonsterKingDatas skillMonsterKingDatas;
 
 
     // 캐슬 데이터.
@@ -219,20 +219,20 @@ public class DataManager : MonoBehaviour
         SetRewardAdGemData();
 
         // SET TRANING DATA
-        SetTraningData();
+        //SetSkillData();
 
         yield return new WaitForEndOfFrame();
     }
 
-    void SetTraningData()
-    {
-        traningInsectDamageUpDatas = GetData<TraningInsectDamageUpDatas>(SheetDataType.traningInsectDamageUpData);
-        traningUnionMoveSpeedUpDatas = GetData<TraningUnionDamageUpDatas>(SheetDataType.traningUnionDamageUpData);
-        traningAllUnitSpeedUpDatas = GetData<TraningAllUnitSpeedUpDatas>(SheetDataType.traningAllUnitSpeedUpData);
-        traningGlodBonusUpDatas = GetData<TraningGlodBonusUpDatas>(SheetDataType.traningGlodBonusUpData);
-        traningAllUnitCriticalChanceUpDatas = GetData<TraningAllUnitCriticalChanceUpDatas>(SheetDataType.traningAllUnitCriticalChanceUpData);
-        traningMonsterKingDatas = GetData<TraningMonsterKingDatas>(SheetDataType.traningMonsterKingData);
-    }
+    // void SetSkillData()
+    // {
+    //     skillInsectDamageUpDatas = GetData<SkillInsectDamageUpDatas>(SheetDataType.skillInsectDamageUpData);
+    //     skillUnionMoveSpeedUpDatas = GetData<SkillUnionDamageUpDatas>(SheetDataType.skillUnionDamageUpData);
+    //     skillAllUnitSpeedUpDatas = GetData<SkillAllUnitSpeedUpDatas>(SheetDataType.skillAllUnitSpeedUpData);
+    //     skillGlodBonusUpDatas = GetData<SkillGlodBonusUpDatas>(SheetDataType.skillGlodBonusUpData);
+    //     skillAllUnitCriticalChanceUpDatas = GetData<SkillAllUnitCriticalChanceUpDatas>(SheetDataType.skillAllUnitCriticalChanceUpData);
+    //     skillMonsterKingDatas = GetData<SkillMonsterKingDatas>(SheetDataType.skillgMonsterKingData);
+    // }
 
     void SetRewardAdGemData()
     {
@@ -365,6 +365,13 @@ public class DataManager : MonoBehaviour
     private void SetSkillData()
     {
         skillDatas = GetData<SkillDatas>(SheetDataType.skillData);
+
+        skillInsectDamageUpDatas = GetData<SkillInsectDamageUpDatas>(SheetDataType.skillInsectDamageUpData);
+        skillUnionDamageUpDatas = GetData<SkillUnionDamageUpDatas>(SheetDataType.skillUnionDamageUpData);
+        skillAllUnitSpeedUpDatas = GetData<SkillAllUnitSpeedUpDatas>(SheetDataType.skillAllUnitSpeedUpData);
+        skillGlodBonusUpDatas = GetData<SkillGlodBonusUpDatas>(SheetDataType.skillGlodBonusUpData);
+        skillAllUnitCriticalChanceUpDatas = GetData<SkillAllUnitCriticalChanceUpDatas>(SheetDataType.skillAllUnitCriticalChanceUpData);
+        skillMonsterKingDatas = GetData<SkillMonsterKingDatas>(SheetDataType.skillgMonsterKingData);
     }
 
     void SetUnionData()
@@ -580,6 +587,21 @@ public class DataManager : MonoBehaviour
         return skillDatas.data.FirstOrDefault(f => f.id == id);
     }
 
+    public SkillLevelData GetSkillLevelData(EnumDefinition.SkillType skillType, int level)
+    {
+        switch (skillType)
+        {
+            case SkillType.insectDamageUp: return skillInsectDamageUpDatas.data.FirstOrDefault(f => f.level == level);
+            case SkillType.unionDamageUp: return skillUnionDamageUpDatas.data.FirstOrDefault(f => f.level == level);
+            case SkillType.allUnitSpeedUp: return skillAllUnitSpeedUpDatas.data.FirstOrDefault(f => f.level == level);
+            case SkillType.glodBonusUp: return skillGlodBonusUpDatas.data.FirstOrDefault(f => f.level == level);
+            case SkillType.allUnitCriticalChanceUp: return skillAllUnitCriticalChanceUpDatas.data.FirstOrDefault(f => f.level == level);
+            case SkillType.monsterKing: return skillMonsterKingDatas.data.FirstOrDefault(f => f.level == level);
+            default: return null;
+        }
+    }
+
+
     public DNAData GetDNADataById(int id)
     {
         return dnaDatas.data.FirstOrDefault(f => f.dnaIndex == id);
@@ -777,37 +799,37 @@ public class RewardAdGemDats
 }
 
 [Serializable]
-public class TraningInsectDamageUpDatas
+public class SkillInsectDamageUpDatas
 {
-    public List<TraningeLevelData> data = new List<TraningeLevelData>();
+    public List<SkillLevelData> data = new List<SkillLevelData>();
 }
 
 [Serializable]
-public class TraningUnionDamageUpDatas
+public class SkillUnionDamageUpDatas
 {
-    public List<TraningeLevelData> data = new List<TraningeLevelData>();
+    public List<SkillLevelData> data = new List<SkillLevelData>();
 }
 
 [Serializable]
-public class TraningAllUnitSpeedUpDatas
+public class SkillAllUnitSpeedUpDatas
 {
-    public List<TraningeLevelData> data = new List<TraningeLevelData>();
+    public List<SkillLevelData> data = new List<SkillLevelData>();
 }
 
 [Serializable]
-public class TraningGlodBonusUpDatas
+public class SkillGlodBonusUpDatas
 {
-    public List<TraningeLevelData> data = new List<TraningeLevelData>();
+    public List<SkillLevelData> data = new List<SkillLevelData>();
 }
 
 [Serializable]
-public class TraningAllUnitCriticalChanceUpDatas
+public class SkillAllUnitCriticalChanceUpDatas
 {
-    public List<TraningeLevelData> data = new List<TraningeLevelData>();
+    public List<SkillLevelData> data = new List<SkillLevelData>();
 }
 
 [Serializable]
-public class TraningMonsterKingDatas
+public class SkillMonsterKingDatas
 {
-    public List<TraningeLevelData> data = new List<TraningeLevelData>();
+    public List<SkillLevelData> data = new List<SkillLevelData>();
 }

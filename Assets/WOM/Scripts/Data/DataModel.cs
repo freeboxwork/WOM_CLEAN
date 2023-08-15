@@ -433,6 +433,7 @@ public class SkillData
     public long defaultCost;
     public long addCostAmount;
     public int unLockLevel;
+    public long salePrice;
 }
 
 [Serializable]
@@ -724,14 +725,14 @@ public class NewUserData
 }
 
 [Serializable]
-public class TraningeLevelData
+public class SkillLevelData
 {
     public int level;
-    public int salePrice;
-    public double duration;
-    public int power;
+    public long salePrice;
+    public float duration;
+    public long power;
     public string name;
-    public int coolTime;
+    public float coolTime;
     public int maxLevel;
     public string desctiption;
 }

@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 public class BtnLongPressRepeatEvent : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     private float buttonPressStartTime;
-    private float longPressTime = 0.5f; // 길게 누르는 시간을 1초로 설정
+    private float longPressTime = 0.2f; // 길게 누르는 시간을 1초로 설정
     private bool isLongPressing;
 
     public UnityEvent longPressingEvent;

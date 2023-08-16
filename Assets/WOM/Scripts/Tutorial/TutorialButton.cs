@@ -8,12 +8,18 @@ public class TutorialButton : MonoBehaviour
     public Image image;
     public Button button;
     TutorialManager tutorialManager;
-    
+
 
     void Start()
     {
         GetManager();
         GetButton();
+
+        //     button.onClick.AddListener(() =>
+        //    {
+        //        EventManager.instance.RunEvent<int>(CallBackEventType.TYPES.OnTutorialBtnClick, id);
+        //        Debug.Log("click!!!");
+        //    });
     }
 
     void GetManager()

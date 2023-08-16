@@ -305,7 +305,8 @@ public class UnionManager : MonoBehaviour
         if (nextLevel > maxLevel)
             return 0;
 
-        var passiveDamage = slot.unionData.passiveDamage + ((nextLevel) * slot.unionData.addPassiveDamage);
+        //var passiveDamage = slot.unionData.passiveDamage + ((nextLevel) * slot.unionData.addPassiveDamage);
+        var passiveDamage = (nextLevel) * slot.unionData.addPassiveDamage;
         return passiveDamage;
     }
 

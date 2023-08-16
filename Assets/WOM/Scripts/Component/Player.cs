@@ -305,6 +305,8 @@ public class Player : MonoBehaviour
 
         // set ui 
         GlobalData.instance.dungeonEnterPopup.SetTxtClierTicket(clearTicket);
+        GlobalData.instance.uiController.SetTxtDungeonClearTicketCount(value);
+
         // set save data;
         GlobalData.instance.saveDataManager.SaveDataGoodsClearTicket(clearTicket);
     }
@@ -408,6 +410,8 @@ public class Player : MonoBehaviour
 
         // set ui 
         GlobalData.instance.dungeonEnterPopup.SetTxtClierTicket(clearTicket);
+        GlobalData.instance.uiController.SetTxtDungeonClearTicketCount(value);
+
 
         // set save data;
         GlobalData.instance.saveDataManager.SaveDataGoodsClearTicket(clearTicket);
@@ -419,7 +423,14 @@ public class Player : MonoBehaviour
         //if (dungeonKeys[goodsType] > 2) dungeonKeys[goodsType] = 2; // 던전 키 최대 보유수 2개 제한
 
         // RELOAD UI
-        // ...
+        switch (goodsType)
+        {
+            case GoodsType.gold: GlobalData.instance.uiController.SetTxtDungeonGoldKeyCount(dungeonKeys[goodsType]); break;
+            case GoodsType.bone: GlobalData.instance.uiController.SetTxtDungeonBoneKeyCount(dungeonKeys[goodsType]); break;
+            case GoodsType.dice: GlobalData.instance.uiController.SetTxtDungeonDiceKeyCount(dungeonKeys[goodsType]); break;
+            case GoodsType.coal: GlobalData.instance.uiController.SetTxtDungeonCoalKeyCount(dungeonKeys[goodsType]); break;
+        }
+
 
         // set save data;
         GlobalData.instance.saveDataManager.SaveDataGoodsDungeonKey(goodsType, dungeonKeys[goodsType]);
@@ -431,7 +442,13 @@ public class Player : MonoBehaviour
         if (dungeonKeys[goodsType] < 0) dungeonKeys[goodsType] = 0;
 
         // RELOAD UI
-        // ...
+        switch (goodsType)
+        {
+            case GoodsType.gold: GlobalData.instance.uiController.SetTxtDungeonGoldKeyCount(dungeonKeys[goodsType]); break;
+            case GoodsType.bone: GlobalData.instance.uiController.SetTxtDungeonBoneKeyCount(dungeonKeys[goodsType]); break;
+            case GoodsType.dice: GlobalData.instance.uiController.SetTxtDungeonDiceKeyCount(dungeonKeys[goodsType]); break;
+            case GoodsType.coal: GlobalData.instance.uiController.SetTxtDungeonCoalKeyCount(dungeonKeys[goodsType]); break;
+        }
 
         // set save data;
         GlobalData.instance.saveDataManager.SaveDataGoodsDungeonKey(goodsType, dungeonKeys[goodsType]);

@@ -57,6 +57,13 @@ public class UiController : MonoBehaviour
     public TextMeshProUGUI txtDnaTicketCount;
     public TextMeshProUGUI txtCoalCount;
 
+    // 던전 추가 재화 표시 항목
+    public TextMeshProUGUI txtDungeonGoldKeyCount;
+    public TextMeshProUGUI txtDungeonBoneKeyCount;
+    public TextMeshProUGUI txtDungeonDiceKeyCount;
+    public TextMeshProUGUI txtDungeonCoalKeyCount;
+    public TextMeshProUGUI txtDungeonClearTicketCount;
+
     void Start()
     {
     }
@@ -135,6 +142,13 @@ public class UiController : MonoBehaviour
         SetTxtDnaTicket(player.dnaTicket);
         SetTxtUnionTicket(player.unionTicket);
         SetTxtCoal(player.coal);
+
+        // 던전 추가 UI
+        SetTxtDungeonGoldKeyCount(player.dungeonKeys[GoodsType.gold]);
+        SetTxtDungeonBoneKeyCount(player.dungeonKeys[GoodsType.bone]);
+        SetTxtDungeonDiceKeyCount(player.dungeonKeys[GoodsType.dice]);
+        SetTxtDungeonCoalKeyCount(player.dungeonKeys[GoodsType.coal]);
+        SetTxtDungeonClearTicketCount(player.clearTicket);
         // 소탕권
         //SetTxtClearTicket();
     }
@@ -266,7 +280,26 @@ public class UiController : MonoBehaviour
         txtCoalCount.text = value.ToString();
     }
 
-
+    public void SetTxtDungeonGoldKeyCount(long value)
+    {
+        txtDungeonGoldKeyCount.text = value.ToString();
+    }
+    public void SetTxtDungeonBoneKeyCount(long value)
+    {
+        txtDungeonBoneKeyCount.text = value.ToString();
+    }
+    public void SetTxtDungeonDiceKeyCount(long value)
+    {
+        txtDungeonDiceKeyCount.text = value.ToString();
+    }
+    public void SetTxtDungeonCoalKeyCount(long value)
+    {
+        txtDungeonCoalKeyCount.text = value.ToString();
+    }
+    public void SetTxtDungeonClearTicketCount(long value)
+    {
+        txtDungeonClearTicketCount.text = value.ToString();
+    }
 
 
     public void SetTxtBossChallengeTimer(int value)

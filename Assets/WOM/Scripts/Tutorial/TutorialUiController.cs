@@ -26,7 +26,7 @@ public class TutorialUiController : MonoBehaviour
 
     // 스크린 터치 버튼
     public GameObject btnScreen;
-    public void EnableTutorialMask(string message, Image image, Button button)
+    public void EnableTutorialMask(string message, Image image, Button button, int btnId)
     {
         ShowOnlyText(false);
         tutoSet.gameObject.SetActive(true);
@@ -38,8 +38,9 @@ public class TutorialUiController : MonoBehaviour
         tutoBtn.onClick.RemoveAllListeners();
         tutoBtn.onClick.AddListener(() =>
         {
+            EventManager.instance.RunEvent<int>(CallBackEventType.TYPES.OnTutorialBtnClick, btnId);
             button.onClick.Invoke();
-            tutorialManager.CompleteStep();
+            //tutorialManager.CompleteStep();
         });
     }
     bool skipText;

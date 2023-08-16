@@ -85,7 +85,7 @@ public class EventController : MonoBehaviour
         // monster hit shader effect
         currentMonster.inOutAnimator.MonsterHitAnim();
         // ENABLE Floting Text Effect 
-        globalData.effectManager.EnableFloatingText(damage, isCritical, tr);
+        globalData.effectManager.EnableFloatingText(damage, isCritical, tr, insectType);
         // 몬스터 제거시 ( hp 로 판단 )
         if (IsMonseterKill(currentMonster.hp))
         {
@@ -111,7 +111,7 @@ public class EventController : MonoBehaviour
         var damage = GlobalData.instance.skillManager.GetSkillInGameDataByType(SkillType.monsterKing).power;
 
         // ENABLE Floting Text Effect 
-        globalData.effectManager.EnableFloatingText(damage, false, tr);
+        globalData.effectManager.EnableFloatingText(damage, false, tr, EnumDefinition.InsectType.none);
 
         var monsterType = GlobalData.instance.player.curMonsterType;
 
@@ -207,7 +207,7 @@ public class EventController : MonoBehaviour
         var damage = globalData.insectManager.GetInsectDamage(insectType, insectType == InsectType.union ? unionIndex : 0, out bool isCritical);
 
         // ENABLE Floting Text Effect 
-        globalData.effectManager.EnableFloatingText(damage, isCritical, tr);
+        globalData.effectManager.EnableFloatingText(damage, isCritical, tr, insectType);
 
 
 

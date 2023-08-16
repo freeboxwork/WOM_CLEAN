@@ -201,12 +201,18 @@ public class EffectManager : MonoBehaviour
         return goldSFX_RandomPoints[(int)pointType];
     }
 
-    public void EnableFloatingText(double damage, bool isCritical, Transform tr)
+    public void EnableFloatingText(double damage, bool isCritical, Transform tr, EnumDefinition.InsectType insectType)
     {
         // var flotingTxt = GetFloatingText();
         // flotingTxt.transform.position = tr.position;
         // flotingTxt.gameObject.SetActive(true);
         // flotingTxt.SetText(damage.ToString(), isCritical);
+
+        if (insectType == EnumDefinition.InsectType.union)
+        {
+            Debug.Log("Union Hit!");
+        }
+
         DamageNumber damageNumber = numberPrefab.Spawn(tr.position, (float)damage);
 
         if (isCritical)

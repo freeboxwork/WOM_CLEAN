@@ -35,6 +35,8 @@ public class Pattern_03 : PatternBase
             //     GlobalData.instance.uiController.CloseMainMenuPanel();
             // }
 
+            Debug.Log("투토리얼 버튼 클릭 " + btnIndex + " " + this.btnIndex);
+
             if (btnIndex == this.btnIndex)
             {
                 Debug.Log("투토리얼 패턴 이벤트 종료 " + patternType);

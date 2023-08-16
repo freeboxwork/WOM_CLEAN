@@ -35,6 +35,10 @@ public class TutorialManager : MonoBehaviour
 
     public bool isAdPass = false;
 
+    //투토리얼 게임 오브젝트
+    public List<TutorialGameObject> tutorialGameObjects = new List<TutorialGameObject>();
+
+
     void Start()
     {
         //StartCoroutine(Init());
@@ -54,10 +58,10 @@ public class TutorialManager : MonoBehaviour
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            EnableTutorialSet();
-        }
+        // if (Input.GetKeyDown(KeyCode.Q))
+        // {
+        //     EnableTutorialSet();
+        // }
     }
 
 
@@ -208,6 +212,9 @@ public class TutorialManager : MonoBehaviour
             else
             {
                 isTutorial = false;
+
+                // 골드피그 등장
+                GlobalData.instance.goldPigController.EnableGoldPig();
                 Debug.Log("투토리얼 종료");
             }
 
@@ -237,6 +244,16 @@ public class TutorialManager : MonoBehaviour
         isUnionGamblingTutorial = state;
     }
 
+
+    public TutorialGameObject GetTutorialGameObjectById(int id)
+    {
+        var obj = tutorialGameObjects.FirstOrDefault(f => f.id == id);
+        if (obj == null)
+        {
+            Debug.LogError($"{id}에 해당하는 투토리얼 게임 오브젝트가 없습니다.");
+        }
+        return obj;
+    }
 
 }
 

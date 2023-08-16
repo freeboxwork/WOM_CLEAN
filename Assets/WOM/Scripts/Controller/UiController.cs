@@ -149,6 +149,7 @@ public class UiController : MonoBehaviour
         SetTxtDungeonDiceKeyCount(player.dungeonKeys[GoodsType.dice]);
         SetTxtDungeonCoalKeyCount(player.dungeonKeys[GoodsType.coal]);
         SetTxtDungeonClearTicketCount(player.clearTicket);
+
         // 소탕권
         //SetTxtClearTicket();
     }

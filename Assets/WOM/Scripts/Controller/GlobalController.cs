@@ -130,7 +130,6 @@ public class GlobalController : MonoBehaviour
         // 트랜지션 아웃 ( black screen )
         yield return StartCoroutine(GlobalData.instance.effectManager.TransitionOut());
 
-
         // 캐슬 초기화
         yield return StartCoroutine(GlobalData.instance.castleManager.Init());
 
@@ -148,9 +147,6 @@ public class GlobalController : MonoBehaviour
 
         // 한 프레임 대기
         yield return new WaitForEndOfFrame();
-
-        // 골드 피그 등장( 지정된 시간 지난뒤 등장 )
-        yield return StartCoroutine(goldPigController.Init());
 
         // 오프라인 보상 팝업 등장
         yield return StartCoroutine(offlineRewardPopupContoller.Init());
@@ -171,6 +167,10 @@ public class GlobalController : MonoBehaviour
             insectSpwanManager.AllTimerStart();
         }
 
+
+
+        // 골드 피그 등장( 지정된 시간 지난뒤 등장 )
+        yield return StartCoroutine(goldPigController.Init());
 
         // 공격 가능 상태로 전환
         attackController.SetAttackableState(true);

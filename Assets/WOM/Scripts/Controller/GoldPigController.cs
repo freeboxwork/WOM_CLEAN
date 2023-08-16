@@ -41,7 +41,8 @@ public class GoldPigController : MonoBehaviour
     {
         SetPointSides();
         AddEvents();
-        EnableGoldPig();
+        if (GlobalData.instance.tutorialManager.isTutorial == false)
+            EnableGoldPig();
         yield return null;
     }
 
@@ -60,13 +61,13 @@ public class GoldPigController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(MoveGoldPig());
-        }
-    }
+    // void Update()
+    // {
+    //     // if (Input.GetKeyDown(KeyCode.Space))
+    //     // {
+    //     //     StartCoroutine(MoveGoldPig());
+    //     // }
+    // }
 
     void AddEvents()
     {

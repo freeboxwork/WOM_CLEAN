@@ -12,7 +12,7 @@ public class TutorialButton : MonoBehaviour
 
     void Start()
     {
-        GetManager();
+        //GetManager();
         GetButton();
 
         //     button.onClick.AddListener(() =>

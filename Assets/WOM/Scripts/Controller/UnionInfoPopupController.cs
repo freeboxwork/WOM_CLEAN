@@ -13,6 +13,7 @@ public class UnionInfoPopupController : MonoBehaviour
     public TextMeshProUGUI txtSpawnTime;
     public TextMeshProUGUI txtMoveSpeed;
     public TextMeshProUGUI txtPassiveDamage;
+    public TextMeshProUGUI txtCurrentPassiveDamage;
     public TextMeshProUGUI txtReqirementCount;
     public Slider slider;
     public Button btnEquip;
@@ -66,8 +67,9 @@ public class UnionInfoPopupController : MonoBehaviour
         SetTxtDamageAfter(inGameData.damageNextLevel.ToString());
         SetTxtSpawnTime(inGameData.spawnTime.ToString());
         SetTxtMoveSpeed(inGameData.moveSpeed.ToString());
-        var passiveDamage = $"{inGameData.passiveDamage}% + {inGameData.passiveDamageNextLevel}";
-        SetTxtPassiveDamage(passiveDamage);
+        //var passiveDamage = $"{inGameData.passiveDamage}% (+ {inGameData.passiveDamageNextLevel})";
+        SetTxtCurrentPassiveDamage(inGameData.passiveDamage.ToString());
+        SetTxtPassiveDamage(inGameData.passiveDamageNextLevel.ToString());
         SetSlider(slot.sliderReqirement.value);
         SetTxtReqirementCount(slot.txtReqirementCount.text);
 
@@ -80,8 +82,9 @@ public class UnionInfoPopupController : MonoBehaviour
         SetTxtDamageAfter(unionSlot.inGameData.damageNextLevel.ToString());
         SetTxtSpawnTime(unionSlot.inGameData.spawnTime.ToString());
         SetTxtMoveSpeed(unionSlot.inGameData.moveSpeed.ToString());
-        var passiveDamage = $"{unionSlot.inGameData.passiveDamage}% + {unionSlot.inGameData.passiveDamageNextLevel}";
-        SetTxtPassiveDamage(passiveDamage);
+        //var passiveDamage = $"{unionSlot.inGameData.passiveDamage}% (+ {unionSlot.inGameData.passiveDamageNextLevel})";
+        SetTxtCurrentPassiveDamage(unionSlot.inGameData.passiveDamage.ToString());
+        SetTxtPassiveDamage(unionSlot.inGameData.passiveDamageNextLevel.ToString());
         SetSlider(unionSlot.sliderReqirement.value);
         SetTxtReqirementCount(unionSlot.txtReqirementCount.text);
     }
@@ -103,22 +106,25 @@ public class UnionInfoPopupController : MonoBehaviour
 
     public void SetTxtDamageAfter(string value)
     {
-        txtDamageAfter.text = value;
+        txtDamageAfter.text = $"(+ {value})";
     }
 
     public void SetTxtSpawnTime(string value)
     {
-        txtSpawnTime.text = value;
+        txtSpawnTime.text = $"{value} s";
     }
 
     public void SetTxtMoveSpeed(string value)
     {
-        txtMoveSpeed.text = value;
+        txtMoveSpeed.text =  value;
     }
-
+    public void SetTxtCurrentPassiveDamage(string value)
+    {
+        txtCurrentPassiveDamage.text =  $"{value} %";
+    }
     public void SetTxtPassiveDamage(string value)
     {
-        txtPassiveDamage.text = value + "%";
+        txtPassiveDamage.text =  $"(+ {value} %)";
     }
 
     public void SetTxtReqirementCount(string value)

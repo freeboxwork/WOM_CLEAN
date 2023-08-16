@@ -551,9 +551,9 @@ public class DungeonMonsterDatas
 public class MineAndFactoryBuildingData
 {
     public int level;
-    public int productionCount;
-    public int maxSupplyAmount;
-    public int price;
+    public long productionCount;
+    public long maxSupplyAmount;
+    public long price;
     public int productionTime;
     public string currencyType;
     EnumDefinition.GoodsType goodsType;

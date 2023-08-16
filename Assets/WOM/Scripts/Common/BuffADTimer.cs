@@ -69,7 +69,7 @@ public class BuffADTimer : MonoBehaviour
 
     void ResetAllwaysCountDownText()
     {
-        countdownTextAllwaysViwe.text = "00:00";
+        countdownTextAllwaysViwe.text = "";
     }
 
     public void SetTxtBuffPass()

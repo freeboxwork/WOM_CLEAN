@@ -89,7 +89,8 @@ public class BuffADSlot : MonoBehaviour
 
     void UpdateUI()
     {
-        txtLeftCount.text = "일일 시청 가능 " + leftCount.ToString() + "/" + totalCount.ToString();
+        //txtLeftCount.text = leftCount.ToString() + "/" + totalCount.ToString();
+        txtLeftCount.text = string.Format("{0} / {1}",leftCount,totalCount);
     }
 
     // 광고 보기 카운트 초기화

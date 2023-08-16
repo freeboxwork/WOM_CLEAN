@@ -539,8 +539,8 @@ public class UiController : MonoBehaviour
 
     void EnableDungeonEnterPopup(MonsterType monsterType)
     {
-        AllDisableMenuPanels();
-        AllUnSelectMenuBtns();
+        // AllDisableMenuPanels();
+        // AllUnSelectMenuBtns();
         //if (IsValidDungeonKeyCount(monsterType))
         GlobalData.instance.dungeonEnterPopup.EnablePopup(monsterType);
     }

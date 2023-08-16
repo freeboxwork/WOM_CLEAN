@@ -5,7 +5,7 @@
    "productionCount": 0,
    "maxSupplyAmount": 0,
    "price": 100,
-   "productionTime": 300,
+   "productionTime": 20,
    "currencyType": "Gold"
  },
  {
@@ -125,7 +125,7 @@
    "productionCount": 8453252500,
    "maxSupplyAmount": 338130100000,
    "price": 3276800,
-   "productionTime": 220,
+   "productionTime": 210,
    "currencyType": "Gold"
  }
 ]

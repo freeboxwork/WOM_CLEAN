@@ -1,6 +1,8 @@
 using UnityEngine.UI;
 using TMPro;
-
+using System.Diagnostics;
+using System.Collections;
+using UnityEngine;
 public class MinePopup : CastlePopupBase
 {
     public TextMeshProUGUI productionCountText;//생산량
@@ -9,6 +11,7 @@ public class MinePopup : CastlePopupBase
     public TextMeshProUGUI levelText;//레벨
     public TextMeshProUGUI priceText;//업그레이드 석탄 비용
     public TextMeshProUGUI totlaMiningValue; //총 채굴량
+    
     public Button btnGetGold;
     public Button btnUpgrade;
 
@@ -37,8 +40,7 @@ public class MinePopup : CastlePopupBase
     {
         priceText.text = text;
     }
-
-
+ 
     private void Start()
     {
         SetButtonEvents();
@@ -183,7 +185,6 @@ public class MinePopup : CastlePopupBase
         SetTextLevel(_levelText);
         SetTextPrice(_priceText);
 
-
     }
 
     bool CheckEqualZeroByCalculation(long calc)
@@ -208,6 +209,7 @@ public class MinePopup : CastlePopupBase
         // string _maxSupplyText = $"{data.maxSupplyAmount}";
         // string _productionTimeText = $"{data.productionTime}";
         string _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount.ToString());
+        UnityEngine.Debug.Log(data.maxSupplyAmount);
         string _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount.ToString());
         string _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime.ToString());
         string _levelText = $"Lv {data.level}";

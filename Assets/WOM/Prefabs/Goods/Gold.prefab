@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dataName: gold out
-  animCurveType: 7
-  animDuration: 0.5
+  animCurveType: 8
+  animDuration: 0.3
   value: 0
   animTime: 0
   animValue: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataName: gild in
   animCurveType: 3
-  animDuration: 0.5
+  animDuration: 0.3
   value: 0
   animTime: 0
   animValue: 0
@@ -139,4 +139,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldInAnimData: {fileID: 1969637492}
   goldOutAnimData: {fileID: 1969637491}
+  IsFinishAnim: 0
   goodsType: 0

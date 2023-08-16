@@ -332,14 +332,8 @@ public class EventController : MonoBehaviour
             GainBone(currentMonster);
         }
 
-
-
-
-
         // monster kill animation 사망 애니메이션 대기
         yield return StartCoroutine(currentMonster.inOutAnimator.MonsterKillMatAnim());
-
-
 
         // tutorial event ( 골드 몬스터 사망 )
         if (currentMonster.monsterType == MonsterType.gold)

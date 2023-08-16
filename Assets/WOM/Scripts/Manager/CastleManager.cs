@@ -6,6 +6,7 @@ using UnityEngine.Events;
 using static EnumDefinition;
 using ProjectGraphics;
 using static ProjectGraphics.CastleController;
+using UnityEngine.Experimental.AI;
 
 public class CastleManager : MonoBehaviour
 {
@@ -394,12 +395,16 @@ public class CastleManager : MonoBehaviour
     // 이 함수는 CastleBuildingData를 인자로 받아 골드 채굴을 하는 IEnumerator입니다.
     IEnumerator MiningGold()
     {
-        var popup = (MinePopup)GetCastlePopupByType(CastlePopupType.mine);
 
+        var popup = (MinePopup)GetCastlePopupByType(CastlePopupType.mine);
+        
         while (true)
         {
+
             // 해당 시간만큼 대기 후 다시 while문을 반복합니다.
             yield return new WaitForSeconds(buildDataMine.productionTime);
+            
+
 
             // 이 조건문은 player의 coal이 충분한지 검사합니다.
             if (GlobalData.instance.player.coal >= buildDataMine.price && buildDataMine.level > 0)  // level이 0이면 채굴 불가
@@ -417,7 +422,6 @@ public class CastleManager : MonoBehaviour
             //yield return new WaitForSeconds(3f);
         }
     }
-
 
     /// <summary> 골드 인출 </summary>
     // 이 함수는 골드 인출 버튼을 눌렀을 때 호출됩니다.
@@ -505,7 +509,7 @@ public class CastleBuildingData
     // 생산 시간
     public int productionTime;
     // 석탄 필요량
-    public int price;
+    public long price;
     public string currencyType;
     // 생산되는 재화 타입    
     public EnumDefinition.GoodsType goodsType;

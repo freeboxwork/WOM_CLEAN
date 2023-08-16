@@ -208,21 +208,23 @@ public class EffectManager : MonoBehaviour
         // flotingTxt.gameObject.SetActive(true);
         // flotingTxt.SetText(damage.ToString(), isCritical);
 
-        if (insectType == EnumDefinition.InsectType.union)
+ 
+        DamageNumber damageNumber = numberPrefab.Spawn(tr.position, (float)damage);
+        damageNumber.SetColor(Color.white);
+        damageNumber.SetScale(1);
+
+
+       if (insectType == EnumDefinition.InsectType.union)
         {
-            Debug.Log("Union Hit!");
+            damageNumber.SetColor(Color.cyan);
+            damageNumber.SetScale(1.2f);
         }
 
-        DamageNumber damageNumber = numberPrefab.Spawn(tr.position, (float)damage);
 
         if (isCritical)
         {
             damageNumber.SetScale(1.5f);
             damageNumber.SetColor(Color.magenta);
-        }
-        else
-        {
-            damageNumber.SetScale(1);
         }
 
     }

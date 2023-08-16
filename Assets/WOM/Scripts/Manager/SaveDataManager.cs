@@ -60,6 +60,27 @@ public class SaveDataManager : MonoBehaviour
         File.WriteAllText(path, jsonData);
     }
 
+    void OnApplicationPause(bool pauseStatus)
+    {
+        if (pauseStatus)
+        {
+            // 게임이 일시 중지될 때 
+            // 종료 시간 저장
+            saveDataTotal.saveDataSystem.quitTime = DateTime.Now.ToString();
+            // 데이터 저장                
+            var jsonData = JsonUtility.ToJson(saveDataTotal);
+            var path = GetSaveDataFilePaht();
+            File.WriteAllText(path, jsonData);
+
+        }
+        else
+        {
+
+        }
+    }
+
+
+
     public IEnumerator SaveDataToFileCoroutine()
     {
         // ui interaction disable

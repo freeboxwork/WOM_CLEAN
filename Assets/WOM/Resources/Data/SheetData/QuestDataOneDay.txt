@@ -12,49 +12,49 @@
    "questName": "광고 보기",
    "targetValue": 3,
    "rewardType": "gem",
-   "rewardValue": 200
+   "rewardValue": 500
  },
  {
    "questType": "clearDungeon",
    "questName": "던전 클리어",
    "targetValue": 3,
    "rewardType": "gem",
-   "rewardValue": 100
+   "rewardValue": 200
  },
  {
    "questType": "useSkill",
    "questName": "스킬 사용",
    "targetValue": 10,
    "rewardType": "gem",
-   "rewardValue": 100
+   "rewardValue": 200
  },
  {
    "questType": "summonUnion",
    "questName": "유니온 소환",
-   "targetValue": 2,
+   "targetValue": 5,
    "rewardType": "gem",
-   "rewardValue": 200
+   "rewardValue": 500
  },
  {
    "questType": "progressStage",
    "questName": "스테이지 진행",
    "targetValue": 3,
    "rewardType": "gem",
-   "rewardValue": 200
+   "rewardValue": 300
  },
  {
    "questType": "killGoldBoss",
    "questName": "금광 보스 처치",
-   "targetValue": 10,
+   "targetValue": 20,
    "rewardType": "gem",
-   "rewardValue": 100
+   "rewardValue": 200
  },
  {
    "questType": "takeGoldPig",
    "questName": "황금 돼지 잡기",
    "targetValue": 2,
    "rewardType": "gem",
-   "rewardValue": 100
+   "rewardValue": 200
  }
 ]
 }

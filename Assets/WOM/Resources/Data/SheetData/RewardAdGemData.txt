@@ -1,34 +1,34 @@
 {
   "data": [
-    {
-      "level": 0,
-      "rewardType": "gem",
-      "rewardValue": 100,
-      "probability": 50
-    },
-    {
-      "level": 1,
-      "rewardType": "gem",
-      "rewardValue": 200,
-      "probability": 30
-    },
-    {
-      "level": 2,
-      "rewardType": "gem",
-      "rewardValue": 400,
-      "probability": 15
-    },
-    {
-      "level": 3,
-      "rewardType": "gem",
-      "rewardValue": 800,
-      "probability": 4
-    },
-    {
-      "level": 4,
-      "rewardType": "gem",
-      "rewardValue": 1600,
-      "probability": 1
-    }
-  ]
+ {
+   "level": 0,
+   "rewardType": "gem",
+   "rewardValue": 300,
+   "probability": 50
+ },
+ {
+   "level": 1,
+   "rewardType": "gem",
+   "rewardValue": 600,
+   "probability": 30
+ },
+ {
+   "level": 2,
+   "rewardType": "gem",
+   "rewardValue": 900,
+   "probability": 15
+ },
+ {
+   "level": 3,
+   "rewardType": "gem",
+   "rewardValue": 1800,
+   "probability": 4
+ },
+ {
+   "level": 4,
+   "rewardType": "gem",
+   "rewardValue": 3600,
+   "probability": 1
+ }
+]
 }

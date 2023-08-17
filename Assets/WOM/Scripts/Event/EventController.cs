@@ -505,6 +505,9 @@ public class EventController : MonoBehaviour
 
     void EvnOnDungenMonsterChalleng(MonsterType monsterType)
     {
+        // 전체 UI 비활성 
+        UtilityMethod.EnableUIEventSystem(false);
+
         var usingKeyCount = GlobalData.instance.monsterManager.GetMonsterDungeon().monsterToDataMap[monsterType].usingKeyCount;
 
         // 열쇠 사용
@@ -623,6 +626,9 @@ public class EventController : MonoBehaviour
 
         // 던전 몬스터 등장
         yield return StartCoroutine(monster.inOutAnimator.AnimPositionIn());
+
+        // 전체 UI 활성
+        UtilityMethod.EnableUIEventSystem(true);
 
         // 보스 도전 타이머 활성화
         globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(true);
@@ -855,7 +861,8 @@ public class EventController : MonoBehaviour
 
     IEnumerator ProcessEvolutionGradeChallenge()
     {
-
+        // 전체 UI 비활성 
+        UtilityMethod.EnableUIEventSystem(false);
 
         // 황금돼지 비활성화
         globalData.goldPigController.EnterOtherView();
@@ -927,6 +934,8 @@ public class EventController : MonoBehaviour
         // 공격 가능 상태로 전환
         globalData.attackController.SetAttackableState(true);
 
+        // 전체 UI 활성 
+        UtilityMethod.EnableUIEventSystem(true);
         // 진화 몬스터 등장
         StartCoroutine(MonsterAppearCor(MonsterType.evolution));
 

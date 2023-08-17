@@ -10,6 +10,8 @@ public class NotifyIcon : MonoBehaviour
     public List<GameObject> gameObjectList = new List<GameObject>();
     public List<Image> imageList = new List<Image>();
     public Image iconNotify;
+    public GameObject textNotify;
+
 
     bool isActive = false;
 
@@ -36,6 +38,7 @@ public class NotifyIcon : MonoBehaviour
                 break;
         }
         iconNotify.enabled = isActive;
+        textNotify.SetActive(isActive);
     }
 
 

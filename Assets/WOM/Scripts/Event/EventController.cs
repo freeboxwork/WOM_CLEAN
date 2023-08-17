@@ -700,7 +700,8 @@ public class EventController : MonoBehaviour
         // UtilityMethod.GetCustomTypeGMById(0).SetActive(true);
 
 
-
+        // notify icon 활성화
+        UtilityMethod.GetCustomTypeGMById(17).SetActive(true);
 
         // 금광보스 카운트 UI 활성화
         globalData.uiController.SetEnablePhaseCountUI(true);

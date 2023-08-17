@@ -377,8 +377,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fire: {fileID: 8093407946198337385}
   thunder: {fileID: 4661823453243877898}
-  auraEffect: {fileID: 0}
-  goldEffect: {fileID: 0}
+  auraEffect: {fileID: 1348948941708790431}
+  goldEffect: {fileID: 1348948941708790431}
   trail: {fileID: 764566456768780602}
   anim: {fileID: 7988044497271703859}
   fireSprites:

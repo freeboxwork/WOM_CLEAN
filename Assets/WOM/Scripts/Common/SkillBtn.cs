@@ -304,11 +304,19 @@ public class SkillBtn : MonoBehaviour
         var saveData = GlobalData.instance.saveDataManager.GetSaveDataSkill(skillType);
         if (saveData.isCooltime)
         {
+            //var pervTime = "2023-08-16 오후 9:13:23";
+            //var calcTime = System.DateTime.Parse(pervTime);
             var currentTime = System.DateTime.Now;
             var lastTime = GlobalData.instance.saveDataManager.saveDataTotal.saveDataSystem.quitTime;
+
+
             TimeSpan timeSpan = currentTime - System.DateTime.Parse(lastTime);
+
+            //Debug.Log("Skill curretn time " + currentTime + " last time " + lastTime + " time span " + timeSpan + " seconds " + timeSpan.Seconds);
+
+
             var second = timeSpan.Seconds;
-            if (second > data.coolTime)
+            if (second <= 0)
             {
                 // 쿨타임이 끝난경우
                 saveData.isCooltime = false;

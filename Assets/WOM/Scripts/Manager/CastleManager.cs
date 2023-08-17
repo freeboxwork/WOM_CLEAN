@@ -389,6 +389,14 @@ public class CastleManager : MonoBehaviour
     }
 
 
+    private float digUpGoldTime;
+    private float maxDigUpGoldTime;
+    private float digUpBoneTime;
+    private float maxDigUpBoneTime;
+    public float GetDigUpTime()
+    {
+        return digUpGoldTime;
+    }
 
     // 골드 채굴
     // CastleBuildingData 클래스를 기준으로 코루틴을 사용하여 productionTime 한번씩 productionCount을 totlaValue에 더해주고 maxSupplyAmount을 넘어가면 더이상 totlaValue에 더하지 않는다
@@ -397,30 +405,53 @@ public class CastleManager : MonoBehaviour
     {
 
         var popup = (MinePopup)GetCastlePopupByType(CastlePopupType.mine);
-        
+
+        digUpGoldTime = 0;
+
+        popup.SetTextDigUpFullText("채굴중");
+
         while (true)
         {
+            yield return null;
 
-            // 해당 시간만큼 대기 후 다시 while문을 반복합니다.
-            yield return new WaitForSeconds(buildDataMine.productionTime);
-            
-
-
-            // 이 조건문은 player의 coal이 충분한지 검사합니다.
-            if (GlobalData.instance.player.coal >= buildDataMine.price && buildDataMine.level > 0)  // level이 0이면 채굴 불가
+            //0레벨일때는 채굴 불가
+            if(buildDataMine.level > 0)
             {
-                // 아래 두 줄은 player의 coal을 사용하여 채굴하고, productionCount만큼 totlaMiningValue를 업데이트합니다. 단, maxSupplyAmount를 넘지 않도록 합니다.
-                GlobalData.instance.player.PayCoal(buildDataMine.price);
-                buildDataMine.TotlaMiningValue = System.Math.Min(buildDataMine.totlaMiningValue + buildDataMine.productionCount, buildDataMine.maxSupplyAmount);
+                //채굴 생산시간 가져오기
+                maxDigUpGoldTime = buildDataMine.productionTime;
 
-                // MinePopup UI를 설정하고 현재의 totalMiningValue를 팝업에 표시합니다. 
-                popup.SetTextTotalMiningValue(buildDataMine.totlaMiningValue.ToString());
-                Debug.Log("채굴된 골드: " + buildDataMine.totlaMiningValue + " 남은 시간: " + buildDataMine.productionTime);
+                if(digUpGoldTime < maxDigUpGoldTime)
+                {
+                    popup.SetTextDigUpFullText("채굴중");
+
+                    digUpGoldTime += Time.deltaTime;
+
+                    popup.SetTextDigUpTimeValue(maxDigUpGoldTime, digUpGoldTime);
+
+                    if (digUpGoldTime >= maxDigUpGoldTime)
+                    {
+
+                        buildDataMine.TotlaMiningValue = System.Math.Min(buildDataMine.totlaMiningValue + buildDataMine.productionCount, buildDataMine.maxSupplyAmount);
+                        // MinePopup UI를 설정하고 현재의 totalMiningValue를 팝업에 표시합니다. 
+                        popup.SetTextTotalMiningValue(buildDataMine.totlaMiningValue.ToString());
+
+                        //광산이 꽉 차지 않았을때만 생산
+                        if (buildDataMine.totlaMiningValue < buildDataMine.maxSupplyAmount)
+                        {
+                            digUpGoldTime = 0;
+                        }
+
+                    }
+                }
+                else
+                {
+                    popup.SetTextDigUpFullText("금광이 꽉 찾습니다");
+                }
+                
             }
 
-
-            //yield return new WaitForSeconds(3f);
         }
+
     }
 
     /// <summary> 골드 인출 </summary>
@@ -442,6 +473,9 @@ public class CastleManager : MonoBehaviour
             buildDataMine.TotlaMiningValue = 0;
 
             SetPriceText(CastlePopupType.mine);
+
+            digUpGoldTime = 0;
+
         }
         else
         {
@@ -459,21 +493,53 @@ public class CastleManager : MonoBehaviour
     IEnumerator MiningBone()
     {
         var popup = (MinePopup)GetCastlePopupByType(CastlePopupType.factory);
+
+        digUpBoneTime = 0;
+
+        popup.SetTextDigUpFullText("채굴중");
+
         while (true)
         {
-            yield return new WaitForSeconds(buildDataFactory.productionTime);
 
-            if (GlobalData.instance.player.coal >= buildDataFactory.price && buildDataFactory.level > 0)
+            yield return null;
+
+            //0레벨일때는 채굴 불가
+            if (buildDataFactory.level > 0)
             {
-                GlobalData.instance.player.PayCoal(buildDataFactory.price);
-                buildDataFactory.TotlaMiningValue = System.Math.Min(buildDataFactory.totlaMiningValue + buildDataFactory.productionCount, buildDataFactory.maxSupplyAmount);
-                // set ui  
+                //채굴 생산시간 가져오기
+                maxDigUpBoneTime = buildDataFactory.productionTime;
 
-                popup.SetTextTotalMiningValue(buildDataFactory.totlaMiningValue.ToString());
+                if (digUpBoneTime < maxDigUpBoneTime)
+                {
+                    popup.SetTextDigUpFullText("채굴중");
 
-                Debug.Log("채굴된 뼈조각: " + buildDataFactory.totlaMiningValue + " 남은 시간: " + buildDataFactory.productionTime);
+                    digUpBoneTime += Time.deltaTime;
+
+                    popup.SetTextDigUpTimeValue(maxDigUpBoneTime, digUpBoneTime);
+
+                    if (digUpBoneTime >= maxDigUpBoneTime)
+                    {
+
+                        buildDataFactory.TotlaMiningValue = System.Math.Min(buildDataFactory.totlaMiningValue + buildDataFactory.productionCount, buildDataFactory.maxSupplyAmount);
+                        // MinePopup UI를 설정하고 현재의 totalMiningValue를 팝업에 표시합니다. 
+                        popup.SetTextTotalMiningValue(buildDataFactory.totlaMiningValue.ToString());
+                        //Debug.Log("채굴된 뼈조각: " + buildDataFactory.totlaMiningValue + " 남은 시간: " + buildDataFactory.productionTime);
+
+                        //광산이 꽉 차지 않았을때만 생산
+                        if (buildDataFactory.totlaMiningValue < buildDataFactory.maxSupplyAmount)
+                        {
+                            digUpBoneTime = 0;
+                        }
+
+                    }
+                }
+                else
+                {
+                    popup.SetTextDigUpFullText("공장이 꽉 찾습니다");
+                }
+
             }
-            //yield return new WaitForSeconds(3f);
+
         }
     }
 
@@ -488,6 +554,7 @@ public class CastleManager : MonoBehaviour
             GlobalData.instance.player.AddBone(withdrawnBone);
             buildDataFactory.TotlaMiningValue = 0;
             SetPriceText(CastlePopupType.factory);
+            digUpBoneTime = 0;
         }
         else
         {

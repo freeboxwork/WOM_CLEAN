@@ -33,7 +33,6 @@ public class AttackController : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Debug.Log("isAttackableState : " + isAttackableState);
 
                 if (Time.time - lastSpawnTime >= spawnInterval)
                 {

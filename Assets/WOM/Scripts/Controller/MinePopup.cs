@@ -3,6 +3,8 @@ using TMPro;
 using System.Diagnostics;
 using System.Collections;
 using UnityEngine;
+using System;
+
 public class MinePopup : CastlePopupBase
 {
     public TextMeshProUGUI productionCountText;//생산량
@@ -11,14 +13,26 @@ public class MinePopup : CastlePopupBase
     public TextMeshProUGUI levelText;//레벨
     public TextMeshProUGUI priceText;//업그레이드 석탄 비용
     public TextMeshProUGUI totlaMiningValue; //총 채굴량
+    public TextMeshProUGUI digUpTimeText; //실시간 채굴시간
+    public TextMeshProUGUI digUpStateText; //채굴 현황
     
+    public Image digUpFillImage;//채굴 상태 FillAmount
     public Button btnGetGold;
     public Button btnUpgrade;
 
     //현재 클래스 TextMeshProUGUI 타입의 맴버변수의 개별 text 값을 각각 설정하는 개별 함수
     public void SetTextTotalMiningValue(string text)
     {
-        totlaMiningValue.text = text;
+        totlaMiningValue.text = UtilityMethod.ChangeSymbolNumber(text);
+    }
+    public void SetTextDigUpTimeValue(float max, float current)
+    {
+        digUpTimeText.text = string.Format("{0}/{1}", Math.Floor(current),Math.Floor(max));
+        SetDigUpStateFillAmount(max, current);
+    }
+    public void SetTextDigUpFullText(string text)
+    {
+        digUpStateText.text = text;
     }
     public void SetTextProductionCount(string text)
     {
@@ -26,7 +40,7 @@ public class MinePopup : CastlePopupBase
     }
     public void SetTextMaxSupply(string text)
     {
-        maxSupplyText.text = text;
+        maxSupplyText.text =  text;
     }
     public void SetTextProductionTime(string text)
     {
@@ -38,9 +52,14 @@ public class MinePopup : CastlePopupBase
     }
     public void SetTextPrice(string text)
     {
-        priceText.text = text;
+        priceText.text =  UtilityMethod.ChangeSymbolNumber(text);
     }
- 
+    void SetDigUpStateFillAmount(float max, float currnt)
+    {
+        digUpFillImage.fillAmount = (float)currnt/max;
+    }
+    
+
     private void Start()
     {
         SetButtonEvents();

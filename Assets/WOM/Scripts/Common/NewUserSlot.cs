@@ -104,6 +104,7 @@ public class NewUserSlot : MonoBehaviour
     public void SetBlockImage(bool isActive)
     {
         imgBlockImage.gameObject.SetActive(isActive);
+        btnReward.interactable = !isActive;
     }
 
 

@@ -57,6 +57,7 @@ public class AttendSlot : MonoBehaviour
     public void SetBlockImage(bool isActive)
     {
         blockImage.gameObject.SetActive(isActive);
+        btnReward.interactable = !isActive;
     }
 
 

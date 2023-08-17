@@ -248,7 +248,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rectTransform: {fileID: 798152476635497169}
-  multiscale: 0.74
+  multiscale: 0.5
   timimg: 1
   actionCurve:
     serializedVersion: 2
@@ -273,7 +273,7 @@ MonoBehaviour:
       outWeight: 0.17667755
     - serializedVersion: 3
       time: 0.36782935
-      value: 0.7287599
+      value: 0.63616276
       inSlope: 2.194452
       outSlope: 2.194452
       tangentMode: 1
@@ -282,7 +282,7 @@ MonoBehaviour:
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 0.495685
-      value: 0.7971698
+      value: 0.6982592
       inSlope: -1.0035571
       outSlope: -1.0035571
       tangentMode: 0
@@ -310,4 +310,4 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  delayTime: 1
+  delayTime: 3

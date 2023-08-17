@@ -179,7 +179,7 @@ public class EventController : MonoBehaviour
 
                 // level setting
                 var level = currentMonster.curData.level;
-                UtilityMethod.SetTxtCustomTypeByID(107, $"{level}");
+                UtilityMethod.SetTxtCustomTypeByID(107, $"X {level}");
 
                 // Set Stage Name
                 var stageName = currentMonster.stageName;
@@ -239,7 +239,7 @@ public class EventController : MonoBehaviour
 
             // level setting
             var level = currentMonster.curData.level;
-            UtilityMethod.SetTxtCustomTypeByID(107, $"{level}");
+            UtilityMethod.SetTxtCustomTypeByID(107, $"X {level}");
 
             // Set Stage Name
             var stageName = currentMonster.stageName;
@@ -586,7 +586,7 @@ public class EventController : MonoBehaviour
             UtilityMethod.GetCustomTypeGMById(10).gameObject.SetActive(true);
 
             // 던전 몬스터 레벨 표시
-            UtilityMethod.SetTxtCustomTypeByID(107, $"{1}");
+            UtilityMethod.SetTxtCustomTypeByID(107, $"X {1}");
 
             // side menu hide
             SideUIMenuHide(true);
@@ -809,6 +809,9 @@ public class EventController : MonoBehaviour
             globalData.monsterManager.SetMonsterData(monsterType, globalData.player.stageIdx);
         }
 
+        // 몬스터 UI 리셋 
+        MonsterUiReset();
+
         // Monster In Animation
         yield return StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionIn());
 
@@ -819,10 +822,6 @@ public class EventController : MonoBehaviour
         // Tutorial Event ( 골드 몬스터 등장 )
         if (monsterType == MonsterType.gold)
             EventManager.instance.RunEvent(CallBackEventType.TYPES.OnStageInGoldMonster);
-
-
-        // 몬스터 UI 리셋 
-        MonsterUiReset();
 
         // 공격 가능 상태 변경
         if (globalData.uiController.isCastleOpen == false)

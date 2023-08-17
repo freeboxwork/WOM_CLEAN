@@ -10,7 +10,7 @@ public class GoogleLogin : MonoBehaviour
     void Awake()
     {
         //해상도 고정
-        Screen.SetResolution(1080, 1920, true);
+        //Screen.SetResolution(1080, 1920, true);
         //멀티터치 비활성화
         Input.multiTouchEnabled = false;
         //프레임 고정

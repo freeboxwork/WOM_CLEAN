@@ -12,9 +12,9 @@ public class MonsterKingController : MonoBehaviour
 
     public Transform trHitPoint;
 
-    public float hitTimingMin = 0.05f;
-    public float hitTimingMax = 0.2f;
-    public int totalHitCount = 5;
+    public float hitTimingMin = 0.01f;
+    public float hitTimingMax = 0.05f;
+    private int totalHitCount = 10;
 
     void Start()
     {
@@ -53,7 +53,9 @@ public class MonsterKingController : MonoBehaviour
             AttackMonster(i);
             var waitTime = RaddomHitTiming();
             yield return new WaitForSeconds(waitTime);
-
+            Debug.Log("HitCount : " + i);
+            // SFX PLAY
+            GlobalData.instance.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.MonsterHit);
             if (GlobalData.instance.attackController.GetAttackableState() == false)
                 yield break;
             if (IsMonsterDead() == true)

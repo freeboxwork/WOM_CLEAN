@@ -1,6 +1,13 @@
 
 public class EnumDefinition
 {
+    public enum NotifyType
+    {
+        None,
+        Button,
+        GameObject,
+        Image,
+    }
 
     public enum PatternType
     {

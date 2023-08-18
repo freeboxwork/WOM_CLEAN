@@ -33,7 +33,9 @@ public class DNASlot : MonoBehaviour
     public void SetTxtInfo(string front, string color, double power, string back)
     {
         //txtInfo.text = $"{front} <{color}> {power:F2} </color> {back}";
-        txtInfo.text = $"{front} <{color}> {power} </color> {back}";
+       
+        txtInfo.text = $"{front} <{color}> {(power % 1 == 0 ? power.ToString("0") : power.ToString("0.0"))} </color> {back}";
+        
     }
 
     public void SetTxtHasCount(int level, int maxCount)

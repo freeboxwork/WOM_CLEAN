@@ -8,6 +8,7 @@ public class EventController : MonoBehaviour
 {
     GlobalData globalData;
     public bool evalGradeEffectShow = false;
+    double dungeonMonsterLeftDamage;
 
     void Start()
     {
@@ -198,7 +199,6 @@ public class EventController : MonoBehaviour
     }
 
 
-    double dungeonMonsterLeftDamage;
     void EvnOnDungeonMonsterHit(EnumDefinition.InsectType insectType, int unionIndex = 0, Transform tr = null)
     {
         if (isDungeonMonsterNextLevel) return;
@@ -291,9 +291,6 @@ public class EventController : MonoBehaviour
 
         yield return null;
 
-
-
-
         // hp text 0으로 표시
         globalData.uiController.SetTxtMonsterHp(0);
 
@@ -311,8 +308,6 @@ public class EventController : MonoBehaviour
 
         // sfx monster die
         globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.BossDie);
-
-
 
         //금광 보스 인지 체크
         if (currentMonster.monsterType == MonsterType.gold)
@@ -341,13 +336,11 @@ public class EventController : MonoBehaviour
             yield return StartCoroutine(globalData.effectManager.goldPoolingCont.EnableGoldEffects(currentMonster.goldCount));
         }
 
-
         // 골드 획득
         GainGold(currentMonster);
 
         // tutorial event ( 몬스터 골드 드랍 획득 )
         EventManager.instance.RunEvent(CallBackEventType.TYPES.OnTutorialAddGold);
-
 
         // 보스일경우 뼈조각 추가 획득
         if (currentMonster.monsterType == MonsterType.boss)
@@ -367,8 +360,6 @@ public class EventController : MonoBehaviour
         // tutorial event ( 보스 몬스터 사망 )
         if (currentMonster.monsterType == MonsterType.boss)
             EventManager.instance.RunEvent(CallBackEventType.TYPES.OnMonsterKillBossMonster);
-
-
 
         switch (currentMonster.monsterType)
         {
@@ -816,8 +807,10 @@ public class EventController : MonoBehaviour
         // set hp 
         monsterData.hp = monsterData.hp * (1 - (GlobalData.instance.statManager.MonsterHpLess() * 0.01f));
 
+
         // set current monster
         globalData.player.SetCurrentMonster(monsterData);
+
 
         // 사용하지 않는 몬스터 숨기기
         globalData.monsterManager.ShowMonsterByType(monsterType);
@@ -840,15 +833,15 @@ public class EventController : MonoBehaviour
             globalData.monsterManager.SetMonsterData(monsterType, globalData.player.stageIdx);
         }
 
+        // set current monster hp
+        // TODO: 이펙트 연출 추가
+        globalData.player.SetCurrentMonsterHP(monsterData.hp);
         // 몬스터 UI 리셋 
         MonsterUiReset();
 
         // Monster In Animation
         yield return StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionIn());
 
-        // set current monster hp
-        // TODO: 이펙트 연출 추가
-        globalData.player.SetCurrentMonsterHP(monsterData.hp);
 
         // Tutorial Event ( 골드 몬스터 등장 )
         if (monsterType == MonsterType.gold)

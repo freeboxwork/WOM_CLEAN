@@ -167,10 +167,12 @@ public class GlobalController : MonoBehaviour
             insectSpwanManager.AllTimerStart();
         }
 
-
-
         // 골드 피그 등장( 지정된 시간 지난뒤 등장 )
         yield return StartCoroutine(goldPigController.Init());
+
+        // CASTLE 버튼 투토리얼에 따라 활성 비활성
+        var activeValue = !GlobalData.instance.tutorialManager.isTutorial;
+        uiController.castleButtonObj.SetActive(activeValue);
 
         // 공격 가능 상태로 전환
         attackController.SetAttackableState(true);

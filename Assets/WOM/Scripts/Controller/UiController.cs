@@ -64,6 +64,9 @@ public class UiController : MonoBehaviour
     public TextMeshProUGUI txtDungeonCoalKeyCount;
     public TextMeshProUGUI txtDungeonClearTicketCount;
 
+    public GameObject castleButtonObj;
+
+
     void Start()
     {
     }

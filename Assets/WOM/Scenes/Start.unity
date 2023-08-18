@@ -757,22 +757,6 @@ PrefabInstance:
       propertyPath: introManager
       value: 
       objectReference: {fileID: 1634697450}
-    - target: {fileID: 214553179, guid: f2212ec6487b10143a452a8334123426, type: 3}
-      propertyPath: cutFrames.Array.size
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 214553179, guid: f2212ec6487b10143a452a8334123426, type: 3}
-      propertyPath: cutFrames.Array.data[6]
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 214553182, guid: f2212ec6487b10143a452a8334123426, type: 3}
-      propertyPath: m_Events.m_Events.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 214553182, guid: f2212ec6487b10143a452a8334123426, type: 3}
-      propertyPath: m_Events.m_Signals.Array.size
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 6805973550215894674, guid: f2212ec6487b10143a452a8334123426, type: 3}
       propertyPath: m_Name
       value: Intro
@@ -1257,6 +1241,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   googleLogin: {fileID: 1953747087}
   introTimeLineController: {fileID: 2138465238}
+  isSecondConnect: 0
   mainCanvas: {fileID: 1221594582}
   startButton: {fileID: 1253632503}
   startButtonText: {fileID: 1349920505}

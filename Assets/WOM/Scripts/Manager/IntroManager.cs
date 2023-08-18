@@ -11,7 +11,7 @@ public class IntroManager : MonoBehaviour
     public IntroTimeLineController introTimeLineController;
 
     const string isSecondConnetKey = "isFirstConnetKey";
-    bool isSecondConnect = false;
+    [SerializeField]bool isSecondConnect = false;
 
 
     public GameObject mainCanvas;

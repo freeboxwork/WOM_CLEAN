@@ -2490,6 +2490,7 @@ MonoBehaviour:
   - 13.3
   currentTimeIndex: 0
   deleyTime: 0.8
+  introManager: {fileID: 0}
 --- !u!114 &214553182
 MonoBehaviour:
   m_ObjectHideFlags: 0

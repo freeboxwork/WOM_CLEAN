@@ -89,7 +89,7 @@ public class IntroTimeLineController : MonoBehaviour
     public void SkipIntro()
     {
         bEndIntro = true;
-        director.time = cutFrames[6];
+        director.time = cutFrames[cutFrames.Length - 1];
         director.Evaluate();
     }
 }

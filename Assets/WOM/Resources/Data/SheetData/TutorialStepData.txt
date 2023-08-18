@@ -519,6 +519,18 @@
    "id": 43,
    "setId": 8,
    "step": 10,
+   "patternType": "pattern_16",
+   "patternDescription": "유니온 이미지 보이기",
+   "customConditions": 1,
+   "tutorialBtnId": 2,
+   "튜토리얼 활성 조건": "",
+   "goal": "",
+   "description": ""
+ },
+ {
+   "id": 44,
+   "setId": 8,
+   "step": 11,
    "patternType": "pattern_03",
    "patternDescription": "",
    "customConditions": null,
@@ -528,9 +540,9 @@
    "description": "동료가 생겼어요!"
  },
  {
-   "id": 44,
+   "id": 45,
    "setId": 8,
-   "step": 11,
+   "step": 12,
    "patternType": "pattern_13",
    "patternDescription": "camp popup 닫기",
    "customConditions": 0,
@@ -540,9 +552,21 @@
    "description": ""
  },
  {
-   "id": 45,
+   "id": 46,
    "setId": 8,
-   "step": 12,
+   "step": 13,
+   "patternType": "pattern_16",
+   "patternDescription": "유니온 이미지 숨기기",
+   "customConditions": 0,
+   "tutorialBtnId": 2,
+   "튜토리얼 활성 조건": "",
+   "goal": "",
+   "description": ""
+ },
+ {
+   "id": 47,
+   "setId": 8,
+   "step": 14,
    "patternType": "pattern_03",
    "patternDescription": "",
    "customConditions": null,
@@ -552,9 +576,9 @@
    "description": "획득한 유니온을 장착하러 가볼까요?"
  },
  {
-   "id": 46,
+   "id": 48,
    "setId": 8,
-   "step": 13,
+   "step": 15,
    "patternType": "pattern_03",
    "patternDescription": "",
    "customConditions": null,
@@ -564,9 +588,9 @@
    "description": "획득한 유니온을 확인해보세요"
  },
  {
-   "id": 47,
+   "id": 49,
    "setId": 8,
-   "step": 14,
+   "step": 16,
    "patternType": "pattern_03",
    "patternDescription": "",
    "customConditions": null,
@@ -576,9 +600,9 @@
    "description": "유니온을 선택해 보세요"
  },
  {
-   "id": 48,
+   "id": 50,
    "setId": 8,
-   "step": 15,
+   "step": 17,
    "patternType": "pattern_03",
    "patternDescription": "",
    "customConditions": null,
@@ -588,9 +612,9 @@
    "description": "유니온을 장착해 보세요"
  },
  {
-   "id": 49,
+   "id": 51,
    "setId": 8,
-   "step": 16,
+   "step": 18,
    "patternType": "pattern_03",
    "patternDescription": "",
    "customConditions": null,
@@ -600,9 +624,9 @@
    "description": "슬롯에 장착해 주세요"
  },
  {
-   "id": 50,
+   "id": 52,
    "setId": 8,
-   "step": 17,
+   "step": 19,
    "patternType": "pattern_02",
    "patternDescription": "텍스트 출력 종료 후 바탕화면 터치 1회",
    "customConditions": null,
@@ -612,9 +636,9 @@
    "description": "이제부터 유니온이 전투에 합류합니다!"
  },
  {
-   "id": 51,
+   "id": 53,
    "setId": 8,
-   "step": 18,
+   "step": 20,
    "patternType": "pattern_02",
    "patternDescription": "텍스트 출력 종료 후 바탕화면 터치 1회",
    "customConditions": null,

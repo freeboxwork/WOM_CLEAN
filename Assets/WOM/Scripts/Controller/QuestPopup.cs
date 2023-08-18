@@ -99,10 +99,13 @@ public class QuestPopup : MonoBehaviour
         slot.SetTxtPassRewardValue(data.passRewardCount.ToString());
         slot.battlePassData = data;
 
-        var rewardIconType = UtilityMethod.GetRewardTypeByTypeName(data.passRewardType);
+        var rewardIconType = UtilityMethod.GetRewardTypeByTypeName(data.commonRewardType);
         var rewardIcon = GlobalData.instance.spriteDataManager.GetRewardIcon(rewardIconType);
         slot.SetRewardIcon(rewardIcon);
-        slot.SetPassRewardIcon(rewardIcon);
+
+        var passRewardIconType = UtilityMethod.GetRewardTypeByTypeName(data.passRewardType);
+        var passRewardIcon = GlobalData.instance.spriteDataManager.GetRewardIcon(passRewardIconType);
+        slot.SetPassRewardIcon(passRewardIcon);
 
         var isLock = data.targetStage > unlockCount;
         slot.SetBlockImage(isLock);
@@ -116,6 +119,14 @@ public class QuestPopup : MonoBehaviour
             {
                 var enableValue = PlayerPrefs.GetInt(loadKey) == 0 ? true : false;
                 slot.SetBtnRewardInteractable(enableValue);
+            }
+
+            var loadKeyBuyItem = $"{GlobalData.instance.questManager.keyBuyBattlePass}_{data.targetStage}";
+            var hasKeyBuyItem = PlayerPrefs.HasKey(loadKeyBuyItem);
+            if (hasKeyBuyItem)
+            {
+                var enableValue = PlayerPrefs.GetInt(loadKeyBuyItem) == 0 ? true : false;
+                slot.SetBtnPassRewardInteractable(enableValue);
             }
         }
     }

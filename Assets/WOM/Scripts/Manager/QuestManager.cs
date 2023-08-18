@@ -49,6 +49,7 @@ public class QuestManager : MonoBehaviour
         EventManager.instance.AddCallBackEvent<QuestData>(CallBackEventType.TYPES.OnQusetUsingRewardOneDay, EvnUsingReward);
         EventManager.instance.AddCallBackEvent<QuestData>(CallBackEventType.TYPES.OnQusetUsingRewardOneDayAD, EvnUsingRewardAD);
         EventManager.instance.AddCallBackEvent<string, int>(CallBackEventType.TYPES.OnQuestCompleteBattlePassStage, EvnUsingRewardBattlePassStage);
+        EventManager.instance.AddCallBackEvent<string, int>(CallBackEventType.TYPES.OnQuestCompleteBattlePassStageBuyitem, EvnUsingRewardBattlePassBuyItem);
         EventManager.instance.AddCallBackEvent<string, int>(CallBackEventType.TYPES.OnUsingRewardAttend, EvnUsingRewardAttend);
         EventManager.instance.AddCallBackEvent<string[], int[]>(CallBackEventType.TYPES.OnUsingRewardNewUserEvent, EvnUsingRewardNewUserEvent);
     }
@@ -59,6 +60,7 @@ public class QuestManager : MonoBehaviour
         EventManager.instance.RemoveCallBackEvent<QuestData>(CallBackEventType.TYPES.OnQusetUsingRewardOneDay, EvnUsingReward);
         EventManager.instance.RemoveCallBackEvent<QuestData>(CallBackEventType.TYPES.OnQusetUsingRewardOneDayAD, EvnUsingRewardAD);
         EventManager.instance.RemoveCallBackEvent<string, int>(CallBackEventType.TYPES.OnQuestCompleteBattlePassStage, EvnUsingRewardBattlePassStage);
+        EventManager.instance.RemoveCallBackEvent<string, int>(CallBackEventType.TYPES.OnQuestCompleteBattlePassStageBuyitem, EvnUsingRewardBattlePassBuyItem);
         EventManager.instance.RemoveCallBackEvent<string[], int[]>(CallBackEventType.TYPES.OnUsingRewardNewUserEvent, EvnUsingRewardNewUserEvent);
     }
 
@@ -328,6 +330,13 @@ public class QuestManager : MonoBehaviour
         var rewardTypeValue = UtilityMethod.GetRewardTypeByTypeName(rewardType);
         PopupController.instance.InitPopup(rewardTypeValue, rewardValue);
     }
+    void EvnUsingRewardBattlePassBuyItem(string rewardType, int rewardValue)
+    {
+        // 리워드 팝업 띄우기
+        var rewardTypeValue = UtilityMethod.GetRewardTypeByTypeName(rewardType);
+        PopupController.instance.InitPopup(rewardTypeValue, rewardValue);
+    }
+
 
     void EvnUsingRewardAttend(string rewardType, int rewardValue)
     {

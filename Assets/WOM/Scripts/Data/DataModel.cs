@@ -659,7 +659,7 @@ public class BattlePassData
     public int id;
     public string targetType;
     public int targetStage;
-    public string rewardType;
+    public string commonRewardType;
     public string passRewardType;
     public int commonRewardCount;
     public int passRewardCount;
@@ -670,7 +670,7 @@ public class BattlePassData
         battlePassData.id = id;
         battlePassData.targetType = targetType;
         battlePassData.targetStage = targetStage;
-        battlePassData.rewardType = rewardType;
+        battlePassData.commonRewardType = commonRewardType;
         battlePassData.commonRewardCount = commonRewardCount;
         battlePassData.passRewardCount = passRewardCount;
         battlePassData.passRewardType = passRewardType;

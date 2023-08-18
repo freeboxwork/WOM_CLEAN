@@ -60,7 +60,7 @@ public class AD_Manager : MonoBehaviour
         // buff pass
         if (isPassBuff)
         {
-            btnBuffOpen.SetActive(false);
+            //btnBuffOpen.SetActive(false);
             foreach (var data in datas)
             {
                 var slot = GetBuffAdSlotByType(data.buffADType);

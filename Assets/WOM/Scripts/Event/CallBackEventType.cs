@@ -17,6 +17,7 @@ public class CallBackEventType
         OnQusetUsingRewardOneDayAD,     /// <summary> 일일 퀘스트 광고 보상 받았을때  </summary>
         OnQusetClearRepeatCounting,     /// <summary> 반복 퀘스트 완료 했을때  </summary>
         OnQuestCompleteBattlePassStage, /// <summary> 배틀패스 - 스테이지 퀘스트 완료 했을때  </summary>
+        OnQuestCompleteBattlePassStageBuyitem, /// <summary> 배틀패스 - 구매 아이템 사용 했을때  </summary>
         OnUsingRewardAttend,            /// <summary> 출석 보상 받았을때  </summary>
         OnUsingRewardNewUserEvent,      /// <summary> 신규 유저 이벤트 보상 받았을때  </summary>
         OnGoldPigEvent,                 /// <summary> 황금 돼지 이벤트 획득 했을때 </summary>

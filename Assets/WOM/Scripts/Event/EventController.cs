@@ -198,7 +198,7 @@ public class EventController : MonoBehaviour
     }
 
 
-
+    double dungeonMonsterLeftDamage;
     void EvnOnDungeonMonsterHit(EnumDefinition.InsectType insectType, int unionIndex = 0, Transform tr = null)
     {
         if (isDungeonMonsterNextLevel) return;
@@ -225,6 +225,16 @@ public class EventController : MonoBehaviour
         // set monster damage
         currentMonster.curData.monsterHP -= curDamage;
 
+        // 죽기전 추가 데미지 적용
+        if (currentMonster.curData.monsterHP < 0)
+        {
+            dungeonMonsterLeftDamage = System.Math.Abs(currentMonster.curData.monsterHP);
+        }
+        else
+        {
+            dungeonMonsterLeftDamage = 0;
+        }
+
         // monster hit animation 
         currentMonster.inOutAnimator.monsterAnim.SetBool("Hit", true);
 
@@ -236,6 +246,7 @@ public class EventController : MonoBehaviour
         {
             // set next level
             currentMonster.SetNextLevelData();
+
 
             // level setting
             var level = currentMonster.curData.level;
@@ -252,6 +263,20 @@ public class EventController : MonoBehaviour
         globalData.uiController.SetTxtMonsterHp(currentMonster.curData.monsterHP);
         // 몬스터 hp slider
         globalData.uiController.SetSliderDungeonMonsterHP(currentMonster.curData.monsterHP);
+
+        // 죽기전 추가 데미지 적용
+        if (dungeonMonsterLeftDamage > 0)
+        {
+            Debug.Log("현재 HP : " + currentMonster.curMonsterHP + " 죽기전 추가 데미지 " + dungeonMonsterLeftDamage + " 최종 데미지 " + (currentMonster.curMonsterHP - dungeonMonsterLeftDamage));
+
+            currentMonster.curMonsterHP -= dungeonMonsterLeftDamage;
+            // 몬스터 hp text
+            globalData.uiController.SetTxtMonsterHp(currentMonster.curData.monsterHP);
+            // 몬스터 hp slider
+            globalData.uiController.SetSliderDungeonMonsterHP(currentMonster.curData.monsterHP);
+        }
+
+
     }
 
 

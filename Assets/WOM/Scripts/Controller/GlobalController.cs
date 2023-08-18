@@ -172,8 +172,7 @@ public class GlobalController : MonoBehaviour
 
         // CASTLE 버튼 투토리얼에 따라 활성 비활성
         var activeValue = !GlobalData.instance.tutorialManager.isTutorial;
-        // 반드시 주석 제거하고 활성화 할 것
-        //uiController.castleButtonObj.SetActive(activeValue); 
+        uiController.castleButtonObj.SetActive(activeValue);
 
         // 공격 가능 상태로 전환
         attackController.SetAttackableState(true);

@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
 namespace ProjectGraphics
 {
-    public class ClickEffect : MonoBehaviour
+    public class ClickEffect : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         [Header("온오프 오브젝트")]
         public GameObject slotBack;
@@ -20,6 +20,8 @@ namespace ProjectGraphics
         public TextMeshProUGUI[] actionTexts;
         private float[] baseFontSizes;
         public float duration = 1.0f;
+        bool isLongClick = false;
+        bool isButtonClick = false;
 
         WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
 
@@ -32,13 +34,27 @@ namespace ProjectGraphics
             }
         }
 
-        public void OnClickButtons()
+        public void OnPointerDown(PointerEventData eventData)
         {
-            StartCoroutine(ClickEffectProcess());
+            if(isButtonClick) return;
+            isButtonClick = true;
+            isLongClick = false;
+            StopCoroutine("ClickEffectProcess");
+            StartCoroutine("ClickEffectProcess");
+        }
+        public void OnPointerUp(PointerEventData eventData)
+        {
+            isButtonClick = false;
+            isLongClick = false;
+        }
+        public void SetButtonPressType(bool bLong)
+        {
+            isLongClick = bLong;
         }
 
         IEnumerator ClickEffectProcess()
         {
+
             slotBack.SetActive(true);
 
             yield return null;
@@ -58,8 +74,11 @@ namespace ProjectGraphics
                     actionTexts[i].fontSize = baseFontSizes[i] * upsize;
                 }
 
+                yield return new WaitUntil(() => !isLongClick);
+
                 yield return waitFrame;
             }
+
 
             yield return null;
 
@@ -68,6 +87,9 @@ namespace ProjectGraphics
             {
                 actionTexts[i].fontSize = baseFontSizes[i];
             }
+
+
+
             slotBack.SetActive(false);
         }
     }

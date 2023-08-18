@@ -138,7 +138,7 @@ public class AttackController : MonoBehaviour
     bool IsHalfPoint(float pointY)
     {
         var pos = pointY / Screen.height * 100f;
-        return pos > 50f;
+        return pos > 35f;
     }
 
     /// <summary> 공격 가능 상태 제어 </summary>

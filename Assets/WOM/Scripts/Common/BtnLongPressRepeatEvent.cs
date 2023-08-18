@@ -13,6 +13,7 @@ public class BtnLongPressRepeatEvent : MonoBehaviour, IPointerDownHandler, IPoin
     public UnityEvent longPressingEvent;
 
     public Button button;
+    public ProjectGraphics.ClickEffect clickEffect;
 
     void Start()
     {
@@ -29,6 +30,8 @@ public class BtnLongPressRepeatEvent : MonoBehaviour, IPointerDownHandler, IPoin
     {
         buttonPressStartTime = 0; // 초기화
         isLongPressing = false; // 초기화
+        clickEffect.SetButtonPressType(false);
+
     }
 
     void Update()
@@ -39,6 +42,7 @@ public class BtnLongPressRepeatEvent : MonoBehaviour, IPointerDownHandler, IPoin
         {
             //Debug.Log(" 버튼을 길게 눌렀습니다.");
             isLongPressing = true;
+            clickEffect.SetButtonPressType(true);
             StartCoroutine(LongPress());
         }
     }

@@ -201,7 +201,7 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
         else if (args.purchasedProduct.definition.id == ProductTYPE.starterrpackage.ToString())
         {
             var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem, EnumDefinition.RewardType.unionTicket, EnumDefinition.RewardType.dnaTicket, EnumDefinition.RewardType.clearTicket };
-            var rewardValues = new long[] { 3000, 10, 5, 2 };
+            var rewardValues = new long[] { 3000, 10, 5, 3 };
             PopupController.instance.InitPopups(rewardTypes, rewardValues);
             Debug.Log("초심자 패키지 구매 성공");
             //보석3000개 유니온티켓10 dna티켓5 소탕권2 지급
@@ -223,16 +223,16 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
             GlobalData.instance.adManager.BuyBuffPass();
 
             var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem, EnumDefinition.RewardType.clearTicket };
-            var rewardValues = new long[] { 10000, 5 };
+            var rewardValues = new long[] { 10000, 10 };
             PopupController.instance.InitPopups(rewardTypes, rewardValues);
             Debug.Log("광고 패스 패키지 구매 성공");
-            //광고패스/버프무제한 보석10000개 소탕권5 지급
+            //광고패스/버프무제한 보석10000개 소탕권10 지급
 
         }
         else if (args.purchasedProduct.definition.id == ProductTYPE.fastestpackage.ToString())
         {
             var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem, EnumDefinition.RewardType.unionTicket, EnumDefinition.RewardType.dnaTicket, EnumDefinition.RewardType.clearTicket, EnumDefinition.RewardType.union };
-            var rewardValues = new long[] { 50000, 50, 20, 20, 40 };
+            var rewardValues = new long[] { 50000, 50, 30, 50, 40 };
             PopupController.instance.InitPopups(rewardTypes, rewardValues);
             Debug.Log("초고속 성장 패키지 구매 성공");
             //보석50000개 유니온티켓50 dna티켓20 소탕권20 유니온index 40번 지급

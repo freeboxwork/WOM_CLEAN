@@ -73,6 +73,8 @@ public class DungeonEnterPopup : MonoBehaviour
         btn_Ticket_Dungeon.onClick.AddListener(() =>
         {
             UsingClearTicket();
+            var ticketCount = GlobalData.instance.player.clearTicket;
+            btn_Ticket_Dungeon.interactable = ticketCount > 0;
         });
     }
 
@@ -144,7 +146,10 @@ public class DungeonEnterPopup : MonoBehaviour
         SetRewardUI(curLevel, curDungeonMonData, monsterType);
 
         Debug.Log($"curLevel : {curLevel}, curDungeonMonData : {curDungeonMonData}");
-        btn_Ticket_Dungeon.interactable = curLevel > 0;
+        var ticketCount = GlobalData.instance.player.clearTicket;
+        var ticketActive = (curLevel > 0 && ticketCount > 0);
+        btn_Ticket_Dungeon.interactable = ticketActive;
+
         contents.SetActive(true);
     }
 
@@ -234,7 +239,8 @@ public class DungeonEnterPopup : MonoBehaviour
         // ¼ÒÅÁ±Ç
         var ticket = GlobalData.instance.player.clearTicket;
         SetTxtClierTicket(ticket);
-        btn_Ticket_Dungeon.interactable = ticket > 0;
+        // Debug.Log($"¼ÒÅÁ±Ç : {ticket}");
+        // btn_Ticket_Dungeon.interactable = ticket >= 1;
     }
 
 

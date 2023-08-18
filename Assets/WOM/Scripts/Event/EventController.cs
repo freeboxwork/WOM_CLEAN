@@ -1266,8 +1266,7 @@ public class EventController : MonoBehaviour
             // 보스 도전 타이머 비활성화
             globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(false);
 
-            // side menu show
-            SideUIMenuHide(false);
+
 
             // 배경 이미지 변경
             globalData.stageManager.SetBgImage();
@@ -1295,14 +1294,16 @@ public class EventController : MonoBehaviour
 
         // 진화 몬스터 도전 버튼 활성화
         globalData.evolutionManager.EnableBtnEvolutionMonsterChange(true);
+
+        // side menu show
+        SideUIMenuHide(false);
     }
 
     // 보스 몬스터 포기 했을때
     public IEnumerator ProcessBossMonsterGiveUp()
     {
 
-        // side menu show
-        SideUIMenuHide(false);
+
 
         //하단 메인 메뉴 활성화
         globalData.uiController.MainMenuShow();
@@ -1330,6 +1331,9 @@ public class EventController : MonoBehaviour
 
         // 일반 몬스터 등장
         StartCoroutine(MonsterAppearCor(MonsterType.normal));
+
+        // side menu show
+        SideUIMenuHide(false);
 
         // tutorial event ( 보스 몬스터 도전 실패 )
         EventManager.instance.RunEvent(CallBackEventType.TYPES.OnMonsterKillFailedBossMonster);

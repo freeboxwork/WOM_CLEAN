@@ -77,4 +77,9 @@ public class BuffADTimer : MonoBehaviour
         countdownTextAllwaysViwe.text = "99:99";
     }
 
+    public void TimerEnd()
+    {
+        StopAllCoroutines();
+    }
+
 }

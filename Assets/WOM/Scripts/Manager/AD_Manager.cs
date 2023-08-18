@@ -60,7 +60,7 @@ public class AD_Manager : MonoBehaviour
         // buff pass
         if (isPassBuff)
         {
-            //btnBuffOpen.SetActive(false);
+            btnBuffOpen.SetActive(false);
             foreach (var data in datas)
             {
                 var slot = GetBuffAdSlotByType(data.buffADType);
@@ -80,7 +80,21 @@ public class AD_Manager : MonoBehaviour
                 }
             }
         }
+    }
 
+    public void BuyBuffPass()
+    {
+
+        isPassBuff = true;
+        PlayerPrefs.SetInt(buffPassKey, 1);
+        btnBuffOpen.SetActive(false);
+        foreach (var slot in buffADSlots)
+        {
+            // 타이머 종료
+            slot.buffTimer.TimerEnd();
+            slot.addValue = slot.addValueBuff;
+            slot.buffTimer.SetTxtBuffPass();
+        }
     }
 
     public BuffADSlot GetBuffAdSlotByType(EnumDefinition.RewardTypeAD buffADType)

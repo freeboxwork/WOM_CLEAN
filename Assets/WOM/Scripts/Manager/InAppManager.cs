@@ -219,6 +219,9 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
             // 광고 카운트 초기화
             GlobalData.instance.adManager.AllResetADLeftCount();
 
+            // 버프 패스 실행
+            GlobalData.instance.adManager.BuyBuffPass();
+
             var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem, EnumDefinition.RewardType.clearTicket };
             var rewardValues = new long[] { 10000, 5 };
             PopupController.instance.InitPopups(rewardTypes, rewardValues);

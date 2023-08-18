@@ -323,7 +323,7 @@ public class Player : MonoBehaviour
     public void AddUnionTicket(long value)
     {
         unionTicket += value;
-        //GlobalData.instance.uiController.SetTxtUnionTicket(unionTicket, value); // RELOAD UI
+        GlobalData.instance.uiController.SetTxtUnionTicket(unionTicket); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsUnionTicket(unionTicket); // set save data
     }
 
@@ -398,7 +398,8 @@ public class Player : MonoBehaviour
         if (coal < 0) coal = 0;
 
         // set ui
-
+        // ui update
+        GlobalData.instance.uiController.SetTxtCoal(coal);
         // set save data;
         GlobalData.instance.saveDataManager.SaveDataGoodsCoal(coal);
     }

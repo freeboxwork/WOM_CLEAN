@@ -274,7 +274,7 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
 
     bool IsReadyDiceCount(int usingDiceCount)
     {
-        return GlobalData.instance.player.diceCount > usingDiceCount;
+        return GlobalData.instance.player.diceCount >= usingDiceCount;
     }
 
     RewardDiceEvolutionData GetRandomWeightEvolutionGradeData()

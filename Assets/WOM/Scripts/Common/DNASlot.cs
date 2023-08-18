@@ -32,6 +32,7 @@ public class DNASlot : MonoBehaviour
 
     public void SetTxtInfo(string front, string color, double power, string back)
     {
+        //txtInfo.text = $"{front} <{color}> {power:F2} </color> {back}";
         txtInfo.text = $"{front} <{color}> {power} </color> {back}";
     }
 

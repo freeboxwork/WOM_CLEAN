@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Events;
 using System.Collections;
 using UnityEngine.EventSystems;
@@ -11,7 +12,12 @@ public class BtnLongPressRepeatEvent : MonoBehaviour, IPointerDownHandler, IPoin
 
     public UnityEvent longPressingEvent;
 
+    public Button button;
 
+    void Start()
+    {
+        button = GetComponent<Button>();
+    }
 
     public void OnPointerDown(PointerEventData eventData)
     {
@@ -39,7 +45,7 @@ public class BtnLongPressRepeatEvent : MonoBehaviour, IPointerDownHandler, IPoin
 
     IEnumerator LongPress()
     {
-        while (isLongPressing)
+        while (isLongPressing && button.interactable == true)
         {
             longPressingEvent.Invoke();
             Debug.Log("LongPressing 연속 이벤트 실행!");

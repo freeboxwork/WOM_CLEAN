@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEditor;
+
 using static EnumDefinition;
 
 public class GM_TesterTools : EditorWindow
@@ -11,6 +12,8 @@ public class GM_TesterTools : EditorWindow
     bool goodsFold = false;
     bool otherFold = false;
     bool saveDataFold = false;
+
+    bool customLevelingFold = false;
 
     long addGold;
     long addBone;
@@ -117,8 +120,180 @@ public class GM_TesterTools : EditorWindow
 
 
 
+        GUILayout.BeginVertical("Box");
+        customLevelingFold = EditorGUILayout.BeginFoldoutHeaderGroup(customLevelingFold, "CUSTOM LEVELING");
+        if (customLevelingFold)
+        {
+            GUI_CustomLeveling();
+        }
+        EditorGUILayout.EndFoldoutHeaderGroup();
+        GUILayout.EndVertical();
+
         EditorGUILayout.EndScrollView();
     }
+
+    bool customLevelTraining = false;
+    bool customLevelCamp = false;
+    bool customLevelDNA = false;
+    int campLevel;
+    int trainingDamageLevel = 0;
+    int trainingCriticalChanceLevel = 0;
+    int trainingCriticalDamage = 0;
+    int talentDamage = 0;
+    int talentCriticalChance = 0;
+    int talentCriticalDamage = 0;
+    int talentMoveSpeed = 0;
+    int talentSpawnSpeed = 0;
+    int talentGoldBonus = 0;
+    float levelWidth = 60;
+
+    int insectDamage = 0;
+    int insectCriticalChance = 0;
+    int insectCriticalDamage = 0;
+    int unionDamage = 0;
+    int glodBonus = 0;
+    int insectMoveSpeed = 0;
+    int unionMoveSpeed = 0;
+    int unionSpawnTime = 0;
+    int goldPig = 0;
+    int skillDuration = 0;
+    int skillCoolTime = 0;
+    int bossDamage = 0;
+    int monsterHpLess = 0;
+    int boneBonus = 0;
+    int goldMonsterBonus = 0;
+    int offlineBonus = 0;
+
+    ref int GetCustomLevel(EnumDefinition.SaleStatType stat)
+    {
+
+        switch (stat)
+        {
+            case EnumDefinition.SaleStatType.trainingDamage:
+                return ref trainingDamageLevel;
+            case EnumDefinition.SaleStatType.trainingCriticalChance:
+                return ref trainingCriticalChanceLevel;
+            case EnumDefinition.SaleStatType.trainingCriticalDamage:
+                return ref trainingCriticalDamage;
+            case EnumDefinition.SaleStatType.talentDamage:
+                return ref talentDamage;
+            case EnumDefinition.SaleStatType.talentCriticalChance:
+                return ref talentCriticalChance;
+            case EnumDefinition.SaleStatType.talentCriticalDamage:
+                return ref talentCriticalDamage;
+            case EnumDefinition.SaleStatType.talentMoveSpeed:
+                return ref talentMoveSpeed;
+            case EnumDefinition.SaleStatType.talentSpawnSpeed:
+                return ref talentSpawnSpeed;
+            case EnumDefinition.SaleStatType.talentGoldBonus:
+                return ref talentGoldBonus;
+            default:
+                return ref trainingDamageLevel;
+        }
+    }
+
+    ref int GetCustomLevelByDnaType(EnumDefinition.DNAType type)
+    {
+        switch (type)
+        {
+            case EnumDefinition.DNAType.insectDamage:
+                return ref insectDamage;
+            case EnumDefinition.DNAType.insectCriticalChance:
+                return ref insectCriticalChance;
+            case EnumDefinition.DNAType.insectCriticalDamage:
+                return ref insectCriticalDamage;
+            case EnumDefinition.DNAType.unionDamage:
+                return ref unionDamage;
+            case EnumDefinition.DNAType.glodBonus:
+                return ref glodBonus;
+            case EnumDefinition.DNAType.insectMoveSpeed:
+                return ref insectMoveSpeed;
+            case EnumDefinition.DNAType.unionMoveSpeed:
+                return ref unionMoveSpeed;
+            case EnumDefinition.DNAType.unionSpawnTime:
+                return ref unionSpawnTime;
+            case EnumDefinition.DNAType.goldPig:
+                return ref goldPig;
+            case EnumDefinition.DNAType.skillDuration:
+                return ref skillDuration;
+            case EnumDefinition.DNAType.skillCoolTime:
+                return ref skillCoolTime;
+            case EnumDefinition.DNAType.bossDamage:
+                return ref bossDamage;
+            case EnumDefinition.DNAType.monsterHpLess:
+                return ref monsterHpLess;
+            case EnumDefinition.DNAType.boneBonus:
+                return ref boneBonus;
+            case EnumDefinition.DNAType.goldMonsterBonus:
+                return ref goldMonsterBonus;
+            case EnumDefinition.DNAType.offlineBonus:
+                return ref offlineBonus;
+            default:
+                return ref insectDamage;
+        }
+    }
+
+    void GUI_CustomLeveling()
+    {
+        customLevelTraining = EditorGUILayout.Toggle("훈련 레벨 조정 ", customLevelTraining);
+        if (customLevelTraining)
+        {
+            GUI_CustomLeveling_Training();
+        }
+
+        customLevelCamp = EditorGUILayout.Toggle("캠프 레벨 조정 ", customLevelCamp);
+        if (customLevelCamp)
+        {
+            GUI_CustomLeveling_Camp();
+        }
+
+        customLevelDNA = EditorGUILayout.Toggle("DNA 레벨 조정 ", customLevelDNA);
+        if (customLevelDNA)
+        {
+            GUI_CustomLevel_DNA();
+        }
+
+    }
+
+    void GUI_CustomLevel_DNA()
+    {
+        foreach (EnumDefinition.DNAType type in System.Enum.GetValues(typeof(EnumDefinition.DNAType)))
+        {
+            GUILayout.BeginHorizontal();
+            EditorCustomGUI.GUI_IntFiled(levelWidth, type.ToString(), ref GetCustomLevelByDnaType(type));
+            if (GUILayout.Button("레벨 적용"))
+            {
+                GlobalData.instance.dnaManger.SetCustomLevel(type, GetCustomLevelByDnaType(type));
+            }
+            GUILayout.EndHorizontal();
+        }
+    }
+
+    void GUI_CustomLeveling_Camp()
+    {
+        GUILayout.BeginHorizontal();
+        EditorCustomGUI.GUI_IntFiled(levelWidth, "Camp Level", ref campLevel);
+        if (GUILayout.Button("레벨 적용"))
+        {
+            GlobalData.instance.lotteryManager.CustomLevelUp(campLevel);
+        }
+        GUILayout.EndHorizontal();
+    }
+
+    void GUI_CustomLeveling_Training()
+    {
+        foreach (EnumDefinition.SaleStatType stat in System.Enum.GetValues(typeof(EnumDefinition.SaleStatType)))
+        {
+            GUILayout.BeginHorizontal();
+            EditorCustomGUI.GUI_IntFiled(levelWidth, stat.ToString(), ref GetCustomLevel(stat));
+            if (GUILayout.Button("레벨 적용"))
+            {
+                GlobalData.instance.traningManager.SetCustomLevel(stat, GetCustomLevel(stat));
+            }
+            GUILayout.EndHorizontal();
+        }
+    }
+
 
     [System.Obsolete]
     void GUI_AutoEnableInsect()

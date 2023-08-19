@@ -274,6 +274,14 @@ public class LotteryManager : MonoBehaviour
 
     }
 
+    public void CustomLevelUp(int level)
+    {
+        summonGradeLevel = level;
+        SetSummonGradeData(GlobalData.instance.dataManager.GetSummonGradeDataByLevel(summonGradeLevel));
+        SetGambleData(GlobalData.instance.dataManager.GetUnionGambleDataBySummonGrade(summonGradeLevel));
+        PopupUIUpdate();
+    }
+
     bool IsValidGemCount(int payValue, EnumDefinition.RewardType rewardType)
     {
         var goods = GlobalData.instance.player.GetGoodsByRewardType(rewardType);

@@ -289,6 +289,12 @@ public class DNAInGameData
         ++level;
         power = (level * dataPower);
     }
+
+    public void CustomLevel(int customLevel)
+    {
+        level = customLevel;
+        power = (level * dataPower);
+    }
 }
 
 [Serializable]

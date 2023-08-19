@@ -212,6 +212,17 @@ public class DNAManager : MonoBehaviour
         isGambling = false;
     }
 
+    public void SetCustomLevel(EnumDefinition.DNAType type, int level)
+    {
+        var slot = GetSlotByDNAType(type);
+        slot.inGameData.CustomLevel(level);
+
+        // set save data
+        //GlobalData.instance.saveDataManager.SetLevelDNAByType(type, slot.inGameData);
+
+        ResetUI(type);
+    }
+
     int[] GetTypeListToInt(List<EnumDefinition.DNAType> types)
     {
         int[] values = new int[types.Count];

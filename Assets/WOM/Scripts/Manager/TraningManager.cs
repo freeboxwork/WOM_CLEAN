@@ -67,6 +67,12 @@ public class TraningManager : MonoBehaviour
         }
     }
 
+    public void SetCustomLevel(EnumDefinition.SaleStatType statType, int level)
+    {
+        SetInGameStatLevel(statType, level);
+        SetInGameStatValue(statType, level);
+        SetUI_TraningSlot(statType);
+    }
 
 
     public IEnumerator Init()
@@ -268,7 +274,7 @@ public class TraningManager : MonoBehaviour
     // 구매 가능한지 확인
     bool IsValidPayItem(long price, GoodsType goodsType)
     {
-        switch(goodsType)
+        switch (goodsType)
         {
             case GoodsType.gold: return GlobalData.instance.player.gold >= price;
             case GoodsType.bone: return GlobalData.instance.player.bone >= price;

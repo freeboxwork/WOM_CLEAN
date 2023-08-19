@@ -411,7 +411,7 @@ public class Player : MonoBehaviour
 
         // set ui 
         GlobalData.instance.dungeonEnterPopup.SetTxtClierTicket(clearTicket);
-        GlobalData.instance.uiController.SetTxtDungeonClearTicketCount(value);
+        GlobalData.instance.uiController.SetTxtDungeonClearTicketCount(clearTicket);
 
 
         // set save data;

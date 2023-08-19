@@ -20,6 +20,8 @@ public class CastleManager : MonoBehaviour
     public int mineLevel = 0;
     public int factoryLevel = 0;
 
+    public int offLineSubGoldTime = 0;
+    public int offLineSubBoneTime = 0;
 
     void Start()
     {
@@ -66,6 +68,14 @@ public class CastleManager : MonoBehaviour
         {
             //광산 -> 골드
             int mineCount = (second / buildDataMine.productionTime);
+            offLineSubGoldTime = second - buildDataMine.productionTime;
+
+            if(mineCount <= 0)
+            {
+                offLineSubGoldTime = buildDataMine.productionTime - second;
+                offLineSubGoldTime = buildDataMine.productionTime - offLineSubGoldTime;
+            }
+
             var mineAddValue = buildDataMine.productionCount * mineCount;
             var mineResulValue = (long)Mathf.Min(buildDataMine.totlaMiningValue + mineAddValue, buildDataMine.maxSupplyAmount);
             buildDataMine.TotlaMiningValue = mineResulValue;
@@ -76,6 +86,15 @@ public class CastleManager : MonoBehaviour
         {
             //가공소 -> 뼈조각
             int factoryCount = (second / buildDataFactory.productionTime);
+
+            offLineSubBoneTime = second - buildDataFactory.productionTime;
+
+            if(factoryCount <= 0)
+            {
+                offLineSubBoneTime = buildDataFactory.productionTime - second;
+                offLineSubBoneTime = buildDataFactory.productionTime - offLineSubBoneTime;
+            }
+
             var factoryAddValue = buildDataFactory.productionCount * factoryCount;
             var factoryResulValue = (long)Mathf.Min(buildDataFactory.totlaMiningValue + factoryAddValue, buildDataFactory.maxSupplyAmount);
             buildDataFactory.TotlaMiningValue = factoryResulValue;
@@ -406,7 +425,7 @@ public class CastleManager : MonoBehaviour
 
         var popup = (MinePopup)GetCastlePopupByType(CastlePopupType.mine);
 
-        digUpGoldTime = 0;
+        digUpGoldTime = offLineSubGoldTime;
 
         popup.SetTextDigUpFullText("채굴중");
 
@@ -494,7 +513,7 @@ public class CastleManager : MonoBehaviour
     {
         var popup = (MinePopup)GetCastlePopupByType(CastlePopupType.factory);
 
-        digUpBoneTime = 0;
+        digUpBoneTime = offLineSubBoneTime;
 
         popup.SetTextDigUpFullText("채굴중");
 

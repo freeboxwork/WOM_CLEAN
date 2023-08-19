@@ -15,6 +15,10 @@ public class GM_TesterTools : EditorWindow
 
     bool customLevelingFold = false;
 
+    bool tutorialFold = false;
+    bool skillFold = false;
+
+
     long addGold;
     long addBone;
     long addGem;
@@ -42,6 +46,8 @@ public class GM_TesterTools : EditorWindow
             tg = new GameObject("TesterTransform");
         }
         t = tg.transform;
+
+        tutorialManager = FindObjectOfType<TutorialManager>();
     }
 
     [System.Obsolete]
@@ -122,9 +128,31 @@ public class GM_TesterTools : EditorWindow
 
         GUILayout.BeginVertical("Box");
         customLevelingFold = EditorGUILayout.BeginFoldoutHeaderGroup(customLevelingFold, "CUSTOM LEVELING");
+        GUILayout.BeginVertical("Box");
         if (customLevelingFold)
         {
             GUI_CustomLeveling();
+        }
+        GUILayout.EndVertical();
+        EditorGUILayout.EndFoldoutHeaderGroup();
+        GUILayout.EndVertical();
+
+        // tutorial fold
+        GUILayout.BeginVertical("Box");
+        tutorialFold = EditorGUILayout.BeginFoldoutHeaderGroup(tutorialFold, "TUTORIAL");
+        if (tutorialFold)
+        {
+            GUI_Tutorial();
+        }
+        EditorGUILayout.EndFoldoutHeaderGroup();
+        GUILayout.EndVertical();
+
+        // kill fold
+        GUILayout.BeginVertical("Box");
+        skillFold = EditorGUILayout.BeginFoldoutHeaderGroup(skillFold, "SKILL");
+        if (skillFold)
+        {
+            GUI_Skill();
         }
         EditorGUILayout.EndFoldoutHeaderGroup();
         GUILayout.EndVertical();
@@ -132,6 +160,30 @@ public class GM_TesterTools : EditorWindow
         EditorGUILayout.EndScrollView();
     }
 
+    void GUI_Skill()
+    {
+        foreach (EnumDefinition.SkillType type in System.Enum.GetValues(typeof(EnumDefinition.SkillType)))
+        {
+            GUILayout.BeginHorizontal();
+            EditorCustomGUI.GUI_Label(levelWidth, type.ToString(), "");
+            if (GUILayout.Button(" 스킬 쿨타임 스킵"))
+            {
+                GlobalData.instance.skillManager.SkillCoolTimeSkipByType(type);
+            }
+            GUILayout.EndHorizontal();
+        }
+    }
+
+    TutorialManager tutorialManager;
+
+
+    void GUI_Tutorial()
+    {
+        if (tutorialManager != null)
+            tutorialManager.disableTutorial = EditorGUILayout.Toggle("튜토리얼 비활성화", tutorialManager.disableTutorial);
+    }
+
+    #region  CustomLeveling
     bool customLevelTraining = false;
     bool customLevelCamp = false;
     bool customLevelDNA = false;
@@ -145,7 +197,7 @@ public class GM_TesterTools : EditorWindow
     int talentMoveSpeed = 0;
     int talentSpawnSpeed = 0;
     int talentGoldBonus = 0;
-    float levelWidth = 60;
+    float levelWidth = 160f;
 
     int insectDamage = 0;
     int insectCriticalChance = 0;
@@ -163,6 +215,7 @@ public class GM_TesterTools : EditorWindow
     int boneBonus = 0;
     int goldMonsterBonus = 0;
     int offlineBonus = 0;
+    #endregion
 
     ref int GetCustomLevel(EnumDefinition.SaleStatType stat)
     {

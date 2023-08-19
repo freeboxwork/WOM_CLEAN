@@ -64,9 +64,12 @@ public class TutorialManager : MonoBehaviour
         // }
     }
 
+    public bool disableTutorial = false;
 
     public void TutorialStart()
     {
+        if (disableTutorial) return;
+
         // max check
         if (IsTutorialAllComplete() == false)
         {

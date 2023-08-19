@@ -165,6 +165,7 @@ public class SkillBtn : MonoBehaviour
             GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, 0);
             GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, false);
 
+            imgSkillFront.fillAmount = 0;
             isCoolTime = false;
             txtTime.enabled = false;
             coolTimeWait = 0;
@@ -173,6 +174,12 @@ public class SkillBtn : MonoBehaviour
 
         }
         yield return null;
+    }
+
+    public void SkipCoolTime()
+    {
+        animCont.animData.animTime = 1;
+        coolTimeWait = 0;
     }
 
     void SkillEffectBySkillType(bool enableValue)

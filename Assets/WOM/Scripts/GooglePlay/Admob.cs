@@ -50,7 +50,7 @@ public class Admob : MonoBehaviour
         // Clean up the old ad before loading a new one.
         if (rewardedAd != null)
         {
-             DestroyAd();
+            DestroyAd();
         }
 
         Debug.Log("Loading the rewarded ad.");
@@ -118,7 +118,7 @@ public class Admob : MonoBehaviour
     {
 
         // check ad pass
-        var passValue = GlobalData.instance.adManager.isPassAD;
+        var passValue = GlobalData.instance.adManager.GetADpAssValue();
         if (passValue)
         {
             // 리워드 지급
@@ -141,7 +141,7 @@ public class Admob : MonoBehaviour
         }
         else
         {
-                Debug.Log("광고가 로드되지 않았습니다");
+            Debug.Log("광고가 로드되지 않았습니다");
         }
     }
 
@@ -149,7 +149,7 @@ public class Admob : MonoBehaviour
     {
 
         // check ad pass
-        var passValue = GlobalData.instance.adManager.isPassAD;
+        var passValue = GlobalData.instance.adManager.GetADpAssValue();
         if (passValue)
         {
             // 리워드 지급
@@ -172,7 +172,7 @@ public class Admob : MonoBehaviour
         }
         else
         {
-                Debug.Log("광고가 로드되지 않았습니다");
+            Debug.Log("광고가 로드되지 않았습니다");
         }
     }
 

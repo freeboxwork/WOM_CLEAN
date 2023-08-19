@@ -15,7 +15,7 @@ public class AD_Manager : MonoBehaviour
     public string adPassKey = "_adPass";
     public string buffPassKey = "_buffPass";
 
-    public bool isPassAD = false;
+    bool isPassAD = false;
     public bool isPassBuff = false;
 
     public GameObject btnBuffOpen;
@@ -31,6 +31,12 @@ public class AD_Manager : MonoBehaviour
     {
         isPassAD = LoadPassValue(adPassKey);
         isPassBuff = LoadPassValue(buffPassKey);
+    }
+
+    public bool GetADpAssValue()
+    {
+        isPassAD = LoadPassValue(adPassKey);
+        return isPassAD;
     }
 
     bool LoadPassValue(string key)

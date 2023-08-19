@@ -217,7 +217,7 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
             PlayerPrefs.SetInt(buffKey, 1);
 
             // 광고 카운트 초기화
-            GlobalData.instance.adManager.AllResetADLeftCount();
+            // GlobalData.instance.adManager.AllResetADLeftCount();
 
             // 버프 패스 실행
             GlobalData.instance.adManager.BuyBuffPass();

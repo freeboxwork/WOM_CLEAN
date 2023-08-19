@@ -28,8 +28,10 @@ public class ADRandomRewardPopupController : MonoBehaviour
         randomWeights = new float[data.Count];
         for (int i = 0; i < data.Count; i++)
         {
-            randomWeights[i] = data[i].probability;
+            randomWeights[i] = data[i].probability * 0.01f;
         }
+
+
     }
 
 

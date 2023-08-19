@@ -24,7 +24,7 @@ public class TutorialUiController : MonoBehaviour
 
 
 
-    // ½ºÅ©¸° ÅÍÄ¡ ¹öÆ°
+    // ìŠ¤í¬ë¦° í„°ì¹˜ ë²„íŠ¼
     public GameObject btnScreen;
     public void EnableTutorialMask(string message, Image image, Button button, int btnId)
     {
@@ -49,11 +49,11 @@ public class TutorialUiController : MonoBehaviour
         isTypeAnim = true;
         for (int i = 0; i < fullText.Length; i++)
         {
-            if (fullText[i] == '<') // < ¹®ÀÚ¸¦ ¸¸³ª¸é skipText¸¦ true·Î ¼³Á¤ÇÏ¿© ½ºÅµ
+            if (fullText[i] == '<') // < ë¬¸ìë¥¼ ë§Œë‚˜ë©´ skipTextë¥¼ trueë¡œ ì„¤ì •í•˜ì—¬ ìŠ¤í‚µ
             {
                 skipText = true;
             }
-            else if (fullText[i] == '>') // > ¹®ÀÚ¸¦ ¸¸³ª¸é skipText¸¦ false·Î ¼³Á¤ÇÏ¿© ½ºÅµ Á¾·á
+            else if (fullText[i] == '>') // > ë¬¸ìë¥¼ ë§Œë‚˜ë©´ skipTextë¥¼ falseë¡œ ì„¤ì •í•˜ì—¬ ìŠ¤í‚µ ì¢…ë£Œ
             {
                 skipText = false;
             }

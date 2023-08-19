@@ -130,6 +130,11 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
         {
             weightValues[i] = rewardData.data[i].gradeProbability;
         }
+
+        // foreach (var value in weightValues)
+        // {
+        //     Debug.Log($"가중치 값 : {value}");
+        // }
     }
 
 

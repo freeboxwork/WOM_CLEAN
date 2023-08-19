@@ -365,7 +365,7 @@ public class UnionManager : MonoBehaviour
 
     public void SetTxtTotalPassiveDamage()
     {
-        var txtValue = $"전체 추가 공격력 : {GetAllUnionPassiveDamage()}";
+        var txtValue = $"전체 추가 공격력 : {GetAllUnionPassiveDamage()}%";
         UtilityMethod.SetTxtCustomTypeByID(80, txtValue);
     }
 

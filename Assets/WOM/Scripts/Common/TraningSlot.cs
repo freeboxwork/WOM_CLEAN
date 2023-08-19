@@ -81,7 +81,10 @@ public class TraningSlot : MonoBehaviour
         infoMax.SetActive(true);
     }
 
-
+    public bool GetBuyButtonInteracTable()
+    {
+        return btnBuy.interactable;
+    }
 
 
 

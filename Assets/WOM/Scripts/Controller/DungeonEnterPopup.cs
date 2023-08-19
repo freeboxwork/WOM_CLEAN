@@ -155,6 +155,7 @@ public class DungeonEnterPopup : MonoBehaviour
 
     void SetRewardUI(int level, DungeonMonsterData data, EnumDefinition.MonsterType monsterType)
     {
+         // 캐슬 -> 연구소에 따른 던전 추가보상량
         var addValue = GetAddValue(monsterType);
         long totalCurrencyAmount = (long)(data.currencyAmount + (data.currencyAmount * addValue * 0.01f));
 

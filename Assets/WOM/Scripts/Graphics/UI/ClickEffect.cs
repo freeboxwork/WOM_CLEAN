@@ -22,6 +22,7 @@ namespace ProjectGraphics
         public float duration = 1.0f;
         bool isLongClick = false;
         bool isButtonClick = false;
+        public TraningSlot trainingSlot;
 
         WaitForEndOfFrame waitFrame = new WaitForEndOfFrame();
 
@@ -36,7 +37,7 @@ namespace ProjectGraphics
 
         public void OnPointerDown(PointerEventData eventData)
         {
-            if(isButtonClick) return;
+            if(isButtonClick || !trainingSlot.GetBuyButtonInteracTable()) return;
             isButtonClick = true;
             isLongClick = false;
             StopCoroutine("ClickEffectProcess");
@@ -54,6 +55,10 @@ namespace ProjectGraphics
 
         IEnumerator ClickEffectProcess()
         {
+            if (!trainingSlot.GetBuyButtonInteracTable())
+            {
+                yield break;
+            }
 
             slotBack.SetActive(true);
 
@@ -63,6 +68,9 @@ namespace ProjectGraphics
 
             while (clampValue <= 1)
             {
+
+
+
                 t += Time.deltaTime;
                 clampValue = t / duration;
 
@@ -73,6 +81,9 @@ namespace ProjectGraphics
                 {
                     actionTexts[i].fontSize = baseFontSizes[i] * upsize;
                 }
+
+ 
+
 
                 yield return new WaitUntil(() => !isLongClick);
 

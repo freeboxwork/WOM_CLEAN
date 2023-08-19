@@ -1105,6 +1105,7 @@ MonoBehaviour:
   actionTexts:
   - {fileID: 1879935269263286958}
   duration: 0.3
+  trainingSlot: {fileID: 1045636925758334920}
 --- !u!114 &1995167201
 MonoBehaviour:
   m_ObjectHideFlags: 0

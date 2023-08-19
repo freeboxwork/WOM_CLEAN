@@ -1151,11 +1151,15 @@ public class EventController : MonoBehaviour
         var monster = globalData.monsterManager.GetMonsterDungeon();
         var monsterType = monster.curMonsterData.monsterType;
         var goodsType = monster.curMonsterData.goodsType;
-        var totalCurrencyAmount = globalData.dataManager.GetDungeonMonsterKillRewardByLevel(monsterType, monster.curLevel);
+
+        //var totalCurrencyAmount = globalData.dataManager.GetDungeonMonsterDataByTypeLevel(monsterType, monster.curLevel);
+        var dungeonMonsterData = globalData.dataManager.GetDungeonMonsterDataByTypeLevel(monsterType, monster.curLevel);
+
+
 
         // 캐슬 -> 연구소에 따른 던전 추가보상량
         var addValue = globalData.labBuildingManager.GetInLabBuildGameData(goodsType).value;
-        totalCurrencyAmount = (long)(totalCurrencyAmount + (totalCurrencyAmount * addValue * 0.01f));
+        long totalCurrencyAmount = (long)(dungeonMonsterData.currencyAmount + (dungeonMonsterData.currencyAmount * addValue * 0.01f));
 
 
         // sfx dungeon monster out

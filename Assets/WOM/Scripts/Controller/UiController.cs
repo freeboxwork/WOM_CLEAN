@@ -468,13 +468,17 @@ public class UiController : MonoBehaviour
             GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Castle);
 
             // 현재 몬스터 OUT
-            StartCoroutine(GlobalData.instance.player.currentMonster.inOutAnimator.MonsterKillMatAnim());
+            // StartCoroutine(GlobalData.instance.player.currentMonster.inOutAnimator.MonsterKillMatAnim());
+            var monster = GlobalData.instance.player.currentMonster;
+            monster.gameObject.SetActive(false);
 
             // 활성화된 곤충 모두 비활성화
             GlobalData.instance.insectManager.DisableAllAvtiveInsects();
 
             // UI 비활성화
             UtilityMethod.GetCustomTypeGMById(6).gameObject.SetActive(false);
+
+
 
         }));
 
@@ -519,6 +523,8 @@ public class UiController : MonoBehaviour
             // UI 활성화
             UtilityMethod.GetCustomTypeGMById(6).gameObject.SetActive(true);
 
+            var monster = GlobalData.instance.player.currentMonster;
+            monster.gameObject.SetActive(true);
             // Monster IN
             var curMonsterType = GlobalData.instance.player.curMonsterType;
             StartCoroutine(GlobalData.instance.eventController.MonsterAppearCor(curMonsterType));

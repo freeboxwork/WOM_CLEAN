@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using System;
@@ -16,7 +15,7 @@ namespace ProjectGraphics
     [RequireComponent(typeof(SavePartsList))]
     public class PartsChangeTest : MonoBehaviour
     {
-        [SerializeField] SpriteLibraryChanged spritesController;
+        [SerializeField] public SpriteLibraryChanged spritesController;
         [SerializeField] Animator anim;
         [SerializeField] Camera captureCam;
         SavePartsList save;
@@ -35,7 +34,7 @@ namespace ProjectGraphics
 
         [Header("Parts Change"), Tooltip("0~4, 5~9, 10~14, 15~19, 20~24 = 동일한 모습에 색만 다른 일반형 , 25~29 = 메카닉 , 30,31,32 = 레이드보스")]
         public PartNumbesrs partNum; //이거 변경?
-        private Dictionary<string, int> parts = new Dictionary<string, int>();
+        public Dictionary<string, int> parts = new Dictionary<string, int>();
 
         void Start()
         {
@@ -139,10 +138,10 @@ namespace ProjectGraphics
         public void InitializedSpriteImage()
         {
             num = 0;
-            
+
             maxNum = spritesController.CountOfSprite();
             save.LoadCSV();
-            
+
             spritesController.ChangedSpriteAllImage(0);
         }
 
@@ -180,7 +179,7 @@ namespace ProjectGraphics
 
             //렌더링
             captureCam.targetTexture = rt;
-            
+
             captureCam.Render();
             RenderTexture.active = rt;
             screeShot.ReadPixels(new Rect(0, 0, width, height), 0, 0);

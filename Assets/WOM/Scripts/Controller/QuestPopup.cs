@@ -21,11 +21,20 @@ public class QuestPopup : MonoBehaviour
     public GameObject battlePassPanel;
 
 
+    public Button[] passTabButtons;
 
+    public ScrollRect passScrollLect;
+
+    public GameObject[] passPanels;
+
+    public Color selectColor;
+    Color deSelectColor;
 
     void Start()
     {
+        deSelectColor = Color.grey;
         SetBtnEvents();
+        ShowPassTabPanel(0);
     }
 
     void SetBtnEvents()
@@ -34,6 +43,14 @@ public class QuestPopup : MonoBehaviour
         btn_showAttend.onClick.AddListener(ShowAttend);
         btn_showBattlePass.onClick.AddListener(ShowBattlePass);
         btn_close.onClick.AddListener(ClosePopup);
+
+
+        passTabButtons[0].onClick.AddListener(() => ShowPassTabPanel(0));   
+        passTabButtons[1].onClick.AddListener(() => ShowPassTabPanel(1));   
+        passTabButtons[2].onClick.AddListener(() => ShowPassTabPanel(2));   
+        passTabButtons[3].onClick.AddListener(() => ShowPassTabPanel(3));   
+        passTabButtons[4].onClick.AddListener(() => ShowPassTabPanel(4));   
+
     }
 
     void ClosePopup()
@@ -41,6 +58,20 @@ public class QuestPopup : MonoBehaviour
         //QuestManager.btn_showQuestPopup.gameObject.SetActive(true);
         gameObject.SetActive(false);
     }
+
+    void ShowPassTabPanel(int index)
+    {
+        for(int i = 0; i < passPanels.Length; i++)
+        {
+            passPanels[i].SetActive(false);
+            passTabButtons[i].GetComponent<Image>().color = deSelectColor;
+        }
+        passTabButtons[index].GetComponent<Image>().color = selectColor;
+        passPanels[index].SetActive(true);
+        passScrollLect.content = passPanels[index].GetComponent<RectTransform>();
+    }
+
+
 
     void ShowQuestListOneDay()
     {
@@ -120,6 +151,12 @@ public class QuestPopup : MonoBehaviour
                 var enableValue = PlayerPrefs.GetInt(loadKey) == 0 ? true : false;
                 slot.SetBtnRewardInteractable(enableValue);
             }
+            else
+            {
+                slot.SetBtnRewardInteractable(true);
+
+            }
+
 
             var loadKeyBuyItem = $"{GlobalData.instance.questManager.keyBuyBattlePass}_{data.targetStage}";
             var hasKeyBuyItem = PlayerPrefs.HasKey(loadKeyBuyItem);
@@ -127,6 +164,11 @@ public class QuestPopup : MonoBehaviour
             {
                 var enableValue = PlayerPrefs.GetInt(loadKeyBuyItem) == 0 ? true : false;
                 slot.SetBtnPassRewardInteractable(enableValue);
+            }
+            else
+            {
+                slot.SetBtnPassRewardInteractable(true);
+
             }
         }
     }
@@ -154,6 +196,12 @@ public class QuestPopup : MonoBehaviour
                 var enableValue = PlayerPrefs.GetInt(loadKey) == 0 ? true : false;
                 slot.SetBtnRewardInteractable(enableValue);
             }
+            else
+            {
+                slot.SetBtnRewardInteractable(true);
+
+            }
+
         }
         slot.attendData = data;
     }

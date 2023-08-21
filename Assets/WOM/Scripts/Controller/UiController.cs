@@ -168,6 +168,8 @@ public class UiController : MonoBehaviour
     /* SET MONSTER UI */
     public void SetTxtMonsterHp(double value)
     {
+        if(value < 0) value = 0;
+
         var txtHP = UtilityMethod.ConvertDoubleToLong(value);
         txtMonsterHp.text = txtHP.ToString();
     }
@@ -191,6 +193,8 @@ public class UiController : MonoBehaviour
 
     public void SetSliderDungeonMonsterHP(double value)
     {
+        if(value < 0) value = 0;
+
         var sliderValue = (float)value / GlobalData.instance.monsterManager.GetMonsterDungeon().curMonsterHP;
         UtilityMethod.GetCustomTypeImageById(41).fillAmount = (float)sliderValue;
 

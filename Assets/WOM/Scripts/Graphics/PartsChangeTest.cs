@@ -196,3 +196,52 @@ namespace ProjectGraphics
         }
     }
 }
+
+[System.Serializable]
+public class MonSkinDatas
+{
+    public List<MonSkinData> monSkinData = new List<MonSkinData>();
+}
+
+[System.Serializable]
+public class MonSkinData
+{
+    public string tailKey = "tail";
+    public string handKey = "hand";
+    public string fingerKey = "finger";
+    public string foreArmKey = "foreArm";
+    public string upperArmKey = "upperArm";
+    public string headKey = "head";
+    public string bodyKey = "body";
+    public string leg0Key = "leg_0";
+    public string leg1Key = "leg_1";
+    public string leg2Key = "leg_2";
+    public int tailValue;
+    public int handValue;
+    public int fingerValue;
+    public int foreArmValue;
+    public int upperArmValue;
+    public int headValue;
+    public int bodyValue;
+    public int leg0Value;
+    public int leg1Value;
+    public int leg2Value;
+
+}
+
+[System.Serializable]
+public class MonFaceRandomDatas
+{
+    public List<MonFaceRandomData> monFaceRandomData = new List<MonFaceRandomData>();
+}
+
+[System.Serializable]
+public class MonFaceRandomData
+{
+    public int id;
+    public int level;
+    public int min;
+    public int max;
+    public int totalCount;
+
+}

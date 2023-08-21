@@ -10,6 +10,8 @@ namespace ProjectGraphics
     {
         string minValue;
         string maxValue;
+
+
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
@@ -61,8 +63,9 @@ namespace ProjectGraphics
 
             if (GUILayout.Button("Create Monster Skil Datas "))
             {
-
+                change.MakeSkinData();
             }
+
 
 
 

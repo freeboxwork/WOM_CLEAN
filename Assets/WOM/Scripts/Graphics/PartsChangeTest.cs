@@ -41,29 +41,86 @@ namespace ProjectGraphics
         // random make skin data
         public TextAsset monFaceRandomDataTextAsset;
         public MonFaceRandomDatas monFaceRandomDatas;
-        MonSkinDatas monSkinDatas;
 
+        public MonSkinTotalData monSkinTotalDatas = new MonSkinTotalData();
 
+        public void MakeSkinData()
+        {
+            StartCoroutine(MakeSkinDataSet());
+        }
 
         IEnumerator MakeSkinDataSet()
         {
             var data = monFaceRandomDatas.data;
 
-
+            // get random value
             foreach (var d in data)
             {
-                List<List<int>> randList = new List<List<int>>();
+                MonSkinDatas monSkinDatas = new MonSkinDatas();
+
                 for (int i = 0; i < d.totalCount; i++)
                 {
                     // 중복이면 다시 뽑기
                     var randData = GetRandomNumbers(d.min, d.max, 8);
-                    while (randList.Contains(randData))
+                    while (monSkinDatas.randomIdxList.Contains(randData))
                     {
                         randData = GetRandomNumbers(d.min, d.max, 8);
                         yield return null;
                     }
-                    randList.Add(randData);
+                    monSkinDatas.randomIdxList.Add(randData);
                 }
+
+                monSkinDatas.SetMonSkinData();
+                monSkinTotalDatas.data.Add(monSkinDatas);
+            }
+
+
+            // save json
+            string json = JsonUtility.ToJson(monSkinTotalDatas);
+            File.WriteAllText(Application.dataPath + "/CaptureImage/MonSkinDatas.json", json);
+
+            yield return new WaitForEndOfFrame();
+
+            // save picture
+
+            for (int i = 0; i < monSkinTotalDatas.data.Count; i++)
+            {
+
+                var skinData = monSkinTotalDatas.data[i].randomIdxList;
+
+
+                for (int j = 0; j < skinData.Count; j++)
+                {
+
+                    // change skin
+                    ChangeSkin(skinData[j]);
+
+                    // capture
+                    yield return StartCoroutine(CaptterMonImage("CaptureImage/level_" + (i + 1), "MonSkin_", j));
+                }
+
+                yield return new WaitForEndOfFrame();
+            }
+
+
+        }
+
+        void ChangeSkin(List<int> values)
+        {
+            parts["tail"] = partNum.tail = values[0];
+            parts["hand"] = partNum.hand = values[1];
+            parts["finger"] = partNum.finger = values[2];
+            parts["foreArm"] = partNum.foreArm = values[3];
+            parts["upperArm"] = partNum.upperArm = values[4];
+            parts["head"] = partNum.head = values[5];
+            parts["body"] = partNum.body = values[6];
+            parts["leg_0"] = partNum.leg0 = values[7];
+            parts["leg_1"] = partNum.leg1 = values[7];
+            parts["leg_2"] = partNum.leg2 = values[7];
+
+            foreach (var item in parts)
+            {
+                spritesController.ChangedSpritePartImage(item.Key, item.Value);
             }
         }
 
@@ -72,10 +129,12 @@ namespace ProjectGraphics
             List<int> randomNumbers = new List<int>();
             for (int i = 0; i < count; i++)
             {
-                randomNumbers[i] = UnityEngine.Random.Range(min, max);
+                randomNumbers.Add(UnityEngine.Random.Range(min, max));
             }
             return randomNumbers;
         }
+
+
 
 
         void Start()
@@ -242,6 +301,51 @@ namespace ProjectGraphics
             byte[] imageByte = screeShot.EncodeToPNG();
             File.WriteAllBytes(name, imageByte);
         }
+
+        IEnumerator CaptterMonImage(string filePaht, string fileName, int index)
+        {
+            //데이터 패스 설정
+            path = Application.dataPath + "/" + filePaht + "/";
+            DirectoryInfo dir = new DirectoryInfo(path);
+            if (!dir.Exists) Directory.CreateDirectory(path);
+
+            string file = $"{fileName}_{index}";
+            string name = path + file + ".png";
+            Debug.Log(name);
+
+            //스크린샷 프로세스
+            int width = captureCam.pixelWidth * upScale;
+            int height = captureCam.pixelHeight * upScale;
+
+            RenderTexture rt = new RenderTexture(width, height, 32);
+
+            Texture2D screeShot = new Texture2D(width, height, TextureFormat.RGBA32, false, true);
+            CameraClearFlags clearFlag = captureCam.clearFlags;
+
+            if (BackAlpha)
+            {
+                captureCam.clearFlags = CameraClearFlags.SolidColor;
+                captureCam.backgroundColor = new Color(0, 0, 0, 0);
+            }
+
+            //렌더링
+            captureCam.targetTexture = rt;
+
+            captureCam.Render();
+            RenderTexture.active = rt;
+            screeShot.ReadPixels(new Rect(0, 0, width, height), 0, 0);
+            screeShot.Apply();
+
+            captureCam.targetTexture = null;
+            RenderTexture.active = null;
+            DestroyImmediate(rt);
+            captureCam.clearFlags = clearFlag;
+
+            //저장
+            byte[] imageByte = screeShot.EncodeToPNG();
+            File.WriteAllBytes(name, imageByte);
+            yield return null;
+        }
     }
 
 
@@ -250,14 +354,45 @@ namespace ProjectGraphics
 }
 
 [System.Serializable]
+public class MonSkinTotalData
+{
+    public List<MonSkinDatas> data = new List<MonSkinDatas>();
+}
+
+[System.Serializable]
 public class MonSkinDatas
 {
+    public List<List<int>> randomIdxList = new List<List<int>>();
     public List<MonSkinData> monSkinData = new List<MonSkinData>();
+
+    public void SetMonSkinData()
+    {
+        int i = 0;
+        foreach (var item in randomIdxList)
+        {
+
+            MonSkinData data = new MonSkinData();
+            data.id = i;
+            data.tail = item[0];
+            data.hand = item[1];
+            data.finger = item[2];
+            data.foreArm = item[3];
+            data.upperArm = item[4];
+            data.head = item[5];
+            data.body = item[6];
+            data.leg0 = item[7];
+            data.leg1 = item[7];
+            data.leg2 = item[7];
+            monSkinData.Add(data);
+            i++;
+        }
+    }
 }
 
 [System.Serializable]
 public class MonSkinData
 {
+    /*
     public string tailKey = "tail";
     public string handKey = "hand";
     public string fingerKey = "finger";
@@ -268,16 +403,20 @@ public class MonSkinData
     public string leg0Key = "leg_0";
     public string leg1Key = "leg_1";
     public string leg2Key = "leg_2";
-    public int tailValue;
-    public int handValue;
-    public int fingerValue;
-    public int foreArmValue;
-    public int upperArmValue;
-    public int headValue;
-    public int bodyValue;
-    public int leg0Value;
-    public int leg1Value;
-    public int leg2Value;
+    */
+
+    public int id;
+
+    public int tail;
+    public int hand;
+    public int finger;
+    public int foreArm;
+    public int upperArm;
+    public int head;
+    public int body;
+    public int leg0;
+    public int leg1;
+    public int leg2;
 
 }
 

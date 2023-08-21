@@ -1190,6 +1190,9 @@ MonoBehaviour:
     leg0: 0
     leg1: 0
     leg2: 0
+  monFaceRandomDataTextAsset: {fileID: 4900000, guid: 69b6a1b0df74c504b9f403a58a3308d9, type: 3}
+  monFaceRandomDatas:
+    data: []
 --- !u!4 &926765078
 Transform:
   m_ObjectHideFlags: 0

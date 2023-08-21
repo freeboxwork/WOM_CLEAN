@@ -94,8 +94,11 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         SetData();
-
         isTutorial = !IsTutorialAllComplete();
+
+        if (disableTutorial)
+            isTutorial = false;
+
         yield return null;
     }
 

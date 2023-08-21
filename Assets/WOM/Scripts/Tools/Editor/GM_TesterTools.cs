@@ -179,8 +179,18 @@ public class GM_TesterTools : EditorWindow
 
     void GUI_Tutorial()
     {
-        if (tutorialManager != null)
-            tutorialManager.disableTutorial = EditorGUILayout.Toggle("튜토리얼 비활성화", tutorialManager.disableTutorial);
+        try
+        {
+            if (tutorialManager != null)
+                tutorialManager.disableTutorial = EditorGUILayout.Toggle("튜토리얼 비활성화", tutorialManager.disableTutorial);
+            else
+                tutorialManager = FindObjectOfType<TutorialManager>();
+        }
+        catch
+        {
+
+        }
+
     }
 
     #region  CustomLeveling

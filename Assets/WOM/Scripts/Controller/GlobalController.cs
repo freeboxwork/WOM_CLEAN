@@ -171,6 +171,7 @@ public class GlobalController : MonoBehaviour
         var isShopBtnActive = tutorialManager.isTutorial == false;
         UtilityMethod.GetCustomTypeBtnByID(6).gameObject.SetActive(isShopBtnActive);
 
+
         // 골드 피그 등장( 지정된 시간 지난뒤 등장 )
         yield return StartCoroutine(goldPigController.Init());
 

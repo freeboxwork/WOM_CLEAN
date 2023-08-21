@@ -9,8 +9,9 @@ public class AttendSlot : MonoBehaviour
     public TextMeshProUGUI txtRewardValue;
     public TextMeshProUGUI txtDayCount;
     public Image blockImage;
-
+    public GameObject rewardBlock;
     public Button btnReward;
+
 
     bool isUsingReward = false;
 
@@ -35,7 +36,7 @@ public class AttendSlot : MonoBehaviour
 
             PlayerPrefs.SetInt(saveKey, 1);
 
-            btnReward.interactable = false;
+            SetBtnRewardInteractable(false);
         });
     }
 
@@ -65,8 +66,14 @@ public class AttendSlot : MonoBehaviour
     public void SetBtnRewardInteractable(bool isActive)
     {
         btnReward.interactable = isActive;
+
+        ShowBlockImage(isActive);
     }
 
+    void ShowBlockImage(bool show)
+    {
+        rewardBlock.SetActive(!show);
+    }
 
 
 

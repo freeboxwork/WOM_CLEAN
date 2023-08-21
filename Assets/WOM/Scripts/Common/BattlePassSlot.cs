@@ -14,6 +14,10 @@ public class BattlePassSlot : MonoBehaviour
     public Image imgPassRewardIcon;
     public TextMeshProUGUI txtPassRewardValue;
 
+    public GameObject blockCurrent;
+    public GameObject blockPass;
+
+
     public Button btnReward;
     public Button btnPassReward;
 
@@ -30,7 +34,7 @@ public class BattlePassSlot : MonoBehaviour
             EventManager.instance.RunEvent<string, int>(CallBackEventType.TYPES.OnQuestCompleteBattlePassStage, battlePassData.commonRewardType, battlePassData.commonRewardCount);
             var saveKey = $"{GlobalData.instance.questManager.keyBattlePassUsedReward}_{battlePassData.targetStage}";
             PlayerPrefs.SetInt(saveKey, 1);
-            btnReward.interactable = false;
+            SetBtnRewardInteractable(false);
         });
 
         btnPassReward.onClick.AddListener(() =>
@@ -38,7 +42,7 @@ public class BattlePassSlot : MonoBehaviour
             EventManager.instance.RunEvent<string, int>(CallBackEventType.TYPES.OnQuestCompleteBattlePassStageBuyitem, battlePassData.passRewardType, battlePassData.passRewardCount);
             var saveKey = $"{GlobalData.instance.questManager.keyBuyBattlePass}_{battlePassData.targetStage}";
             PlayerPrefs.SetInt(saveKey, 1);
-            btnPassReward.interactable = false;
+            SetBtnPassRewardInteractable(false);
         });
     }
 
@@ -80,12 +84,24 @@ public class BattlePassSlot : MonoBehaviour
     public void SetBtnRewardInteractable(bool isActive)
     {
         btnReward.interactable = isActive;
+        ShowBlockCurrentImage(isActive);
+
     }
 
     public void SetBtnPassRewardInteractable(bool isActive)
     {
         btnPassReward.interactable = isActive;
+        ShowBlockPassImage(isActive);
+
     }
 
+    void ShowBlockCurrentImage(bool show)
+    {
+        blockCurrent.SetActive(!show);
+    }
+    void ShowBlockPassImage(bool show)
+    {
+        blockPass.SetActive(!show);
+    }
 
 }

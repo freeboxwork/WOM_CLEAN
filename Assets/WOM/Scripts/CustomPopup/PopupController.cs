@@ -99,11 +99,11 @@ public class PopupController : MonoBehaviour
     public PoolManager poolManager;
     public RewardManager rewardManager;
 
+
     private void Awake()
     {
         instance = this;
     }
-
 
     public void SetupPopupInfo(PopupRewardInfoData data)
     {

@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using DG.Tweening;
+using System.Collections;
 public class GoldPigPopup : MonoBehaviour
 {
     public Button btnCommonReward;
@@ -14,6 +15,7 @@ public class GoldPigPopup : MonoBehaviour
     public TextMeshProUGUI txtRewardNormal_Value;
     public EnumDefinition.RewardTypeAD adRewardType;
 
+    public Transform pig;
 
     void Start()
     {
@@ -24,7 +26,6 @@ public class GoldPigPopup : MonoBehaviour
     {
         UpdateUI();
     }
-
 
     public void SetBtnEvents()
     {
@@ -58,7 +59,10 @@ public class GoldPigPopup : MonoBehaviour
     {
         txtRewardAD_Value.text = GetRewardValue(adRewardValue).ToString();
         txtRewardNormal_Value.text = GetRewardValue(normalRewardValue).ToString();
+        pig.transform.DOScale(0.8f, 1f).SetEase(Ease.InCubic).SetLoops(-1,LoopType.Yoyo);
     }
+
+    
 
     void ClosePopup()
     {

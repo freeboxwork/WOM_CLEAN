@@ -23,30 +23,6 @@ public class WomSystemMnager : MonoBehaviour
         });
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        // 게임 종료 팝업
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-
-            GlobalData.instance.globalPopupController.EnableMessageTwoBtnPopup(18, QuitPopupApply, QuitPopupCancel);
-
-        }
-    }
-
-
-    void QuitPopupCancel()
-    {
-        // 팝업 닫기
-        Debug.Log("게임종료 팝업 닫기");
-    }
-
-    void QuitPopupApply()
-    {
-        StartCoroutine(GlobalData.instance.saveDataManager.SaveDataToFileCoroutine());
-    }
-
     public void PowerSavingModeOn()
     {
         powerSavingPopup.SetActive(true);

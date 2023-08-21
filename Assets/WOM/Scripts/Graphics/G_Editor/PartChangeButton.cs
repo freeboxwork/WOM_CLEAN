@@ -59,6 +59,12 @@ namespace ProjectGraphics
                 SetRand(change);
             }
 
+            if (GUILayout.Button("Create Monster Skil Datas "))
+            {
+
+            }
+
+
 
 
 
@@ -73,17 +79,22 @@ namespace ProjectGraphics
 
         void SetRand(PartsChangeTest change)
         {
-            // head , body
-            int head = GetRand(0, 9);
-            int body = GetRand(0, 9);
+
             // tail 
             int tail = GetRand(0, 9);
+            // hand
+            int hand = GetRand(0, 9);
             // finger
             int finger = GetRand(0, 9);
             // foreArm
             int foreArm = GetRand(0, 9);
             // upperArm
             int upperArm = GetRand(0, 9);
+
+            // head 
+            int head = GetRand(0, 9);
+            // body
+            int body = GetRand(0, 9);
             // leg
             int leg = GetRand(0, 9);
 
@@ -92,6 +103,8 @@ namespace ProjectGraphics
             change.parts["body"] = body;
             // tail
             change.parts["tail"] = tail;
+            // hand
+            change.parts["hand"] = hand;
             // finger
             change.parts["finger"] = finger;
             // foreArm

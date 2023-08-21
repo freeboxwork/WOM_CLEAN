@@ -1,0 +1,25 @@
+{
+   "data":[
+ {
+   "id": 0,
+   "level": 1,
+   "min": 0,
+   "max": 9,
+   "totalCount": 100
+ },
+ {
+   "id": 1,
+   "level": 2,
+   "min": 10,
+   "max": 19,
+   "totalCount": 100
+ },
+ {
+   "id": 2,
+   "level": 3,
+   "min": 20,
+   "max": 29,
+   "totalCount": 100
+ }
+]
+}

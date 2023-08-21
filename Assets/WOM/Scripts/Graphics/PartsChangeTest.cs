@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using System.IO;
 using System;
+
 
 namespace ProjectGraphics
 {
@@ -36,12 +38,58 @@ namespace ProjectGraphics
         public PartNumbesrs partNum; //이거 변경?
         public Dictionary<string, int> parts = new Dictionary<string, int>();
 
+        // random make skin data
+        public TextAsset monFaceRandomDataTextAsset;
+        public MonFaceRandomDatas monFaceRandomDatas;
+        MonSkinDatas monSkinDatas;
+
+
+
+        IEnumerator MakeSkinDataSet()
+        {
+            var data = monFaceRandomDatas.data;
+
+
+            foreach (var d in data)
+            {
+                List<List<int>> randList = new List<List<int>>();
+                for (int i = 0; i < d.totalCount; i++)
+                {
+                    // 중복이면 다시 뽑기
+                    var randData = GetRandomNumbers(d.min, d.max, 8);
+                    while (randList.Contains(randData))
+                    {
+                        randData = GetRandomNumbers(d.min, d.max, 8);
+                        yield return null;
+                    }
+                    randList.Add(randData);
+                }
+            }
+        }
+
+        List<int> GetRandomNumbers(int min, int max, int count)
+        {
+            List<int> randomNumbers = new List<int>();
+            for (int i = 0; i < count; i++)
+            {
+                randomNumbers[i] = UnityEngine.Random.Range(min, max);
+            }
+            return randomNumbers;
+        }
+
+
         void Start()
         {
             save = GetComponent<SavePartsList>();
 
             anim.Play("Idle");
             InitializedPartDictionary();
+            SetmonFaceRandomData();
+        }
+
+        void SetmonFaceRandomData()
+        {
+            monFaceRandomDatas = JsonUtility.FromJson<MonFaceRandomDatas>(monFaceRandomDataTextAsset.text);
         }
 
         void InitializedPartDictionary()
@@ -195,6 +243,10 @@ namespace ProjectGraphics
             File.WriteAllBytes(name, imageByte);
         }
     }
+
+
+
+
 }
 
 [System.Serializable]
@@ -232,7 +284,7 @@ public class MonSkinData
 [System.Serializable]
 public class MonFaceRandomDatas
 {
-    public List<MonFaceRandomData> monFaceRandomData = new List<MonFaceRandomData>();
+    public List<MonFaceRandomData> data = new List<MonFaceRandomData>();
 }
 
 [System.Serializable]

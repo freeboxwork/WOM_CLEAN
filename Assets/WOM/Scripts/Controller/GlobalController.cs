@@ -167,6 +167,10 @@ public class GlobalController : MonoBehaviour
             insectSpwanManager.AllTimerStart();
         }
 
+        // 투토리얼 실행 상황에 따라 상점버튼 활성 / 비활성화
+        var isShopBtnActive = tutorialManager.isTutorial == false;
+        UtilityMethod.GetCustomTypeBtnByID(6).gameObject.SetActive(isShopBtnActive);
+
         // 골드 피그 등장( 지정된 시간 지난뒤 등장 )
         yield return StartCoroutine(goldPigController.Init());
 

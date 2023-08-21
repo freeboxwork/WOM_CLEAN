@@ -218,6 +218,9 @@ public class TutorialManager : MonoBehaviour
 
                 // 골드피그 등장
                 GlobalData.instance.goldPigController.EnableGoldPig();
+                // 상점 버튼 활성화
+                UtilityMethod.GetCustomTypeBtnByID(6).gameObject.SetActive(true);
+
                 Debug.Log("투토리얼 종료");
             }
 

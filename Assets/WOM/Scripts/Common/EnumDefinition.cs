@@ -327,7 +327,8 @@ public class EnumDefinition
         Skill_6,
         Slot,
         Transition,
-        Typewriter
+        Typewriter,
+        Upgrade
     }
 
     public enum CastlePopupType

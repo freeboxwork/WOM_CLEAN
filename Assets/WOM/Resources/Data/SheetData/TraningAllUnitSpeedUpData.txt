@@ -1,214 +1,214 @@
 {
   "data": [
-    {
-      "level": 0,
-      "salePrice": 10050,
-      "duration": 10,
-      "power": 100,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    },
-    {
-      "level": 1,
-      "salePrice": 34800,
-      "duration": 10.2,
-      "power": 105,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    },
-    {
-      "level": 2,
-      "salePrice": 135600,
-      "duration": 10.4,
-      "power": 110,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    },
-    {
-      "level": 3,
-      "salePrice": 416400,
-      "duration": 10.6,
-      "power": 115,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    },
-    {
-      "level": 4,
-      "salePrice": 1726000,
-      "duration": 10.8,
-      "power": 120,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    },
-    {
-      "level": 5,
-      "salePrice": 3676750,
-      "duration": 11,
-      "power": 125,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    },
-    {
-      "level": 6,
-      "salePrice": 9788450,
-      "duration": 11.2,
-      "power": 130,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    },
-    {
-      "level": 7,
-      "salePrice": 24414500,
-      "duration": 11.4,
-      "power": 135,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    },
-    {
-      "level": 8,
-      "salePrice": 39900500,
-      "duration": 11.6,
-      "power": 140,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    },
-    {
-      "level": 9,
-      "salePrice": 92815500,
-      "duration": 11.8,
-      "power": 145,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    },
-    {
-      "level": 10,
-      "salePrice": 236776250,
-      "duration": 12,
-      "power": 150,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    },
-    {
-      "level": 11,
-      "salePrice": 425823000,
-      "duration": 12.2,
-      "power": 155,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    },
-    {
-      "level": 12,
-      "salePrice": 830834000,
-      "duration": 12.4,
-      "power": 160,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    },
-    {
-      "level": 13,
-      "salePrice": 1335388500,
-      "duration": 12.6,
-      "power": 165,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    },
-    {
-      "level": 14,
-      "salePrice": 2279279750,
-      "duration": 12.8,
-      "power": 170,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    },
-    {
-      "level": 15,
-      "salePrice": 3966431000,
-      "duration": 13,
-      "power": 175,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    },
-    {
-      "level": 16,
-      "salePrice": 6839536500,
-      "duration": 13.2,
-      "power": 180,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    },
-    {
-      "level": 17,
-      "salePrice": 13019513000,
-      "duration": 13.4,
-      "power": 185,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    },
-    {
-      "level": 18,
-      "salePrice": 22083518500,
-      "duration": 13.6,
-      "power": 190,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    },
-    {
-      "level": 19,
-      "salePrice": 39861048000,
-      "duration": 13.8,
-      "power": 195,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    },
-    {
-      "level": 20,
-      "salePrice": 69167356500,
-      "duration": 14,
-      "power": 200,
-      "name": "질주",
-      "coolTime": 450,
-      "maxLevel": 20,
-      "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
-    }
-  ]
+ {
+   "level": 0,
+   "salePrice": 10050,
+   "duration": 10,
+   "power": 100,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 1,
+   "salePrice": 20550,
+   "duration": 10.2,
+   "power": 105,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 2,
+   "salePrice": 52800,
+   "duration": 10.4,
+   "power": 110,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 3,
+   "salePrice": 129300,
+   "duration": 10.6,
+   "power": 115,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 4,
+   "salePrice": 283800,
+   "duration": 10.8,
+   "power": 120,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 5,
+   "salePrice": 561300,
+   "duration": 11,
+   "power": 125,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 6,
+   "salePrice": 1696750,
+   "duration": 11.2,
+   "power": 130,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 7,
+   "salePrice": 2869250,
+   "duration": 11.4,
+   "power": 135,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 8,
+   "salePrice": 7105700,
+   "duration": 11.6,
+   "power": 140,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 9,
+   "salePrice": 11967200,
+   "duration": 11.8,
+   "power": 145,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 10,
+   "salePrice": 29156000,
+   "duration": 12,
+   "power": 150,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 11,
+   "salePrice": 73096500,
+   "duration": 12.2,
+   "power": 155,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 12,
+   "salePrice": 157642000,
+   "duration": 12.4,
+   "power": 160,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 13,
+   "salePrice": 379675500,
+   "duration": 12.6,
+   "power": 165,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 14,
+   "salePrice": 867694000,
+   "duration": 12.8,
+   "power": 170,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 15,
+   "salePrice": 2526307000,
+   "duration": 13,
+   "power": 175,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 16,
+   "salePrice": 5787410000,
+   "duration": 13.2,
+   "power": 180,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 17,
+   "salePrice": 14311096000,
+   "duration": 13.4,
+   "power": 185,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 18,
+   "salePrice": 33243496000,
+   "duration": 13.6,
+   "power": 190,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 19,
+   "salePrice": 65785543000,
+   "duration": 13.8,
+   "power": 195,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 20,
+   "salePrice": 105785273500,
+   "duration": 14,
+   "power": 200,
+   "name": "질주",
+   "coolTime": 450,
+   "maxLevel": 20,
+   "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
+ }
+]
 }

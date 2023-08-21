@@ -208,24 +208,37 @@ public class EffectManager : MonoBehaviour
         // flotingTxt.gameObject.SetActive(true);
         // flotingTxt.SetText(damage.ToString(), isCritical);
 
- 
-        DamageNumber damageNumber = numberPrefab.Spawn(tr.position, (float)damage);
-        damageNumber.SetColor(Color.white);
-        damageNumber.SetScale(1);
-
-
-       if (insectType == EnumDefinition.InsectType.union)
-        {
-            damageNumber.SetColor(Color.cyan);
-            damageNumber.SetScale(1.2f);
-        }
-
-
+        //곤충이 치명타
         if (isCritical)
         {
-            damageNumber.SetScale(1.5f);
+            DamageNumber damageNumber = numberPrefab.Spawn(tr.position,  (float)damage);
+
+            damageNumber.SetScale(1f);
             damageNumber.SetColor(Color.magenta);
         }
+        else
+        {
+            //유니온 일반 공격
+            if (insectType == EnumDefinition.InsectType.union)
+            {
+                DamageNumber damageNumber = numberPrefab.Spawn(tr.position, (float)damage);
+
+                damageNumber.SetColor(Color.cyan);
+                damageNumber.SetScale(0.7f);
+            }
+            else
+            {
+                //곤충 일반 공격
+                DamageNumber damageNumber = numberPrefab.Spawn(tr.position, (float)damage);
+                damageNumber.SetColor(Color.white);
+                damageNumber.SetScale(0.5f);
+            }
+
+        }
+
+
+
+
 
     }
 

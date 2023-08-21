@@ -1,14 +1,13 @@
 {"data":[
  {
    "dnaIndex": 0,
-   "power": 5,
+   "power": 4,
    "maxLevel": 50,
    "spriteName": "DNA_insectDamage",
    "infoFront": "곤충의 공격력이",
    "infoBack": "% 증가",
    "dnaName": "곤충 공격력",
-   "dnaType": "insectDamage",
-   "max": 250
+   "dnaType": "insectDamage"
  },
  {
    "dnaIndex": 1,
@@ -18,8 +17,7 @@
    "infoFront": "곤충 치명타 확률이",
    "infoBack": "% 증가",
    "dnaName": "곤충 치명타 확률",
-   "dnaType": "insectCriticalChance",
-   "max": 10
+   "dnaType": "insectCriticalChance"
  },
  {
    "dnaIndex": 2,
@@ -29,19 +27,17 @@
    "infoFront": "곤충 치명타 데미지가",
    "infoBack": "% 증가",
    "dnaName": "곤충 치명타 공격력",
-   "dnaType": "insectCriticalDamage",
-   "max": 250
+   "dnaType": "insectCriticalDamage"
  },
  {
    "dnaIndex": 3,
-   "power": 1,
+   "power": 0.5,
    "maxLevel": 50,
    "spriteName": "DNA_unionDamage",
    "infoFront": "유니온 공격력이",
    "infoBack": "% 증가",
    "dnaName": "유니온 공격력",
-   "dnaType": "unionDamage",
-   "max": 50
+   "dnaType": "unionDamage"
  },
  {
    "dnaIndex": 4,
@@ -51,8 +47,7 @@
    "infoFront": "골드 획득량이",
    "infoBack": "% 증가",
    "dnaName": "골드 보너스",
-   "dnaType": "glodBonus",
-   "max": 100
+   "dnaType": "glodBonus"
  },
  {
    "dnaIndex": 5,
@@ -62,8 +57,7 @@
    "infoFront": "곤충 이동 속도가",
    "infoBack": " 증가",
    "dnaName": "곤충 이동 속도",
-   "dnaType": "insectMoveSpeed",
-   "max": 100
+   "dnaType": "insectMoveSpeed"
  },
  {
    "dnaIndex": 6,
@@ -73,19 +67,17 @@
    "infoFront": "유니온 이동 속도가",
    "infoBack": " 증가",
    "dnaName": "유니온 이동 속도",
-   "dnaType": "unionMoveSpeed",
-   "max": 100
+   "dnaType": "unionMoveSpeed"
  },
  {
    "dnaIndex": 7,
-   "power": 0.1,
+   "power": 0.05,
    "maxLevel": 50,
    "spriteName": "DNA_unionSpawnTime",
    "infoFront": "유니온 소환 시간이",
    "infoBack": "초 감소",
    "dnaName": "유니온 소환 시간",
-   "dnaType": "unionSpawnTime",
-   "max": 5
+   "dnaType": "unionSpawnTime"
  },
  {
    "dnaIndex": 8,
@@ -95,8 +87,7 @@
    "infoFront": "황금돼지가 등장할 확률이",
    "infoBack": "% 증가",
    "dnaName": "황금돼지",
-   "dnaType": "goldPig",
-   "max": 50
+   "dnaType": "goldPig"
  },
  {
    "dnaIndex": 9,
@@ -106,8 +97,7 @@
    "infoFront": "스킬 지속시간이",
    "infoBack": "초 증가",
    "dnaName": "스킬 지속시간",
-   "dnaType": "skillDuration",
-   "max": 5
+   "dnaType": "skillDuration"
  },
  {
    "dnaIndex": 10,
@@ -117,19 +107,17 @@
    "infoFront": "스킬 재사용시간이",
    "infoBack": "초 감소",
    "dnaName": "스킬 재사용 시간",
-   "dnaType": "skillCoolTime",
-   "max": 100
+   "dnaType": "skillCoolTime"
  },
  {
    "dnaIndex": 11,
-   "power": 0.5,
+   "power": 0.3,
    "maxLevel": 50,
    "spriteName": "DNA_bossDamage",
    "infoFront": "보스에게 데미지가",
    "infoBack": "% 증가",
    "dnaName": "보스 공격력",
-   "dnaType": "bossDamage",
-   "max": 25
+   "dnaType": "bossDamage"
  },
  {
    "dnaIndex": 12,
@@ -139,19 +127,17 @@
    "infoFront": "적 체력",
    "infoBack": "% 감소",
    "dnaName": "체력 감소",
-   "dnaType": "monsterHpLess",
-   "max": 10
+   "dnaType": "monsterHpLess"
  },
  {
    "dnaIndex": 13,
-   "power": 0.3,
+   "power": 1,
    "maxLevel": 50,
    "spriteName": "DNA_boneBonus",
    "infoFront": "뼈조각 획득량이",
    "infoBack": "% 증가",
    "dnaName": "뼈조각 보너스",
-   "dnaType": "boneBonus",
-   "max": 15
+   "dnaType": "boneBonus"
  },
  {
    "dnaIndex": 14,
@@ -161,8 +147,7 @@
    "infoFront": "금광보스에게 골드 획득량이",
    "infoBack": "% 확률로 2배로 증가",
    "dnaName": "금광 보스",
-   "dnaType": "goldMonsterBonus",
-   "max": 10
+   "dnaType": "goldMonsterBonus"
  },
  {
    "dnaIndex": 15,
@@ -172,8 +157,7 @@
    "infoFront": "오프라인 보상이",
    "infoBack": "% 증가",
    "dnaName": "오프라인 보상",
-   "dnaType": "offlineBonus",
-   "max": 100
+   "dnaType": "offlineBonus"
  }
 ]
 }

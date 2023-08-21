@@ -113,6 +113,8 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySfxUI(EnumDefinition.SFX_TYPE sfxType)
     {
+                Debug.Log("MANAGER:"+(int)sfxType);
+
         playerSfxUiPlayer.clip = sfxList[(int)sfxType];
         playerSfxUiPlayer.Play();
     }

@@ -63,8 +63,8 @@ public class UnionInfoPopupController : MonoBehaviour
         unionSlot = slot;
 
         // SET STAT UI
-        SetTxtDamage(inGameData.damage.ToString());
-        SetTxtDamageAfter(inGameData.damageNextLevel.ToString());
+        SetTxtDamage(UtilityMethod.ChangeSymbolNumber(inGameData.damage.ToString()));
+        SetTxtDamageAfter(UtilityMethod.ChangeSymbolNumber(inGameData.damageNextLevel.ToString()));
         SetTxtSpawnTime(inGameData.spawnTime.ToString());
         SetTxtMoveSpeed(inGameData.moveSpeed.ToString());
         //var passiveDamage = $"{inGameData.passiveDamage}% (+ {inGameData.passiveDamageNextLevel})";
@@ -78,8 +78,8 @@ public class UnionInfoPopupController : MonoBehaviour
 
     void ReloadUiSet()
     {
-        SetTxtDamage(unionSlot.inGameData.damage.ToString());
-        SetTxtDamageAfter(unionSlot.inGameData.damageNextLevel.ToString());
+        SetTxtDamage(UtilityMethod.ChangeSymbolNumber(unionSlot.inGameData.damage.ToString()));
+        SetTxtDamageAfter(UtilityMethod.ChangeSymbolNumber(unionSlot.inGameData.damageNextLevel.ToString()));
         SetTxtSpawnTime(unionSlot.inGameData.spawnTime.ToString());
         SetTxtMoveSpeed(unionSlot.inGameData.moveSpeed.ToString());
         //var passiveDamage = $"{unionSlot.inGameData.passiveDamage}% (+ {unionSlot.inGameData.passiveDamageNextLevel})";

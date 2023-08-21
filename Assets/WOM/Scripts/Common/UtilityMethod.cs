@@ -201,6 +201,7 @@ public static class UtilityMethod
 
         //Infinite value = number.ToString().ToInfinite();
         Infinite value = number.ToInfinite();
+        //return value.ToStringLong ();//10æÔ¿Ã»ƒ Symbol
         return value.ToString();
 
         // #region  NOT USED

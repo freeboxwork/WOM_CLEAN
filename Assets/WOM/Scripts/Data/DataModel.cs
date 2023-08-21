@@ -182,7 +182,7 @@ public class UnionData
     public string name;
     public string textColor;
     public string gradeName;
-    public float damage;
+    public double damage;
     public float passiveDamage;
     public float spawnTime;
     public float moveSpeed;
@@ -190,7 +190,7 @@ public class UnionData
     public int reqirementCount;
     public int addReqirementCount;
     public float addPassiveDamage;
-    public float addDamage;
+    public double addDamage;
     public int maxLevel;
 }
 
@@ -205,8 +205,8 @@ public class UnionInGameData
     public EnumDefinition.UnionGradeType unionGradeType;
 
     // stat
-    public float damage;
-    public float damageNextLevel;
+    public double damage;
+    public double damageNextLevel;
     public float spawnTime;
     public float moveSpeed;
     public float passiveDamage;

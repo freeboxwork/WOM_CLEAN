@@ -274,12 +274,12 @@ public class UnionManager : MonoBehaviour
         EnableBtnTotalLevelUp();
     }
 
-    public float GetUnionDamage(UnionSlot slot)
+    public double GetUnionDamage(UnionSlot slot)
     {
         var damage = slot.unionData.damage + (slot.inGameData.level * slot.unionData.addDamage);
         return damage;
     }
-    public float GetUnionDamageNextLevel(UnionSlot slot)
+    public double GetUnionDamageNextLevel(UnionSlot slot)
     {
         var nextLevel = slot.inGameData.level + 1;
         var maxLevel = slot.unionData.maxLevel;

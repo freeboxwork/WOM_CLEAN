@@ -42,8 +42,9 @@ public class AttackController : MonoBehaviour
                     // 포인터 위치가 UI 위에 있는지 판단
                     if (EventSystem.current != null && EventSystem.current.enabled)
                     {
-                        var isPointerOnUI = EventSystem.current.IsPointerOverGameObject();
-                        if (isPointerOnUI == false)
+                        //   var isPointerOnUI = EventSystem.current.IsPointerOverGameObject();
+                        // if (isPointerOnUI == false)
+                        if (!IsPointerOverUIObject())
                         {
                             // 투토리얼 곤충 생성 이벤트
                             EventManager.instance.RunEvent(CallBackEventType.TYPES.OnTutoInsectCreate);

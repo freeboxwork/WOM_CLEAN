@@ -443,10 +443,11 @@ public class EventController : MonoBehaviour
 
         //phaseCount 0 도달시 골드 몬스터 등장.
         PhaseCounting(out int phaseCount);
+
         if (IsPhaseCountZero(phaseCount))
         {
             // 보스 도전 버튼 숨김 ( 보스 도전 버튼 있다면 숨김 - 무조건 숨김 )
-            globalData.uiController.btnBossChallenge.gameObject.SetActive(false);
+            //globalData.uiController.btnBossChallenge.gameObject.SetActive(false);
             yield return StartCoroutine(MonsterAppearCor(MonsterType.gold));
         }
         else
@@ -826,6 +827,7 @@ public class EventController : MonoBehaviour
     // 몬스터 등장
     public IEnumerator MonsterAppearCor(EnumDefinition.MonsterType monsterType)
     {
+
         // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
         StartCoroutine(globalData.effectManager.goldPoolingCont.DisableGoldEffects());
 
@@ -863,6 +865,13 @@ public class EventController : MonoBehaviour
         {
             globalData.monsterManager.SetMonsterData(monsterType, globalData.player.stageIdx);
         }
+
+        if (monsterType == MonsterType.normal)
+        {
+            // 금광보스 카운트 UI 활성
+            globalData.uiController.SetEnablePhaseCountUI(true);
+        }
+
 
         // set current monster hp
         // TODO: 이펙트 연출 추가
@@ -1355,8 +1364,6 @@ public class EventController : MonoBehaviour
     // 보스 몬스터 포기 했을때
     public IEnumerator ProcessBossMonsterGiveUp()
     {
-
-
 
         //하단 메인 메뉴 활성화
         globalData.uiController.MainMenuShow();

@@ -93,7 +93,9 @@ public class UnionManager : MonoBehaviour
             slot.unionEquipType = equipType;
 
             // set reqirement count
-            slot.inGameData.LevelUpReqirementCount = data.reqirementCount;
+            //slot.inGameData.LevelUpReqirementCount =   data.reqirementCount;
+
+            slot.inGameData.LevelUpReqirementCount = GetUnionReqireCount(slot);
 
 
 
@@ -313,17 +315,21 @@ public class UnionManager : MonoBehaviour
     public int GetUnionReqireCount(UnionSlot slot)
     {
         var reqieCount = slot.unionData.reqirementCount + (slot.inGameData.level * slot.unionData.addReqirementCount);
+        Debug.Log("필요수 : " + reqieCount);
+
         return reqieCount;
     }
 
     public bool IsValidLevelUpCount(UnionSlot slot)
     {
+        Debug.Log("현재보유수 : " + slot.inGameData.unionCount);
         return slot.inGameData.unionCount >= GetUnionReqireCount(slot);
     }
 
     public bool LevelUpUnion(UnionSlot slot)
     {
         var isValidLevelUp = IsValidLevelUpCount(slot);
+
         if (isValidLevelUp)
         {
             var cost = GetUnionReqireCount(slot);

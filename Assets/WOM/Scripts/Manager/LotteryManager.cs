@@ -175,7 +175,7 @@ public class LotteryManager : MonoBehaviour
         while (lotteryAnimationController.toggleRepeatGame.isOn)
         {
             yield return StartCoroutine(CardOpen(roundCount, payValue, gameEndEvent, rewardType));
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 
@@ -213,17 +213,6 @@ public class LotteryManager : MonoBehaviour
 
             yield return StartCoroutine(CardsOpenEffect());
 
-
-
-            // 뽑기 버튼 활성화
-            UtilityMethod.SetBtnsInteractableEnable(new List<int> { 17, 18, 19 }, true);
-
-            // 스킵 버튼 비활성화
-            UtilityMethod.SetBtnInteractableEnable(33, false);
-
-            // 닫기 버튼 활성화
-            UtilityMethod.GetCustomTypeBtnByID(44).interactable = true;
-
             if (GlobalData.instance.tutorialManager.isUnionGamblingTutorial)
                 EventManager.instance.RunEvent(CallBackEventType.TYPES.OnTutorialUnionGamblingEnd);
 
@@ -258,11 +247,26 @@ public class LotteryManager : MonoBehaviour
                 PopupUIUpdate();
             }
 
-
-
             Debug.Log("뽑기 진행 수 : " + curLotteryCount);
 
+            yield return new WaitForSeconds(1f);
+
+            //연속 뽑기중이 아닐때만 버튼 활성화
+            if(!lotteryAnimationController.toggleRepeatGame.isOn)
+            {
+                // 뽑기 버튼 활성화
+                UtilityMethod.SetBtnsInteractableEnable(new List<int> { 17, 18, 19 }, true);
+            }
+
+                // 스킵 버튼 비활성화
+                UtilityMethod.SetBtnInteractableEnable(33, false);
+
+                // 닫기 버튼 활성화
+                UtilityMethod.GetCustomTypeBtnByID(44).interactable = true;
+
+
             gameEndEvent.Invoke();
+            
         }
         else
         {

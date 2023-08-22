@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
+
 
 public class BuffADTimer : MonoBehaviour
 {
@@ -9,16 +11,21 @@ public class BuffADTimer : MonoBehaviour
     public TextMeshProUGUI countdownText;
     public TextMeshProUGUI countdownTextAllwaysViwe;
     public BuffADSlot buffADSlot;
-
+    public Image icon;
     public GameObject timerUI;
+
+    Color activeColor = Color.white;
+    Color hideColor = Color.grey;
 
     void Start()
     {
         ResetAllwaysCountDownText();
+        icon.color = hideColor;
     }
 
     public IEnumerator StartTimer()
     {
+        icon.color = activeColor;
         timerUI.SetActive(true);
         buffADSlot.isUsingBuff = true;
         buffADSlot.addValue = buffADSlot.addValueBuff;
@@ -39,7 +46,9 @@ public class BuffADTimer : MonoBehaviour
             countdownTime -= 1.0f;
 
         }
+
         buffADSlot.isUsingBuff = false;
+        icon.color = hideColor;
 
         // save data
         GlobalData.instance.saveDataManager.SetSaveDataBuffAD_Using(buffADSlot.buffADType, buffADSlot.isUsingBuff);

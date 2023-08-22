@@ -17,7 +17,6 @@ public class UiButtonClickSfx : MonoBehaviour
 
     public void OnClick()
     {
-        Debug.Log((int)sfxType);
         GlobalData.instance.soundManager.PlaySfxUI(sfxType);
     }
 

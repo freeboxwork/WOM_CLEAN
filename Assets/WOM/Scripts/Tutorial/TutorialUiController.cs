@@ -16,6 +16,7 @@ public class TutorialUiController : MonoBehaviour
     public Image imgBlackBg;
 
     public Image imgMaskParent;
+    public Image txtImageBg;
 
 
     float typingSpeed = 0.01f;
@@ -81,12 +82,14 @@ public class TutorialUiController : MonoBehaviour
 
     void ShowOnlyText(bool value)
     {
+        txtImageBg.enabled = true;
         imgBlackBg.gameObject.SetActive(!value);
         imgUnmask.gameObject.SetActive(!value);
     }
 
     public void SetTxtDesc(string value)
     {
+        txtImageBg.enabled = true;
         fullText = value;
         currentText = "";
         //txtDesc.text = value;   
@@ -96,6 +99,7 @@ public class TutorialUiController : MonoBehaviour
 
     public void DisableTutorial()
     {
+        txtImageBg.enabled = false;
         tutoSet.gameObject.SetActive(false);
     }
 

@@ -1117,7 +1117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5b573dad2f9694c9836d65dae22410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxType: 2
+  sfxType: 22
   btn: {fileID: 0}
 --- !u!114 &1995167209
 MonoBehaviour:

@@ -24,6 +24,7 @@ public class BtnLongPressRepeatEvent : MonoBehaviour, IPointerDownHandler, IPoin
     {
         buttonPressStartTime = Time.time;
         isLongPressing = false;
+
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -31,7 +32,6 @@ public class BtnLongPressRepeatEvent : MonoBehaviour, IPointerDownHandler, IPoin
         buttonPressStartTime = 0; // 초기화
         isLongPressing = false; // 초기화
         clickEffect.SetButtonPressType(false);
-
     }
 
     void Update()
@@ -53,7 +53,10 @@ public class BtnLongPressRepeatEvent : MonoBehaviour, IPointerDownHandler, IPoin
         {
             longPressingEvent.Invoke();
             Debug.Log("LongPressing 연속 이벤트 실행!");
+            GlobalData.instance.soundManager.PlayUpgradeSound();
+
             yield return new WaitForSeconds(0.1f);
+
         }
         yield return null;
     }

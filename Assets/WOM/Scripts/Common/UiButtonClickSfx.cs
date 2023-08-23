@@ -17,7 +17,16 @@ public class UiButtonClickSfx : MonoBehaviour
 
     public void OnClick()
     {
-        GlobalData.instance.soundManager.PlaySfxUI(sfxType);
+        if (sfxType == EnumDefinition.SFX_TYPE.Upgrade)
+        {
+            GlobalData.instance.soundManager.PlayUpgradeSound();
+
+        }
+        else
+        {
+            GlobalData.instance.soundManager.PlaySfxUI(sfxType);
+
+        }
     }
 
 

@@ -28,7 +28,8 @@ public class GoldPigController : MonoBehaviour
 
     public int[] enableGoldPigRange;
 
-    public float enableWaitTime;
+    //현재 골드 피그 재생성이 될때까지 딜레이 시간
+    public float currentEnableGoldPigWaitTime;
 
     float spawnProbability;
 
@@ -93,6 +94,7 @@ public class GoldPigController : MonoBehaviour
         goldPigPopup.gameObject.SetActive(true);
     }
 
+    //다른 화면으로 이동 시 
     public void EnterOtherView()
     {
         // 애니메이션 종료 ( 코루틴 종료 )
@@ -100,9 +102,10 @@ public class GoldPigController : MonoBehaviour
         goldPig.gameObject.SetActive(false);
     }
 
+    //다른 화면에서 빠져나올 시
     public void ExitOtherView()
     {
-        if (enableWaitTime <= 0)
+        if (currentEnableGoldPigWaitTime <= 0)
         {
             EnableGoldPig();
         }
@@ -169,18 +172,17 @@ public class GoldPigController : MonoBehaviour
     IEnumerator EnableGoldPigCor()
     {
 
-        var enableTime = (float)Random.Range(enableGoldPigRange[0], enableGoldPigRange[1]);
-
-
+        var spawnGoldPigDelayTime = (float)Random.Range(enableGoldPigRange[0], enableGoldPigRange[1]);
+        
         var startTime = Time.time;
-        float waitTime = enableTime;
+        float waitTime = spawnGoldPigDelayTime;
         while (waitTime > 0)
         {
-            waitTime = enableTime - (Time.time - startTime);
-            enableWaitTime = waitTime;
+            waitTime = spawnGoldPigDelayTime - (Time.time - startTime);
+            currentEnableGoldPigWaitTime = waitTime;
             yield return null;
         }
-        enableWaitTime = 0;
+        currentEnableGoldPigWaitTime = 0;
 
 
         //  확률에 따라 등장
@@ -200,17 +202,17 @@ public class GoldPigController : MonoBehaviour
 
     public IEnumerator EnableGoldPig_ExitCastleView()
     {
-        float enableTime = enableWaitTime;
+        float enableTime = currentEnableGoldPigWaitTime;
 
         var startTime = Time.time;
         float waitTime = enableTime;
         while (waitTime > 0)
         {
             waitTime = enableTime - (Time.time - startTime);
-            enableWaitTime = waitTime;
+            currentEnableGoldPigWaitTime = waitTime;
             yield return null;
         }
-        enableWaitTime = 0;
+        currentEnableGoldPigWaitTime = 0;
         StartCoroutine(MoveGoldPig());
     }
 

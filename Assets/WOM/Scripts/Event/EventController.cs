@@ -444,7 +444,7 @@ public class EventController : MonoBehaviour
     IEnumerator MonsterDie_Normal()
     {
         // BG Scroll Animation
-        globalData.stageManager.PlayAnimBgScroll();
+        globalData.stageManager.PlayAnimBgScroll(0.2f);
 
         //phaseCount 0 도달시 골드 몬스터 등장.
         PhaseCounting(out int phaseCount);
@@ -477,7 +477,7 @@ public class EventController : MonoBehaviour
     {
 
         // BG Scroll Animation
-        globalData.stageManager.PlayAnimBgScroll();
+        globalData.stageManager.PlayAnimBgScroll(0.2f);
 
         // 보스 도전 버튼 활성화 
         globalData.uiController.btnBossChallenge.gameObject.SetActive(true);
@@ -501,7 +501,8 @@ public class EventController : MonoBehaviour
     //보스 몬스터 사망시
     IEnumerator MonsterDie_Boss()
     {
-
+        // BG Scroll Animation
+        globalData.stageManager.PlayAnimBgScroll(1f);
         // side menu show
         SideUIMenuHide(false);
 

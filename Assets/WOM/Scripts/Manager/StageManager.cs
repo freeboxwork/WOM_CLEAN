@@ -16,9 +16,9 @@ public class StageManager : MonoBehaviour
 
     }
 
-    public void PlayAnimBgScroll()
+    public void PlayAnimBgScroll(float distance)
     {
-        StartCoroutine(bgAnimController.ScrollAnim_BG());
+        StartCoroutine(bgAnimController.ScrollAnim_BG(distance));
     }
 
     public IEnumerator Init(int stageId)
@@ -41,6 +41,11 @@ public class StageManager : MonoBehaviour
         {
             var nextBgImg = GetCurrentBgImg();
             yield return StartCoroutine(bgAnimController.TransitinBG(nextBgImg));
+        }
+        else
+        {
+            yield return new WaitForSeconds(1f);
+
         }
 
 

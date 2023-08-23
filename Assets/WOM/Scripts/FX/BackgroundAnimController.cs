@@ -4,7 +4,7 @@ using UnityEngine;
 public class BackgroundAnimController : MonoBehaviour
 {
 
-    public float y_offsetRange = 0.2f;
+    public float y_offsetRange;
     float cur_y_offset = 0f;
 
     public SpriteRenderer bg_rd;
@@ -89,10 +89,11 @@ public class BackgroundAnimController : MonoBehaviour
     }
 
 
-    public IEnumerator ScrollAnim_BG()
+    public IEnumerator ScrollAnim_BG(float distance)
     {
         var offsetValue = GetOffsetY();
         animData_BgScrollAnim.ResetAnimData();
+        y_offsetRange = distance;
         // 0~1 in
         while (animData_BgScrollAnim.animValue < 0.999f)
         {

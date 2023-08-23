@@ -83,24 +83,24 @@ namespace ProjectGraphics
 
             // save picture
 
-            for (int i = 0; i < monSkinTotalDatas.data.Count; i++)
-            {
+            // for (int i = 0; i < monSkinTotalDatas.data.Count; i++)
+            // {
 
-                var skinData = monSkinTotalDatas.data[i].randomIdxList;
+            //     var skinData = monSkinTotalDatas.data[i].randomIdxList;
 
 
-                for (int j = 0; j < skinData.Count; j++)
-                {
+            //     for (int j = 0; j < skinData.Count; j++)
+            //     {
 
-                    // change skin
-                    ChangeSkin(skinData[j]);
+            //         // change skin
+            //         ChangeSkin(skinData[j]);
 
-                    // capture
-                    yield return StartCoroutine(CaptterMonImage("CaptureImage/level_" + (i + 1), "MonSkin_", j));
-                }
+            //         // capture
+            //         yield return StartCoroutine(CaptterMonImage("CaptureImage/level_" + (i + 1), "MonSkin_", j));
+            //     }
 
-                yield return new WaitForEndOfFrame();
-            }
+            //     yield return new WaitForEndOfFrame();
+            // }
 
 
         }

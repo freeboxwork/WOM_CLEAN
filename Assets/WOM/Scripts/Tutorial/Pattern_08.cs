@@ -1,7 +1,6 @@
 /// <summary>
 /// 유니온 뽑기 완료 대기
 /// </summary>
-using UnityEngine;
 public class Pattern_08 : PatternBase
 {
 
@@ -34,8 +33,9 @@ public class Pattern_08 : PatternBase
 
     public override void EventStart(TutorialStep stepData)
     {
-        Debug.Log("투토리얼 패턴 이벤트 시작 " + stepData.patternType);
-        EnableEvent(true);
+        //Debug.Log("투토리얼 패턴 이벤트 시작 " + stepData.patternType);
+        //EnableEvent(true);
+        StepClear();
     }
 
     public override void ResetGoalData()

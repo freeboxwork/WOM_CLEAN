@@ -35,6 +35,7 @@ public class ButtonDoubleClickPreventer : MonoBehaviour
 
     private void EnableButton()
     {
+        
         isButtonDisabled = false;
         button.interactable = true;
     }

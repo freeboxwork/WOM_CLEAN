@@ -94,7 +94,7 @@ namespace ProjectGraphics
             //changed to image and title text
             titleImage.sprite = unionTitle;
 
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.02f);
 
             for (int i = 0; i < u.Length; i++)
             {
@@ -128,7 +128,7 @@ namespace ProjectGraphics
             foreach (var slot in slots) slot.gameObject.SetActive(false);
             //StartCoroutine(ShowDNAIconSlotCardOpenProcess(u));
 
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.02f);
 
             for (int i = 0; i < u.Length; i++)
             {

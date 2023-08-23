@@ -175,14 +175,12 @@ public class LotteryManager : MonoBehaviour
         while (lotteryAnimationController.toggleRepeatGame.isOn)
         {
             yield return StartCoroutine(CardOpen(roundCount, payValue, gameEndEvent, rewardType));
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.3f);
         }
     }
 
     public IEnumerator CardOpen(int roundCount, int payValue, UnityAction gameEndEvent, EnumDefinition.RewardType rewardType)
     {
-
-
         if (IsValidGemCount(payValue, rewardType))
         {
 
@@ -209,12 +207,9 @@ public class LotteryManager : MonoBehaviour
 
             yield return StartCoroutine(MakeCardOption(roundCount));
 
-            //yield return new WaitForSeconds(0.3f); // 05초 대기 ( 연출 )
-
             yield return StartCoroutine(CardsOpenEffect());
 
-
-
+            //yield return new WaitForSeconds(0.3f); // 05초 대기 ( 연출 )
             //curLotteryCount += roundCount;
             //totalDrawCount += roundCount;
             //var data = GlobalData.instance.dataManager.GetSummonGradeDataByLevel(summonGradeLevel);
@@ -323,12 +318,13 @@ public class LotteryManager : MonoBehaviour
         {
             var union = (EnumDefinition.UnionGradeType)UtilityMethod.GetWeightRandomValue(randomGradeValues);
             openedUnionTypeCards.Add(union);
-            lottreyRoundCount++;
+            //lottreyRoundCount++;
 
             //일일 퀘스트 완료 : 유니온 소환
             EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.summonUnion);
-            yield return null;
         }
+        yield return null;
+
     }
 
 

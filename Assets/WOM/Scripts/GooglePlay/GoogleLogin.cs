@@ -12,7 +12,7 @@ public class GoogleLogin : MonoBehaviour
         //해상도 고정
         //Screen.SetResolution(1080, 1920, true);
         //멀티터치 비활성화
-        Input.multiTouchEnabled = false;
+        Input.multiTouchEnabled = true;
         //프레임 고정
         Application.targetFrameRate = 60;
         //화면 슬립 비활성화

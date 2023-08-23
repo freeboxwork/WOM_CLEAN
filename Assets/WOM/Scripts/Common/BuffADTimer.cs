@@ -79,11 +79,14 @@ public class BuffADTimer : MonoBehaviour
     void ResetAllwaysCountDownText()
     {
         countdownTextAllwaysViwe.text = "";
+        icon.color = hideColor;
+
     }
 
     public void SetTxtBuffPass()
     {
-        countdownTextAllwaysViwe.text = "99:99";
+        countdownTextAllwaysViwe.text = "Pass";
+        icon.color = activeColor;
     }
 
     public void TimerEnd()

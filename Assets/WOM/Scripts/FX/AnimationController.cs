@@ -146,6 +146,22 @@ public class AnimationController : MonoBehaviour
             callBackEvent.Invoke();
     }
 
+    public IEnumerator SpriteRendereColorAnim(SpriteRenderer sr, Color start, Color end, UnityAction callBackEvent = null)
+    {
+        isAnimPlay = true;
+        animData.ResetAnimData();
+        while (animData.animTime < 0.999f)
+        {
+            animData.animTime = (Time.time - animData.animStartTime) / animData.animDuration;
+            animData.animValue = EaseValues.instance.GetAnimCurve(animData.animCurveType, animData.animTime);
+            sr.color = Color.Lerp(start, end, animData.animValue);
+            yield return null;
+        }
+        isAnimPlay = false;
+        if (callBackEvent != null)
+            callBackEvent.Invoke();
+    }
+
 
     // UI IMAGE FILL AMOUNT
     public IEnumerator UI_ImageFillAmountAnim(Image image, float start, float end, UnityAction callBackEvent = null)

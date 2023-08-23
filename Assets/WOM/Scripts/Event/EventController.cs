@@ -13,6 +13,8 @@ public class EventController : MonoBehaviour
     // 죽기전 남은 데미지 + 추가 데미지
     double dungeonMonsterAddDamage;
 
+    public
+
     void Start()
     {
         GetManagers();
@@ -162,7 +164,7 @@ public class EventController : MonoBehaviour
 
             // 사용 확인 필요
 
-            
+
             /*
             if (IsBossOrEvolutionMonster())
                 curDamage = damage * (1 + globalData.statManager.BossDamage());
@@ -205,29 +207,29 @@ public class EventController : MonoBehaviour
 
     void EvnOnDungeonMonsterHit(EnumDefinition.InsectType insectType, int unionIndex = 0, Transform tr = null)
     {
-        if(dungeonMonsterLeftDamage  > 0) return;
+        if (dungeonMonsterLeftDamage > 0) return;
         if (isDungeonMonsterNextLevel) return;
 
         var damage = globalData.insectManager.GetInsectDamage(insectType, insectType == InsectType.union ? unionIndex : 0, out bool isCritical);
-        
+
         // ENABLE Floting Text Effect 
         globalData.effectManager.EnableFloatingText(damage, isCritical, tr, insectType);
-        
+
         // GET MONSTER
         DungeonMonster currentMonster = globalData.monsterManager.GetMonsterDungeon();
-        
+
         //보스 추가 데미지 적용
         var curDamage = damage * (1 + globalData.statManager.BossDamage() * 0.01f);
-       
+
         // monster hit animation 
         currentMonster.inOutAnimator.monsterAnim.SetBool("Hit", true);
-        
+
         // monster hit shader effect
         currentMonster.inOutAnimator.MonsterHitAnim();
 
 
         // 만약 입힐 피해가 몬스터 체력보다 크다면
-        if(curDamage > currentMonster.curData.monsterHP)
+        if (curDamage > currentMonster.curData.monsterHP)
         {
             // [남은 피해]를 세팅한다
             dungeonMonsterLeftDamage = curDamage - currentMonster.curData.monsterHP;
@@ -246,7 +248,7 @@ public class EventController : MonoBehaviour
         while (dungeonMonsterLeftDamage > 0)
         {
 
-            Debug.Log("남은 피해 : "+dungeonMonsterLeftDamage);
+            Debug.Log("남은 피해 : " + dungeonMonsterLeftDamage);
             // 다음 레벨의 몬스터 체력을 세팅하고
             currentMonster.SetNextLevelData();
             //맥스 체력 임시 보관
@@ -263,10 +265,10 @@ public class EventController : MonoBehaviour
             currentMonster.curData.monsterHP -= dungeonMonsterLeftDamage;
             // [남은 피해] 다시 세팅
             dungeonMonsterLeftDamage = dungeonMonsterLeftDamage - tempHp;
-            
+
             // 몬스터 hp text
             globalData.uiController.SetTxtMonsterHp(currentMonster.curData.monsterHP);
-           
+
             // 몬스터 hp slider
             globalData.uiController.SetSliderDungeonMonsterHP(currentMonster.curData.monsterHP);
 
@@ -335,6 +337,9 @@ public class EventController : MonoBehaviour
         {
             // 보스 사냥 성공 전환 이펙트
             globalData.effectManager.EnableTransitionEffStageClear();
+
+            // BG Color Change
+            globalData.stageManager.bgAnimController.spriteColorAnim.ColorNormalAnim();
         }
 
         // sfx monster die
@@ -1015,6 +1020,8 @@ public class EventController : MonoBehaviour
     bool isbossMonsterChallenge;
     IEnumerator ProcessBossMonsterChallenge()
     {
+
+
         // side menu hide
         SideUIMenuHide(true);
 
@@ -1041,6 +1048,9 @@ public class EventController : MonoBehaviour
 
         // phase count UI 숨김
         globalData.uiController.SetEnablePhaseCountUI(false);
+
+        // BG Color Change
+        globalData.stageManager.bgAnimController.spriteColorAnim.ColorChangeAnim();
 
         // 보스 몬스터 등장
         StartCoroutine(MonsterAppearCor(MonsterType.boss));
@@ -1075,6 +1085,9 @@ public class EventController : MonoBehaviour
 
         // 하프 라인 위 곤충 모두 제거
         globalData.insectManager.DisableHalfLineInsects();
+
+        // BG Color Change
+        globalData.stageManager.bgAnimController.spriteColorAnim.ColorNormalAnim();
 
         // 보스 몬스터 OUT
         yield return StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionOut());

@@ -16,6 +16,7 @@ public class BackgroundAnimController : MonoBehaviour
     // 일반,골드 몬스터 제거시 일정한 간격으로 이동
     public AnimData animData_BgScrollAnim;
 
+    public SpriteColorAnim spriteColorAnim;
 
     void Start()
     {

@@ -68,7 +68,7 @@ public class CampPopup : CastlePopupBase
     {
         var value = (float)curValue / (float)totalValue;
 
-        Debug.Log($"value : {value}" + $"curValue : {curValue}" + $"totalValue : {totalValue}");
+//        Debug.Log($"value : {value}" + $"curValue : {curValue}" + $"totalValue : {totalValue}");
 
         imgSummonCountProgress.fillAmount = value;
 

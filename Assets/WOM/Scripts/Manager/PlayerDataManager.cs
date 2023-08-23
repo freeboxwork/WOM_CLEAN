@@ -52,7 +52,7 @@ public class PlayerDataManager : MonoBehaviour
         var endTime = System.DateTime.Now;
         var timeSpan = endTime - startOfflineTime;
         this.offlineTime = timeSpan;
-        Debug.Log("offlineTime : " + timeSpan.Duration().ToString());
+//        Debug.Log("offlineTime : " + timeSpan.Duration().ToString());
         return timeSpan.Duration().ToString();
     }
 
@@ -167,7 +167,7 @@ public class PlayerDataManager : MonoBehaviour
             if (PlayerPrefs.HasKey(playingTimeKey))
             {
                 saveData.playingTime = PlayerPrefs.GetString(playingTimeKey);
-                Debug.Log("playingTimeKey : " + saveData.playingTime);
+//                Debug.Log("playingTimeKey : " + saveData.playingTime);
             }
             if (PlayerPrefs.HasKey(offlineTimeKey))
             {

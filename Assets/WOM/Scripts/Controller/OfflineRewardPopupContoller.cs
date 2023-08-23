@@ -67,7 +67,7 @@ public class OfflineRewardPopupContoller : MonoBehaviour
             }
             else
             {
-                Debug.Log("1시간 미만 으로 획득할 오프라인 보상이 없음");
+//                Debug.Log("1시간 미만 으로 획득할 오프라인 보상이 없음");
             }
         }
         yield return null;

@@ -111,6 +111,7 @@ public class InsectBullet : MonoBehaviour
 
         while (!IsGoalTargetPoint(targetPoint))
         {
+
             // 이동 방향
             var direction = transform.position - targetPoint;
 

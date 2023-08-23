@@ -228,7 +228,7 @@ public class MinePopup : CastlePopupBase
         // string _maxSupplyText = $"{data.maxSupplyAmount}";
         // string _productionTimeText = $"{data.productionTime}";
         string _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount.ToString());
-        UnityEngine.Debug.Log(data.maxSupplyAmount);
+        //UnityEngine.Debug.Log(data.maxSupplyAmount);
         string _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount.ToString());
         string _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime.ToString());
         string _levelText = $"Lv {data.level}";

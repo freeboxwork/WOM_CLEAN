@@ -27,6 +27,7 @@ public class TutorialUiController : MonoBehaviour
 
     // 스크린 터치 버튼
     public GameObject btnScreen;
+
     public void EnableTutorialMask(string message, Image image, Button button, int btnId)
     {
         ShowOnlyText(false);
@@ -41,6 +42,7 @@ public class TutorialUiController : MonoBehaviour
         {
             EventManager.instance.RunEvent<int>(CallBackEventType.TYPES.OnTutorialBtnClick, btnId);
             button.onClick.Invoke();
+
             //tutorialManager.CompleteStep();
         });
     }

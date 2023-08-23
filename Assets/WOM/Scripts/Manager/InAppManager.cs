@@ -129,8 +129,8 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
         storeController = controller;
         extensionProvider = extensions;
 
-        Debug.Log("인앱매니저 초기화 성공");
-        Debug.Log("스타트패키지 구매 : " + storeController.products.WithID(ProductTYPE.starterrpackage.ToString()).hasReceipt);
+//        Debug.Log("인앱매니저 초기화 성공");
+//        Debug.Log("스타트패키지 구매 : " + storeController.products.WithID(ProductTYPE.starterrpackage.ToString()).hasReceipt);
         
         //이미 구매한 상품인지 체크하여 패키지 패널을 비활성화 시킨다
         if (storeController.products.WithID(ProductTYPE.starterrpackage.ToString()).hasReceipt)

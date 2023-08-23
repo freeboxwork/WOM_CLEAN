@@ -21,7 +21,7 @@ public class Admob : MonoBehaviour
         MobileAds.Initialize((InitializationStatus initStatus) =>
         {
             // This callback is called once the MobileAds SDK is initialized.
-            Debug.Log("Admob 초기화 완료");
+//            Debug.Log("Admob 초기화 완료");
         });
         LoadRewardedAd();
 
@@ -53,7 +53,7 @@ public class Admob : MonoBehaviour
             DestroyAd();
         }
 
-        Debug.Log("Loading the rewarded ad.");
+//        Debug.Log("Loading the rewarded ad.");
 
         // create our request used to load the ad.
         var adRequest = new AdRequest();

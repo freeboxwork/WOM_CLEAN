@@ -353,10 +353,11 @@ public class InsectManager : MonoBehaviour
         //     //TODO 모든 오브젝트 ENABLE 상태일때 새로운 BULLET 추가 
 
         // }
-
+        var touch = PoolManager.instance.GetTouchRound();
+        touch.SetActive(true);
+        touch.transform.position = targetPos;
         StartCoroutine(EnableBulletCor(insectType, targetPos));
     }
-
     IEnumerator EnableBulletCor(EnumDefinition.InsectType insectType, Vector2 targetPos)
     {
         var bullets = GetBulletsByInsectType(insectType);

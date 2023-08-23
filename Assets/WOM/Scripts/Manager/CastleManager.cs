@@ -63,7 +63,7 @@ public class CastleManager : MonoBehaviour
         // offline time 보상
         var offlineTime = GlobalData.instance.playerDataManager.GetOfflineTimeValue();
         var second = (int)offlineTime.TotalSeconds;
-        Debug.Log("오프라인 타임! : " + second + " 초 ");
+//        Debug.Log("오프라인 타임! : " + second + " 초 ");
         if (buildDataMine.productionTime > 0)
         {
             //광산 -> 골드
@@ -79,7 +79,7 @@ public class CastleManager : MonoBehaviour
             var mineAddValue = buildDataMine.productionCount * mineCount;
             var mineResulValue = (long)Mathf.Min(buildDataMine.totlaMiningValue + mineAddValue, buildDataMine.maxSupplyAmount);
             buildDataMine.TotlaMiningValue = mineResulValue;
-            Debug.Log("캐슬 -> 광산 오프라인 획득 금액 : " + mineAddValue + " 실제 적용된 값 : " + mineResulValue + " count " + mineCount);
+//            Debug.Log("캐슬 -> 광산 오프라인 획득 금액 : " + mineAddValue + " 실제 적용된 값 : " + mineResulValue + " count " + mineCount);
         }
 
         if (buildDataFactory.productionTime > 0)
@@ -98,7 +98,7 @@ public class CastleManager : MonoBehaviour
             var factoryAddValue = buildDataFactory.productionCount * factoryCount;
             var factoryResulValue = (long)Mathf.Min(buildDataFactory.totlaMiningValue + factoryAddValue, buildDataFactory.maxSupplyAmount);
             buildDataFactory.TotlaMiningValue = factoryResulValue;
-            Debug.Log("캐슬 -> 가공소 오프라인 획득 금액 : " + factoryAddValue + " 실제 적용된 값 : " + factoryResulValue + " count " + factoryCount);
+//            Debug.Log("캐슬 -> 가공소 오프라인 획득 금액 : " + factoryAddValue + " 실제 적용된 값 : " + factoryResulValue + " count " + factoryCount);
         }
 
 

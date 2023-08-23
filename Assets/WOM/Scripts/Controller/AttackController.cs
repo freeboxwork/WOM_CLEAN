@@ -50,6 +50,8 @@ public class AttackController : MonoBehaviour
                             EventManager.instance.RunEvent(CallBackEventType.TYPES.OnTutoInsectCreate);
                             // 곤충 생성
                             EnableInsectBullet(pos);
+                            GlobalData.instance.soundManager.PlayAttackSound();
+
                         }
 
                     }
@@ -139,7 +141,7 @@ public class AttackController : MonoBehaviour
     bool IsHalfPoint(float pointY)
     {
         var pos = pointY / Screen.height * 100f;
-        return pos > 35f;
+        return pos > 20f;
     }
 
     /// <summary> 공격 가능 상태 제어 </summary>
@@ -155,7 +157,7 @@ public class AttackController : MonoBehaviour
     Vector2 GetDownSideRandomPos()
     {
         var randomX = Random.Range(0, Screen.width);
-        var randomY = Random.Range(0, Screen.height * 0.5f);
+        var randomY = Random.Range(Screen.height * 0.1f, Screen.height * 0.2f);
         return (new Vector2(randomX, randomY));
     }
 

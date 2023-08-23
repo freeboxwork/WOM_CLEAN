@@ -2,6 +2,9 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 
+
+
+
 public class SoundManager : MonoBehaviour
 {
     public AudioSource playerBgm;
@@ -17,15 +20,17 @@ public class SoundManager : MonoBehaviour
     const string bgmOnOffKey = "bgmOnOff";
     const string sfxOnOffKey = "sfxOnOff";
 
-    void Start()
-    {
+    public GameObject soundPrefab; // 사운드를 재생할 프리팹
+    public int poolSize = 10; // 오브젝트 풀 크기
+    private List<GameObject> soundPool = new List<GameObject>();
+    public Transform poolParent;
 
-    }
 
     public IEnumerator Init()
     {
         bgmOn = IsBgmOn();
         sfxOn = IsSfxOn();
+        MakeSpawnAudioPool();
         yield return new WaitForEndOfFrame();
 
         // set bgm clip
@@ -42,6 +47,44 @@ public class SoundManager : MonoBehaviour
         // Set Setting Popup UI
         yield return new WaitForEndOfFrame();
         GlobalData.instance.settingPopupController.SetUI();
+    }
+
+    void MakeSpawnAudioPool()
+    {
+        // 초기에 오브젝트 풀을 생성하고 비활성화
+        for (int i = 0; i < poolSize; i++)
+        {
+            GameObject sound = Instantiate(soundPrefab);
+            sound.transform.SetParent(poolParent);
+            sound.SetActive(false);
+            soundPool.Add(sound);
+        }
+    }
+    // 오브젝트 풀에서 사용 가능한 사운드 오브젝트를 찾아 반환
+    GameObject GetAvailableSound()
+    {
+        foreach (GameObject sound in soundPool)
+        {
+            if (!sound.activeInHierarchy)
+            {
+                return sound;
+            }
+        }
+        return null;
+    }
+
+    // 공격 시 사운드 재생 함수
+    public void PlayAttackSound()
+    {
+        GameObject sound = GetAvailableSound();
+        if (sound != null)
+        {
+
+            sound.SetActive(true);
+            var source = sound.GetComponent<AudioSource>();
+            source.volume = sfxOn ? 0.3f : 0;
+            source.Play();
+        }
     }
 
     public void BGM_OnOff()

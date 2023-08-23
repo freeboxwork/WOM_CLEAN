@@ -24,12 +24,20 @@ public class PoolManager : MonoBehaviour
 
     [SerializeField] public PoolUI[] pools;
 
+    public GameObject touchRound;
+    private List<GameObject> touchRoundPool = new List<GameObject>();
 
     #region internal
+    public static PoolManager instance;
 
+    void Awake()
+    {
+        instance = this;
+    }
     private void Start()
     {
         CreatePoolsTr();
+        CreateTouchRound();
     }
 
     //CreatePoolsTr 풀이 될 부모객체를 생성
@@ -43,7 +51,6 @@ public class PoolManager : MonoBehaviour
             PooiInitialize(pools[i], pools[i].quantity);
         }
     }
-
     //풀의 오브젝트 큐 리스트에 원하는 수량만큼 Init시킴
     void PooiInitialize(PoolUI pool, int initCount)
     {
@@ -107,5 +114,34 @@ public class PoolManager : MonoBehaviour
         obj.transform.SetParent(currentPool.poolTr.transform, false);
         currentPool.poolingObjectQueue.Enqueue(obj);
     }
+
+
+
+    public GameObject GetTouchRound()
+    {
+        foreach (GameObject t in touchRoundPool)
+        {
+            if (!t.activeInHierarchy)
+            {
+                return t;
+            }
+        }
+        return null;
+    }
+
+    void CreateTouchRound()
+    {
+        for (int i = 0; i < 20; i++)
+        {
+            var newObj = Instantiate(touchRound);
+            newObj.gameObject.SetActive(false);
+            newObj.transform.SetParent(this.transform);
+            touchRoundPool.Add(newObj);
+        }
+
+
+    }
+
+
 
 }

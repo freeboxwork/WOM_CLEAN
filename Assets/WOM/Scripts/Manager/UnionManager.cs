@@ -315,14 +315,14 @@ public class UnionManager : MonoBehaviour
     public int GetUnionReqireCount(UnionSlot slot)
     {
         var reqieCount = slot.unionData.reqirementCount + (slot.inGameData.level * slot.unionData.addReqirementCount);
-        Debug.Log("필요수 : " + reqieCount);
+//        Debug.Log("필요수 : " + reqieCount);
 
         return reqieCount;
     }
 
     public bool IsValidLevelUpCount(UnionSlot slot)
     {
-        Debug.Log("현재보유수 : " + slot.inGameData.unionCount);
+//        Debug.Log("현재보유수 : " + slot.inGameData.unionCount);
         return slot.inGameData.unionCount >= GetUnionReqireCount(slot);
     }
 

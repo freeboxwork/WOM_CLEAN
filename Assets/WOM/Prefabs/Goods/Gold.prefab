@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataName: gild in
   animCurveType: 3
-  animDuration: 0.3
+  animDuration: 0.5
   value: 0
   animTime: 0
   animValue: 0

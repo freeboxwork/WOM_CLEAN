@@ -1027,7 +1027,7 @@ public class EventController : MonoBehaviour
         SideUIMenuHide(true);
 
         //하단 메인 메뉴 비활성화
-        globalData.uiController.MainMenuHide();
+        //globalData.uiController.MainMenuHide();
 
         // 하프 라인 위 곤충 모두 제거
         globalData.insectManager.DisableHalfLineInsects();

@@ -36,6 +36,27 @@ public class WomSystemMnager : MonoBehaviour
 
     }
 
+    void Update()
+    {
+         if (Input.GetKeyDown(KeyCode.Escape))
+        {
+
+            GlobalData.instance.globalPopupController.EnableMessageTwoBtnPopup(18, QuitPopupApply, QuitPopupCancel);
+
+        }
+    }
+
+
+    void QuitPopupCancel()
+    {
+        // ??? ???
+        Debug.Log("???????? ??? ???");
+    }
+
+    void QuitPopupApply()
+    {
+        StartCoroutine(GlobalData.instance.saveDataManager.SaveDataToFileCoroutine());
+    }
 
 
 

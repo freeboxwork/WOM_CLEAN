@@ -38,6 +38,7 @@ public class TutorialManager : MonoBehaviour
     //투토리얼 게임 오브젝트
     public List<TutorialGameObject> tutorialGameObjects = new List<TutorialGameObject>();
 
+    public GameObject tutorialPlayingTextBox;
 
     void Start()
     {
@@ -75,10 +76,12 @@ public class TutorialManager : MonoBehaviour
         {
             isTutorial = true;
             EnableTutorialSet();
+            tutorialPlayingTextBox.gameObject.SetActive(true);
         }
         else
         {
             isTutorial = false;
+            tutorialPlayingTextBox.gameObject.SetActive(false);
             Debug.Log("모든 투토리얼 완료");
         }
     }
@@ -223,6 +226,8 @@ public class TutorialManager : MonoBehaviour
                 GlobalData.instance.goldPigController.EnableGoldPig();
                 // 상점 버튼 활성화
                 UtilityMethod.GetCustomTypeBtnByID(6).gameObject.SetActive(true);
+                // 투토리얼 안내 텍스트 비활성화
+                tutorialPlayingTextBox.gameObject.SetActive(false);
 
                 Debug.Log("투토리얼 종료");
             }

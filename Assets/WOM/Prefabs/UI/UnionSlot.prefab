@@ -225,7 +225,6 @@ GameObject:
   - component: {fileID: 548786503856396292}
   - component: {fileID: 4712073510211022939}
   - component: {fileID: 3919498988731607402}
-  - component: {fileID: 3919498988731607403}
   m_Layer: 5
   m_Name: UnionSlot
   m_TagString: Untagged
@@ -407,21 +406,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxType: 2
   btn: {fileID: 0}
---- !u!114 &3919498988731607403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3919498988385440445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 614c2c6e87c56be4486cc49d159b8f05, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  id: 16
-  image: {fileID: 3919498988385440447}
-  button: {fileID: 4712073510211022939}
 --- !u!1 &3919498988931361612
 GameObject:
   m_ObjectHideFlags: 0

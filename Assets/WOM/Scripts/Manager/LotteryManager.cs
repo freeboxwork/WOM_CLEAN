@@ -213,8 +213,7 @@ public class LotteryManager : MonoBehaviour
 
             yield return StartCoroutine(CardsOpenEffect());
 
-            if (GlobalData.instance.tutorialManager.isUnionGamblingTutorial)
-                EventManager.instance.RunEvent(CallBackEventType.TYPES.OnTutorialUnionGamblingEnd);
+
 
             //curLotteryCount += roundCount;
             //totalDrawCount += roundCount;
@@ -252,21 +251,24 @@ public class LotteryManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
 
             //연속 뽑기중이 아닐때만 버튼 활성화
-            if(!lotteryAnimationController.toggleRepeatGame.isOn)
+            if (!lotteryAnimationController.toggleRepeatGame.isOn)
             {
                 // 뽑기 버튼 활성화
                 UtilityMethod.SetBtnsInteractableEnable(new List<int> { 17, 18, 19 }, true);
             }
 
-                // 스킵 버튼 비활성화
-                UtilityMethod.SetBtnInteractableEnable(33, false);
+            // 스킵 버튼 비활성화
+            UtilityMethod.SetBtnInteractableEnable(33, false);
 
-                // 닫기 버튼 활성화
-                UtilityMethod.GetCustomTypeBtnByID(44).interactable = true;
+            // 닫기 버튼 활성화
+            UtilityMethod.GetCustomTypeBtnByID(44).interactable = true;
 
 
             gameEndEvent.Invoke();
-            
+
+            if (GlobalData.instance.tutorialManager.isUnionGamblingTutorial)
+                EventManager.instance.RunEvent(CallBackEventType.TYPES.OnTutorialUnionGamblingEnd);
+
         }
         else
         {
@@ -333,21 +335,20 @@ public class LotteryManager : MonoBehaviour
     public IEnumerator CardsOpenEffect()
     {
         List<int> unionIndexList = new List<int>();
-        if (GlobalData.instance.tutorialManager.isUnionGamblingTutorial)
+        for (int i = 0; i < openedUnionTypeCards.Count; i++)
         {
-            // 투토리얼 일때 무조건 0번 뽑기
-            unionIndexList.Add(0);
-        }
-        else
-        {
-            for (int i = 0; i < openedUnionTypeCards.Count; i++)
+            if (i == 0 && GlobalData.instance.tutorialManager.isUnionGamblingTutorial)
             {
-                var unionType = openedUnionTypeCards[i];
-                var faceIndex = GetRandomFaceIndex();
-                var unionIdex = GetUnionIndex(unionType, faceIndex);
-                unionIndexList.Add(unionIdex);
-                yield return null;
+                // 투토리얼 일때 무조건 0번 뽑기
+                unionIndexList.Add(0);
+                continue;
             }
+
+            var unionType = openedUnionTypeCards[i];
+            var faceIndex = GetRandomFaceIndex();
+            var unionIdex = GetUnionIndex(unionType, faceIndex);
+            unionIndexList.Add(unionIdex);
+            yield return null;
         }
 
 

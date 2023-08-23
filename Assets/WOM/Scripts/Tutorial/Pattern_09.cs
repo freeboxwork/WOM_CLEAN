@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Pattern_09 : PatternBase
 {
-    int? targetStage;
+    //int? targetStage;
     void Start()
     {
         AddEvent();
@@ -28,16 +28,11 @@ public class Pattern_09 : PatternBase
     {
         if (enableEvent)
         {
-            if (IsTypeTextAnimEnd() && IsValidTargetStage())
-                StepClear();
+            StepClear();
         }
     }
 
-    bool IsValidTargetStage()
-    {
-        var stageIndex = GlobalData.instance.stageManager.GetStageId();
-        return targetStage == stageIndex;
-    }
+
 
     public override void EventStart(TutorialStep stepData)
     {
@@ -48,12 +43,12 @@ public class Pattern_09 : PatternBase
 
     public override void ResetGoalData()
     {
-        targetStage = null;
+
     }
 
     public override void SetGoalData(TutorialStep stepData)
     {
-        targetStage = stepData.customConditions;
+
     }
 
     public override void StepClear()

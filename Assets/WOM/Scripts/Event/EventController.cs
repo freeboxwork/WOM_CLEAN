@@ -1391,6 +1391,9 @@ public class EventController : MonoBehaviour
         // 하프 라인 위 곤충 모두 제거
         globalData.insectManager.DisableHalfLineInsects();
 
+        // BG Color Change
+        globalData.stageManager.bgAnimController.spriteColorAnim.ColorNormalAnim();
+
         // 보스 몬스터 OUT
         yield return StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionOut());
 

@@ -51,9 +51,9 @@ public class MonsterManager : MonoBehaviour
         SetMonsterData(MonsterType.boss, monBossData);
 
         // set sprite image
-        SetMonsterBodyImage(monNormalData, monsterNormal);
-        SetMonsterBodyImage(monGoldData, monsterGold);
-        SetMonsterBodyImage(monBossData, monsterBoss);
+        SetMonsterBodyImage(monNormalData, monsterNormal, MonsterType.normal);
+        SetMonsterBodyImage(monGoldData, monsterGold, MonsterType.gold);
+        SetMonsterBodyImage(monBossData, monsterBoss, MonsterType.boss);
 
         // hide monsters
         ShowMonsterByType(MonsterType.normal);
@@ -123,9 +123,23 @@ public class MonsterManager : MonoBehaviour
     //    }
     //}
 
-    void SetMonsterBodyImage(MonsterData monData, MonsterBase monster)
+    void SetMonsterBodyImage(MonsterData monData, MonsterBase monster, MonsterType monsterType = MonsterType.none)
     {
-        var spriteData = GlobalData.instance.dataManager.GetMonsterSpriteDataById(monData.imageId);
+
+        MonsterSprite spriteData = GlobalData.instance.dataManager.GetMonsterSpriteDataById(monData.imageId);
+
+        switch (monsterType)
+        {
+            case MonsterType.normal:
+                spriteData = GlobalData.instance.dataManager.GetMonsterSpriteDataById(monData.imageId);
+                break;
+            case MonsterType.gold:
+                spriteData = GlobalData.instance.dataManager.GetMonsterSpriteDataById(monData.imageId);
+                break;
+            case MonsterType.boss:
+                spriteData = GlobalData.instance.dataManager.GetMonsterSpriteDataBossById(monData.imageId);
+                break;
+        }
 
         // set tail
         monster.spriteLibraryChanged.ChangedSpritePartImage("tail", spriteData.tail);

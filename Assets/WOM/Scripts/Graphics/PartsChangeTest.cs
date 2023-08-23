@@ -105,6 +105,29 @@ namespace ProjectGraphics
 
         }
 
+        void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                StartCoroutine(MakeScreenShotAll());
+            }
+        }
+
+        IEnumerator MakeScreenShotAll()
+        {
+
+            for (int i = 0; i < 33; i++)
+            {
+                List<int> values = new List<int>() { i, i, i, i, i, i, i, i };
+                ChangeSkin(values);
+                yield return StartCoroutine(CaptterMonImage("CaptureImage/All", "All_", i));
+            }
+
+        }
+
+
+
+
         void ChangeSkin(List<int> values)
         {
             parts["tail"] = partNum.tail = values[0];

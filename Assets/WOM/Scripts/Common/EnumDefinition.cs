@@ -110,7 +110,9 @@ public class EnumDefinition
         skillAllUnitSpeedUpData,
         skillGlodBonusUpData,
         skillAllUnitCriticalChanceUpData,
-        skillgMonsterKingData
+        skillgMonsterKingData,
+        monsterSpriteDataNormal,
+        monsterSpriteDataBoss,
 
     }
 

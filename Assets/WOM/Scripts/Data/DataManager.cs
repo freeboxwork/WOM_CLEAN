@@ -68,6 +68,8 @@ public class DataManager : MonoBehaviour
     public SummonGradeDatas summonGradeDatas;
     public UpgradeDatas upgradeData;
     public MonsterSprites monsterSpriteData;
+    public MonsterSprites monsterSpriteData_normal;
+    public MonsterSprites monsterSpriteData_boss;
 
     // REWARD DATA
     public RewardEvolutionGradeDatas rewardEvolutionGradeDatas;
@@ -421,6 +423,8 @@ public class DataManager : MonoBehaviour
     void SetMonsterSpriteData()
     {
         monsterSpriteData = GetData<MonsterSprites>(SheetDataType.monsterSpriteData);
+        monsterSpriteData_normal = GetData<MonsterSprites>(SheetDataType.monsterSpriteDataNormal);
+        monsterSpriteData_boss = GetData<MonsterSprites>(SheetDataType.monsterSpriteDataBoss);
     }
 
     T GetData<T>(SheetDataType sheetDataType)
@@ -523,6 +527,17 @@ public class DataManager : MonoBehaviour
     {
         return monsterSpriteData.data.FirstOrDefault(f => f.id == id);
     }
+
+    public MonsterSprite GetMonsterSpriteDataNormalById(int id)
+    {
+        return monsterSpriteData_normal.data.FirstOrDefault(f => f.id == id);
+    }
+    public MonsterSprite GetMonsterSpriteDataBossById(int id)
+    {
+        return monsterSpriteData_boss.data.FirstOrDefault(f => f.id == id);
+    }
+
+
 
     public UnionGambleData GetUnionGambleDataBySummonGrade(int summonGrade)
     {

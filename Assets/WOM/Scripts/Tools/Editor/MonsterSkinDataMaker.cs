@@ -1,6 +1,8 @@
 using UnityEngine;
 using UnityEditor;
+using System.IO;
 using ProjectGraphics;
+using System.Threading.Tasks;
 
 public class MonsterSkinDataMaker : EditorWindow
 {
@@ -12,7 +14,10 @@ public class MonsterSkinDataMaker : EditorWindow
     int curSkinID = 0;
 
     PartsChangeTest partsChanger;
-
+    private float minValue = 0f;
+    private float maxValue = 32f;
+    private float minLimit = 0f;
+    private float maxLimit = 32;
 
     private void OnEnable()
     {
@@ -38,8 +43,7 @@ public class MonsterSkinDataMaker : EditorWindow
         });
         EditorCustomGUI.GUI_Button("Save", () =>
         {
-            // var json = JsonUtility.ToJson(monSkinDatas);
-            // Debug.Log(json);
+            SaveDataFile();
         });
 
         if (monSkinDatas != null && monSkinDatas.data.Count > 0)
@@ -47,8 +51,16 @@ public class MonsterSkinDataMaker : EditorWindow
             GUI_SkinDataView();
         }
 
+    }
 
+    async void SaveDataFile()
+    {
+        var json = JsonUtility.ToJson(monSkinDatas);
+        var filePath = Application.dataPath + "/CaptureImage/SkinDataBoss.json";
 
+        await Task.Yield();
+
+        File.WriteAllText(Application.dataPath + "/CaptureImage/SkinDataBoss.json", json);
     }
 
 
@@ -84,6 +96,37 @@ public class MonsterSkinDataMaker : EditorWindow
         GUI_PartsView("leg1", ref data.leg_1);
         GUI_PartsView("leg2", ref data.leg_2);
         GUILayout.EndVertical();
+        GUILayout.BeginVertical("box");
+        EditorGUILayout.MinMaxSlider("RandomRange", ref minValue, ref maxValue, minLimit, maxLimit);
+        EditorCustomGUI.GUI_Button("Random Parts", () =>
+        {
+            RandomParts();
+            SetData();
+        });
+        EditorGUILayout.LabelField("Min Value: " + (int)minValue);
+        EditorGUILayout.LabelField("Max Value: " + (int)maxValue);
+
+        GUILayout.EndVertical();
+    }
+
+    void RandomParts()
+    {
+        var data = monSkinDatas.data[curSkinID];
+        data.tail = GetRandomPartsNumber();
+        data.hand = GetRandomPartsNumber();
+        data.finger = GetRandomPartsNumber();
+        data.foreArm = GetRandomPartsNumber();
+        data.upperArm = GetRandomPartsNumber();
+        data.head = GetRandomPartsNumber();
+        data.body = GetRandomPartsNumber();
+        data.leg_0 = GetRandomPartsNumber();
+        data.leg_1 = GetRandomPartsNumber();
+        data.leg_2 = GetRandomPartsNumber();
+    }
+
+    int GetRandomPartsNumber()
+    {
+        return Random.Range((int)minValue, (int)maxValue);
     }
 
 
@@ -109,6 +152,7 @@ public class MonsterSkinDataMaker : EditorWindow
 
     void SetData()
     {
+        if (partsChanger == null) partsChanger = FindObjectOfType<PartsChangeTest>();
         partsChanger.SkinChange(monSkinDatas.data[curSkinID]);
     }
 

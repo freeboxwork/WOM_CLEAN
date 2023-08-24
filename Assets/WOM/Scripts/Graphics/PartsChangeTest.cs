@@ -127,6 +127,30 @@ namespace ProjectGraphics
 
 
 
+        public void SkinChange(MonsterSprite data)
+        {
+            List<int> values = new List<int>() { data.tail, data.hand, data.finger, data.foreArm, data.upperArm, data.head, data.body, data.leg_0, data.leg_1, data.leg_2 };
+            ChangeSkin(values);
+        }
+
+        void ChangeSkinLeg(List<int> values)
+        {
+            parts["tail"] = partNum.tail = values[0];
+            parts["hand"] = partNum.hand = values[1];
+            parts["finger"] = partNum.finger = values[2];
+            parts["foreArm"] = partNum.foreArm = values[3];
+            parts["upperArm"] = partNum.upperArm = values[4];
+            parts["head"] = partNum.head = values[5];
+            parts["body"] = partNum.body = values[6];
+            parts["leg_0"] = partNum.leg0 = values[7];
+            parts["leg_1"] = partNum.leg1 = values[8];
+            parts["leg_2"] = partNum.leg2 = values[9];
+
+            foreach (var item in parts)
+            {
+                spritesController.ChangedSpritePartImage(item.Key, item.Value);
+            }
+        }
 
         void ChangeSkin(List<int> values)
         {

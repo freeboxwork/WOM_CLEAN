@@ -78,7 +78,7 @@ public class MonsterKingController : MonoBehaviour
 
     float RaddomHitTiming()
     {
-        // 0.05 초 에서 0.2 초 사이
+        // 0.01초 에서 0.05 초 사이
         return Random.Range(hitTimingMin, hitTimingMax);
     }
 

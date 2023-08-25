@@ -107,7 +107,7 @@ public class UnionManager : MonoBehaviour
             slot.SetUITxtLevel();
             slot.SetUITxtUnionCount();
             slot.SetUITxtUnionEquipState();
-
+            slot.SetUITxtGrade();
             if (slot.inGameData.unionCount > 0)
                 slot.EnableSlot();
 

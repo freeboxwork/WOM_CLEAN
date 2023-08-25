@@ -4,6 +4,8 @@ using TMPro;
 public class DungeonSlot : MonoBehaviour
 {
     public TextMeshProUGUI txtTitle;
+    public TextMeshProUGUI txtBestScore;
+
     //public TextMeshProUGUI txtKeyCount;
     public EnumDefinition.MonsterType monsterType;
 
@@ -19,6 +21,11 @@ public class DungeonSlot : MonoBehaviour
         //var txt = $"{haveKeyCount}/{usingKey}";
         //txtKeyCount.text = txt;
     }
-
+    public void SetTextBestScore()
+    {
+        var score = GlobalData.instance.player.dungeonMonsterClearLevel.GetLeveByDungeonMonType(monsterType);
+         
+        txtBestScore.text = $"{score} ´Ü°è";
+    }
 
 }

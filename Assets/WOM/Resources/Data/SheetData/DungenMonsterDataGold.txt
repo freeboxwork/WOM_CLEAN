@@ -18,158 +18,158 @@
  {
    "level": 2,
    "currencyAmount": 7200,
-   "monsterHP": 40500,
+   "monsterHP": 54000,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 3"
  },
  {
    "level": 3,
-   "currencyAmount": 9900,
-   "monsterHP": 67500,
+   "currencyAmount": 13050,
+   "monsterHP": 108000,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 4"
  },
  {
    "level": 4,
-   "currencyAmount": 16650,
-   "monsterHP": 108000,
+   "currencyAmount": 25200,
+   "monsterHP": 216000,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 5"
  },
  {
    "level": 5,
-   "currencyAmount": 25200,
-   "monsterHP": 189000,
+   "currencyAmount": 47700,
+   "monsterHP": 270000,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 6"
  },
  {
    "level": 6,
-   "currencyAmount": 41400,
-   "monsterHP": 270000,
+   "currencyAmount": 85950,
+   "monsterHP": 553500,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 7"
  },
  {
    "level": 7,
-   "currencyAmount": 61650,
-   "monsterHP": 270000,
+   "currencyAmount": 146700,
+   "monsterHP": 1004400,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 8"
  },
  {
    "level": 8,
-   "currencyAmount": 94950,
-   "monsterHP": 553500,
+   "currencyAmount": 238050,
+   "monsterHP": 1296000,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 9"
  },
  {
    "level": 9,
-   "currencyAmount": 135450,
-   "monsterHP": 553500,
+   "currencyAmount": 369450,
+   "monsterHP": 1636200,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 10"
  },
  {
    "level": 10,
-   "currencyAmount": 196200,
-   "monsterHP": 1004400,
+   "currencyAmount": 551700,
+   "monsterHP": 3024000,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 11"
  },
  {
    "level": 11,
-   "currencyAmount": 268200,
-   "monsterHP": 1296000,
+   "currencyAmount": 1062600,
+   "monsterHP": 4636800,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 12"
  },
  {
    "level": 12,
-   "currencyAmount": 369450,
-   "monsterHP": 1636200,
+   "currencyAmount": 1449600,
+   "monsterHP": 5760000,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 13"
  },
  {
    "level": 13,
-   "currencyAmount": 486900,
-   "monsterHP": 2635200,
+   "currencyAmount": 1896600,
+   "monsterHP": 6364800,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 14"
  },
  {
    "level": 14,
-   "currencyAmount": 859200,
-   "monsterHP": 3024000,
+   "currencyAmount": 2403600,
+   "monsterHP": 8424000,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 15"
  },
  {
    "level": 15,
-   "currencyAmount": 1098600,
-   "monsterHP": 4636800,
+   "currencyAmount": 2970600,
+   "monsterHP": 15081568,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 16"
  },
  {
    "level": 16,
-   "currencyAmount": 1408200,
-   "monsterHP": 5760000,
+   "currencyAmount": 7495000,
+   "monsterHP": 15081568,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 17"
  },
  {
    "level": 17,
-   "currencyAmount": 1756200,
-   "monsterHP": 6364800,
+   "currencyAmount": 8926250,
+   "monsterHP": 16757298,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 18"
  },
  {
    "level": 18,
-   "currencyAmount": 2193600,
-   "monsterHP": 7840800,
+   "currencyAmount": 10482500,
+   "monsterHP": 16757298,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 19"
  },
  {
    "level": 19,
-   "currencyAmount": 2679600,
-   "monsterHP": 15081568,
+   "currencyAmount": 12163750,
+   "monsterHP": 16757298,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 20"
  },
  {
    "level": 20,
-   "currencyAmount": 6826250,
-   "monsterHP": 15081568,
+   "currencyAmount": 13970000,
+   "monsterHP": 16757298,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 21"
  },
  {
    "level": 21,
-   "currencyAmount": 8195000,
+   "currencyAmount": 15901250,
    "monsterHP": 16757298,
    "rewardType": "Gold",
    "bgId": 6,
@@ -177,7 +177,7 @@
  },
  {
    "level": 22,
-   "currencyAmount": 9688750,
+   "currencyAmount": 17957500,
    "monsterHP": 16757298,
    "rewardType": "Gold",
    "bgId": 6,
@@ -185,7 +185,7 @@
  },
  {
    "level": 23,
-   "currencyAmount": 12163750,
+   "currencyAmount": 21276250,
    "monsterHP": 16757298,
    "rewardType": "Gold",
    "bgId": 6,
@@ -193,31 +193,31 @@
  },
  {
    "level": 24,
-   "currencyAmount": 14920000,
-   "monsterHP": 16757298,
+   "currencyAmount": 24876250,
+   "monsterHP": 59157504,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 25"
  },
  {
    "level": 25,
-   "currencyAmount": 17957500,
-   "monsterHP": 16757298,
+   "currencyAmount": 40260500,
+   "monsterHP": 59157504,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 26"
  },
  {
    "level": 26,
-   "currencyAmount": 21276250,
-   "monsterHP": 16757298,
+   "currencyAmount": 46088000,
+   "monsterHP": 59157504,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 27"
  },
  {
    "level": 27,
-   "currencyAmount": 24876250,
+   "currencyAmount": 52309250,
    "monsterHP": 59157504,
    "rewardType": "Gold",
    "bgId": 6,
@@ -225,7 +225,7 @@
  },
  {
    "level": 28,
-   "currencyAmount": 40260500,
+   "currencyAmount": 58924250,
    "monsterHP": 59157504,
    "rewardType": "Gold",
    "bgId": 6,
@@ -233,7 +233,7 @@
  },
  {
    "level": 29,
-   "currencyAmount": 46088000,
+   "currencyAmount": 65933000,
    "monsterHP": 59157504,
    "rewardType": "Gold",
    "bgId": 6,
@@ -241,23 +241,23 @@
  },
  {
    "level": 30,
-   "currencyAmount": 54470500,
-   "monsterHP": 59157504,
+   "currencyAmount": 73335500,
+   "monsterHP": 186697161,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 31"
  },
  {
    "level": 31,
-   "currencyAmount": 63553000,
-   "monsterHP": 59157504,
+   "currencyAmount": 162263500,
+   "monsterHP": 186697161,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 32"
  },
  {
    "level": 32,
-   "currencyAmount": 73335500,
+   "currencyAmount": 184278500,
    "monsterHP": 186697161,
    "rewardType": "Gold",
    "bgId": 6,
@@ -265,7 +265,7 @@
  },
  {
    "level": 33,
-   "currencyAmount": 167636000,
+   "currencyAmount": 207693500,
    "monsterHP": 186697161,
    "rewardType": "Gold",
    "bgId": 6,
@@ -273,7 +273,7 @@
  },
  {
    "level": 34,
-   "currencyAmount": 190001000,
+   "currencyAmount": 232508500,
    "monsterHP": 186697161,
    "rewardType": "Gold",
    "bgId": 6,
@@ -281,23 +281,23 @@
  },
  {
    "level": 35,
-   "currencyAmount": 213766000,
-   "monsterHP": 186697161,
+   "currencyAmount": 258723500,
+   "monsterHP": 515455970,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 36"
  },
  {
    "level": 36,
-   "currencyAmount": 238931000,
-   "monsterHP": 186697161,
+   "currencyAmount": 429507750,
+   "monsterHP": 515455970,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 37"
  },
  {
    "level": 37,
-   "currencyAmount": 272356000,
+   "currencyAmount": 473030250,
    "monsterHP": 515455970,
    "rewardType": "Gold",
    "bgId": 6,
@@ -305,7 +305,7 @@
  },
  {
    "level": 38,
-   "currencyAmount": 461952750,
+   "currencyAmount": 518652750,
    "monsterHP": 515455970,
    "rewardType": "Gold",
    "bgId": 6,
@@ -313,7 +313,7 @@
  },
  {
    "level": 39,
-   "currencyAmount": 518652750,
+   "currencyAmount": 578634000,
    "monsterHP": 515455970,
    "rewardType": "Gold",
    "bgId": 6,
@@ -321,15 +321,15 @@
  },
  {
    "level": 40,
-   "currencyAmount": 578634000,
-   "monsterHP": 515455970,
+   "currencyAmount": 641896500,
+   "monsterHP": 1325128200,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 41"
  },
  {
    "level": 41,
-   "currencyAmount": 641896500,
+   "currencyAmount": 1349410000,
    "monsterHP": 1325128200,
    "rewardType": "Gold",
    "bgId": 6,
@@ -337,7 +337,7 @@
  },
  {
    "level": 42,
-   "currencyAmount": 1349410000,
+   "currencyAmount": 1482410000,
    "monsterHP": 1325128200,
    "rewardType": "Gold",
    "bgId": 6,
@@ -345,7 +345,7 @@
  },
  {
    "level": 43,
-   "currencyAmount": 1482410000,
+   "currencyAmount": 1621660000,
    "monsterHP": 1325128200,
    "rewardType": "Gold",
    "bgId": 6,
@@ -353,7 +353,7 @@
  },
  {
    "level": 44,
-   "currencyAmount": 1650260000,
+   "currencyAmount": 1767160000,
    "monsterHP": 1920967488,
    "rewardType": "Gold",
    "bgId": 6,
@@ -361,7 +361,7 @@
  },
  {
    "level": 45,
-   "currencyAmount": 2283887500,
+   "currencyAmount": 2398637500,
    "monsterHP": 1920967488,
    "rewardType": "Gold",
    "bgId": 6,
@@ -369,7 +369,7 @@
  },
  {
    "level": 46,
-   "currencyAmount": 2516200000,
+   "currencyAmount": 2596137500,
    "monsterHP": 1920967488,
    "rewardType": "Gold",
    "bgId": 6,
@@ -377,15 +377,15 @@
  },
  {
    "level": 47,
-   "currencyAmount": 2759762500,
-   "monsterHP": 1920967488,
+   "currencyAmount": 2843450000,
+   "monsterHP": 2622112240,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 48"
  },
  {
    "level": 48,
-   "currencyAmount": 3014575000,
+   "currencyAmount": 3722415000,
    "monsterHP": 2622112240,
    "rewardType": "Gold",
    "bgId": 6,
@@ -393,7 +393,7 @@
  },
  {
    "level": 49,
-   "currencyAmount": 3936765000,
+   "currencyAmount": 4046190000,
    "monsterHP": 2622112240,
    "rewardType": "Gold",
    "bgId": 6,
@@ -401,7 +401,7 @@
  },
  {
    "level": 50,
-   "currencyAmount": 4269540000,
+   "currencyAmount": 4383465000,
    "monsterHP": 2622112240,
    "rewardType": "Gold",
    "bgId": 6,
@@ -409,7 +409,7 @@
  },
  {
    "level": 51,
-   "currencyAmount": 4674840000,
+   "currencyAmount": 4734240000,
    "monsterHP": 3492198160,
    "rewardType": "Gold",
    "bgId": 6,
@@ -425,7 +425,7 @@
  },
  {
    "level": 53,
-   "currencyAmount": 6463992500,
+   "currencyAmount": 6389005000,
    "monsterHP": 3492198160,
    "rewardType": "Gold",
    "bgId": 6,
@@ -433,7 +433,7 @@
  },
  {
    "level": 54,
-   "currencyAmount": 7001155000,
+   "currencyAmount": 6923105000,
    "monsterHP": 8199254844,
    "rewardType": "Gold",
    "bgId": 6,
@@ -441,7 +441,7 @@
  },
  {
    "level": 55,
-   "currencyAmount": 8639720000,
+   "currencyAmount": 8547020000,
    "monsterHP": 8199254844,
    "rewardType": "Gold",
    "bgId": 6,
@@ -449,7 +449,7 @@
  },
  {
    "level": 56,
-   "currencyAmount": 9302620000,
+   "currencyAmount": 9206420000,
    "monsterHP": 8199254844,
    "rewardType": "Gold",
    "bgId": 6,
@@ -457,7 +457,7 @@
  },
  {
    "level": 57,
-   "currencyAmount": 9990020000,
+   "currencyAmount": 9890320000,
    "monsterHP": 12328374695,
    "rewardType": "Gold",
    "bgId": 6,
@@ -465,7 +465,7 @@
  },
  {
    "level": 58,
-   "currencyAmount": 13507025000,
+   "currencyAmount": 13248400000,
    "monsterHP": 12328374695,
    "rewardType": "Gold",
    "bgId": 6,
@@ -473,15 +473,15 @@
  },
  {
    "level": 59,
-   "currencyAmount": 14566525000,
-   "monsterHP": 15490080861,
+   "currencyAmount": 14164525000,
+   "monsterHP": 12328374695,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 60"
  },
  {
    "level": 60,
-   "currencyAmount": 18799230000,
+   "currencyAmount": 15111275000,
    "monsterHP": 15490080861,
    "rewardType": "Gold",
    "bgId": 6,
@@ -489,7 +489,7 @@
  },
  {
    "level": 61,
-   "currencyAmount": 20166630000,
+   "currencyAmount": 19476930000,
    "monsterHP": 15490080861,
    "rewardType": "Gold",
    "bgId": 6,
@@ -497,7 +497,7 @@
  },
  {
    "level": 62,
-   "currencyAmount": 21582030000,
+   "currencyAmount": 20868330000,
    "monsterHP": 19862248879,
    "rewardType": "Gold",
    "bgId": 6,
@@ -505,7 +505,7 @@
  },
  {
    "level": 63,
-   "currencyAmount": 26886335000,
+   "currencyAmount": 26025685000,
    "monsterHP": 19862248879,
    "rewardType": "Gold",
    "bgId": 6,
@@ -513,15 +513,15 @@
  },
  {
    "level": 64,
-   "currencyAmount": 28649635000,
-   "monsterHP": 24434037576,
+   "currencyAmount": 27760985000,
+   "monsterHP": 19862248879,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 65"
  },
  {
    "level": 65,
-   "currencyAmount": 34821640000,
+   "currencyAmount": 29552285000,
    "monsterHP": 24434037576,
    "rewardType": "Gold",
    "bgId": 6,
@@ -529,15 +529,15 @@
  },
  {
    "level": 66,
-   "currencyAmount": 36964840000,
-   "monsterHP": 29785334488,
+   "currencyAmount": 35885240000,
+   "monsterHP": 24434037576,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 67"
  },
  {
    "level": 67,
-   "currencyAmount": 44383995000,
+   "currencyAmount": 38336840000,
    "monsterHP": 29785334488,
    "rewardType": "Gold",
    "bgId": 6,
@@ -545,7 +545,7 @@
  },
  {
    "level": 68,
-   "currencyAmount": 47273670000,
+   "currencyAmount": 45978120000,
    "monsterHP": 29785334488,
    "rewardType": "Gold",
    "bgId": 6,
@@ -553,7 +553,7 @@
  },
  {
    "level": 69,
-   "currencyAmount": 50254470000,
+   "currencyAmount": 48918420000,
    "monsterHP": 37086626304,
    "rewardType": "Gold",
    "bgId": 6,
@@ -561,7 +561,7 @@
  },
  {
    "level": 70,
-   "currencyAmount": 59251550000,
+   "currencyAmount": 57722050000,
    "monsterHP": 37086626304,
    "rewardType": "Gold",
    "bgId": 6,
@@ -569,7 +569,7 @@
  },
  {
    "level": 71,
-   "currencyAmount": 62766050000,
+   "currencyAmount": 61191550000,
    "monsterHP": 80979163411,
    "rewardType": "Gold",
    "bgId": 6,
@@ -577,7 +577,7 @@
  },
  {
    "level": 72,
-   "currencyAmount": 79658160000,
+   "currencyAmount": 77714760000,
    "monsterHP": 80979163411,
    "rewardType": "Gold",
    "bgId": 6,
@@ -585,15 +585,15 @@
  },
  {
    "level": 73,
-   "currencyAmount": 84118560000,
-   "monsterHP": 94700882942,
+   "currencyAmount": 82121160000,
+   "monsterHP": 80979163411,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 74"
  },
  {
    "level": 74,
-   "currencyAmount": 103483870000,
+   "currencyAmount": 86649060000,
    "monsterHP": 94700882942,
    "rewardType": "Gold",
    "bgId": 6,
@@ -601,15 +601,15 @@
  },
  {
    "level": 75,
-   "currencyAmount": 108971170000,
-   "monsterHP": 113181525127,
+   "currencyAmount": 106514870000,
+   "monsterHP": 94700882942,
    "rewardType": "Gold",
    "bgId": 6,
    "stageName": "STEP 76"
  },
  {
    "level": 76,
-   "currencyAmount": 130971680000,
+   "currencyAmount": 112080920000,
    "monsterHP": 113181525127,
    "rewardType": "Gold",
    "bgId": 6,
@@ -617,7 +617,7 @@
  },
  {
    "level": 77,
-   "currencyAmount": 137566880000,
+   "currencyAmount": 134615680000,
    "monsterHP": 113181525127,
    "rewardType": "Gold",
    "bgId": 6,
@@ -625,7 +625,7 @@
  },
  {
    "level": 78,
-   "currencyAmount": 144324080000,
+   "currencyAmount": 141300880000,
    "monsterHP": 130881668736,
    "rewardType": "Gold",
    "bgId": 6,
@@ -633,7 +633,7 @@
  },
  {
    "level": 79,
-   "currencyAmount": 170148690000,
+   "currencyAmount": 166666590000,
    "monsterHP": 130881668736,
    "rewardType": "Gold",
    "bgId": 6,
@@ -641,7 +641,7 @@
  },
  {
    "level": 80,
-   "currencyAmount": 179011440000,
+   "currencyAmount": 175439340000,
    "monsterHP": 260683108875,
    "rewardType": "Gold",
    "bgId": 6,
@@ -649,7 +649,7 @@
  },
  {
    "level": 81,
-   "currencyAmount": 208999100000,
+   "currencyAmount": 204930100000,
    "monsterHP": 260683108875,
    "rewardType": "Gold",
    "bgId": 6,
@@ -657,7 +657,7 @@
  },
  {
    "level": 82,
-   "currencyAmount": 219346600000,
+   "currencyAmount": 215177600000,
    "monsterHP": 306195177222,
    "rewardType": "Gold",
    "bgId": 6,
@@ -665,7 +665,7 @@
  },
  {
    "level": 83,
-   "currencyAmount": 264435715000,
+   "currencyAmount": 259526365000,
    "monsterHP": 306195177222,
    "rewardType": "Gold",
    "bgId": 6,
@@ -673,7 +673,7 @@
  },
  {
    "level": 84,
-   "currencyAmount": 276910340000,
+   "currencyAmount": 271885990000,
    "monsterHP": 349087598600,
    "rewardType": "Gold",
    "bgId": 6,
@@ -681,7 +681,7 @@
  },
  {
    "level": 85,
-   "currencyAmount": 327455830000,
+   "currencyAmount": 321646130000,
    "monsterHP": 349087598600,
    "rewardType": "Gold",
    "bgId": 6,
@@ -689,7 +689,7 @@
  },
  {
    "level": 86,
-   "currencyAmount": 342207580000,
+   "currencyAmount": 336267880000,
    "monsterHP": 396390095856,
    "rewardType": "Gold",
    "bgId": 6,
@@ -697,7 +697,7 @@
  },
  {
    "level": 87,
-   "currencyAmount": 398509445000,
+   "currencyAmount": 391739395000,
    "monsterHP": 396390095856,
    "rewardType": "Gold",
    "bgId": 6,
@@ -705,7 +705,7 @@
  },
  {
    "level": 88,
-   "currencyAmount": 415688320000,
+   "currencyAmount": 408773270000,
    "monsterHP": 902461108500,
    "rewardType": "Gold",
    "bgId": 6,
@@ -713,7 +713,7 @@
  },
  {
    "level": 89,
-   "currencyAmount": 478046560000,
+   "currencyAmount": 470256160000,
    "monsterHP": 902461108500,
    "rewardType": "Gold",
    "bgId": 6,
@@ -721,7 +721,7 @@
  },
  {
    "level": 90,
-   "currencyAmount": 497802560000,
+   "currencyAmount": 489852160000,
    "monsterHP": 1007141107140,
    "rewardType": "Gold",
    "bgId": 6,
@@ -729,7 +729,7 @@
  },
  {
    "level": 91,
-   "currencyAmount": 566517175000,
+   "currencyAmount": 557646425000,
    "monsterHP": 1007141107140,
    "rewardType": "Gold",
    "bgId": 6,
@@ -737,7 +737,7 @@
  },
  {
    "level": 92,
-   "currencyAmount": 589000300000,
+   "currencyAmount": 579954550000,
    "monsterHP": 1120492910394,
    "rewardType": "Gold",
    "bgId": 6,
@@ -745,7 +745,7 @@
  },
  {
    "level": 93,
-   "currencyAmount": 664371290000,
+   "currencyAmount": 654360190000,
    "monsterHP": 1120492910394,
    "rewardType": "Gold",
    "bgId": 6,
@@ -753,7 +753,7 @@
  },
  {
    "level": 94,
-   "currencyAmount": 689731540000,
+   "currencyAmount": 679530440000,
    "monsterHP": 1269466735248,
    "rewardType": "Gold",
    "bgId": 6,
@@ -761,7 +761,7 @@
  },
  {
    "level": 95,
-   "currencyAmount": 772058905000,
+   "currencyAmount": 760847455000,
    "monsterHP": 1269466735248,
    "rewardType": "Gold",
    "bgId": 6,
@@ -769,7 +769,7 @@
  },
  {
    "level": 96,
-   "currencyAmount": 800446280000,
+   "currencyAmount": 789029830000,
    "monsterHP": 1403721917411,
    "rewardType": "Gold",
    "bgId": 6,
@@ -777,7 +777,7 @@
  },
  {
    "level": 97,
-   "currencyAmount": 890030020000,
+   "currencyAmount": 877558220000,
    "monsterHP": 1403721917411,
    "rewardType": "Gold",
    "bgId": 6,
@@ -785,7 +785,7 @@
  },
  {
    "level": 98,
-   "currencyAmount": 921594520000,
+   "currencyAmount": 908902720000,
    "monsterHP": 1548116959050,
    "rewardType": "Gold",
    "bgId": 6,
@@ -793,7 +793,7 @@
  },
  {
    "level": 99,
-   "currencyAmount": 1018734635000,
+   "currencyAmount": 1004942485000,
    "monsterHP": 1548116959050,
    "rewardType": "Gold",
    "bgId": 6,

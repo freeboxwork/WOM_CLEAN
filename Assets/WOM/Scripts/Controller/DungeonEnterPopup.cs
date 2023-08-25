@@ -159,7 +159,7 @@ public class DungeonEnterPopup : MonoBehaviour
         var addValue = GetAddValue(monsterType);
         long totalCurrencyAmount = (long)(data.currencyAmount + (data.currencyAmount * addValue * 0.01f));
 
-        textPervClearLevel.text = $"{level}단계";
+        textPervClearLevel.text = $"{level} 단계";
         textRewardValue.text = totalCurrencyAmount.ToString();
     }
 

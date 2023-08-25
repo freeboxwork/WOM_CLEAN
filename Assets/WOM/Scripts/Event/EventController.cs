@@ -116,8 +116,12 @@ public class EventController : MonoBehaviour
         // skill data 의 power 를 가져온다.
         var damage = GlobalData.instance.skillManager.GetSkillInGameDataByType(SkillType.monsterKing).power;
 
+        //곤충의 데미지를 가져온다
+        var insectDamage = globalData.statManager.GetInsectDamage(EnumDefinition.InsectType.bee);
+
+        var totalDamage = insectDamage * damage;
         // ENABLE Floting Text Effect 
-        globalData.effectManager.EnableFloatingText(damage, false, tr, EnumDefinition.InsectType.none);
+        globalData.effectManager.EnableFloatingText(totalDamage, false, tr, EnumDefinition.InsectType.none);
 
         var monsterType = GlobalData.instance.player.curMonsterType;
 
@@ -129,7 +133,7 @@ public class EventController : MonoBehaviour
 
 
             // set monster damage
-            currentMonster.hp -= damage;
+            currentMonster.hp -= totalDamage;
 
             // monster hit animation 
             currentMonster.inOutAnimator.monsterAnim.SetBool("Hit", true);
@@ -160,7 +164,7 @@ public class EventController : MonoBehaviour
         {
             DungeonMonster currentMonster = globalData.monsterManager.GetMonsterDungeon();
 
-            var curDamage = damage * (1 + globalData.statManager.BossDamage() * 0.01f);
+            var curDamage = totalDamage * (1 + globalData.statManager.BossDamage() * 0.01f);
 
             // 사용 확인 필요
 

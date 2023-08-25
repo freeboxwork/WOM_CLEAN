@@ -29,6 +29,7 @@ public class DungeonManager : MonoBehaviour
     public void UpdateDunslotKeyUI(EnumDefinition.MonsterType monsterType)
     {
         GetDungeonSlotByMonsterType(monsterType).UpdateTxtKeyCount();
+        GetDungeonSlotByMonsterType(monsterType).SetTextBestScore();
     }
 
     DungeonSlot GetDungeonSlotByMonsterType(EnumDefinition.MonsterType monsterType)

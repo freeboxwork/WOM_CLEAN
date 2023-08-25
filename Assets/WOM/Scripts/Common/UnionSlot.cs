@@ -9,6 +9,7 @@ public class UnionSlot : MonoBehaviour
     public TextMeshProUGUI txtLevel;           // 현재 레벨
     public TextMeshProUGUI txtEquipState;      // 장착 여부
     public TextMeshProUGUI txtReqirementCount; // 레벨업에 필요한 유니온 수
+    public TextMeshProUGUI txtgradeText; // 블럭이미지에 삽입되는 등급 텍스트
     public Slider sliderReqirement;
     public Image imgUnionFace;
     public Button btn;
@@ -22,7 +23,6 @@ public class UnionSlot : MonoBehaviour
 
     void Start()
     {
-
     }
 
     void SetBtnEvent()
@@ -76,6 +76,11 @@ public class UnionSlot : MonoBehaviour
     {
         txtLevel.text = "Lv" + inGameData.level.ToString();
     }
+    public void SetUITxtGrade()
+    {
+        txtgradeText.text = $"<#{unionData.textColor}>{unionData.gradeName}</color>";
+    }
+
 
     public void SetUITxtUnionEquipState()
     {

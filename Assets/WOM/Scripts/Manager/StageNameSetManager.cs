@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System.Collections;
 
 public class StageNameSetManager : MonoBehaviour
 {
@@ -24,8 +25,8 @@ public class StageNameSetManager : MonoBehaviour
     public void SetTxtStageName(EnumDefinition.StageNameType stageNameType, string stageName)
     {
         dicStageName[stageNameType].text = stageName;
-    }
 
+    }
     public void EnableStageName(EnumDefinition.StageNameType stageNameType)
     {
         foreach (var item in dicStageName)

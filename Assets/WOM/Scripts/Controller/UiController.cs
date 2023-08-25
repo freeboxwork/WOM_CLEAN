@@ -184,22 +184,25 @@ public class UiController : MonoBehaviour
 
     public void SetSliderMonsterHp(double value)
     {
+        if(value < 0) value = 0;
+
+        var currentFillAmountValue = UtilityMethod.GetCustomTypeImageById(41).fillAmount;
         var sliderValue = (float)value / GlobalData.instance.player.currentMonsterHp;
         UtilityMethod.GetCustomTypeImageById(41).fillAmount = (float)sliderValue;
 
         // 0.1초 뒤에 실행
-        StartCoroutine(SetSliderBgWithDelay((float)sliderValue, 0.15f));
+        StartCoroutine(SetSliderBgWithDelay(UtilityMethod.GetCustomTypeImageById(41).fillAmount, currentFillAmountValue));
     }
 
     public void SetSliderDungeonMonsterHP(double value)
     {
         if(value < 0) value = 0;
-
+        var currentFillAmountValue = UtilityMethod.GetCustomTypeImageById(41).fillAmount;
         var sliderValue = (float)value / GlobalData.instance.monsterManager.GetMonsterDungeon().curMonsterHP;
         UtilityMethod.GetCustomTypeImageById(41).fillAmount = (float)sliderValue;
 
         // 0.1초 뒤에 실행
-        StartCoroutine(SetSliderBgWithDelay((float)sliderValue, 0.15f));
+        StartCoroutine(SetSliderBgWithDelay(UtilityMethod.GetCustomTypeImageById(41).fillAmount, currentFillAmountValue));
     }
 
     public void SetSliderBg(float value)
@@ -207,10 +210,24 @@ public class UiController : MonoBehaviour
         UtilityMethod.GetCustomTypeImageById(44).fillAmount = value;
     }
 
-    private IEnumerator SetSliderBgWithDelay(float value, float delay)
+    private IEnumerator SetSliderBgWithDelay(float target, float current)
     {
-        yield return new WaitForSeconds(delay);
-        SetSliderBg(value);
+        float animationDuration = 0.2f;
+        float startTime = Time.time;
+
+        while (Time.time < startTime + animationDuration)
+        {
+            float elapsed = Time.time - startTime;
+            float progress = elapsed / animationDuration;
+            float value = Mathf.Lerp(current, target, progress);
+
+            SetSliderBg(value);
+
+            yield return null;
+        }
+
+        SetSliderBg(target);
+
     }
 
 

@@ -9,9 +9,10 @@ public class DungeonSlot : MonoBehaviour
     //public TextMeshProUGUI txtKeyCount;
     public EnumDefinition.MonsterType monsterType;
 
-    void Start()
+    void OnEnable()
     {
-
+        UpdateTxtKeyCount();
+        SetTextBestScore();
     }
 
     public void UpdateTxtKeyCount()
@@ -24,7 +25,6 @@ public class DungeonSlot : MonoBehaviour
     public void SetTextBestScore()
     {
         var score = GlobalData.instance.player.dungeonMonsterClearLevel.GetLeveByDungeonMonType(monsterType);
-         
         txtBestScore.text = $"{score} ´Ü°è";
     }
 

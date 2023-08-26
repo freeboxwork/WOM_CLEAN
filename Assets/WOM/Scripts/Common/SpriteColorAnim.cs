@@ -12,9 +12,11 @@ public class SpriteColorAnim : MonoBehaviour
     public SpriteRenderer sr;
     public AnimationController animController;
 
+    public LightController lightController;
+
     void Start()
     {
-
+        lightController = GameObject.Find("Lights").GetComponent<LightController>();
     }
 
     /// <summary>
@@ -22,13 +24,15 @@ public class SpriteColorAnim : MonoBehaviour
     /// </summary>
     public void ColorChangeAnim()
     {
-        StartCoroutine(animController.SpriteRendereColorAnim(sr, colorNormal, colorChange));
+        //StartCoroutine(animController.SpriteRendereColorAnim(sr, colorNormal, colorChange));
+        lightController.SetLightStateSetup(LightController.LightState.BOSS);
     }
 
     // 원래 컬러로 변경
     public void ColorNormalAnim()
     {
-        StartCoroutine(animController.SpriteRendereColorAnim(sr, colorChange, colorNormal));
+        //StartCoroutine(animController.SpriteRendereColorAnim(sr, colorChange, colorNormal));
+        lightController.SetLightStateSetup(LightController.LightState.NORMAL);
     }
 
 }

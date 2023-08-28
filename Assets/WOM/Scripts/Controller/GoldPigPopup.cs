@@ -57,8 +57,9 @@ public class GoldPigPopup : MonoBehaviour
 
     void UpdateUI()
     {
-        txtRewardAD_Value.text = GetRewardValue(adRewardValue).ToString();
-        txtRewardNormal_Value.text = GetRewardValue(normalRewardValue).ToString();
+        
+        txtRewardAD_Value.text = UtilityMethod.ChangeSymbolNumber(GetRewardValue(adRewardValue).ToString());
+        txtRewardNormal_Value.text = UtilityMethod.ChangeSymbolNumber(GetRewardValue(normalRewardValue).ToString());
         pig.transform.DOScale(0.8f, 1f).SetEase(Ease.InCubic).SetLoops(-1,LoopType.Yoyo);
     }
 

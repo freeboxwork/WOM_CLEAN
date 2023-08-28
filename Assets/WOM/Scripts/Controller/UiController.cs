@@ -171,7 +171,8 @@ public class UiController : MonoBehaviour
         if(value < 0) value = 0;
 
         var txtHP = UtilityMethod.ConvertDoubleToLong(value);
-        txtMonsterHp.text = txtHP.ToString();
+        //txtMonsterHp.text = txtHP.ToString();
+        txtMonsterHp.text = UtilityMethod.ChangeSymbolNumber(txtHP.ToString());
     }
 
     public void SetTxtPhaseCount(int value)
@@ -212,7 +213,7 @@ public class UiController : MonoBehaviour
 
     private IEnumerator SetSliderBgWithDelay(float target, float current)
     {
-        float animationDuration = 0.2f;
+        float animationDuration = 0.3f;
         float startTime = Time.time;
 
         while (Time.time < startTime + animationDuration)

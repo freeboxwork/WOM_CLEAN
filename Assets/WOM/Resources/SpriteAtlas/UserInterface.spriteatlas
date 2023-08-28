@@ -53,7 +53,6 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: e20ee200346f7414cb2bd9e255475cdd, type: 3}
-  - {fileID: 21300000, guid: 5be064009e8197f489fb014653b05d30, type: 3}
   - {fileID: 21300000, guid: 17c5360042407064d95968bde4eb0653, type: 3}
   - {fileID: 21300000, guid: 053bf0206cb7ebc4db712eb29a88700a, type: 3}
   - {fileID: 21300000, guid: 69e90a30e720f4dbe99c8da3c969355b, type: 3}
@@ -147,7 +146,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: f0ef07e86af78e34187e5cd69593b3ce, type: 3}
   - {fileID: 21300000, guid: 475bc94972f8305418c404834561ae28, type: 3}
   - {fileID: 21300000, guid: 7179677902a33ee4e9b5c14e61ac2872, type: 3}
-  - {fileID: 21300000, guid: a0e5f499560bea74ca7f01c2d82a9a9b, type: 3}
   - {fileID: 21300000, guid: 700434a9e124d41e8876c8f931760f73, type: 3}
   - {fileID: 21300000, guid: 6e00e1b93b9f23043a988e066359689e, type: 3}
   - {fileID: 21300000, guid: 417ac4d98b32b3e4d8746e1591f7249f, type: 3}
@@ -165,7 +163,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 0a7c072bbbfe15f45a1806e6a2269c1c, type: 3}
   - {fileID: 21300000, guid: d1def07b59a70aa4098c3266acbc6f0b, type: 3}
   - {fileID: 21300000, guid: 81afdb7ba375c4392875bf182c0a1975, type: 3}
-  - {fileID: 21300000, guid: 2cc3809b3dd64884ca9736f0f479d054, type: 3}
   - {fileID: 21300000, guid: 77f044bb9753f1945afbb5bebb8a6850, type: 3}
   - {fileID: 21300000, guid: d360b8bbe415d394eb2365aad661fe22, type: 3}
   - {fileID: 21300000, guid: 6703720c6d5b76a47bc50dd799691e1e, type: 3}
@@ -214,7 +211,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 7fac4edf4d72ac044af2d0e3f9365771, type: 3}
   m_PackedSpriteNamesToIndex:
   - U_Frame_White
-  - Bar_Hp
   - DNA_insectCriticalChance
   - Icon_Grade_00
   - BattlePass_Icon
@@ -308,7 +304,6 @@ SpriteAtlas:
   - Name_Frame
   - DNA_skillDuration
   - btn_Base_White_Border2
-  - Bar_Hp_Back
   - CheckBox_Check
   - Castle_Lab_Icon
   - Icon_SpawnSpeed
@@ -326,7 +321,6 @@ SpriteAtlas:
   - DNA_insectMoveSpeed
   - 256
   - Shop_Package00
-  - PhaseCountBar
   - Key_Skull
   - btn_Base_RollOver
   - Key_Gold
@@ -359,7 +353,7 @@ SpriteAtlas:
   - Castle
   - Icon_Grade_01
   - DNA_goldMonsterBonus
-  - DNA_BossDamage
+  - DNA_bossDamage
   - U_Frame_Rare
   - DNA_goldPig__
   - Btn_MainButton_Green

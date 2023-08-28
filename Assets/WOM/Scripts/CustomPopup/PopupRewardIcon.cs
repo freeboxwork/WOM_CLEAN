@@ -13,6 +13,12 @@ public class PopupRewardIcon : MonoBehaviour
     {
         Debug.Log(reward.icon);
         icon.sprite = reward.icon;
-        amount.text = UtilityMethod.ChangeSymbolNumber(reward.amount.ToString());
+        if(!reward.type.Equals(EnumDefinition.RewardType.gem))
+        {
+             amount.text = UtilityMethod.ChangeSymbolNumber(reward.amount.ToString());
+             return;
+        }
+             amount.text = reward.amount.ToString();
+
     }
 }

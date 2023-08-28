@@ -19,7 +19,7 @@ public class CampPopup : CastlePopupBase
     public Toggle toggleUnionEffSkip;
     public Toggle toggleUnionRepeatGame;
 
-    public Toggle toggleDnaEffSkip;
+   // public Toggle toggleDnaEffSkip;
     public Toggle toggleDnaRepeatGame;
 
     public LotteryAnimationController lotteryAnimationController;
@@ -45,10 +45,10 @@ public class CampPopup : CastlePopupBase
         });
 
         // DNA
-        toggleDnaEffSkip.onValueChanged.AddListener((isOn) =>
-        {
-            lotteryAnimationController.toggleEffSkip.isOn = isOn;
-        });
+        // toggleDnaEffSkip.onValueChanged.AddListener((isOn) =>
+        // {
+        //     lotteryAnimationController.toggleEffSkip.isOn = isOn;
+        // });
         toggleDnaRepeatGame.onValueChanged.AddListener((isOn) =>
         {
             lotteryAnimationController.toggleRepeatGame.isOn = isOn;
@@ -60,7 +60,7 @@ public class CampPopup : CastlePopupBase
     {
         toggleUnionEffSkip.isOn = false;
         toggleUnionRepeatGame.isOn = false;
-        toggleDnaEffSkip.isOn = false;
+        //toggleDnaEffSkip.isOn = false;
         toggleDnaRepeatGame.isOn = false;
     }
 

@@ -83,8 +83,15 @@ public class DungeonMonster : DungeonMonsterBase
         curMonsterHP = curData.monsterHP;
         stageName = curData.stageName;
 
-        // 레벨업 데이터 저장
-        GlobalData.instance.player.dungeonMonsterClearLevel.SetLevelFromMonsterType(curMonsterData.monsterType, curLevel);
+        var bestLevel = GlobalData.instance.player.dungeonMonsterClearLevel.GetLeveByDungeonMonType(curMonsterData.monsterType);
+        
+        if(curLevel > bestLevel)
+        {
+            // 현재 저장되어 있는 최고 레벨을 돌파하였다면 최대 도전 레벨 데이터 저장
+            GlobalData.instance.player.dungeonMonsterClearLevel.SetLevelFromMonsterType(curMonsterData.monsterType, curLevel);
+        }
+
+
     }
 
     public void DungeonMonsterOut()

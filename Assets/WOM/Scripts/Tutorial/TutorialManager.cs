@@ -65,11 +65,11 @@ public class TutorialManager : MonoBehaviour
         // }
     }
 
-    public bool disableTutorial = false;
+    //public bool disableTutorial = false;
 
     public void TutorialStart()
     {
-        if (disableTutorial) return;
+        //if (disableTutorial) return;
 
         // max check
         if (IsTutorialAllComplete() == false)
@@ -99,8 +99,9 @@ public class TutorialManager : MonoBehaviour
         SetData();
         isTutorial = !IsTutorialAllComplete();
 
-        if (disableTutorial)
-            isTutorial = false;
+
+        // if (disableTutorial)
+        //     isTutorial = false;
 
         yield return null;
     }

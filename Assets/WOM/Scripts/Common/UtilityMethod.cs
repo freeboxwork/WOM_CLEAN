@@ -170,7 +170,8 @@ public static class UtilityMethod
     ///<summary> 진화 주사위 사용 개수 </summary>
     public static int GetEvolutionDiceUsingCount()
     {
-        return 10 + (10 * GetUnLockCount());
+        //return 10 + (10 * GetUnLockCount());
+        return 10 * GetUnLockCount();
     }
 
     static int GetUnLockCount()

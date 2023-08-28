@@ -26,7 +26,8 @@ public class DungeonPopup : MonoBehaviour
 
     public void SetDungeonPopup(EnumDefinition.GoodsType goodsType, long reward)
     {
-        txtRewardAmount.text = string.Format("{0}", reward);//??? ????
+        
+        txtRewardAmount.text = UtilityMethod.ChangeSymbolNumber(reward.ToString());
         imageCurrencyIcon.sprite = goodsToIconMap[goodsType];//???? ????? ?????? ????
     }
 

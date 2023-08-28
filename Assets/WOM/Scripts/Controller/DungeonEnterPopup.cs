@@ -30,7 +30,7 @@ public class DungeonEnterPopup : MonoBehaviour
 
     // 소탕권 관련
     int curLevel;
-    public int clearTicketCount = 2;
+    int clearTicketCount = 1;
     DungeonMonsterData curDungeonMonData;
     Dictionary<MonsterType, UnityAction<long>> addRewardMap;
 

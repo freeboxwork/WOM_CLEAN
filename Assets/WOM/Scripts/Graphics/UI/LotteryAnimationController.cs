@@ -30,6 +30,8 @@ namespace ProjectGraphics
         public Toggle toggleEffSkip;
         public Toggle toggleRepeatGame;
 
+        public GameObject skipEffButton;
+
         [SerializeField] new AudioSource audio;
 
 
@@ -55,6 +57,9 @@ namespace ProjectGraphics
             //         toggles[s].isOn = campPopup.togglesDNA[s].isOn;
             //     }
             // }
+
+
+
         }
 
 
@@ -88,6 +93,8 @@ namespace ProjectGraphics
             // if (toggles[0].isOn || toggles[1].isOn) isSkip = true;
             // else isSkip = false;
 
+            skipEffButton.SetActive(true);
+
             isEnd = false;
             isUnion = true;         //유니온인지 아닌지
 
@@ -119,6 +126,7 @@ namespace ProjectGraphics
         {
             // if (toggles[0].isOn || toggles[1].isOn) isSkipDNA = true;
             // else isSkipDNA = false;
+            skipEffButton.SetActive(false);
 
             isEnd = false;
             isUnion = false;            //유니온인지 아닌지

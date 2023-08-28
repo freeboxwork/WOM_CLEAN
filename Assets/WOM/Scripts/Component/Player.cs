@@ -349,7 +349,7 @@ public class Player : MonoBehaviour
     {
         dnaTicket -= value;
         if (dnaTicket < 0) dnaTicket = 0;
-        //GlobalData.instance.uiController.SetTxtDnaTicket(dnaTicket, 0); // RELOAD UI
+        GlobalData.instance.uiController.SetTxtDnaTicket(dnaTicket); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsDnaTicket(dnaTicket); // set save data
 
         // button interactable check    
@@ -459,7 +459,7 @@ public class Player : MonoBehaviour
     public void AddDungeonADKey(GoodsType goodsType, long addKeyCount)
     {
         dungeonADKeys[goodsType] += addKeyCount;
-        if (dungeonADKeys[goodsType] > 2) dungeonADKeys[goodsType] = 2; // 던전 키 최대 보유수 2개 제한
+        if (dungeonADKeys[goodsType] > 1) dungeonADKeys[goodsType] = 1; // 던전 키 최대 보유수 1개 제한
         // RELOAD UI
         // ...
 

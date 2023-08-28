@@ -195,6 +195,7 @@ public class GoldPigController : MonoBehaviour
         else
         {
             Debug.Log("확률에 따라 골드피그 등장하지 않음");
+            EnableGoldPig();
         }
 
     }

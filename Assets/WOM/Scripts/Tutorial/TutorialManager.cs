@@ -97,8 +97,19 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         SetData();
-        isTutorial = !IsTutorialAllComplete();
 
+
+        //isTutorial = !IsTutorialAllComplete();
+
+        // max check
+        if (IsTutorialAllComplete() == false)
+        {
+            isTutorial = true;
+        }
+        else
+        {
+            isTutorial = false;
+        }
 
         // if (disableTutorial)
         //     isTutorial = false;

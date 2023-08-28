@@ -87,6 +87,10 @@ public class SkillBtn : MonoBehaviour
         float totalCoolTime = data.coolTime - GlobalData.instance.statManager.SkillCoolTime();
         //기본 스킬 [지속시간] - DNA [지속시간] 감소 적용
         var skillDuration = data.duaration + GlobalData.instance.statManager.SkillDuration();
+
+        Debug.Log("재사용 시간 : "+data.coolTime);
+        Debug.Log("재지속시간 : "+data.duaration);
+        
         //animDataUsingSkill.animDuration = data.duaration;
         //스킬 지속시간 타이머
         animDataUsingSkill.animDuration = skillDuration;
@@ -96,7 +100,6 @@ public class SkillBtn : MonoBehaviour
         //Debug.Log("스킬 애니메이션 시간 :  " + skillDuration);
         if (skillReady == true)
         {
-            Debug.Log("스킬이 준비됨");
             btnSkill.enabled = false;
             skillReady = false;
 
@@ -168,6 +171,7 @@ public class SkillBtn : MonoBehaviour
                 yield return null;
             }
 
+            Debug.Log("스킬 재사용 대기 시간 종료");
             GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, 0);
             GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, false);
 
@@ -224,6 +228,7 @@ public class SkillBtn : MonoBehaviour
     //캐슬을 갔다온 후 스킬의 지속시간이 아직 남아 있다면
     IEnumerator ReloadStillUseingSkill_Cor()
     {
+        Debug.Log("캐슬에서 빠져나와 스킬 지속시간이 남아 있음");
 
         //StartCoroutine(animCont.UI_TextAnim(txtTimeAnim, skillLeftTime, 0));
         StartCoroutine(animCont.UI_TextAnim_Reload(txtTimeAnim, skillLeftTime, 0, skillLeftTime));
@@ -280,7 +285,7 @@ public class SkillBtn : MonoBehaviour
     {
         yield return null;
 
-        Debug.Log("아직 재사용 대기시간입니다. coolTimeWait:" + coolTimeWait);
+        Debug.Log("캐슬에서 빠져나와 아직 재사용 대기시간입니다. coolTimeWait:" + coolTimeWait);
         // [재사용 대기 시간]  UI Update
         txtTime.enabled = true;
         StartCoroutine(animCont.UI_TextAnim_Reload(txtTime, coolTimeWait, 0, coolTimeWait));

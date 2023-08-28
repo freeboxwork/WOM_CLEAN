@@ -62,6 +62,8 @@ public class SaveDataManager : MonoBehaviour
 
     void OnApplicationPause(bool pauseStatus)
     {
+        AudioSettings.Reset(AudioSettings.GetConfiguration());
+
         if (pauseStatus)
         {
             // 게임이 일시 중지될 때 

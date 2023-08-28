@@ -178,12 +178,13 @@ public class SkillManager : MonoBehaviour
 
         if (isPaySkill)
         {
+
             // 구매
             GlobalData.instance.player.PayGold((int)skillPrice);
             Debug.Log($" {skillData.name} 스킬을 구매 하였습니다.");
-
             // 레벨업
-            ++inGameData.level;
+            inGameData.level++;
+
             skillData = GetSkillData(skillType, inGameData.level);
 
             var slot = GetSkillSlotByType(skillType);

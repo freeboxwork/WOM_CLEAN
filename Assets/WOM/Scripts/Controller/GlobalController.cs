@@ -197,7 +197,5 @@ public class GlobalController : MonoBehaviour
         uiController.SetSliderPhaseValue(phaseCount);
     }
 
-
-
-
+  
 }

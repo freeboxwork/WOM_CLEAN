@@ -10,6 +10,8 @@ public class ButtonInteractableCheck : MonoBehaviour
     public int enableCount;
     public Button btn;
 
+    [SerializeField] Sprite enableSprite;
+    [SerializeField] Sprite disableSprite;
 
     void Start()
     {
@@ -20,21 +22,35 @@ public class ButtonInteractableCheck : MonoBehaviour
         }
     }
 
-    void OnEnable()
-    {
-        if (btn != null)
-            InteractableCheck();
-    }
-
     public void InteractableCheck()
     {
         if (btn != null)
-            btn.interactable = IsEnable();
+        {
+            if(IsEnable())
+            {
+                btn.image.sprite = enableSprite;
+            }
+            else
+            {
+                btn.image.sprite = disableSprite;
+            }
+        }
     }
 
     bool IsEnable()
     {
-        return enableCount <= GlobalData.instance.player.GetGoodsByRewardType(type);
+        var checkNull = GlobalData.instance.player;
+
+        if (checkNull != null)
+        {
+            if(enableCount <= GlobalData.instance.player.GetGoodsByRewardType(type))
+            {
+                return true;
+            }
+        }
+
+        return false;
+
     }
 
 }

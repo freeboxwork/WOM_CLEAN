@@ -1373,7 +1373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.30588236, g: 0.8156863, b: 0.023529412, a: 1}
+  m_Color: {r: 0.37981698, g: 0.4056604, b: 0.36547706, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1634,3 +1634,5 @@ MonoBehaviour:
   - {fileID: 0}
   imgBlockImage: {fileID: 2888349190861412239}
   btnReward: {fileID: 2359792550483457377}
+  enableColor: {r: 0.30588236, g: 0.8156863, b: 0.023529412, a: 1}
+  disableColor: {r: 0.38039216, g: 0.40784314, b: 0.36862746, a: 1}

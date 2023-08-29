@@ -108,7 +108,7 @@ public class UnionManager : MonoBehaviour
             slot.SetUITxtUnionCount();
             slot.SetUITxtUnionEquipState();
             slot.SetUITxtGrade();
-            if (slot.inGameData.unionCount > 0)
+            if (slot.inGameData.unionCount > 0 || slot.inGameData.level > 0)
                 slot.EnableSlot();
 
             // equip slot
@@ -272,6 +272,7 @@ public class UnionManager : MonoBehaviour
             AddUnion(id);
         }
 
+        SetTxtTotalPassiveDamage();
         // 전체 강화 버튼 활성, 비활성화
         EnableBtnTotalLevelUp();
     }
@@ -307,8 +308,8 @@ public class UnionManager : MonoBehaviour
         if (nextLevel > maxLevel)
             return 0;
 
-        //var passiveDamage = slot.unionData.passiveDamage + ((nextLevel) * slot.unionData.addPassiveDamage);
-        var passiveDamage = (nextLevel) * slot.unionData.addPassiveDamage;
+        //var passiveDamage = slot.unionData.passiveDamage + (nextLevel * slot.unionData.addPassiveDamage);
+        var passiveDamage = slot.unionData.addPassiveDamage;
         return passiveDamage;
     }
 
@@ -359,7 +360,7 @@ public class UnionManager : MonoBehaviour
     {
         for (int i = 0; i < unionSlots.Count; i++)
         {
-            var slot = unionSlots[i];
+            var slot = unionSlots[i]; 
             while (IsValidLevelUpCount(slot))
             {
                 LevelUpUnion(slot);
@@ -368,13 +369,26 @@ public class UnionManager : MonoBehaviour
             //    LevelUpUnion(slot);
         }
     }
+    
+    public float GetAllUnionPassiveDamage()
+    {
+        float totalPassiveValue = 0f;
 
+        for(int i = 0; i < unionSlots.Count; i++)
+        {
+            if (unionSlots[i].inGameData.unionCount > 0 || unionSlots[i].inGameData.level > 0)
+            {
+                totalPassiveValue += unionSlots[i].inGameData.passiveDamage;
+            }
+        }
+        return totalPassiveValue;
+        //Debug.Log("totalPassiveValue : "+totalPassiveValue);
+    }
     public void SetTxtTotalPassiveDamage()
     {
         var txtValue = $"전체 추가 공격력 : {GetAllUnionPassiveDamage()}%";
         UtilityMethod.SetTxtCustomTypeByID(80, txtValue);
     }
-
     /// <summary> 유니온 슬롯중 강화가 가능한 슬롯이 하나라도 있다면 전체 강화 버튼 활성화 없다면 비활성화 </summary>
     public void EnableBtnTotalLevelUp()
     {
@@ -384,19 +398,6 @@ public class UnionManager : MonoBehaviour
     {
         return unionSlots.Any(a => IsValidLevelUpCount(a));
     }
-
-    public float GetAllUnionPassiveDamage()
-    {
-        float totalPassiveValue = 0f;
-
-        foreach (var slot in unionSlots)
-        {
-            if (slot.inGameData.unionCount > 0)
-                totalPassiveValue += slot.inGameData.passiveDamage;
-        }
-        return totalPassiveValue;
-    }
-
     public void AllDisableEquipSlotHighlightEff()
     {
         foreach (var equipSlot in unionEquipSlots)

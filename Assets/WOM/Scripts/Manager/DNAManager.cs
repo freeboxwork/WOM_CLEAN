@@ -124,7 +124,7 @@ public class DNAManager : MonoBehaviour
         while (lotteryAnimCont.toggleRepeatGame.isOn)
         {
             yield return StartCoroutine(LotteryStart(roundCount, payValue, rewardType));
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
     // DNA 뽑기
@@ -133,7 +133,6 @@ public class DNAManager : MonoBehaviour
         if (IsValidGemCount(payValue, rewardType))
         {
             isGambling = true;
-
 
             if (rewardType == EnumDefinition.RewardType.dnaTicket)
             {
@@ -184,6 +183,7 @@ public class DNAManager : MonoBehaviour
 
             // 연출 등장
             lotteryAnimCont.gameObject.SetActive(true);
+            EnableLotteryBtnsSet(EnumDefinition.LotteryPageType.DNA);
 
             yield return new WaitForEndOfFrame();
 
@@ -195,7 +195,7 @@ public class DNAManager : MonoBehaviour
 
             // 뽑기버튼 비활성화
             EnableValidButtons();
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.2f);
 
         }
         else
@@ -212,6 +212,12 @@ public class DNAManager : MonoBehaviour
         isGambling = false;
     }
 
+    void EnableLotteryBtnsSet(EnumDefinition.LotteryPageType lotteryPageType)
+    {
+        var unionPage = lotteryPageType == EnumDefinition.LotteryPageType.UNION;
+        UtilityMethod.GetCustomTypeGMById(8).SetActive(unionPage);
+        UtilityMethod.GetCustomTypeGMById(9).SetActive(!unionPage);
+    }
     public void SetCustomLevel(EnumDefinition.DNAType type, int level)
     {
         var slot = GetSlotByDNAType(type);

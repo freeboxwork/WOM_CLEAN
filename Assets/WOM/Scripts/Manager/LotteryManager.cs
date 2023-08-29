@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using ProjectGraphics;
 using System.Linq;
+using Unity.Mathematics;
 /// <summary>
 /// 유니온 뽑기 , 진화 주사위 뽑기
 /// </summary>
@@ -14,21 +15,12 @@ public class LotteryManager : MonoBehaviour
     public UnionGambleData curGambleData;
     public SummonGradeData curSummonGradeData;
     public Transform trCardsParent;
-    public int cardsBirthCount = 50; // 풀링으로 사용할 카드 이미지 - 50회 연속 뽑기 기능으로 최초 50개 생성
-
     public LotteryCard prefabLotteryCard;
     public List<LotteryCard> lotteryCards = new List<LotteryCard>();
     public float cardOpenDeayTime = 0.2f;
 
     public LotteryAnimationController lotteryAnimationController;
-
-    //// 테스트 용도 데이터
-    //string[] unionNameNormal = { "normal-1", "normal-2", "normal-3", "normal-4", "normal-5", "normal-6", "normal-7", "normal-8" };
-    //string[] unionNameHigh = { "high-1", "high-2", "high-3", "high-4", "high-5", "high-6", "high-7", "high-8" };
-    //string[] unionNameRare = { "rare-1", "rare-2", "rare-3", "rare-4", "rare-5", "rare-6", "rare-7", "rare-8" };
-    //string[] unionNameHero = { "hero-1", "hero-2", "hero-3", "hero-4", "hero-5", "hero-6", "hero-7", "hero-8" };
-    //string[] unionNameLegend = { "legend-1", "legend-2", "legend-3", "legend-4", "legend-5", "legend-6", "legend-7", "legend-8" };
-    //string[] unionNameUnique = { "unique-1", "unique-2", "unique-3", "unique-4", "unique-5", "unique-6", "unique-7", "unique-8" };
+    EnumDefinition.LotteryPageType curLotteryPageType;
 
     public List<Sprite> unionFaceNormal = new List<Sprite>();
     public List<Sprite> unionFaceHigh = new List<Sprite>();
@@ -58,7 +50,7 @@ public class LotteryManager : MonoBehaviour
     // union gamble 새로 만듦....
     public int totalGambleCount = 0; // 현재 레벨에서 전체 뽑기 수 ( 레벨 올라가면 초기화)
     public int summonGradeLevel = 0; // 뽑기 등급 레벨
-                                     // public int totalGamblePlayCount = 0; // 게임 전체 뽑기 수 ( 리워드 획득시 해당 레벨 count 만큼 차감 )
+     // public int totalGamblePlayCount = 0; // 게임 전체 뽑기 수 ( 리워드 획득시 해당 레벨 count 만큼 차감 )
 
     void Start()
     {
@@ -75,19 +67,6 @@ public class LotteryManager : MonoBehaviour
         unionFaceDatas.Add(unionFaceLegend);
         unionFaceDatas.Add(unionFaceUnique);
     }
-
-    //// 테스트 용도
-    //void SetUnionNmaeData()
-    //{
-    //    unionNameData = new string[6][];
-    //    unionNameData[0] = unionNameNormal;
-    //    unionNameData[1] = unionNameHigh;
-    //    unionNameData[2] = unionNameRare;
-    //    unionNameData[3] = unionNameHero;
-    //    unionNameData[4] = unionNameLegend;
-    //    unionNameData[5] = unionNameUnique;
-    //}
-
 
     // Update is called once per frame
     void Update()
@@ -131,35 +110,13 @@ public class LotteryManager : MonoBehaviour
         summonGradeLevel = data.summonGradeLevel;
         totalGambleCount = data.totalGambleCount;
 
-        // // 저장된 데이터 세팅
-        // if (data.rewaedUnionIds.Count > 0)
-        // {
-        //     foreach (var id in data.rewaedUnionIds)
-        //         GlobalData.instance.rewardManager.unionRewardQueue.Enqueue(id);
-        // }
-
-
         // set ui
         PopupUIUpdate();
-
-
         SetSummonGradeData(GlobalData.instance.dataManager.GetSummonGradeDataByLevel(summonGradeLevel));
         SetGambleData(GlobalData.instance.dataManager.GetUnionGambleDataBySummonGrade(summonGradeLevel));
         randomGradeValues = GetRandomArrayValue();
         //CreateCards();
         yield return null;
-    }
-
-    // 풀링으로 사용할 카드 생성
-    void CreateCards()
-    {
-        for (int i = 0; i < cardsBirthCount; i++)
-        {
-            var card = Instantiate(prefabLotteryCard, trCardsParent);
-            card.SetTxtName("name");
-            card.gameObject.SetActive(false);
-            lotteryCards.Add(card);
-        }
     }
 
     public void LotteryStart(int roundCount, int payValue, UnityAction gameEndEvent, EnumDefinition.RewardType rewardType)
@@ -181,12 +138,13 @@ public class LotteryManager : MonoBehaviour
 
     public IEnumerator CardOpen(int roundCount, int payValue, UnityAction gameEndEvent, EnumDefinition.RewardType rewardType)
     {
+        //보석이 충분한지 체크
         if (IsValidGemCount(payValue, rewardType))
         {
 
             if (rewardType == EnumDefinition.RewardType.unionTicket)
             {
-                // pay union ticket
+                //유니온 티켓 차감
                 GlobalData.instance.player.PayUnionTicket(payValue);
             }
             else
@@ -241,9 +199,9 @@ public class LotteryManager : MonoBehaviour
                 PopupUIUpdate();
             }
 
-            Debug.Log("뽑기 진행 수 : " + curLotteryCount);
+            //Debug.Log("뽑기 진행 수 : " + curLotteryCount);
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(0.5f);
 
             //연속 뽑기중이 아닐때만 버튼 활성화
             if (!lotteryAnimationController.toggleRepeatGame.isOn)
@@ -340,6 +298,7 @@ public class LotteryManager : MonoBehaviour
                 continue;
             }
 
+            //유니온
             var unionType = openedUnionTypeCards[i];
             var faceIndex = GetRandomFaceIndex();
             var unionIdex = GetUnionIndex(unionType, faceIndex);
@@ -349,14 +308,22 @@ public class LotteryManager : MonoBehaviour
 
 
         lotteryAnimationController.gameObject.SetActive(true);
+        EnableLotteryBtnsSet(EnumDefinition.LotteryPageType.UNION);
         lotteryAnimationController.StartLotteryAnimation();
         yield return StartCoroutine(lotteryAnimationController.ShowUnionSlotCardOpenProcess(unionIndexList.ToArray()));
         GlobalData.instance.unionManager.AddUnions(unionIndexList);
     }
 
+    void EnableLotteryBtnsSet(EnumDefinition.LotteryPageType lotteryPageType)
+    {
+        var unionPage = lotteryPageType == EnumDefinition.LotteryPageType.UNION;
+        UtilityMethod.GetCustomTypeGMById(8).SetActive(unionPage);
+        UtilityMethod.GetCustomTypeGMById(9).SetActive(!unionPage);
+    }
+
     int GetRandomFaceIndex()
     {
-        return Random.Range(0, 7);
+        return UnityEngine.Random.Range(0, 8);
     }
 
     int GetUnionIndex(EnumDefinition.UnionGradeType unionGradeType, int faceIndex)

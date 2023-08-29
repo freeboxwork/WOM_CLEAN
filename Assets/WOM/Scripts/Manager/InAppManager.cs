@@ -119,6 +119,7 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
         builder.AddProduct(ProductTYPE.dungeonpackage.ToString(), ProductType.NonConsumable);
         builder.AddProduct(ProductTYPE.battlepass.ToString(), ProductType.NonConsumable);
 
+
         // Unity IAP 초기화
         UnityPurchasing.Initialize(this, builder);
     }
@@ -327,29 +328,29 @@ public class InAppManager : MonoBehaviour, IStoreListener, IDetailedStoreListene
        switch(product)
        {
             case ProductTYPE.starterrpackage:
-            productGameObject[(int)(ProductTYPE.starterrpackage -8)].SetActive(false);
+            productGameObject[(int)(ProductTYPE.starterrpackage -8)].SetActive(true);
             break;    
             case ProductTYPE.adbuffpass: 
-            productGameObject[(int)(ProductTYPE.adbuffpass-8)].SetActive(false);
+            productGameObject[(int)(ProductTYPE.adbuffpass-8)].SetActive(true);
 
             break;
             case ProductTYPE.dungeonpackage:
-            productGameObject[(int)(ProductTYPE.dungeonpackage-8)].SetActive(false);
+            productGameObject[(int)(ProductTYPE.dungeonpackage-8)].SetActive(true);
 
             break;    
             case ProductTYPE.fastestpackage:
-            productGameObject[(int)(ProductTYPE.fastestpackage-8)].SetActive(false);
+            productGameObject[(int)(ProductTYPE.fastestpackage-8)].SetActive(true);
 
             break;    
             case ProductTYPE.battlepass:
-            productGameObject[(int)(ProductTYPE.battlepass-8)].SetActive(false);
+            productGameObject[(int)(ProductTYPE.battlepass-8)].SetActive(true);
 
             break;    
             default:break;
        }
+
+
     }
-
-
 }
 
 

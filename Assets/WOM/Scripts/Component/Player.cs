@@ -116,6 +116,22 @@ public class Player : MonoBehaviour
     }
 
 
+    
+    //재화가 충분한지 체크
+    public bool IsEnoughRewardGoods(EnumDefinition.RewardType type, int payCount)
+    {
+        if(GetGoodsByRewardType(type) >= payCount)
+        {
+            return true;
+        }
+        else
+        {
+            // message popup (보석이 부족합니다)
+            //GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("Message", 3);
+            return false;
+        }
+    }
+
 
 
     // int GetGold()

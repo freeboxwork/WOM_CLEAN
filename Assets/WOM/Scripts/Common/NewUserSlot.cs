@@ -12,6 +12,8 @@ public class NewUserSlot : MonoBehaviour
 
     NewUserData newUserData;
 
+    [SerializeField] Color enableColor;
+    [SerializeField] Color disableColor;
 
     private void Start()
     {
@@ -73,6 +75,7 @@ public class NewUserSlot : MonoBehaviour
     {
         btnReward.onClick.AddListener(() =>
         {
+            if(NotUsingReward() == false) return;
             // 보상 지급
             EventManager.instance.RunEvent<string[], int[]>(CallBackEventType.TYPES.OnUsingRewardNewUserEvent, newUserData.GetRewardTypes(), newUserData.GetRewardValues());
             PlayerPrefs.SetInt(GetKey(), 1);
@@ -111,7 +114,10 @@ public class NewUserSlot : MonoBehaviour
     // btn_reward 의interactable 를 설정합니다.
     public void SetBtnRewardInteractable(bool isActive)
     {
-        btnReward.interactable = isActive;
+        if(isActive)
+            btnReward.image.color = enableColor;
+        else
+            btnReward.image.color = disableColor;
     }
 
 

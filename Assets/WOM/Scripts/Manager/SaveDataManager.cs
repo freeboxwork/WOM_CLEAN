@@ -17,7 +17,7 @@ public class SaveDataManager : MonoBehaviour
     void Start()
     {
         globalData = FindObjectOfType<GlobalData>();
-
+        
     }
 
 
@@ -62,7 +62,7 @@ public class SaveDataManager : MonoBehaviour
 
     void OnApplicationPause(bool pauseStatus)
     {
-        AudioSettings.Reset(AudioSettings.GetConfiguration());
+        //AudioSettings.Reset(AudioSettings.GetConfiguration());
 
         if (pauseStatus)
         {

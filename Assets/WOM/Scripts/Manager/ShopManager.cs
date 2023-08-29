@@ -8,11 +8,13 @@ public class ShopManager : MonoBehaviour
 {
     public List<ShopSlot> shopSlots = new List<ShopSlot>();
     public List<ShopKeyProductSlot> shopKeyProductSlots = new List<ShopKeyProductSlot>();
-    LotteryPageType curLotteryPageType;
-    void Start()
-    {
 
-    }
+    int lotteryCost1 = 100;    //유니온 1회 뽑기 비용
+    int lotteryCost11 = 1000;    //유니온 10회 뽑기 비용
+    int lotteryCostTicket1 = 1;    //티켓 1회 뽑기 비용
+    int lotteryCostTicket10 = 10;//티켓 10회 뽑기 비용
+    int lotteryCount10 = 11;    //10회당 뽑을 수 있는 횟수
+    int lotteryCount1 = 1;    //1회당 뽑을 수 있는 횟수
 
 
     public IEnumerator Init()
@@ -57,63 +59,77 @@ public class ShopManager : MonoBehaviour
         // UNION 1 ( 34 ) -> gem 사용
         UtilityMethod.SetBtnEventCustomTypeByID(34, () =>
         {
-            // 유니온 뽑기 버튼 셋트 활성화
-            EnableLotteryBtnsSet(LotteryPageType.UNION);
+            if (GlobalData.instance.player.IsEnoughRewardGoods(RewardType.gem, lotteryCost1) == false) return;
+            //보석 차감
+            //GlobalData.instance.player.PayGem(lotteryCost1);
             // 뽑기 1회 시작
-            GlobalData.instance.evolutionManager.UnionLotteryGameStart(1, 100, EnumDefinition.RewardType.gem);
+            GlobalData.instance.evolutionManager.UnionLotteryGameStart(lotteryCount1, lotteryCost1, EnumDefinition.RewardType.gem);
 
         });
 
         // UNION 11 -> gem 사용
         UtilityMethod.SetBtnEventCustomTypeByID(35, () =>
         {
-            EnableLotteryBtnsSet(LotteryPageType.UNION);
-            GlobalData.instance.evolutionManager.UnionLotteryGameStart(11, 1000, EnumDefinition.RewardType.gem);
+            if (GlobalData.instance.player.IsEnoughRewardGoods(RewardType.gem, lotteryCost11) == false) return;
+            //보석 차감
+            //GlobalData.instance.player.PayGem(lotteryCost11);
+            GlobalData.instance.evolutionManager.UnionLotteryGameStart(lotteryCount10, lotteryCost11, EnumDefinition.RewardType.gem);
         });
 
 
         // // UNION 1 -> unionTicket 사용
         UtilityMethod.SetBtnEventCustomTypeByID(70, () =>
         {
-            Debug.Log("UNION 1 -> unionTicket 사용");
-            EnableLotteryBtnsSet(LotteryPageType.UNION);
-            GlobalData.instance.evolutionManager.UnionLotteryGameStart(1, 1, EnumDefinition.RewardType.unionTicket);
+            if (GlobalData.instance.player.IsEnoughRewardGoods(RewardType.unionTicket, lotteryCostTicket1) == false) return;
+            //GlobalData.instance.player.PayUnionTicket(lotteryCostTicket1);
+
+            GlobalData.instance.evolutionManager.UnionLotteryGameStart(lotteryCount1, lotteryCostTicket1, EnumDefinition.RewardType.unionTicket);
         });
 
         // UNION 11 -> unionTicket 사용
         UtilityMethod.SetBtnEventCustomTypeByID(71, () =>
         {
-            EnableLotteryBtnsSet(LotteryPageType.UNION);
-            GlobalData.instance.evolutionManager.UnionLotteryGameStart(11, 10, EnumDefinition.RewardType.unionTicket);
+            if (GlobalData.instance.player.IsEnoughRewardGoods(RewardType.unionTicket, lotteryCostTicket10) == false) return;
+            //GlobalData.instance.player.PayUnionTicket(lotteryCostTicket10);
+
+            GlobalData.instance.evolutionManager.UnionLotteryGameStart(lotteryCount10, lotteryCostTicket10, EnumDefinition.RewardType.unionTicket);
         });
 
 
         // DNA 1
         UtilityMethod.SetBtnEventCustomTypeByID(36, () =>
         {
-            EnableLotteryBtnsSet(LotteryPageType.DNA);
-            GlobalData.instance.dnaManger.DNALotteryGameStart(1, 100, EnumDefinition.RewardType.gem);
+            if (GlobalData.instance.player.IsEnoughRewardGoods(RewardType.gem, lotteryCost1) == false) return;
+            //GlobalData.instance.player.PayGem(lotteryCost1);
+
+            GlobalData.instance.dnaManger.DNALotteryGameStart(lotteryCount1, lotteryCost1, EnumDefinition.RewardType.gem);
         });
 
         // DNA 11
         UtilityMethod.SetBtnEventCustomTypeByID(37, () =>
         {
-            EnableLotteryBtnsSet(LotteryPageType.DNA);
-            GlobalData.instance.dnaManger.DNALotteryGameStart(11, 1000, EnumDefinition.RewardType.gem);
+            if (GlobalData.instance.player.IsEnoughRewardGoods(RewardType.gem, lotteryCost11) == false) return;
+            //GlobalData.instance.player.PayGem(lotteryCost11);
+
+            GlobalData.instance.dnaManger.DNALotteryGameStart(lotteryCount10, lotteryCost11, EnumDefinition.RewardType.gem);
         });
 
         // DNA 1 -> dnaTicket 사용
         UtilityMethod.SetBtnEventCustomTypeByID(72, () =>
         {
-            EnableLotteryBtnsSet(LotteryPageType.DNA);
-            GlobalData.instance.dnaManger.DNALotteryGameStart(1, 1, EnumDefinition.RewardType.dnaTicket);
+            if (GlobalData.instance.player.IsEnoughRewardGoods(RewardType.dnaTicket, lotteryCostTicket1) == false) return;
+            //GlobalData.instance.player.PayDnaTicket(lotteryCostTicket1);
+
+            GlobalData.instance.dnaManger.DNALotteryGameStart(lotteryCount1, lotteryCostTicket1, EnumDefinition.RewardType.dnaTicket);
         });
 
         // DNA 11 -> dnaTicket 사용
         UtilityMethod.SetBtnEventCustomTypeByID(73, () =>
         {
-            EnableLotteryBtnsSet(LotteryPageType.DNA);
-            GlobalData.instance.dnaManger.DNALotteryGameStart(11, 10, EnumDefinition.RewardType.dnaTicket);
+            if (GlobalData.instance.player.IsEnoughRewardGoods(RewardType.dnaTicket, lotteryCostTicket10) == false) return;
+            //GlobalData.instance.player.PayDnaTicket(lotteryCostTicket10);
+
+            GlobalData.instance.dnaManger.DNALotteryGameStart(lotteryCount10, lotteryCostTicket10, EnumDefinition.RewardType.dnaTicket);
         });
 
         // FREE GEM 1
@@ -137,12 +153,6 @@ public class ShopManager : MonoBehaviour
         return shopSlots.FirstOrDefault(f => f.shopSlotType == type);
     }
 
-    void EnableLotteryBtnsSet(LotteryPageType lotteryPageType)
-    {
-        var unionPage = lotteryPageType == EnumDefinition.LotteryPageType.UNION;
-        UtilityMethod.GetCustomTypeGMById(8).SetActive(unionPage);
-        UtilityMethod.GetCustomTypeGMById(9).SetActive(!unionPage);
-    }
 
 
 }

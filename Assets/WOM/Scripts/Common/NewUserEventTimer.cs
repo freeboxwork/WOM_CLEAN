@@ -90,7 +90,7 @@ public class NewUserEventTimer : MonoBehaviour
         }
 
         unLockCount = PlayerPrefs.GetInt(UNLOCKED_COUNT_KEY);
-        Debug.Log("count : " + unLockCount);
+        //Debug.Log("count : " + unLockCount);
     }
 
     bool HasLastDate()

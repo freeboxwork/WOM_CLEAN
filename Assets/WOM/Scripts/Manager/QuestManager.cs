@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static EnumDefinition;
 using System.Linq;
-
-
+using Unity.VisualScripting;
 
 public class QuestManager : MonoBehaviour
 {
@@ -183,21 +182,22 @@ public class QuestManager : MonoBehaviour
             slot.SetUI(clonData, unLockCount);
         }
 
-
-        var NotAllUsingReward = newUserEventPopup.newUserSlots.Any(x => x.HasRewardKey() == false);
-        // 보상이 남아 있는 경우
-        if (NotAllUsingReward)
+        bool NotAllUsingReward = false;
+        //패널이 잠겨있지 않고 보상을 받을수 있는 상태인지 체크
+        foreach (var v in newUserEventPopup.newUserSlots)
         {
-            newUserEventPopup.EnablePopup(true);
-        }
-        // 모든 보상을 받은 경우
-        else
-        {
-            newUserEventPopup.EnablePopup(false);
-            // 신규 유저 보상 팝업 현재는 테스트 용도로 남겨줌.
-            btn_showNewUserEventPopup.gameObject.SetActive(false);
+            if (v.isLock == false && v.HasRewardKey() == false)
+            {
+                NotAllUsingReward = true;
+                break;
+            }
         }
 
+        newUserEventPopup.EnablePopup(NotAllUsingReward);
+
+        //더이상 보상받을 것이 없다면 버튼을 비활성화 한다.
+        var clearAll = newUserEventPopup.newUserSlots.Any(x => x.HasRewardKey() == false);
+        if(!clearAll) btn_showNewUserEventPopup.gameObject.SetActive(false);
 
     }
 

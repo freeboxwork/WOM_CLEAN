@@ -206,9 +206,6 @@ public class InsectManager : MonoBehaviour
         if (insectType == InsectType.union)
         {
             damage = statManager.GetUnionDamage(unionIndex);
-            //talentDamage = statManager.GetUnionTalentDamage(unionIndex);
-            //damage += talentDamage;
-
         }
         else
         {

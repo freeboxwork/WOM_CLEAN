@@ -1,5 +1,4 @@
-{
-   "data":[
+{"data":[
  {
    "dataId": 0,
    "depthId": 0,
@@ -13,7 +12,7 @@
    "bossDamage": 0,
    "name": "Bee00",
    "grade": "D",
-   "spawnTime": 1
+   "spawnTime": 7
  },
  {
    "dataId": 1,
@@ -28,7 +27,7 @@
    "bossDamage": 0,
    "name": "Bee01",
    "grade": "C",
-   "spawnTime": 1
+   "spawnTime": 7
  },
  {
    "dataId": 2,
@@ -43,7 +42,7 @@
    "bossDamage": 0,
    "name": "Bee02",
    "grade": "B",
-   "spawnTime": 1
+   "spawnTime": 7
  },
  {
    "dataId": 3,
@@ -58,7 +57,7 @@
    "bossDamage": 0,
    "name": "Bee03",
    "grade": "A",
-   "spawnTime": 1
+   "spawnTime": 7
  },
  {
    "dataId": 4,
@@ -73,7 +72,7 @@
    "bossDamage": 0,
    "name": "Bee04",
    "grade": "S",
-   "spawnTime": 1
+   "spawnTime": 7
  }
 ]
 }

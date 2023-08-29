@@ -88,8 +88,8 @@ public class SkillBtn : MonoBehaviour
         //기본 스킬 [지속시간] - DNA [지속시간] 감소 적용
         var skillDuration = data.duaration + GlobalData.instance.statManager.SkillDuration();
 
-        Debug.Log("재사용 시간 : "+data.coolTime);
-        Debug.Log("재지속시간 : "+data.duaration);
+        //Debug.Log("재사용 시간 : "+data.coolTime);
+        //Debug.Log("재지속시간 : "+data.duaration);
         
         //animDataUsingSkill.animDuration = data.duaration;
         //스킬 지속시간 타이머
@@ -116,7 +116,6 @@ public class SkillBtn : MonoBehaviour
             EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.useSkill);
 
             txtTime.enabled = false;
-            skillAddValue = true;
             txtTimeAnim.enabled = true;
 
             //스킬 [지속시간] UI Update
@@ -131,8 +130,13 @@ public class SkillBtn : MonoBehaviour
             var skillStartTime = Time.time;
             skillLeftTime = calcSkillTime;
 
+            // ui 전환 효과가 발동되면 대기
+            //yield return new WaitUntil(() =>  GlobalData.instance.statManager.transitionUI == false);
+            skillAddValue = true;
+
             while (skillLeftTime > 0)
             {
+
                 skillLeftTime = calcSkillTime - (Time.time - skillStartTime);
                 yield return null;
             }
@@ -167,11 +171,11 @@ public class SkillBtn : MonoBehaviour
             {
                 coolTimeWait = calcCooltime - (Time.time - startTime);
                 GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, coolTimeWait);
-                Debug.Log("skill coolTimeWait : " + coolTimeWait);
+                //Debug.Log("skill coolTimeWait : " + coolTimeWait);
                 yield return null;
             }
 
-            Debug.Log("스킬 재사용 대기 시간 종료");
+            //Debug.Log("스킬 재사용 대기 시간 종료");
             GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, 0);
             GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, false);
 

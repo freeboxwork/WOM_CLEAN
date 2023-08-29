@@ -12,6 +12,8 @@ public class NewUserSlot : MonoBehaviour
 
     NewUserData newUserData;
 
+    public bool isLock = false;
+
     [SerializeField] Color enableColor;
     [SerializeField] Color disableColor;
 
@@ -28,36 +30,36 @@ public class NewUserSlot : MonoBehaviour
 
 
 
-        var isLock = data.id > unlockCount;
+        isLock = data.id > unlockCount;
         SetBlockImage(isLock);
 
         SetRewardIcon(icons);
         SetTxtRewardValue(values);
         SetTxtDayCount(data.day.ToString());
 
-        // 리워드 사용 확인
-        if (HasRewardKey())
-        {
-            SetBtnRewardInteractable(NotUsingReward());
-        }
+        SetBtnRewardInteractable(!HasRewardKey());
+
 
     }
 
+    //키값이 있다는거 자체가 보상을 받았다는것
     public bool HasRewardKey()
     {
         var hasKey = PlayerPrefs.HasKey(GetKey());
         return hasKey;
     }
 
+    //키값예시 _newUserEventUsedReward_1
     public string GetKey()
     {
         return $"{GlobalData.instance.questManager.keyNewUserEventUsedReward}_{newUserData.id}";
     }
 
-    public bool NotUsingReward()
-    {
-        return PlayerPrefs.GetInt(GetKey()) == 0 ? true : false;
-    }
+    //0은 아직 보상을 받지 않은것
+    // public bool NotUsingReward()
+    // {
+    //     return PlayerPrefs.GetInt(GetKey()) == 0 ? true : false;
+    // }
 
 
     Sprite GetRewardIcon(string name, int value)
@@ -75,11 +77,11 @@ public class NewUserSlot : MonoBehaviour
     {
         btnReward.onClick.AddListener(() =>
         {
-            if(NotUsingReward() == false) return;
+            if(HasRewardKey() == true) return;
             // 보상 지급
             EventManager.instance.RunEvent<string[], int[]>(CallBackEventType.TYPES.OnUsingRewardNewUserEvent, newUserData.GetRewardTypes(), newUserData.GetRewardValues());
             PlayerPrefs.SetInt(GetKey(), 1);
-            btnReward.interactable = false;
+            SetBtnRewardInteractable(false);
         });
     }
 
@@ -115,9 +117,22 @@ public class NewUserSlot : MonoBehaviour
     public void SetBtnRewardInteractable(bool isActive)
     {
         if(isActive)
+        {
             btnReward.image.color = enableColor;
+        }
         else
+        {
             btnReward.image.color = disableColor;
+        }
+
+        if(isLock)
+        {
+            btnReward.interactable = false;
+        }
+        else
+        {
+            btnReward.interactable = isActive;
+        }
     }
 
 

@@ -5,8 +5,8 @@ using System.Linq;
 public class AttendTimer : MonoBehaviour
 {
 
-    public string attendTestCurDateValue = "2023-06-12";
-    public string attendTestPrevDateValue = "2023-06-12";
+    public string attendTestCurDateValue;
+    public string attendTestPrevDateValue;
     const string LAST_ATTEND_DATE_KEY = "last_attend_date";
     const string UNLOCKED_ATTEND_COUNT_KEY = "unlocked_attend_count";
 

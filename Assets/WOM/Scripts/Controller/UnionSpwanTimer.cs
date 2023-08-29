@@ -42,6 +42,8 @@ public class UnionSpwanTimer : MonoBehaviour
     {
         while (isTimerReady)
         {
+            var waitTime = GlobalData.instance.statManager.GetUnionSpwanSpeed(unionSlot.inGameData.unionIndex);
+            SetSpwanTime((float)waitTime);
 
             // yield return new WaitUntil(() => GlobalData.instance.attackController.GetAttackableState() == true);
 

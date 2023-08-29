@@ -16,7 +16,7 @@ public class StatManager : MonoBehaviour
 
     //SKILL VALUES
     double skill_InsectDamageUp = 0;
-    double skill_UnionDamageUp = 0;
+    double skill_UnionSpwnSpeedUp = 0;
     double skill_AllUnitSpeedUp = 0;
     double skill_GoldBounsUp = 0;
     double skill_MonsterKing = 0;
@@ -120,6 +120,7 @@ public class StatManager : MonoBehaviour
     }
 
     /// <summary> 곤충 이동 속도 버프,스킬 포함 최대값450이며 200내에서 조정이 필요</summary>
+    /// 주사위로 최대 1.5초 훈련으로 최대 5초 감소
     public double GetInsectMoveSpeed(InsectType insectType)
     {
         var ies = GetEvolutionData(insectType).speed;//정수
@@ -161,13 +162,10 @@ public class StatManager : MonoBehaviour
         //var ud = GetUnionData(unionIndex).damage + skill_UnionDamageUp;
         var ud = GetUnionData(unionIndex).damage;
         var dms = GetDnaData(DNAType.unionDamage).power;
-        var value = ud * (1 + ((dms + skill_UnionDamageUp)) * 0.01f);
+        var value = ud * (1 + (dms) * 0.01f);
 
         // ad buff 적용 ( damage )
         var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffDamage).addValue;
-
-
-
         Debug.Log($"유니온 공격력 : 기본:{ud}//DNA:{dms}= 합계 : {value}");
 
         return value * buffValue;
@@ -193,8 +191,10 @@ public class StatManager : MonoBehaviour
 
         var ums = GetUnionData(unionIndex).spawnTime;
         var dst = GetDnaData(DNAType.unionSpawnTime).power;
-        var value = ums - dst;
+
+        var value = (ums - dst) * (1 - (skill_UnionSpwnSpeedUp * 0.01f));
         Debug.Log($"유니온 스폰시간 : 기본:{ums}//DNA:{dst}= 합계 : {value}");
+
 
         return value;
     }
@@ -259,10 +259,10 @@ public class StatManager : MonoBehaviour
         }
     }
 
-    public void SetTransitionUI(bool value)
-    {
-        transitionUI = value;
-    }
+    // public void SetTransitionUI(bool value)
+    // {
+    //     transitionUI = value;
+    // }
 
 
     void SetUsingSkillSaveData(SkillType skillType, bool isUsing)
@@ -285,18 +285,18 @@ public class StatManager : MonoBehaviour
         // set save data
         var skilType = SkillType.insectDamageUp;
         SetUsingSkillSaveData(skilType, true);
+
         var totalDuration = data.duaration + SkillDuration();
         var startTime = Time.time;
         var skillLeftTime = totalDuration;
         //Debug.Log("실제 스킬 시간 값  : " + totalDuration);
+        // ui 전환 효과가 발동되면 대기
+        //yield return new WaitUntil(() => transitionUI == false);
 
         while (skillLeftTime > 0)
         {
-            // ui 전환 효과가 발동되면 대기
-            yield return new WaitUntil(() => transitionUI == false);
             skillLeftTime = totalDuration - (Time.time - startTime);
             data.skillLeftTime = skillLeftTime;
-
             // set save data
             //SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
             yield return null;
@@ -316,7 +316,7 @@ public class StatManager : MonoBehaviour
     public IEnumerator EnableSkill_UnionDamageUP()
     {
         var data = GetSkillData(SkillType.unionDamageUp);
-        skill_UnionDamageUp = data.power;
+        skill_UnionSpwnSpeedUp = data.power;
         data.isSkilUsing = true;
 
         // set save data
@@ -330,7 +330,7 @@ public class StatManager : MonoBehaviour
         while (skillLeftTime > 0)
         {
             // ui 전환 효과가 발동되면 대기
-            yield return new WaitUntil(() => transitionUI == false);
+            //yield return new WaitUntil(() => transitionUI == false);
 
             skillLeftTime = totalDuration - (Time.time - startTime);
             data.skillLeftTime = skillLeftTime;
@@ -340,7 +340,7 @@ public class StatManager : MonoBehaviour
         }
 
         data.isSkilUsing = false;
-        skill_UnionDamageUp = 0;
+        skill_UnionSpwnSpeedUp = 0;
 
         // set save data
         // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
@@ -367,7 +367,7 @@ public class StatManager : MonoBehaviour
         while (skillLeftTime > 0)
         {
             // ui 전환 효과가 발동되면 대기
-            yield return new WaitUntil(() => transitionUI == false);
+            //yield return new WaitUntil(() => transitionUI == false);
             skillLeftTime = totalDuration - (Time.time - startTime);
             data.skillLeftTime = skillLeftTime;
             // set save data
@@ -401,7 +401,7 @@ public class StatManager : MonoBehaviour
         while (skillLeftTime > 0)
         {
             // ui 전환 효과가 발동되면 대기
-            yield return new WaitUntil(() => transitionUI == false);
+            //yield return new WaitUntil(() => transitionUI == false);
             skillLeftTime = totalDuration - (Time.time - startTime);
             data.skillLeftTime = skillLeftTime;
             // set save data
@@ -439,7 +439,7 @@ public class StatManager : MonoBehaviour
         while (skillLeftTime > 0)
         {
             // ui 전환 효과가 발동되면 대기
-            yield return new WaitUntil(() => transitionUI == false);
+            //yield return new WaitUntil(() => transitionUI == false);
             skillLeftTime = totalDuration - (Time.time - startTime);
             data.skillLeftTime = skillLeftTime;
             // set save data
@@ -477,7 +477,7 @@ public class StatManager : MonoBehaviour
         while (skillLeftTime > 0)
         {
             // ui 전환 효과가 발동되면 대기
-            yield return new WaitUntil(() => transitionUI == false);
+            //yield return new WaitUntil(() => transitionUI == false);
             skillLeftTime = totalDuration - (Time.time - startTime);
             data.skillLeftTime = skillLeftTime;
             // set save data

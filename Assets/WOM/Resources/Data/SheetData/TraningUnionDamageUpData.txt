@@ -4,211 +4,211 @@
    "level": 0,
    "salePrice": 3300,
    "duration": 20,
-   "power": 100,
-   "name": "사기의 외침",
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  },
  {
    "level": 1,
    "salePrice": 10050,
-   "duration": 20.3,
-   "power": 110,
-   "name": "사기의 외침",
+   "duration": 20.5,
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  },
  {
    "level": 2,
    "salePrice": 34800,
-   "duration": 20.6,
-   "power": 120,
-   "name": "사기의 외침",
+   "duration": 21,
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  },
  {
    "level": 3,
    "salePrice": 100050,
-   "duration": 20.9,
-   "power": 130,
-   "name": "사기의 외침",
+   "duration": 21.5,
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  },
  {
    "level": 4,
    "salePrice": 239550,
-   "duration": 21.2,
-   "power": 140,
-   "name": "사기의 외침",
+   "duration": 22,
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  },
  {
    "level": 5,
    "salePrice": 498300,
-   "duration": 21.5,
-   "power": 150,
-   "name": "사기의 외침",
+   "duration": 22.5,
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  },
  {
    "level": 6,
    "salePrice": 1554250,
-   "duration": 21.8,
-   "power": 160,
-   "name": "사기의 외침",
+   "duration": 23,
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  },
  {
    "level": 7,
    "salePrice": 2869250,
-   "duration": 22.1,
-   "power": 170,
-   "name": "사기의 외침",
+   "duration": 23.5,
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  },
  {
    "level": 8,
    "salePrice": 7105700,
-   "duration": 22.4,
-   "power": 180,
-   "name": "사기의 외침",
+   "duration": 24,
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  },
  {
    "level": 9,
    "salePrice": 11967200,
-   "duration": 22.7,
-   "power": 190,
-   "name": "사기의 외침",
+   "duration": 24.5,
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  },
  {
    "level": 10,
    "salePrice": 29156000,
-   "duration": 23,
-   "power": 200,
-   "name": "사기의 외침",
+   "duration": 25,
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  },
  {
    "level": 11,
    "salePrice": 73096500,
-   "duration": 23.3,
-   "power": 210,
-   "name": "사기의 외침",
+   "duration": 25.5,
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  },
  {
    "level": 12,
    "salePrice": 157642000,
-   "duration": 23.6,
-   "power": 220,
-   "name": "사기의 외침",
+   "duration": 26,
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  },
  {
    "level": 13,
    "salePrice": 379675500,
-   "duration": 23.9,
-   "power": 230,
-   "name": "사기의 외침",
+   "duration": 26.5,
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  },
  {
    "level": 14,
    "salePrice": 867694000,
-   "duration": 24.2,
-   "power": 240,
-   "name": "사기의 외침",
+   "duration": 27,
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  },
  {
    "level": 15,
    "salePrice": 2526307000,
-   "duration": 24.5,
-   "power": 250,
-   "name": "사기의 외침",
+   "duration": 27.5,
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  },
  {
    "level": 16,
    "salePrice": 5787410000,
-   "duration": 24.8,
-   "power": 260,
-   "name": "사기의 외침",
+   "duration": 28,
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  },
  {
    "level": 17,
    "salePrice": 14311096000,
-   "duration": 25.1,
-   "power": 270,
-   "name": "사기의 외침",
+   "duration": 28.5,
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  },
  {
    "level": 18,
    "salePrice": 33243496000,
-   "duration": 25.4,
-   "power": 280,
-   "name": "사기의 외침",
+   "duration": 29,
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  },
  {
    "level": 19,
    "salePrice": 65785543000,
-   "duration": 25.7,
-   "power": 290,
-   "name": "사기의 외침",
+   "duration": 29.5,
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  },
  {
    "level": 20,
    "salePrice": 105785273500,
-   "duration": 26,
-   "power": 300,
-   "name": "사기의 외침",
+   "duration": 30,
+   "power": 50,
+   "name": "출전 명령",
    "coolTime": 390,
    "maxLevel": 20,
-   "desctiption": "유니온의 공격력이 <Duration>초간 <Power>만큼 증가"
+   "desctiption": "유니온의 소환 시간이 <Duration>초간 <Power>% 만큼 감소"
  }
 ]
 }

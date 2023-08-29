@@ -45,145 +45,144 @@ public class GlobalController : MonoBehaviour
     {
         // black screen on
         GlobalData.instance.effectManager.EnableTransitionBlackScreen();
-
-        // ê³µê²© ë¶ˆê°€ëŠ¥ ìƒíƒœë¡œ ì „í™˜
+        // °ø°İ ºÒ°¡´É »óÅÂ·Î ÀüÈ¯
         attackController.SetAttackableState(false);
-        // ë²„íŠ¼ ë¶ˆê°€ëŠ¥ ìƒíƒœë¡œ ì „í™˜
+        // ¹öÆ° ºÒ°¡´É »óÅÂ·Î ÀüÈ¯
         UtilityMethod.EnableUIEventSystem(false);
-
         // set data
         yield return StartCoroutine(dataManager.SetDatas());
 
         // save data load
         yield return StartCoroutine(saveDataManager.Init());
 
-        // get player data ( ê²Œì„ ì¢…ë£Œì „ ì €ì¥ ë˜ì–´ìˆëŠ” ë°ì´í„° ë¡œë“œ )
+        // get player data ( °ÔÀÓ Á¾·áÀü ÀúÀå µÇ¾îÀÖ´Â µ¥ÀÌÅÍ ·Îµå )
         yield return StartCoroutine(playerDataManager.InitPlayerData());
 
-        // ìŠ¤í…Œì´ì§€ ì„¸íŒ…
+        // ½ºÅ×ÀÌÁö ¼¼ÆÃ
         yield return StartCoroutine(stageManager.Init(playerDataManager.saveData.stageIdx));
 
-        // ê³¤ì¶© ì„¸íŒ…
+        // °ïÃæ ¼¼ÆÃ
         yield return StartCoroutine(insectManager.Init(playerDataManager));
 
-        // ëª¬ìŠ¤í„° ì„¸íŒ…
+        // ¸ó½ºÅÍ ¼¼ÆÃ
         yield return StartCoroutine(monsterManager.Init(stageManager.stageData.stageId));
 
-        // ì´í™íŠ¸ ì„¸íŒ…
+        // ÀÌÆåÆ® ¼¼ÆÃ
         yield return StartCoroutine(effectManager.Init());
 
-        // Player data ì„¸íŒ…
+        // Player data ¼¼ÆÃ
         yield return StartCoroutine(player.Init(playerDataManager.saveData));
 
-        // UI Controller ì„¸íŒ… 
+        // UI Controller ¼¼ÆÃ
         yield return StartCoroutine(uiController.Init());
 
-        // ì§„í™” ë§¤ë‹ˆì € ì´ˆê¸° ì„¸íŒ…
+        // ÁøÈ­¸Å´ÏÀú ÃÊ±â ¼¼ÆÃ
         yield return StartCoroutine(evolutionManager.Init());
 
-        // ë½‘ê¸° ë§¤ë‹ˆì € ì´ˆê¸°í™” ( ì²« ë½‘ê¸° ë°ì´í„°ëŠ” ëª¨ë‘ 0ë²ˆ )
+        // »Ì±â ¸Å´ÏÀú ÃÊ±âÈ­ ( Ã¹ »Ì±â µ¥ÀÌÅÍ´Â ¸ğµÎ 0¹ø )
         yield return StartCoroutine(lotteryManager.Init());
 
-        // ì§„í™” ì£¼ì‚¬ìœ„ ë½‘ê¸° ì„¸íŒ…
+        // ÁøÈ­ ÁÖ»çÀ§ »Ì±â ¼¼ÆÃ
         yield return StartCoroutine(evolutionDiceLotteryManager.Init());
 
-        // ìŠ¤í‚¬ ë°ì´í„°ë° UI ì„¸íŒ…
+        //½ºÅ³ µ¥ÀÌÅÍ¹× UI ¼¼ÆÃ
         yield return StartCoroutine(skillManager.Init());
 
-        // ìœ ë‹ˆì˜¨ ìŠ¤í° ë§¤ë‹ˆì € ì„¸íŒ…
+        // À¯´Ï¿Â ½ºÆù ¸Å´ÏÀú ¼¼ÆÃ
         yield return StartCoroutine(unionSpwanManager.Init());
 
 
-        // ìœ ì „ì ë°ì´í„°ë° UI ì„¸íŒ…
+        // À¯ÀüÀÚ µ¥ÀÌÅÍ¹× UI ¼¼ÆÃ
         yield return StartCoroutine(dnaManager.Init());
 
-        // í›ˆë ¨ ë°ì´í„°ë° UI ì„¸íŒ…
+        // ÈÆ·Ã µ¥ÀÌÅÍ¹× UI ¼¼ÆÃ
         yield return StartCoroutine(traningManager.Init());
 
-        // ìŠ¤íƒ¯ ë§¤ë‹ˆì € ì´ˆê¸° ì„¸íŒ…
+        // ½ºÅÈ ¸Å´ÏÀú ÃÊ±â ¼¼ÆÃ
         yield return StartCoroutine(statManager.Init());
 
 
-        // ê³¤ì¶© ìŠ¤í° ë§¤ë‹ˆì € ì„¸íŒ…
+        // °ïÃæ ½ºÆù ¸Å´ÏÀú ¼¼ÆÃ
         yield return StartCoroutine(insectSpwanManager.Init());
 
-        // ë˜ì „ ë§¤ë‹ˆì € ì„¸íŒ…
+        //  ´øÀü ¸Å´ÏÀú ¼¼ÆÃ
         yield return StartCoroutine(GlobalData.instance.dungeonManager.Init());
 
-        // í€˜ìŠ¤íŠ¸ ë§¤ë‹ˆì € ì„¸íŒ…
+        // Äù½ºÆ® ¸Å´ÏÀú ¼¼ÆÃ
         yield return StartCoroutine(questManager.Init());
 
-        // ìœ ë‹ˆì˜¨ ë°ì´í„°ë° UI ì„¸íŒ…
+        // À¯´Ï¿Â µ¥ÀÌÅÍ¹× UI ¼¼ÆÃ
         yield return StartCoroutine(unionManager.Init());
 
-        // íƒ€ê²Ÿ ëª¬ìŠ¤í„° ì§€ì • -> ì²« ì‹œì‘ì€ ë…¸ë©€ ëª¬ìŠ¤í„°
+        // Å¸°Ù ¸ó½ºÅÍ ÁöÁ¤ -> Ã¹ ½ÃÀÛÀº ³ë¸Ö ¸ó½ºÅÍ
         player.SetCurrentMonster(monsterManager.monsterNormal);
         player.SetCurrentMonsterHP(monsterManager.monsterNormal.hp);
 
-        // ë“±ì¥ ëª¬ìŠ¤í„° í™œì„±í™” -> ì²« ì‹œì‘ì€ ë…¸ë©€ ëª¬ìŠ¤í„°
-        // TODO : í•˜ë‚˜ë§Œ ì¼œì•¼ í•˜ëŠ”ì§€ í™•ì¸ í•„ìš” í˜„ì¬ ëª¨ë‘ ë‚˜íƒ€ë‚˜ë„ë¡ ìˆ˜ì •
+        // µîÀå ¸ó½ºÅÍ È°¼ºÈ­ -> Ã¹ ½ÃÀÛÀº ³ë¸Ö ¸ó½ºÅÍ
+        // TODO : ÇÏ³ª¸¸ ÄÑ¾ß ÇÏ´ÂÁö È®ÀÎ ÇÊ¿ä ÇöÀç ¸ğµÎ ³ªÅ¸³ªµµ·Ï ¼öÁ¤
         //monsterManager.EnableMonster(EnumDefinition.MonsterType.normal);
 
-        // UI ì´ˆê¸°í™”
+        // UI ÃÊ±âÈ­
         SetUI_Init();
 
-        // íŠ¸ëœì§€ì…˜ ì•„ì›ƒ ( black screen )
-        yield return StartCoroutine(GlobalData.instance.effectManager.TransitionOut());
 
-        // ìºìŠ¬ ì´ˆê¸°í™”
+        // Ä³½½ ÃÊ±âÈ­
         yield return StartCoroutine(GlobalData.instance.castleManager.Init());
 
-        // ë© ì´ˆê¸°í™”
+        // ·¦ ÃÊ±âÈ­
         yield return StartCoroutine(labBuildingManager.Init());
 
         // Monster In Animation
         yield return StartCoroutine(player.currentMonster.inOutAnimator.AnimPositionIn());
 
-        // ì‚¬ìš´ë“œ ë§¤ë‹ˆì € ì´ˆê¸°í™”
+        // »ç¿îµå ¸Å´ÏÀú ÃÊ±âÈ­
         yield return StartCoroutine(soundManager.Init());
 
-        // ê´‘ê³  ë§¤ë‹ˆì € ì´ˆê¸°í™”
+        // ±¤°í ¸Å´ÏÀú ÃÊ±âÈ­
         yield return StartCoroutine(adManager.Init());
 
-        // í•œ í”„ë ˆì„ ëŒ€ê¸°
+        // ÇÑ ÇÁ·¹ÀÓ ´ë±â
         yield return new WaitForEndOfFrame();
 
-        // ì˜¤í”„ë¼ì¸ ë³´ìƒ íŒì—… ë“±ì¥
+        // ¿ÀÇÁ¶óÀÎ º¸»ó ÆË¾÷ µîÀå
         yield return StartCoroutine(offlineRewardPopupContoller.Init());
 
-        // ìƒì  ë°ì´í„°ë° UI ì„¸íŒ…
+        // »óÁ¡ µ¥ÀÌÅÍ¹× UI ¼¼ÆÃ
         yield return StartCoroutine(shopManager.Init());
 
-        // íˆ¬í† ë¦¬ì–¼ ì´ˆê¸°í™”
+        // ÅõÅä¸®¾ó ÃÊ±âÈ­
         yield return StartCoroutine(tutorialManager.Init());
 
 
-        // ê³¤ì¶© ìŠ¤í° í™œì„±í™” -> tutorial pattenr 10 ì—ì„œ í™œì„±í™”
+        // °ïÃæ ½ºÆù È°¼ºÈ­ -> tutorial pattenr 10 ¿¡¼­ È°¼ºÈ­
         if (tutorialManager.isTutorial == false)
             insectSpwanManager.AllTimerStart();
         else if (tutorialManager.GetTutorialSetById(5).isSetComplete)
         {
-            // íˆ¬í† ë¦¬ì–¼ 5ë²ˆ ì„¸íŠ¸ ì™„ë£Œì‹œ ê³¤ì¶© ìŠ¤í° í™œì„±í™”
+            // ÅõÅä¸®¾ó 5¹ø ¼¼Æ® ¿Ï·á½Ã °ïÃæ ½ºÆù È°¼ºÈ­
             insectSpwanManager.AllTimerStart();
         }
 
-        // íˆ¬í† ë¦¬ì–¼ ì‹¤í–‰ ìƒí™©ì— ë”°ë¼ ìƒì ë²„íŠ¼ í™œì„± / ë¹„í™œì„±í™”
+        // ÅõÅä¸®¾ó ½ÇÇà »óÈ²¿¡ µû¶ó »óÁ¡¹öÆ° È°¼º / ºñÈ°¼ºÈ­
         var isShopBtnActive = tutorialManager.isTutorial == false;
         UtilityMethod.GetCustomTypeBtnByID(6).gameObject.SetActive(isShopBtnActive);
 
 
-        // ê³¨ë“œ í”¼ê·¸ ë“±ì¥( ì§€ì •ëœ ì‹œê°„ ì§€ë‚œë’¤ ë“±ì¥ )
+        // °ñµå ÇÇ±× µîÀå( ÁöÁ¤µÈ ½Ã°£ Áö³­µÚ µîÀå )
         yield return StartCoroutine(goldPigController.Init());
 
-        // CASTLE ë²„íŠ¼ íˆ¬í† ë¦¬ì–¼ì— ë”°ë¼ í™œì„± ë¹„í™œì„±
+        // CASTLE ¹öÆ° ÅõÅä¸®¾ó¿¡ µû¶ó È°¼º ºñÈ°¼º
         var activeValue = !GlobalData.instance.tutorialManager.isTutorial;
         uiController.castleButtonObj.SetActive(activeValue);
 
-        // ê³µê²© ê°€ëŠ¥ ìƒíƒœë¡œ ì „í™˜
+        // °ø°İ °¡´É »óÅÂ·Î ÀüÈ¯
         attackController.SetAttackableState(true);
 
-        // ë²„íŠ¼ ê°€ëŠ¥ ìƒíƒœë¡œ ì „í™˜
+        // ¹öÆ° °¡´É »óÅÂ·Î ÀüÈ¯
         UtilityMethod.EnableUIEventSystem(true);
+
+        // Æ®·£Áö¼Ç ¾Æ¿ô ( black screen )
+        yield return StartCoroutine(GlobalData.instance.effectManager.TransitionOut());
     }
 
     void SetUI_Init()

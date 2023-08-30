@@ -221,7 +221,7 @@ MonoBehaviour:
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     m_ColorMin: {r: 0, g: 0, b: 0, a: 1}
-    m_ColorMax: {r: 0.9716981, g: 0.78294384, b: 0.2979263, a: 0.77254903}
+    m_ColorMax: {r: 1, g: 0.9172227, b: 0.4292453, a: 0.5882353}
   _lifetime:
     m_Mode: 0
     m_CurveMultiplier: 0

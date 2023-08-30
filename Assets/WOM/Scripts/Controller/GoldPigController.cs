@@ -49,7 +49,7 @@ public class GoldPigController : MonoBehaviour
 
     void OnDestroy()
     {
-        RemoveEvents();
+        //RemoveEvents();
     }
 
     void SetPointSides()

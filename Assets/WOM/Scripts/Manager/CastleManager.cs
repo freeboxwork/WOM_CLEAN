@@ -22,7 +22,10 @@ public class CastleManager : MonoBehaviour
 
     public int offLineSubGoldTime = 0;
     public int offLineSubBoneTime = 0;
-
+    private float digUpGoldTime;
+    private float maxDigUpGoldTime;
+    private float digUpBoneTime;
+    private float maxDigUpBoneTime;
     void Start()
     {
         SetBtnEvents();
@@ -138,10 +141,17 @@ public class CastleManager : MonoBehaviour
         {
             UpGradeCastle(CastlePopupType.mine);
             var isUpgrade = mineLevel > 0;
+  
+            // 다음 레벨의 광산 정보 가져오기
+            var refBuildDataMine = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel);
 
-            //Debug.Log( isUpgrade + " mine level " + mineLevel );
+            // Clone 메소드를 이용하여 BuildDataMine 객체의 데이터 갱신
+            buildDataMine = new CastleBuildingData().Create().SetGoodsType(GoodsType.gold).Clone(refBuildDataMine);
+            
+            //Debug.Log( isUpgrade + " mine level " + 
             UtilityMethod.GetCustomTypeBtnByID(64).gameObject.SetActive(!isUpgrade);
             UtilityMethod.GetCustomTypeBtnByID(51).interactable = isUpgrade;
+
         });
         UtilityMethod.SetBtnEventCustomTypeByID(65, () =>
         {
@@ -149,9 +159,13 @@ public class CastleManager : MonoBehaviour
 
             var isUpgrade = factoryLevel > 0;
 
-            Debug.Log(isUpgrade + " factory level " + factoryLevel);
+            var refBuildDataFactory = GlobalData.instance.dataManager.GetBuildDataFactoryByLevel(factoryLevel);
+            buildDataFactory = new CastleBuildingData().Create().SetGoodsType(GoodsType.bone).Clone(refBuildDataFactory);
+
+            //Debug.Log(isUpgrade + " factory level " + factoryLevel);
             UtilityMethod.GetCustomTypeBtnByID(65).gameObject.SetActive(!isUpgrade);
             UtilityMethod.GetCustomTypeBtnByID(52).interactable = isUpgrade;
+
         });
 
         UtilityMethod.SetBtnEventCustomTypeByID(51, () =>
@@ -289,73 +303,71 @@ public class CastleManager : MonoBehaviour
     }
 
 
-    void UpgradeMine()
-    {
+    // void UpgradeMine()
+    // {
 
-        // 가격만큼 resource 차감 후 레벨 업그레이드 진행
-        GlobalData.instance.player.PayCoal(buildDataMine.price);
-        mineLevel++;
+    //     // 가격만큼 resource 차감 후 레벨 업그레이드 진행
+    //     GlobalData.instance.player.PayCoal(buildDataMine.price);
+    //     mineLevel++;
 
-        // 다음 레벨의 광산 정보 가져오기
-        var refBuildDataMine = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel);
+    //     // 다음 레벨의 광산 정보 가져오기
+    //     var refBuildDataMine = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel);
 
-        // Clone 메소드를 이용하여 BuildDataMine 객체의 데이터 갱신
-        buildDataMine = new CastleBuildingData().Create().SetGoodsType(GoodsType.gold).Clone(refBuildDataMine);
+    //     // Clone 메소드를 이용하여 BuildDataMine 객체의 데이터 갱신
+    //     buildDataMine = new CastleBuildingData().Create().SetGoodsType(GoodsType.gold).Clone(refBuildDataMine);
 
-        // Set Popup    UI
-        var popup = (MinePopup)GetCastlePopupByType(CastlePopupType.mine);
-        var nextLevelData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel + 1);
-        CastleBuildingData nextBuildData = new CastleBuildingData().Create().SetGoodsType(GoodsType.gold).Clone(nextLevelData);
-        popup.SetUpGradeText(buildDataMine, nextBuildData);
-        castleController.SetBuildUpgrade(BuildingType.MINE, mineLevel);
-    }
+    //     // Set Popup    UI
+    //     var popup = (MinePopup)GetCastlePopupByType(CastlePopupType.mine);
+    //     var nextLevelData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel + 1);
+    //     CastleBuildingData nextBuildData = new CastleBuildingData().Create().SetGoodsType(GoodsType.gold).Clone(nextLevelData);
+    //     popup.SetUpGradeText(buildDataMine, nextBuildData);
+    //     castleController.SetBuildUpgrade(BuildingType.MINE, mineLevel);
+    // }
 
-    void UpgradeFactory()
-    {
-        // 가격만큼 resource 차감 후 레벨 업그레이드 진행
-        GlobalData.instance.player.PayCoal(buildDataFactory.price);
-        factoryLevel++;
+    // void UpgradeFactory()
+    // {
+    //     // 가격만큼 resource 차감 후 레벨 업그레이드 진행
+    //     GlobalData.instance.player.PayCoal(buildDataFactory.price);
+    //     factoryLevel++;
 
-        // 다음 레벨의 광산 정보 가져오기
-        var refBuildDataMine = GlobalData.instance.dataManager.GetBuildDataFactoryByLevel(factoryLevel);
+    //     // 다음 레벨의 광산 정보 가져오기
+    //     var refBuildDataMine = GlobalData.instance.dataManager.GetBuildDataFactoryByLevel(factoryLevel);
 
-        // Clone 메소드를 이용하여 BuildDataMine 객체의 데이터 갱신
-        buildDataMine = new CastleBuildingData().Create().SetGoodsType(GoodsType.bone).Clone(refBuildDataMine);
+    //     // Clone 메소드를 이용하여 BuildDataMine 객체의 데이터 갱신
+    //     buildDataMine = new CastleBuildingData().Create().SetGoodsType(GoodsType.bone).Clone(refBuildDataMine);
 
-        // Set Popup    UI
-        var popup = (MinePopup)GetCastlePopupByType(CastlePopupType.factory);
-        var nextLevelData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(factoryLevel + 1);
-        CastleBuildingData nextBuildData = new CastleBuildingData().Create().SetGoodsType(GoodsType.bone).Clone(nextLevelData);
-        popup.SetUpGradeText(buildDataMine, nextBuildData);
-        castleController.SetBuildUpgrade(BuildingType.FACTORY, factoryLevel);
-    }
-
-
+    //     // Set Popup    UI
+    //     var popup = (MinePopup)GetCastlePopupByType(CastlePopupType.factory);
+    //     var nextLevelData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(factoryLevel + 1);
+    //     CastleBuildingData nextBuildData = new CastleBuildingData().Create().SetGoodsType(GoodsType.bone).Clone(nextLevelData);
+    //     popup.SetUpGradeText(buildDataMine, nextBuildData);
+    //     castleController.SetBuildUpgrade(BuildingType.FACTORY, factoryLevel);
+    // }
 
 
-    bool IsValidCastleUpgradePay(int price)
-    {
-        var value = GlobalData.instance.player.coal >= price;
-        if (value)
-        {
-            return true;
-        }
-        else
-        {
-            // show popup 석탄 부족.
-            GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("Message", 16);
-            Debug.Log("Upgrade Fail");
-            return false;
-        }
+    // bool IsValidCastleUpgradePay(int price)
+    // {
+    //     var value = GlobalData.instance.player.coal >= price;
+    //     if (value)
+    //     {
+    //         return true;
+    //     }
+    //     else
+    //     {
+    //         // show popup 석탄 부족.
+    //         GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("Message", 16);
+    //         Debug.Log("Upgrade Fail");
+    //         return false;
+    //     }
 
-    }
+    // }
 
-    // max level 체크
-    bool IsValidCastleUpgradeLevel(int level, int price)
-    {
+    // // max level 체크
+    // bool IsValidCastleUpgradeLevel(int level, int price)
+    // {
 
-        return true;
-    }
+    //     return true;
+    //}
 
     /*
      * UpgradeMine - 광산 업그레이드 메소드
@@ -408,10 +420,7 @@ public class CastleManager : MonoBehaviour
     }
 
 
-    private float digUpGoldTime;
-    private float maxDigUpGoldTime;
-    private float digUpBoneTime;
-    private float maxDigUpBoneTime;
+
     public float GetDigUpTime()
     {
         return digUpGoldTime;
@@ -426,8 +435,6 @@ public class CastleManager : MonoBehaviour
         var popup = (MinePopup)GetCastlePopupByType(CastlePopupType.mine);
 
         digUpGoldTime = offLineSubGoldTime;
-
-        popup.SetTextDigUpFullText("채굴중");
 
         while (true)
         {
@@ -468,6 +475,8 @@ public class CastleManager : MonoBehaviour
                 }
                 
             }
+            
+            popup.SetTextDigUpFullText("");
 
         }
 
@@ -515,8 +524,6 @@ public class CastleManager : MonoBehaviour
 
         digUpBoneTime = offLineSubBoneTime;
 
-        popup.SetTextDigUpFullText("채굴중");
-
         while (true)
         {
 
@@ -558,6 +565,7 @@ public class CastleManager : MonoBehaviour
                 }
 
             }
+            popup.SetTextDigUpFullText("");
 
         }
     }

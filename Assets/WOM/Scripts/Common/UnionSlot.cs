@@ -92,11 +92,11 @@ public class UnionSlot : MonoBehaviour
     {
         if (unionEquipSlot != null)
         {
-            Debug.Log("this!?" + unionEquipSlot.slotIndex);
+//            Debug.Log("this!?" + unionEquipSlot.slotIndex);
         }
         else
         {
-            Debug.Log("slot null");
+//            Debug.Log("slot null");
         }
 
         this.unionEquipSlot = unionEquipSlot;

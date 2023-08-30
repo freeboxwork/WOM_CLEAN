@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using static EnumDefinition;
+using DG.Tweening;
 /// <summary>
 /// 몬스터전 이벤트 관리
 /// </summary>
@@ -223,7 +224,7 @@ public class EventController : MonoBehaviour
 
         if(dungeonMonsterLeftDamage > 0)
         {
-            // [남은 피해]가 있다면
+            // [남은 피해]가 있다는건 현재 레벨의 몬스터의 체력을 다 깍았다는걸 의미
             while (dungeonMonsterLeftDamage > 0)
             {
                 //Debug.Log("남은 피해 : " + dungeonMonsterLeftDamage);
@@ -239,8 +240,19 @@ public class EventController : MonoBehaviour
             }
 
 
-            // 레벨 Text UI Update
+            UtilityMethod.GetCustomTypeImageById(41).fillAmount = 1;
+
             UtilityMethod.SetTxtCustomTypeByID(107, $"X {currentMonster.curData.level}");
+            UtilityMethod.GetTxtCustomTypeByID(107).transform.DOScale(Vector3.one * 1.3f, 0.3f)
+            .SetEase(Ease.OutQuad)
+            .OnComplete(() =>
+            {
+                //원래 크기로 되돌리기
+                UtilityMethod.GetTxtCustomTypeByID(107).transform.DOScale(Vector3.one, 0.1f)
+                    .SetEase(Ease.OutQuad);
+            });
+
+            // 레벨 Text UI Update
             // Stage UI Update
             GlobalData.instance.stageNameSetManager.SetTxtStageName(EnumDefinition.StageNameType.dungeon, currentMonster.stageName);
 
@@ -264,6 +276,14 @@ public class EventController : MonoBehaviour
             currentMonster.SetNextLevelData();
             // level setting
             UtilityMethod.SetTxtCustomTypeByID(107, $"X {currentMonster.curData.level}");
+            UtilityMethod.GetTxtCustomTypeByID(107).transform.DOScale(Vector3.one * 1.2f, 0.5f)
+            .SetEase(Ease.OutQuad)
+            .OnComplete(() =>
+            {
+                //원래 크기로 되돌리기
+                UtilityMethod.GetTxtCustomTypeByID(107).transform.DOScale(Vector3.one, 0.1f)
+                    .SetEase(Ease.OutQuad);
+            });
             // Set Stage Name
             GlobalData.instance.stageNameSetManager.SetTxtStageName(EnumDefinition.StageNameType.dungeon, currentMonster.stageName);
             // 몬스터 hp text

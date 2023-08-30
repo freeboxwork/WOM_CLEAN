@@ -86,7 +86,7 @@ public class NewUserEventTimer : MonoBehaviour
         }
         else if (totalDays == 0)
         {
-            Debug.Log("동일한 날");
+            //Debug.Log("동일한 날");
         }
 
         unLockCount = PlayerPrefs.GetInt(UNLOCKED_COUNT_KEY);

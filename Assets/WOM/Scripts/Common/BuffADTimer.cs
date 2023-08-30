@@ -11,21 +11,18 @@ public class BuffADTimer : MonoBehaviour
     public TextMeshProUGUI countdownText;
     public TextMeshProUGUI countdownTextAllwaysViwe;
     public BuffADSlot buffADSlot;
-    public Image icon;
     public GameObject timerUI;
-
-    Color activeColor = Color.white;
-    Color hideColor = Color.grey;
+    public CanvasGroup canvasGroup;
 
     void Start()
     {
         ResetAllwaysCountDownText();
-        icon.color = hideColor;
+        canvasGroup.alpha = 0.3f;
     }
 
     public IEnumerator StartTimer()
     {
-        icon.color = activeColor;
+        canvasGroup.alpha = 1;
         timerUI.SetActive(true);
         buffADSlot.isUsingBuff = true;
         buffADSlot.addValue = buffADSlot.addValueBuff;
@@ -48,7 +45,7 @@ public class BuffADTimer : MonoBehaviour
         }
 
         buffADSlot.isUsingBuff = false;
-        icon.color = hideColor;
+        canvasGroup.alpha = 0.3f;
 
         // save data
         GlobalData.instance.saveDataManager.SetSaveDataBuffAD_Using(buffADSlot.buffADType, buffADSlot.isUsingBuff);
@@ -79,14 +76,14 @@ public class BuffADTimer : MonoBehaviour
     void ResetAllwaysCountDownText()
     {
         countdownTextAllwaysViwe.text = "";
-        icon.color = hideColor;
+        canvasGroup.alpha =0.3f;
 
     }
 
     public void SetTxtBuffPass()
     {
-        countdownTextAllwaysViwe.text = "Pass";
-        icon.color = activeColor;
+        countdownTextAllwaysViwe.text = "";
+        canvasGroup.alpha = 1;
     }
 
     public void TimerEnd()

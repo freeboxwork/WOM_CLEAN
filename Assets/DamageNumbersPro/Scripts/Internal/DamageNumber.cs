@@ -43,6 +43,8 @@ namespace DamageNumbersPro
         public bool enableNumber = true;
         [Tooltip("The number displayed in the text.\nCan be disabled if you only need text.")]
         public float number = 1;
+        public string strNumber = "";
+
         public TextSettings numberSettings = new TextSettings(0);
         public DigitSettings digitSettings = new DigitSettings(0);
 
@@ -464,6 +466,23 @@ namespace DamageNumbersPro
 
             return newDN;
         }
+
+
+        public DamageNumber Spawn(Vector3 newPosition, string newNumber, int i )
+        {
+            DamageNumber newDN = Spawn();
+
+            //Position:
+            newDN.SetPosition(newPosition);
+
+            //Number:
+            newDN.strNumber = newNumber;
+
+            return newDN;
+        }
+
+
+
 
         /// <summary>
         /// Use this function to spawn a new damage number.
@@ -1165,73 +1184,75 @@ namespace DamageNumbersPro
         {
             //Number:
             string numberText = "";
-            if (enableNumber)
-            {
-                string numberString;
-                bool shortened;
 
-                if (digitSettings.decimals <= 0)
-                {
-                    numberString = ProcessIntegers(Mathf.RoundToInt(number).ToString(), out shortened);
-                }
-                else
-                {
-                    string allDigits = Mathf.RoundToInt(number * Mathf.Pow(10, digitSettings.decimals)).ToString();
-                    int usedDecimals = digitSettings.decimals;
+            numberText = strNumber;
+            // if (enableNumber)
+            // {
+            //     string numberString;
+            //     bool shortened;
 
-                    while (digitSettings.hideZeros && allDigits.EndsWith("0") && usedDecimals > 0)
-                    {
-                        allDigits = allDigits.Substring(0, allDigits.Length - 1);
-                        usedDecimals--;
-                    }
+            //     if (digitSettings.decimals <= 0)
+            //     {
+            //         numberString = ProcessIntegers(Mathf.RoundToInt(number).ToString(), out shortened);
+            //     }
+            //     else
+            //     {
+            //         string allDigits = Mathf.RoundToInt(number * Mathf.Pow(10, digitSettings.decimals)).ToString();
+            //         int usedDecimals = digitSettings.decimals;
 
-                    string integers = allDigits.Substring(0, Mathf.Max(0, allDigits.Length - usedDecimals));
+            //         while (digitSettings.hideZeros && allDigits.EndsWith("0") && usedDecimals > 0)
+            //         {
+            //             allDigits = allDigits.Substring(0, allDigits.Length - 1);
+            //             usedDecimals--;
+            //         }
 
-                    integers = ProcessIntegers(integers, out shortened);
+            //         string integers = allDigits.Substring(0, Mathf.Max(0, allDigits.Length - usedDecimals));
 
-                    if (integers == "")
-                    {
-                        integers = "0";
-                    }
+            //         integers = ProcessIntegers(integers, out shortened);
 
-                    int digitLength = allDigits.Length;
-                    while (digitLength < usedDecimals)
-                    {
-                        if (digitSettings.hideZeros)
-                        {
-                            usedDecimals--;
-                        }
-                        else
-                        {
-                            allDigits += "0";
-                            digitLength = allDigits.Length;
-                        }
-                    }
+            //         if (integers == "")
+            //         {
+            //             integers = "0";
+            //         }
 
-                    string decimals = allDigits.Substring(allDigits.Length - usedDecimals);
+            //         int digitLength = allDigits.Length;
+            //         while (digitLength < usedDecimals)
+            //         {
+            //             if (digitSettings.hideZeros)
+            //             {
+            //                 usedDecimals--;
+            //             }
+            //             else
+            //             {
+            //                 allDigits += "0";
+            //                 digitLength = allDigits.Length;
+            //             }
+            //         }
 
-                    if (usedDecimals > 0 && !shortened)
-                    {
-                        numberString = integers + digitSettings.decimalChar + decimals;
-                    }
-                    else
-                    {
-                        numberString = integers;
-                    }
-                }
+            //         string decimals = allDigits.Substring(allDigits.Length - usedDecimals);
 
-                numberText = ApplyTextSettings(numberString, numberSettings);
+            //         if (usedDecimals > 0 && !shortened)
+            //         {
+            //             numberString = integers + digitSettings.decimalChar + decimals;
+            //         }
+            //         else
+            //         {
+            //             numberString = integers;
+            //         }
+            //     }
 
-                if (enableScaleByNumber)
-                {
-                    numberScale = scaleByNumberSettings.fromScale + (scaleByNumberSettings.toScale - scaleByNumberSettings.fromScale) * Mathf.Clamp01((number - scaleByNumberSettings.fromNumber) / (scaleByNumberSettings.toNumber - scaleByNumberSettings.fromNumber));
-                }
+            //     numberText = ApplyTextSettings(numberString, numberSettings);
 
-                if (enableColorByNumber)
-                {
-                    SetColor(colorByNumberSettings.colorGradient.Evaluate(Mathf.Clamp01((number - colorByNumberSettings.fromNumber) / (colorByNumberSettings.toNumber - colorByNumberSettings.fromNumber))));
-                }
-            }
+            //     if (enableScaleByNumber)
+            //     {
+            //         numberScale = scaleByNumberSettings.fromScale + (scaleByNumberSettings.toScale - scaleByNumberSettings.fromScale) * Mathf.Clamp01((number - scaleByNumberSettings.fromNumber) / (scaleByNumberSettings.toNumber - scaleByNumberSettings.fromNumber));
+            //     }
+
+            //     if (enableColorByNumber)
+            //     {
+            //         SetColor(colorByNumberSettings.colorGradient.Evaluate(Mathf.Clamp01((number - colorByNumberSettings.fromNumber) / (colorByNumberSettings.toNumber - colorByNumberSettings.fromNumber))));
+            //     }
+            // }
 
             //Prefix:
             string prefixText = "";

@@ -4,6 +4,7 @@ using UnityEngine.Events;
 using UnityEngine.UI;
 using System.Reflection;
 using Cargold.Infinite;
+using TMPro;
 
 
 #if UNITY_EDITOR
@@ -122,6 +123,10 @@ public static class UtilityMethod
     }
 
 
+    public static TextMeshProUGUI GetTxtCustomTypeByID(int id)
+    {
+        return GlobalData.instance.customTypeDataManager.GetCustomTypeData_Text(id);
+    }
 
     public static Button GetCustomTypeBtnByID(int id)
     {

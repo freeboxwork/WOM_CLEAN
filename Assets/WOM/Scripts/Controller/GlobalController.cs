@@ -64,9 +64,6 @@ public class GlobalController : MonoBehaviour
         // 곤충 세팅
         yield return StartCoroutine(insectManager.Init(playerDataManager));
 
-        // 몬스터 세팅
-        yield return StartCoroutine(monsterManager.Init(stageManager.stageData.stageId));
-
         // 이펙트 세팅
         yield return StartCoroutine(effectManager.Init());
 
@@ -75,6 +72,31 @@ public class GlobalController : MonoBehaviour
 
         // UI Controller 세팅
         yield return StartCoroutine(uiController.Init());
+
+        // 몬스터 세팅
+        yield return StartCoroutine(monsterManager.Init(stageManager.stageData.stageId));
+
+        // 타겟 몬스터 지정 -> 첫 시작은 노멀 몬스터
+        player.SetCurrentMonster(monsterManager.monsterNormal);
+        player.SetCurrentMonsterHP(monsterManager.monsterNormal.hp);
+        // 등장 몬스터 활성화 -> 첫 시작은 노멀 몬스터
+        // TODO : 하나만 켜야 하는지 확인 필요 현재 모두 나타나도록 수정
+        //monsterManager.EnableMonster(EnumDefinition.MonsterType.normal);
+
+        // Battle UI 초기화
+        SetBattleUI_Init();
+
+        // 훈련 데이터및 UI 세팅
+        yield return StartCoroutine(traningManager.Init());
+
+        // 스탯 매니저 초기 세팅
+        yield return StartCoroutine(statManager.Init());
+
+        // 스킬 데이터및 UI 세팅
+        yield return StartCoroutine(skillManager.Init());
+
+        // 유전자 데이터및 UI 세팅
+        yield return StartCoroutine(dnaManager.Init());
 
         // 진화매니저 초기 세팅
         yield return StartCoroutine(evolutionManager.Init());
@@ -85,55 +107,17 @@ public class GlobalController : MonoBehaviour
         // 진화 주사위 뽑기 세팅
         yield return StartCoroutine(evolutionDiceLotteryManager.Init());
 
-        //스킬 데이터및 UI 세팅
-        yield return StartCoroutine(skillManager.Init());
-
         // 유니온 스폰 매니저 세팅
         yield return StartCoroutine(unionSpwanManager.Init());
-
-
-        // 유전자 데이터및 UI 세팅
-        yield return StartCoroutine(dnaManager.Init());
-
-        // 훈련 데이터및 UI 세팅
-        yield return StartCoroutine(traningManager.Init());
-
-        // 스탯 매니저 초기 세팅
-        yield return StartCoroutine(statManager.Init());
-
 
         // 곤충 스폰 매니저 세팅
         yield return StartCoroutine(insectSpwanManager.Init());
 
-        //  던전 매니저 세팅
+        // 던전 매니저 세팅
         yield return StartCoroutine(GlobalData.instance.dungeonManager.Init());
-
-        // 퀘스트 매니저 세팅
-        yield return StartCoroutine(questManager.Init());
 
         // 유니온 데이터및 UI 세팅
         yield return StartCoroutine(unionManager.Init());
-
-        // 타겟 몬스터 지정 -> 첫 시작은 노멀 몬스터
-        player.SetCurrentMonster(monsterManager.monsterNormal);
-        player.SetCurrentMonsterHP(monsterManager.monsterNormal.hp);
-
-        // 등장 몬스터 활성화 -> 첫 시작은 노멀 몬스터
-        // TODO : 하나만 켜야 하는지 확인 필요 현재 모두 나타나도록 수정
-        //monsterManager.EnableMonster(EnumDefinition.MonsterType.normal);
-
-        // UI 초기화
-        SetUI_Init();
-
-
-        // 캐슬 초기화
-        yield return StartCoroutine(GlobalData.instance.castleManager.Init());
-
-        // 랩 초기화
-        yield return StartCoroutine(labBuildingManager.Init());
-
-        // Monster In Animation
-        yield return StartCoroutine(player.currentMonster.inOutAnimator.AnimPositionIn());
 
         // 사운드 매니저 초기화
         yield return StartCoroutine(soundManager.Init());
@@ -141,11 +125,11 @@ public class GlobalController : MonoBehaviour
         // 광고 매니저 초기화
         yield return StartCoroutine(adManager.Init());
 
-        // 한 프레임 대기
-        yield return new WaitForEndOfFrame();
+        // 캐슬 초기화
+        yield return StartCoroutine(GlobalData.instance.castleManager.Init());
 
-        // 오프라인 보상 팝업 등장
-        yield return StartCoroutine(offlineRewardPopupContoller.Init());
+        // 랩 초기화
+        yield return StartCoroutine(labBuildingManager.Init());
 
         // 상점 데이터및 UI 세팅
         yield return StartCoroutine(shopManager.Init());
@@ -153,6 +137,31 @@ public class GlobalController : MonoBehaviour
         // 투토리얼 초기화
         yield return StartCoroutine(tutorialManager.Init());
 
+        // 투토리얼 실행 상황에 따라 상점버튼 활성 / 비활성화
+        var isShopBtnActive = tutorialManager.isTutorial == false;
+        UtilityMethod.GetCustomTypeBtnByID(6).gameObject.SetActive(isShopBtnActive);
+
+        // CASTLE 버튼 투토리얼에 따라 활성 비활성
+        var activeValue = !GlobalData.instance.tutorialManager.isTutorial;
+        uiController.castleButtonObj.SetActive(activeValue);
+
+        // 골드 피그 등장( 지정된 시간 지난뒤 등장 )
+        yield return StartCoroutine(goldPigController.Init());
+
+        // 트랜지션 아웃 ( black screen )
+        yield return StartCoroutine(GlobalData.instance.effectManager.TransitionOut());
+
+        // 퀘스트 매니저 세팅
+        yield return StartCoroutine(questManager.Init());
+
+        // 한 프레임 대기
+        yield return new WaitForEndOfFrame();
+
+        // 오프라인 보상 팝업 등장
+        yield return StartCoroutine(offlineRewardPopupContoller.Init());
+
+        // Monster In Animation
+        yield return StartCoroutine(player.currentMonster.inOutAnimator.AnimPositionIn());
 
         // 곤충 스폰 활성화 -> tutorial pattenr 10 에서 활성화
         if (tutorialManager.isTutorial == false)
@@ -163,29 +172,16 @@ public class GlobalController : MonoBehaviour
             insectSpwanManager.AllTimerStart();
         }
 
-        // 투토리얼 실행 상황에 따라 상점버튼 활성 / 비활성화
-        var isShopBtnActive = tutorialManager.isTutorial == false;
-        UtilityMethod.GetCustomTypeBtnByID(6).gameObject.SetActive(isShopBtnActive);
-
-
-        // 골드 피그 등장( 지정된 시간 지난뒤 등장 )
-        yield return StartCoroutine(goldPigController.Init());
-
-        // CASTLE 버튼 투토리얼에 따라 활성 비활성
-        var activeValue = !GlobalData.instance.tutorialManager.isTutorial;
-        uiController.castleButtonObj.SetActive(activeValue);
-
         // 공격 가능 상태로 전환
         attackController.SetAttackableState(true);
 
         // 버튼 가능 상태로 전환
         UtilityMethod.EnableUIEventSystem(true);
 
-        // 트랜지션 아웃 ( black screen )
-        yield return StartCoroutine(GlobalData.instance.effectManager.TransitionOut());
+
     }
 
-    void SetUI_Init()
+    void SetBattleUI_Init()
     {
         // set boss monster hp
         var hp = player.currentMonster.hp;

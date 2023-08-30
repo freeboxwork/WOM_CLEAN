@@ -203,16 +203,13 @@ public class EffectManager : MonoBehaviour
 
     public void EnableFloatingText(double damage, bool isCritical, Transform tr, EnumDefinition.InsectType insectType)
     {
-        // var flotingTxt = GetFloatingText();
-        // flotingTxt.transform.position = tr.position;
-        // flotingTxt.gameObject.SetActive(true);
-        // flotingTxt.SetText(damage.ToString(), isCritical);
+        float dmg = (float)Mathf.Floor((float)damage);//소수점 버림
+        string strDmg = UtilityMethod.ChangeSymbolNumber(dmg.ToString("#,##0"));//3자리마다 콤마 << 이렇게 해야 Infinite 변환 에서 에러가 안남
+        DamageNumber damageNumber = numberPrefab.Spawn(tr.position,  strDmg, 0);//3번째 파라미터는 의미없는 값
 
         //곤충이 치명타
         if (isCritical)
         {
-            DamageNumber damageNumber = numberPrefab.Spawn(tr.position,  (float)damage);
-
             damageNumber.SetScale(1f);
             damageNumber.SetColor(Color.magenta);
         }
@@ -221,24 +218,17 @@ public class EffectManager : MonoBehaviour
             //유니온 일반 공격
             if (insectType == EnumDefinition.InsectType.union)
             {
-                DamageNumber damageNumber = numberPrefab.Spawn(tr.position, (float)damage);
-
                 damageNumber.SetColor(Color.cyan);
                 damageNumber.SetScale(0.7f);
             }
             else
             {
                 //곤충 일반 공격
-                DamageNumber damageNumber = numberPrefab.Spawn(tr.position, (float)damage);
                 damageNumber.SetColor(Color.white);
                 damageNumber.SetScale(0.5f);
             }
 
         }
-
-
-
-
 
     }
 

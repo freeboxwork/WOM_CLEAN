@@ -1,0 +1,214 @@
+{
+  "data":[
+ {
+   "level": 0,
+   "salePrice": 34800,
+   "duration": 30,
+   "power": 100,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 1,
+   "salePrice": 52800,
+   "duration": 30,
+   "power": 100,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 2,
+   "salePrice": 100050,
+   "duration": 30.5,
+   "power": 110,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 3,
+   "salePrice": 199050,
+   "duration": 31,
+   "power": 120,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 4,
+   "salePrice": 439050,
+   "duration": 31.5,
+   "power": 130,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 5,
+   "salePrice": 1554250,
+   "duration": 32,
+   "power": 140,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 6,
+   "salePrice": 3260500,
+   "duration": 32.5,
+   "power": 150,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 7,
+   "salePrice": 8978200,
+   "duration": 33,
+   "power": 160,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 8,
+   "salePrice": 24258500,
+   "duration": 33.5,
+   "power": 170,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 9,
+   "salePrice": 65052750,
+   "duration": 34,
+   "power": 180,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 10,
+   "salePrice": 146612000,
+   "duration": 34.5,
+   "power": 190,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 11,
+   "salePrice": 298858750,
+   "duration": 35,
+   "power": 200,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 12,
+   "salePrice": 656971000,
+   "duration": 35.5,
+   "power": 210,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 13,
+   "salePrice": 1421780000,
+   "duration": 36,
+   "power": 220,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 14,
+   "salePrice": 2941599500,
+   "duration": 36.5,
+   "power": 230,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 15,
+   "salePrice": 6056735000,
+   "duration": 37,
+   "power": 240,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 16,
+   "salePrice": 13638256000,
+   "duration": 37.5,
+   "power": 250,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 17,
+   "salePrice": 27113630500,
+   "duration": 38,
+   "power": 260,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 18,
+   "salePrice": 56074322500,
+   "duration": 38.5,
+   "power": 270,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 19,
+   "salePrice": 100975904500,
+   "duration": 39,
+   "power": 280,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ },
+ {
+   "level": 20,
+   "salePrice": null,
+   "duration": 39.5,
+   "power": 290,
+   "name": "잔칫날",
+   "coolTime": 420,
+   "maxLevel": 20,
+   "desctiption": "획득 골드량이 <Duration>초간 <Power>만큼 증가"
+ }
+]
+}

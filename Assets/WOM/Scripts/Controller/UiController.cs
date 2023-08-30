@@ -198,6 +198,7 @@ public class UiController : MonoBehaviour
     public void SetSliderDungeonMonsterHP(double value)
     {
         if(value < 0) value = 0;
+        
         var currentFillAmountValue = UtilityMethod.GetCustomTypeImageById(41).fillAmount;
         var sliderValue = (float)value / GlobalData.instance.monsterManager.GetMonsterDungeon().curMonsterHP;
         UtilityMethod.GetCustomTypeImageById(41).fillAmount = (float)sliderValue;

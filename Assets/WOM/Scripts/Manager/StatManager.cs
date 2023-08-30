@@ -166,7 +166,7 @@ public class StatManager : MonoBehaviour
 
         // ad buff 적용 ( damage )
         var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffDamage).addValue;
-        Debug.Log($"유니온 공격력 : 기본:{ud}//DNA:{dms}= 합계 : {value}");
+        //Debug.Log($"유니온 공격력 : 기본:{ud}//DNA:{dms}= 합계 : {value}");
 
         return value * buffValue;
     }
@@ -193,7 +193,7 @@ public class StatManager : MonoBehaviour
         var dst = GetDnaData(DNAType.unionSpawnTime).power;
 
         var value = (ums - dst) * (1 - (skill_UnionSpwnSpeedUp * 0.01f));
-        Debug.Log($"유니온 스폰시간 : 기본:{ums}//DNA:{dst}= 합계 : {value}");
+//        Debug.Log($"유니온 스폰시간 : 기본:{ums}//DNA:{dst}= 합계 : {value}");
 
 
         return value;

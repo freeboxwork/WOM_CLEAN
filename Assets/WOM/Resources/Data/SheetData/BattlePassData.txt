@@ -444,7 +444,7 @@
  {
    "id": 49,
    "targetType": "stage",
-   "targetStage": 200,
+   "targetStage": 500,
    "commonRewardType": "gem",
    "passRewardType": "unionTicket",
    "commonRewardCount": 500,
@@ -894,7 +894,7 @@
  {
    "id": 99,
    "targetType": "stage",
-   "targetStage": 200,
+   "targetStage": 1000,
    "commonRewardType": "gem",
    "passRewardType": "dnaTicket",
    "commonRewardCount": 500,

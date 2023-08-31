@@ -133,8 +133,8 @@ public class QuestManager : MonoBehaviour
     void AddBattlePassData()
     {
         var battlePassData = GlobalData.instance.dataManager.battlePassDatas.data;
-        for (int i = 0; i < battlePassData.Count; i++)
-        //for (int i = 0; i < questPopup.battlePassSlots.Count; i++)
+        //for (int i = 0; i < battlePassData.Count; i++)
+        for (int i = 0; i < questPopup.battlePassSlots.Count; i++)
         {
             var clonData = battlePassData[i].ClonInstance();
             var slot = questPopup.battlePassSlots[i];

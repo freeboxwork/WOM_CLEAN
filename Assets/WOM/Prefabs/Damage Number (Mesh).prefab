@@ -547,7 +547,7 @@ MonoBehaviour:
   enablePooling: 1
   poolSize: 50
   disableOnSceneLoad: 1
-  editorLastFont: CookieRun
+  editorLastFont: CookieRun Bold SDF
   position: {x: 0, y: 0, z: 0}
 --- !u!210 &7654079984299447428
 SortingGroup:
@@ -745,7 +745,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2cab4ce34012e2c4ba29dacf9b44c031, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 7de479c2f3834cb48b35ea10df09036e, type: 2}
   m_sharedMaterial: {fileID: 6431213241351420806, guid: 420fbe705724d89459e87efaabec5e62, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}

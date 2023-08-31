@@ -57,7 +57,7 @@ public class GlobalPopupController : MonoBehaviour
 
     public void EnableGlobalPopup(string title, string message)
     {
-        SetTxtTitle(title);
+        //SetTxtTitle(title);
         SetTxtMessage(message);
         popupSet.SetActive(true);
     }
@@ -73,7 +73,7 @@ public class GlobalPopupController : MonoBehaviour
 
           var messageData = GetMessageById(messageId);
 
-        SetTxtTitle(messageData.title);
+        //SetTxtTitle(messageData.title);
         SetTxtMessage(messageData.message_kor);
         popupSet.SetActive(true);
 
@@ -91,7 +91,7 @@ public class GlobalPopupController : MonoBehaviour
 
         var messageData = GetMessageById(messageId);
 
-        SetTxtTitle(messageData.title);
+        //SetTxtTitle(messageData.title);
         SetTxtMessage(messageData.message_kor);
         popupSet.SetActive(true);
 
@@ -110,7 +110,7 @@ public class GlobalPopupController : MonoBehaviour
 
     var messageData = GetMessageById(messageId);
 
-        SetTxtTitle(messageData.title);
+        //SetTxtTitle(messageData.title);
         SetTxtMessage(messageData.message_kor);
         popupSet.SetActive(true);
 

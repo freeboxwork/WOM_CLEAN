@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5976742349486006028}
   - component: {fileID: 8339500907970783195}
   - component: {fileID: 5108112999671576892}
+  - component: {fileID: 1361064365}
+  - component: {fileID: 5976742350841479026}
   m_Layer: 5
   m_Name: unionEquipSlot
   m_TagString: Untagged
@@ -71,7 +73,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d7f2cb8ad61ddb14b8e6171cb085392b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 40e17be2181be8e4fb48bf67984e2d5a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -97,7 +99,7 @@ MonoBehaviour:
   imgFrame: {fileID: 5976742349486006028}
   imgUnionFace: {fileID: 5976742350319862012}
   imgUnlock: {fileID: 5976742349874249660}
-  spriteUnionEmpty: {fileID: 0}
+  spriteUnionEmpty: {fileID: 21300000, guid: 9a6d154e73502c743a7556d77b511c59, type: 3}
   btnSlot: {fileID: 5108112999671576892}
   isUnLock: 0
   unionSlot: {fileID: 0}
@@ -146,6 +148,35 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1361064365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5976742349486006030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be5b573dad2f9694c9836d65dae22410, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfxType: 19
+  btn: {fileID: 0}
+--- !u!114 &5976742350841479026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5976742349486006030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614c2c6e87c56be4486cc49d159b8f05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 18
+  image: {fileID: 5976742349486006028}
+  button: {fileID: 5108112999671576892}
 --- !u!1 &5976742349874249662
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,7 +243,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d7f2cb8ad61ddb14b8e6171cb085392b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 40e17be2181be8e4fb48bf67984e2d5a, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -281,7 +312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.3207547, g: 0.3207547, b: 0.3207547, a: 1}
+  m_Color: {r: 0.5471698, g: 0.5471698, b: 0.5471698, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

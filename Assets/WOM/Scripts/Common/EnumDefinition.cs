@@ -178,6 +178,18 @@ public class EnumDefinition
         coal
     }
 
+
+    public enum UiIconType
+    {
+        defaultFrame,
+        normal,
+        high,
+        rare,
+        hero,
+        legend,
+        unique
+    }
+
     public enum RewardType
     {
         gold,

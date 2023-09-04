@@ -156,7 +156,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: cf03a26a355334f4ea377bb5e11ee189, type: 3}
   - {fileID: 21300000, guid: 5ba37f6aa650fd041a2c6a3ce48608b8, type: 3}
   - {fileID: 21300000, guid: 4350b48ae6800844e90f41c3a14d7da8, type: 3}
-  - {fileID: 21300000, guid: d7f2cb8ad61ddb14b8e6171cb085392b, type: 3}
   - {fileID: 21300000, guid: 51684d9ad211c0a4dbf5ecf529383488, type: 3}
   - {fileID: 21300000, guid: 037e3afaea644774eb5010d0fc5547bf, type: 3}
   - {fileID: 21300000, guid: 0a7c072bbbfe15f45a1806e6a2269c1c, type: 3}
@@ -315,7 +314,6 @@ SpriteAtlas:
   - buff_Speed
   - Shop_DNA
   - Icon_Grade_02
-  - U_Frame_Normal
   - DNA_glodBonus
   - ADS
   - DNA_insectMoveSpeed

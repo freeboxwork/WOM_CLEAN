@@ -105,7 +105,12 @@ public class DungeonEnterPopup : MonoBehaviour
 
             // reward
             var type = GetRewardTypeByMonsterType(curMonsterType);
-            PopupController.instance.InitPopup(type, curDungeonMonData.currencyAmount);
+
+            // 캐슬 -> 연구소에 따른 던전 추가보상량
+            var addValue = GetAddValue(curMonsterType);
+            long totalCurrencyAmount = (long)(curDungeonMonData.currencyAmount + (curDungeonMonData.currencyAmount * addValue * 0.01f));
+            Debug.Log("추가 보상량:"+addValue);
+            PopupController.instance.InitPopup(type, totalCurrencyAmount);
             // addRewardMap[curMonsterType].Invoke(curDungeonMonData.currencyAmount);
 
             Debug.Log("소탕권 사용. 리워드 지급");
@@ -160,7 +165,7 @@ public class DungeonEnterPopup : MonoBehaviour
         long totalCurrencyAmount = (long)(data.currencyAmount + (data.currencyAmount * addValue * 0.01f));
 
         textPervClearLevel.text = $"{level} 단계";
-        textRewardValue.text = totalCurrencyAmount.ToString();
+        textRewardValue.text =  UtilityMethod.ChangeSymbolNumber(totalCurrencyAmount.ToString());
     }
 
     // 추가 보상 값

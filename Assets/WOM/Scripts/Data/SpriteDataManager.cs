@@ -7,6 +7,8 @@ public class SpriteDataManager : MonoBehaviour
 
     public SerializableDictionary<RewardType, Sprite> rewardIconDic = new SerializableDictionary<RewardType, Sprite>();
 
+    public SerializableDictionary<UiIconType, Sprite> uiIconDic = new SerializableDictionary<UiIconType, Sprite>();
+
 
     void Start()
     {
@@ -26,6 +28,11 @@ public class SpriteDataManager : MonoBehaviour
     {
         return rewardIconDic[type];
 
+    }
+
+    public Sprite GetUIIcon(string type)
+    {
+        return uiIconDic[(UiIconType)System.Enum.Parse(typeof(UiIconType), type)];
     }
 
     public Sprite GetRewardIcon(RewardType rewardType, int value)

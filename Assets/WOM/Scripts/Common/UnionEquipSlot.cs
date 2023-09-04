@@ -13,7 +13,8 @@ public class UnionEquipSlot : MonoBehaviour
     public UnionSlot unionSlot;
     public GameObject objEquipHighlight;
 
-    // union spwan timer ÏôÄ 1:1 Îß§Ïπ≠
+
+    // union spwan timer ??? 1:1 Îß§Ïπ≠
 
     void Start()
     {
@@ -26,13 +27,12 @@ public class UnionEquipSlot : MonoBehaviour
         btnSlot.onClick.AddListener(() =>
         {
             GlobalData.instance.unionManager.EquipSlot(this);
-            // Ï†ÑÏ≤¥ Ïû•Ï∞© Ïä¨Î°ØÏùò ÌïòÏù¥ÎùºÏù¥Ìä∏ ÎÅÑÍ∏∞
+            // ?†ÑÏ≤? ?û•Ï∞? ?ä¨Î°??ùò ?ïò?ù¥?ùº?ù¥?ä∏ ?ÅÑÍ∏?
             GlobalData.instance.unionManager.AllDisableEquipSlotHighlightEff();
         });
     }
 
-    //Ïû•Ï∞© Ìï¥Ï†ú 
-
+    //?û•Ï∞? ?ï¥?†ú 
 
 
     public void SetBtnEnableState(bool value)
@@ -51,6 +51,8 @@ public class UnionEquipSlot : MonoBehaviour
         imgUnionFace.sprite = unionSlot.imgUnionFace.sprite;
         unionSlot.unionEquipType = EnumDefinition.UnionEquipType.Equipped;
         unionSlot.SetUITxtUnionEquipState();
+        //ΩΩ∑‘ «¡∑π¿” ¿Ø¥œø¬ µÓ±ﬁø° ∏¬∞‘ ∫Ø∞Ê
+        imgFrame.sprite = GlobalData.instance.spriteDataManager.GetUIIcon(unionSlot.unionGradeType.ToString());
     }
     void SetEquitSlot()
     {
@@ -69,6 +71,7 @@ public class UnionEquipSlot : MonoBehaviour
         unionSlot = _unionSlot;
         SetUI();
         SetEquitSlot();
+
     }
 
     public void UnEquipSlot()
@@ -78,6 +81,7 @@ public class UnionEquipSlot : MonoBehaviour
         unionSlot.SetEquipSlot(null);
         unionSlot = null;
         imgUnionFace.sprite = spriteUnionEmpty;
+        imgFrame.sprite = GlobalData.instance.spriteDataManager.GetUIIcon("defaultFrame");
     }
 
     public void EnableEffHighlight(bool value)

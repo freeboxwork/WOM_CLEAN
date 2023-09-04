@@ -21,8 +21,23 @@ public class UnionInfoPopupController : MonoBehaviour
     public Button btnClose;
     public UnionSlot unionSlot;
 
+    public GameObject levelUpEffect;
 
+    void PlayEffect()
+    {
+        //만약 levelUpEffect Animator가 플레이 중이라면 Animator를 리셋하고 플레이 한다.
+        if (CheckStartEffectAnim())
+        {
+            levelUpEffect.GetComponent<Animator>().Rebind();
+        }
 
+        levelUpEffect.SetActive(true);
+    }
+
+    bool CheckStartEffectAnim()
+    {
+        return levelUpEffect.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 0f;
+    }
 
     void Start()
     {
@@ -40,8 +55,16 @@ public class UnionInfoPopupController : MonoBehaviour
 
         btnLevelUp.onClick.AddListener(() =>
         {
+
+            if(levelUpEffect.activeInHierarchy)
+            {
+                return;
+            }
+
             if (GlobalData.instance.unionManager.LevelUpUnion(unionSlot))
             {
+                //이펙트 재생
+                PlayEffect();
                 ReloadUiSet();
             }
         });

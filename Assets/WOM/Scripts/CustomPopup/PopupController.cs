@@ -138,52 +138,6 @@ public class PopupController : MonoBehaviour
         for (int i = 0; i < rewards.Count; i++)
         {
             GlobalData.instance.rewardManager.RewardByType(rewards[i].type, (int)rewards[i].amount);
-
-            // switch (rewards[i].type)
-            // {
-            //     case EnumDefinition.RewardType.gold:
-            //         //???? rewards[i].amount Data/UI text Update
-            //         break;
-
-            //     case EnumDefinition.RewardType.bone:
-
-            //         break;
-
-            //     case EnumDefinition.RewardType.gem:
-
-            //         break;
-
-            //     case EnumDefinition.RewardType.dice:
-
-            //         break;
-
-            //     case EnumDefinition.RewardType.coal:
-            //         break;
-
-            //     case EnumDefinition.RewardType.clearTicket:
-            //         break;
-
-            //     case EnumDefinition.RewardType.goldKey:
-            //         break;
-
-            //     case EnumDefinition.RewardType.boneKey:
-            //         break;
-
-            //     case EnumDefinition.RewardType.diceKey:
-            //         break;
-
-            //     case EnumDefinition.RewardType.coalKey:
-            //         break;
-
-            //     case EnumDefinition.RewardType.union:
-            //         break;
-
-            //     case EnumDefinition.RewardType.dna:
-            //         break;
-            //     case EnumDefinition.RewardType.none:
-            //         break;
-
-            // }
         }
 
         //rewardEffect.SetActive(false);

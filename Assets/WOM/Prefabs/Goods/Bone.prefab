@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5301138494003162615}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.15, y: 0.15, z: 0.15}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -55,7 +55,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e0920ba228f923a46b6483a37c0a1bfc, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayerID: 348848675
   m_SortingLayer: 5
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: c0611c662150d4fb295c0ad2f5ed6cae, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e6d806aab5b44fbb8a85864864a2a3d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -139,3 +139,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goldInAnimData: {fileID: 1969637492}
   goldOutAnimData: {fileID: 1969637491}
+  IsFinishAnim: 0
+  goodsType: 0

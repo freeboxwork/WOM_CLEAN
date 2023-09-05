@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: IconSpriteFileData
   m_EditorClassIdentifier: 
   rewardIcons:
-  - {fileID: 21300000, guid: 81ea3bab0a06aca42b54331ff60f8b3b, type: 3}
-  - {fileID: 21300000, guid: c0611c662150d4fb295c0ad2f5ed6cae, type: 3}
-  - {fileID: 21300000, guid: 8d5f43a43d2a349dc84b1fc2c3df60d7, type: 3}
+  - {fileID: 21300000, guid: 808fbd9aa05d24d049320db1a0b7176b, type: 3}
+  - {fileID: 21300000, guid: 1e6d806aab5b44fbb8a85864864a2a3d, type: 3}
+  - {fileID: 21300000, guid: 7b6827dc950bb48278ef822641f23849, type: 3}
   - {fileID: 21300000, guid: da6aff862fae89b45a366cfad13c6fb7, type: 3}
   - {fileID: 21300000, guid: 9fe53b4724cead1438294d5d81d0f193, type: 3}
   - {fileID: 21300000, guid: b999fe27f5adf404ea0b397322169101, type: 3}

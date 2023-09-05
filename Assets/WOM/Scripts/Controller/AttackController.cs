@@ -8,7 +8,7 @@ public class AttackController : MonoBehaviour
     public InsectManager insectManager;
     /// <summary> 공격 가능 상태  </summary>
     public bool isAttackableState = false;
-    [SerializeField] private float spawnInterval = 0.0625f;
+    [SerializeField] private float spawnInterval = 0.1f;
     float lastSpawnTime;
 
     RaycastHit2D hit;

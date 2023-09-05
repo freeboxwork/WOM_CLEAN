@@ -32,6 +32,8 @@ public class GlobalController : MonoBehaviour
     public AD_Manager adManager;
     public OfflineRewardPopupContoller offlineRewardPopupContoller;
 
+    public InAppPurchaseManager inAppPurchaseManager;
+
     public TutorialManager tutorialManager;
 
 
@@ -163,6 +165,8 @@ public class GlobalController : MonoBehaviour
         // Monster In Animation
         yield return StartCoroutine(player.currentMonster.inOutAnimator.AnimPositionIn());
 
+        yield return StartCoroutine(inAppPurchaseManager.Init());
+
         // 곤충 스폰 활성화 -> tutorial pattenr 10 에서 활성화
         if (tutorialManager.isTutorial == false)
             insectSpwanManager.AllTimerStart();
@@ -178,6 +182,7 @@ public class GlobalController : MonoBehaviour
         // 버튼 가능 상태로 전환
         UtilityMethod.EnableUIEventSystem(true);
 
+        
 
     }
 

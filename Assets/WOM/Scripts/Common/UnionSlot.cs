@@ -20,6 +20,7 @@ public class UnionSlot : MonoBehaviour
     public UnionData unionData;
     public UnionEquipSlot unionEquipSlot;
 
+    public GameObject[] stars;
 
     void Start()
     {
@@ -59,6 +60,41 @@ public class UnionSlot : MonoBehaviour
         SetUITxtLevel();
         SetSliderValue();
     }
+
+    public void SetStarUI()
+    {
+        var grade = GetGrade();
+        for (int i = 0; i < stars.Length && grade > 0; i++)
+        {
+            if (!stars[i].activeInHierarchy)
+            {
+                stars[i].SetActive(true);
+                grade--;
+            }
+        }
+    }
+
+    int GetGrade()
+    {
+        switch(unionGradeType)
+        {
+            case EnumDefinition.UnionGradeType.normal:
+                return 1;
+            case EnumDefinition.UnionGradeType.high:
+                return 2;
+            case EnumDefinition.UnionGradeType.rare:
+                return 3;
+            case EnumDefinition.UnionGradeType.hero:
+                return 4;
+            case EnumDefinition.UnionGradeType.legend:
+                return 5;
+            case EnumDefinition.UnionGradeType.unique:
+                return 6;
+            default:
+                return 0;
+        }
+    }
+
 
     public void SetUIImageUnion(Sprite unionFace)
     {

@@ -136,7 +136,7 @@ public class UnionManager : MonoBehaviour
             slot.inGameData.unionGradeType = (EnumDefinition.UnionGradeType)System.Enum.Parse(typeof(EnumDefinition.UnionGradeType), data.gradeType);
             //Debug.Log(slot.inGameData.passiveDamage);
 
-
+            slot.SetStarUI();
 
             yield return null;
         }

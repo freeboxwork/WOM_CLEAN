@@ -1,0 +1,181 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75d34cf01d34acc458da5ffdab5e6238, type: 3}
+  m_Name: IAPData
+  m_EditorClassIdentifier: 
+  debug: 0
+  useReceiptValidation: 1
+  usePlaymaker: 0
+  useBolt: 0
+  useGameFlow: 0
+  useForGooglePlay: 1
+  useForAmazon: 0
+  useForIos: 0
+  useForMac: 0
+  useForWindows: 0
+  shopProducts:
+  - productName: commongem1
+    productType: 0
+    idGooglePlay: commongem1
+    idAmazon: 
+    idIOS: 
+    idMac: 
+    idWindows: 
+    value: 0
+    localizedPriceString: '-'
+    price: 0
+    isoCurrencyCode: 
+    receipt: 
+  - productName: commongem2
+    productType: 0
+    idGooglePlay: commongem2
+    idAmazon: 
+    idIOS: 
+    idMac: 
+    idWindows: 
+    value: 0
+    localizedPriceString: '-'
+    price: 0
+    isoCurrencyCode: 
+    receipt: 
+  - productName: commongem3
+    productType: 0
+    idGooglePlay: commongem3
+    idAmazon: 
+    idIOS: 
+    idMac: 
+    idWindows: 
+    value: 0
+    localizedPriceString: '-'
+    price: 0
+    isoCurrencyCode: 
+    receipt: 
+  - productName: commongem4
+    productType: 0
+    idGooglePlay: commongem4
+    idAmazon: 
+    idIOS: 
+    idMac: 
+    idWindows: 
+    value: 0
+    localizedPriceString: '-'
+    price: 0
+    isoCurrencyCode: 
+    receipt: 
+  - productName: vipgem1
+    productType: 1
+    idGooglePlay: vipgem1
+    idAmazon: 
+    idIOS: 
+    idMac: 
+    idWindows: 
+    value: 0
+    localizedPriceString: '-'
+    price: 0
+    isoCurrencyCode: 
+    receipt: 
+  - productName: vipgem2
+    productType: 1
+    idGooglePlay: vipgem2
+    idAmazon: 
+    idIOS: 
+    idMac: 
+    idWindows: 
+    value: 0
+    localizedPriceString: '-'
+    price: 0
+    isoCurrencyCode: 
+    receipt: 
+  - productName: vipgem3
+    productType: 1
+    idGooglePlay: vipgem3
+    idAmazon: 
+    idIOS: 
+    idMac: 
+    idWindows: 
+    value: 0
+    localizedPriceString: '-'
+    price: 0
+    isoCurrencyCode: 
+    receipt: 
+  - productName: vipgem4
+    productType: 1
+    idGooglePlay: vipgem4
+    idAmazon: 
+    idIOS: 
+    idMac: 
+    idWindows: 
+    value: 0
+    localizedPriceString: '-'
+    price: 0
+    isoCurrencyCode: 
+    receipt: 
+  - productName: starterrpackage
+    productType: 1
+    idGooglePlay: starterrpackage
+    idAmazon: 
+    idIOS: 
+    idMac: 
+    idWindows: 
+    value: 0
+    localizedPriceString: '-'
+    price: 0
+    isoCurrencyCode: 
+    receipt: 
+  - productName: adbuffpass
+    productType: 1
+    idGooglePlay: adbuffpass
+    idAmazon: 
+    idIOS: 
+    idMac: 
+    idWindows: 
+    value: 0
+    localizedPriceString: '-'
+    price: 0
+    isoCurrencyCode: 
+    receipt: 
+  - productName: dungeonpackage
+    productType: 1
+    idGooglePlay: dungeonpackage
+    idAmazon: 
+    idIOS: 
+    idMac: 
+    idWindows: 
+    value: 0
+    localizedPriceString: '-'
+    price: 0
+    isoCurrencyCode: 
+    receipt: 
+  - productName: battlepass
+    productType: 1
+    idGooglePlay: battlepass
+    idAmazon: 
+    idIOS: 
+    idMac: 
+    idWindows: 
+    value: 0
+    localizedPriceString: '-'
+    price: 0
+    isoCurrencyCode: 
+    receipt: 
+  - productName: fastestpackage
+    productType: 1
+    idGooglePlay: fastestpackage
+    idAmazon: 
+    idIOS: 
+    idMac: 
+    idWindows: 
+    value: 0
+    localizedPriceString: '-'
+    price: 0
+    isoCurrencyCode: 
+    receipt: 

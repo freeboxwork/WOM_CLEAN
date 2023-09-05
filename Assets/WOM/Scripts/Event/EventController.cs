@@ -521,7 +521,8 @@ public class EventController : MonoBehaviour
 
         // phaseCount 리셋
         PhaseCountReset();
-
+        //Change BGM
+        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
         // 금광보스 카운트 UI 활성
         globalData.uiController.SetEnablePhaseCountUI(true);
 
@@ -1014,6 +1015,7 @@ public class EventController : MonoBehaviour
 
         // 하프 라인 위 곤충 모두 제거
         globalData.insectManager.DisableHalfLineInsects();
+        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_DungeonBoss);
 
         // 일반 몬스터 OUT
         yield return StartCoroutine(globalData.player.currentMonster.inOutAnimator.MonsterKillMatAnim());
@@ -1069,6 +1071,8 @@ public class EventController : MonoBehaviour
 
         // 하프 라인 위 곤충 모두 제거
         globalData.insectManager.DisableHalfLineInsects();
+        //Change BGM
+        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
 
         // BG Color Change
         globalData.stageManager.bgAnimController.spriteColorAnim.ColorNormalAnim();
@@ -1377,6 +1381,8 @@ public class EventController : MonoBehaviour
         // BG Color Change
         globalData.stageManager.bgAnimController.spriteColorAnim.ColorNormalAnim();
 
+        //Change BGM
+        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
         // 보스 몬스터 OUT
         yield return StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionOut());
 

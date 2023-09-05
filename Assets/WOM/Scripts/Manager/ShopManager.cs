@@ -6,7 +6,6 @@ using static EnumDefinition;
 
 public class ShopManager : MonoBehaviour
 {
-    public List<ShopSlot> shopSlots = new List<ShopSlot>();
     public List<ShopKeyProductSlot> shopKeyProductSlots = new List<ShopKeyProductSlot>();
 
     int lotteryCost1 = 100;    //유니온 1회 뽑기 비용
@@ -26,17 +25,6 @@ public class ShopManager : MonoBehaviour
         // SetShopSlots(); 
         yield return null;
     }
-
-    void SetShopSlots()
-    {
-        for (int i = 0; i < shopSlots.Count; i++)
-        {
-            var slot = shopSlots[i];
-
-            // set ui
-        }
-    }
-
 
     void SetKeyProductSlots()
     {
@@ -147,12 +135,6 @@ public class ShopManager : MonoBehaviour
 
 
     }
-
-    ShopSlot GetShopSlotByType(ShopSlotType type)
-    {
-        return shopSlots.FirstOrDefault(f => f.shopSlotType == type);
-    }
-
 
 
 }

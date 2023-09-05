@@ -227,6 +227,8 @@ public class CastleManager : MonoBehaviour
         }
         // 업그레이트 버튼 활성/비활성
         GetCastlePopupByType(popupType).gameObject.SetActive(true);
+        GlobalData.instance.uiController.ButtonInteractableCheck(EnumDefinition.RewardType.gem);
+
     }
 
 
@@ -439,6 +441,7 @@ public class CastleManager : MonoBehaviour
         while (true)
         {
             yield return null;
+            popup.SetTextDigUpFullText("채굴 준비 중..");
 
             //0레벨일때는 채굴 불가
             if(buildDataMine.level > 0)
@@ -523,6 +526,7 @@ public class CastleManager : MonoBehaviour
         var popup = (MinePopup)GetCastlePopupByType(CastlePopupType.factory);
 
         digUpBoneTime = offLineSubBoneTime;
+        popup.SetTextDigUpFullText("채굴 준비 중..");
 
         while (true)
         {

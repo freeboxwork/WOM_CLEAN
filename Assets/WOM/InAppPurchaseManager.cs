@@ -79,6 +79,25 @@ public class InAppPurchaseManager : MonoBehaviour
         }
     }
 
+
+    public bool IsPayBuffInApp()
+    {
+        if (nonConsumableProducts.Count > 0)
+        {
+            for (int i = 0; i < nonConsumableProducts.Count; i++)
+            {
+                if (nonConsumableProducts[i].productName.Equals("adbuffpass") && nonConsumableProducts[i].isBuy)
+                {
+                   return true; 
+                }
+            }
+        }
+
+        return false;
+    }
+ 
+
+
     public void BuyGemI() { IAPManager.Instance.BuyProduct(consumableProducts[0].productName, ProductBought); }
     public void BuyGemII() { IAPManager.Instance.BuyProduct(consumableProducts[1].productName, ProductBought); }
     public void BuyGemIII() { IAPManager.Instance.BuyProduct(consumableProducts[2].productName, ProductBought); }
@@ -92,8 +111,6 @@ public class InAppPurchaseManager : MonoBehaviour
     public void BuyDungeonPackage() { IAPManager.Instance.BuyProduct(nonConsumableProducts[6].productName, ProductBought); }
     public void BuyBattlePass() { IAPManager.Instance.BuyProduct(nonConsumableProducts[7].productName, ProductBought); }
     public void BuyFastestPackage() { IAPManager.Instance.BuyProduct(nonConsumableProducts[8].productName, ProductBought); }
-
-
 
     private void ProductBought(IAPOperationStatus status, string message, StoreProduct product)
     {
@@ -286,8 +303,6 @@ public class InAppPurchaseManager : MonoBehaviour
             GleyEasyIAP.ScreenWriter.Write("Restore done");
         }
     }
-
-
 
     void ProductDisableGameObject(ProductTYPE product)
     {

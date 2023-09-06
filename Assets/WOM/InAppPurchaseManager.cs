@@ -52,6 +52,7 @@ public class InAppPurchaseManager : MonoBehaviour
     int vipGem3 = 24000;
     int vipGem4 = 78000;
 
+    public string environment = "production";
 
     //bool initializationInProgress = false;
     public IEnumerator Init()

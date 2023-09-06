@@ -13,6 +13,7 @@ public class UnionEquipSlot : MonoBehaviour
     public UnionSlot unionSlot;
     public GameObject objEquipHighlight;
 
+    [SerializeField] CanvasGroup canvasGroup;
 
     // union spwan timer ??? 1:1 매칭
 
@@ -44,6 +45,7 @@ public class UnionEquipSlot : MonoBehaviour
     {
         isUnLock = true;
         imgUnlock.gameObject.SetActive(false);
+        canvasGroup.alpha = 1;
     }
 
     public void SetUI()

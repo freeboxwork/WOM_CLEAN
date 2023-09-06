@@ -111,7 +111,6 @@ public class QuestManager : MonoBehaviour
                 // 만약 퀘스트 재설정 타이머가 자정을 지난 경우 타이머를 재설정한다.
                 if (questResetTimer.HasCrossedMidnight())
                 {
-
                     // 자정이 지난경우 던전 입장키 2개씩 보상.
                     Debug.Log("자정이 지났으므로 던전 입장 키를 2개씩 지급한다");
                     GlobalData.instance.player.AddAllDungeonKeys();

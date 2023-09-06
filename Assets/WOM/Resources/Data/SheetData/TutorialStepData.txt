@@ -9,7 +9,8 @@
    "tutorialBtnId": 999,
    "튜토리얼 활성 조건": "Main씬 로드 직후",
    "goal": "터치를하였는가?",
-   "description": "화면을 터치 하여 곤충을 생성하세요"
+   "description": "화면을 터치 하여 곤충을 생성하세요",
+   "체크사항": ""
  },
  {
    "id": 1,
@@ -21,7 +22,8 @@
    "tutorialBtnId": 999,
    "튜토리얼 활성 조건": "",
    "goal": "대화 완료 후 화면 터치 입력을 하였는가?",
-   "description": "잘하셨어요!"
+   "description": "잘하셨어요!",
+   "체크사항": ""
  },
  {
    "id": 2,
@@ -33,7 +35,8 @@
    "tutorialBtnId": 999,
    "튜토리얼 활성 조건": "몬스터에게 드랍한 골드 획득 후",
    "goal": "",
-   "description": ""
+   "description": "",
+   "체크사항": ""
  },
  {
    "id": 3,
@@ -45,7 +48,8 @@
    "tutorialBtnId": null,
    "튜토리얼 활성 조건": "",
    "goal": "",
-   "description": ""
+   "description": "",
+   "체크사항": ""
  },
  {
    "id": 4,
@@ -57,7 +61,8 @@
    "tutorialBtnId": 0,
    "튜토리얼 활성 조건": "",
    "goal": "훈련 메뉴 버튼 입력을 하였는가?",
-   "description": "공격력을 강화하러 가볼까요?"
+   "description": "공격력을 강화하러 가볼까요?",
+   "체크사항": "튜토리얼 시작 전 UI창이 모두 닫혀 있어야 합니다"
  },
  {
    "id": 5,
@@ -69,7 +74,8 @@
    "tutorialBtnId": 1,
    "튜토리얼 활성 조건": "",
    "goal": "공격력 강화 버튼 입력을 하였는가?",
-   "description": "곤충의 공격력을 강화해 보세요"
+   "description": "곤충의 공격력을 강화해 보세요",
+   "체크사항": ""
  },
  {
    "id": 6,
@@ -81,7 +87,8 @@
    "tutorialBtnId": 999,
    "튜토리얼 활성 조건": "",
    "goal": "대화 완료 후 화면 터치 입력을 하였는가?",
-   "description": "잘하셨어요!"
+   "description": "잘하셨어요!",
+   "체크사항": ""
  },
  {
    "id": 7,
@@ -89,11 +96,12 @@
    "step": 0,
    "patternType": "pattern_09",
    "patternDescription": "금광 몬스터 도달",
-   "customConditions": null,
+   "customConditions": 0,
    "tutorialBtnId": 999,
-   "튜토리얼 활성 조건": "스테이지 상관 없이",
+   "튜토리얼 활성 조건": "1 스테이지의 금광 몬스터 시작",
    "goal": "",
-   "description": ""
+   "description": "",
+   "체크사항": ""
  },
  {
    "id": 8,
@@ -105,7 +113,8 @@
    "tutorialBtnId": 0,
    "튜토리얼 활성 조건": "customConditions = 1 active  , 0 disable\ntutorialBtnId = object id",
    "goal": "",
-   "description": ""
+   "description": "",
+   "체크사항": "닫기 버튼"
  },
  {
    "id": 9,
@@ -117,7 +126,8 @@
    "tutorialBtnId": 19,
    "튜토리얼 활성 조건": "",
    "goal": "확인 버튼 입력을 하였는가?",
-   "description": "금광 몬스터를 처치하면<br>많은골드를 얻을 수 있어요"
+   "description": "금광 몬스터를 처치하면<br>많은골드를 얻을 수 있어요",
+   "체크사항": ""
  },
  {
    "id": 10,
@@ -129,7 +139,8 @@
    "tutorialBtnId": 0,
    "튜토리얼 활성 조건": "",
    "goal": "",
-   "description": ""
+   "description": "",
+   "체크사항": ""
  },
  {
    "id": 11,
@@ -137,11 +148,12 @@
    "step": 0,
    "patternType": "pattern_05",
    "patternDescription": "골드 보스 사냥 했을때",
-   "customConditions": null,
+   "customConditions": 0,
    "tutorialBtnId": 999,
-   "튜토리얼 활성 조건": "골드 보스 처치 ",
+   "튜토리얼 활성 조건": "1 스테이지의 골드 보스 처치 ",
    "goal": "",
-   "description": ""
+   "description": "",
+   "체크사항": ""
  },
  {
    "id": 12,
@@ -153,7 +165,8 @@
    "tutorialBtnId": null,
    "튜토리얼 활성 조건": "",
    "goal": "",
-   "description": ""
+   "description": "",
+   "체크사항": ""
  },
  {
    "id": 13,
@@ -165,7 +178,8 @@
    "tutorialBtnId": 2,
    "튜토리얼 활성 조건": "",
    "goal": "보스 버튼 입력을  하였는가?",
-   "description": "보스에 도전해 보세요"
+   "description": "보스에 도전해 보세요",
+   "체크사항": "튜토리얼 시작 전 UI창이 모두 닫혀 있어야 합니다"
  },
  {
    "id": 14,
@@ -173,11 +187,12 @@
    "step": 0,
    "patternType": "pattern_07",
    "patternDescription": "보스 도전 성공 ",
-   "customConditions": 1,
+   "customConditions": 0,
    "tutorialBtnId": 999,
-   "튜토리얼 활성 조건": "보스 사냥 성공 ( 횟수 : customConditions )",
+   "튜토리얼 활성 조건": "1 번스테이지 보스 도전 성공",
    "goal": "",
-   "description": ""
+   "description": "",
+   "체크사항": ""
  },
  {
    "id": 15,
@@ -189,7 +204,8 @@
    "tutorialBtnId": null,
    "튜토리얼 활성 조건": "",
    "goal": "",
-   "description": ""
+   "description": "",
+   "체크사항": ""
  },
  {
    "id": 16,
@@ -201,7 +217,8 @@
    "tutorialBtnId": 0,
    "튜토리얼 활성 조건": "",
    "goal": "훈련 메뉴 버튼 입력을 하였는가?",
-   "description": "스킬을 배우러 가볼까요?"
+   "description": "스킬을 배우러 가볼까요?",
+   "체크사항": "튜토리얼 시작 전 UI창이 모두 닫혀 있어야 합니다"
  },
  {
    "id": 17,
@@ -213,7 +230,8 @@
    "tutorialBtnId": 3,
    "튜토리얼 활성 조건": "",
    "goal": "스킬 탭 버튼 입력을 하였는가?",
-   "description": "강력한 적을 상대할 때 유용하답니다"
+   "description": "강력한 적을 상대할 때 유용하답니다",
+   "체크사항": ""
  },
  {
    "id": 18,
@@ -225,7 +243,8 @@
    "tutorialBtnId": 4,
    "튜토리얼 활성 조건": "",
    "goal": "스킬 업그레이드 버튼 입력을 하였는가?",
-   "description": "스킬을 배우세요!"
+   "description": "스킬을 배우세요!",
+   "체크사항": ""
  },
  {
    "id": 19,
@@ -237,7 +256,8 @@
    "tutorialBtnId": 999,
    "튜토리얼 활성 조건": "",
    "goal": "대화 완료 후 화면을 터치 입력을 하였는가?",
-   "description": "잘하셨어요!"
+   "description": "잘하셨어요!",
+   "체크사항": ""
  },
  {
    "id": 20,
@@ -249,23 +269,38 @@
    "tutorialBtnId": 999,
    "튜토리얼 활성 조건": "곤충 자동 생성 실행",
    "goal": "",
-   "description": ""
+   "description": "",
+   "체크사항": ""
  },
  {
    "id": 21,
    "setId": 6,
    "step": 0,
-   "patternType": "pattern_07",
-   "patternDescription": "보스 도전 성공",
-   "customConditions": 1,
-   "tutorialBtnId": 999,
-   "튜토리얼 활성 조건": "보스 사냥 성공 ( 횟수 : customConditions )",
-   "goal": "",
-   "description": ""
+   "patternType": "pattern_18",
+   "patternDescription": "버프 구매 이력 존재시 스킵",
+   "customConditions": 7,
+   "tutorialBtnId": null,
+   "튜토리얼 활성 조건": "",
+   "goal": "버프 구매 이력 판단하여 버프 투토리얼 건너 뛰도록 수정",
+   "description": "",
+   "체크사항": ""
  },
  {
    "id": 22,
-   "setId": 6,
+   "setId": 7,
+   "step": 0,
+   "patternType": "pattern_07",
+   "patternDescription": "보스 도전 성공",
+   "customConditions": 0,
+   "tutorialBtnId": 999,
+   "튜토리얼 활성 조건": "3스테이지 보스 도전 성공",
+   "goal": "",
+   "description": "",
+   "체크사항": ""
+ },
+ {
+   "id": 23,
+   "setId": 7,
    "step": 1,
    "patternType": "pattern_15",
    "patternDescription": "모든 UI 닫기",
@@ -273,11 +308,12 @@
    "tutorialBtnId": null,
    "튜토리얼 활성 조건": "",
    "goal": "",
-   "description": ""
+   "description": "",
+   "체크사항": ""
  },
  {
-   "id": 23,
-   "setId": 6,
+   "id": 24,
+   "setId": 7,
    "step": 2,
    "patternType": "pattern_03",
    "patternDescription": "",
@@ -285,11 +321,12 @@
    "tutorialBtnId": 5,
    "튜토리얼 활성 조건": "",
    "goal": "버프 아이콘 버튼 입력을 하였는가?",
-   "description": "버프를 이용하면 더욱 강력해 질 수 있어요"
+   "description": "버프를 이용하면 더욱 강력해 질 수 있어요",
+   "체크사항": "튜토리얼 시작 전 UI창이 모두 닫혀 있어야 합니다"
  },
  {
-   "id": 24,
-   "setId": 6,
+   "id": 25,
+   "setId": 7,
    "step": 3,
    "patternType": "pattern_14",
    "patternDescription": "광고 패스  ",
@@ -297,11 +334,12 @@
    "tutorialBtnId": null,
    "튜토리얼 활성 조건": "0 : FALSE / 1 : TRUE \n( tutorial manager -> isAdPass )",
    "goal": "",
-   "description": ""
+   "description": "",
+   "체크사항": ""
  },
  {
-   "id": 25,
-   "setId": 6,
+   "id": 26,
+   "setId": 7,
    "step": 4,
    "patternType": "pattern_03",
    "patternDescription": "",
@@ -309,11 +347,12 @@
    "tutorialBtnId": 6,
    "튜토리얼 활성 조건": "",
    "goal": "공격력 버프 버튼 입력을 하였는가?",
-   "description": "처음은 무료로 버프를 얻을 수 있게 해드릴께요~"
+   "description": "처음은 무료로 버프를 얻을 수 있게 해드릴께요~",
+   "체크사항": ""
  },
  {
-   "id": 26,
-   "setId": 6,
+   "id": 27,
+   "setId": 7,
    "step": 5,
    "patternType": "pattern_14",
    "patternDescription": "광고 패스",
@@ -321,274 +360,37 @@
    "tutorialBtnId": null,
    "튜토리얼 활성 조건": "0 : FALSE / 1 : TRUE \n( tutorial manager -> isAdPass )",
    "goal": "",
-   "description": ""
- },
- {
-   "id": 27,
-   "setId": 6,
-   "step": 6,
-   "patternType": "pattern_02",
-   "patternDescription": "텍스트 출력 종료 후 바탕화면 터치 1회",
-   "customConditions": null,
-   "tutorialBtnId": 999,
-   "튜토리얼 활성 조건": "",
-   "goal": "대화 완료 후 화면을 터치하였는가?",
-   "description": "이곳에서 버프 유무를 확인할 수 있습니다"
+   "description": "",
+   "체크사항": ""
  },
  {
    "id": 28,
    "setId": 7,
-   "step": 0,
-   "patternType": "pattern_07",
-   "patternDescription": "보스 도전 성공 ",
-   "customConditions": 1,
-   "tutorialBtnId": 999,
-   "튜토리얼 활성 조건": "보스 사냥 성공 ( 횟수 : customConditions )",
-   "goal": "",
-   "description": ""
- },
- {
-   "id": 29,
-   "setId": 7,
-   "step": 1,
-   "patternType": "pattern_15",
-   "patternDescription": "모든 UI 닫기",
-   "customConditions": null,
-   "tutorialBtnId": null,
-   "튜토리얼 활성 조건": "",
-   "goal": "",
-   "description": ""
- },
- {
-   "id": 30,
-   "setId": 7,
-   "step": 2,
-   "patternType": "pattern_16",
-   "patternDescription": "캐슬 버튼 오브젝트 보이기",
-   "customConditions": 1,
-   "tutorialBtnId": 1,
-   "튜토리얼 활성 조건": "",
-   "goal": "",
-   "description": ""
- },
- {
-   "id": 31,
-   "setId": 7,
-   "step": 3,
-   "patternType": "pattern_03",
-   "patternDescription": "",
-   "customConditions": null,
-   "tutorialBtnId": 10,
-   "튜토리얼 활성 조건": "",
-   "goal": "캐슬 버튼 입력을 하였는가?",
-   "description": "든든한 아군이 필요하지 않으세요?"
- },
- {
-   "id": 32,
-   "setId": 7,
-   "step": 4,
-   "patternType": "pattern_11",
-   "patternDescription": "gem 1000개 증정",
-   "customConditions": 1000,
-   "tutorialBtnId": null,
-   "튜토리얼 활성 조건": "",
-   "goal": "",
-   "description": ""
- },
- {
-   "id": 33,
-   "setId": 7,
-   "step": 5,
-   "patternType": "pattern_03",
-   "patternDescription": "",
-   "customConditions": null,
-   "tutorialBtnId": 11,
-   "튜토리얼 활성 조건": "",
-   "goal": "캠프 버튼 입력을 하였는가?",
-   "description": "어서 아군을 얻으로 가봐요!"
- },
- {
-   "id": 34,
-   "setId": 7,
    "step": 6,
-   "patternType": "pattern_12",
-   "patternDescription": "is union gambling ? => true",
-   "customConditions": 1,
-   "tutorialBtnId": null,
-   "튜토리얼 활성 조건": "",
-   "goal": "유니온 뽑기 진행중인지 확인",
-   "description": ""
- },
- {
-   "id": 35,
-   "setId": 7,
-   "step": 7,
-   "patternType": "pattern_03",
-   "patternDescription": "unionIndex 0번의 유니온이 뽑혀야 합니다 \n( 유니온 투토리얼 셋 7번 진행 시 무조건 0번 유니온 뽑도록 구현 )",
-   "customConditions": null,
-   "tutorialBtnId": 12,
-   "튜토리얼 활성 조건": "",
-   "goal": "11회 뽑기 버튼 입력을 하였는가?",
-   "description": "처음은 무료로 획득할 수 있게 해드릴께요~"
- },
- {
-   "id": 36,
-   "setId": 7,
-   "step": 8,
-   "patternType": "pattern_08",
-   "patternDescription": "유니온 뽑기 완료 대기",
-   "customConditions": null,
-   "tutorialBtnId": 999,
-   "튜토리얼 활성 조건": "유니온 뽑기완료 ",
-   "goal": "",
-   "description": ""
- },
- {
-   "id": 37,
-   "setId": 7,
-   "step": 9,
-   "patternType": "pattern_12",
-   "patternDescription": "is union gambling ? => false",
-   "customConditions": 0,
-   "tutorialBtnId": null,
-   "튜토리얼 활성 조건": "",
-   "goal": "유니온 뽑기 완료 확인",
-   "description": ""
- },
- {
-   "id": 38,
-   "setId": 7,
-   "step": 10,
-   "patternType": "pattern_16",
-   "patternDescription": "유니온 이미지 보이기",
-   "customConditions": 1,
-   "tutorialBtnId": 2,
-   "튜토리얼 활성 조건": "",
-   "goal": "",
-   "description": ""
- },
- {
-   "id": 39,
-   "setId": 7,
-   "step": 11,
-   "patternType": "pattern_03",
-   "patternDescription": "",
-   "customConditions": null,
-   "tutorialBtnId": 13,
-   "튜토리얼 활성 조건": "",
-   "goal": "뽑기화면 닫기 버튼 입력을 하였는가?",
-   "description": "동료가 생겼어요!"
- },
- {
-   "id": 40,
-   "setId": 7,
-   "step": 12,
-   "patternType": "pattern_13",
-   "patternDescription": "camp popup 닫기",
-   "customConditions": 0,
-   "tutorialBtnId": null,
-   "튜토리얼 활성 조건": "특정 오브젝트 SetActive False",
-   "goal": "",
-   "description": ""
- },
- {
-   "id": 41,
-   "setId": 7,
-   "step": 13,
-   "patternType": "pattern_16",
-   "patternDescription": "유니온 이미지 숨기기",
-   "customConditions": 0,
-   "tutorialBtnId": 2,
-   "튜토리얼 활성 조건": "",
-   "goal": "",
-   "description": ""
- },
- {
-   "id": 42,
-   "setId": 7,
-   "step": 14,
-   "patternType": "pattern_03",
-   "patternDescription": "",
-   "customConditions": null,
-   "tutorialBtnId": 14,
-   "튜토리얼 활성 조건": "",
-   "goal": "전투화면으로 돌아가기 버튼 입력을 하였는가?",
-   "description": "획득한 유니온을 장착하러 가볼까요?"
- },
- {
-   "id": 43,
-   "setId": 7,
-   "step": 15,
-   "patternType": "pattern_03",
-   "patternDescription": "",
-   "customConditions": null,
-   "tutorialBtnId": 15,
-   "튜토리얼 활성 조건": "",
-   "goal": "유니온 메뉴 버튼 입력을 하였는가?",
-   "description": "획득한 유니온을 확인해보세요"
- },
- {
-   "id": 44,
-   "setId": 7,
-   "step": 16,
-   "patternType": "pattern_03",
-   "patternDescription": "",
-   "customConditions": null,
-   "tutorialBtnId": 16,
-   "튜토리얼 활성 조건": "",
-   "goal": "획득한 유니온 선택 버튼 입력을 하였는가?",
-   "description": "유니온을 선택해 보세요"
- },
- {
-   "id": 45,
-   "setId": 7,
-   "step": 17,
-   "patternType": "pattern_03",
-   "patternDescription": "",
-   "customConditions": null,
-   "tutorialBtnId": 17,
-   "튜토리얼 활성 조건": "",
-   "goal": "유니온 장착하기 버튼 입력을 하였는가?",
-   "description": "유니온을 장착해 보세요"
- },
- {
-   "id": 46,
-   "setId": 7,
-   "step": 18,
-   "patternType": "pattern_03",
-   "patternDescription": "",
-   "customConditions": null,
-   "tutorialBtnId": 18,
-   "튜토리얼 활성 조건": "",
-   "goal": "슬롯 버튼 입력을 하였는가?",
-   "description": "슬롯에 장착해 주세요"
- },
- {
-   "id": 47,
-   "setId": 7,
-   "step": 19,
    "patternType": "pattern_02",
    "patternDescription": "텍스트 출력 종료 후 바탕화면 터치 1회",
    "customConditions": null,
    "tutorialBtnId": 999,
    "튜토리얼 활성 조건": "",
    "goal": "대화 완료 후 화면을 터치하였는가?",
-   "description": "이제부터 유니온이 전투에 합류합니다!"
+   "description": "이곳에서 버프 유무를 확인할 수 있습니다",
+   "체크사항": ""
  },
  {
-   "id": 48,
+   "id": 29,
    "setId": 8,
    "step": 0,
    "patternType": "pattern_07",
    "patternDescription": "보스 도전 성공 ",
-   "customConditions": 1,
+   "customConditions": 0,
    "tutorialBtnId": 999,
-   "튜토리얼 활성 조건": "보스 사냥 성공 ( 횟수 : customConditions )",
+   "튜토리얼 활성 조건": "5번스테이지 보스 도전 성공",
    "goal": "",
-   "description": ""
+   "description": "",
+   "체크사항": ""
  },
  {
-   "id": 49,
+   "id": 30,
    "setId": 8,
    "step": 1,
    "patternType": "pattern_15",
@@ -597,10 +399,11 @@
    "tutorialBtnId": null,
    "튜토리얼 활성 조건": "",
    "goal": "",
-   "description": ""
+   "description": "",
+   "체크사항": ""
  },
  {
-   "id": 50,
+   "id": 31,
    "setId": 8,
    "step": 2,
    "patternType": "pattern_03",
@@ -609,10 +412,11 @@
    "tutorialBtnId": 7,
    "튜토리얼 활성 조건": "",
    "goal": "던전 메뉴 버튼 입력을 하였는가?",
-   "description": "골드가 부족하신가요?"
+   "description": "골드가 부족하신가요?",
+   "체크사항": "튜토리얼 시작 전 UI창이 모두 닫혀 있어야 합니다"
  },
  {
-   "id": 51,
+   "id": 32,
    "setId": 8,
    "step": 3,
    "patternType": "pattern_17",
@@ -621,10 +425,11 @@
    "tutorialBtnId": null,
    "튜토리얼 활성 조건": "",
    "goal": "골드 키 추가",
-   "description": ""
+   "description": "",
+   "체크사항": ""
  },
  {
-   "id": 52,
+   "id": 33,
    "setId": 8,
    "step": 4,
    "patternType": "pattern_03",
@@ -633,10 +438,11 @@
    "tutorialBtnId": 8,
    "튜토리얼 활성 조건": "",
    "goal": "입장 버튼 입력을 하였는가?",
-   "description": "골드를 추가로 얻으로 가봐요"
+   "description": "골드를 추가로 얻으로 가봐요",
+   "체크사항": ""
  },
  {
-   "id": 53,
+   "id": 34,
    "setId": 8,
    "step": 5,
    "patternType": "pattern_03",
@@ -645,19 +451,307 @@
    "tutorialBtnId": 9,
    "튜토리얼 활성 조건": "",
    "goal": "던전팝업에서 열쇠 버튼 입력을 하였는가?",
-   "description": "열쇠를 사용하여 입장할 수 있어요!"
+   "description": "열쇠를 사용하여 입장할 수 있어요!",
+   "체크사항": ""
+ },
+ {
+   "id": 35,
+   "setId": 9,
+   "step": 0,
+   "patternType": "pattern_07",
+   "patternDescription": "보스 도전 성공 ",
+   "customConditions": 0,
+   "tutorialBtnId": 999,
+   "튜토리얼 활성 조건": "10스테이지 보스 처치 후",
+   "goal": "",
+   "description": "",
+   "체크사항": ""
+ },
+ {
+   "id": 36,
+   "setId": 9,
+   "step": 1,
+   "patternType": "pattern_15",
+   "patternDescription": "모든 UI 닫기",
+   "customConditions": null,
+   "tutorialBtnId": null,
+   "튜토리얼 활성 조건": "",
+   "goal": "",
+   "description": "",
+   "체크사항": ""
+ },
+ {
+   "id": 37,
+   "setId": 9,
+   "step": 2,
+   "patternType": "pattern_16",
+   "patternDescription": "캐슬 버튼 오브젝트 보이기",
+   "customConditions": 1,
+   "tutorialBtnId": 1,
+   "튜토리얼 활성 조건": "",
+   "goal": "",
+   "description": "",
+   "체크사항": ""
+ },
+ {
+   "id": 38,
+   "setId": 9,
+   "step": 3,
+   "patternType": "pattern_03",
+   "patternDescription": "",
+   "customConditions": null,
+   "tutorialBtnId": 10,
+   "튜토리얼 활성 조건": "",
+   "goal": "캐슬 버튼 입력을 하였는가?",
+   "description": "든든한 아군이 필요하지 않으세요?",
+   "체크사항": "튜토리얼 시작 전 UI창이 모두 닫혀 있어야 합니다"
+ },
+ {
+   "id": 39,
+   "setId": 9,
+   "step": 4,
+   "patternType": "pattern_11",
+   "patternDescription": "gem 100개 증정",
+   "customConditions": 100,
+   "tutorialBtnId": null,
+   "튜토리얼 활성 조건": "",
+   "goal": "",
+   "description": "",
+   "체크사항": ""
+ },
+ {
+   "id": 40,
+   "setId": 9,
+   "step": 5,
+   "patternType": "pattern_03",
+   "patternDescription": "",
+   "customConditions": null,
+   "tutorialBtnId": 11,
+   "튜토리얼 활성 조건": "",
+   "goal": "캠프 버튼 입력을 하였는가?",
+   "description": "어서 아군을 얻으로 가봐요!",
+   "체크사항": ""
+ },
+ {
+   "id": 41,
+   "setId": 9,
+   "step": 6,
+   "patternType": "pattern_12",
+   "patternDescription": "is union gambling ? => true",
+   "customConditions": 1,
+   "tutorialBtnId": null,
+   "튜토리얼 활성 조건": "",
+   "goal": "유니온 뽑기 진행중인지 확인",
+   "description": "",
+   "체크사항": ""
+ },
+ {
+   "id": 42,
+   "setId": 9,
+   "step": 7,
+   "patternType": "pattern_03",
+   "patternDescription": "unionIndex 0번의 유니온이 뽑혀야 합니다 \n( 유니온 투토리얼 셋 7번 진행 시 무조건 0번 유니온 뽑도록 구현 )",
+   "customConditions": null,
+   "tutorialBtnId": 12,
+   "튜토리얼 활성 조건": "",
+   "goal": "11회 뽑기 버튼 입력을 하였는가?",
+   "description": "처음은 무료로 획득할 수 있게 해드릴께요~",
+   "체크사항": ""
+ },
+ {
+   "id": 43,
+   "setId": 9,
+   "step": 8,
+   "patternType": "pattern_08",
+   "patternDescription": "유니온 뽑기 완료 대기",
+   "customConditions": null,
+   "tutorialBtnId": 999,
+   "튜토리얼 활성 조건": "유니온 뽑기완료 ",
+   "goal": "",
+   "description": "",
+   "체크사항": ""
+ },
+ {
+   "id": 44,
+   "setId": 9,
+   "step": 9,
+   "patternType": "pattern_12",
+   "patternDescription": "is union gambling ? => false",
+   "customConditions": 0,
+   "tutorialBtnId": null,
+   "튜토리얼 활성 조건": "",
+   "goal": "유니온 뽑기 완료 확인",
+   "description": "",
+   "체크사항": ""
+ },
+ {
+   "id": 45,
+   "setId": 9,
+   "step": 10,
+   "patternType": "pattern_16",
+   "patternDescription": "유니온 이미지 보이기",
+   "customConditions": 1,
+   "tutorialBtnId": 2,
+   "튜토리얼 활성 조건": "",
+   "goal": "",
+   "description": "",
+   "체크사항": ""
+ },
+ {
+   "id": 46,
+   "setId": 9,
+   "step": 11,
+   "patternType": "pattern_03",
+   "patternDescription": "",
+   "customConditions": null,
+   "tutorialBtnId": 13,
+   "튜토리얼 활성 조건": "",
+   "goal": "뽑기화면 닫기 버튼 입력을 하였는가?",
+   "description": "동료가 생겼어요!",
+   "체크사항": ""
+ },
+ {
+   "id": 47,
+   "setId": 9,
+   "step": 12,
+   "patternType": "pattern_13",
+   "patternDescription": "camp popup 닫기",
+   "customConditions": 0,
+   "tutorialBtnId": null,
+   "튜토리얼 활성 조건": "특정 오브젝트 SetActive False",
+   "goal": "",
+   "description": "",
+   "체크사항": ""
+ },
+ {
+   "id": 48,
+   "setId": 9,
+   "step": 13,
+   "patternType": "pattern_16",
+   "patternDescription": "유니온 이미지 숨기기",
+   "customConditions": 0,
+   "tutorialBtnId": 2,
+   "튜토리얼 활성 조건": "",
+   "goal": "",
+   "description": "",
+   "체크사항": ""
+ },
+ {
+   "id": 49,
+   "setId": 9,
+   "step": 14,
+   "patternType": "pattern_03",
+   "patternDescription": "",
+   "customConditions": null,
+   "tutorialBtnId": 14,
+   "튜토리얼 활성 조건": "",
+   "goal": "전투화면으로 돌아가기 버튼 입력을 하였는가?",
+   "description": "획득한 유니온을 장착하러 가볼까요?",
+   "체크사항": ""
+ },
+ {
+   "id": 50,
+   "setId": 9,
+   "step": 15,
+   "patternType": "pattern_03",
+   "patternDescription": "",
+   "customConditions": null,
+   "tutorialBtnId": 15,
+   "튜토리얼 활성 조건": "",
+   "goal": "유니온 메뉴 버튼 입력을 하였는가?",
+   "description": "획득한 유니온을 확인해보세요",
+   "체크사항": ""
+ },
+ {
+   "id": 51,
+   "setId": 9,
+   "step": 16,
+   "patternType": "pattern_03",
+   "patternDescription": "",
+   "customConditions": null,
+   "tutorialBtnId": 16,
+   "튜토리얼 활성 조건": "",
+   "goal": "획득한 유니온 선택 버튼 입력을 하였는가?",
+   "description": "유니온을 선택해 보세요",
+   "체크사항": ""
+ },
+ {
+   "id": 52,
+   "setId": 9,
+   "step": 17,
+   "patternType": "pattern_03",
+   "patternDescription": "",
+   "customConditions": null,
+   "tutorialBtnId": 17,
+   "튜토리얼 활성 조건": "",
+   "goal": "유니온 장착하기 버튼 입력을 하였는가?",
+   "description": "유니온을 장착해 보세요",
+   "체크사항": ""
+ },
+ {
+   "id": 53,
+   "setId": 9,
+   "step": 18,
+   "patternType": "pattern_03",
+   "patternDescription": "",
+   "customConditions": null,
+   "tutorialBtnId": 18,
+   "튜토리얼 활성 조건": "",
+   "goal": "슬롯 버튼 입력을 하였는가?",
+   "description": "슬롯에 장착해 주세요",
+   "체크사항": ""
  },
  {
    "id": 54,
-   "setId": 8,
-   "step": 6,
+   "setId": 9,
+   "step": 19,
    "patternType": "pattern_02",
    "patternDescription": "텍스트 출력 종료 후 바탕화면 터치 1회",
    "customConditions": null,
    "tutorialBtnId": 999,
    "튜토리얼 활성 조건": "",
    "goal": "대화 완료 후 화면을 터치하였는가?",
-   "description": "튜토리얼이 종료 되었습니다. 즐거운 시간 되세요!"
+   "description": "이제부터 유니온이 전투에 합류합니다!",
+   "체크사항": ""
+ },
+ {
+   "id": 55,
+   "setId": 9,
+   "step": 20,
+   "patternType": "pattern_16",
+   "patternDescription": "특정 게임 오브젝트 보이기 / 숨기기",
+   "customConditions": 1,
+   "tutorialBtnId": 0,
+   "튜토리얼 활성 조건": "customConditions = 1 active  , 0 disable\ntutorialBtnId = object id",
+   "goal": "",
+   "description": "",
+   "체크사항": "닫기 버튼"
+ },
+ {
+   "id": 56,
+   "setId": 9,
+   "step": 21,
+   "patternType": "pattern_03",
+   "patternDescription": "tutorialButton click",
+   "customConditions": null,
+   "tutorialBtnId": 19,
+   "튜토리얼 활성 조건": "",
+   "goal": "확인 버튼 입력을 하였는가?",
+   "description": "튜토리얼이 종료 되었습니다. 즐거운 시간 되세요!",
+   "체크사항": ""
+ },
+ {
+   "id": 57,
+   "setId": 9,
+   "step": 22,
+   "patternType": "pattern_16",
+   "patternDescription": "특정 게임 오브젝트 보이기 / 숨기기",
+   "customConditions": 0,
+   "tutorialBtnId": 0,
+   "튜토리얼 활성 조건": "",
+   "goal": "",
+   "description": "",
+   "체크사항": ""
  }
 ]
 }

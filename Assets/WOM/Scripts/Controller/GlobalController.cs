@@ -37,6 +37,8 @@ public class GlobalController : MonoBehaviour
     public TutorialManager tutorialManager;
 
 
+
+
     void Start()
     {
         if (dataManager == null) dataManager = FindObjectOfType<DataManager>();
@@ -182,7 +184,10 @@ public class GlobalController : MonoBehaviour
         // 버튼 가능 상태로 전환
         UtilityMethod.EnableUIEventSystem(true);
 
-        
+        if (tutorialManager.isTutorial && tutorialManager.newUserEventPopupObj.activeSelf == false)
+        {
+            tutorialManager.TutorialStart();
+        }
 
     }
 
@@ -197,5 +202,5 @@ public class GlobalController : MonoBehaviour
         uiController.SetSliderPhaseValue(phaseCount);
     }
 
-  
+
 }

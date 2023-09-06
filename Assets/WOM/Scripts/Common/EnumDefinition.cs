@@ -28,6 +28,7 @@ public class EnumDefinition
         pattern_15,
         pattern_16,
         pattern_17,
+        pattern_18,
     }
 
     public enum CustomDataType

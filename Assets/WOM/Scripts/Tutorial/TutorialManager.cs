@@ -40,6 +40,8 @@ public class TutorialManager : MonoBehaviour
 
     public GameObject tutorialPlayingTextBox;
 
+    public GameObject newUserEventPopupObj;
+
     void Start()
     {
         SetBtnEvent();
@@ -162,6 +164,10 @@ public class TutorialManager : MonoBehaviour
 
     void EnableTutorialStep(TutorialStep stepData)
     {
+
+        // set id , step id log
+        Debug.Log($"Tutorial Set ID : {stepData.setId} , Step ID : {stepData.step}");
+
         var partern = GetPatternByType(stepData.patternType);
         partern.EventStart(stepData);
     }
@@ -171,6 +177,9 @@ public class TutorialManager : MonoBehaviour
         var patternType = (EnumDefinition.PatternType)System.Enum.Parse(typeof(EnumDefinition.PatternType), type);
         return patterns.FirstOrDefault(f => f.patternType == patternType);
     }
+
+    public bool skipSet = false;
+    public int skipSetID = 0;
 
     public void CompleteStep()
     {
@@ -196,6 +205,13 @@ public class TutorialManager : MonoBehaviour
             Debug.Log("Tutorial Complete : " + curTutorialSetID);
             tutorialSet.isSetComplete = true;
             tutorialSet.steps[curTutorialStepID].isStepComplete = true;
+
+            if (skipSet)
+            {
+                curTutorialSetID = skipSetID;
+                skipSet = false;
+                skipSetID = 0;
+            }
 
             curTutorialSetID++;
             curTutorialStepID = 0;

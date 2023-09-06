@@ -52,6 +52,8 @@ public class GlobalData : MonoBehaviour
     public StageNameSetManager stageNameSetManager;
     public TutorialManager tutorialManager;
 
+    public InAppPurchaseManager inAppPurchaseManager;
+
 
     private void Awake()
     {

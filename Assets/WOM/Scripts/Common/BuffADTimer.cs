@@ -17,7 +17,7 @@ public class BuffADTimer : MonoBehaviour
     void Start()
     {
         ResetAllwaysCountDownText();
-        canvasGroup.alpha = 0.3f;
+        canvasGroup.alpha = 0f;
     }
 
     public IEnumerator StartTimer()
@@ -32,9 +32,10 @@ public class BuffADTimer : MonoBehaviour
         {
             int minutes = Mathf.FloorToInt(countdownTime / 60F);
             int seconds = Mathf.FloorToInt(countdownTime - minutes * 60);
-            string leftTime = string.Format("{0:0}:{1:00}", minutes, seconds);
+            //string leftTime = string.Format("{0:0}:{1:00}", minutes, seconds);
+            string leftTime = string.Format("{0:0}m", minutes);
 
-            countdownText.text = leftTime + " SEC";  // Update the UI text
+            countdownText.text = leftTime + "m";  // Update the UI text
             countdownTextAllwaysViwe.text = leftTime;
             // save data
             GlobalData.instance.saveDataManager.SetSaveDataBuffAD_LeftTime(buffADSlot.buffADType, countdownTime);
@@ -45,7 +46,7 @@ public class BuffADTimer : MonoBehaviour
         }
 
         buffADSlot.isUsingBuff = false;
-        canvasGroup.alpha = 0.3f;
+        canvasGroup.alpha = 0f;
 
         // save data
         GlobalData.instance.saveDataManager.SetSaveDataBuffAD_Using(buffADSlot.buffADType, buffADSlot.isUsingBuff);
@@ -76,7 +77,7 @@ public class BuffADTimer : MonoBehaviour
     void ResetAllwaysCountDownText()
     {
         countdownTextAllwaysViwe.text = "";
-        canvasGroup.alpha =0.3f;
+        canvasGroup.alpha = 0f;
 
     }
 

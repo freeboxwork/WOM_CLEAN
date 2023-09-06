@@ -42,7 +42,6 @@ public class TutorialManager : MonoBehaviour
 
     void Start()
     {
-        //StartCoroutine(Init());
         SetBtnEvent();
     }
 
@@ -57,20 +56,8 @@ public class TutorialManager : MonoBehaviour
         }
     }
 
-    public void Update()
-    {
-        // if (Input.GetKeyDown(KeyCode.Q))
-        // {
-        //     EnableTutorialSet();
-        // }
-    }
-
-    //public bool disableTutorial = false;
-
     public void TutorialStart()
     {
-        //if (disableTutorial) return;
-
         // max check
         if (IsTutorialAllComplete() == false)
         {
@@ -98,9 +85,6 @@ public class TutorialManager : MonoBehaviour
 
         SetData();
 
-
-        //isTutorial = !IsTutorialAllComplete();
-
         // max check
         if (IsTutorialAllComplete() == false)
         {
@@ -110,9 +94,6 @@ public class TutorialManager : MonoBehaviour
         {
             isTutorial = false;
         }
-
-        // if (disableTutorial)
-        //     isTutorial = false;
 
         yield return null;
     }
@@ -129,8 +110,6 @@ public class TutorialManager : MonoBehaviour
                 {
                     setId = data.setId,
                     steps = new List<TutorialStep> { data }
-
-
                 });
             }
             else

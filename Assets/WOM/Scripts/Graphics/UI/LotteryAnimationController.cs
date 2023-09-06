@@ -7,26 +7,23 @@ namespace ProjectGraphics
     public class LotteryAnimationController : MonoBehaviour
     {
         public SpriteFileData data;
-        [Header("DNA Icon ì´ë¯¸ì§€"), SerializeField]
+        [Header("DNA Icon ?´ë¯¸ì??"), SerializeField]
         private Sprite[] dnaIcons;
-        [Header("ìœ ë‹ˆì˜¨ë¡œí„°ë¦¬ ì´ë¯¸ì§€")]
+        [Header("?œ ?‹ˆ?˜¨ë¡œí„°ë¦? ?´ë¯¸ì??")]
         public Color[] effectColor;
         public Sprite[] gradeBackImage;
         public Lottery_Slot[] slots;
 
-        [Header("ìŠ¤í‚µì€ ë‘ì¢…ë¥˜ë¡œ ë¶„ë¥˜ í•˜ê³  í”„ë¡œì„¸ìŠ¤ ëë‚˜ë„ ìŠ¤í‚µ ë³€ìˆ˜ ìœ ì§€")]
+        [Header("?Š¤?‚µ??? ?‘ì¢…ë¥˜ë¡? ë¶„ë¥˜ ?•˜ê³? ?”„ë¡œì„¸?Š¤ ??‚˜?„ ?Š¤?‚µ ë³??ˆ˜ ?œ ì§?")]
         private bool isSkip = true;
         private bool isSkipDNA = true;
         public bool isUnion = true;
         public bool isEnd = false;
 
-        [Header("ìº í”„íŒì—…")]
+        [Header("ìº í”„?Œ?—…")]
         public CampPopup campPopup;
 
-        public Image titleImage;
-        public Sprite unionTitle;
-        public Sprite dnaTitle;
-        public Toggle[] toggles; // 0 : ì—°ì†ì†Œí™˜ , 1 : ì—°ì¶œ ìŠ¤í‚µ
+        public Toggle[] toggles; // 0 : ?—°?†?†Œ?™˜ , 1 : ?—°ì¶? ?Š¤?‚µ
         public Toggle toggleEffSkip;
         public Toggle toggleRepeatGame;
 
@@ -42,7 +39,7 @@ namespace ProjectGraphics
         {
             // foreach (var toggle in toggles) toggle.isOn = false;
 
-            // //ìº í”„íŒì—…ì—ì„œ í† ê¸€ ì •ë³´ë¥¼ ë¶ˆëŸ¬ì™€ì„œ ì ìš©
+            // //ìº í”„?Œ?—…?—?„œ ?† ê¸? ? •ë³´ë?? ë¶ˆëŸ¬????„œ ? ?š©
             // if (isUnion)
             // {
             //     for (int s = 0; s < campPopup.togglesUnion.Length; s++)
@@ -82,7 +79,7 @@ namespace ProjectGraphics
             StartCoroutine(ShowUnionSlotCardOpenProcess(unionIndex));
         }
 
-        // DOCKO ë³€ê²½ -> ( ì¹´ë“œ ì˜¤í”ˆ ì• ë‹ˆì—ë¯¸ì…˜ ì¢…ë£Œ ëŒ€ê¸°ë¥¼ ìœ„í•¨ )
+        // DOCKO ë³?ê²? -> ( ì¹´ë“œ ?˜¤?”ˆ ?• ?‹ˆ?—ë¯¸ì…˜ ì¢…ë£Œ ???ê¸°ë?? ?œ„?•¨ )
         public void StartLotteryAnimation()
         {
             foreach (var slot in slots) slot.gameObject.SetActive(false);
@@ -96,10 +93,7 @@ namespace ProjectGraphics
             skipEffButton.SetActive(true);
 
             isEnd = false;
-            isUnion = true;         //ìœ ë‹ˆì˜¨ì¸ì§€ ì•„ë‹Œì§€
-
-            //changed to image and title text
-            titleImage.sprite = unionTitle;
+            isUnion = true;         //?œ ?‹ˆ?˜¨?¸ì§? ?•„?‹Œì§?
 
             yield return new WaitForSeconds(0.02f);
 
@@ -111,7 +105,7 @@ namespace ProjectGraphics
                 slots[i].gameObject.SetActive(true);
                 slots[i].SetActiveAction(typeIndex);
 
-                //ì—¬ê¸° ì¶œí˜„ ì‚¬ìš´ë“œ í•„ìš”í•¨.
+                //?—¬ê¸? ì¶œí˜„ ?‚¬?š´?“œ ?•„?š”?•¨.
                 audio.Play();
 
                 if (toggleEffSkip.isOn) continue;
@@ -121,7 +115,7 @@ namespace ProjectGraphics
             isEnd = true;
         }
 
-        //ìŠ¬ë¡¯ í˜•íƒœ í™•ì¸ í•˜ê³ , ë°± ì´ë¯¸ì§€ ì§€ìš°ê³  ì•„ì´ì½˜ ì´ë¯¸ì§€ë§Œ ì²˜ë¦¬ ì´í™íŠ¸ ì»¬ëŸ¬ í†µì¼.
+        //?Š¬ë¡? ?˜•?ƒœ ?™•?¸ ?•˜ê³?, ë°? ?´ë¯¸ì?? ì§??š°ê³? ?•„?´ì½? ?´ë¯¸ì??ë§? ì²˜ë¦¬ ?´?™?Š¸ ì»¬ëŸ¬ ?†µ?¼.
         public IEnumerator ShowDNAIconSlotCardOpenProcess(int[] u)
         {
             // if (toggles[0].isOn || toggles[1].isOn) isSkipDNA = true;
@@ -129,9 +123,7 @@ namespace ProjectGraphics
             skipEffButton.SetActive(false);
 
             isEnd = false;
-            isUnion = false;            //ìœ ë‹ˆì˜¨ì¸ì§€ ì•„ë‹Œì§€
-
-            titleImage.sprite = dnaTitle;
+            isUnion = false;            //?œ ?‹ˆ?˜¨?¸ì§? ?•„?‹Œì§?
 
             foreach (var slot in slots) slot.gameObject.SetActive(false);
             //StartCoroutine(ShowDNAIconSlotCardOpenProcess(u));
@@ -140,12 +132,12 @@ namespace ProjectGraphics
 
             for (int i = 0; i < u.Length; i++)
             {
-                //DNA ëŠ” íƒ€ì…ì´ ì¡´ì¬ ì•ˆí•¨.
+                //DNA ?Š” ????…?´ ì¡´ì¬ ?•ˆ?•¨.
                 slots[i].SetSlotImage(dnaIcons[u[i]]);
                 slots[i].gameObject.SetActive(true);
                 slots[i].SetActiveAction(0);
 
-                //ì—¬ê¸° ì¶œí˜„ ì‚¬ìš´ë“œ í•„ìš”í•¨.
+                //?—¬ê¸? ì¶œí˜„ ?‚¬?š´?“œ ?•„?š”?•¨.
                 audio.Play();
 
                 if (toggleEffSkip.isOn) continue;
@@ -183,7 +175,7 @@ namespace ProjectGraphics
             isSkipDNA = on;
         }
 
-        //ë¡œí„°ë¦¬ ì• ë‹ˆë©”ì´ì…˜ ì¢…ë£Œ
+        //ë¡œí„°ë¦? ?• ?‹ˆë©”ì´?…˜ ì¢…ë£Œ
         void OnDisable()
         {
             ToggleReset();

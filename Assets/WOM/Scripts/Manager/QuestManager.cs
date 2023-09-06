@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using static EnumDefinition;
 using System.Linq;
-using Unity.VisualScripting;
 
 public class QuestManager : MonoBehaviour
 {
@@ -112,12 +111,14 @@ public class QuestManager : MonoBehaviour
                 // 만약 퀘스트 재설정 타이머가 자정을 지난 경우 타이머를 재설정한다.
                 if (questResetTimer.HasCrossedMidnight())
                 {
-                    questResetTimer.ResetTimer();
+
                     // 자정이 지난경우 던전 입장키 2개씩 보상.
                     Debug.Log("자정이 지났으므로 던전 입장 키를 2개씩 지급한다");
                     GlobalData.instance.player.AddAllDungeonKeys();
                     // 자정이 지난경우 일일 광고 보기 회 수 초기화
                     GlobalData.instance.adManager.AllResetBuffAdLeftCount();
+
+                    questResetTimer.ResetTimer();
 
                 }
 
@@ -197,7 +198,7 @@ public class QuestManager : MonoBehaviour
 
         //더이상 보상받을 것이 없다면 버튼을 비활성화 한다.
         var clearAll = newUserEventPopup.newUserSlots.Any(x => x.HasRewardKey() == false);
-        if(!clearAll) btn_showNewUserEventPopup.gameObject.SetActive(false);
+        if (!clearAll) btn_showNewUserEventPopup.gameObject.SetActive(false);
 
     }
 

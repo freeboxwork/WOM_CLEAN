@@ -83,14 +83,27 @@ public class QuestResetTimer : MonoBehaviour
         return currentTime;
     }
 
+    public string testCurDateValue;
+    public string testPrevDateValue;
+
     public bool HasCrossedMidnight()
     {
+
+        var now = DateTime.Now.ToString("yyyy-MM-dd");
+
+        // test code
+        // DateTime currentTime = DateTime.Parse(testCurDateValue);
+        // DateTime midnight = DateTime.Parse(testPrevDateValue);
+
         // 현재 시간과 저장된 오늘 자정 시간을 비교한다.
-        DateTime currentTime = DateTime.Parse(DateTime.Now.ToString("yyyy-MM-dd"));
+        DateTime currentTime = DateTime.Parse(now);
         DateTime midnight = DateTime.Parse(PlayerPrefs.GetString(MIDNIGHT_TIME_KEY));
 
+        var timeSpan = currentTime.Subtract(midnight);
+        var totalDays = timeSpan.TotalDays;
 
-        if (currentTime > midnight)
+
+        if (totalDays > 0)
         {
             // 저장된 오늘 자정 시간 이후라면 true를 반환한다.
             return true;

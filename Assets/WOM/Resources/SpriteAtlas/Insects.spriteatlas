@@ -38,7 +38,7 @@ SpriteAtlas:
       padding: 4
       blockOffset: 1
       allowAlphaSplitting: 0
-      enableRotation: 1
+      enableRotation: 0
       enableTightPacking: 1
       enableAlphaDilation: 0
     secondaryTextureSettings: {}
@@ -174,6 +174,10 @@ SpriteAtlas:
   - {fileID: 889547790, guid: a77c0fa53ff6630489b27a76ff7f8385, type: 3}
   - {fileID: -684213138, guid: a77c0fa53ff6630489b27a76ff7f8385, type: 3}
   - {fileID: -94958602, guid: a77c0fa53ff6630489b27a76ff7f8385, type: 3}
+  - {fileID: -925439943, guid: ce322dc549e7a194d97151360d573c07, type: 3}
+  - {fileID: -1071323829, guid: ce322dc549e7a194d97151360d573c07, type: 3}
+  - {fileID: 2028857958, guid: ce322dc549e7a194d97151360d573c07, type: 3}
+  - {fileID: 1523464609, guid: ce322dc549e7a194d97151360d573c07, type: 3}
   - {fileID: -450380963, guid: f5e19bd553bdbc041888e5427bb4472b, type: 3}
   - {fileID: -1106118940, guid: f5e19bd553bdbc041888e5427bb4472b, type: 3}
   - {fileID: 476827360, guid: f5e19bd553bdbc041888e5427bb4472b, type: 3}
@@ -251,6 +255,10 @@ SpriteAtlas:
   - {fileID: 849050062, guid: 94306c1b8e19bb941865ed766d8957fa, type: 3}
   - {fileID: -1337351383, guid: 94306c1b8e19bb941865ed766d8957fa, type: 3}
   - {fileID: -1797812434, guid: 94306c1b8e19bb941865ed766d8957fa, type: 3}
+  - {fileID: 865856257, guid: 33f7504b1c49b784ebb5a0f72645deaa, type: 3}
+  - {fileID: 2075883359, guid: 33f7504b1c49b784ebb5a0f72645deaa, type: 3}
+  - {fileID: -354708124, guid: 33f7504b1c49b784ebb5a0f72645deaa, type: 3}
+  - {fileID: 1386087026, guid: 33f7504b1c49b784ebb5a0f72645deaa, type: 3}
   - {fileID: -148062578, guid: eb584beb510a9ac468e6f74d45986072, type: 3}
   - {fileID: 793017293, guid: eb584beb510a9ac468e6f74d45986072, type: 3}
   - {fileID: -1892071699, guid: eb584beb510a9ac468e6f74d45986072, type: 3}
@@ -275,6 +283,10 @@ SpriteAtlas:
   - {fileID: 466559634, guid: c0dcbe1d955591a4da04d7c6516f4d71, type: 3}
   - {fileID: 2096149178, guid: c0dcbe1d955591a4da04d7c6516f4d71, type: 3}
   - {fileID: 1238511186, guid: c0dcbe1d955591a4da04d7c6516f4d71, type: 3}
+  - {fileID: -1622869333, guid: e590ff2e1bbdfb643a40d6fd48e0e30e, type: 3}
+  - {fileID: -77111774, guid: e590ff2e1bbdfb643a40d6fd48e0e30e, type: 3}
+  - {fileID: 1119700131, guid: e590ff2e1bbdfb643a40d6fd48e0e30e, type: 3}
+  - {fileID: 638283871, guid: e590ff2e1bbdfb643a40d6fd48e0e30e, type: 3}
   - {fileID: -1884522771, guid: 195ab53e6cb4a3b48b7e6d4beecc9c7e, type: 3}
   - {fileID: 1018707082, guid: 195ab53e6cb4a3b48b7e6d4beecc9c7e, type: 3}
   - {fileID: -1048945755, guid: 195ab53e6cb4a3b48b7e6d4beecc9c7e, type: 3}
@@ -295,6 +307,11 @@ SpriteAtlas:
   - {fileID: -253641154, guid: 92b1a02f1c7a82b45927c2d0e7cbd817, type: 3}
   - {fileID: -1684632758, guid: 92b1a02f1c7a82b45927c2d0e7cbd817, type: 3}
   - {fileID: 2033188753, guid: 92b1a02f1c7a82b45927c2d0e7cbd817, type: 3}
+  - {fileID: 3458756195881348012, guid: f4cbc3af3163e3c4d8572a29278bc1d5, type: 3}
+  - {fileID: -1984668943716277760, guid: f4cbc3af3163e3c4d8572a29278bc1d5, type: 3}
+  - {fileID: -3377758990166812342, guid: f4cbc3af3163e3c4d8572a29278bc1d5, type: 3}
+  - {fileID: -8053646952554313941, guid: f4cbc3af3163e3c4d8572a29278bc1d5, type: 3}
+  - {fileID: 1826002056046242387, guid: f4cbc3af3163e3c4d8572a29278bc1d5, type: 3}
   - {fileID: 222748977, guid: a13b54af8cbe9ef418b616f445a78b3c, type: 3}
   - {fileID: -1646782149, guid: a13b54af8cbe9ef418b616f445a78b3c, type: 3}
   - {fileID: -816762021, guid: a13b54af8cbe9ef418b616f445a78b3c, type: 3}
@@ -440,6 +457,10 @@ SpriteAtlas:
   - U_StagBeetle00_3
   - U_StagBeetle00_0
   - U_StagBeetle00_1
+  - Beetle05_2
+  - Beetle05_3
+  - Beetle05_0
+  - Beetle05_1
   - U_StagBeetle03_1
   - U_StagBeetle03_0
   - U_StagBeetle03_3
@@ -517,6 +538,10 @@ SpriteAtlas:
   - U_LadyBugs00_2
   - U_LadyBugs00_1
   - U_LadyBugs00_0
+  - Bee05_1
+  - Bee05_0
+  - Bee05_3
+  - Bee05_2
   - U_Bee09_1
   - U_Bee09_0
   - U_Bee09_3
@@ -541,6 +566,10 @@ SpriteAtlas:
   - Beetle04_2
   - Beetle04_1
   - Beetle04_0
+  - Mantis05_3
+  - Mantis05_2
+  - Mantis05_1
+  - Mantis05_0
   - Mantis01_3
   - Mantis01_2
   - Mantis01_1
@@ -561,6 +590,11 @@ SpriteAtlas:
   - U_Moth00_3
   - U_Moth00_0
   - U_Moth00_1
+  - Wing1
+  - Tail
+  - Wing
+  - Head
+  - Body
   - U_StagBeetle01_3
   - U_StagBeetle01_2
   - U_StagBeetle01_1

@@ -8,18 +8,18 @@ public class TutorialManager : MonoBehaviour
 {
     public TextAsset tutorialJsonData;
 
-    // íˆ¬í† ë¦¬ì–¼ ë°ì´í„°
+    // ?ˆ¬?† ë¦¬ì–¼ ?°?´?„°
     public TutorialStepDatas tutorialStepData;
 
-    // setId ê¸°ì¤€ìœ¼ë¡œ ë‚˜ëˆˆ íˆ¬í† ë¦¬ì–¼ ì„¸íŠ¸ ë°ì´í„°
+    // setId ê¸°ì???œ¼ë¡? ?‚˜?ˆˆ ?ˆ¬?† ë¦¬ì–¼ ?„¸?Š¸ ?°?´?„°
     public List<TutorialStepSetData> tutorialStepSetDatas = new List<TutorialStepSetData>();
 
-    // íˆ¬í† ë¦¬ì–¼ ë²„íŠ¼ë“¤
+    // ?ˆ¬?† ë¦¬ì–¼ ë²„íŠ¼?“¤
     public List<TutorialButton> tutorialButtons = new List<TutorialButton>();
 
-    // í˜„ì¬ ì§„í–‰ì¤‘ì¸ íˆ¬í† ë¦¬ì–¼ ì„¸íŠ¸ì˜ ì•„ì´ë””
+    // ?˜„?¬ ì§„í–‰ì¤‘ì¸ ?ˆ¬?† ë¦¬ì–¼ ?„¸?Š¸?˜ ?•„?´?””
     public int curTutorialSetID = 0;
-    // í˜„ì¬ ì§„í–‰ì¤‘ì¸ íˆ¬í† ë¦¬ì–¼ ì„¸íŠ¸ì˜ ìŠ¤í… ì•„ì´ë””
+    // ?˜„?¬ ì§„í–‰ì¤‘ì¸ ?ˆ¬?† ë¦¬ì–¼ ?„¸?Š¸?˜ ?Š¤?… ?•„?´?””
     public int curTutorialStepID = 0;
 
     public TutorialUiController tutorialUiCont;
@@ -30,12 +30,12 @@ public class TutorialManager : MonoBehaviour
 
     public bool isUnionGamblingTutorial = false;
 
-    // ì‹ ê·œ ìœ ì € ì„ ë¬¼ ë‹«ê¸° ë²„íŠ¼
+    // ?‹ ê·? ?œ ??? ?„ ë¬? ?‹«ê¸? ë²„íŠ¼
     public List<Button> tutoStartBtns = new List<Button>();
 
     public bool isAdPass = false;
 
-    //íˆ¬í† ë¦¬ì–¼ ê²Œì„ ì˜¤ë¸Œì íŠ¸
+    //?ˆ¬?† ë¦¬ì–¼ ê²Œì„ ?˜¤ë¸Œì ?Š¸
     public List<TutorialGameObject> tutorialGameObjects = new List<TutorialGameObject>();
 
     public GameObject tutorialPlayingTextBox;
@@ -71,7 +71,7 @@ public class TutorialManager : MonoBehaviour
         {
             isTutorial = false;
             tutorialPlayingTextBox.gameObject.SetActive(false);
-            Debug.Log("ëª¨ë“  íˆ¬í† ë¦¬ì–¼ ì™„ë£Œ");
+            Debug.Log("ëª¨ë“  ?ˆ¬?† ë¦¬ì–¼ ?™„ë£?");
         }
     }
 
@@ -86,6 +86,8 @@ public class TutorialManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         SetData();
+
+        //isTutorial = false;
 
         // max check
         if (IsTutorialAllComplete() == false)
@@ -102,7 +104,7 @@ public class TutorialManager : MonoBehaviour
 
     void SetData()
     {
-        // set set data ( setId ê¸°ì¤€ìœ¼ë¡œ ì„¸íŠ¸ ë¦¬ìŠ¤íŠ¸ë¥¼ ë§Œë“¦ )
+        // set set data ( setId ê¸°ì???œ¼ë¡? ?„¸?Š¸ ë¦¬ìŠ¤?Š¸ë¥? ë§Œë“¦ )
         for (int i = 0; i < tutorialStepData.data.Count; i++)
         {
             var data = tutorialStepData.data[i];
@@ -138,7 +140,7 @@ public class TutorialManager : MonoBehaviour
         var set = tutorialStepSetDatas.FirstOrDefault(f => f.setId == setID);
         if (set == null)
         {
-            Debug.LogError($"{setID}ì— í•´ë‹¹í•˜ëŠ” íˆ¬í† ë¦¬ì–¼ ì„¸íŠ¸ê°€ ì—†ìŠµë‹ˆë‹¤.");
+            Debug.LogError($"{setID}?— ?•´?‹¹?•˜?Š” ?ˆ¬?† ë¦¬ì–¼ ?„¸?Š¸ê°? ?—†?Šµ?‹ˆ?‹¤.");
         }
         return tutorialStepSetDatas.FirstOrDefault(f => f.setId == setID);
     }
@@ -151,9 +153,9 @@ public class TutorialManager : MonoBehaviour
 
         if (tutorialSet == null)
         {
-            Debug.LogError($"{curTutorialSetID}ì— í•´ë‹¹í•˜ëŠ” íˆ¬í† ë¦¬ì–¼ ì„¸íŠ¸ê°€ ì—†ìŠµë‹ˆë‹¤.");
+            Debug.LogError($"{curTutorialSetID}?— ?•´?‹¹?•˜?Š” ?ˆ¬?† ë¦¬ì–¼ ?„¸?Š¸ê°? ?—†?Šµ?‹ˆ?‹¤.");
 
-            // íˆ¬í† ë¦¬ì–¼ ì¢…ë£Œ
+            // ?ˆ¬?† ë¦¬ì–¼ ì¢…ë£Œ
             isTutorial = false;
             return;
         }
@@ -185,14 +187,14 @@ public class TutorialManager : MonoBehaviour
     {
         var tutorialSet = GetTutorialSetById(curTutorialSetID);
 
-        // í˜„ì¬ ìŠ¤í… ì™„ë£Œ
+        // ?˜„?¬ ?Š¤?… ?™„ë£?
         tutorialSet.steps[curTutorialStepID].isStepComplete = true;
 
 
-        // ë‹¤ìŒ ìŠ¤í… ìˆëŠ”ì§€ í™•ì¸
+        // ?‹¤?Œ ?Š¤?… ?ˆ?Š”ì§? ?™•?¸
         if (tutorialSet.steps.Any(a => a.step == curTutorialStepID + 1))
         {
-            // ë‹¤ìŒ ìŠ¤í… ì‹¤í–‰
+            // ?‹¤?Œ ?Š¤?… ?‹¤?–‰
             ++curTutorialStepID;
             var stepData = tutorialSet.steps[curTutorialStepID];
             EnableTutorialStep(stepData);
@@ -201,7 +203,7 @@ public class TutorialManager : MonoBehaviour
         }
         else
         {
-            // íˆ¬í† ë¦¬ì–¼ ì„¸íŠ¸ ì™„ë£Œ
+            // ?ˆ¬?† ë¦¬ì–¼ ?„¸?Š¸ ?™„ë£?
             Debug.Log("Tutorial Complete : " + curTutorialSetID);
             tutorialSet.isSetComplete = true;
             tutorialSet.steps[curTutorialStepID].isStepComplete = true;
@@ -229,14 +231,14 @@ public class TutorialManager : MonoBehaviour
             {
                 isTutorial = false;
 
-                // ê³¨ë“œí”¼ê·¸ ë“±ì¥
+                // ê³¨ë“œ?”¼ê·? ?“±?¥
                 GlobalData.instance.goldPigController.EnableGoldPig();
-                // ìƒì  ë²„íŠ¼ í™œì„±í™”
+                // ?ƒ?  ë²„íŠ¼ ?™œ?„±?™”
                 UtilityMethod.GetCustomTypeBtnByID(6).gameObject.SetActive(true);
-                // íˆ¬í† ë¦¬ì–¼ ì•ˆë‚´ í…ìŠ¤íŠ¸ ë¹„í™œì„±í™”
+                // ?ˆ¬?† ë¦¬ì–¼ ?•ˆ?‚´ ?…?Š¤?Š¸ ë¹„í™œ?„±?™”
                 tutorialPlayingTextBox.gameObject.SetActive(false);
 
-                Debug.Log("íˆ¬í† ë¦¬ì–¼ ì¢…ë£Œ");
+                Debug.Log("?ˆ¬?† ë¦¬ì–¼ ì¢…ë£Œ");
             }
 
         }
@@ -255,7 +257,7 @@ public class TutorialManager : MonoBehaviour
         var btn = tutorialButtons.FirstOrDefault(f => f.id == id);
         if (btn == null)
         {
-            Debug.LogError($"{id}ì— í•´ë‹¹í•˜ëŠ” íˆ¬í† ë¦¬ì–¼ ë²„íŠ¼ì´ ì—†ìŠµë‹ˆë‹¤.");
+            Debug.LogError($"{id}?— ?•´?‹¹?•˜?Š” ?ˆ¬?† ë¦¬ì–¼ ë²„íŠ¼?´ ?—†?Šµ?‹ˆ?‹¤.");
         }
         return tutorialButtons.FirstOrDefault(f => f.id == id);
     }
@@ -271,7 +273,7 @@ public class TutorialManager : MonoBehaviour
         var obj = tutorialGameObjects.FirstOrDefault(f => f.id == id);
         if (obj == null)
         {
-            Debug.LogError($"{id}ì— í•´ë‹¹í•˜ëŠ” íˆ¬í† ë¦¬ì–¼ ê²Œì„ ì˜¤ë¸Œì íŠ¸ê°€ ì—†ìŠµë‹ˆë‹¤.");
+            Debug.LogError($"{id}?— ?•´?‹¹?•˜?Š” ?ˆ¬?† ë¦¬ì–¼ ê²Œì„ ?˜¤ë¸Œì ?Š¸ê°? ?—†?Šµ?‹ˆ?‹¤.");
         }
         return obj;
     }

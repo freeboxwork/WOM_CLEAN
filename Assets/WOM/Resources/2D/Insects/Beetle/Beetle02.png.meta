@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0a83c0c8725df8b44b298f6e11c76afa
+guid: e201e8f50aba159489a7937f6f512c9e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -125,11 +125,23 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Beetle02_0
+      name: Beetle03_0
       rect:
         serializedVersion: 2
         x: 0
@@ -143,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3318bf73196f1f1409318bd6016c7888
-      internalID: -1355199018
+      spriteID: 0ca3045e5e746b7419bb10f91726ab89
+      internalID: -1756669887
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Beetle02_1
+      name: Beetle03_1
       rect:
         serializedVersion: 2
         x: 256
@@ -164,14 +176,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fc12c1df4e4411840a6d782e003fed6d
-      internalID: -1514912417
+      spriteID: a7162e5cd36489444811fd6c0bad7cf5
+      internalID: -1913252821
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Beetle02_2
+      name: Beetle03_2
       rect:
         serializedVersion: 2
         x: 0
@@ -185,14 +197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1543d429301961a4aaef10ed717ea9b2
-      internalID: -82047317
+      spriteID: 308830cc06efe654f80eb5274c120a93
+      internalID: 522265792
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Beetle02_3
+      name: Beetle03_3
       rect:
         serializedVersion: 2
         x: 256
@@ -206,8 +218,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d4e7c02a76ff5aa40a410778a32bdc7a
-      internalID: -918785244
+      spriteID: 2165de5b25188724796bcc13ce72f819
+      internalID: 1511247855
       vertices: []
       indices: 
       edges: []
@@ -223,10 +235,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Beetle02_0: -1355199018
-      Beetle02_1: -1514912417
-      Beetle02_2: -82047317
-      Beetle02_3: -918785244
+      Beetle03_0: -1756669887
+      Beetle03_1: -1913252821
+      Beetle03_2: 522265792
+      Beetle03_3: 1511247855
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

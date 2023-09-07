@@ -130,10 +130,6 @@ SpriteAtlas:
   - {fileID: -986132320, guid: b155d554bab6f214c80d708a3794a91c, type: 3}
   - {fileID: -1450889569, guid: b155d554bab6f214c80d708a3794a91c, type: 3}
   - {fileID: -1023802, guid: b155d554bab6f214c80d708a3794a91c, type: 3}
-  - {fileID: 57788885, guid: 06516e5444d18ec40a28b61c0d703710, type: 3}
-  - {fileID: 587807138, guid: 06516e5444d18ec40a28b61c0d703710, type: 3}
-  - {fileID: 73051420, guid: 06516e5444d18ec40a28b61c0d703710, type: 3}
-  - {fileID: -718145741, guid: 06516e5444d18ec40a28b61c0d703710, type: 3}
   - {fileID: 1824692167, guid: 8ffd3aa47774a3943936a821a21693b6, type: 3}
   - {fileID: -1539115634, guid: 8ffd3aa47774a3943936a821a21693b6, type: 3}
   - {fileID: -1526905983, guid: 8ffd3aa47774a3943936a821a21693b6, type: 3}
@@ -142,10 +138,6 @@ SpriteAtlas:
   - {fileID: 1531535953, guid: 90a20ca4643d6554e8611cafa6cf8a25, type: 3}
   - {fileID: -1569009327, guid: 90a20ca4643d6554e8611cafa6cf8a25, type: 3}
   - {fileID: 1297173840, guid: 90a20ca4643d6554e8611cafa6cf8a25, type: 3}
-  - {fileID: -1273485071, guid: 1a53f2e48edddb24ebfea677235abfb3, type: 3}
-  - {fileID: -1917960878, guid: 1a53f2e48edddb24ebfea677235abfb3, type: 3}
-  - {fileID: -1558633192, guid: 1a53f2e48edddb24ebfea677235abfb3, type: 3}
-  - {fileID: -1226099438, guid: 1a53f2e48edddb24ebfea677235abfb3, type: 3}
   - {fileID: 1309940057, guid: 0bebc215db443914da055ea691861a83, type: 3}
   - {fileID: 1460272157, guid: 0bebc215db443914da055ea691861a83, type: 3}
   - {fileID: 1296732155, guid: 0bebc215db443914da055ea691861a83, type: 3}
@@ -194,10 +186,10 @@ SpriteAtlas:
   - {fileID: 15087504, guid: ff412e86d8719e04bbba65b29487496c, type: 3}
   - {fileID: 1833298627, guid: ff412e86d8719e04bbba65b29487496c, type: 3}
   - {fileID: -1896072368, guid: ff412e86d8719e04bbba65b29487496c, type: 3}
-  - {fileID: 712262681, guid: 3a5a2aa72c77c58468bee6ba857aa8bb, type: 3}
-  - {fileID: -1886994501, guid: 3a5a2aa72c77c58468bee6ba857aa8bb, type: 3}
-  - {fileID: -1914901196, guid: 3a5a2aa72c77c58468bee6ba857aa8bb, type: 3}
-  - {fileID: 675629624, guid: 3a5a2aa72c77c58468bee6ba857aa8bb, type: 3}
+  - {fileID: -1440155886, guid: a93ef79661d128546b46d9518774daa1, type: 3}
+  - {fileID: 1895973032, guid: a93ef79661d128546b46d9518774daa1, type: 3}
+  - {fileID: 289942136, guid: a93ef79661d128546b46d9518774daa1, type: 3}
+  - {fileID: 1574319770, guid: a93ef79661d128546b46d9518774daa1, type: 3}
   - {fileID: -1976129906, guid: 38a301d72a37f1e4f8fec83c8054e8bf, type: 3}
   - {fileID: 114727168, guid: 38a301d72a37f1e4f8fec83c8054e8bf, type: 3}
   - {fileID: 680037008, guid: 38a301d72a37f1e4f8fec83c8054e8bf, type: 3}
@@ -226,10 +218,6 @@ SpriteAtlas:
   - {fileID: -1203258242, guid: 65ca5159218de7542bc151f44c5dcd1e, type: 3}
   - {fileID: 1048395243, guid: 65ca5159218de7542bc151f44c5dcd1e, type: 3}
   - {fileID: -178215582, guid: 65ca5159218de7542bc151f44c5dcd1e, type: 3}
-  - {fileID: -856849785, guid: 5dfa7f696a5120a48b5869032a104bd4, type: 3}
-  - {fileID: -1384086336, guid: 5dfa7f696a5120a48b5869032a104bd4, type: 3}
-  - {fileID: -1233954557, guid: 5dfa7f696a5120a48b5869032a104bd4, type: 3}
-  - {fileID: 1634777081, guid: 5dfa7f696a5120a48b5869032a104bd4, type: 3}
   - {fileID: -1040869419, guid: e2b67da98bf419f4d94fd3b749ed2e4b, type: 3}
   - {fileID: 1946947031, guid: e2b67da98bf419f4d94fd3b749ed2e4b, type: 3}
   - {fileID: 304013987, guid: e2b67da98bf419f4d94fd3b749ed2e4b, type: 3}
@@ -413,10 +401,6 @@ SpriteAtlas:
   - U_Bee05_0
   - U_Bee05_3
   - U_Bee05_2
-  - Mantis00_2
-  - Mantis00_3
-  - Mantis00_0
-  - Mantis00_1
   - Mantis02_0
   - Mantis02_1
   - Mantis02_2
@@ -425,10 +409,6 @@ SpriteAtlas:
   - U_DragonFly03_2
   - U_DragonFly03_1
   - U_DragonFly03_0
-  - Beetle00_3
-  - Beetle00_2
-  - Beetle00_1
-  - Beetle00_0
   - U_DragonFly01_1
   - U_DragonFly01_0
   - U_DragonFly01_3
@@ -477,10 +457,10 @@ SpriteAtlas:
   - U_ButterFly04_0
   - U_ButterFly04_3
   - U_ButterFly04_2
-  - Bee00_0
-  - Bee00_1
-  - Bee00_2
-  - Bee00_3
+  - Beetle00_3
+  - Beetle00_2
+  - Beetle00_1
+  - Beetle00_0
   - U_Moth03_1
   - U_Moth03_0
   - U_Moth03_3
@@ -509,10 +489,6 @@ SpriteAtlas:
   - U_Locust01_0
   - U_Locust01_3
   - U_Locust01_2
-  - Beetle01_2
-  - Beetle01_3
-  - Beetle01_0
-  - Beetle01_1
   - U_Cicada03_0
   - U_Cicada03_1
   - U_Cicada03_2

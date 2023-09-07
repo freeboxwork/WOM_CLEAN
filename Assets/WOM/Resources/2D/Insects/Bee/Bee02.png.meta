@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 6a4f056cc84c02144ac1205c36faa828
+guid: 2fe7c0ac91bd4d147a7cdcbd3fecaae9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -125,11 +125,23 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Bee02_0
+      name: Bee03_0
       rect:
         serializedVersion: 2
         x: 0
@@ -143,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 881ad4f65a024754cb3b80c340a5b1d4
-      internalID: -10373803
+      spriteID: d653e5daf702cd24890d6dbf27575134
+      internalID: -186219684
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bee02_1
+      name: Bee03_1
       rect:
         serializedVersion: 2
         x: 256
@@ -164,14 +176,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4797505e02987a545a66229d4663c2d8
-      internalID: 1587456505
+      spriteID: a94bfbe18e0e6334d96f133bdaaf9370
+      internalID: 902334350
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bee02_2
+      name: Bee03_2
       rect:
         serializedVersion: 2
         x: 0
@@ -185,14 +197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8e18c8dcc1d6999459901832b1937c43
-      internalID: -1020229498
+      spriteID: 52eb54c2e1a63394989a0a9661e2076c
+      internalID: -65091804
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bee02_3
+      name: Bee03_3
       rect:
         serializedVersion: 2
         x: 256
@@ -206,8 +218,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aab89567496d1cc41aeb8f5c9f88a6b5
-      internalID: 1023046122
+      spriteID: 0df4ca31eae7b9e4a82b1c8dc206120b
+      internalID: -727518320
       vertices: []
       indices: 
       edges: []
@@ -223,10 +235,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Bee02_0: -10373803
-      Bee02_1: 1587456505
-      Bee02_2: -1020229498
-      Bee02_3: 1023046122
+      Bee03_0: -186219684
+      Bee03_1: 902334350
+      Bee03_2: -65091804
+      Bee03_3: -727518320
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

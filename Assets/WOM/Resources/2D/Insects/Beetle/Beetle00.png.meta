@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 1a53f2e48edddb24ebfea677235abfb3
+guid: a93ef79661d128546b46d9518774daa1
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -48,7 +48,7 @@ TextureImporter:
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 100
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 0, y: 256, z: 256, w: 256}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -67,7 +67,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 256
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -114,8 +114,8 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Windows Store Apps
-    maxTextureSize: 256
+    buildTarget: iPhone
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -143,8 +143,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: be1ebb952725ed542aa9ba13d0f0a13b
-      internalID: -1226099438
+      spriteID: 4bfc7b0040bb45843a920b12d3933a1f
+      internalID: 1574319770
       vertices: []
       indices: 
       edges: []
@@ -164,8 +164,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3baef091c9df6a24291c1d6916837f55
-      internalID: -1558633192
+      spriteID: d7f080387f78d444db53f339711a55b7
+      internalID: 289942136
       vertices: []
       indices: 
       edges: []
@@ -185,8 +185,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e53f6d89b01d732418de1b20a1990172
-      internalID: -1917960878
+      spriteID: 88287d2e3db9a6044858c52679cc5921
+      internalID: 1895973032
       vertices: []
       indices: 
       edges: []
@@ -206,8 +206,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8629b832d63caad4aa09c9d5e3fd8942
-      internalID: -1273485071
+      spriteID: 7f4be4b531612b84a86ed1df81378110
+      internalID: -1440155886
       vertices: []
       indices: 
       edges: []
@@ -216,17 +216,17 @@ TextureImporter:
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
-    internalID: 0
+    internalID: 1537655665
     vertices: []
     indices: 
     edges: []
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Beetle00_0: -1226099438
-      Beetle00_1: -1558633192
-      Beetle00_2: -1917960878
-      Beetle00_3: -1273485071
+      Beetle00_0: 1574319770
+      Beetle00_1: 289942136
+      Beetle00_2: 1895973032
+      Beetle00_3: -1440155886
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

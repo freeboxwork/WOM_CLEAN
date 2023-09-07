@@ -80,6 +80,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: ae5b5e9273a95f144a217b4a87a9feb9, type: 3}
   - {fileID: 21300000, guid: 3adf1fa25f7270d4eaf74a562fff0845, type: 3}
   - {fileID: 21300000, guid: 285011b2d702dda4e9848005c985c3d8, type: 3}
+  - {fileID: 21300000, guid: 09eae7e2faf85be44ab8bab3abcc1013, type: 3}
   - {fileID: 21300000, guid: 40e17be2181be8e4fb48bf67984e2d5a, type: 3}
   - {fileID: 21300000, guid: 3aca79f2bb7b652489f75113b6358ef6, type: 3}
   - {fileID: 21300000, guid: 5b5d7303be0e3334c9831aa8d4ee9aaf, type: 3}
@@ -238,6 +239,7 @@ SpriteAtlas:
   - Option_SFX
   - DNA_unionMoveSpeed
   - DNA_skillCoolTime
+  - Ads_Buff
   - U_Frame_Unique
   - btn_Escape
   - Icon_CriticalDamage

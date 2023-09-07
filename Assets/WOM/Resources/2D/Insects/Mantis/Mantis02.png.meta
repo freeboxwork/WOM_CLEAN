@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8ffd3aa47774a3943936a821a21693b6
+guid: f04301aa5f8218e4390d846106b76aa8
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -125,11 +125,23 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 256
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mantis02_0
+      name: Mantis03_0
       rect:
         serializedVersion: 2
         x: 0
@@ -143,14 +155,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 39bb104ba0624f947b2d64e31d0dfea8
-      internalID: 1824692167
+      spriteID: decbe2bdfd8d0c1478a45cf9fb7c08e5
+      internalID: 1482348858
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mantis02_1
+      name: Mantis03_1
       rect:
         serializedVersion: 2
         x: 256
@@ -164,14 +176,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e1f8a4b7f97f6fb4c80b4209bb090ab4
-      internalID: -1539115634
+      spriteID: fd6f48b67139af34bb7556e216f43172
+      internalID: 764842466
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mantis02_2
+      name: Mantis03_2
       rect:
         serializedVersion: 2
         x: 0
@@ -185,14 +197,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8088fff9a0aa87d43824d02742d83eed
-      internalID: -1526905983
+      spriteID: 527623ba7f7088d4ab2c6edbb765aa95
+      internalID: 1361594031
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mantis02_3
+      name: Mantis03_3
       rect:
         serializedVersion: 2
         x: 256
@@ -206,8 +218,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bc9ffdb3615ec2342a3c661d5adcec17
-      internalID: -1912863522
+      spriteID: a306c058774c8c84e8474cca4022abdb
+      internalID: 911858183
       vertices: []
       indices: 
       edges: []
@@ -223,10 +235,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mantis02_0: 1824692167
-      Mantis02_1: -1539115634
-      Mantis02_2: -1526905983
-      Mantis02_3: -1912863522
+      Mantis03_0: 1482348858
+      Mantis03_1: 764842466
+      Mantis03_2: 1361594031
+      Mantis03_3: 911858183
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

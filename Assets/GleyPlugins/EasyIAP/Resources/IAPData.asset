@@ -31,9 +31,9 @@ MonoBehaviour:
     idMac: 
     idWindows: 
     value: 0
-    localizedPriceString: '-'
+    localizedPriceString: $0.01
     price: 0
-    isoCurrencyCode: 
+    isoCurrencyCode: USD
     receipt: 
   - productName: commongem2
     productType: 0
@@ -43,9 +43,9 @@ MonoBehaviour:
     idMac: 
     idWindows: 
     value: 0
-    localizedPriceString: '-'
+    localizedPriceString: $0.01
     price: 0
-    isoCurrencyCode: 
+    isoCurrencyCode: USD
     receipt: 
   - productName: commongem3
     productType: 0
@@ -55,9 +55,9 @@ MonoBehaviour:
     idMac: 
     idWindows: 
     value: 0
-    localizedPriceString: '-'
+    localizedPriceString: $0.01
     price: 0
-    isoCurrencyCode: 
+    isoCurrencyCode: USD
     receipt: 
   - productName: commongem4
     productType: 0
@@ -67,9 +67,9 @@ MonoBehaviour:
     idMac: 
     idWindows: 
     value: 0
-    localizedPriceString: '-'
+    localizedPriceString: $0.01
     price: 0
-    isoCurrencyCode: 
+    isoCurrencyCode: USD
     receipt: 
   - productName: vipgem1
     productType: 1
@@ -79,9 +79,9 @@ MonoBehaviour:
     idMac: 
     idWindows: 
     value: 0
-    localizedPriceString: '-'
+    localizedPriceString: $0.01
     price: 0
-    isoCurrencyCode: 
+    isoCurrencyCode: USD
     receipt: 
   - productName: vipgem2
     productType: 1
@@ -91,9 +91,9 @@ MonoBehaviour:
     idMac: 
     idWindows: 
     value: 0
-    localizedPriceString: '-'
+    localizedPriceString: $0.01
     price: 0
-    isoCurrencyCode: 
+    isoCurrencyCode: USD
     receipt: 
   - productName: vipgem3
     productType: 1
@@ -103,9 +103,9 @@ MonoBehaviour:
     idMac: 
     idWindows: 
     value: 0
-    localizedPriceString: '-'
+    localizedPriceString: $0.01
     price: 0
-    isoCurrencyCode: 
+    isoCurrencyCode: USD
     receipt: 
   - productName: vipgem4
     productType: 1
@@ -115,9 +115,9 @@ MonoBehaviour:
     idMac: 
     idWindows: 
     value: 0
-    localizedPriceString: '-'
+    localizedPriceString: $0.01
     price: 0
-    isoCurrencyCode: 
+    isoCurrencyCode: USD
     receipt: 
   - productName: starterrpackage
     productType: 1
@@ -127,9 +127,9 @@ MonoBehaviour:
     idMac: 
     idWindows: 
     value: 0
-    localizedPriceString: '-'
+    localizedPriceString: $0.01
     price: 0
-    isoCurrencyCode: 
+    isoCurrencyCode: USD
     receipt: 
   - productName: adbuffpass
     productType: 1
@@ -139,9 +139,9 @@ MonoBehaviour:
     idMac: 
     idWindows: 
     value: 0
-    localizedPriceString: '-'
+    localizedPriceString: $0.01
     price: 0
-    isoCurrencyCode: 
+    isoCurrencyCode: USD
     receipt: 
   - productName: dungeonpackage
     productType: 1
@@ -151,9 +151,9 @@ MonoBehaviour:
     idMac: 
     idWindows: 
     value: 0
-    localizedPriceString: '-'
+    localizedPriceString: $0.01
     price: 0
-    isoCurrencyCode: 
+    isoCurrencyCode: USD
     receipt: 
   - productName: battlepass
     productType: 1
@@ -163,9 +163,9 @@ MonoBehaviour:
     idMac: 
     idWindows: 
     value: 0
-    localizedPriceString: '-'
+    localizedPriceString: $0.01
     price: 0
-    isoCurrencyCode: 
+    isoCurrencyCode: USD
     receipt: 
   - productName: fastestpackage
     productType: 1
@@ -175,7 +175,7 @@ MonoBehaviour:
     idMac: 
     idWindows: 
     value: 0
-    localizedPriceString: '-'
+    localizedPriceString: $0.01
     price: 0
-    isoCurrencyCode: 
+    isoCurrencyCode: USD
     receipt: 

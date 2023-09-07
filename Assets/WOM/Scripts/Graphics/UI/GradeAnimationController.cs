@@ -27,12 +27,7 @@ namespace ProjectGraphics
         public Image shinyColor;
         public Image iconUI;
 
-        public Image beforeGradeIcon;
-        public Image afterGradeIcon;
-
-        public TextMeshProUGUI gradeText;
-
-        public List<GameObject> enableObjects;
+             public List<GameObject> enableObjects;
 
         public Button btnClose;
 
@@ -44,6 +39,20 @@ namespace ProjectGraphics
         [Header("등급별 파티클 추가, 0번은 별도로 플레이됨")]
         [SerializeField] GameObject[] particleObjects;
 
+        [SerializeField] Image[] beforeInsectSprite;
+        [SerializeField] Image[] afterInsectSprite;
+
+        [SerializeField] Sprite[] insectSprite1;
+        [SerializeField] Sprite[] insectSprite2;
+        [SerializeField] Sprite[] insectSprite3;
+        [SerializeField] Sprite[] insectSprite4;
+        [SerializeField] Sprite[] insectSprite5;
+
+        Dictionary<int, Sprite[]> insectSpriteDic = new Dictionary<int, Sprite[]>();
+
+        public AudioSource drum;
+        public AudioSource explotion;
+
         void Awake()
         {
             anim = GetComponent<Animator>();
@@ -54,6 +63,13 @@ namespace ProjectGraphics
         private void Start()
         {
             SetBtnEvent();
+
+            insectSpriteDic.Add(0,insectSprite1);
+            insectSpriteDic.Add(1,insectSprite2);
+            insectSpriteDic.Add(2,insectSprite3);
+            insectSpriteDic.Add(3,insectSprite4);
+            insectSpriteDic.Add(4,insectSprite5);
+
         }
 
         void SetBtnEvent()
@@ -78,7 +94,10 @@ namespace ProjectGraphics
             int startIndex = 0;
             if (gradeIndex <= 0 || gradeIndex >= imageResources.Length) startIndex = 0;
             else startIndex = gradeIndex - 1;
-            SetImageResources(startIndex);
+
+            iconUI.sprite = imageResources[startIndex].icon;
+
+            //SetImageResources(startIndex);
 
             foreach (var obj in particleObjects) { obj.SetActive(false); }
 
@@ -90,7 +109,6 @@ namespace ProjectGraphics
         {
             if (num >= imageResources.Length) return;
 
-            gradeText.text = imageResources[num].name;
             backgroundColor.color = imageResources[num].backGroundColor;
             glareColor.color = imageResources[num].glareColor;
             shinyColor.color = imageResources[num].backShinyColor;
@@ -98,11 +116,37 @@ namespace ProjectGraphics
 
         }
 
+        void EnableInsectIcon()
+        {
+            for (int i = 0; i < gradeIndex + 1; i++)
+            {
+                if (i == 0) continue;
+                particleObjects[i].SetActive(true);
+            }
+        }
+
+        public void PlayDrum()
+        {
+            drum.Play();
+        }
+        public void PlayExPlotion()
+        {
+            explotion.Play();
+        }
         public void AnimEventChangeGradeAction()
         {
-            beforeGradeIcon.sprite = imageResources[gradeIndex - 1].icon;
-            afterGradeIcon.sprite = imageResources[gradeIndex].icon;
-            SetImageResources(gradeIndex);
+           // beforeGradeIcon.sprite = imageResources[gradeIndex - 1].icon;
+            //afterGradeIcon.sprite = imageResources[gradeIndex].icon;
+
+             for (int i = 0; i < beforeInsectSprite.Length; i++)
+             {
+                beforeInsectSprite[i].sprite = insectSpriteDic[gradeIndex - 1][i];
+                afterInsectSprite[i].sprite = insectSpriteDic[gradeIndex][i];
+             }
+
+            //SetImageResources(gradeIndex);
+            iconUI.sprite = imageResources[gradeIndex].icon;
+
             //파티클 숨김
             particleObjects[0].SetActive(false);
         }

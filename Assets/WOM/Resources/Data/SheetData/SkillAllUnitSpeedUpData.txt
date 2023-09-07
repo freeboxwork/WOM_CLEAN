@@ -2,7 +2,7 @@
   "data": [
  {
    "level": 0,
-   "salePrice": 10050,
+   "salePrice": 126750,
    "duration": 15,
    "power": 100,
    "name": "질주",
@@ -12,7 +12,7 @@
  },
  {
    "level": 1,
-   "salePrice": 20550,
+   "salePrice": 374250,
    "duration": 15,
    "power": 100,
    "name": "질주",
@@ -22,7 +22,7 @@
  },
  {
    "level": 2,
-   "salePrice": 52800,
+   "salePrice": 1550500,
    "duration": 15.5,
    "power": 105,
    "name": "질주",
@@ -32,7 +32,7 @@
  },
  {
    "level": 3,
-   "salePrice": 129300,
+   "salePrice": 5955500,
    "duration": 15.5,
    "power": 110,
    "name": "질주",
@@ -42,7 +42,7 @@
  },
  {
    "level": 4,
-   "salePrice": 331800,
+   "salePrice": 49011000,
    "duration": 16,
    "power": 115,
    "name": "질주",
@@ -52,7 +52,7 @@
  },
  {
    "level": 5,
-   "salePrice": 1288000,
+   "salePrice": 261414000,
    "duration": 16,
    "power": 120,
    "name": "질주",
@@ -62,7 +62,7 @@
  },
  {
    "level": 6,
-   "salePrice": 2869250,
+   "salePrice": 1159077000,
    "duration": 16.5,
    "power": 125,
    "name": "질주",
@@ -72,7 +72,7 @@
  },
  {
    "level": 7,
-   "salePrice": 8202950,
+   "salePrice": 4228246250,
    "duration": 16.5,
    "power": 130,
    "name": "질주",
@@ -82,7 +82,7 @@
  },
  {
    "level": 8,
-   "salePrice": 22726000,
+   "salePrice": 15987391000,
    "duration": 17,
    "power": 135,
    "name": "질주",
@@ -92,7 +92,7 @@
  },
  {
    "level": 9,
-   "salePrice": 61966500,
+   "salePrice": 50378157000,
    "duration": 17,
    "power": 140,
    "name": "질주",
@@ -102,7 +102,7 @@
  },
  {
    "level": 10,
-   "salePrice": 141247000,
+   "salePrice": 137632459250,
    "duration": 17.5,
    "power": 145,
    "name": "질주",
@@ -112,7 +112,7 @@
  },
  {
    "level": 11,
-   "salePrice": 290277500,
+   "salePrice": 369270097000,
    "duration": 17.5,
    "power": 150,
    "name": "질주",
@@ -122,7 +122,7 @@
  },
  {
    "level": 12,
-   "salePrice": 641894750,
+   "salePrice": 942482326500,
    "duration": 18,
    "power": 155,
    "name": "질주",
@@ -132,7 +132,7 @@
  },
  {
    "level": 13,
-   "salePrice": 1395242500,
+   "salePrice": 2358513702000,
    "duration": 18,
    "power": 160,
    "name": "질주",
@@ -142,7 +142,7 @@
  },
  {
    "level": 14,
-   "salePrice": 2896397000,
+   "salePrice": 5678034656000,
    "duration": 18.5,
    "power": 165,
    "name": "질주",
@@ -152,7 +152,7 @@
  },
  {
    "level": 15,
-   "salePrice": 5979160000,
+   "salePrice": 12945468501000,
    "duration": 18.5,
    "power": 170,
    "name": "질주",
@@ -162,7 +162,7 @@
  },
  {
    "level": 16,
-   "salePrice": 13490936000,
+   "salePrice": 27873100444500,
    "duration": 19,
    "power": 175,
    "name": "질주",
@@ -172,7 +172,7 @@
  },
  {
    "level": 17,
-   "salePrice": 26864483000,
+   "salePrice": 60592231476000,
    "duration": 19,
    "power": 180,
    "name": "질주",
@@ -182,7 +182,7 @@
  },
  {
    "level": 18,
-   "salePrice": 55632185000,
+   "salePrice": 124244909191500,
    "duration": 19.5,
    "power": 185,
    "name": "질주",
@@ -192,7 +192,7 @@
  },
  {
    "level": 19,
-   "salePrice": 100288177000,
+   "salePrice": 243120888913500,
    "duration": 19.5,
    "power": 190,
    "name": "질주",
@@ -211,4 +211,5 @@
    "desctiption": "모든 아군의 이동속도가 <Duration>초간 <Power>만큼 증가"
  }
 ]
+
 }

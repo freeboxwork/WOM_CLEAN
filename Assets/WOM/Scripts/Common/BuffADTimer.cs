@@ -34,7 +34,7 @@ public class BuffADTimer : MonoBehaviour
             //string leftTime = string.Format("{0:0}:{1:00}", minutes, seconds);
             string leftTime = string.Format("{0:0}m", minutes);
 
-            countdownText.text = leftTime + "m";  // Update the UI text
+            countdownText.text = leftTime;// Update the UI text
             // save data
             GlobalData.instance.saveDataManager.SetSaveDataBuffAD_LeftTime(buffADSlot.buffADType, countdownTime);
 

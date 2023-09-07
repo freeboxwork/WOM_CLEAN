@@ -126,7 +126,7 @@
    "tutorialBtnId": 19,
    "튜토리얼 활성 조건": "",
    "goal": "확인 버튼 입력을 하였는가?",
-   "description": "금광 몬스터를 처치하면<br>많은골드를 얻을 수 있어요",
+   "description": "금광 몬스터를 처치하면 많은 골드를 얻을 수 있어요",
    "체크사항": ""
  },
  {
@@ -511,8 +511,8 @@
    "setId": 9,
    "step": 4,
    "patternType": "pattern_11",
-   "patternDescription": "gem 100개 증정",
-   "customConditions": 100,
+   "patternDescription": "gem 1000개 증정",
+   "customConditions": 1000,
    "tutorialBtnId": null,
    "튜토리얼 활성 조건": "",
    "goal": "",

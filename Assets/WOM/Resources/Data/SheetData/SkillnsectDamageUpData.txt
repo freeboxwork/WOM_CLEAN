@@ -1,8 +1,8 @@
 {
-  "data": [
+  "data":[
  {
    "level": 0,
-   "salePrice": 300,
+   "salePrice": 500,
    "duration": 10,
    "power": 100,
    "name": "전투의 함성",
@@ -12,7 +12,7 @@
  },
  {
    "level": 1,
-   "salePrice": 3300,
+   "salePrice": 23000,
    "duration": 10,
    "power": 100,
    "name": "전투의 함성",
@@ -22,7 +22,7 @@
  },
  {
    "level": 2,
-   "salePrice": 20550,
+   "salePrice": 374250,
    "duration": 10.5,
    "power": 110,
    "name": "전투의 함성",
@@ -32,7 +32,7 @@
  },
  {
    "level": 3,
-   "salePrice": 74550,
+   "salePrice": 2604250,
    "duration": 11,
    "power": 120,
    "name": "전투의 함성",
@@ -42,7 +42,7 @@
  },
  {
    "level": 4,
-   "salePrice": 239550,
+   "salePrice": 30058500,
    "duration": 11.5,
    "power": 130,
    "name": "전투의 함성",
@@ -52,7 +52,7 @@
  },
  {
    "level": 5,
-   "salePrice": 628050,
+   "salePrice": 127673500,
    "duration": 12,
    "power": 140,
    "name": "전투의 함성",
@@ -62,7 +62,7 @@
  },
  {
    "level": 6,
-   "salePrice": 2503000,
+   "salePrice": 708279000,
    "duration": 12.5,
    "power": 150,
    "name": "전투의 함성",
@@ -72,7 +72,7 @@
  },
  {
    "level": 7,
-   "salePrice": 7462700,
+   "salePrice": 3668990000,
    "duration": 13,
    "power": 160,
    "name": "전투의 함성",
@@ -82,7 +82,7 @@
  },
  {
    "level": 8,
-   "salePrice": 14870450,
+   "salePrice": 12384670500,
    "duration": 13.5,
    "power": 170,
    "name": "전투의 함성",
@@ -92,7 +92,7 @@
  },
  {
    "level": 9,
-   "salePrice": 39303500,
+   "salePrice": 41556374000,
    "duration": 14,
    "power": 180,
    "name": "전투의 함성",
@@ -102,7 +102,7 @@
  },
  {
    "level": 10,
-   "salePrice": 135982000,
+   "salePrice": 130009170500,
    "duration": 14.5,
    "power": 190,
    "name": "전투의 함성",
@@ -112,7 +112,7 @@
  },
  {
    "level": 11,
-   "salePrice": 281821250,
+   "salePrice": 353251979500,
    "duration": 15,
    "power": 200,
    "name": "전투의 함성",
@@ -122,7 +122,7 @@
  },
  {
    "level": 12,
-   "salePrice": 626993500,
+   "salePrice": 859307126000,
    "duration": 15.5,
    "power": 210,
    "name": "전투의 함성",
@@ -132,7 +132,7 @@
  },
  {
    "level": 13,
-   "salePrice": 1368955000,
+   "salePrice": 2101159566000,
    "duration": 16,
    "power": 220,
    "name": "전투의 함성",
@@ -142,7 +142,7 @@
  },
  {
    "level": 14,
-   "salePrice": 2851544500,
+   "salePrice": 5546654616000,
    "duration": 16.5,
    "power": 230,
    "name": "전투의 함성",
@@ -152,7 +152,7 @@
  },
  {
    "level": 15,
-   "salePrice": 5902085000,
+   "salePrice": 12695964298500,
    "duration": 17,
    "power": 240,
    "name": "전투의 함성",
@@ -162,7 +162,7 @@
  },
  {
    "level": 16,
-   "salePrice": 13344416000,
+   "salePrice": 27420256377000,
    "duration": 17.5,
    "power": 250,
    "name": "전투의 함성",
@@ -172,7 +172,7 @@
  },
  {
    "level": 17,
-   "salePrice": 26616485500,
+   "salePrice": 59755141386000,
    "duration": 18,
    "power": 260,
    "name": "전투의 함성",
@@ -182,7 +182,7 @@
  },
  {
    "level": 18,
-   "salePrice": 55191797500,
+   "salePrice": 122772537725250,
    "duration": 18.5,
    "power": 270,
    "name": "전투의 함성",
@@ -192,7 +192,7 @@
  },
  {
    "level": 19,
-   "salePrice": 99602799500,
+   "salePrice": 240632889617250,
    "duration": 19,
    "power": 280,
    "name": "전투의 함성",

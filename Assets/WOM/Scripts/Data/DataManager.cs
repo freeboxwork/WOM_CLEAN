@@ -102,7 +102,7 @@ public class DataManager : MonoBehaviour
 
 
 
-    // Traning Data ( íŒë§¤ ë°ì´í„° )
+    // Traning Data ( ?Œë§? ?°?´?„° )
     StatSaleDatas trainingDamageDatas;
     StatSaleDatas trainingCriticalChanceData;
     StatSaleDatas trainingCriticalDamageData;
@@ -114,7 +114,7 @@ public class DataManager : MonoBehaviour
     StatSaleDatas talentGoldBonusData;
     public List<StatSaleDatas> statSaleDatas = new List<StatSaleDatas>();
 
-    // ìŠ¤í‚¬ ë°ì´í„° ( íŒë§¤ ë°ì´í„° )
+    // ?Š¤?‚¬ ?°?´?„° ( ?Œë§? ?°?´?„° )
     public SkillInsectDamageUpDatas skillInsectDamageUpDatas;
     public SkillUnionDamageUpDatas skillUnionDamageUpDatas;
     public SkillAllUnitSpeedUpDatas skillAllUnitSpeedUpDatas;
@@ -123,28 +123,28 @@ public class DataManager : MonoBehaviour
     public SkillMonsterKingDatas skillMonsterKingDatas;
 
 
-    // ìºìŠ¬ ë°ì´í„°.
+    // ìºìŠ¬ ?°?´?„°.
     public MineAndFactoryBuildingDatas buildDatasMine;
     public MineAndFactoryBuildingDatas buildDatasFactory;
     public CampBuildingData buildDatasCamp;
     public LabBuildingDatas buildDataLab;
 
-    // í€˜ìŠ¤íŠ¸ ë°ì´í„°
+    // ??˜ìŠ¤?Š¸ ?°?´?„°
     public QuestDatas questDatasOneDay;
 
-    // ë°°í‹€ íŒ¨ìŠ¤ ë°ì´í„°
+    // ë°°í?? ?Œ¨?Š¤ ?°?´?„°
     public BattlePassDatas battlePassDatas;
 
-    // ì¶œì„ ë°ì´í„°
+    // ì¶œì„ ?°?´?„°
     public AttendDatas attendDatas;
 
-    // ì‹ ê·œ ìœ ì € ë°ì´í„°
+    // ?‹ ê·? ?œ ??? ?°?´?„°
     public NewUserDatas newUserDatas;
 
-    // ìºìŠ¬ -> ì—°êµ¬ì†Œ ë°ì´í„°
+    // ìºìŠ¬ -> ?—°êµ¬ì†Œ ?°?´?„°
     public LabBuidingDatas labBuildingDatas;
 
-    // ê´‘ê³  ë³´ìƒ ë°ì´í„° ( ë³´ì„ )
+    // ê´‘ê³  ë³´ìƒ ?°?´?„° ( ë³´ì„ )
     public RewardAdGemDats rewardAdGemDats;
 
 
@@ -190,19 +190,16 @@ public class DataManager : MonoBehaviour
         // MONSTER
         SetMonsterData();
 
-        // UPGRADE
-        SetUpgradeData();
-
         // MONSTER SPRETE
         SetMonsterSpriteData();
 
-        // SET UNION GAMBLE DATA ( ë½‘ê¸° ë°ì´í„° , ë½‘ê¸° ê·¸ë ˆì´ë“œ ë°ì´í„° )
+        // SET UNION GAMBLE DATA ( ë½‘ê¸° ?°?´?„° , ë½‘ê¸° ê·¸ë ˆ?´?“œ ?°?´?„° )
         SetGamleData();
 
         // ADD SALE STAT LIST
         AddSaleStatElements();
 
-        // SET SALE STAT DATA ( íŒë§¤ ê°€ëŠ¥í•œ ìŠ¤íƒ¯ ë°ì´í„° )
+        // SET SALE STAT DATA ( ?Œë§? ê°??Š¥?•œ ?Š¤?ƒ¯ ?°?´?„° )
         SetSaleStatDatas();
 
         // SET DUNGEON DATA
@@ -299,7 +296,7 @@ public class DataManager : MonoBehaviour
 
     public MineAndFactoryBuildingData GetBuildDataMineByLevel(int level)
     {
-        //any ë¥¼ ì´ìš©í•œ ì˜ˆì™¸ì²˜ë¦¬
+        //any ë¥? ?´?š©?•œ ?˜ˆ?™¸ì²˜ë¦¬
         if (buildDatasMine.data.Any(f => f.level == level) == false)
         {
             Debug.Log("Mine Data is not exist. level : " + level);
@@ -310,7 +307,7 @@ public class DataManager : MonoBehaviour
 
     public MineAndFactoryBuildingData GetBuildDataFactoryByLevel(int level)
     {
-        //any ë¥¼ ì´ìš©í•œ ì˜ˆì™¸ì²˜ë¦¬
+        //any ë¥? ?´?š©?•œ ?˜ˆ?™¸ì²˜ë¦¬
         if (buildDatasFactory.data.Any(f => f.level == level) == false)
         {
             Debug.Log("Factory Data is not exist. level : " + level);
@@ -415,11 +412,6 @@ public class DataManager : MonoBehaviour
         monsterDatas.Add(boss);
         monsterDatas.Add(evolution);
     }
-    void SetUpgradeData()
-    {
-        upgradeData = GetData<UpgradeDatas>(SheetDataType.upgradeData);
-    }
-
     void SetMonsterSpriteData()
     {
         monsterSpriteData = GetData<MonsterSprites>(SheetDataType.monsterSpriteData);
@@ -512,8 +504,8 @@ public class DataManager : MonoBehaviour
         }
         else
         {
-            // ë°ì´í„° ì—†ìŒ
-            Debug.Log("ë§¥ì‹œë©ˆ ë ˆë²¨ ë„ë‹¬ í•˜ì˜€ìŠµë‹ˆë‹¤.");
+            // ?°?´?„° ?—†?Œ
+            Debug.Log("ë§¥ì‹œë©? ? ˆë²? ?„?‹¬ ?•˜????Šµ?‹ˆ?‹¤.");
             return new DungeonMonsterData { level = 999, currencyAmount = 1, monsterHP = 999 };
         }
     }

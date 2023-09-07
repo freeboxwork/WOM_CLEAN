@@ -2,7 +2,7 @@
   "data":[
  {
    "level": 0,
-   "salePrice": 20550,
+   "salePrice": 374250,
    "duration": 5,
    "power": 10,
    "name": "대왕 괴수",
@@ -12,7 +12,7 @@
  },
  {
    "level": 1,
-   "salePrice": 34800,
+   "salePrice": 828000,
    "duration": 5,
    "power": 10,
    "name": "대왕 괴수",
@@ -22,7 +22,7 @@
  },
  {
    "level": 2,
-   "salePrice": 74550,
+   "salePrice": 2604250,
    "duration": 5,
    "power": 11,
    "name": "대왕 괴수",
@@ -32,7 +32,7 @@
  },
  {
    "level": 3,
-   "salePrice": 162300,
+   "salePrice": 8378000,
    "duration": 5,
    "power": 12,
    "name": "대왕 괴수",
@@ -42,7 +42,7 @@
  },
  {
    "level": 4,
-   "salePrice": 383550,
+   "salePrice": 60918500,
    "duration": 5,
    "power": 13,
    "name": "대왕 괴수",
@@ -52,7 +52,7 @@
  },
  {
    "level": 5,
-   "salePrice": 1418000,
+   "salePrice": 301981500,
    "duration": 5,
    "power": 14,
    "name": "대왕 괴수",
@@ -62,7 +62,7 @@
  },
  {
    "level": 6,
-   "salePrice": 3061750,
+   "salePrice": 1277667000,
    "duration": 5,
    "power": 15,
    "name": "대왕 괴수",
@@ -72,7 +72,7 @@
  },
  {
    "level": 7,
-   "salePrice": 8586200,
+   "salePrice": 4528015000,
    "duration": 5,
    "power": 16,
    "name": "대왕 괴수",
@@ -82,7 +82,7 @@
  },
  {
    "level": 8,
-   "salePrice": 23486000,
+   "salePrice": 16796048500,
    "duration": 5,
    "power": 17,
    "name": "대왕 괴수",
@@ -92,7 +92,7 @@
  },
  {
    "level": 9,
-   "salePrice": 63500250,
+   "salePrice": 52260090750,
    "duration": 5,
    "power": 18,
    "name": "대왕 괴수",
@@ -102,7 +102,7 @@
  },
  {
    "level": 10,
-   "salePrice": 143917000,
+   "salePrice": 141553381750,
    "duration": 5,
    "power": 19,
    "name": "대왕 괴수",
@@ -112,7 +112,7 @@
  },
  {
    "level": 11,
-   "salePrice": 294552500,
+   "salePrice": 377457612000,
    "duration": 5,
    "power": 20,
    "name": "대왕 괴수",
@@ -122,7 +122,7 @@
  },
  {
    "level": 12,
-   "salePrice": 649411000,
+   "salePrice": 959084694000,
    "duration": 5,
    "power": 21,
    "name": "대왕 괴수",
@@ -132,7 +132,7 @@
  },
  {
    "level": 13,
-   "salePrice": 1408480000,
+   "salePrice": 2392158192000,
    "duration": 5,
    "power": 22,
    "name": "대왕 괴수",
@@ -142,7 +142,7 @@
  },
  {
    "level": 14,
-   "salePrice": 2918954500,
+   "salePrice": 5744495576000,
    "duration": 5,
    "power": 23,
    "name": "대왕 괴수",
@@ -152,7 +152,7 @@
  },
  {
    "level": 15,
-   "salePrice": 6017885000,
+   "salePrice": 13693886547000,
    "duration": 5,
    "power": 24,
    "name": "대왕 괴수",
@@ -162,7 +162,7 @@
  },
  {
    "level": 16,
-   "salePrice": 13564496000,
+   "salePrice": 28101380247000,
    "duration": 5,
    "power": 25,
    "name": "대왕 괴수",
@@ -172,7 +172,7 @@
  },
  {
    "level": 17,
-   "salePrice": 26988913000,
+   "salePrice": 61013692296000,
    "duration": 5,
    "power": 26,
    "name": "대왕 괴수",
@@ -182,7 +182,7 @@
  },
  {
    "level": 18,
-   "salePrice": 55853035000,
+   "salePrice": 124985488884000,
    "duration": 5,
    "power": 27,
    "name": "대왕 괴수",
@@ -192,7 +192,7 @@
  },
  {
    "level": 19,
-   "salePrice": 100631747000,
+   "salePrice": 244371293946000,
    "duration": 5,
    "power": 28,
    "name": "대왕 괴수",
@@ -211,4 +211,5 @@
    "desctiption": "강력한 데미지를 주는 대왕 괴수 등장"
  }
 ]
+
 }

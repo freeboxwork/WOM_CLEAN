@@ -18,7 +18,7 @@
  },
  {
    "level": 2,
-   "productionCount": 638000,
+   "productionCount": 21463000,
    "maxSupplyAmount": 10000000,
    "price": 400,
    "productionTime": 300,
@@ -26,107 +26,108 @@
  },
  {
    "level": 3,
-   "productionCount": 638000,
-   "maxSupplyAmount": 12760000,
+   "productionCount": 21463000,
+   "maxSupplyAmount": 429260000,
    "price": 800,
    "productionTime": 300,
    "currencyType": "Gold"
  },
  {
    "level": 4,
-   "productionCount": 638000,
-   "maxSupplyAmount": 12760000,
+   "productionCount": 21463000,
+   "maxSupplyAmount": 429260000,
    "price": 1600,
    "productionTime": 280,
    "currencyType": "Gold"
  },
  {
    "level": 5,
-   "productionCount": 93938250,
-   "maxSupplyAmount": 12760000,
+   "productionCount": 31343813250,
+   "maxSupplyAmount": 429260000,
    "price": 3200,
    "productionTime": 280,
    "currencyType": "Gold"
  },
  {
    "level": 6,
-   "productionCount": 93938250,
-   "maxSupplyAmount": 2348456250,
+   "productionCount": 31343813250,
+   "maxSupplyAmount": 783595331250,
    "price": 6400,
    "productionTime": 280,
    "currencyType": "Gold"
  },
  {
    "level": 7,
-   "productionCount": 93938250,
-   "maxSupplyAmount": 2348456250,
+   "productionCount": 31343813250,
+   "maxSupplyAmount": 783595331250,
    "price": 12800,
    "productionTime": 260,
    "currencyType": "Gold"
  },
  {
    "level": 8,
-   "productionCount": 879610500,
-   "maxSupplyAmount": 2348456250,
+   "productionCount": 733301016750,
+   "maxSupplyAmount": 783595331250,
    "price": 25600,
    "productionTime": 260,
    "currencyType": "Gold"
  },
  {
    "level": 9,
-   "productionCount": 879610500,
-   "maxSupplyAmount": 26388315000,
+   "productionCount": 733301016750,
+   "maxSupplyAmount": 21999030502500,
    "price": 51200,
    "productionTime": 260,
    "currencyType": "Gold"
  },
  {
    "level": 10,
-   "productionCount": 879610500,
-   "maxSupplyAmount": 26388315000,
+   "productionCount": 733301016750,
+   "maxSupplyAmount": 21999030502500,
    "price": 102400,
    "productionTime": 240,
    "currencyType": "Gold"
  },
  {
    "level": 11,
-   "productionCount": 3376689188,
-   "maxSupplyAmount": 26388315000,
+   "productionCount": 4503375564188,
+   "maxSupplyAmount": 21999030502500,
    "price": 204800,
    "productionTime": 240,
    "currencyType": "Gold"
  },
  {
    "level": 12,
-   "productionCount": 3376689188,
-   "maxSupplyAmount": 118184121563,
+   "productionCount": 4503375564188,
+   "maxSupplyAmount": 157618144746563,
    "price": 409600,
    "productionTime": 240,
    "currencyType": "Gold"
  },
  {
    "level": 13,
-   "productionCount": 3376689188,
-   "maxSupplyAmount": 118184121563,
+   "productionCount": 4503375564188,
+   "maxSupplyAmount": 157618144746563,
    "price": 819200,
    "productionTime": 220,
    "currencyType": "Gold"
  },
  {
    "level": 14,
-   "productionCount": 9574772063,
-   "maxSupplyAmount": 118184121563,
+   "productionCount": 17556935733000,
+   "maxSupplyAmount": 157618144746563,
    "price": 1638400,
    "productionTime": 220,
    "currencyType": "Gold"
  },
  {
    "level": 15,
-   "productionCount": 9574772063,
-   "maxSupplyAmount": 382990882500,
+   "productionCount": 17556935733000,
+   "maxSupplyAmount": 702277429320000,
    "price": 3276800,
    "productionTime": 220,
    "currencyType": "Gold"
  }
 ]
+
 }

@@ -81,7 +81,6 @@ public class EnumDefinition
         monsterData_normal,
         monsterData_evolution,
         stageData,
-        upgradeData,
         monsterSpriteData,
         unionGambleData,
         summonGradeData,

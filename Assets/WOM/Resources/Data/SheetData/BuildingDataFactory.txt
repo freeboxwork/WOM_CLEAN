@@ -18,7 +18,7 @@
  },
  {
    "level": 2,
-   "productionCount": 103600,
+   "productionCount": 314050,
    "maxSupplyAmount": 10000000,
    "price": 800,
    "productionTime": 330,
@@ -26,107 +26,108 @@
  },
  {
    "level": 3,
-   "productionCount": 103600,
-   "maxSupplyAmount": 1554000,
+   "productionCount": 314050,
+   "maxSupplyAmount": 4710750,
    "price": 1600,
    "productionTime": 330,
    "currencyType": "Bone"
  },
  {
    "level": 4,
-   "productionCount": 103600,
-   "maxSupplyAmount": 1554000,
+   "productionCount": 314050,
+   "maxSupplyAmount": 4710750,
    "price": 3200,
    "productionTime": 310,
    "currencyType": "Bone"
  },
  {
    "level": 5,
-   "productionCount": 18414150,
-   "maxSupplyAmount": 1554000,
+   "productionCount": 608275950,
+   "maxSupplyAmount": 4710750,
    "price": 6400,
    "productionTime": 310,
    "currencyType": "Bone"
  },
  {
    "level": 6,
-   "productionCount": 18414150,
-   "maxSupplyAmount": 368283000,
+   "productionCount": 608275950,
+   "maxSupplyAmount": 12165519000,
    "price": 12800,
    "productionTime": 310,
    "currencyType": "Bone"
  },
  {
    "level": 7,
-   "productionCount": 18414150,
-   "maxSupplyAmount": 368283000,
+   "productionCount": 608275950,
+   "maxSupplyAmount": 12165519000,
    "price": 25600,
    "productionTime": 290,
    "currencyType": "Bone"
  },
  {
    "level": 8,
-   "productionCount": 174518100,
-   "maxSupplyAmount": 368283000,
+   "productionCount": 14490801113,
+   "maxSupplyAmount": 12165519000,
    "price": 51200,
    "productionTime": 290,
    "currencyType": "Bone"
  },
  {
    "level": 9,
-   "productionCount": 174518100,
-   "maxSupplyAmount": 4362952500,
+   "productionCount": 14490801113,
+   "maxSupplyAmount": 362270027813,
    "price": 102400,
    "productionTime": 290,
    "currencyType": "Bone"
  },
  {
    "level": 10,
-   "productionCount": 174518100,
-   "maxSupplyAmount": 4362952500,
+   "productionCount": 14490801113,
+   "maxSupplyAmount": 362270027813,
    "price": 204800,
    "productionTime": 270,
    "currencyType": "Bone"
  },
  {
    "level": 11,
-   "productionCount": 671966212.5,
-   "maxSupplyAmount": 4362952500,
+   "productionCount": 89393860575,
+   "maxSupplyAmount": 362270027813,
    "price": 409600,
    "productionTime": 270,
    "currencyType": "Bone"
  },
  {
    "level": 12,
-   "productionCount": 671966213,
-   "maxSupplyAmount": 20158986375,
+   "productionCount": 89393860575,
+   "maxSupplyAmount": 2681815817250,
    "price": 819200,
    "productionTime": 270,
    "currencyType": "Bone"
  },
  {
    "level": 13,
-   "productionCount": 671966213,
-   "maxSupplyAmount": 20158986375,
+   "productionCount": 89393860575,
+   "maxSupplyAmount": 2681815817250,
    "price": 1638400,
    "productionTime": 250,
    "currencyType": "Bone"
  },
  {
    "level": 14,
-   "productionCount": 1907998538,
-   "maxSupplyAmount": 20158986375,
+   "productionCount": 349227240159,
+   "maxSupplyAmount": 2681815817250,
    "price": 3276800,
    "productionTime": 250,
    "currencyType": "Bone"
  },
  {
    "level": 15,
-   "productionCount": 1907998538,
-   "maxSupplyAmount": 66779948813,
+   "productionCount": 349227240159,
+   "maxSupplyAmount": 12222953405578,
    "price": 6553600,
    "productionTime": 250,
    "currencyType": "Bone"
  }
 ]
+
 }

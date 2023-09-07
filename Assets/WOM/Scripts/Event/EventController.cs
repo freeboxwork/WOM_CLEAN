@@ -314,9 +314,6 @@ public class EventController : MonoBehaviour
         // hp slider
         globalData.uiController.SetSliderMonsterHp(0);
 
-        // 하프라인 위쪽 곤충들 제거
-        globalData.insectManager.DisableHalfLineInsects();
-
         if (currentMonster.monsterType == MonsterType.boss)
         {
             // 보스 사냥 성공 전환 이펙트
@@ -372,7 +369,8 @@ public class EventController : MonoBehaviour
 
         // monster kill animation 사망 애니메이션 대기
         yield return StartCoroutine(currentMonster.inOutAnimator.MonsterKillMatAnim());
-
+        // 하프라인 위쪽 곤충들 제거
+        globalData.insectManager.DisableHalfLineInsects();
         // tutorial event ( 골드 몬스터 사망 )
         if (currentMonster.monsterType == MonsterType.gold)
             EventManager.instance.RunEvent(CallBackEventType.TYPES.OnMonsterKillGoldMonster);

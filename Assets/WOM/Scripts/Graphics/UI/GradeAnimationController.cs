@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using static EnumDefinition;
+using SRF;
 
 namespace ProjectGraphics
 {
@@ -40,12 +41,13 @@ namespace ProjectGraphics
         [Header("현재 시작하는 등급")]
         public int gradeIndex = 0;
         [SerializeField] ImageResources[] imageResources;
+        [Header("등급별 파티클 추가, 0번은 별도로 플레이됨")]
+        [SerializeField] GameObject[] particleObjects;
 
         void Awake()
         {
             anim = GetComponent<Animator>();
             audioSource = GetComponent<AudioSource>();
-
         }
 
 
@@ -56,7 +58,6 @@ namespace ProjectGraphics
 
         void SetBtnEvent()
         {
-
             btnClose.onClick.AddListener(() =>
             {
                 // 진화 메뉴 등장
@@ -79,11 +80,11 @@ namespace ProjectGraphics
             else startIndex = gradeIndex - 1;
             SetImageResources(startIndex);
 
+            foreach (var obj in particleObjects) { obj.SetActive(false); }
+
             //animation Start
             anim.SetTrigger("Action");
         }
-
-
 
         public void SetImageResources(int num)
         {
@@ -95,7 +96,6 @@ namespace ProjectGraphics
             shinyColor.color = imageResources[num].backShinyColor;
             iconUI.sprite = imageResources[num].icon;
 
-
         }
 
         public void AnimEventChangeGradeAction()
@@ -103,6 +103,8 @@ namespace ProjectGraphics
             beforeGradeIcon.sprite = imageResources[gradeIndex - 1].icon;
             afterGradeIcon.sprite = imageResources[gradeIndex].icon;
             SetImageResources(gradeIndex);
+            //파티클 숨김
+            particleObjects[0].SetActive(false);
         }
 
         public void EnableEffects(bool value)
@@ -111,7 +113,19 @@ namespace ProjectGraphics
                 element.SetActive(value);
         }
 
+        public void EnableParticle()
+        {
+            for (int i = 0; i < gradeIndex + 1; i++)
+            {
+                if (i == 0) continue;
+                particleObjects[i].SetActive(true);
+            }
+        }
 
+        public void EnableStarParticle()
+        {
+            particleObjects[0].SetActive(true);
+        }
     }
 }
 

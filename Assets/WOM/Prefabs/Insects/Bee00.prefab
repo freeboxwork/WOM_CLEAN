@@ -517,7 +517,7 @@ Transform:
   m_GameObject: {fileID: 4304186195738549223}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.19, y: 0.19, z: 1}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4304186195977861313}
@@ -578,7 +578,7 @@ SpriteRenderer:
   m_Size: {x: 2.56, y: 2.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!58 &8160721583491665901
@@ -700,9 +700,11 @@ MonoBehaviour:
     isUnlock: 0
     unionGradeType: 0
     damage: 0
+    damageNextLevel: 0
     spawnTime: 0
     moveSpeed: 0
     passiveDamage: 0
+    passiveDamageNextLevel: 0
   effectContoller: {fileID: 1969278460}
 --- !u!114 &7072555088193193043
 MonoBehaviour:

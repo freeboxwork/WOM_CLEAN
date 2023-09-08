@@ -145,9 +145,9 @@ public class GlobalController : MonoBehaviour
         var isShopBtnActive = tutorialManager.isTutorial == false;
         UtilityMethod.GetCustomTypeBtnByID(6).gameObject.SetActive(isShopBtnActive);
 
-        // CASTLE 버튼 투토리얼에 따라 활성 비활성
-        var activeValue = !GlobalData.instance.tutorialManager.isTutorial;
-        uiController.castleButtonObj.SetActive(activeValue);
+        //만약 튜토리얼 SetId가 8번(유니온뽑기) 보다 크다면 캐슬버튼 비활성화
+        var active = GlobalData.instance.tutorialManager.GetTutorialSetId() > 8 ? true : false;
+            uiController.castleButtonObj.SetActive(active);
 
         // 골드 피그 등장( 지정된 시간 지난뒤 등장 )
         yield return StartCoroutine(goldPigController.Init());

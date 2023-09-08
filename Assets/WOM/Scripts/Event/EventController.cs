@@ -69,7 +69,7 @@ public class EventController : MonoBehaviour
     {
         return globalData.player.curMonsterType == MonsterType.boss || globalData.player.curMonsterType == MonsterType.evolution || globalData.player.curMonsterType == MonsterType.dungeon;
     }
-    // 몬스터가 피격될 때 이벤트로 받음
+#region MONSTER GIT
     void EvnOnMonsterHit(EnumDefinition.InsectType insectType, int unionIndex = 0, Transform tr = null)
     {
         if (isMonsterDie) return;
@@ -294,10 +294,7 @@ public class EventController : MonoBehaviour
         }
 
     }
-
-
-
-
+#endregion
     IEnumerator MonsterKill(MonsterBase currentMonster)
     {
 
@@ -389,11 +386,7 @@ public class EventController : MonoBehaviour
 
         isMonsterDie = false;
     }
-
-
-
-
-
+#region  Gain Goods
     void GainGold(MonsterBase monster)
     {
         var gold = monster.gold;
@@ -414,7 +407,7 @@ public class EventController : MonoBehaviour
     {
         globalData.player.AddCoal(value);
     }
-
+#endregion
     // 아이템 획득
     IEnumerator GainDungeonMonsterGoods(MonsterType monsterType)
     {
@@ -442,7 +435,6 @@ public class EventController : MonoBehaviour
             yield return StartCoroutine(MonsterAppearCor(MonsterType.normal));
         }
     }
-
 
     #region 골드 몬스터 사망시 프로세스
     // 골드 몬스터 사망시
@@ -684,22 +676,6 @@ public class EventController : MonoBehaviour
         isMonsterDie = false;
     }
 
-    // // 던전 몬스터 사망시
-    // public IEnumerator KillDungeonMonsterKill(MonsterType monsterType)
-    // {
-    //     var monster = globalData.monsterManager.GetMonsterDungeon();
-
-    //     // 던전 몬스터 데이터 셋팅
-    //     monster.SetNextLevelData();
-
-    //     // UI 세팅
-
-    //     yield return null;
-    // }
-
-
-
-
     //진화 몬스터 사망시
     IEnumerator MonsterDie_Evolution()
     {
@@ -882,8 +858,6 @@ public class EventController : MonoBehaviour
         if (globalData.uiController.isCastleOpen == false)
             globalData.attackController.SetAttackableState(true);
     }
-
-
 
     public void NormalMonsterIn()
     {

@@ -19,6 +19,9 @@ public class SoundManager : MonoBehaviour
     public List<AudioClip> bgmList = new List<AudioClip>();
     public List<AudioClip> sfxList = new List<AudioClip>();
 
+    float bgmVolume = 1f;
+    float sfxVolume = 1f;
+
     public bool bgmOn;
     public bool sfxOn;
 
@@ -42,6 +45,8 @@ public class SoundManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
         MakeAudioPool();
 
+        bgmVolume = bgmOn ? 1f : 0f;    
+        sfxVolume = sfxOn ? 1f : 0f;
 
         // set bgm clip
         SetBgmClip(EnumDefinition.BGM_TYPE.BGM_Main);
@@ -49,10 +54,6 @@ public class SoundManager : MonoBehaviour
         if (bgmOn)
             PlayBgm();
 
-        // set sfx volume
-        var volume = sfxOn ? 1 : 0;
-        playerSfxInGame.volume = volume;
-        playerSfxUiPlayer.volume = volume;
 
         // Set Setting Popup UI
         yield return new WaitForEndOfFrame();
@@ -119,9 +120,11 @@ public class SoundManager : MonoBehaviour
         GameObject sound = GetUpgradeAudioTypePool();
         if (sound != null)
         {
+
+
             sound.SetActive(true);
             var source = sound.GetComponent<AudioSource>();
-            source.volume = sfxOn ? 0.5f : 0;
+            source.volume = sfxVolume * 0.5f;
             source.Play();
         }
 
@@ -135,7 +138,7 @@ public class SoundManager : MonoBehaviour
         {
             sound.SetActive(true);
             var source = sound.GetComponent<AudioSource>();
-            source.volume = sfxOn ? 0.3f : 0;
+            source.volume = sfxVolume * 0.3f;
             source.Play();
         }
 
@@ -144,6 +147,10 @@ public class SoundManager : MonoBehaviour
     public void BGM_OnOff()
     {
         bgmOn = !bgmOn;
+
+        var volume = bgmOn ? 1 : 0;
+        bgmVolume = volume;
+        playerBgm.volume = bgmVolume;
         if (bgmOn)
         {
             playerBgm.Play();
@@ -155,6 +162,7 @@ public class SoundManager : MonoBehaviour
             playerBgm.Stop();
             PlayerPrefs.SetString(bgmOnOffKey, "off");
         }
+
     }
 
     bool IsBgmOn()
@@ -179,9 +187,7 @@ public class SoundManager : MonoBehaviour
     {
         sfxOn = !sfxOn;
         var volume = sfxOn ? 1 : 0;
-        playerSfxInGame.volume = volume;
-        playerSfxUiPlayer.volume = volume;
-
+        sfxVolume = volume;
         var saveValue = sfxOn ? "on" : "off";
         PlayerPrefs.SetString(sfxOnOffKey, saveValue);
     }
@@ -193,24 +199,31 @@ public class SoundManager : MonoBehaviour
 
     public void PlayBgm()
     {
+        playerBgm.volume = bgmVolume;
         playerBgm.Play();
     }
 
     public void PlayBGM(EnumDefinition.BGM_TYPE bgmType)
     {
         playerBgm.clip = bgmList[(int)bgmType];
+        playerBgm.volume = bgmVolume;
+
         playerBgm.Play();
     }
 
     public void PlaySfxInGame(EnumDefinition.SFX_TYPE sfxType)
     {
         playerSfxInGame.clip = sfxList[(int)sfxType];
+        playerSfxInGame.volume = sfxVolume;
+
         playerSfxInGame.Play();
     }
 
     public void PlaySfxUI(EnumDefinition.SFX_TYPE sfxType)
     {
         playerSfxUiPlayer.clip = sfxList[(int)sfxType];
+        playerSfxUiPlayer.volume = sfxVolume;
+
         playerSfxUiPlayer.Play();
     }
 }

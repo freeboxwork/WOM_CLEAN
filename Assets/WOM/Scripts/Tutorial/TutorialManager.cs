@@ -74,6 +74,10 @@ public class TutorialManager : MonoBehaviour
             Debug.Log("모든 투토리얼 완료");
         }
     }
+    public int GetTutorialSetId()
+    {
+        return curTutorialSetID;
+    }
 
     public IEnumerator Init()
     {

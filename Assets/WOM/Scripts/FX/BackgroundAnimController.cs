@@ -20,8 +20,16 @@ public class BackgroundAnimController : MonoBehaviour
 
     void Start()
     {
-        bgMat = bg_rd.material;
+        bgMat = bg_rd.sharedMaterial;
     }
+
+
+
+    public float camZoomInValue = 4.2f;
+    public float camZoomInTime = 0.5f;
+    public float camZoomOutValue = 6.0f;
+    public float camZoomOutTime = 0.7f;
+    public AnimationController camZoomAnimController;
 
 
 
@@ -49,6 +57,17 @@ public class BackgroundAnimController : MonoBehaviour
     //    }
     //}
 
+    public void CameraZoomOut()
+    {
+        camZoomAnimController.animData.animDuration = camZoomOutTime;
+        StartCoroutine(camZoomAnimController.CameraSizeAnim(camZoomInValue, camZoomOutValue));
+    }
+
+    public void CameraZoomIn()
+    {
+        camZoomAnimController.animData.animDuration = camZoomInTime;
+        StartCoroutine(camZoomAnimController.CameraSizeAnim(camZoomOutValue, camZoomInValue));
+    }
 
 
 

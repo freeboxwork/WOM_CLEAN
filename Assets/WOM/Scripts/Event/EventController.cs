@@ -202,7 +202,7 @@ public class EventController : MonoBehaviour
         {
             dungeonMonsterLeftDamage += curDamage;
             return;
-        } 
+        }
 
 
         // ENABLE Floting Text Effect 
@@ -222,7 +222,7 @@ public class EventController : MonoBehaviour
         }
 
 
-        if(dungeonMonsterLeftDamage > 0)
+        if (dungeonMonsterLeftDamage > 0)
         {
             // [남은 피해]가 있다는건 현재 레벨의 몬스터의 체력을 다 깍았다는걸 의미
             while (dungeonMonsterLeftDamage > 0)
@@ -295,7 +295,7 @@ public class EventController : MonoBehaviour
 
     }
 
-    
+
 
 
     IEnumerator MonsterKill(MonsterBase currentMonster)
@@ -531,6 +531,9 @@ public class EventController : MonoBehaviour
         yield return StartCoroutine(globalData.monsterManager.Init(globalData.player.stageIdx));
 
         yield return StartCoroutine(MonsterAppearCor(MonsterType.normal));
+
+        // camera zoom In
+        globalData.stageManager.bgAnimController.CameraZoomIn();
 
         // 퀘스트 - 배틀 패스 스테이지 완료 블록 이미지 해제
         globalData.questManager.questPopup.UnlockBattlePassSlot(newStageIdx);
@@ -1036,6 +1039,9 @@ public class EventController : MonoBehaviour
         // BG Color Change
         globalData.stageManager.bgAnimController.spriteColorAnim.ColorChangeAnim();
 
+        // camera zoom out
+        globalData.stageManager.bgAnimController.CameraZoomOut();
+
         // 보스 몬스터 등장
         StartCoroutine(MonsterAppearCor(MonsterType.boss));
 
@@ -1089,6 +1095,10 @@ public class EventController : MonoBehaviour
 
         // phase count UI 활성화
         globalData.uiController.SetEnablePhaseCountUI(true);
+
+        // camera zoom In
+        globalData.stageManager.bgAnimController.CameraZoomIn();
+
 
         // 일반 몬스터 등장
         StartCoroutine(MonsterAppearCor(MonsterType.normal));
@@ -1392,6 +1402,9 @@ public class EventController : MonoBehaviour
 
         // 공격 가능 상태로 전환
         globalData.attackController.SetAttackableState(true);
+
+        // camera zoom In
+        globalData.stageManager.bgAnimController.CameraZoomIn();
 
         // 일반 몬스터 등장
         StartCoroutine(MonsterAppearCor(MonsterType.normal));

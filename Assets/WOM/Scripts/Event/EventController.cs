@@ -521,11 +521,11 @@ public class EventController : MonoBehaviour
 
         // set monster data and monster skin
         yield return StartCoroutine(globalData.monsterManager.Init(globalData.player.stageIdx));
-
-        yield return StartCoroutine(MonsterAppearCor(MonsterType.normal));
-
         // camera zoom In
         globalData.stageManager.bgAnimController.CameraZoomIn();
+        yield return StartCoroutine(MonsterAppearCor(MonsterType.normal));
+
+
 
         // 퀘스트 - 배틀 패스 스테이지 완료 블록 이미지 해제
         globalData.questManager.questPopup.UnlockBattlePassSlot(newStageIdx);

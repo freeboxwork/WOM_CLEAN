@@ -405,17 +405,17 @@ public class InsectManager : MonoBehaviour
             case EnumDefinition.InsectType.bee:
                 bullet.spriteRenderer.sortingOrder = beeOrderInLayerID;
                 beeOrderInLayerID++;
-                if (beeOrderInLayerID > 19)
+                if (beeOrderInLayerID > 29)
                 {
-                    beeOrderInLayerID = 10;
+                    beeOrderInLayerID = 20;
                 }
                 break;
             case EnumDefinition.InsectType.mentis:
                 bullet.spriteRenderer.sortingOrder = mentisOrderInLayerID;
                 mentisOrderInLayerID++;
-                if (mentisOrderInLayerID > 29)
+                if (mentisOrderInLayerID > 19)
                 {
-                    mentisOrderInLayerID = 20;
+                    mentisOrderInLayerID = 10;
                 }
                 break;
         }

@@ -8,18 +8,18 @@ public class TutorialManager : MonoBehaviour
 {
     public TextAsset tutorialJsonData;
 
-    // ?닾?넗由ъ뼹 ?뜲?씠?꽣
+    // 투토리얼 데이터
     public TutorialStepDatas tutorialStepData;
 
-    // setId 湲곗???쑝濡? ?굹?늿 ?닾?넗由ъ뼹 ?꽭?듃 ?뜲?씠?꽣
+    // setId 기준으로 나눈 투토리얼 세트 데이터
     public List<TutorialStepSetData> tutorialStepSetDatas = new List<TutorialStepSetData>();
 
-    // ?닾?넗由ъ뼹 踰꾪듉?뱾
+    // 투토리얼 버튼들
     public List<TutorialButton> tutorialButtons = new List<TutorialButton>();
 
-    // ?쁽?옱 吏꾪뻾以묒씤 ?닾?넗由ъ뼹 ?꽭?듃?쓽 ?븘?씠?뵒
+    // 현재 진행중인 투토리얼 세트의 아이디
     public int curTutorialSetID = 0;
-    // ?쁽?옱 吏꾪뻾以묒씤 ?닾?넗由ъ뼹 ?꽭?듃?쓽 ?뒪?뀦 ?븘?씠?뵒
+    // 현재 진행중인 투토리얼 세트의 스텝 아이디
     public int curTutorialStepID = 0;
 
     public TutorialUiController tutorialUiCont;
@@ -30,12 +30,12 @@ public class TutorialManager : MonoBehaviour
 
     public bool isUnionGamblingTutorial = false;
 
-    // ?떊洹? ?쑀??? ?꽑臾? ?떕湲? 踰꾪듉
+    // 신규 유저 선물 닫기 버튼
     public List<Button> tutoStartBtns = new List<Button>();
 
     public bool isAdPass = false;
 
-    //?닾?넗由ъ뼹 寃뚯엫 ?삤釉뚯젥?듃
+    //투토리얼 게임 오브젝트
     public List<TutorialGameObject> tutorialGameObjects = new List<TutorialGameObject>();
 
     public GameObject tutorialPlayingTextBox;
@@ -71,7 +71,7 @@ public class TutorialManager : MonoBehaviour
         {
             isTutorial = false;
             tutorialPlayingTextBox.gameObject.SetActive(false);
-            Debug.Log("紐⑤뱺 ?닾?넗由ъ뼹 ?셿猷?");
+            Debug.Log("모든 투토리얼 완료");
         }
     }
 
@@ -104,7 +104,7 @@ public class TutorialManager : MonoBehaviour
 
     void SetData()
     {
-        // set set data ( setId 湲곗???쑝濡? ?꽭?듃 由ъ뒪?듃瑜? 留뚮벀 )
+        // set set data ( setId 기준으로 세트 리스트를 만듦 )
         for (int i = 0; i < tutorialStepData.data.Count; i++)
         {
             var data = tutorialStepData.data[i];
@@ -140,7 +140,7 @@ public class TutorialManager : MonoBehaviour
         var set = tutorialStepSetDatas.FirstOrDefault(f => f.setId == setID);
         if (set == null)
         {
-            Debug.LogError($"{setID}?뿉 ?빐?떦?븯?뒗 ?닾?넗由ъ뼹 ?꽭?듃媛? ?뾾?뒿?땲?떎.");
+            Debug.LogError($"{setID}에 해당하는 투토리얼 세트가 없습니다.");
         }
         return tutorialStepSetDatas.FirstOrDefault(f => f.setId == setID);
     }
@@ -153,7 +153,8 @@ public class TutorialManager : MonoBehaviour
 
         if (tutorialSet == null)
         {
-            Debug.LogError($"{curTutorialSetID}?뿉 ?빐?떦?븯?뒗 ?닾?넗由ъ뼹 ?꽭?듃媛? ?뾾?뒿?땲?떎.");
+
+            Debug.LogError($"{curTutorialSetID}에 해당하는 투토리얼 세트가 없습니다.");
 
             // ?닾?넗由ъ뼹 醫낅즺
             isTutorial = false;
@@ -187,14 +188,14 @@ public class TutorialManager : MonoBehaviour
     {
         var tutorialSet = GetTutorialSetById(curTutorialSetID);
 
-        // ?쁽?옱 ?뒪?뀦 ?셿猷?
+        // 현재 스텝 완료
         tutorialSet.steps[curTutorialStepID].isStepComplete = true;
 
 
-        // ?떎?쓬 ?뒪?뀦 ?엳?뒗吏? ?솗?씤
+        // 다음 스텝 있는지 확인
         if (tutorialSet.steps.Any(a => a.step == curTutorialStepID + 1))
         {
-            // ?떎?쓬 ?뒪?뀦 ?떎?뻾
+            // 다음 스텝 실행
             ++curTutorialStepID;
             var stepData = tutorialSet.steps[curTutorialStepID];
             EnableTutorialStep(stepData);
@@ -203,7 +204,7 @@ public class TutorialManager : MonoBehaviour
         }
         else
         {
-            // ?닾?넗由ъ뼹 ?꽭?듃 ?셿猷?
+            // 투토리얼 세트 완료
             Debug.Log("Tutorial Complete : " + curTutorialSetID);
             tutorialSet.isSetComplete = true;
             tutorialSet.steps[curTutorialStepID].isStepComplete = true;
@@ -231,14 +232,14 @@ public class TutorialManager : MonoBehaviour
             {
                 isTutorial = false;
 
-                // 怨⑤뱶?뵾洹? ?벑?옣
+                // 골드피그 등장
                 GlobalData.instance.goldPigController.EnableGoldPig();
-                // ?긽?젏 踰꾪듉 ?솢?꽦?솕
+                // 상점 버튼 활성화
                 UtilityMethod.GetCustomTypeBtnByID(6).gameObject.SetActive(true);
-                // ?닾?넗由ъ뼹 ?븞?궡 ?뀓?뒪?듃 鍮꾪솢?꽦?솕
+                // 투토리얼 안내 텍스트 비활성화
                 tutorialPlayingTextBox.gameObject.SetActive(false);
 
-                Debug.Log("?닾?넗由ъ뼹 醫낅즺");
+                Debug.Log("투토리얼 종료");
             }
 
         }
@@ -257,7 +258,7 @@ public class TutorialManager : MonoBehaviour
         var btn = tutorialButtons.FirstOrDefault(f => f.id == id);
         if (btn == null)
         {
-            Debug.LogError($"{id}?뿉 ?빐?떦?븯?뒗 ?닾?넗由ъ뼹 踰꾪듉?씠 ?뾾?뒿?땲?떎.");
+            Debug.LogError($"{id}에 해당하는 투토리얼 버튼이 없습니다.");
         }
         return tutorialButtons.FirstOrDefault(f => f.id == id);
     }
@@ -273,7 +274,7 @@ public class TutorialManager : MonoBehaviour
         var obj = tutorialGameObjects.FirstOrDefault(f => f.id == id);
         if (obj == null)
         {
-            Debug.LogError($"{id}?뿉 ?빐?떦?븯?뒗 ?닾?넗由ъ뼹 寃뚯엫 ?삤釉뚯젥?듃媛? ?뾾?뒿?땲?떎.");
+            Debug.LogError($"{id}에 해당하는 투토리얼 게임 오브젝트가 없습니다.");
         }
         return obj;
     }

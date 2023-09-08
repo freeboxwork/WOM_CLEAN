@@ -77,15 +77,28 @@ public class TutorialManager : MonoBehaviour
 
     public IEnumerator Init()
     {
-        // get tutorial set id ( load data )
-        curTutorialSetID = GlobalData.instance.saveDataManager.saveDataTotal.saveDataTutorial.tutorialSetId;
 
         // get json data
         tutorialStepData = JsonUtility.FromJson<TutorialStepDatas>(tutorialJsonData.text);
-
+        yield return new WaitForEndOfFrame();
+        SetData();
         yield return new WaitForEndOfFrame();
 
-        SetData();
+        // get tutorial set id ( load data )
+        curTutorialSetID = GlobalData.instance.saveDataManager.saveDataTotal.saveDataTutorial.tutorialSetId;
+        if (curTutorialSetID > 0)
+        {
+            var max = tutorialStepSetDatas.Last().setId;
+            if (curTutorialSetID > max)
+            {
+
+            }
+            else
+            {
+                ++curTutorialSetID;
+                GlobalData.instance.saveDataManager.SaveDataTutorialSetID(curTutorialSetID);
+            }
+        }
 
         //isTutorial = false;
 

@@ -32,11 +32,13 @@ public class Pattern_18 : PatternBase
         if (enableEvent)
         {
             // 버프 구매 이력 확인
-            if (GlobalData.instance.inAppPurchaseManager.IsPayBuffInApp())
-            {
-                tutorialManager.skipSetID = skipSetID;
-                tutorialManager.skipSet = true;
-            }
+            // if (GlobalData.instance.inAppPurchaseManager.IsPayBuffInApp())
+            // {
+            //     tutorialManager.skipSetID = skipSetID;
+            //     tutorialManager.skipSet = true;
+            // }
+            tutorialManager.skipSetID = skipSetID;
+            tutorialManager.skipSet = true;
             StepClear();
         }
     }

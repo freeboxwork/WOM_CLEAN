@@ -124,7 +124,6 @@ public class UnionManager : MonoBehaviour
                 GlobalData.instance.unionInfoPopupController.EnablePopup(slot, data, slot.inGameData);
             });
 
-
             // TODO: 저장된 데이터에서 불러와야 함
             // SET IN GAME DATA (  ) 
             slot.inGameData.damage = GetUnionDamage(slot); // data.damage;
@@ -279,6 +278,21 @@ public class UnionManager : MonoBehaviour
 
     public double GetUnionDamage(UnionSlot slot)
     {
+
+        //damage = damage * 2^level
+        
+
+
+
+
+
+
+
+
+
+
+
+
         var damage = slot.unionData.damage + (slot.inGameData.level * slot.unionData.addDamage);
         return damage;
     }
@@ -290,8 +304,10 @@ public class UnionManager : MonoBehaviour
         if (nextLevel > maxLevel)
             return 0;
 
-        var damage = slot.unionData.damage + ((nextLevel) * slot.unionData.addDamage);
-        return damage;
+        var beforeDamage = slot.unionData.damage + (slot.inGameData.level * slot.unionData.addDamage);
+        var nextDamage = slot.unionData.damage + ((nextLevel) * slot.unionData.addDamage);
+
+        return nextDamage - beforeDamage;
     }
 
     public float GetUnionPassiveDamage(UnionSlot slot)
@@ -308,9 +324,7 @@ public class UnionManager : MonoBehaviour
         if (nextLevel > maxLevel)
             return 0;
 
-        //var passiveDamage = slot.unionData.passiveDamage + (nextLevel * slot.unionData.addPassiveDamage);
-        var passiveDamage = slot.unionData.addPassiveDamage;
-        return passiveDamage;
+        return slot.unionData.addPassiveDamage;
     }
 
     public int GetUnionReqireCount(UnionSlot slot)

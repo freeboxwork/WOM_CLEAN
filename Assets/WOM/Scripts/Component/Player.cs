@@ -277,9 +277,16 @@ public class Player : MonoBehaviour
         var result = value * (1 + (GlobalData.instance.statManager.GetTalentGoldBonus() * 0.01f));
 
         // ad buff 적용
-        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffGold).addValue;
-        gold += (long)(result * buffValue);
 
+        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffGold);
+
+        if(buffValue.isUsingBuff)
+        {
+            result = result * buffValue.addValue;
+        }
+        
+
+        gold += (long)(result);
 
 
         GlobalData.instance.traningManager.EnableBuyButtons(); // RELOAD BTN UI

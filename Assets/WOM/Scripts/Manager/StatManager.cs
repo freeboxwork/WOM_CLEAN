@@ -72,10 +72,16 @@ public class StatManager : MonoBehaviour
         //Debug.Log($"<color=green>{insectType}진화공격력:{itd}+{insectType}훈련공격력:{ttd}+{insectType}공격력증가율{(ittd)}+스킬공격력:{skill_InsectDamageUp}</color>");
 
         // ad buff 적용 ( damage )
-        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffDamage).addValue;
+        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffDamage);
+
+        if(buffValue.isUsingBuff)
+        {
+            value = value * buffValue.addValue;
+        }
+        
         //Debug.Log($"<color=red>버프가 적용된 {insectType}공격력:{value * (float)buffValue}</color>");
 
-        return value * buffValue;
+        return value;
     }
     /// <summary> 곤충 공격력 증가율 damageRate</summary>
     double GetInsectTalentDamage(InsectType insectType)
@@ -132,8 +138,14 @@ public class StatManager : MonoBehaviour
         //Debug.Log($"이동 속도 : 기본:{ies}/특성:{tms}/DNA:{ims}/주사위{diceIms} = 합계 : {value}");
 
         // ad buff 적용 ( speed )
-        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffSpeed).addValue;
-        return value * buffValue;
+        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffSpeed);
+
+        if(buffValue.isUsingBuff)
+        {
+            value = value * buffValue.addValue;
+        }
+        
+        return value;
     }
 
     /// <summary> 곤충 생성 속도 </summary>
@@ -163,12 +175,18 @@ public class StatManager : MonoBehaviour
         var ud = GetUnionData(unionIndex).damage;
         var dms = GetDnaData(DNAType.unionDamage).power;
         var value = ud * (1 + (dms) * 0.01f);
-
         // ad buff 적용 ( damage )
-        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffDamage).addValue;
+       
+        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffDamage);
+
+        if(buffValue.isUsingBuff)
+        {
+            value = value * buffValue.addValue;
+        }
+      
         //Debug.Log($"유니온 공격력 : 기본:{ud}//DNA:{dms}= 합계 : {value}");
 
-        return value * buffValue;
+        return value;
     }
 
     /// <summary> 유니온 이동속도 </summary>
@@ -179,10 +197,15 @@ public class StatManager : MonoBehaviour
         //var diceIms = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectMoveSpeed);
         var value = ums + dms + skill_AllUnitSpeedUp;
         // ad buff 적용 ( speed )
-        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffSpeed).addValue;
+        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffSpeed);
+
+        if(buffValue.isUsingBuff)
+        {
+            value = value * buffValue.addValue;
+        }
         //Debug.Log($"유니온 이동속도 : 기본:{ums}//DNA:{dms}  = 합계 : {value} BUFF:{(float)(value * buffValue)}");
 
-        return (float)(value * buffValue);
+        return (float)(value);
     }
 
     /// <summary> 유니온 생성속도 </summary>
@@ -194,7 +217,6 @@ public class StatManager : MonoBehaviour
 
         var value = (ums - dst) * (1 - (skill_UnionSpwnSpeedUp * 0.01f));
 //        Debug.Log($"유니온 스폰시간 : 기본:{ums}//DNA:{dst}= 합계 : {value}");
-
 
         return value;
     }

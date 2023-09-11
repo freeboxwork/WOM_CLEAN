@@ -171,31 +171,31 @@ public class InsectManager : MonoBehaviour
     }
 
 
-    /// <summary> 계산된 곤충 데미지 값 </summary>
-    public double GetInsectDamageOld(EnumDefinition.InsectType insectType, int unionIndex, out bool isCritical)
-    {
-        isCritical = false;
-        if (insectType == InsectType.union)
-        {
-            var damage = statManager.GetUnionDamage(unionIndex);
-            //var talentDamage = statManager.GetUnionTalentDamage(unionIndex);
-            //return damage + talentDamage;
-            return damage;
-        }
-        else
-        {
-            var damage = statManager.GetInsectDamage(insectType);
+    // /// <summary> 계산된 곤충 데미지 값 </summary>
+    // public double GetInsectDamageOld(EnumDefinition.InsectType insectType, int unionIndex, out bool isCritical)
+    // {
+    //     isCritical = false;
+    //     if (insectType == InsectType.union)
+    //     {
+    //         var damage = statManager.GetUnionDamage(unionIndex);
+    //         //var talentDamage = statManager.GetUnionTalentDamage(unionIndex);
+    //         //return damage + talentDamage;
+    //         return damage;
+    //     }
+    //     else
+    //     {
+    //         var damage = statManager.GetInsectDamage(insectType);
 
-            if (HasCriticalDamage(insectType)) // 크리티컬 데미지 터졌을때
-            {
-                damage = damage * (2 + (statManager.GetInsectCriticalDamage(insectType) * 0.01f));
-                isCritical = true;
-            }
+    //         if (HasCriticalDamage(insectType)) // 크리티컬 데미지 터졌을때
+    //         {
+    //             damage = damage * (2 + (statManager.GetInsectCriticalDamage(insectType) * 0.01f));
+    //             isCritical = true;
+    //         }
 
-            if (damageDebug) return debugDamage;
-            return damage;
-        }
-    }
+    //         if (damageDebug) return debugDamage;
+    //         return damage;
+    //     }
+    // }
 
     public double GetInsectDamage(EnumDefinition.InsectType insectType, int unionIndex, out bool isCritical)
     {

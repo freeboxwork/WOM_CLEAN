@@ -36,6 +36,10 @@ public class UnionInfoPopupController : MonoBehaviour
 
     bool CheckStartEffectAnim()
     {
+        if(levelUpEffect.activeInHierarchy == false)
+        {
+            return false;
+        }
         return levelUpEffect.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).normalizedTime >= 0f;
     }
 

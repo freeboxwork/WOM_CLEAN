@@ -2,126 +2,126 @@
  {
    "level": 0,
    "currencyAmount": 0,
-   "monsterHP": 40000,
+   "monsterHP": 80000,
    "rewardType": "Bone",
    "bgId": 7,
    "stageName": "STEP 1"
  },
  {
    "level": 1,
-   "currencyAmount": 200,
-   "monsterHP": 47500,
+   "currencyAmount": 400,
+   "monsterHP": 95000,
    "rewardType": "Bone",
    "bgId": 7,
    "stageName": "STEP 2"
  },
  {
    "level": 2,
-   "currencyAmount": 325,
-   "monsterHP": 90000,
+   "currencyAmount": 650,
+   "monsterHP": 150000,
    "rewardType": "Bone",
    "bgId": 7,
    "stageName": "STEP 3"
  },
  {
    "level": 3,
-   "currencyAmount": 900,
-   "monsterHP": 122400,
+   "currencyAmount": 1500,
+   "monsterHP": 204000,
    "rewardType": "Bone",
    "bgId": 7,
    "stageName": "STEP 4"
  },
  {
    "level": 4,
-   "currencyAmount": 2370,
-   "monsterHP": 165600,
+   "currencyAmount": 3950,
+   "monsterHP": 276000,
    "rewardType": "Bone",
    "bgId": 7,
    "stageName": "STEP 5"
  },
  {
    "level": 5,
-   "currencyAmount": 6150,
-   "monsterHP": 219600,
+   "currencyAmount": 10250,
+   "monsterHP": 366000,
    "rewardType": "Bone",
    "bgId": 7,
    "stageName": "STEP 6"
  },
  {
    "level": 6,
-   "currencyAmount": 14880,
-   "monsterHP": 331800,
+   "currencyAmount": 24800,
+   "monsterHP": 553000,
    "rewardType": "Bone",
    "bgId": 7,
    "stageName": "STEP 7"
  },
  {
    "level": 7,
-   "currencyAmount": 33210,
-   "monsterHP": 420000,
+   "currencyAmount": 55350,
+   "monsterHP": 700000,
    "rewardType": "Bone",
    "bgId": 7,
    "stageName": "STEP 8"
  },
  {
    "level": 8,
-   "currencyAmount": 68700,
-   "monsterHP": 520800,
+   "currencyAmount": 114500,
+   "monsterHP": 868000,
    "rewardType": "Bone",
    "bgId": 7,
    "stageName": "STEP 9"
  },
  {
    "level": 9,
-   "currencyAmount": 132900,
-   "monsterHP": 634200,
+   "currencyAmount": 221500,
+   "monsterHP": 1057000,
    "rewardType": "Bone",
    "bgId": 7,
    "stageName": "STEP 10"
  },
  {
    "level": 10,
-   "currencyAmount": 242610,
-   "monsterHP": 1120598,
+   "currencyAmount": 404350,
+   "monsterHP": 1600855,
    "rewardType": "Bone",
    "bgId": 7,
    "stageName": "STEP 11"
  },
  {
    "level": 11,
-   "currencyAmount": 491540,
-   "monsterHP": 1306333,
+   "currencyAmount": 702200,
+   "monsterHP": 1866190,
    "rewardType": "Bone",
    "bgId": 7,
    "stageName": "STEP 12"
  },
  {
    "level": 12,
-   "currencyAmount": 783335,
-   "monsterHP": 1492067,
+   "currencyAmount": 1119050,
+   "monsterHP": 2131525,
    "rewardType": "Bone",
    "bgId": 7,
    "stageName": "STEP 13"
  },
  {
    "level": 13,
-   "currencyAmount": 1172430,
-   "monsterHP": 1677802,
+   "currencyAmount": 1674900,
+   "monsterHP": 2396860,
    "rewardType": "Bone",
    "bgId": 7,
    "stageName": "STEP 14"
  },
  {
    "level": 14,
-   "currencyAmount": 1672825,
-   "monsterHP": 1863536,
+   "currencyAmount": 2389750,
+   "monsterHP": 2662195,
    "rewardType": "Bone",
    "bgId": 7,
    "stageName": "STEP 15"
  },
  {
    "level": 15,
-   "currencyAmount": 2298520,
+   "currencyAmount": 3283600,
    "monsterHP": 6638112,
    "rewardType": "Bone",
    "bgId": 7,

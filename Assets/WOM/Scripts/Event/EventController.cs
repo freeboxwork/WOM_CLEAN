@@ -320,9 +320,6 @@ public class EventController : MonoBehaviour
             globalData.stageManager.bgAnimController.spriteColorAnim.ColorNormalAnim();
         }
 
-        // sfx monster die
-        globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.BossDie);
-
         //금광 보스 인지 체크
         if (currentMonster.monsterType == MonsterType.gold)
         {
@@ -363,9 +360,12 @@ public class EventController : MonoBehaviour
             // 뼈 조각 획득
             GainBone(currentMonster);
         }
-
+             // sfx monster die
+        globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.BossDie);
         // monster kill animation 사망 애니메이션 대기
         yield return StartCoroutine(currentMonster.inOutAnimator.MonsterKillMatAnim());
+        //몬스터 죽음 해골 이펙트
+        globalData.effectManager.EnableMonsterDieSkullEffect();
         // 하프라인 위쪽 곤충들 제거
         globalData.insectManager.DisableHalfLineInsects();
         // tutorial event ( 골드 몬스터 사망 )

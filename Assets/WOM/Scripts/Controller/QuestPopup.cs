@@ -139,37 +139,38 @@ public class QuestPopup : MonoBehaviour
         slot.SetPassRewardIcon(passRewardIcon);
 
         var isLock = data.targetStage > unlockCount;
+
         slot.SetBlockImage(isLock);
+
+        var buyPass = GlobalData.instance.questManager.IsBattlePassBuy();
+        slot.SetBlockPassImage(!buyPass);
 
         // 리워드 사용확인
         if (isLock == false)
         {
-            var loadKey = $"{GlobalData.instance.questManager.keyBattlePassUsedReward}_{data.targetStage}";
-            var hasKey = PlayerPrefs.HasKey(loadKey);
-            if (hasKey)
-            {
-                var enableValue = PlayerPrefs.GetInt(loadKey) == 0 ? true : false;
-                slot.SetBtnRewardInteractable(enableValue);
-            }
-            else
-            {
-                slot.SetBtnRewardInteractable(true);
 
+            string loadKey = GlobalData.instance.questManager.keyBattlePassUsedReward + "_" + data.targetStage;
+            bool enableCurrentValue = true;
+
+            if (PlayerPrefs.HasKey(loadKey))
+            {
+                int storedValue = PlayerPrefs.GetInt(loadKey);
+                enableCurrentValue = storedValue == 0;
             }
 
+            slot.SetBtnRewardInteractable(enableCurrentValue);
 
-            var loadKeyBuyItem = $"{GlobalData.instance.questManager.keyBuyBattlePass}_{data.targetStage}";
-            var hasKeyBuyItem = PlayerPrefs.HasKey(loadKeyBuyItem);
-            if (hasKeyBuyItem)
-            {
-                var enableValue = PlayerPrefs.GetInt(loadKeyBuyItem) == 0 ? true : false;
-                slot.SetBtnPassRewardInteractable(enableValue);
-            }
-            else
-            {
-                slot.SetBtnPassRewardInteractable(true);
+            string loadKeyBuyItem = GlobalData.instance.questManager.keyBuyBattlePass + "_" + data.targetStage;
+            bool enablePassValue = true;
 
+            if (PlayerPrefs.HasKey(loadKeyBuyItem))
+            {
+                int storedValue = PlayerPrefs.GetInt(loadKeyBuyItem);
+                enablePassValue = storedValue == 0;
             }
+
+            slot.SetBtnPassRewardInteractable(enablePassValue);
+
         }
     }
 
@@ -207,12 +208,10 @@ public class QuestPopup : MonoBehaviour
     }
 
 
-
     public QuestSlot GetQuestSlotByQuestTypeOneDay(EnumDefinition.QuestTypeOneDay type)
     {
         return questSlotsOneDay.Where(x => x.questTypeOneDay == type).FirstOrDefault();
     }
-
 
     public EnumDefinition.QuestTypeOneDay ConvertStringToQuestType(string questTypeString)
     {
@@ -229,21 +228,26 @@ public class QuestPopup : MonoBehaviour
         return questTypeEnum;
     }
 
-
     public void UnlockBattlePassSlot(int stageId)
     {
         var slot = GetBattlePassSlotByStage(stageId);
+
         if (slot != null)
+        {
             slot.SetBlockImage(false);
+            slot.SetBtnRewardInteractable(true);
+            var buyPass = GlobalData.instance.questManager.IsBattlePassBuy();
+            slot.SetBlockPassImage(!buyPass);
+            slot.SetBtnPassRewardInteractable(buyPass);
+        }
+                  
     }
 
     public void AllUnlockBattlePassSlotItem()
     {
         foreach (var slot in battlePassSlots)
-            slot.SetBlockPassImage(true);
+            slot.SetBlockPassImage(false);
     }
-
-
 
     BattlePassSlot GetBattlePassSlotByStage(int stage)
     {

@@ -323,7 +323,6 @@ public class EnumDefinition
         MonsterHit,
         BossDie,
         ButtonUIClick,
-        Coins,
         CustomPopup_Item,
         Dice,
         End_Batle,
@@ -342,7 +341,8 @@ public class EnumDefinition
         Slot,
         Transition,
         Typewriter,
-        Upgrade
+        Upgrade,
+        UnionLevelUp
     }
 
     public enum CastlePopupType

@@ -34,7 +34,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texBack:
-        m_Texture: {fileID: 2800000, guid: a2109d2f2729a404f8a35480e8b97951, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3f70fd7066b0505459fc6c58c27ce4d3, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _texFront:
@@ -55,7 +55,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _offsetY: 0
+    - _offsetY: 11.381652
     - _speed: 0
     - _transition: 0
     m_Colors: []

@@ -405,7 +405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be5b573dad2f9694c9836d65dae22410, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sfxType: 22
+  sfxType: 21
   btn: {fileID: 0}
 --- !u!1 &2915869773888445921
 GameObject:

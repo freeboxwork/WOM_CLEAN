@@ -137,7 +137,7 @@ public class PopupController : MonoBehaviour
 
         for (int i = 0; i < rewards.Count; i++)
         {
-            GlobalData.instance.rewardManager.RewardByType(rewards[i].type, (int)rewards[i].amount);
+            GlobalData.instance.rewardManager.RewardByType(rewards[i].type, rewards[i].amount);
         }
 
         //rewardEffect.SetActive(false);

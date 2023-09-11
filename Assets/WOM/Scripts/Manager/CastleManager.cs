@@ -436,7 +436,10 @@ public class CastleManager : MonoBehaviour
 
         var popup = (MinePopup)GetCastlePopupByType(CastlePopupType.mine);
 
-        digUpGoldTime = offLineSubGoldTime;
+        if (buildDataMine.level > 0)
+        {
+            digUpGoldTime = offLineSubGoldTime;
+        }
 
         while (true)
         {
@@ -525,7 +528,11 @@ public class CastleManager : MonoBehaviour
     {
         var popup = (MinePopup)GetCastlePopupByType(CastlePopupType.factory);
 
-        digUpBoneTime = offLineSubBoneTime;
+        if (buildDataFactory.level > 0)
+        {
+            digUpBoneTime = offLineSubBoneTime;
+        }
+
         popup.SetTextDigUpFullText("채굴 준비 중..");
 
         while (true)

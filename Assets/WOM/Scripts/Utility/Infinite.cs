@@ -1222,12 +1222,21 @@ namespace Cargold.Infinite
                     }
                 }
 
-                int _value = string.IsNullOrEmpty(_digitValueStr) == false 
-                    ? System.Int32.Parse(_digitValueStr)
-                    : 0;
+                //int _value = string.IsNullOrEmpty(_digitValueStr) == false ? System.Int32.Parse(_digitValueStr) : 0;
+                int _value;
+                
+                if (int.TryParse(_digitValueStr, out _value))
+                {
+                    // 파싱에 성공한 경우
+                }
+                else
+                {
+                    _value = 0;
+                    // 파싱에 실패한 경우
+                    // 유효한 정수가 아닌 경우 또는 범위를 벗어나는 경우에 대한 처리를 수행합니다.
+                }
 
-                if (0 < _value)
-                    _inf.Addition(_value, _digit);
+                if (0 < _value) _inf.Addition(_value, _digit);
 
                 _digit++;
             }

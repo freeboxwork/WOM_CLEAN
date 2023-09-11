@@ -138,7 +138,7 @@ public class QuestManager : MonoBehaviour
         {
             var clonData = battlePassData[i].ClonInstance();
             var slot = questPopup.battlePassSlots[i];
-            slot.SetBlockPassImage(IsBattlePassBuy());
+            slot.SetBlockPassImage(!IsBattlePassBuy());
             var unlockCount = GlobalData.instance.player.stageIdx;
             questPopup.SetUIBattlePassSlot(slot, clonData, unlockCount);
         }

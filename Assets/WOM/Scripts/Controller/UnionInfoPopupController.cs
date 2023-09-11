@@ -66,6 +66,8 @@ public class UnionInfoPopupController : MonoBehaviour
                 //이펙트 재생
                 PlayEffect();
                 ReloadUiSet();
+                GlobalData.instance.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.UnionLevelUp);
+
             }
         });
 

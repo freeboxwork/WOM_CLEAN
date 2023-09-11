@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class UnionSpwanTimer : MonoBehaviour
@@ -55,6 +56,15 @@ public class UnionSpwanTimer : MonoBehaviour
             var sprite = spwanManager.spriteFileData.GetSpriteData(unionSlot.inGameData.unionIndex);
             union.SetInsectFace(sprite);
 
+            // set order layer
+            if (IsFlying(unionSlot.inGameData.unionIndex))
+                union.spriteRenderer.sortingOrder = 31;
+            else
+                union.spriteRenderer.sortingOrder = 10;
+
+
+
+
             // set position
             var randomPos = spwanManager.GetRandomPos();
             union.gameObject.transform.position = randomPos;
@@ -85,6 +95,12 @@ public class UnionSpwanTimer : MonoBehaviour
         }
     }
 
+    List<int> flyIndexList = new List<int>() { 0, 1, 2, 3, 4, 5, 6, 7,8,9,10,11,12,14,16,17,18,
+    19,21,22,24,25,26,27,28,29,30,32,33,34,35,26,27,28,40,41,42,43,44,45,46 };
 
+    bool IsFlying(int index)
+    {
+        return flyIndexList.Contains(index);
+    }
 
 }

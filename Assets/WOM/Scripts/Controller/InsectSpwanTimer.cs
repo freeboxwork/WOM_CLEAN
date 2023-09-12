@@ -49,8 +49,8 @@ public class InsectSpwanTimer : MonoBehaviour
 
                 if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.insectDamageUp))
                     insect.effectContoller.AuraEffect(true);
-                if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.unionDamageUp))
-                    insect.effectContoller.FireEffect(true);
+                // if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.unionDamageUp))
+                //     insect.effectContoller.FireEffect(true);
                 if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.allUnitSpeedUp))
                     insect.effectContoller.TrailEffect(true);
                 if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.glodBonusUp))

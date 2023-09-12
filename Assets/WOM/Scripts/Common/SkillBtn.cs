@@ -66,12 +66,12 @@ public class SkillBtn : MonoBehaviour
             StartCoroutine(ReloadStillWaitCoolTime());
         }
     }
-    
+
     void SetBtnEvent()
     {
         btnSkill.onClick.AddListener(() => { UsingSkillByButton(); });
     }
-    
+
     public void UsingSkillByButton()
     {
         StartCoroutine(UsingSkillByButton_Cor());
@@ -90,7 +90,7 @@ public class SkillBtn : MonoBehaviour
 
         //Debug.Log("재사용 시간 : "+data.coolTime);
         //Debug.Log("재지속시간 : "+data.duaration);
-        
+
         //animDataUsingSkill.animDuration = data.duaration;
         //스킬 지속시간 타이머
         animDataUsingSkill.animDuration = skillDuration;
@@ -166,7 +166,7 @@ public class SkillBtn : MonoBehaviour
             float calcCooltime = animDataReloadSkill.animDuration;
             var startTime = Time.time;
             coolTimeWait = calcCooltime;
-            
+
             while (coolTimeWait > 0)
             {
                 coolTimeWait = calcCooltime - (Time.time - startTime);
@@ -189,7 +189,7 @@ public class SkillBtn : MonoBehaviour
         }
         yield return null;
     }
-    
+
     public void SetTxtCoolTime(int time)
     {
         TimeSpan t = TimeSpan.FromSeconds(time);
@@ -209,7 +209,8 @@ public class SkillBtn : MonoBehaviour
                     insect.effectContoller.AuraEffect(enableValue);
                     break;
                 case EnumDefinition.SkillType.unionDamageUp:
-                    insect.effectContoller.FireEffect(enableValue);
+                    if (insect.insectType == EnumDefinition.InsectType.union)
+                        insect.effectContoller.FireEffect(enableValue);
                     break;
                 case EnumDefinition.SkillType.allUnitSpeedUp:
                     insect.effectContoller.TrailEffect(enableValue);
@@ -228,7 +229,7 @@ public class SkillBtn : MonoBehaviour
 
 
     }
-    
+
     //캐슬을 갔다온 후 스킬의 지속시간(Duration)이 아직 남아 있다면
     IEnumerator ReloadStillUseingSkill_Cor()
     {
@@ -236,7 +237,7 @@ public class SkillBtn : MonoBehaviour
 
         //StartCoroutine(animCont.UI_TextAnim(txtTimeAnim, skillLeftTime, 0));
         StartCoroutine(animCont.UI_TextAnim_Reload(txtTimeAnim, skillLeftTime, 0, skillLeftTime));
-        StartCoroutine(animCont.UI_ImageFillAnim(imgSkillFront, skillLeftTime/animDataUsingSkill.animDuration, 1, skillLeftTime));
+        StartCoroutine(animCont.UI_ImageFillAnim(imgSkillFront, skillLeftTime / animDataUsingSkill.animDuration, 1, skillLeftTime));
 
         // 스킬 사용 대기
         float calcSkillTime = skillLeftTime;
@@ -259,7 +260,7 @@ public class SkillBtn : MonoBehaviour
         // 쿨타임
         GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, true);
         StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 1, 0));
-        StartCoroutine(animCont.UI_TextAnim(txtTime, animDataReloadSkill.animDuration, 0,() => coolTimeWait = 0));
+        StartCoroutine(animCont.UI_TextAnim(txtTime, animDataReloadSkill.animDuration, 0, () => coolTimeWait = 0));
 
         // 쿨타임 대기 및 데이터 저장 
         isCoolTime = true;
@@ -304,7 +305,7 @@ public class SkillBtn : MonoBehaviour
         // [재사용 대기 시간]  UI Update
         txtTime.enabled = true;
         StartCoroutine(animCont.UI_TextAnim_Reload(txtTime, coolTimeWait, 0, coolTimeWait));
-        StartCoroutine(animCont.UI_ImageFillAnim(imgSkillFront, coolTimeWait/animDataReloadSkill.animDuration, 0, coolTimeWait));
+        StartCoroutine(animCont.UI_ImageFillAnim(imgSkillFront, coolTimeWait / animDataReloadSkill.animDuration, 0, coolTimeWait));
 
         // 쿨타임 대기 및 데이터 저장 
 
@@ -328,7 +329,7 @@ public class SkillBtn : MonoBehaviour
         btnSkill.enabled = true;
         skillReady = true;
     }
-   
+
     public void ReloadCoolTime()
     {
         StartCoroutine(ReloadCoolTimeCor());
@@ -373,7 +374,7 @@ public class SkillBtn : MonoBehaviour
                 //TODO: 계산식 맞는지 확인 필요
                 //Debug.Log("저장되어 있는 쿨타임 시간 : "+ saveData.leftCoolTime);
                 //Debug.Log("감소한 시간 : "+ second);
-                
+
                 var loadCooltimeToSaveData = saveData.leftCoolTime - second;
                 //Debug.Log("쿨타임 시간 결과 : "+ loadCooltimeToSaveData);
 
@@ -403,7 +404,7 @@ public class SkillBtn : MonoBehaviour
                     //스킬 재사용 시간 타이머
                     animDataReloadSkill.animDuration = loadCooltimeToSaveData;
                     // 쿨타임
-                    StartCoroutine(animCont.UI_ImageFillAnim(imgSkillFront, animDuration/defaultCoolTimeValue, 0, animDuration));
+                    StartCoroutine(animCont.UI_ImageFillAnim(imgSkillFront, animDuration / defaultCoolTimeValue, 0, animDuration));
                     txtTime.enabled = true;
                     StartCoroutine(animCont.UI_TextAnim_Reload(txtTime, animDuration, 0, animDuration));
 

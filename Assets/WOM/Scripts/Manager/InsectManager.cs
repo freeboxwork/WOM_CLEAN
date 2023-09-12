@@ -372,8 +372,8 @@ public class InsectManager : MonoBehaviour
             // SKILL EFFECT
             if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.insectDamageUp))
                 bullet.effectContoller.AuraEffect(true);
-            if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.unionDamageUp))
-                bullet.effectContoller.FireEffect(true);
+            // if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.unionDamageUp))
+            //     bullet.effectContoller.FireEffect(true);
             if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.allUnitSpeedUp))
                 bullet.effectContoller.TrailEffect(true);
             if (GlobalData.instance.skillManager.IsUsingSkillByType(SkillType.glodBonusUp))

@@ -69,7 +69,7 @@ public class StatManager : MonoBehaviour
 
         //공식 : (((진화 공격력 + 훈련 공격력) * (특성증가율)) * 스킬증가율) * 버프 증가율
         var value = (itd + ttd) * ((ittd + skill_InsectDamageUp) * 0.01f);
-        Debug.Log($"<color=green>{insectType}진화공격력:{itd}+{insectType}훈련공격력:{ttd}+{insectType}공격력증가율{(ittd)}+스킬공격력:{skill_InsectDamageUp}</color>");
+        //Debug.Log($"<color=green>{insectType}진화공격력:{itd}+{insectType}훈련공격력:{ttd}+{insectType}공격력증가율{(ittd)}+스킬공격력:{skill_InsectDamageUp}</color>");
 
         // ad buff 적용 ( damage )
         var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffDamage);
@@ -91,7 +91,7 @@ public class StatManager : MonoBehaviour
         var upd = unionManager.GetAllUnionPassiveDamage();
         var did = GetDnaData(DNAType.insectDamage).power;
         var diceId = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectDamage);
-        Debug.Log($"{insectType}진화공격력증가율:{idr}+{insectType}훈련공격력증가율:{ttd}+유니온보유공격력증가율:{upd}+DNA공격력증가율:{did}+진화능력공격력증가율:{diceId}");
+        //Debug.Log($"{insectType}진화공격력증가율:{idr}+{insectType}훈련공격력증가율:{ttd}+유니온보유공격력증가율:{upd}+DNA공격력증가율:{did}+진화능력공격력증가율:{diceId}");
 
         var value = ttd + upd + did + idr + diceId;
         //Debug.Log($"총 공격력 증가율:{value}");

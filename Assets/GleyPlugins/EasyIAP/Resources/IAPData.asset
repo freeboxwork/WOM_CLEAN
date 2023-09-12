@@ -178,4 +178,4 @@ MonoBehaviour:
     localizedPriceString: $0.01
     price: 0
     isoCurrencyCode: USD
-    receipt: 
+    receipt: '{"Payload":"ThisIsFakeReceiptData","Store":"fake","TransactionID":"c2089d05-686a-4f6b-820b-30b32a87e351"}'

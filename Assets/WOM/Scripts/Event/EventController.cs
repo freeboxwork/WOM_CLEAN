@@ -69,7 +69,7 @@ public class EventController : MonoBehaviour
     {
         return globalData.player.curMonsterType == MonsterType.boss || globalData.player.curMonsterType == MonsterType.evolution || globalData.player.curMonsterType == MonsterType.dungeon;
     }
-#region MONSTER GIT
+#region MONSTER HIT
     void EvnOnMonsterHit(EnumDefinition.InsectType insectType, int unionIndex = 0, Transform tr = null)
     {
         if (isMonsterDie) return;
@@ -311,15 +311,6 @@ public class EventController : MonoBehaviour
         // hp slider
         globalData.uiController.SetSliderMonsterHp(0);
 
-        if (currentMonster.monsterType == MonsterType.boss)
-        {
-            // 보스 사냥 성공 전환 이펙트
-            globalData.effectManager.EnableTransitionEffStageClear();
-
-            // BG Color Change
-            globalData.stageManager.bgAnimController.spriteColorAnim.ColorNormalAnim();
-        }
-
         //금광 보스 인지 체크
         if (currentMonster.monsterType == MonsterType.gold)
         {
@@ -347,9 +338,19 @@ public class EventController : MonoBehaviour
             yield return StartCoroutine(globalData.effectManager.goldPoolingCont.EnableGoldEffects(currentMonster.goldCount));
         }
 
+        // if (currentMonster.monsterType == MonsterType.boss)
+        // {
+        //     // 보스 사냥 성공 전환 이펙트
+        //     globalData.effectManager.EnableTransitionEffStageClear();
+
+        //     // BG Color Change
+        //     globalData.stageManager.bgAnimController.spriteColorAnim.ColorNormalAnim();
+        // }
+
         // 골드 획득
         GainGold(currentMonster);
-
+             // sfx monster die
+        globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.BossDie);
         // tutorial event ( 몬스터 골드 드랍 획득 )
         EventManager.instance.RunEvent(CallBackEventType.TYPES.OnTutorialAddGold);
 
@@ -359,9 +360,28 @@ public class EventController : MonoBehaviour
             yield return StartCoroutine(globalData.effectManager.bonePoolingCont.EnableGoldEffects(currentMonster.boneCount));
             // 뼈 조각 획득
             GainBone(currentMonster);
+
+            Time.timeScale = 0.2f;
+            yield return new WaitForSecondsRealtime(0.9f);
+            Time.timeScale = 1f;
+
+                        // 보스 사냥 성공 전환 이펙트
+            globalData.effectManager.EnableTransitionEffStageClear();
+
+            // BG Color Change
+            globalData.stageManager.bgAnimController.spriteColorAnim.ColorNormalAnim();
         }
-             // sfx monster die
-        globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.BossDie);
+
+        if(currentMonster.monsterType == MonsterType.evolution)
+        {
+
+            Time.timeScale = 0.2f;
+            yield return new WaitForSecondsRealtime(2f);
+            Time.timeScale = 1f;
+            // 보스 사냥 성공 전환 이펙트
+            globalData.effectManager.EnableTransitionEffStageClear();
+        }
+
         // monster kill animation 사망 애니메이션 대기
         yield return StartCoroutine(currentMonster.inOutAnimator.MonsterKillMatAnim());
         //몬스터 죽음 해골 이펙트
@@ -501,6 +521,12 @@ public class EventController : MonoBehaviour
 
         // SET STAGE DATA ( 다음 스테이지로 변경 )
         var newStageIdx = globalData.player.stageIdx + 1;
+
+        if(newStageIdx >= StaticDefine.MAX_STAGE)
+        {
+            newStageIdx = StaticDefine.MAX_STAGE;
+        }
+
         globalData.player.stageIdx = newStageIdx;
 
         // set save data
@@ -515,7 +541,7 @@ public class EventController : MonoBehaviour
         GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
         // 금광보스 카운트 UI 활성
         globalData.uiController.SetEnablePhaseCountUI(true);
-
+        //Debug.Log("globalData.player.stageIdx:"+globalData.player.stageIdx);
         // stage setting - stage manager 스테이지 데이터와 배경 이미지 전환 애니메이션
         yield return StartCoroutine(globalData.stageManager.SetStageById(globalData.player.stageIdx));
 
@@ -528,7 +554,7 @@ public class EventController : MonoBehaviour
 
 
         // 퀘스트 - 배틀 패스 스테이지 완료 블록 이미지 해제
-        globalData.questManager.questPopup.UnlockBattlePassSlot(newStageIdx);
+        globalData.questManager.questPopup.UnlockBattlePassSlot(globalData.player.stageIdx);
 
     }
 

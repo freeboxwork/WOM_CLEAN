@@ -121,7 +121,7 @@ public class TraningManager : MonoBehaviour
             slot.btnBuy.onClick.AddListener(() =>
             {
 
-                Debug.Log("stat " + slot.statType);
+                //Debug.Log("stat " + slot.statType);
                 GlobalData.instance.saleManager.AddData(new SaleStatMsgData(slot.statType));
 
             });
@@ -193,7 +193,7 @@ public class TraningManager : MonoBehaviour
         }
         else
         {
-            // 소수점 첫째자리
+            // 소수점 둘째자리
             txtPower = UtilityMethod.FormatDoubleToOneDecimal(inGameData.value);
 
         }
@@ -202,6 +202,7 @@ public class TraningManager : MonoBehaviour
 
         // max stat
         var lastData = GlobalData.instance.dataManager.GetSaleStatDataByType(statType).data.Last();
+        
         if (inGameData.level == lastData.level)
         {
             SetUI_Max(statType);

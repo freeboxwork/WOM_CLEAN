@@ -68,9 +68,10 @@ namespace ProjectGraphics
             toggleRepeatGame.isOn = false;
         }
 
-        void Start()
+        void Awake()
         {
             audio = GetComponent<AudioSource>();
+
         }
 
         public void StartLotteryAnimation(int[] unionIndex)
@@ -95,7 +96,7 @@ namespace ProjectGraphics
             isEnd = false;
             isUnion = true;         //?ú†?ãà?ò®?ù∏Ïß? ?ïÑ?ãåÏß?
 
-            yield return new WaitForSeconds(0.02f);
+            //yield return new WaitForSeconds(0.02f);
 
             for (int i = 0; i < u.Length; i++)
             {
@@ -106,10 +107,14 @@ namespace ProjectGraphics
                 slots[i].SetActiveAction(typeIndex);
 
                 //?ó¨Í∏? Ï∂úÌòÑ ?Ç¨?ö¥?ìú ?ïÑ?öî?ï®.
+                
+                if (typeIndex > 3)
+                GlobalData.instance.soundManager.PlaySfxUI(EnumDefinition.SFX_TYPE.Unique);
+
                 audio.Play();
 
                 if (toggleEffSkip.isOn) continue;
-                yield return new WaitForSeconds(0.03f);
+                yield return new WaitForSeconds(0.02f);
             }
 
             isEnd = true;
@@ -136,6 +141,7 @@ namespace ProjectGraphics
                 slots[i].SetSlotImage(dnaIcons[u[i]]);
                 slots[i].gameObject.SetActive(true);
                 slots[i].SetActiveAction(0);
+
 
                 //?ó¨Í∏? Ï∂úÌòÑ ?Ç¨?ö¥?ìú ?ïÑ?öî?ï®.
                 audio.Play();

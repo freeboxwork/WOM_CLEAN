@@ -8,7 +8,6 @@ public class AttackController : MonoBehaviour
     public InsectManager insectManager;
     /// <summary> 공격 가능 상태  </summary>
     public bool isAttackableState = false;
-    [SerializeField] private float spawnInterval = 0.1f;
     float lastSpawnTime;
 
     RaycastHit2D hit;
@@ -34,7 +33,7 @@ public class AttackController : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
 
-                if (Time.time - lastSpawnTime >= spawnInterval)
+                if (Time.time - lastSpawnTime >= StaticDefine.TOUCH_INTERVAL)
                 {
                     lastSpawnTime = Time.time;
 

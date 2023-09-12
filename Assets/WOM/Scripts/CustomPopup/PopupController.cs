@@ -93,9 +93,7 @@ public class PopupController : MonoBehaviour
     [Header("Union Sprite SO")]
     [SerializeField] SpriteFileData spriteFileData; //GetIconData()
     PopupRewardInfoData popupRewardInfoData = null;
-    public GameObject rewardEffect;
     public Transform popupParent;
-
     public PoolManager poolManager;
     public RewardManager rewardManager;
 
@@ -132,43 +130,14 @@ public class PopupController : MonoBehaviour
     void Reward()
     {
         //Insert Audio Effect Play Code 
-
         var rewards = popupRewardInfoData.GetRewardInfoDataList();
 
         for (int i = 0; i < rewards.Count; i++)
         {
             GlobalData.instance.rewardManager.RewardByType(rewards[i].type, rewards[i].amount);
         }
-
-        //rewardEffect.SetActive(false);
-
-
         //Player Data Save
     }
-
-
-    [Sirenix.OdinInspector.Button]
-    public void TestPopup()
-    {
-        PopupRewardInfoData data = new PopupRewardInfoData();
-        List<RewardInfoData> rewards = new List<RewardInfoData>();
-
-        //???? ??????? ?????? ???? RewardType???? ???? ???+?????+DNA ?? ?????? ??? ?? ????? ??????? ??
-        //????????? 1.??????? 2.???? 3.??????????? ?????? ??????????? ???????? ??????????? ????? ????
-        rewards.Add(new RewardInfoData(EnumDefinition.RewardType.gold, 10000, null));
-        rewards.Add(new RewardInfoData(EnumDefinition.RewardType.gem, 20000, null));
-        rewards.Add(new RewardInfoData(EnumDefinition.RewardType.gem, 20000, null));
-        rewards.Add(new RewardInfoData(EnumDefinition.RewardType.gem, 20000, null));
-        rewards.Add(new RewardInfoData(EnumDefinition.RewardType.gem, 20000, null));
-
-        //??????? ??? ????. ????????? CallBack ?????? ???? ??????? ??? ?? ?????????? ????? ??? ?? ????(???? ???? ???? ?????????? ??? ???) 
-        //*?????? ???? ??????? ??? ???????* line115
-        data.SetPopupData("REWARD", rewards);
-
-        SetupPopupInfo(data);
-
-    }
-
 
     public void InitPopup(EnumDefinition.RewardType rewardType, int amount)
     {
@@ -206,8 +175,6 @@ public class PopupController : MonoBehaviour
     {
         PopupRewardInfoData data = new PopupRewardInfoData();
         List<RewardInfoData> rewards = new List<RewardInfoData>();
-
-
         //var sprite = GlobalData.instance.spriteDataManager.GetRewardIcon(rewardType);
         var sprite = GetRewardIcon(rewardType, (int)amount);
         rewards.Add(new RewardInfoData(rewardType, amount, sprite));
@@ -245,23 +212,6 @@ public class PopupController : MonoBehaviour
             return GlobalData.instance.spriteDataManager.GetRewardIcon(rewardType);
         }
     }
-
-    // public void InitPopups(List<RewardInfoData> rewardInfoDatas)
-    // {
-    //     PopupRewardInfoData data = new PopupRewardInfoData();
-    //     List<RewardInfoData> rewards = new List<RewardInfoData>();
-
-    //     for (int i = 0; i < rewardInfoDatas.Count; i++)
-    //     {
-    //         rewards.Add(rewardInfoDatas[i]);
-    //     }
-
-    //     data.SetPopupData("REWARD", rewards);
-
-    //     SetupPopupInfo(data);
-    // }
-
-
 
 
 }

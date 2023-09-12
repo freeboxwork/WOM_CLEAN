@@ -288,7 +288,7 @@ public static class UtilityMethod
     public static string FormatDoubleToOneDecimal(double value)
     {
         //return string.Format("{0:F1}", value);
-        return string.Format("{0:0.0}", value);
+        return string.Format("{0:0.##}", value);
     }
 
     public static long ConvertDoubleToLong(double number)

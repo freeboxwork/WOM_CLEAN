@@ -22,6 +22,7 @@ public class InsectManager : MonoBehaviour
     public List<InsectBullet> insectBullets_Mentis;
 
     public Transform tr_insectPool;
+    [Header("풀링 곤충의 갯수")]
     public int insectBirthCount = 15;
 
     public List<InsectBase> insects = new List<InsectBase>();

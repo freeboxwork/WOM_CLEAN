@@ -57,6 +57,8 @@ namespace ProjectGraphics
         {
             if (!trainingSlot.GetBuyButtonInteracTable())
             {
+
+                slotBack.SetActive(false);
                 yield break;
             }
 
@@ -68,7 +70,6 @@ namespace ProjectGraphics
 
             while (clampValue <= 1)
             {
-
 
 
                 t += Time.deltaTime;

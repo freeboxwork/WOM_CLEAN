@@ -52,7 +52,7 @@ public class BtnLongPressRepeatEvent : MonoBehaviour, IPointerDownHandler, IPoin
         while (isLongPressing && button.interactable == true)
         {
             longPressingEvent.Invoke();
-            Debug.Log("LongPressing 연속 이벤트 실행!");
+            //Debug.Log("LongPressing 연속 이벤트 실행!");
             GlobalData.instance.soundManager.PlayUpgradeSound();
 
             yield return new WaitForSeconds(0.1f);

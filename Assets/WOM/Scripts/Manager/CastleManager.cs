@@ -20,6 +20,7 @@ public class CastleManager : MonoBehaviour
     public int mineLevel = 0;
     public int factoryLevel = 0;
 
+
     public int offLineSubGoldTime = 0;
     public int offLineSubBoneTime = 0;
     private float digUpGoldTime;
@@ -31,11 +32,6 @@ public class CastleManager : MonoBehaviour
         SetBtnEvents();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public IEnumerator Init()
     {
@@ -49,7 +45,15 @@ public class CastleManager : MonoBehaviour
 
         yield return null;
     }
+    
+    public void SetCampBuildingLevel(int gradeLevel)
+    {
 
+    }
+    public void SetLabBuildingLevel(int totalLevel)
+    {
+
+    }
 
     void SetCastleData()
     {
@@ -118,6 +122,9 @@ public class CastleManager : MonoBehaviour
         // 초기 UI 설정 ( CASTLE )
         castleController.SetMineBuild(mineLevel);
         castleController.SetFactoryBuild(factoryLevel);
+
+        
+
 
         // 건설하기 버튼 UI Disable
         if (mineLevel > 0)
@@ -303,73 +310,6 @@ public class CastleManager : MonoBehaviour
                 break;
         }
     }
-
-
-    // void UpgradeMine()
-    // {
-
-    //     // 가격만큼 resource 차감 후 레벨 업그레이드 진행
-    //     GlobalData.instance.player.PayCoal(buildDataMine.price);
-    //     mineLevel++;
-
-    //     // 다음 레벨의 광산 정보 가져오기
-    //     var refBuildDataMine = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel);
-
-    //     // Clone 메소드를 이용하여 BuildDataMine 객체의 데이터 갱신
-    //     buildDataMine = new CastleBuildingData().Create().SetGoodsType(GoodsType.gold).Clone(refBuildDataMine);
-
-    //     // Set Popup    UI
-    //     var popup = (MinePopup)GetCastlePopupByType(CastlePopupType.mine);
-    //     var nextLevelData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel + 1);
-    //     CastleBuildingData nextBuildData = new CastleBuildingData().Create().SetGoodsType(GoodsType.gold).Clone(nextLevelData);
-    //     popup.SetUpGradeText(buildDataMine, nextBuildData);
-    //     castleController.SetBuildUpgrade(BuildingType.MINE, mineLevel);
-    // }
-
-    // void UpgradeFactory()
-    // {
-    //     // 가격만큼 resource 차감 후 레벨 업그레이드 진행
-    //     GlobalData.instance.player.PayCoal(buildDataFactory.price);
-    //     factoryLevel++;
-
-    //     // 다음 레벨의 광산 정보 가져오기
-    //     var refBuildDataMine = GlobalData.instance.dataManager.GetBuildDataFactoryByLevel(factoryLevel);
-
-    //     // Clone 메소드를 이용하여 BuildDataMine 객체의 데이터 갱신
-    //     buildDataMine = new CastleBuildingData().Create().SetGoodsType(GoodsType.bone).Clone(refBuildDataMine);
-
-    //     // Set Popup    UI
-    //     var popup = (MinePopup)GetCastlePopupByType(CastlePopupType.factory);
-    //     var nextLevelData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(factoryLevel + 1);
-    //     CastleBuildingData nextBuildData = new CastleBuildingData().Create().SetGoodsType(GoodsType.bone).Clone(nextLevelData);
-    //     popup.SetUpGradeText(buildDataMine, nextBuildData);
-    //     castleController.SetBuildUpgrade(BuildingType.FACTORY, factoryLevel);
-    // }
-
-
-    // bool IsValidCastleUpgradePay(int price)
-    // {
-    //     var value = GlobalData.instance.player.coal >= price;
-    //     if (value)
-    //     {
-    //         return true;
-    //     }
-    //     else
-    //     {
-    //         // show popup 석탄 부족.
-    //         GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("Message", 16);
-    //         Debug.Log("Upgrade Fail");
-    //         return false;
-    //     }
-
-    // }
-
-    // // max level 체크
-    // bool IsValidCastleUpgradeLevel(int level, int price)
-    // {
-
-    //     return true;
-    //}
 
     /*
      * UpgradeMine - 광산 업그레이드 메소드

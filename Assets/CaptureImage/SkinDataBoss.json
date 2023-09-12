@@ -25989,6 +25989,19 @@
         },
         {
             "id": 1999,
+            "tail": 32,
+            "hand": 32,
+            "finger": 32,
+            "foreArm": 32,
+            "upperArm": 32,
+            "head": 32,
+            "body": 32,
+            "leg_0": 32,
+            "leg_1": 32,
+            "leg_2": 32
+        },
+        {
+            "id": 2000,
             "tail": 22,
             "hand": 13,
             "finger": 22,
@@ -25999,19 +26012,7 @@
             "leg_0": 15,
             "leg_1": 15,
             "leg_2": 15
-        },
-        {
-            "id": 2000,
-            "tail": 27,
-            "hand": 25,
-            "finger": 22,
-            "foreArm": 30,
-            "upperArm": 20,
-            "head": 31,
-            "body": 24,
-            "leg_0": 31,
-            "leg_1": 31,
-            "leg_2": 31
+
         },
         {
             "id": 2001,
@@ -38989,29 +38990,17 @@
         },
         {
             "id": 2999,
-            "tail": 20,
-            "hand": 26,
-            "finger": 31,
-            "foreArm": 27,
-            "upperArm": 29,
-            "head": 20,
-            "body": 27,
-            "leg_0": 22,
-            "leg_1": 22,
-            "leg_2": 22
-        },
-        {
-            "id": 3000,
-            "tail": 32,
-            "hand": 32,
-            "finger": 32,
-            "foreArm": 32,
-            "upperArm": 32,
-            "head": 32,
-            "body": 32,
-            "leg_0": 32,
-            "leg_1": 32,
-            "leg_2": 32
+            "tail": 30,
+            "hand": 30,
+            "finger": 30,
+            "foreArm": 30,
+            "upperArm": 30,
+            "head": 30,
+            "body": 30,
+            "leg_0": 30,
+            "leg_1": 30,
+            "leg_2": 30
+
         }
     ]
 }

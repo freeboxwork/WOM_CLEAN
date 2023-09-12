@@ -47,82 +47,62 @@ public class SaleManager : MonoBehaviour
         // get current level & next statData by statType
         var payData = GetPayData(statType);
 
-        // 최대 레벨 체크
-        if (true)
+        // // UI 적용
+        // if (payData.nextStatSaleData == null)
+        // {
+        //     Debug.Log("최종레벨 도달");
+        //     traningManager.SetUI_Max(statType);
+        //     yield break;
+        // }
+
+        //재화 : GOLD
+        if (IsGoldItem(statType))
         {
-            //재화 : GOLD
-            if (IsGoldItem(statType))
+            // 재화 충분 한지 판단
+            if (IsValidPurchaseGold(payData.statData.salePrice))
             {
-                // 재화 충분 한지 판단
-                if (IsValidPurchaseGold(payData.statData.salePrice))
-                {
-                    // 구매 
-                    player.PayGold(payData.statData.salePrice);
+                // 구매 
+                player.PayGold(payData.statData.salePrice);
 
-                    // 데이터 적용
-                    traningManager.SetInGameStatLevel(statType, payData.statData.level);
-                    traningManager.SetInGameStatValue(statType, payData.statData.value);
+                // 데이터 적용
+                traningManager.SetInGameStatLevel(statType, payData.statData.level);
+                traningManager.SetInGameStatValue(statType, payData.statData.value);
 
-                    // 세이브 데이터 업데이트
-                    GlobalData.instance.saveDataManager.SetLevelByTraningType(statType, payData.statData.level);
+                // 세이브 데이터 업데이트
+                GlobalData.instance.saveDataManager.SetLevelByTraningType(statType, payData.statData.level);
 
-
-                    traningManager.SetUI_TraningSlot(statType);
-
-                    // UI 적용
-                    if (payData.nextStatSaleData == null)
-                    {
-                        traningManager.SetUI_Max(statType);
-                    }
-                    else // 최종레벨 도달
-                    {
-                        //traningManager.SetUI_Max(statType);
-                        //Debug.Log("최종레벨 도달");
-                    }
-                }
-                else
-                {
-                    // 골드가 부족 합니다.
-                    Debug.Log($"{statType} - 골드가 부족 합니다.");
-                }
             }
-            //재화 : BONE
             else
             {
-                if (IsValidPurchaseBone(payData.statData.salePrice))
-                {
-                    // 구매
-                    player.PayBone(payData.statData.salePrice);
-
-                    // 데이터 적용
-                    traningManager.SetInGameStatLevel(statType, payData.statData.level);
-                    traningManager.SetInGameStatValue(statType, payData.statData.value);
-
-                    // 세이브 데이터 업데이트
-                    GlobalData.instance.saveDataManager.SetLevelByTraningType(statType, payData.statData.level);
-
-                    // UI 적용
-                    if (payData.nextStatSaleData != null)
-                    {
-                        traningManager.SetUI_TraningSlot(statType);
-                    }
-                    else // 최종레벨 도달
-                    {
-                        Debug.Log("최종레벨 도달");
-                    }
-                }
-                else
-                {
-                    // 뼈 조각이 부족 합니다.
-                    Debug.Log($"{statType} - 뼈 조각이 부족합니다.");
-                }
+                // 골드가 부족 합니다.
+                Debug.Log($"{statType} - 골드가 부족 합니다.");
             }
         }
+        //재화 : BONE
         else
         {
-            // 최대 레벨 도달
-            //Debug.Log($"{statType} - 최대 레벨에 도달했습니다..");
+            if (IsValidPurchaseBone(payData.statData.salePrice))
+            {
+                // 구매
+                player.PayBone(payData.statData.salePrice);
+
+                // 데이터 적용
+                traningManager.SetInGameStatLevel(statType, payData.statData.level);
+                traningManager.SetInGameStatValue(statType, payData.statData.value);
+
+                // 세이브 데이터 업데이트
+                GlobalData.instance.saveDataManager.SetLevelByTraningType(statType, payData.statData.level);
+
+            }
+            else
+            {
+                // 뼈 조각이 부족 합니다.
+                Debug.Log($"{statType} - 뼈 조각이 부족합니다.");
+            }
         }
+
+        traningManager.SetUI_TraningSlot(statType);
+
 
         yield return null;
     }
@@ -134,9 +114,6 @@ public class SaleManager : MonoBehaviour
         items.m_level = traningManager.GetInGameStatLevel(statType);
 
         // 맥시멈 체크
-
-
-
         var lastData = statDatas.data.Last();
         items.m_isValidMaxLevel = lastData.level == items.m_level;
 

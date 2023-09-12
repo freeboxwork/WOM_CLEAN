@@ -11,7 +11,6 @@ public class DNAManager : MonoBehaviour
     public LotteryAnimationController lotteryAnimCont;
     public List<DNASlot> dnaSlots = new List<DNASlot>();
     public List<Sprite> dnaIconImages = new List<Sprite>();
-    public string powerColorCode;
     const int btnLottery30 = 29;
     const int btnLottery10 = 28;
     const int btnLottery01 = 27;
@@ -89,7 +88,7 @@ public class DNAManager : MonoBehaviour
             // set ui
             slot.SetTxtName(data.dnaName);
             slot.SetTxtMaxLevel(data.maxLevel);
-            slot.SetTxtInfo(data.infoFront, powerColorCode, slot.inGameData.power, data.infoBack);
+            slot.SetTxtInfo(data.infoFront, StaticDefine.COLOR_GREEN, slot.inGameData.power, data.infoBack);
             slot.SetTxtHasCount(slot.inGameData.level, slot.inGameData.maxLevel);
             slot.SetFace(GetDnaIconImage(data.spriteName));
 
@@ -250,7 +249,7 @@ public class DNAManager : MonoBehaviour
         var data = GlobalData.instance.dataManager.dnaDatas.data[(int)type];
         var slot = GetSlotByDNAType(type);
 
-        slot.SetTxtInfo(data.infoFront, powerColorCode, slot.inGameData.power, data.infoBack);
+        slot.SetTxtInfo(data.infoFront, StaticDefine.COLOR_GREEN, slot.inGameData.power, data.infoBack);
         slot.SetTxtHasCount(slot.inGameData.level, slot.inGameData.maxLevel);
     }
 

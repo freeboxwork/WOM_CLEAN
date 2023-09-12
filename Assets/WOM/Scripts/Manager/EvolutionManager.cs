@@ -18,11 +18,7 @@ public class EvolutionManager : MonoBehaviour
     public List<Sprite> evolutionGradeBadgeImages = new List<Sprite>();
     public List<EvolutionSlot> evolutionSlots = new List<EvolutionSlot>();
 
-    void Start()
-    {
-
-    }
-
+ 
 
     public IEnumerator Init()
     {
@@ -285,7 +281,9 @@ public class EvolutionManager : MonoBehaviour
         //trLotteryGameSet.gameObject.SetActive(true);
         GlobalData.instance.lotteryManager.LotteryStart(roundCount, payValye, () =>
         {
-            Debug.Log(roundCount + "회 뽑기 게임 종료 이벤트 실행");
+            //Camp Level Up
+            // var gradeLevel = GlobalData.instance.lotteryManager.summonGradeLevel;
+            // GlobalData.instance.castleManager.castleController.SetBuildUpgrade(ProjectGraphics.BuildingType.CAMP, gradeLevel);
         }, rewardType);
     }
 

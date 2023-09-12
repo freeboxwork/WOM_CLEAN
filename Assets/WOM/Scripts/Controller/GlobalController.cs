@@ -62,6 +62,8 @@ public class GlobalController : MonoBehaviour
         // get player data ( 게임 종료전 저장 되어있는 데이터 로드 )
         yield return StartCoroutine(playerDataManager.InitPlayerData());
 
+        if(playerDataManager.saveData.stageIdx >= StaticDefine.MAX_STAGE) playerDataManager.saveData.stageIdx = StaticDefine.MAX_STAGE;
+
         // 스테이지 세팅
         yield return StartCoroutine(stageManager.Init(playerDataManager.saveData.stageIdx));
 

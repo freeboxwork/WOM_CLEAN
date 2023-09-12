@@ -26,17 +26,10 @@ public class GoldPigController : MonoBehaviour
 
     public GoldPigPopup goldPigPopup;
 
-    public int[] enableGoldPigRange;
-
     //현재 골드 피그 재생성이 될때까지 딜레이 시간
-    public float currentEnableGoldPigWaitTime;
+    float currentEnableGoldPigWaitTime;
 
     float spawnProbability;
-
-    void Start()
-    {
-
-    }
 
     public IEnumerator Init()
     {
@@ -61,14 +54,6 @@ public class GoldPigController : MonoBehaviour
         pointRightSide = new Transform[] { rightPoint, radomPointRight, radomPointLeft, leftPoint };
     }
 
-    // Update is called once per frame
-    // void Update()
-    // {
-    //     // if (Input.GetKeyDown(KeyCode.Space))
-    //     // {
-    //     //     StartCoroutine(MoveGoldPig());
-    //     // }
-    // }
 
     void AddEvents()
     {
@@ -172,7 +157,7 @@ public class GoldPigController : MonoBehaviour
     IEnumerator EnableGoldPigCor()
     {
 
-        var spawnGoldPigDelayTime = (float)Random.Range(enableGoldPigRange[0], enableGoldPigRange[1]);
+        var spawnGoldPigDelayTime = (float)Random.Range(StaticDefine.SPAWN_GOLDPIG_MIN_TIME, StaticDefine.SPAWN_GOLDPIG_MAX_TIME);
         
         var startTime = Time.time;
         float waitTime = spawnGoldPigDelayTime;

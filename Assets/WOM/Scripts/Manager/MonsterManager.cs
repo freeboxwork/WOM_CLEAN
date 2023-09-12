@@ -38,8 +38,10 @@ public class MonsterManager : MonoBehaviour
 
     public IEnumerator Init(int stageId)
     {
+        if(stageId >= StaticDefine.MAX_STAGE) stageId = StaticDefine.MAX_STAGE;
         StageData stageData = GlobalData.instance.dataManager.GetStageDataById(stageId);
-
+        //Debug.Log("stageData.monsterNormalId : " + stageData.monsterNormalId);
+        
         yield return null;
 
         var monNormalData = GetMonsterData(MonsterType.normal, stageData.monsterNormalId);
@@ -49,7 +51,7 @@ public class MonsterManager : MonoBehaviour
         SetMonsterData(MonsterType.normal, monNormalData);
         SetMonsterData(MonsterType.gold, monGoldData);
         SetMonsterData(MonsterType.boss, monBossData);
-
+        //Debug.Log("monNormalData.id : " + monNormalData.id);
         // set sprite image
         SetMonsterBodyImage(monNormalData, monsterNormal, MonsterType.normal);
         SetMonsterBodyImage(monGoldData, monsterGold, MonsterType.gold);
@@ -127,7 +129,7 @@ public class MonsterManager : MonoBehaviour
     {
 
         MonsterSprite spriteData = GlobalData.instance.dataManager.GetMonsterSpriteDataById(monData.imageId);
-
+        
         switch (monsterType)
         {
             case MonsterType.normal:

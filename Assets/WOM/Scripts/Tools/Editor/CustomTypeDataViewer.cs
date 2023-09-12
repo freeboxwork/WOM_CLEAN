@@ -46,7 +46,8 @@ public class CustomTypeDataViewer : EditorWindow
     }
     Vector2 scrollViwe;
 
-    bool fold = false;
+    //bool fold = false;
+    [Obsolete]
     private void OnGUI()
     {
 

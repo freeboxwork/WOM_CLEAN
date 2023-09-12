@@ -33,7 +33,7 @@ public class MonsterSkinDataMaker : EditorWindow
         window.Show();
     }
 
-
+    [System.Obsolete]
     private void OnGUI()
     {
         EditorCustomGUI.GUI_ObjectFiled_UI(labelWidth, "MonsterSkinDataJson", ref monsterSkinDataJson);

@@ -7,7 +7,7 @@ public class Tools_OpenWebPage : EditorWindow
 {
     UrlData urlData;
 
-    float labelWidth = 160f;
+    //float labelWidth = 160f;
     bool settingGui = false;
     Vector2 scrollView;
 
@@ -18,9 +18,7 @@ public class Tools_OpenWebPage : EditorWindow
         window.Show();
     }
 
-
-
-
+    [System.Obsolete]
     private void OnGUI()
     {
         if (!settingGui)
@@ -44,6 +42,7 @@ public class Tools_OpenWebPage : EditorWindow
         
     }
 
+    [System.Obsolete]
     void Setting_URL()
     {
         EditorCustomGUI.GUI_Title("URL 을 등록 및 편집 합니다.");

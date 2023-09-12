@@ -220,7 +220,7 @@ public class InsectBullet : MonoBehaviour
     public void DisableInsect()
     {
         // 파티클 이펙트 추가
-        GlobalData.instance.effectManager.EnableInsectDisableEffect(this.transform);
+        //GlobalData.instance.effectManager.EnableInsectDisableEffect(this.transform);
         gameObject.SetActive(false);
     }
 

@@ -114,8 +114,8 @@ public static class EditorCustomGUI
         GUILayout.Box("", "HelpBox", GUILayout.Height(2));
         GUILayout.Space(space);
     }
-   
 
+    [System.Obsolete]
     public static void GUI_ObjectFiled_UI<T>(float labelWidth,string name, ref T value) where T : UnityEngine.Object
     {
         GUILayout.BeginHorizontal();
@@ -123,6 +123,8 @@ public static class EditorCustomGUI
         value = (T)EditorGUILayout.ObjectField(value, typeof(T));
         GUILayout.EndHorizontal();
     }
+
+    [System.Obsolete]
     public static void GUI_ObjectFiled_UI<T>(float labelWidth, string name,  T value) where T : UnityEngine.Object
     {
         GUILayout.BeginHorizontal();

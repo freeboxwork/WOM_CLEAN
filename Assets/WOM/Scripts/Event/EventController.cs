@@ -389,10 +389,12 @@ public class EventController : MonoBehaviour
 
         // monster kill animation 사망 애니메이션 대기
         yield return StartCoroutine(currentMonster.inOutAnimator.MonsterKillMatAnim());
-        //몬스터 죽음 해골 이펙트
-        globalData.effectManager.EnableMonsterDieSkullEffect();
+        globalData.effectManager.EnableMonsterDieAfterEffect();
+
         // 하프라인 위쪽 곤충들 제거
         globalData.insectManager.DisableHalfLineInsects();
+        //몬스터 죽음 해골 이펙트
+        globalData.effectManager.EnableMonsterDieBeforeEffect();
         // tutorial event ( 골드 몬스터 사망 )
         if (currentMonster.monsterType == MonsterType.gold)
             EventManager.instance.RunEvent(CallBackEventType.TYPES.OnMonsterKillGoldMonster);

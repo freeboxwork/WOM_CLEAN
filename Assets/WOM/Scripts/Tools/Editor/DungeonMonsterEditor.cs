@@ -18,6 +18,7 @@ public class DungeonMonsterEditor : Editor
             // Display and edit member variables
 
             dungenMonster.curMonsterData = (DungenMonsterFileData)EditorGUILayout.ObjectField("Monster Data",dungenMonster.curMonsterData, typeof(DungenMonsterFileData));
+            
             dungenMonster.curMonsterData.goodsType = (EnumDefinition.GoodsType)EditorGUILayout.EnumPopup("Goods Type", dungenMonster.curMonsterData.goodsType);
             dungenMonster.curMonsterData.monsterType = (EnumDefinition.MonsterType)EditorGUILayout.EnumPopup("Monster Type", dungenMonster.curMonsterData.monsterType);
             dungenMonster.curMonsterData.monsterFaceId = EditorGUILayout.IntField("Monster Face ID", dungenMonster.curMonsterData.monsterFaceId);

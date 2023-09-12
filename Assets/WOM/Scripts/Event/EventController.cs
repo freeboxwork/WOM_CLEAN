@@ -74,7 +74,7 @@ public class EventController : MonoBehaviour
     {
         return globalData.player.curMonsterType == MonsterType.boss || globalData.player.curMonsterType == MonsterType.evolution || globalData.player.curMonsterType == MonsterType.dungeon;
     }
-#region MONSTER HIT
+    #region MONSTER HIT
     void EvnOnMonsterHit(EnumDefinition.InsectType insectType, int unionIndex = 0, Transform tr = null)
     {
         if (isMonsterDie) return;
@@ -299,7 +299,7 @@ public class EventController : MonoBehaviour
         }
 
     }
-#endregion
+    #endregion
     IEnumerator MonsterKill(MonsterBase currentMonster)
     {
 
@@ -354,7 +354,7 @@ public class EventController : MonoBehaviour
 
         // 골드 획득
         GainGold(currentMonster);
-             // sfx monster die
+        // sfx monster die
         globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.BossDie);
         // tutorial event ( 몬스터 골드 드랍 획득 )
         EventManager.instance.RunEvent(CallBackEventType.TYPES.OnTutorialAddGold);
@@ -370,14 +370,14 @@ public class EventController : MonoBehaviour
             yield return new WaitForSecondsRealtime(0.9f);
             Time.timeScale = 1f;
 
-                        // 보스 사냥 성공 전환 이펙트
+            // 보스 사냥 성공 전환 이펙트
             globalData.effectManager.EnableTransitionEffStageClear();
 
             // BG Color Change
             globalData.stageManager.bgAnimController.spriteColorAnim.ColorNormalAnim();
         }
 
-        if(currentMonster.monsterType == MonsterType.evolution)
+        if (currentMonster.monsterType == MonsterType.evolution)
         {
 
             Time.timeScale = 0.2f;
@@ -411,7 +411,7 @@ public class EventController : MonoBehaviour
 
         isMonsterDie = false;
     }
-#region  Gain Goods
+    #region  Gain Goods
     void GainGold(MonsterBase monster)
     {
         var gold = monster.gold;
@@ -432,7 +432,7 @@ public class EventController : MonoBehaviour
     {
         globalData.player.AddCoal(value);
     }
-#endregion
+    #endregion
     // 아이템 획득
     IEnumerator GainDungeonMonsterGoods(MonsterType monsterType)
     {
@@ -527,7 +527,7 @@ public class EventController : MonoBehaviour
         // SET STAGE DATA ( 다음 스테이지로 변경 )
         var newStageIdx = globalData.player.stageIdx + 1;
 
-        if(newStageIdx >= StaticDefine.MAX_STAGE)
+        if (newStageIdx >= StaticDefine.MAX_STAGE)
         {
             newStageIdx = StaticDefine.MAX_STAGE;
         }
@@ -802,13 +802,14 @@ public class EventController : MonoBehaviour
         SideUIMenuHide(false);
 
         yield return new WaitForSeconds(0.5f);// 메인메뉴 등장 애니메이션 연출이 끝날때까지 대기
-        // 등급 업그레이트 연출 시간 후 몬스터 등장
-        //yield return new WaitForSeconds(3f);
+                                              // 등급 업그레이트 연출 시간 후 몬스터 등장
+                                              //yield return new WaitForSeconds(3f);
 
         // 진화 메뉴 활성화
         // globalData.uiController.EnableMenuPanel(MenuPanelType.evolution);
 
-
+        // camera zoom In
+        globalData.stageManager.bgAnimController.CameraZoomIn();
         // 일반 몬스터 등장
         yield return StartCoroutine(MonsterAppearCor(MonsterType.normal));
 
@@ -930,6 +931,8 @@ public class EventController : MonoBehaviour
         // 트랜지션 효과
         globalData.effectManager.EnableTransitionEffEvolution();
 
+
+
         // 진화전 화면전환 이펙트
         yield return StartCoroutine(globalData.effectManager.EffTransitioEvolutionUpgrade(() =>
         {
@@ -983,8 +986,6 @@ public class EventController : MonoBehaviour
         // BGM CHANGE
         GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_EvolutionBoss);
 
-
-
         // 공격 가능 상태로 전환
         globalData.attackController.SetAttackableState(true);
 
@@ -992,6 +993,10 @@ public class EventController : MonoBehaviour
         UtilityMethod.EnableUIEventSystem(true);
         // 진화 몬스터 등장
         StartCoroutine(MonsterAppearCor(MonsterType.evolution));
+
+        // camera zoom out
+        globalData.stageManager.bgAnimController.CameraZoomOut_Evolution();
+
 
         isMonsterDie = false;
     }
@@ -1044,7 +1049,7 @@ public class EventController : MonoBehaviour
         globalData.stageManager.bgAnimController.spriteColorAnim.ColorChangeAnim();
 
         // camera zoom out
-        globalData.stageManager.bgAnimController.CameraZoomOut();
+        globalData.stageManager.bgAnimController.CameraZoomOut_Boss();
 
         // 보스 몬스터 등장
         StartCoroutine(MonsterAppearCor(MonsterType.boss));
@@ -1165,6 +1170,9 @@ public class EventController : MonoBehaviour
         //globalData.uiController.EnableMenuPanel(MenuPanelType.evolution);
         // 진화 몬스터 도전 버튼 활성화
         globalData.evolutionManager.EnableBtnEvolutionMonsterChange(true);
+
+        // camera zoom In
+        globalData.stageManager.bgAnimController.CameraZoomIn();
 
         // 일반 몬스터 등장
         yield return StartCoroutine(MonsterAppearCor(MonsterType.normal));
@@ -1363,6 +1371,9 @@ public class EventController : MonoBehaviour
 
         // 공격 가능 상태로 전환
         globalData.attackController.SetAttackableState(true);
+
+        // camera zoom In
+        globalData.stageManager.bgAnimController.CameraZoomIn();
 
         // 일반 몬스터 등장
         StartCoroutine(MonsterAppearCor(MonsterType.normal));

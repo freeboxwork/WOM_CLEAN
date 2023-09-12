@@ -27,8 +27,10 @@ public class BackgroundAnimController : MonoBehaviour
 
     public float camZoomInValue = 4.2f;
     public float camZoomInTime = 0.5f;
-    public float camZoomOutValue = 6.0f;
-    public float camZoomOutTime = 0.7f;
+    public float camZoomOutValueBoss = 6.0f;
+    public float camZoomOutValueEvolution = 9f;
+    public float camZoomOutTimeBoss = 0.7f;
+    public float camZoomOutTimeEvolution = 1.2f;
     public AnimationController camZoomAnimController;
 
 
@@ -57,18 +59,24 @@ public class BackgroundAnimController : MonoBehaviour
     //    }
     //}
 
-    public void CameraZoomOut()
+    public void CameraZoomOut_Boss()
     {
-        camZoomAnimController.animData.animDuration = camZoomOutTime;
-        StartCoroutine(camZoomAnimController.CameraSizeAnim(camZoomInValue, camZoomOutValue));
+        camZoomAnimController.animData.animDuration = camZoomOutTimeBoss;
+        StartCoroutine(camZoomAnimController.CameraSizeAnim(camZoomInValue, camZoomOutValueBoss));
     }
 
     public void CameraZoomIn()
     {
         camZoomAnimController.animData.animDuration = camZoomInTime;
-        StartCoroutine(camZoomAnimController.CameraSizeAnim(camZoomOutValue, camZoomInValue));
+        var zoomOutValue = camZoomAnimController.cam.orthographicSize;
+        StartCoroutine(camZoomAnimController.CameraSizeAnim(zoomOutValue, camZoomInValue));
     }
 
+    public void CameraZoomOut_Evolution()
+    {
+        camZoomAnimController.animData.animDuration = camZoomOutTimeEvolution;
+        StartCoroutine(camZoomAnimController.CameraSizeAnim(camZoomInValue, camZoomOutValueEvolution));
+    }
 
 
     public void SetBgTex_Back(Texture2D tex)

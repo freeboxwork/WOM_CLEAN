@@ -7,7 +7,7 @@ public class FirebaseManager : MonoBehaviour
 {
 
     FirebaseApp app;
-    public bool isInitComplete = false;
+    bool isInitComplete = false;
 
     private void Start()
     {

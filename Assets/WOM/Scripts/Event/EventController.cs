@@ -64,6 +64,11 @@ public class EventController : MonoBehaviour
     bool dungeonMonsterPopupClose = false;
     //bool dungeonMonsterPopupFinishParticle = false;
 
+    public bool CheckMonsterDie()
+    {
+        return isMonsterDie;
+    }
+
     // 몬스터 타입이 보스 or 진화보스인지 체크
     bool IsBossTypeMonster()
     {
@@ -1006,7 +1011,6 @@ public class EventController : MonoBehaviour
     bool isbossMonsterChallenge;
     IEnumerator ProcessBossMonsterChallenge()
     {
-
 
         // side menu hide
         SideUIMenuHide(true);

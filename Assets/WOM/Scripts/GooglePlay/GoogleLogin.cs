@@ -14,7 +14,7 @@ public class GoogleLogin : MonoBehaviour
         //멀티터치 비활성화
         Input.multiTouchEnabled = false;
         //프레임 고정
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = StaticDefine.FRAME_RATE;
         //화면 슬립 비활성화
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         DontDestroyOnLoad(this);

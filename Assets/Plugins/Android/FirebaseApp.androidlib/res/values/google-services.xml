@@ -1,12 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
-<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/firebase_database_url,@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_android_client_id,@string/default_web_client_id">
-  <string name="firebase_database_url" translatable="false">https://api-project-8442051-default-rtdb.firebaseio.com</string>
-  <string name="gcm_defaultSenderId" translatable="false">409222006936</string>
-  <string name="google_storage_bucket" translatable="false">api-project-8442051.appspot.com</string>
-  <string name="project_id" translatable="false">api-project-8442051</string>
-  <string name="google_api_key" translatable="false">AIzaSyByfOcDoTFF9KS-xcxp_clYhJxRvc1oamA</string>
-  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyByfOcDoTFF9KS-xcxp_clYhJxRvc1oamA</string>
-  <string name="google_app_id" translatable="false">1:409222006936:android:ae60892d54c0d60b7e28ed</string>
-  <string name="default_android_client_id" translatable="false">409222006936-851ruq8a0q2u3aad5ftcvc5g7uf9d02j.apps.googleusercontent.com</string>
-  <string name="default_web_client_id" translatable="false">409222006936-vmku2ig1g5qmjl5fkj1jb4kdl8411h2e.apps.googleusercontent.com</string>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_android_client_id,@string/default_web_client_id">
+  <string name="gcm_defaultSenderId" translatable="false">881093488580</string>
+  <string name="google_storage_bucket" translatable="false">api-project-76124717.appspot.com</string>
+  <string name="project_id" translatable="false">api-project-76124717</string>
+  <string name="google_api_key" translatable="false">AIzaSyDisiudeU_aBscNelSt9C59dlfXzlmlig4</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDisiudeU_aBscNelSt9C59dlfXzlmlig4</string>
+  <string name="google_app_id" translatable="false">1:881093488580:android:f6ed64c0c2ecb491dfbe91</string>
+  <string name="default_android_client_id" translatable="false">881093488580-6ombj25c76ac8pumrrqpun16l16ieeqr.apps.googleusercontent.com</string>
+  <string name="default_web_client_id" translatable="false">881093488580-83n4ils3ne07heu4mmndo814qvqgqcua.apps.googleusercontent.com</string>
 </resources>

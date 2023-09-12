@@ -36,7 +36,7 @@ public class GlobalController : MonoBehaviour
 
     public TutorialManager tutorialManager;
 
-
+    public FirebaseManager firebaseManager;
 
 
     void Start()
@@ -190,6 +190,9 @@ public class GlobalController : MonoBehaviour
         {
             tutorialManager.TutorialStart();
         }
+
+        firebaseManager.LogEvent("UserData","Stage",stageManager.stageData.stageId);
+
 
     }
 

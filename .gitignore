@@ -70,3 +70,11 @@ crashlytics-build.properties
 # Temporary auto-generated Android Assets
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
+Assets/WOM/Prefabs/Goods/Bone.prefab
+Assets/WOM/Prefabs/Goods/Gold.prefab
+Assets/WOM/Prefabs/Insects/Bee00.prefab
+Assets/WOM/Prefabs/Insects/Beetle00.prefab
+Assets/WOM/Prefabs/Insects/Mantis00.prefab
+Assets/WOM/Prefabs/Insects/Union.prefab
+Assets/WOM/Prefabs/UI/BattlePassSlot.prefab
+Assets/WOM/Prefabs/UI/SkillBtn.prefab

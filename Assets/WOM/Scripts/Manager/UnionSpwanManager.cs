@@ -12,12 +12,6 @@ public class UnionSpwanManager : MonoBehaviour
     public List<UnionSpwanTimer> spwanTimerList = new List<UnionSpwanTimer>();
     public SpriteFileData spriteFileData;
 
-
-    void Start()
-    {
-
-    }
-
     public IEnumerator Init()
     {
         CreateTimer();
@@ -53,9 +47,8 @@ public class UnionSpwanManager : MonoBehaviour
         GetSpwanTimer(equipSlotIndex).TimerStop();
 
         yield return new WaitForEndOfFrame();
-        
         // start spawn
-        GetSpwanTimer(equipSlotIndex).TimerStart( unionSlot);
+        GetSpwanTimer(equipSlotIndex).TimerStart(unionSlot);
     }
 
     

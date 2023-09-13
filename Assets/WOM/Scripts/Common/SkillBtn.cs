@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
+using DG.Tweening;
 
 public class SkillBtn : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class SkillBtn : MonoBehaviour
 
     public Color colorDeem;
     public Color colorWhite;
+
+    public Image backLightImage;
 
     public AnimData animDataUsingSkill;
     public AnimData animDataReloadSkill;
@@ -60,11 +63,17 @@ public class SkillBtn : MonoBehaviour
         if (skillAddValue)
         {
             StartCoroutine(ReloadStillUseingSkill_Cor());
+            return;
         }
         if (skillAddValue == false && isCoolTime)
         {
             StartCoroutine(ReloadStillWaitCoolTime());
+            return;
         }
+
+        
+        backLightImage.DOColor(new Color(1, 1, 1, 0), 0.5f).SetLoops(-1, LoopType.Yoyo);
+
     }
 
     void SetBtnEvent()
@@ -134,6 +143,9 @@ public class SkillBtn : MonoBehaviour
             //yield return new WaitUntil(() =>  GlobalData.instance.statManager.transitionUI == false);
             skillAddValue = true;
 
+            //backLightImage.DOColor의 Loop를 종료
+            backLightImage.DOKill();
+
             while (skillLeftTime > 0)
             {
 
@@ -176,15 +188,8 @@ public class SkillBtn : MonoBehaviour
             }
 
             //Debug.Log("스킬 재사용 대기 시간 종료");
-            GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, 0);
-            GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, false);
+            SetEndCoolTime();
 
-            imgSkillFront.fillAmount = 0;
-            isCoolTime = false;
-            txtTime.enabled = false;
-            coolTimeWait = 0;
-            btnSkill.enabled = true;
-            skillReady = true;
 
         }
         yield return null;
@@ -242,6 +247,8 @@ public class SkillBtn : MonoBehaviour
         // 스킬 사용 대기
         float calcSkillTime = skillLeftTime;
         var skillStartTime = Time.time;
+        //backLightImage.DOColor의 Loop를 종료
+        backLightImage.DOKill();
         while (skillLeftTime > 0)
         {
             skillLeftTime = calcSkillTime - (Time.time - skillStartTime);
@@ -275,14 +282,8 @@ public class SkillBtn : MonoBehaviour
             yield return null;
         }
 
-        GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, 0);
-        GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, false);
+        SetEndCoolTime();
 
-        isCoolTime = false;
-        txtTime.enabled = false;
-        coolTimeWait = 0;
-        btnSkill.enabled = true;
-        skillReady = true;
     }
 
     //캐슬을 갔다온 후 스킬이 Duration이 끝났지만 쿨타임이 남아 있다면
@@ -311,6 +312,8 @@ public class SkillBtn : MonoBehaviour
 
         float calcCooltime = coolTimeWait;
         var startTime = Time.time;
+        //backLightImage.DOColor의 Loop를 종료
+        backLightImage.DOKill();
         while (coolTimeWait > 0)
         {
             coolTimeWait = calcCooltime - (Time.time - startTime);
@@ -319,15 +322,8 @@ public class SkillBtn : MonoBehaviour
             yield return null;
         }
 
-        GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, 0);
-        GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, false);
-        imgSkillFront.fillAmount = 0;
+        SetEndCoolTime();
 
-        isCoolTime = false;
-        txtTime.enabled = false;
-        coolTimeWait = 0;
-        btnSkill.enabled = true;
-        skillReady = true;
     }
 
     public void ReloadCoolTime()
@@ -412,7 +408,8 @@ public class SkillBtn : MonoBehaviour
                     float calcCooltime = animDataReloadSkill.animDuration;
                     var startTime = Time.time;
                     coolTimeWait = calcCooltime;
-
+                    //backLightImage.DOColor의 Loop를 종료
+                    backLightImage.DOKill();
                     while (coolTimeWait > 0)
                     {
                         coolTimeWait = calcCooltime - (Time.time - startTime);
@@ -423,15 +420,7 @@ public class SkillBtn : MonoBehaviour
 
                 }
 
-                coolTimeWait = 0;
-                btnSkill.enabled = true;
-                skillReady = true;
-                txtTime.enabled = false;
-                imgSkillFront.fillAmount = 0;
-                isCoolTime = false;
-
-                GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, 0);
-                GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, false);
+                SetEndCoolTime();
             }
         }
 
@@ -439,6 +428,22 @@ public class SkillBtn : MonoBehaviour
 
     }
 
+    void SetEndCoolTime()
+    {
+        coolTimeWait = 0;
+        btnSkill.enabled = true;
+        skillReady = true;
+        txtTime.enabled = false;
+        imgSkillFront.fillAmount = 0;
+        isCoolTime = false;
+
+        GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, 0);
+        GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, false);
+
+        //이미지의 Color의 Alpha 값을 1초동안 1과 0을 반복한다
+        backLightImage.DOColor(new Color(1, 1, 1, 0), 0.5f).SetLoops(-1, LoopType.Yoyo);
+    }
 
 
 }
+

@@ -142,8 +142,6 @@ public class QuestPopup : MonoBehaviour
 
         slot.SetBlockImage(isLock);
 
-        var buyPass = GlobalData.instance.questManager.IsBattlePassBuy();
-        slot.SetBlockPassImage(!buyPass);
 
         // 리워드 사용확인
         if (isLock == false)
@@ -159,6 +157,14 @@ public class QuestPopup : MonoBehaviour
             }
 
             slot.SetBtnRewardInteractable(enableCurrentValue);
+
+            var buyPass = GlobalData.instance.questManager.IsBattlePassBuy();
+
+            if(buyPass == false)
+            {
+                slot.SetBtnPassRewardInteractable(false);
+                return;
+            }
 
             string loadKeyBuyItem = GlobalData.instance.questManager.keyBuyBattlePass + "_" + data.targetStage;
             bool enablePassValue = true;
@@ -246,7 +252,15 @@ public class QuestPopup : MonoBehaviour
     public void AllUnlockBattlePassSlotItem()
     {
         foreach (var slot in battlePassSlots)
+        {
             slot.SetBlockPassImage(false);
+
+            if(slot.IsActiveHideBlockImage() == false)
+            {
+                slot.SetBtnPassRewardInteractable(true);
+            }
+
+        }
     }
 
     BattlePassSlot GetBattlePassSlotByStage(int stage)

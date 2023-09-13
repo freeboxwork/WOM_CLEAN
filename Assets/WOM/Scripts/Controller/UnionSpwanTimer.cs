@@ -5,30 +5,19 @@ using UnityEngine;
 public class UnionSpwanTimer : MonoBehaviour
 {
     public UnionSpwanManager spwanManager;
-    public float spwanTime;
+    float spwanTime;
+    float currentTime;
     public bool isTimerReady;
     public int timerIndex;
 
     UnionSlot unionSlot;
 
-
-    void Start()
-    {
-
-    }
-
-    public void SetSpwanTime(float time)
-    {
-        spwanTime = time;
-    }
-
     public void TimerStart(UnionSlot unionSlot)
     {
         this.unionSlot = unionSlot;
         isTimerReady = true;
-        var _spwanTime = GlobalData.instance.statManager.GetUnionSpwanSpeed(unionSlot.inGameData.unionIndex);
-        //SetSpwanTime(unionSlot.inGameData.spawnTime);
-        SetSpwanTime((float)_spwanTime);
+        spwanTime = (float)GlobalData.instance.statManager.GetUnionSpwanSpeed(unionSlot.inGameData.unionIndex);
+        currentTime = spwanTime * 0.5f;
         StartCoroutine(SpwanTimer());
     }
 
@@ -39,58 +28,61 @@ public class UnionSpwanTimer : MonoBehaviour
         StopAllCoroutines();
     }
 
+    public float GetLeftTime()  
+    {
+        return currentTime;
+    }
+
     IEnumerator SpwanTimer()
     {
         while (isTimerReady)
         {
-            var waitTime = GlobalData.instance.statManager.GetUnionSpwanSpeed(unionSlot.inGameData.unionIndex);
-            SetSpwanTime((float)waitTime);
 
-            // yield return new WaitUntil(() => GlobalData.instance.attackController.GetAttackableState() == true);
+            currentTime -= Time.deltaTime;
 
-            // set union data
-            var union = GlobalData.instance.insectManager.GetDisableUnion();
-            union.inGameData = unionSlot.inGameData;
+            if(currentTime <= 0)
+            {
+                currentTime = spwanTime;
 
-            // set union face
-            var sprite = spwanManager.spriteFileData.GetSpriteData(unionSlot.inGameData.unionIndex);
-            union.SetInsectFace(sprite);
+                // set union data
+                var union = GlobalData.instance.insectManager.GetDisableUnion();
+                union.inGameData = unionSlot.inGameData;
 
-            // set order layer
-            if (IsFlying(unionSlot.inGameData.unionIndex))
-                union.spriteRenderer.sortingOrder = 31;
-            else
-                union.spriteRenderer.sortingOrder = 10;
+                // set union face
+                var sprite = spwanManager.spriteFileData.GetSpriteData(unionSlot.inGameData.unionIndex);
+                union.SetInsectFace(sprite);
 
+                // set order layer
+                if (IsFlying(unionSlot.inGameData.unionIndex))
+                    union.spriteRenderer.sortingOrder = 31;
+                else
+                    union.spriteRenderer.sortingOrder = 10;
 
+                // set position
+                var randomPos = spwanManager.GetRandomPos();
+                union.gameObject.transform.position = randomPos;
 
+                // enable insect
+                union.gameObject.SetActive(true);
+                GlobalData.instance.insectManager.AddEnableInsects(union);
 
-            // set position
-            var randomPos = spwanManager.GetRandomPos();
-            union.gameObject.transform.position = randomPos;
+                // skill effect
+                yield return new WaitForEndOfFrame();
 
-            // spwan time 대기
-            yield return new WaitForSeconds(spwanTime);
+                if (GlobalData.instance.skillManager.IsUsingSkillByType(EnumDefinition.SkillType.insectDamageUp))
+                    union.effectContoller.AuraEffect(true);
+                if (GlobalData.instance.skillManager.IsUsingSkillByType(EnumDefinition.SkillType.unionDamageUp))
+                    union.effectContoller.FireEffect(true);
+                if (GlobalData.instance.skillManager.IsUsingSkillByType(EnumDefinition.SkillType.allUnitSpeedUp))
+                    union.effectContoller.TrailEffect(true);
+                if (GlobalData.instance.skillManager.IsUsingSkillByType(EnumDefinition.SkillType.glodBonusUp))
+                    union.effectContoller.GoldEffect(true);
+                if (GlobalData.instance.skillManager.IsUsingSkillByType(EnumDefinition.SkillType.allUnitCriticalChanceUp))
+                    union.effectContoller.ThunderEffect(true);
+                // Debug.Log($"타이머 인덱스 : {timerIndex} _ 스폰 유니온 : {sprite[0].name} _ 스폰 타임 : {spwanTime}");
+            }
 
-            // enable insect
-            union.gameObject.SetActive(true);
-            GlobalData.instance.insectManager.AddEnableInsects(union);
-
-            // skill effect
             yield return new WaitForEndOfFrame();
-
-            if (GlobalData.instance.skillManager.IsUsingSkillByType(EnumDefinition.SkillType.insectDamageUp))
-                union.effectContoller.AuraEffect(true);
-            if (GlobalData.instance.skillManager.IsUsingSkillByType(EnumDefinition.SkillType.unionDamageUp))
-                union.effectContoller.FireEffect(true);
-            if (GlobalData.instance.skillManager.IsUsingSkillByType(EnumDefinition.SkillType.allUnitSpeedUp))
-                union.effectContoller.TrailEffect(true);
-            if (GlobalData.instance.skillManager.IsUsingSkillByType(EnumDefinition.SkillType.glodBonusUp))
-                union.effectContoller.GoldEffect(true);
-            if (GlobalData.instance.skillManager.IsUsingSkillByType(EnumDefinition.SkillType.allUnitCriticalChanceUp))
-                union.effectContoller.ThunderEffect(true);
-            // Debug.Log($"타이머 인덱스 : {timerIndex} _ 스폰 유니온 : {sprite[0].name} _ 스폰 타임 : {spwanTime}");
-
 
         }
     }

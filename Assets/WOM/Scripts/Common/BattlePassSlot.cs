@@ -75,7 +75,10 @@ public class BattlePassSlot : MonoBehaviour
     {
         blockImage.gameObject.SetActive(isBlock);
     }
-
+    public bool IsActiveHideBlockImage()
+    {
+        return blockImage.gameObject.activeSelf;
+    }
     public void SetBlockPassImage(bool isBlock)
     {
         blockPassImage.gameObject.SetActive(isBlock);
@@ -91,7 +94,7 @@ public class BattlePassSlot : MonoBehaviour
     public void SetBtnPassRewardInteractable(bool isActive)
     {
         btnPassReward.interactable = isActive;
-        ShowBlockPassImage(isActive);
+        ShowBlockPassImage(!isActive);
 
     }
 
@@ -101,7 +104,7 @@ public class BattlePassSlot : MonoBehaviour
     }
     void ShowBlockPassImage(bool show)
     {
-        blockPass.SetActive(!show);
+        blockPass.SetActive(show);
     }
 
 }

@@ -13,7 +13,6 @@ public class InsectBullet : MonoBehaviour
     public EnumDefinition.InsectType insectType;
     public AnimData animData;
     public ParticleSystem effDisable;
-    //public SpriteRenderer spriteRenderer;
     public InsectSpriteAnimation spriteAnim;
 
     float minSpeed = 50f;

@@ -28,9 +28,9 @@ public class BackgroundAnimController : MonoBehaviour
     public float camZoomInValue = 4.2f;
     public float camZoomInTime = 0.5f;
     public float camZoomOutValueBoss = 6.0f;
-    public float camZoomOutValueEvolution = 9f;
+    public float camZoomOutValueEvolution = 7.7f;
     public float camZoomOutTimeBoss = 0.7f;
-    public float camZoomOutTimeEvolution = 1.2f;
+    public float camZoomOutTimeEvolution = 0.7f;
     public AnimationController camZoomAnimController;
 
 

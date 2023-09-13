@@ -2,7 +2,7 @@
  {
    "level": 0,
    "currencyAmount": 0,
-   "monsterHP": 80000,
+   "monsterHP": 112000,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 1"
@@ -10,7 +10,7 @@
  {
    "level": 1,
    "currencyAmount": 50,
-   "monsterHP": 276000,
+   "monsterHP": 322000,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 2"

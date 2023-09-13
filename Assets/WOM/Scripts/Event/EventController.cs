@@ -14,7 +14,7 @@ public class EventController : MonoBehaviour
     // 죽기전 남은 데미지 + 추가 데미지
     double dungeonMonsterAddDamage;
 
-    public
+    public bool isBossDie = false;
 
     void Start()
     {
@@ -365,7 +365,7 @@ public class EventController : MonoBehaviour
             yield return StartCoroutine(globalData.effectManager.bonePoolingCont.EnableGoldEffects(currentMonster.boneCount));
             // 뼈 조각 획득
             GainBone(currentMonster);
-
+            isBossDie = true;
             Time.timeScale = 0.2f;
             yield return new WaitForSecondsRealtime(0.9f);
             Time.timeScale = 1f;
@@ -375,11 +375,12 @@ public class EventController : MonoBehaviour
 
             // BG Color Change
             globalData.stageManager.bgAnimController.spriteColorAnim.ColorNormalAnim();
+
         }
 
         if (currentMonster.monsterType == MonsterType.evolution)
         {
-
+            isBossDie = true;
             Time.timeScale = 0.2f;
             yield return new WaitForSecondsRealtime(2f);
             Time.timeScale = 1f;
@@ -410,6 +411,7 @@ public class EventController : MonoBehaviour
             case MonsterType.boss: StartCoroutine(MonsterDie_Boss()); break;
             case MonsterType.evolution: StartCoroutine(MonsterDie_Evolution()); break;
         }
+        isBossDie = false;
 
         isMonsterDie = false;
     }
@@ -598,7 +600,6 @@ public class EventController : MonoBehaviour
 
     IEnumerator DungeonMonsterAppear(MonsterType monsterType)
     {
-
         // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
         StartCoroutine(globalData.effectManager.goldPoolingCont.DisableGoldEffects());
 
@@ -690,6 +691,7 @@ public class EventController : MonoBehaviour
 
         // 던전 몬스터 등장
         yield return StartCoroutine(monster.inOutAnimator.AnimPositionIn());
+        isBossDie = false;
 
         // 전체 UI 활성
         UtilityMethod.EnableUIEventSystem(true);
@@ -706,7 +708,6 @@ public class EventController : MonoBehaviour
         // 공격 가능 상태로 전환
         globalData.attackController.SetAttackableState(true);
 
-        isMonsterDie = false;
     }
 
     //진화 몬스터 사망시

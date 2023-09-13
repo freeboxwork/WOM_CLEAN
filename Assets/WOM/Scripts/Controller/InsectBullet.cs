@@ -19,6 +19,7 @@ public class InsectBullet : MonoBehaviour
     float maxSpeed = 500f;
     float speed = 1f;
 
+    float currentSpeed;
     Vector3 lookDir;
 
     // UNION
@@ -83,7 +84,7 @@ public class InsectBullet : MonoBehaviour
         animData.ResetAnimData();
         var animPoints = GetAnimPoints();
         speed = GetSpeed();
-
+        currentSpeed = speed;
 
         while (animData.animValue < 0.99f)
         {
@@ -106,7 +107,7 @@ public class InsectBullet : MonoBehaviour
     public IEnumerator AttackMove()
     {
         var targetPoint = GetRandomMonsterPoint();
-        var speed = GetSpeed();
+        speed = GetSpeed();
 
         while (!IsGoalTargetPoint(targetPoint))
         {
@@ -118,7 +119,7 @@ public class InsectBullet : MonoBehaviour
             direction.Normalize();
 
             // 직선 이동
-            transform.position = GetMovePosition(direction, speed);
+            transform.position = GetMovePosition(direction, currentSpeed);
 
             // 회전
             lookDir = (targetPoint - transform.position);
@@ -132,6 +133,10 @@ public class InsectBullet : MonoBehaviour
     {
         float resultSpeed = UtilityMethod.RemapValue(speed, minSpeed,maxSpeed,1f,4f);
 
+        if (GlobalData.instance.eventController.isBossDie)
+        {
+            resultSpeed = 0.1f;
+        }
         return transform.position - direction * Time.deltaTime * resultSpeed;
 
     }

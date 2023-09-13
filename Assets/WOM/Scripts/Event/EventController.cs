@@ -389,7 +389,7 @@ public class EventController : MonoBehaviour
 
         // monster kill animation 사망 애니메이션 대기
         yield return StartCoroutine(currentMonster.inOutAnimator.MonsterKillMatAnim());
-        globalData.effectManager.EnableMonsterDieAfterEffect();
+        //globalData.effectManager.EnableMonsterDieAfterEffect();
 
         // 하프라인 위쪽 곤충들 제거
         globalData.insectManager.DisableHalfLineInsects();

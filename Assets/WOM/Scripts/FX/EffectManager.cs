@@ -357,12 +357,20 @@ public class EffectManager : MonoBehaviour
 
     public void EnableMonsterDieBeforeEffect()
     {
-        if (monsterDieBeforeEffect.activeInHierarchy == false)
-            monsterDieBeforeEffect.SetActive(true);
+        if (monsterDieBeforeEffect.activeInHierarchy)
+        {
+            monsterDieBeforeEffect.SetActive(false);
+        }
+
+        monsterDieBeforeEffect.SetActive(true);
     }
     public void EnableMonsterDieAfterEffect()
     {
-        if (monsterDieAfterEffect.activeInHierarchy == false)
-            monsterDieAfterEffect.SetActive(true);
+        if (monsterDieAfterEffect.activeInHierarchy)
+        {
+            monsterDieAfterEffect.SetActive(false);
+        }
+
+        monsterDieAfterEffect.SetActive(true);
     }
 }

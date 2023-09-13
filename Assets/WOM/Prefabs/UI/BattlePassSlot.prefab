@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 3286186118351248182}
   - component: {fileID: 1132235170}
   m_Layer: 5
-  m_Name: btnReward
+  m_Name: battlePassCommonRewardButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -522,7 +522,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 8685874516735610960}
   m_OnClick:
     m_PersistentCalls:
@@ -1070,7 +1070,7 @@ GameObject:
   - component: {fileID: 7721811362698929104}
   - component: {fileID: 398310072}
   m_Layer: 5
-  m_Name: BtnPassReward
+  m_Name: battlePassVipRewardButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1176,7 +1176,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 7721811361864434893}
   m_OnClick:
     m_PersistentCalls:

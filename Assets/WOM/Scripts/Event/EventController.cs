@@ -315,7 +315,8 @@ public class EventController : MonoBehaviour
 
         // hp slider
         globalData.uiController.SetSliderMonsterHp(0);
-
+        // sfx monster die
+        globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.BossDie);
         //금광 보스 인지 체크
         if (currentMonster.monsterType == MonsterType.gold)
         {
@@ -352,10 +353,8 @@ public class EventController : MonoBehaviour
         //     globalData.stageManager.bgAnimController.spriteColorAnim.ColorNormalAnim();
         // }
 
-        // 골드 획득
-        GainGold(currentMonster);
-        // sfx monster die
-        globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.BossDie);
+
+
         // tutorial event ( 몬스터 골드 드랍 획득 )
         EventManager.instance.RunEvent(CallBackEventType.TYPES.OnTutorialAddGold);
 
@@ -363,14 +362,14 @@ public class EventController : MonoBehaviour
         if (currentMonster.monsterType == MonsterType.boss)
         {
             yield return StartCoroutine(globalData.effectManager.bonePoolingCont.EnableGoldEffects(currentMonster.boneCount));
-            // 뼈 조각 획득
-            GainBone(currentMonster);
+
             isBossDie = true;
             Time.timeScale = 0.2f;
             yield return new WaitForSecondsRealtime(0.9f);
             Time.timeScale = 1f;
-
-            // 보스 사냥 성공 전환 이펙트
+            // 뼈 조각 획득
+            GainBone(currentMonster);
+            // 보스 사냥 성공 전환 이펙트FAppr
             globalData.effectManager.EnableTransitionEffStageClear();
 
             // BG Color Change
@@ -387,7 +386,8 @@ public class EventController : MonoBehaviour
             // 보스 사냥 성공 전환 이펙트
             globalData.effectManager.EnableTransitionEffStageClear();
         }
-
+        // 골드 획득
+        GainGold(currentMonster);
         // monster kill animation 사망 애니메이션 대기
         yield return StartCoroutine(currentMonster.inOutAnimator.MonsterKillMatAnim());
         //globalData.effectManager.EnableMonsterDieAfterEffect();
@@ -884,7 +884,6 @@ public class EventController : MonoBehaviour
         // Monster In Animation
         yield return StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionIn());
 
-
         // Tutorial Event ( 골드 몬스터 등장 )
         if (monsterType == MonsterType.gold)
             EventManager.instance.RunEvent(CallBackEventType.TYPES.OnStageInGoldMonster);
@@ -1032,6 +1031,8 @@ public class EventController : MonoBehaviour
 
         // 일반 몬스터 OUT
         yield return StartCoroutine(globalData.player.currentMonster.inOutAnimator.MonsterKillMatAnim());
+        
+        globalData.effectManager.EnableTransitionEffBossAttack();
 
         // 보스 도전 버튼 숨김
         globalData.uiController.btnBossChallenge.gameObject.SetActive(false);
@@ -1056,10 +1057,10 @@ public class EventController : MonoBehaviour
 
         // 보스 몬스터 등장
         StartCoroutine(MonsterAppearCor(MonsterType.boss));
-
         // 타이머 계산 시작
         globalData.bossChallengeTimer.StartTimer();
 
+        globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.BossIn);
         // TODO: 구조적인 변경 필요함. ( MONSTER HIT 이벤트 막는 처리 )
         isMonsterDie = false;
     }

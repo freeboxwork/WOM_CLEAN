@@ -215,7 +215,6 @@ public class SoundManager : MonoBehaviour
     {
         playerSfxInGame.clip = sfxList[(int)sfxType];
         playerSfxInGame.volume = sfxVolume;
-
         playerSfxInGame.Play();
     }
 

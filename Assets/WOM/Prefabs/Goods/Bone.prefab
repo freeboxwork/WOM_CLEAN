@@ -73,9 +73,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 348848675
-  m_SortingLayer: 5
-  m_SortingOrder: 2
+  m_SortingLayerID: -343103375
+  m_SortingLayer: 8
+  m_SortingOrder: 49
   m_Sprite: {fileID: 21300000, guid: 1e6d806aab5b44fbb8a85864864a2a3d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataName: gold out
   animCurveType: 7
-  animDuration: 0.5
+  animDuration: 0.8
   value: 0
   animTime: 0
   animValue: 0
@@ -120,7 +120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dataName: gild in
   animCurveType: 3
-  animDuration: 0.5
+  animDuration: 0.6
   value: 0
   animTime: 0
   animValue: 0

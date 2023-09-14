@@ -343,7 +343,8 @@ public class EnumDefinition
         Typewriter,
         Upgrade,
         UnionLevelUp,
-        Unique
+        Unique,
+        BossIn
     }
 
     public enum CastlePopupType

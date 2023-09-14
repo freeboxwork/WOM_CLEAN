@@ -372,6 +372,7 @@ public class UnionManager : MonoBehaviour
     // 전체 유니온 레벨업
     void TotlaUnionLevelUp()
     {
+        GlobalData.instance.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.UnionLevelUp);
         for (int i = 0; i < unionSlots.Count; i++)
         {
             var slot = unionSlots[i]; 

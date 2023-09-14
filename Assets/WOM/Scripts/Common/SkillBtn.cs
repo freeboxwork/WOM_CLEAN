@@ -25,6 +25,7 @@ public class SkillBtn : MonoBehaviour
 
     public EnumDefinition.SkillType skillType;
 
+    Color white = Color.white;
     /* PROCESS
     
     1 : BACK COLOR DEEM
@@ -71,7 +72,7 @@ public class SkillBtn : MonoBehaviour
             return;
         }
 
-        
+        backLightImage.color = white;
         backLightImage.DOColor(new Color(1, 1, 1, 0), 0.5f).SetLoops(-1, LoopType.Yoyo);
 
     }
@@ -441,6 +442,7 @@ public class SkillBtn : MonoBehaviour
         GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, false);
 
         //이미지의 Color의 Alpha 값을 1초동안 1과 0을 반복한다
+        backLightImage.color = white;
         backLightImage.DOColor(new Color(1, 1, 1, 0), 0.5f).SetLoops(-1, LoopType.Yoyo);
     }
 

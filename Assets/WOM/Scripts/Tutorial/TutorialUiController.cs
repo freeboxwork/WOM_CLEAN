@@ -18,6 +18,9 @@ public class TutorialUiController : MonoBehaviour
     public Image imgMaskParent;
     public Image txtImageBg;
 
+    public Image imgArrow;
+
+    public RectTransform rectUnMask;
 
     float typingSpeed = 0.01f;
     private string fullText;
@@ -29,7 +32,7 @@ public class TutorialUiController : MonoBehaviour
     public GameObject btnScreen;
 
 
- 
+
     public void EnableTutorialMask(string message, Image image, Button button, int btnId)
     {
         ShowOnlyText(false);
@@ -39,8 +42,8 @@ public class TutorialUiController : MonoBehaviour
         imgUnmask.sprite = image.sprite;
         unmask.fitTarget = image.rectTransform;
         //circleRect.position = unmask.fitTarget.position;
-        
 
+        imgArrow.rectTransform.anchoredPosition = new Vector2(rectUnMask.anchoredPosition.x, rectUnMask.anchoredPosition.y + rectUnMask.sizeDelta.y);
 
         tutoBtn.onClick.RemoveAllListeners();
         tutoBtn.onClick.AddListener(() =>
@@ -50,7 +53,7 @@ public class TutorialUiController : MonoBehaviour
             //tutorialManager.CompleteStep();
         });
     }
-    
+
     bool skipText;
     IEnumerator TypeText()
     {

@@ -278,22 +278,11 @@ public class UnionManager : MonoBehaviour
 
     public double GetUnionDamage(UnionSlot slot)
     {
+        var square = 2^slot.inGameData.level;
 
-        //damage = damage * 2^level
-        
+        var damage = slot.unionData.damage * square;
 
-
-
-
-
-
-
-
-
-
-
-
-        var damage = slot.unionData.damage + (slot.inGameData.level * slot.unionData.addDamage);
+        //var damage = slot.unionData.damage + (slot.inGameData.level * slot.unionData.addDamage);
         return damage;
     }
     public double GetUnionDamageNextLevel(UnionSlot slot)

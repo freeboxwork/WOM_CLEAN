@@ -19,7 +19,7 @@
    "id": 2,
    "buttonSprite": "BaseButton",
    "currencySprite": "Gold",
-   "trainingName": "곤충 치명타 공격력",
+   "trainingName": "곤충 치명타 공격률",
    "trainingType": "trainingCriticalDamage",
    "goodsType": "gold"
  },
@@ -43,7 +43,7 @@
    "id": 5,
    "buttonSprite": "BaseButton",
    "currencySprite": "Bone",
-   "trainingName": "곤충 추가 치명타 공격력",
+   "trainingName": "곤충 추가 치명타 공격률",
    "trainingType": "talentCriticalDamage",
    "goodsType": "bone"
  },

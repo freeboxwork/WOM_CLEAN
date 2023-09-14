@@ -42,7 +42,12 @@ public class PopupButton : MonoBehaviour
         while(time > 0)
         {
             time -= Time.deltaTime;
-            closeCountText.text = string.Format("{0}s",Math.Floor(time));
+            var t = Math.Floor(time);
+            if(t < 0)
+            {
+                t = 0;
+            }
+            closeCountText.text = string.Format("{0}s",t);
             yield return null;
         }
 

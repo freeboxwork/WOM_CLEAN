@@ -87,7 +87,7 @@ public class ShopKeyProductSlot : MonoBehaviour
 
     void UpdateUI()
     {
-        var txtVelue = $"{leftKeyCount} / {maxKeyCount}";
+        var txtVelue = $"일일 구매 가능 횟수 (<color=#40ff80>{leftKeyCount}/{maxKeyCount})</color>";
         txtKeyCount.text = txtVelue;
     }
 

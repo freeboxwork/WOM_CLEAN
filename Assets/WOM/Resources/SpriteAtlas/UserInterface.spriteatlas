@@ -108,11 +108,9 @@ SpriteAtlas:
   - {fileID: 21300000, guid: b7f8bfd392d81274a908c044ed3ab170, type: 3}
   - {fileID: 21300000, guid: f562abf327dc2c04cb5deb29621b7f78, type: 3}
   - {fileID: 21300000, guid: 2a6cd024548dd744687d7b542726d203, type: 3}
-  - {fileID: 21300000, guid: d1f580442e86ca14fb6b17edc84172f8, type: 3}
   - {fileID: 21300000, guid: 5de53164a29e57740a86d962b8865fd9, type: 3}
   - {fileID: 21300000, guid: 340d1564ed4494e4b8417382c081075c, type: 3}
   - {fileID: 21300000, guid: 37fdea646e2a2f242a17524c6067ae00, type: 3}
-  - {fileID: 21300000, guid: 8d5f43a43d2a349dc84b1fc2c3df60d7, type: 3}
   - {fileID: 21300000, guid: 72645ea453ca6c74ead129f629168a49, type: 3}
   - {fileID: 21300000, guid: eced51b430ffb5a43b3c04631438dd6a, type: 3}
   - {fileID: 21300000, guid: fa9c8ab4585c04c41a755bc5ec44ec46, type: 3}
@@ -204,7 +202,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 9af91e5be2e007d4bac5e184e8455f0a, type: 3}
   - {fileID: 21300000, guid: d1def07b59a70aa4098c3266acbc6f0b, type: 3}
   - {fileID: 21300000, guid: 81afdb7ba375c4392875bf182c0a1975, type: 3}
-  - {fileID: 21300000, guid: 81ea3bab0a06aca42b54331ff60f8b3b, type: 3}
   - {fileID: 21300000, guid: 77f044bb9753f1945afbb5bebb8a6850, type: 3}
   - {fileID: 21300000, guid: d360b8bbe415d394eb2365aad661fe22, type: 3}
   - {fileID: 21300000, guid: 6703720c6d5b76a47bc50dd799691e1e, type: 3}
@@ -319,11 +316,9 @@ SpriteAtlas:
   - ClearBox_TopRound
   - Arrow
   - btn_Boss
-  - Coin_Silver
   - btn_Base_White
   - Icon_DamageUp_Per
   - Shop_Union
-  - Gem
   - Slider03_Icon1
   - UI_Lock
   - btn_inside
@@ -415,7 +410,6 @@ SpriteAtlas:
   - Icon_Gift
   - 256
   - Shop_Package00
-  - Coin
   - Key_Skull
   - btn_Base_RollOver
   - Key_Gold

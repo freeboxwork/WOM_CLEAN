@@ -77,7 +77,6 @@ public class EffectManager : MonoBehaviour
     // king monster effect
     public GameObject[] effectKingMonsterHits;
 
-    public GameObject monsterDieAfterEffect;
     public GameObject monsterDieBeforeEffect;
 
     void Start()
@@ -363,14 +362,5 @@ public class EffectManager : MonoBehaviour
         }
 
         monsterDieBeforeEffect.SetActive(true);
-    }
-    public void EnableMonsterDieAfterEffect()
-    {
-        if (monsterDieAfterEffect.activeInHierarchy)
-        {
-            monsterDieAfterEffect.SetActive(false);
-        }
-
-        monsterDieAfterEffect.SetActive(true);
     }
 }

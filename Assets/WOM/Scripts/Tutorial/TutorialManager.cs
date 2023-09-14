@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+using TMPro;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -65,12 +66,13 @@ public class TutorialManager : MonoBehaviour
         {
             isTutorial = true;
             EnableTutorialSet();
-            tutorialPlayingTextBox.gameObject.SetActive(true);
+            //tutorialPlayingTextBox.gameObject.SetActive(true);
+            
         }
         else
         {
             isTutorial = false;
-            tutorialPlayingTextBox.gameObject.SetActive(false);
+            //tutorialPlayingTextBox.gameObject.SetActive(false);
             Debug.Log("모든 투토리얼 완료");
         }
     }
@@ -181,10 +183,13 @@ public class TutorialManager : MonoBehaviour
         EnableTutorialStep(step);
     }
 
-
+    public TextMeshProUGUI tutorialProgressText;
     void EnableTutorialStep(TutorialStep stepData)
     {
+        var lastSetID = tutorialStepData.data.Max(m => m.setId);
+        tutorialPlayingTextBox.gameObject.SetActive(true);
 
+        tutorialProgressText.text = $"튜토리얼 진행중... {stepData.setId + 1}/{lastSetID + 1}";
         // set id , step id log
         Debug.Log($"Tutorial Set ID : {stepData.setId} , Step ID : {stepData.step}");
 
@@ -237,6 +242,7 @@ public class TutorialManager : MonoBehaviour
             curTutorialStepID = 0;
 
             tutorialUiCont.DisableTutorial();
+            tutorialPlayingTextBox.gameObject.SetActive(false);
 
             // set save data
             GlobalData.instance.saveDataManager.SaveDataTutorialSetID(curTutorialSetID);

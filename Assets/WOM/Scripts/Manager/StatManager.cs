@@ -136,14 +136,6 @@ public class StatManager : MonoBehaviour
 
         var value = ies + tms + ims + diceIms + skill_AllUnitSpeedUp;
         //Debug.Log($"이동 속도 : 기본:{ies}/특성:{tms}/DNA:{ims}/주사위{diceIms} = 합계 : {value}");
-
-        // ad buff 적용 ( speed )
-        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffSpeed);
-
-        if(buffValue.isUsingBuff)
-        {
-            value = value * buffValue.addValue;
-        }
         
         return value;
     }
@@ -156,6 +148,14 @@ public class StatManager : MonoBehaviour
         var diceIst = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectSpawnTime);//소수
         var value = ist - (tst + diceIst);
         //Debug.Log($"곤충 소환시간 : 기본{ist} - 특성{tst}주사위{diceIst} 최종{value}");
+
+        // ad buff 적용 ( speed )
+        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffSpeed);
+
+        if(buffValue.isUsingBuff)
+        {
+            value = value * 0.5f;
+        }
         return (float)value;
     }
 

@@ -203,7 +203,7 @@ public class SkillManager : MonoBehaviour
 
                 case SkillType.allUnitSpeedUp:
                     AddInGameDataValue(skillData, ref inGameData);
-                    SetUI(ref skillSlot, skillData, inGameData);
+                    SetUIMoveSpeed(ref skillSlot, skillData, inGameData);
                     break;
 
                 case SkillType.glodBonusUp:
@@ -289,15 +289,25 @@ public class SkillManager : MonoBehaviour
         skillSlot.SetTxt_Cost(GetSkillPrice(skillData, inGameData).ToString());
         var levelName = $"Lv{inGameData.level} {inGameData.skilName}";
         skillSlot.SetTxt_Level(levelName);
-
         skillSlot.SetTxt_Description(description);
 
-        var isMaximumLevel = IsMaximumLevel(skillData, inGameData);
-        if (isMaximumLevel)
-        {
-            skillSlot.MaxStat();
-        }
+        // var isMaximumLevel = IsMaximumLevel(skillData, inGameData);
+        // if (isMaximumLevel)
+        // {
+        //     skillSlot.MaxStat();
+        // }
     }
+
+    void SetUIMoveSpeed(ref SkilSlot skillSlot, SkillData skillData, Skill_InGameData inGameData)
+    {
+        var description = GetDesicriptionDNoneP(skillSlot.skillType, skillData, inGameData);
+        skillSlot.SetTxt_Cost(GetSkillPrice(skillData, inGameData).ToString());
+        var levelName = $"Lv{inGameData.level} {inGameData.skilName}";
+        skillSlot.SetTxt_Level(levelName);
+        skillSlot.SetTxt_Description(description);
+    }
+
+
     void SetUIAllUnitCDU(ref SkilSlot skillSlot, SkillData skillData, Skill_InGameData inGameData)
     {
         var description = GetDesicriptionD(skillSlot.skillType, skillData, inGameData);
@@ -322,12 +332,19 @@ public class SkillManager : MonoBehaviour
         var orl_description = skillData.desctiption;
         return orl_description.Replace("<Duration>초", $"<#40ff80>{inGameData.duaration}초</color>").Replace("<Power>", $"<#40ff80>{inGameData.power}%</color>");
     }
+    string GetDesicriptionDNoneP(SkillType skillType, SkillData skillData, Skill_InGameData inGameData)
+    {
+        var orl_description = skillData.desctiption;
+        return orl_description.Replace("<Duration>초", $"<#40ff80>{inGameData.duaration}초</color>").Replace("<Power>", $"<#40ff80>{inGameData.power}</color>");
+    }
     // duration
     string GetDesicriptionD(SkillType skillType, SkillData skillData, Skill_InGameData inGameData)
     {
         var orl_description = skillData.desctiption;
         return orl_description.Replace("<Duration>초", $"<#40ff80>{inGameData.duaration}초</color>");
     }
+
+
 
     double GetInitPowerValue(SkillData skillData, Skill_InGameData skill_InGameData)
     {

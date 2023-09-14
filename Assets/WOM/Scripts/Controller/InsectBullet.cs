@@ -15,8 +15,8 @@ public class InsectBullet : MonoBehaviour
     public ParticleSystem effDisable;
     public InsectSpriteAnimation spriteAnim;
 
-    float minSpeed = 50f;
-    float maxSpeed = 500f;
+    float minSpeed = 20f;
+    float maxSpeed = 450f;
     float speed = 1f;
 
     float currentSpeed;
@@ -84,8 +84,6 @@ public class InsectBullet : MonoBehaviour
         animData.ResetAnimData();
         var animPoints = GetAnimPoints();
         speed = GetSpeed();
-        currentSpeed = speed;
-
         while (animData.animValue < 0.99f)
         {
             // TODO : DATA ÀÇ SPEED Àû¿ë
@@ -108,6 +106,7 @@ public class InsectBullet : MonoBehaviour
     {
         var targetPoint = GetRandomMonsterPoint();
         speed = GetSpeed();
+        currentSpeed = speed;
 
         while (!IsGoalTargetPoint(targetPoint))
         {
@@ -131,7 +130,7 @@ public class InsectBullet : MonoBehaviour
     }
     Vector3 GetMovePosition(Vector3 direction, float speed)
     {
-        float resultSpeed = UtilityMethod.RemapValue(speed, minSpeed,maxSpeed,1f,4f);
+        float resultSpeed = UtilityMethod.RemapValue(speed, minSpeed,maxSpeed,0.5f,1.5f);
 
         if (GlobalData.instance.eventController.isBossDie)
         {

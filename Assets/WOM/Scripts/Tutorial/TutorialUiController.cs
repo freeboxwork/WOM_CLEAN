@@ -23,11 +23,13 @@ public class TutorialUiController : MonoBehaviour
     private string fullText;
     private string currentText = "";
 
-
-
+    //public GameObject circleHighLight;
+    //public RectTransform circleRect;
     // 스크린 터치 버튼
     public GameObject btnScreen;
 
+
+ 
     public void EnableTutorialMask(string message, Image image, Button button, int btnId)
     {
         ShowOnlyText(false);
@@ -36,16 +38,19 @@ public class TutorialUiController : MonoBehaviour
         SetTxtDesc(message);
         imgUnmask.sprite = image.sprite;
         unmask.fitTarget = image.rectTransform;
+        //circleRect.position = unmask.fitTarget.position;
+        
+
 
         tutoBtn.onClick.RemoveAllListeners();
         tutoBtn.onClick.AddListener(() =>
         {
             EventManager.instance.RunEvent<int>(CallBackEventType.TYPES.OnTutorialBtnClick, btnId);
             button.onClick.Invoke();
-
             //tutorialManager.CompleteStep();
         });
     }
+    
     bool skipText;
     IEnumerator TypeText()
     {
@@ -69,7 +74,7 @@ public class TutorialUiController : MonoBehaviour
 
         }
 
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         isTypeAnim = false;
     }
 
@@ -87,6 +92,7 @@ public class TutorialUiController : MonoBehaviour
         txtImageBg.enabled = true;
         imgBlackBg.gameObject.SetActive(!value);
         imgUnmask.gameObject.SetActive(!value);
+        //circleHighLight.SetActive(!value);
     }
 
     public void SetTxtDesc(string value)

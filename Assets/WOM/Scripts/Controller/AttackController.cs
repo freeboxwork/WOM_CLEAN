@@ -156,7 +156,7 @@ public class AttackController : MonoBehaviour
     Vector2 GetDownSideRandomPos()
     {
         var randomX = Random.Range(0, Screen.width);
-        var randomY = Random.Range(Screen.height * 0.1f, Screen.height * 0.2f);
+        var randomY = Random.Range(Screen.height * 0.2f, Screen.height * 0.3f);
         return (new Vector2(randomX, randomY));
     }
 

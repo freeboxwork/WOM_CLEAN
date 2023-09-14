@@ -130,7 +130,9 @@ public class InsectBullet : MonoBehaviour
     }
     Vector3 GetMovePosition(Vector3 direction, float speed)
     {
-        float resultSpeed = UtilityMethod.RemapValue(speed, minSpeed,maxSpeed,0.5f,1.5f);
+        speed = Mathf.Clamp(speed, minSpeed, maxSpeed);
+
+        float resultSpeed = UtilityMethod.RemapValue(speed, minSpeed,maxSpeed,0.7f,1.5f);
 
         if (GlobalData.instance.eventController.isBossDie)
         {

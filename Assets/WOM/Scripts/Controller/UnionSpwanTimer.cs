@@ -42,6 +42,8 @@ public class UnionSpwanTimer : MonoBehaviour
 
             if(currentTime <= 0)
             {
+                spwanTime = (float)GlobalData.instance.statManager.GetUnionSpwanSpeed(unionSlot.inGameData.unionIndex);
+
                 currentTime = spwanTime;
 
                 // set union data

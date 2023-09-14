@@ -122,6 +122,12 @@ public class DNAManager : MonoBehaviour
     {
         while (lotteryAnimCont.toggleRepeatGame.isOn)
         {
+            if (GetLotteryDNATypes().Count <= 0)
+            {
+                // message popup (더이상 뽑을 수 없습니다,모든 DNA 레벨이 MAX 상태에 도달 했습니다.)
+                GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("Message", 21);
+                yield break;
+            }
             yield return StartCoroutine(LotteryStart(roundCount, payValue, rewardType));
             yield return new WaitForSeconds(0.5f);
         }
@@ -157,6 +163,12 @@ public class DNAManager : MonoBehaviour
             for (int i = 0; i < gameCount; i++)
             {
                 var lotteryTypes = GetLotteryDNATypes();
+                if (lotteryTypes.Count <= 0)
+                {
+                    // message popup (더이상 뽑을 수 없습니다,모든 DNA 레벨이 MAX 상태에 도달 했습니다.)
+                    GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("Message", 21);
+                    break;
+                }
                 var randomType = GetRandomType(lotteryTypes);
                 var slot = GetSlotByDNAType(randomType);
                 slot.inGameData.LevelUp();

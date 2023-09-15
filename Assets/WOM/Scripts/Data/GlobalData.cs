@@ -51,20 +51,13 @@ public class GlobalData : MonoBehaviour
     public MonsterKingController monsterKingController;
     public StageNameSetManager stageNameSetManager;
     public TutorialManager tutorialManager;
-
     public InAppPurchaseManager inAppPurchaseManager;
-
+    public PopUpGiveUpDungeon popUpGiveUpDungeon;
 
     private void Awake()
     {
         SetInstance();
     }
-
-    void Start()
-    {
-
-    }
-
     void SetInstance()
     {
         if (instance != null) Destroy(instance);

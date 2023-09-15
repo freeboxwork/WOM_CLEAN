@@ -92,7 +92,7 @@ public class TutorialUiController : MonoBehaviour
 
     void ShowOnlyText(bool value)
     {
-        txtImageBg.enabled = true;
+        //txtImageBg.enabled = true;
         imgBlackBg.gameObject.SetActive(!value);
         imgUnmask.gameObject.SetActive(!value);
         //circleHighLight.SetActive(!value);
@@ -100,7 +100,7 @@ public class TutorialUiController : MonoBehaviour
 
     public void SetTxtDesc(string value)
     {
-        txtImageBg.enabled = true;
+        //txtImageBg.enabled = true;
         fullText = value;
         currentText = "";
         //txtDesc.text = value;   
@@ -110,7 +110,7 @@ public class TutorialUiController : MonoBehaviour
 
     public void DisableTutorial()
     {
-        txtImageBg.enabled = false;
+        //txtImageBg.enabled = false;
         tutoSet.gameObject.SetActive(false);
     }
 

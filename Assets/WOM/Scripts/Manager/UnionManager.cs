@@ -361,16 +361,24 @@ public class UnionManager : MonoBehaviour
     // 전체 유니온 레벨업
     void TotlaUnionLevelUp()
     {
-        GlobalData.instance.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.UnionLevelUp);
+        bool isUpgradeDone = false;
+
         for (int i = 0; i < unionSlots.Count; i++)
         {
             var slot = unionSlots[i]; 
             while (IsValidLevelUpCount(slot))
             {
+                isUpgradeDone = true;
                 LevelUpUnion(slot);
             }
             //if (IsValidLevelUpCount(slot))
             //    LevelUpUnion(slot);
+        }
+        //유니온 업그레이드가 된 이력이 있다면
+        if (isUpgradeDone)
+        {
+            //이펙트 재생
+            GlobalData.instance.effectManager.PlayEffect();
         }
     }
     

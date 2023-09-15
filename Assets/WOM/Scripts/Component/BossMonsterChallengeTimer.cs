@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossMonsterChallengeTimer : MonoBehaviour
 {
     public AnimData animData;
-  
+    bool isStop = false;
     public void SetTimeValue(float value)
     {
         animData.animDuration = value;
@@ -15,7 +15,11 @@ public class BossMonsterChallengeTimer : MonoBehaviour
     {
         StartCoroutine(CalcTimer());
     }
-        
+
+    public void StopBossTimer(bool isStop)
+    {
+        this.isStop = isStop;
+    }    
 
     public IEnumerator CalcTimer()
     {
@@ -23,6 +27,12 @@ public class BossMonsterChallengeTimer : MonoBehaviour
 
         while (animData.animTime < 0.999f)
         {
+            if(isStop)
+            {
+                //isStop가 true가 될때까지 대기하기
+                yield return new WaitUntil(() => isStop == false);
+            }    
+                        
             if(GlobalData.instance.eventController.CheckMonsterDie())
             {
                 yield break;

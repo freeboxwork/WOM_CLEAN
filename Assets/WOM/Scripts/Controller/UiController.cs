@@ -478,10 +478,11 @@ public class UiController : MonoBehaviour
         // 버튼 클릭 안되게 수정
         UtilityMethod.EnableUIEventSystem(false);
 
-        StartCoroutine(EnableCastle());
 
         // 트렌지션 효과
         GlobalData.instance.effectManager.EnableTransitionEffCastle();
+
+     
 
         // 화면전환 효과
         yield return StartCoroutine(GlobalData.instance.effectManager.EffTransitioEvolutionUpgrade(() =>
@@ -500,10 +501,11 @@ public class UiController : MonoBehaviour
             // UI 비활성화
             UtilityMethod.GetCustomTypeGMById(6).gameObject.SetActive(false);
 
-
+           
 
         }));
-
+    
+       StartCoroutine(EnableCastle());
 
 
         UtilityMethod.EnableUIEventSystem(true);
@@ -549,7 +551,7 @@ public class UiController : MonoBehaviour
             monster.gameObject.SetActive(true);
             // Monster IN
             var curMonsterType = GlobalData.instance.player.curMonsterType;
-            StartCoroutine(GlobalData.instance.eventController.MonsterAppearCor(curMonsterType));
+            StartCoroutine(GlobalData.instance.eventController.AppearMonster(curMonsterType));
 
             // EnableMenuPanel(MenuPanelType.castle);
 

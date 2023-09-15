@@ -2,12 +2,13 @@ using System.Collections;
 using UnityEngine;
 using Google.Play.Common;
 using Google.Play.AppUpdate;
-
+using TMPro;
 
 
 public class WOMAppUpdateManager : MonoBehaviour
 {
 
+    public TextMeshProUGUI versionText;
 
     void Start()
     {
@@ -30,6 +31,9 @@ public class WOMAppUpdateManager : MonoBehaviour
         if (appUpdateInfoTask.IsSuccessful)
         {
             AppUpdateInfo appUpdateResult = appUpdateInfoTask.GetResult();
+            //버전코드 가져오기
+            var code = appUpdateResult.AvailableVersionCode;
+            versionText.text = $"version : {code}";
             // 업데이트가 필요한 경우
             if (appUpdateResult.UpdateAvailability == UpdateAvailability.UpdateAvailable)
             {

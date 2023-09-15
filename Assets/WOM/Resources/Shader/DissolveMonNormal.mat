@@ -55,7 +55,7 @@ Material:
     - _Hit_Power: 0
     - _Scale: 10
     - _fade: 1
-    - _hit: 0.4
+    - _hit: 0
     m_Colors:
     - _Color: {r: 1, g: 0.3184083, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}

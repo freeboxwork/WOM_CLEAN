@@ -18,14 +18,18 @@ public class EvolutionManager : MonoBehaviour
     public List<Sprite> evolutionGradeBadgeImages = new List<Sprite>();
     public List<EvolutionSlot> evolutionSlots = new List<EvolutionSlot>();
 
- 
+    GlobalData globalData;
+    EventController eventController;
+    
 
     public IEnumerator Init()
     {
+        this.globalData = GlobalData.instance;
+        this.eventController = globalData.eventController;
         SetButtonEvents();
 
         // 저장된 데이터에서 로드
-        var saveData = GlobalData.instance.saveDataManager.GetEvolutionData();
+        var saveData = globalData.saveDataManager.GetEvolutionData();
         evalutionLeveldx = saveData.level_evolution;
         diceEvolutionData = saveData.diceEvolutionData.CopyInstance();
 
@@ -41,9 +45,11 @@ public class EvolutionManager : MonoBehaviour
         yield return null;
     }
 
+    
+
     public void SetUI_Pannel_Evolution(int dataId)
     {
-        var data = GlobalData.instance.dataManager.GetRewaedEvolutionGradeDataByID(dataId);
+        var data = globalData.dataManager.GetRewaedEvolutionGradeDataByID(dataId);
 
         // set badge image
         UtilityMethod.SetImageSpriteCustomTypeByID(21, evolutionGradeBadgeImages[data.id]);
@@ -61,7 +67,7 @@ public class EvolutionManager : MonoBehaviour
 
     public void SetUI_EvolutionSlots(int dataId)
     {
-        var data = GlobalData.instance.dataManager.GetRewaedEvolutionGradeDataByID(dataId);
+        var data = globalData.dataManager.GetRewaedEvolutionGradeDataByID(dataId);
 
         // slot count 만큼 슬롯 열어줌
         for (int i = 0; i < data.slotCount; i++)
@@ -69,7 +75,7 @@ public class EvolutionManager : MonoBehaviour
             evolutionSlots[i].UnLockSlot();
             evolutionSlots[i].UnLock();
             // load save data
-            var loadData = GlobalData.instance.saveDataManager.saveDataTotal.saveDataEvolution.saveDataEvolutionSolts[i];
+            var loadData = globalData.saveDataManager.saveDataTotal.saveDataEvolution.saveDataEvolutionSolts[i];
 
             var type = (EvolutionDiceStatType)System.Enum.Parse(typeof(EvolutionDiceStatType), loadData.evolutionDiceStatType);
             if (type == EvolutionDiceStatType.none)
@@ -77,7 +83,7 @@ public class EvolutionManager : MonoBehaviour
                 continue;
             }
 
-            var symbols = GlobalData.instance.evolutionDiceLotteryManager.symbols;
+            var symbols = globalData.evolutionDiceLotteryManager.symbols;
             evolutionSlots[i].SetSymbol(symbols[loadData.symbolId]);
             evolutionSlots[i].evolutionRewardGrade = (EnumDefinition.EvolutionRewardGrade)loadData.evolutionGrade;
             SetEvolutuinSlotName(type, evolutionSlots[i], loadData.value, loadData.clorHexCode, loadData.symbolId);
@@ -96,7 +102,7 @@ public class EvolutionManager : MonoBehaviour
     public void SetUI_EvolutuinSlotsLockerItems(int dataId)
     {
 
-        var data = GlobalData.instance.dataManager.GetRewaedEvolutionGradeDataByID(dataId);
+        var data = globalData.dataManager.GetRewaedEvolutionGradeDataByID(dataId);
 
         // 자물쇠 오픈
         evolutionSlots[data.id].UnLock();
@@ -106,10 +112,10 @@ public class EvolutionManager : MonoBehaviour
         //}
 
         //사용에 필요한 주사위 개수 변경
-        GlobalData.instance.evolutionManager.SetTxtUsingDiceCount();
+        globalData.evolutionManager.SetTxtUsingDiceCount();
 
         //모든 slot 오픈시 진화전 이동 버튼 비활성화
-        if (data.slotCount == GlobalData.instance.dataManager.rewardEvolutionGradeDatas.data.Max(m => m.slotCount))
+        if (data.slotCount == globalData.dataManager.rewardEvolutionGradeDatas.data.Max(m => m.slotCount))
         {
             UtilityMethod.GetCustomTypeBtnByID(20).interactable = false;
         }
@@ -118,7 +124,7 @@ public class EvolutionManager : MonoBehaviour
 
     public void SetEvolutuinSlotName(EvolutionDiceStatType type, EvolutionSlot slot, float value, string clorHexCode, int symbolId)
     {
-        var data = GlobalData.instance.dataManager.GetConvertTextDataByEvolutionDiceStatType(type);
+        var data = globalData.dataManager.GetConvertTextDataByEvolutionDiceStatType(type);
         var txtValue = $"{data.kr_Front} {value}{data.kr_Back}";
         slot.SettxtStatName($"<color=#{clorHexCode}>{txtValue}</color>");
         slot.SetGradeImgColor(clorHexCode);
@@ -132,7 +138,7 @@ public class EvolutionManager : MonoBehaviour
         saveSlotData.symbolId = symbolId;
         saveSlotData.evolutionGrade = (int)slot.evolutionRewardGrade;
 
-        GlobalData.instance.saveDataManager.SetEvolutionSlotData(saveSlotData);
+        globalData.saveDataManager.SetEvolutionSlotData(saveSlotData);
     }
 
 
@@ -175,22 +181,8 @@ public class EvolutionManager : MonoBehaviour
         {
             EventManager.instance.RunEvent(CallBackEventType.TYPES.OnEvolutionMonsterChallenge);
 
-            // 메뉴 판넬 숨김
-            GlobalData.instance.uiController.AllDisableMenuPanels();
-
-            // 메뉴 판넬 활성/비활성화 버튼 숨김
-            UtilityMethod.GetCustomTypeImageById(47).raycastTarget = false;
-
-            // 진화전 버튼 선택 효과 숨김
-            // EnableMenuPanel(MenuPanelType.evolution);
-
             // 진화전 버튼 비활성화
             EnableBtnEvolutionMonsterChange(false);
-
-            // 진화전 포기 버튼 활성화
-            // UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(true);
-
-
 
         });
 
@@ -200,29 +192,50 @@ public class EvolutionManager : MonoBehaviour
             // 기존 UI Canvas 활성화
             UtilityMethod.GetCustomTypeGMById(6).SetActive(true);
             // 진화 업그레이트 이펙트 비활성화
-            GlobalData.instance.gradeAnimCont.gameObject.SetActive(false);
+            globalData.gradeAnimCont.gameObject.SetActive(false);
         });
 
         // 진화 주사위 뽑기 버튼
         UtilityMethod.SetBtnEventCustomTypeByID(22, () =>
         {
             if (evolutionSlots.Any(a => a.isUnlock == true))
-                StartCoroutine(GlobalData.instance.evolutionDiceLotteryManager.RollEvolutionDice());
+                StartCoroutine(globalData.evolutionDiceLotteryManager.RollEvolutionDice());
             else
-                GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("", 10);
+                globalData.globalPopupController.EnableGlobalPopupByMessageId("", 10);
         });
 
         // 포기 버튼
         UtilityMethod.SetBtnEventCustomTypeByID(30, () =>
         {
-            switch (GlobalData.instance.player.curMonsterType)
+            switch (globalData.player.curMonsterType)
             {
                 case MonsterType.evolution:
-                    StartCoroutine(GlobalData.instance.eventController.ProcessEvolutionMonsterGiveUp());
+                    StartCoroutine(this.eventController.GiveUpEvolutionMonster());
                     break;
                 case MonsterType.boss:
-                    StartCoroutine(GlobalData.instance.eventController.ProcessBossMonsterGiveUp());
+                    StartCoroutine(this.eventController.GiveUpBossMonster());
+                    break;  
+
+                case MonsterType.dungeon:
+                    this.eventController.BtnEventDungeonGiveUp();
                     break;
+                case MonsterType.dungeonBone:
+                    this.eventController.BtnEventDungeonGiveUp();
+
+                    break;
+                case MonsterType.dungeonCoal:
+                    this.eventController.BtnEventDungeonGiveUp();
+
+                    break;
+                case MonsterType.dungeonDice:
+                    this.eventController.BtnEventDungeonGiveUp();
+
+                    break;
+                case MonsterType.dungeonGold:
+                    this.eventController.BtnEventDungeonGiveUp();
+
+                    break;
+
             }
         });
 
@@ -243,7 +256,7 @@ public class EvolutionManager : MonoBehaviour
         }
 
         // set save data
-        GlobalData.instance.saveDataManager.SetEvolutionInGameData(diceEvolutionData);
+        globalData.saveDataManager.SetEvolutionInGameData(diceEvolutionData);
     }
 
     public float GetDiceEvolutionDataValueByStatType(EvolutionDiceStatType statType)
@@ -272,18 +285,18 @@ public class EvolutionManager : MonoBehaviour
         diceEvolutionData.insectBossDamage = 0;
 
         // set save data
-        GlobalData.instance.saveDataManager.SetEvolutionInGameData(diceEvolutionData);
+        globalData.saveDataManager.SetEvolutionInGameData(diceEvolutionData);
     }
 
     // 유니온 뽑기
     public void UnionLotteryGameStart(int roundCount, int payValye, EnumDefinition.RewardType rewardType)
     {
         //trLotteryGameSet.gameObject.SetActive(true);
-        GlobalData.instance.lotteryManager.LotteryStart(roundCount, payValye, () =>
+        globalData.lotteryManager.LotteryStart(roundCount, payValye, () =>
         {
             //Camp Level Up
-            // var gradeLevel = GlobalData.instance.lotteryManager.summonGradeLevel;
-            // GlobalData.instance.castleManager.castleController.SetBuildUpgrade(ProjectGraphics.BuildingType.CAMP, gradeLevel);
+            // var gradeLevel = globalData.lotteryManager.summonGradeLevel;
+            // globalData.castleManager.castleController.SetBuildUpgrade(ProjectGraphics.BuildingType.CAMP, gradeLevel);
         }, rewardType);
     }
 

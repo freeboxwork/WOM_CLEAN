@@ -79,10 +79,8 @@ public class EffectManager : MonoBehaviour
 
     public GameObject monsterDieBeforeEffect;
 
-    void Start()
-    {
+    public GameObject levelUpEffect;
 
-    }
 
     public IEnumerator Init()
     {
@@ -110,6 +108,16 @@ public class EffectManager : MonoBehaviour
         //CreateInstanceGolds();
     }
 
+
+    public void PlayEffect()
+    {
+        if (levelUpEffect.activeInHierarchy)
+        {
+            return;
+        }
+        levelUpEffect.GetComponent<Animator>().Rebind();
+        levelUpEffect.SetActive(true);
+    }
 
     void CreateInstanceAttackEffects(ParticleRoate prefabParticle, List<ParticleRoate> list)
     {
@@ -278,7 +286,7 @@ public class EffectManager : MonoBehaviour
         // UI PANEL ¼û±è
         GlobalData.instance.uiController.AllDisableMenuPanels();
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.5f);
 
         // Æ®·£Áö¼Ç ¾Æ¿ô
         animContTransition.animData = animDataTranOut;

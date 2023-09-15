@@ -61,8 +61,10 @@ public class InAppPurchaseManager : MonoBehaviour
         {
             IAPManager.Instance.InitializeIAPManager(InitializeResult);
         }
-        CheckBuyNonConsuableProduct();
         IAPManager.Instance.RestorePurchases(ProductBought, RestoreDone);
+        yield return new WaitForSeconds(1f);
+        CheckBuyNonConsuableProduct();
+
         yield return null;
     }
 
@@ -117,7 +119,6 @@ public class InAppPurchaseManager : MonoBehaviour
     {
         if (status == IAPOperationStatus.Success)
         {
-            
             if (product.productType == ProductType.Consumable)
             {
                 if (product.productName == "commongem1")

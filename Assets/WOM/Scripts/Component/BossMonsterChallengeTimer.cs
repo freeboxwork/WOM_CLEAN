@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BossMonsterChallengeTimer : MonoBehaviour
@@ -13,13 +12,23 @@ public class BossMonsterChallengeTimer : MonoBehaviour
 
     public void StartTimer()
     {
+        StopAllCoroutines();
+        StartCoroutine(CalcTimer());
+        //StartCoroutine(StartTimerCor());
+    }
+
+    IEnumerator StartTimerCor()
+    {
+        StopAllCoroutines();
+        isStop = false;
+        yield return new WaitForEndOfFrame();
         StartCoroutine(CalcTimer());
     }
 
     public void StopBossTimer(bool isStop)
     {
         this.isStop = isStop;
-    }    
+    }
 
     public IEnumerator CalcTimer()
     {
@@ -27,13 +36,13 @@ public class BossMonsterChallengeTimer : MonoBehaviour
 
         while (animData.animTime < 0.999f)
         {
-            if(isStop)
+            if (isStop)
             {
                 //isStop가 true가 될때까지 대기하기
                 yield return new WaitUntil(() => isStop == false);
-            }    
-                        
-            if(GlobalData.instance.eventController.CheckMonsterDie())
+            }
+
+            if (GlobalData.instance.eventController.CheckMonsterDie())
             {
                 yield break;
             }
@@ -42,10 +51,10 @@ public class BossMonsterChallengeTimer : MonoBehaviour
             animData.animTime = (Time.time - animData.animStartTime) / animData.animDuration;
             //Debug.Log((int)(Time.time - animData.animStartTime));
             animData.animValue = EaseValues.instance.GetAnimCurve(animData.animCurveType, animData.animTime);
-        
+
             GlobalData.instance.uiController.SetTxtBossChallengeTimer(timeSecond);
             GlobalData.instance.uiController.SetImgTimerFilledRaidal(animData.animValue);
-            
+
             yield return null;
         }
 

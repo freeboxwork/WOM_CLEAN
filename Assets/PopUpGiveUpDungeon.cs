@@ -18,12 +18,13 @@ public class PopUpGiveUpDungeon : MonoBehaviour
     public Image imageCurrencyIcon;
     public SerializableDictionary<EnumDefinition.GoodsType, Sprite> goodsToIconMap;
 
-    public Action OnCancelGiveUp;
     public GameObject content;
 
     Action<EnumDefinition.GoodsType, long> callBack;
     EnumDefinition.GoodsType goodsType;
     long reward;
+
+    public bool isShowPopup = false;
     private void Awake()
     {
         btnAccept.onClick.AddListener(ButtonAccept);
@@ -32,6 +33,7 @@ public class PopUpGiveUpDungeon : MonoBehaviour
 
     public void ShowGiveUpDungeonPopup(EnumDefinition.GoodsType goodsType, long reward, Action<EnumDefinition.GoodsType, long> callBack)
     {
+        isShowPopup = true;
         this.callBack = callBack;
         this.goodsType = goodsType;
         this.reward = reward;
@@ -43,12 +45,15 @@ public class PopUpGiveUpDungeon : MonoBehaviour
 
     void ButtonAccept()
     {
+        isShowPopup = false;
         this.callBack.Invoke(this.goodsType, this.reward);
+        this.callBack = null;
         content.SetActive(false);
     }
-    void ButtonRefuse()
+    public void ButtonRefuse()
     {
-        OnCancelGiveUp.Invoke();
+        isShowPopup = false;
+        this.callBack = null;
         content.SetActive(false);
     }
 

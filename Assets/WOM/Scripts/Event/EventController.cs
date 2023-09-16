@@ -32,8 +32,6 @@ public class EventController : MonoBehaviour
     void AddEvents()
     {
         globalData.dungeonPopup.OnButtonClick += DungeonPopupApplyEvent;
-        globalData.popUpGiveUpDungeon.OnCancelGiveUp += CancelGiveUp;
-
         EventManager.instance.AddCallBackEvent<EnumDefinition.InsectType, int, Transform>(CallBackEventType.TYPES.OnMonsterHit, EvnOnMonsterHit);
         EventManager.instance.AddCallBackEvent<EnumDefinition.InsectType, int, Transform>(CallBackEventType.TYPES.OnDungeonMonsterHit, EvnOnDungeonMonsterHit);
         EventManager.instance.AddCallBackEvent<Transform>(CallBackEventType.TYPES.OnMonsterKingHit, EvnOnMonsterHitMonsterKing);
@@ -53,6 +51,13 @@ public class EventController : MonoBehaviour
         EventManager.instance.RemoveCallBackEvent(CallBackEventType.TYPES.OnBossMonsterChallenge, EvnOnBossMonsterChalleng);
         EventManager.instance.RemoveCallBackEvent(CallBackEventType.TYPES.OnEvolutionMonsterChallenge, EvnOnEvolutionMonsterChallenge);
         EventManager.instance.RemoveCallBackEvent<MonsterType>(CallBackEventType.TYPES.OnDungeonMonsterChallenge, EvnOnDungenMonsterChallenge);
+    }
+
+    public void StopAllCoroutine()
+    {
+        globalData.bossChallengeTimer.StopBossTimer(true);
+
+        StopAllCoroutines();
     }
 
     //===================================================================================================================================================================================
@@ -355,12 +360,13 @@ public class EventController : MonoBehaviour
             // 뼈 조각 획득
             //GainBone(currentMonster);
             // 보스 사냥 성공 전환 이펙트FAppr
-            globalData.effectManager.EnableTransitionEffStageClear();
+            GlobalData.instance.effectManager.EnableTransition(EnumDefinition.TransitionTYPE.ClearBoss);
 
-            // BG Color Change
-            globalData.stageManager.bgAnimController.spriteColorAnim.ColorNormalAnim();
+
 
         }
+
+        // 이때부터 캐슬로 전환이 가능하다
 
         if (currentMonster.monsterType == MonsterType.evolution)
         {
@@ -369,7 +375,7 @@ public class EventController : MonoBehaviour
             yield return new WaitForSecondsRealtime(2f);
             Time.timeScale = 1f;
             // 보스 사냥 성공 전환 이펙트
-            globalData.effectManager.EnableTransitionEffStageClear();
+            GlobalData.instance.effectManager.EnableTransition(EnumDefinition.TransitionTYPE.ClearBoss);
         }
         // 골드 획득
         // monster kill animation 사망 애니메이션 대기
@@ -455,9 +461,6 @@ public class EventController : MonoBehaviour
         // phaseCount 리셋
         PhaseCountReset();
 
-        // phase count UI 활성화
-        globalData.uiController.SetEnablePhaseCountUI(true);
-
         // 일일 퀘스트 완료 : 금광보스
         EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.killGoldBoss);
 
@@ -510,8 +513,7 @@ public class EventController : MonoBehaviour
         PhaseCountReset();
         //Change BGM
         GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
-        // 금광보스 카운트 UI 활성
-        globalData.uiController.SetEnablePhaseCountUI(true);
+
         //Debug.Log("globalData.player.stageIdx:"+globalData.player.stageIdx);
         // stage setting - stage manager 스테이지 데이터와 배경 이미지 전환 애니메이션
         yield return StartCoroutine(globalData.stageManager.SetStageById(globalData.player.stageIdx));
@@ -575,9 +577,6 @@ public class EventController : MonoBehaviour
 
         // notify icon 활성화
         UtilityMethod.GetCustomTypeGMById(17).SetActive(true);
-
-        // 금광보스 카운트 UI 활성화
-        globalData.uiController.SetEnablePhaseCountUI(true);
 
         // 진화 idx 레벨업
         globalData.evolutionManager.evalutionLeveldx = evalutionLeveld;
@@ -646,7 +645,602 @@ public class EventController : MonoBehaviour
     #endregion
     //===================================================================================================================================================================================
     #region 몬스터 생성 및 등장
-    IEnumerator AppearDungeonMonster(MonsterType monsterType)
+    // 몬스터 등장
+    public IEnumerator AppearMonster(EnumDefinition.MonsterType monsterType)
+    {
+
+        // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
+        StartCoroutine(globalData.effectManager.goldPoolingCont.DisableGoldEffects());
+
+        // 보스의 경우 뼈조각 OUT EFF 추가 ( 뼈조각 화면에 뿌려진 경우에만 )
+        StartCoroutine(globalData.effectManager.bonePoolingCont.DisableGoldEffects());
+
+        // 몬스터 타입에 따른 데이터 불러오기
+        var monsterData = globalData.monsterManager.GetMonsterData(monsterType);
+
+        // 몬스터 체력 세팅
+        monsterData.hp = monsterData.hp * (1 - (GlobalData.instance.statManager.MonsterHpLess() * 0.01f));
+
+        // 현재 몬스터 Player에 세팅
+        globalData.player.SetCurrentMonster(monsterData);
+
+        // 현재 몬스터 타입 Player에 세팅
+        globalData.player.SetCurrentMonsterType(monsterType);
+
+        // 사용하지 않는 몬스터 숨기기
+        globalData.monsterManager.ShowMonsterByType(monsterType);
+
+        // set monster data
+        if (monsterType == MonsterType.evolution)
+        {
+            globalData.monsterManager.SetMonsterDataOther(monsterType, globalData.evolutionManager.evalutionLeveldx);
+            // set monster skin
+            globalData.player.currentMonster.SetSkinById(globalData.evolutionManager.evalutionLeveldx);
+        }
+        else
+        {
+            globalData.monsterManager.SetMonsterData(monsterType, globalData.player.stageIdx);
+        }
+
+        if (monsterType == MonsterType.normal)
+        {
+            // BG Color Change
+            globalData.stageManager.bgAnimController.spriteColorAnim.ColorNormalAnim();
+            // 금광보스 카운트 UI 활성
+            globalData.uiController.SetEnablePhaseCountUI(true);
+        }
+
+
+        // set current monster hp
+        // TODO: 이펙트 연출 추가
+        globalData.player.SetCurrentMonsterHP(monsterData.hp);
+        // 몬스터 UI 세팅
+        MonsterUiSetting();
+
+        // Monster In Animation
+        yield return StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionIn());
+
+        // Tutorial Event ( 골드 몬스터 등장 )
+        if (monsterType == MonsterType.gold)
+        {
+            // BG Color Change
+            globalData.stageManager.bgAnimController.spriteColorAnim.ColorNormalAnim();
+            EventManager.instance.RunEvent(CallBackEventType.TYPES.OnStageInGoldMonster);
+            // 금광보스 카운트 UI 활성
+            globalData.uiController.SetEnablePhaseCountUI(true);
+        }
+
+        // 공격 가능 상태 변경
+        if (globalData.uiController.isCastleOpen == false)
+            globalData.attackController.SetAttackableState(true);
+    }
+    #endregion
+    //===================================================================================================================================================================================
+    #region 보스 몬스터 프로세스 (도전/시간종료/포기)
+    void EvnOnBossMonsterChalleng()
+    {
+        StopAllCoroutines();
+        StartCoroutine(ChallengeBossMonster());
+    }
+    IEnumerator ChallengeBossMonster()
+    {
+        //도전 버튼 누르기 전 활성화 되어있던 몬스터 타입 저장
+        globalData.player.SetPervMonsterType(globalData.player.curMonsterType);
+
+        GlobalData.instance.effectManager.EnableTransition(EnumDefinition.TransitionTYPE.Boss);
+
+        // side menu hide
+        SideUIMenuHide(true);
+
+        //하단 메인 메뉴 비활성화
+        //globalData.uiController.MainMenuHide();
+
+        // 하프 라인 위 곤충 모두 제거
+        globalData.insectManager.DisableHalfLineInsects();
+        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_DungeonBoss);
+
+        // 일반 몬스터 OUT
+        yield return StartCoroutine(globalData.player.currentMonster.inOutAnimator.MonsterKillMatAnim());
+
+
+
+        // 보스 도전 버튼 숨김
+        globalData.uiController.btnBossChallenge.gameObject.SetActive(false);
+
+        // 보스 도전 타이머 활성화
+        globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(true);
+
+        // 타이머 시간 설정
+        globalData.bossChallengeTimer.SetTimeValue(30f);
+
+        // 포기 버튼 활성화
+        UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(true);
+
+        // phase count UI 숨김
+        globalData.uiController.SetEnablePhaseCountUI(false);
+
+        // BG Color Change
+        globalData.stageManager.bgAnimController.spriteColorAnim.ColorChangeAnim();
+
+        // camera zoom out
+        globalData.stageManager.bgAnimController.CameraZoomOut_Boss();
+
+        // 보스 몬스터 등장
+        StartCoroutine(AppearMonster(MonsterType.boss));
+        // 타이머 계산 시작
+        globalData.bossChallengeTimer.StartTimer();
+
+        globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.BossIn);
+        // TODO: 구조적인 변경 필요함. ( MONSTER HIT 이벤트 막는 처리 )
+        isMonsterDie = false;
+    }
+    IEnumerator TimeOutBossMonster()
+    {
+
+        // side menu show
+        SideUIMenuHide(false);
+
+        //하단 메인 메뉴 활성화
+        globalData.uiController.MainMenuShow();
+
+        // 하프 라인 위 곤충 모두 제거
+        globalData.insectManager.DisableHalfLineInsects();
+        //Change BGM
+        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
+
+        // 보스 몬스터 OUT
+        yield return StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionOut());
+
+        // 포기 버튼 비활성화
+        UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(false);
+
+        // 보스 도전 버튼 활성화
+        globalData.uiController.btnBossChallenge.gameObject.SetActive(true);
+
+        // 보스 도전 타이머 비활성화
+        globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(false);
+
+        // camera zoom In
+        globalData.stageManager.bgAnimController.CameraZoomIn();
+
+        // 기존 몬스터 등장
+        StartCoroutine(AppearMonster(globalData.player.prevMonsterType));
+
+        // 일반 몬스터 등장
+        // StartCoroutine(AppearMonster(MonsterType.normal));
+
+        // tutorial event ( 보스 몬스터 도전 실패 )
+        EventManager.instance.RunEvent(CallBackEventType.TYPES.OnMonsterKillFailedBossMonster);
+
+    }
+    public IEnumerator GiveUpBossMonster()
+    {
+
+        //하단 메인 메뉴 활성화
+        globalData.uiController.MainMenuShow();
+
+        // 공격 불가능 상태로 전환
+        globalData.attackController.SetAttackableState(false);
+
+        // 포기 버튼 비활성화
+        UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(false);
+
+        // 활성화 된 모든 곤충 모두 제거
+        globalData.insectManager.DisableHalfLineInsects();
+
+        //Change BGM
+        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
+        // 보스 몬스터 OUT
+        yield return StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionOut());
+
+        // 보스 도전 타이머 비활성화
+        globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(false);
+
+        // 보스 도전 버튼 활성화
+        globalData.uiController.btnBossChallenge.gameObject.SetActive(true);
+
+        // 공격 가능 상태로 전환
+        globalData.attackController.SetAttackableState(true);
+
+        // camera zoom In
+        globalData.stageManager.bgAnimController.CameraZoomIn();
+
+        // 기존 몬스터 등장
+        StartCoroutine(AppearMonster(globalData.player.prevMonsterType));
+
+        // side menu show
+        SideUIMenuHide(false);
+
+        // tutorial event ( 보스 몬스터 도전 실패 )
+        EventManager.instance.RunEvent(CallBackEventType.TYPES.OnMonsterKillFailedBossMonster);
+    }
+    #endregion
+    //===================================================================================================================================================================================
+    #region 진화 몬스터 프로세스 (도전/시간종료/포기)
+    /*
+     0 : 트랜지션 인
+     1 : 몬스터 및 스테이지 세팅
+     2 : 트랜지션 아웃
+     3 : 진화전 몬스터 등장
+     4 : 몬스터 사냥
+     5 : 몬스터 사냥 성공 -> 진화
+     6 : 몬스터 사냥 실패 -> 이전 몬스터 등장  
+    */
+    void EvnOnEvolutionMonsterChallenge()
+    {
+        StopAllCoroutines();
+        StartCoroutine(ChallengeEvolution());
+    }
+
+    IEnumerator ChallengeEvolution()
+    {
+        //도전 버튼 누르기 전 활성화 되어있던 몬스터 타입 저장
+        globalData.player.SetPervMonsterType(globalData.player.curMonsterType);
+        // 전체 UI 비활성 
+        UtilityMethod.EnableUIEventSystem(false);
+        // 버튼 패널 및 캐슬화면 숨김
+        GlobalData.instance.uiController.AllDisableMenuPanels();
+        // 황금돼지 비활성화
+        globalData.goldPigController.EnterOtherView();
+        // 공격 불가능 상태로 전환
+        globalData.attackController.SetAttackableState(false);
+        // 하단 메인 메뉴 숨김
+        globalData.uiController.MainMenuHide();
+
+        // 트랜지션 효과
+        globalData.effectManager.EnableTransition(EnumDefinition.TransitionTYPE.Evolution);
+
+        // 진화전 화면전환 이펙트
+        yield return StartCoroutine(globalData.effectManager.EffTransitioEvolutionUpgrade(() =>
+        {
+
+            // 포기 버튼 활성화
+            UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(true);
+
+            // 금광보스 카운트 UI 숨김
+            globalData.uiController.SetEnablePhaseCountUI(false);
+
+            // 보스 도전 버튼 숨김
+            globalData.uiController.btnBossChallenge.gameObject.SetActive(false);
+
+            // 하프 라인 위 곤충 모두 제거
+            globalData.insectManager.DisableHalfLineInsects();
+
+            // 일반 몬스터 OUT
+            StartCoroutine(globalData.player.currentMonster.inOutAnimator.MonsterKillMatAnim());
+
+            // 보스 도전 타이머 활성화
+            globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(true);
+
+            // 타이머 시간 설정
+            globalData.bossChallengeTimer.SetTimeValue(30f);
+
+            // 타이머 계산 시작
+            globalData.bossChallengeTimer.StartTimer();
+
+            // 배경 리셋
+            globalData.stageManager.bgAnimController.ResetBg();
+
+            // side menu hide
+            // 메뉴 판넬 비활성화
+            UtilityMethod.GetCustomTypeImageById(47).raycastTarget = false;
+            UtilityMethod.GetCustomTypeImageById(47).enabled = false;
+            SideUIMenuHide(true);
+
+            // 배경 교체
+            var monsterData = globalData.monsterManager.GetMonsterData(MonsterType.evolution, globalData.evolutionManager.evalutionLeveldx);
+            globalData.stageManager.SetDungeonBgImage(monsterData.bgId);
+
+            // 스테이지 텍스트 변경
+            var stageName = monsterData.stageName;
+            GlobalData.instance.stageNameSetManager.SetTxtStageName(EnumDefinition.StageNameType.evolution, stageName);
+            GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.evolution);
+
+
+        }));
+        globalData.stageManager.bgAnimController.SetOffsetY(0f);
+        // BGM CHANGE
+        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_EvolutionBoss);
+
+        // 공격 가능 상태로 전환
+        globalData.attackController.SetAttackableState(true);
+
+        // 전체 UI 활성 
+        UtilityMethod.EnableUIEventSystem(true);
+        // 진화 몬스터 등장
+        StartCoroutine(AppearMonster(MonsterType.evolution));
+
+        // camera zoom out
+        globalData.stageManager.bgAnimController.CameraZoomOut_Evolution();
+
+
+        isMonsterDie = false;
+    }
+    IEnumerator TimeOutEvolutionMonster()
+    {
+        isMonsterDie = true;
+
+        // 공격 불가능 상태로 전환
+        globalData.attackController.SetAttackableState(false);
+
+        yield return StartCoroutine(globalData.globalPopupController.EnableGlobalPopupCor("message", 0));
+
+        // 활성화 된 모든 곤충 모두 제거
+        globalData.insectManager.DisableAllAvtiveInsects();
+
+        // 화면전환 이펙트
+        yield return StartCoroutine(globalData.effectManager.EffTransitioEvolutionUpgrade(() =>
+        {
+
+            // 진화전 포기 버튼 비활성화
+            UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(false);
+
+            // 보스 몬스터 OUT
+            StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionOut());
+
+            // 보스 도전 타이머 비활성화
+            globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(false);
+
+            // side menu show
+            SideUIMenuHide(false);
+
+            // 훈련 메뉴 -> 진화 메뉴 UI 활성화
+            UtilityMethod.GetCustomTypeGMById(0).SetActive(true);
+
+            // 배경 이미지 변경
+            globalData.stageManager.SetBgImage();
+
+            // 스테이지 텍스트 변경
+            GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.normal);
+
+        }));
+
+        // BGM CHANGE
+        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
+
+        // 메인 메뉴 활성화
+        globalData.uiController.MainMenuAllUnSelect();
+        globalData.uiController.MainMenuShow();
+
+        yield return new WaitForSeconds(0.5f);
+
+        //진화 메뉴 활성화
+        //globalData.uiController.EnableMenuPanel(MenuPanelType.evolution);
+        // 진화 몬스터 도전 버튼 활성화
+        globalData.evolutionManager.EnableBtnEvolutionMonsterChange(true);
+
+        // camera zoom In
+        globalData.stageManager.bgAnimController.CameraZoomIn();
+
+        // 미리 저장된 몬스터 등장
+        yield return StartCoroutine(AppearMonster(globalData.player.prevMonsterType));
+
+        // 황금 돼지 활성화
+        globalData.goldPigController.ExitOtherView();
+
+        // 공격 가능 상태로 전환
+        globalData.attackController.SetAttackableState(true);
+
+    }
+    public IEnumerator GiveUpEvolutionMonster()
+    {
+        isMonsterDie = true;
+
+        // 공격 불가능 상태로 전환
+        globalData.attackController.SetAttackableState(false);
+
+        // 포기 버튼 비활성화
+        UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(false);
+
+        // 화면전환 이펙트
+        yield return StartCoroutine(globalData.effectManager.EffTransitioEvolutionUpgrade(() =>
+        {
+
+            // 보스 몬스터 OUT
+            StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionOut());
+
+            // 보스 도전 타이머 비활성화
+            globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(false);
+
+            // 배경 이미지 변경
+            globalData.stageManager.SetBgImage();
+
+            // 스테이지 텍스트 변경
+            GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.normal);
+
+            //하단 메인 메뉴 활성화
+            globalData.uiController.MainMenuShow();
+            // 활성화 된 모든 곤충 모두 제거
+            globalData.insectManager.DisableAllAvtiveInsects();
+
+
+        }));
+
+        // BGM CHANGE
+        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
+
+        // 메인 메뉴 버튼 모두 미 선택 상태로 변경
+        globalData.uiController.MainMenuAllUnSelect();
+
+        yield return new WaitForSeconds(0.5f);// 메인메뉴 등장 애니메이션 연출이 끝날때까지 대기
+
+        // 공격 가능 상태로 전환
+        globalData.attackController.SetAttackableState(true);
+
+        // camera zoom In
+        globalData.stageManager.bgAnimController.CameraZoomIn();
+
+        // 기존 몬스터 등장
+        StartCoroutine(AppearMonster(globalData.player.prevMonsterType));
+
+        if (globalData.player.isBossMonsterChllengeEnable)
+        {
+            // 보스 도전 버튼 활성화
+            globalData.uiController.btnBossChallenge.gameObject.SetActive(true);
+        }
+
+        // 진화 몬스터 도전 버튼 활성화
+        globalData.evolutionManager.EnableBtnEvolutionMonsterChange(true);
+
+        // side menu show
+        SideUIMenuHide(false);
+
+    }
+    #endregion
+    //===================================================================================================================================================================================
+    #region 던전 몬스터 프로세스 (도전/시간종료/포기)
+    private void DungeonPopupApplyEvent()
+    {
+        dungeonMonsterPopupClose = true;
+    }
+    //던전 포기를 수락한 경우
+    void AllowGiveUp(EnumDefinition.GoodsType g, long l)
+    {
+        StartCoroutine(GiveUpDungeonMonster(g, l));
+    }
+    IEnumerator GiveUpDungeonMonster(EnumDefinition.GoodsType g, long l)
+    {
+        isMonsterDie = true;
+
+        // 공격 불가능 상태로 전환
+        globalData.attackController.SetAttackableState(false);
+
+        // 활성화 된 모든 곤충 모두 제거
+        globalData.insectManager.DisableAllAvtiveInsects();
+        UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(false);
+
+        // sfx dungeon monster out
+        globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.End_Batle);
+
+        RewardGoods(g, l);
+
+        // 화면전환 이펙트
+        yield return StartCoroutine(globalData.effectManager.EffTransitioEvolutionUpgrade(() =>
+        {
+
+            // 배경 이미지 변경
+            globalData.stageManager.SetBgImage();
+
+            // 보스 몬스터 OUT
+            StartCoroutine(globalData.monsterManager.GetMonsterDungeon().inOutAnimator.AnimPositionOut());
+
+            globalData.monsterManager.GetMonsterDungeon().DungeonMonsterOut();
+
+            // 보스 도전 타이머 비활성화
+            globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(false);
+
+            //DUNGEON_BOX_ICON_BTN 박스아이콘 비활성화
+            UtilityMethod.GetCustomTypeGMById(10).gameObject.SetActive(false);
+
+            // side menu show
+            SideUIMenuHide(false);
+
+            // 스테이지 텍스트 변경
+            GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.normal);
+
+        }));
+
+        // BGM CHANGE
+        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
+
+        // 메인 메뉴 활성화
+        globalData.uiController.MainMenuShow();
+        
+        yield return new WaitForSeconds(0.5f);
+
+      // 공격 가능 상태로 전환
+        globalData.attackController.SetAttackableState(true);
+
+        // camera zoom In
+        globalData.stageManager.bgAnimController.CameraZoomIn();
+
+        // 진화 몬스터 도전 버튼 활성화
+        globalData.evolutionManager.EnableBtnEvolutionMonsterChange(true);
+
+        // side menu show
+        SideUIMenuHide(false);
+
+        // 일반 몬스터 등장
+        //StartCoroutine(AppearMonster(MonsterType.normal));
+        // 기존 몬스터 등장
+        StartCoroutine(AppearMonster(globalData.player.prevMonsterType));
+
+        if (globalData.player.isBossMonsterChllengeEnable)
+        {
+            // 보스 도전 버튼 활성화
+            globalData.uiController.btnBossChallenge.gameObject.SetActive(true);
+        }
+
+        // 던전 몬스터 도전 버튼 활성화 TODO: 모든 던전 몬스터 고려
+        // 골드 몬스터 도전 버튼 비활성화 TODO: 던전 몬스터별 버튼 비활성화
+        UtilityMethod.GetCustomTypeBtnByID(45).interactable = true;
+        UtilityMethod.GetCustomTypeBtnByID(46).interactable = true;
+        UtilityMethod.GetCustomTypeBtnByID(47).interactable = true;
+        UtilityMethod.GetCustomTypeBtnByID(48).interactable = true;
+
+        // dungeonMonsterPopupFinishParticle = false;
+        dungeonMonsterPopupClose = false;
+
+        // 진화 몬스터 도전 버튼 활성화
+        // globalData.evolutionManager.EnableBtnEvolutionMonsterChange(true);
+
+        //진화 메뉴 활성화
+        // globalData.uiController.EnableMenuPanel(MenuPanelType.evolution);
+
+        // 황금돼지 활성화
+        globalData.goldPigController.ExitOtherView();
+    }
+    //던전 포기 버튼을 눌렀을 때
+    public void BtnEventDungeonGiveUp()
+    {
+        if(globalData.popUpGiveUpDungeon.isShowPopup) return;
+        //보스 타이머 시간을 멈추고
+        //globalData.bossChallengeTimer.StopBossTimer(true);
+
+        // 총 보상 재화 가지고 오기
+        var monster = globalData.monsterManager.GetMonsterDungeon();
+        var monsterType = monster.curMonsterData.monsterType;
+        var goodsType = monster.curMonsterData.goodsType;
+
+        //var totalCurrencyAmount = globalData.dataManager.GetDungeonMonsterDataByTypeLevel(monsterType, monster.curLevel);
+        var dungeonMonsterData = globalData.dataManager.GetDungeonMonsterDataByTypeLevel(monsterType, monster.curLevel);
+
+        // 캐슬 -> 연구소에 따른 던전 추가보상량
+        var addValue = globalData.labBuildingManager.GetInLabBuildGameData(goodsType).value;
+        long totalCurrencyAmount = (long)(dungeonMonsterData.currencyAmount + (dungeonMonsterData.currencyAmount * addValue * 0.01f));
+
+        globalData.popUpGiveUpDungeon.ShowGiveUpDungeonPopup(goodsType, totalCurrencyAmount, AllowGiveUp);
+
+    }
+
+    void EvnOnDungenMonsterChallenge(MonsterType monsterType)
+    {
+        // 전체 UI 비활성 
+        UtilityMethod.EnableUIEventSystem(false);
+
+        var usingKeyCount = GlobalData.instance.monsterManager.GetMonsterDungeon().monsterToDataMap[monsterType].usingKeyCount;
+        //도전 버튼 누르기 전 활성화 되어있던 몬스터 타입 저장
+        globalData.player.SetPervMonsterType(globalData.player.curMonsterType);
+        // 열쇠 사용
+        // 열쇠 없으면 광고 키 사용
+        var keyCount = globalData.player.GetCurrentDungeonKeyCount(monsterType);
+        if (keyCount > 0)
+        {
+            globalData.player.PayDungeonKeyByMonsterType(monsterType, usingKeyCount);
+        }
+        else
+        {
+            globalData.player.PayDungeonADKeyByMonsterType(monsterType, usingKeyCount);
+        }
+
+        // UI 업데이트
+        globalData.dungeonManager.UpdateDunslotKeyUI(monsterType);
+
+        StopAllCoroutines();
+
+        StartCoroutine(ChallengeDungeonMonster(monsterType));
+    }
+   IEnumerator ChallengeDungeonMonster(MonsterType monsterType)
     {
         // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
         StartCoroutine(globalData.effectManager.goldPoolingCont.DisableGoldEffects());
@@ -654,8 +1248,10 @@ public class EventController : MonoBehaviour
         // 보스의 경우 뼈조각 OUT EFF 추가 ( 뼈조각 화면에 뿌려진 경우에만 )
         StartCoroutine(globalData.effectManager.bonePoolingCont.DisableGoldEffects());
 
+        GlobalData.instance.effectManager.EnableTransition(EnumDefinition.TransitionTYPE.Dungeon);
+
         // transition effect
-        globalData.effectManager.EnableTransitionEffDungeonInByType(monsterType);
+        globalData.effectManager.SetDungeonKeyImage(monsterType);
 
         // 황금돼지 비활성화
         globalData.goldPigController.EnterOtherView();
@@ -672,7 +1268,8 @@ public class EventController : MonoBehaviour
         // 현재 몬스터 타입 세팅 ( 타이머 종료 이벤트를 위한...)
         globalData.player.curMonsterType = MonsterType.dungeon;
         globalData.uiController.EnableMainMenuCloseBtn(false);
-
+        // 버튼 패널 및 캐슬화면 숨김
+        globalData.uiController.AllDisableMenuPanels();
         // 메인 메뉴 활성화
         globalData.uiController.MainMenuHide();
 
@@ -749,532 +1346,27 @@ public class EventController : MonoBehaviour
         globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(true);
 
         // 타이머 시간 설정 
-        globalData.bossChallengeTimer.SetTimeValue(monster.curMonsterData.battleTime);
-
-        // 타이머 계산 시작
-        globalData.bossChallengeTimer.StartTimer();
-
-        // 공격 가능 상태로 전환
-        globalData.attackController.SetAttackableState(true);
-
-    }
-    // 몬스터 등장
-    public IEnumerator AppearMonster(EnumDefinition.MonsterType monsterType)
-    {
-
-        // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
-        StartCoroutine(globalData.effectManager.goldPoolingCont.DisableGoldEffects());
-
-        // 보스의 경우 뼈조각 OUT EFF 추가 ( 뼈조각 화면에 뿌려진 경우에만 )
-        StartCoroutine(globalData.effectManager.bonePoolingCont.DisableGoldEffects());
-
-        // get curret monster data
-        var monsterData = globalData.monsterManager.GetMonsterData(monsterType);
-
-        // set hp 
-        monsterData.hp = monsterData.hp * (1 - (GlobalData.instance.statManager.MonsterHpLess() * 0.01f));
-
-
-        // set current monster
-        globalData.player.SetCurrentMonster(monsterData);
-
-
-        // 사용하지 않는 몬스터 숨기기
-        globalData.monsterManager.ShowMonsterByType(monsterType);
-
-        // set prev monster type
-        globalData.player.SetPervMonsterType(globalData.player.curMonsterType);
-
-        // set current monster type
-        globalData.player.SetCurrentMonsterType(monsterType);
-
-        // set monster data
-        if (monsterType == MonsterType.evolution)
-        {
-            globalData.monsterManager.SetMonsterDataOther(monsterType, globalData.evolutionManager.evalutionLeveldx);
-            // set monster skin
-            globalData.player.currentMonster.SetSkinById(globalData.evolutionManager.evalutionLeveldx);
-        }
-        else
-        {
-            globalData.monsterManager.SetMonsterData(monsterType, globalData.player.stageIdx);
-        }
-
-        if (monsterType == MonsterType.normal)
-        {
-            // 금광보스 카운트 UI 활성
-            globalData.uiController.SetEnablePhaseCountUI(true);
-        }
-
-
-        // set current monster hp
-        // TODO: 이펙트 연출 추가
-        globalData.player.SetCurrentMonsterHP(monsterData.hp);
-        // 몬스터 UI 세팅
-        MonsterUiSetting();
-
-        // Monster In Animation
-        yield return StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionIn());
-
-        // Tutorial Event ( 골드 몬스터 등장 )
-        if (monsterType == MonsterType.gold)
-            EventManager.instance.RunEvent(CallBackEventType.TYPES.OnStageInGoldMonster);
-
-        // 공격 가능 상태 변경
-        if (globalData.uiController.isCastleOpen == false)
-            globalData.attackController.SetAttackableState(true);
-    }
-    #endregion
-    //===================================================================================================================================================================================
-    #region 보스 몬스터 프로세스 (도전/시간종료/포기)
-    void EvnOnBossMonsterChalleng()
-    {
-        StopAllCoroutines();
-        StartCoroutine(ChallengeBossMonster());
-    }
-    IEnumerator ChallengeBossMonster()
-    {
-        globalData.effectManager.EnableTransitionEffBossAttack();
-
-        // side menu hide
-        SideUIMenuHide(true);
-
-        //하단 메인 메뉴 비활성화
-        //globalData.uiController.MainMenuHide();
-
-        // 하프 라인 위 곤충 모두 제거
-        globalData.insectManager.DisableHalfLineInsects();
-        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_DungeonBoss);
-
-        // 일반 몬스터 OUT
-        yield return StartCoroutine(globalData.player.currentMonster.inOutAnimator.MonsterKillMatAnim());
-
-
-
-        // 보스 도전 버튼 숨김
-        globalData.uiController.btnBossChallenge.gameObject.SetActive(false);
-
-        // 보스 도전 타이머 활성화
-        globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(true);
-
-        // 타이머 시간 설정
         globalData.bossChallengeTimer.SetTimeValue(30f);
 
-        // 포기 버튼 활성화
-        UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(true);
-
-        // phase count UI 숨김
-        globalData.uiController.SetEnablePhaseCountUI(false);
-
-        // BG Color Change
-        globalData.stageManager.bgAnimController.spriteColorAnim.ColorChangeAnim();
-
-        // camera zoom out
-        globalData.stageManager.bgAnimController.CameraZoomOut_Boss();
-
-        // 보스 몬스터 등장
-        StartCoroutine(AppearMonster(MonsterType.boss));
         // 타이머 계산 시작
         globalData.bossChallengeTimer.StartTimer();
 
-        globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.BossIn);
-        // TODO: 구조적인 변경 필요함. ( MONSTER HIT 이벤트 막는 처리 )
-        isMonsterDie = false;
-    }
-    IEnumerator TimeOutBossMonster()
-    {
-
-        // side menu show
-        SideUIMenuHide(false);
-
-        //하단 메인 메뉴 활성화
-        globalData.uiController.MainMenuShow();
-
-        // 하프 라인 위 곤충 모두 제거
-        globalData.insectManager.DisableHalfLineInsects();
-        //Change BGM
-        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
-
-        // BG Color Change
-        globalData.stageManager.bgAnimController.spriteColorAnim.ColorNormalAnim();
-
-        // 보스 몬스터 OUT
-        yield return StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionOut());
-
-        // 포기 버튼 비활성화
-        UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(false);
-
-        // 보스 도전 버튼 활성화
-        globalData.uiController.btnBossChallenge.gameObject.SetActive(true);
-
-        // 보스 도전 타이머 비활성화
-        globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(false);
-
-        // phase count UI 활성화
-        globalData.uiController.SetEnablePhaseCountUI(true);
-
-        // camera zoom In
-        globalData.stageManager.bgAnimController.CameraZoomIn();
-
-
-        // 기존 몬스터 등장
-        StartCoroutine(AppearMonster(globalData.player.prevMonsterType));
-
-        // 일반 몬스터 등장
-        // StartCoroutine(AppearMonster(MonsterType.normal));
-
-        // tutorial event ( 보스 몬스터 도전 실패 )
-        EventManager.instance.RunEvent(CallBackEventType.TYPES.OnMonsterKillFailedBossMonster);
-
-    }
-    public IEnumerator GiveUpBossMonster()
-    {
-
-        //하단 메인 메뉴 활성화
-        globalData.uiController.MainMenuShow();
-
-        // 공격 불가능 상태로 전환
-        globalData.attackController.SetAttackableState(false);
-
-        // 포기 버튼 비활성화
-        UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(false);
-
-        // 활성화 된 모든 곤충 모두 제거
-        globalData.insectManager.DisableHalfLineInsects();
-
-        // BG Color Change
-        globalData.stageManager.bgAnimController.spriteColorAnim.ColorNormalAnim();
-
-
-        //Change BGM
-        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
-        // 보스 몬스터 OUT
-        yield return StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionOut());
-
-        // 보스 도전 타이머 비활성화
-        globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(false);
-
-        // 보스 도전 버튼 활성화
-        globalData.uiController.btnBossChallenge.gameObject.SetActive(true);
-
         // 공격 가능 상태로 전환
         globalData.attackController.SetAttackableState(true);
 
-        // camera zoom In
-        globalData.stageManager.bgAnimController.CameraZoomIn();
-
-        // 기존 몬스터 등장
-        StartCoroutine(AppearMonster(globalData.player.prevMonsterType));
-
-        // side menu show
-        SideUIMenuHide(false);
-
-        // tutorial event ( 보스 몬스터 도전 실패 )
-        EventManager.instance.RunEvent(CallBackEventType.TYPES.OnMonsterKillFailedBossMonster);
-    }
-    #endregion
-    //===================================================================================================================================================================================
-    #region 진화 몬스터 프로세스 (도전/시간종료/포기)
-    /*
-     0 : 트랜지션 인
-     1 : 몬스터 및 스테이지 세팅
-     2 : 트랜지션 아웃
-     3 : 진화전 몬스터 등장
-     4 : 몬스터 사냥
-     5 : 몬스터 사냥 성공 -> 진화
-     6 : 몬스터 사냥 실패 -> 이전 몬스터 등장  
-    */
-    void EvnOnEvolutionMonsterChallenge()
-    {
-        StopAllCoroutines();
-        StartCoroutine(ChallengeEvolution());
-    }
-    IEnumerator ChallengeEvolution()
-    {
-
-        // 전체 UI 비활성 
-        UtilityMethod.EnableUIEventSystem(false);
-        // 메뉴 판넬 숨김
-        GlobalData.instance.uiController.AllDisableMenuPanels();
-        // 황금돼지 비활성화
-        globalData.goldPigController.EnterOtherView();
-
-        // 공격 불가능 상태로 전환
-        globalData.attackController.SetAttackableState(false);
-
-        // 하단 메인 메뉴 숨김
-        globalData.uiController.MainMenuHide();
-
-        // 트랜지션 효과
-        globalData.effectManager.EnableTransitionEffEvolution();
-
-        // 진화전 화면전환 이펙트
-        yield return StartCoroutine(globalData.effectManager.EffTransitioEvolutionUpgrade(() =>
-        {
-
-            // 포기 버튼 활성화
-            UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(true);
-
-            // 금광보스 카운트 UI 숨김
-            globalData.uiController.SetEnablePhaseCountUI(false);
-
-            // 보스 도전 버튼 숨김
-            globalData.uiController.btnBossChallenge.gameObject.SetActive(false);
-
-            // 하프 라인 위 곤충 모두 제거
-            globalData.insectManager.DisableHalfLineInsects();
-
-            // 일반 몬스터 OUT
-            StartCoroutine(globalData.player.currentMonster.inOutAnimator.MonsterKillMatAnim());
-
-            // 보스 도전 타이머 활성화
-            globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(true);
-
-            // 타이머 시간 설정
-            globalData.bossChallengeTimer.SetTimeValue(30f);
-
-            // 타이머 계산 시작
-            globalData.bossChallengeTimer.StartTimer();
-
-            // 배경 리셋
-            globalData.stageManager.bgAnimController.ResetBg();
-
-            // side menu hide
-            // 메뉴 판넬 비활성화
-            UtilityMethod.GetCustomTypeImageById(47).raycastTarget = false;
-            UtilityMethod.GetCustomTypeImageById(47).enabled = false;
-            SideUIMenuHide(true);
-
-            // 배경 교체
-            var monsterData = globalData.monsterManager.GetMonsterData(MonsterType.evolution, globalData.evolutionManager.evalutionLeveldx);
-            globalData.stageManager.SetDungeonBgImage(monsterData.bgId);
-
-            // 스테이지 텍스트 변경
-            var stageName = monsterData.stageName;
-            GlobalData.instance.stageNameSetManager.SetTxtStageName(EnumDefinition.StageNameType.evolution, stageName);
-            GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.evolution);
-
-
-        }));
-        globalData.stageManager.bgAnimController.SetOffsetY(0f);
-        // BGM CHANGE
-        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_EvolutionBoss);
-
-        // 공격 가능 상태로 전환
-        globalData.attackController.SetAttackableState(true);
-
-        // 전체 UI 활성 
-        UtilityMethod.EnableUIEventSystem(true);
-        // 진화 몬스터 등장
-        StartCoroutine(AppearMonster(MonsterType.evolution));
-
-        // camera zoom out
-        globalData.stageManager.bgAnimController.CameraZoomOut_Evolution();
-
-
-        isMonsterDie = false;
-    }
-    IEnumerator TimeOutEvolutionMonster()
-    {
-        // 공격 불가능 상태로 전환
-        globalData.attackController.SetAttackableState(false);
-
-        yield return StartCoroutine(globalData.globalPopupController.EnableGlobalPopupCor("message", 0));
-
-        // 활성화 된 모든 곤충 모두 제거
-        globalData.insectManager.DisableAllAvtiveInsects();
-
-        // 화면전환 이펙트
-        yield return StartCoroutine(globalData.effectManager.EffTransitioEvolutionUpgrade(() =>
-        {
-
-            // 진화전 포기 버튼 비활성화
-            UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(false);
-
-            // 보스 몬스터 OUT
-            StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionOut());
-
-            // 보스 도전 타이머 비활성화
-            globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(false);
-
-            // 금광보스 카운트 UI 활성화
-            globalData.uiController.SetEnablePhaseCountUI(true);
-
-            // side menu show
-            SideUIMenuHide(false);
-
-            // 훈련 메뉴 -> 진화 메뉴 UI 활성화
-            UtilityMethod.GetCustomTypeGMById(0).SetActive(true);
-
-            // 배경 이미지 변경
-            globalData.stageManager.SetBgImage();
-
-            // 스테이지 텍스트 변경
-            GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.normal);
-
-        }));
-
-        // BGM CHANGE
-        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
-
-        // 메인 메뉴 활성화
-        globalData.uiController.MainMenuAllUnSelect();
-        globalData.uiController.MainMenuShow();
-
-        yield return new WaitForSeconds(0.5f);
-
-        //진화 메뉴 활성화
-        //globalData.uiController.EnableMenuPanel(MenuPanelType.evolution);
-        // 진화 몬스터 도전 버튼 활성화
-        globalData.evolutionManager.EnableBtnEvolutionMonsterChange(true);
-
-        // camera zoom In
-        globalData.stageManager.bgAnimController.CameraZoomIn();
-
-        // 일반 몬스터 등장
-        yield return StartCoroutine(AppearMonster(MonsterType.normal));
-
-        // 황금 돼지 활성화
-        globalData.goldPigController.ExitOtherView();
-
-        // 공격 가능 상태로 전환
-        globalData.attackController.SetAttackableState(true);
-
-
-    }
-    public IEnumerator GiveUpEvolutionMonster()
-    {
-
-        // 공격 불가능 상태로 전환
-        globalData.attackController.SetAttackableState(false);
-
-        // 포기 버튼 비활성화
-        UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(false);
-
-        // 화면전환 이펙트
-        yield return StartCoroutine(globalData.effectManager.EffTransitioEvolutionUpgrade(() =>
-        {
-
-            // 금광보스 카운트 UI 활성화
-            globalData.uiController.SetEnablePhaseCountUI(true);
-
-            // 보스 도전 타이머 비활성화
-            globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(false);
-
-            // 배경 이미지 변경
-            globalData.stageManager.SetBgImage();
-
-            // 스테이지 텍스트 변경
-            GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.normal);
-
-            //하단 메인 메뉴 활성화
-            globalData.uiController.MainMenuShow();
-            // 활성화 된 모든 곤충 모두 제거
-            globalData.insectManager.DisableAllAvtiveInsects();
-            // BG Color Change
-            globalData.stageManager.bgAnimController.spriteColorAnim.ColorNormalAnim();
-
-        }));
-
-        // BGM CHANGE
-        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
-
-        // 메인 메뉴 버튼 모두 미 선택 상태로 변경
-        globalData.uiController.MainMenuAllUnSelect();
-
-        yield return new WaitForSeconds(0.5f);// 메인메뉴 등장 애니메이션 연출이 끝날때까지 대기
-
-        // 공격 가능 상태로 전환
-        globalData.attackController.SetAttackableState(true);
-
-        // camera zoom In
-        globalData.stageManager.bgAnimController.CameraZoomIn();
-
-        // 기존 몬스터 등장
-        StartCoroutine(AppearMonster(globalData.player.prevMonsterType));
-
-        if (globalData.player.isBossMonsterChllengeEnable)
-        {
-            // 보스 도전 버튼 활성화
-            globalData.uiController.btnBossChallenge.gameObject.SetActive(true);
-        }
-
-        // 진화 몬스터 도전 버튼 활성화
-        globalData.evolutionManager.EnableBtnEvolutionMonsterChange(true);
-
-        // side menu show
-        SideUIMenuHide(false);
-    }
-    #endregion
-    //===================================================================================================================================================================================
-    #region 던전 몬스터 프로세스 (도전/시간종료/포기)
-    private void DungeonPopupApplyEvent()
-    {
-        dungeonMonsterPopupClose = true;
-    }
-    void AllowGiveUp(EnumDefinition.GoodsType g, long l)
-    {
-        RewardGoods(g, l);
-    }
-    void CancelGiveUp()
-    {
-        //타이머 재개
-        globalData.bossChallengeTimer.StopBossTimer(false);
-    }
-
-    public void BtnEventDungeonGiveUp()
-    {
-        //보스 타이머 시간을 멈추고
-        globalData.bossChallengeTimer.StopBossTimer(true);
-
-        // 총 보상 재화 가지고 오기
-        var monster = globalData.monsterManager.GetMonsterDungeon();
-        var monsterType = monster.curMonsterData.monsterType;
-        var goodsType = monster.curMonsterData.goodsType;
-
-        //var totalCurrencyAmount = globalData.dataManager.GetDungeonMonsterDataByTypeLevel(monsterType, monster.curLevel);
-        var dungeonMonsterData = globalData.dataManager.GetDungeonMonsterDataByTypeLevel(monsterType, monster.curLevel);
-
-        // 캐슬 -> 연구소에 따른 던전 추가보상량
-        var addValue = globalData.labBuildingManager.GetInLabBuildGameData(goodsType).value;
-        long totalCurrencyAmount = (long)(dungeonMonsterData.currencyAmount + (dungeonMonsterData.currencyAmount * addValue * 0.01f));
-
-        globalData.popUpGiveUpDungeon.ShowGiveUpDungeonPopup(goodsType, totalCurrencyAmount, AllowGiveUp);
-
-    }
-
-    void EvnOnDungenMonsterChallenge(MonsterType monsterType)
-    {
-        // 전체 UI 비활성 
-        UtilityMethod.EnableUIEventSystem(false);
-
-        var usingKeyCount = GlobalData.instance.monsterManager.GetMonsterDungeon().monsterToDataMap[monsterType].usingKeyCount;
-
-        // 열쇠 사용
-        // 열쇠 없으면 광고 키 사용
-        var keyCount = globalData.player.GetCurrentDungeonKeyCount(monsterType);
-        if (keyCount > 0)
-        {
-            globalData.player.PayDungeonKeyByMonsterType(monsterType, usingKeyCount);
-        }
-        else
-        {
-            globalData.player.PayDungeonADKeyByMonsterType(monsterType, usingKeyCount);
-        }
-
-        // UI 업데이트
-        globalData.dungeonManager.UpdateDunslotKeyUI(monsterType);
-
-        StopAllCoroutines();
-
-        StartCoroutine(AppearDungeonMonster(monsterType));
     }
     IEnumerator TimeOutDungeonMonster()
     {
-
+        isMonsterDie = true;
+        //만약 포기 팝업이 떠있는 상태라면
+        if(globalData.popUpGiveUpDungeon.isShowPopup)
+        {
+            globalData.popUpGiveUpDungeon.ButtonRefuse();
+        }    
         // 공격 불가능 상태로 전환
         globalData.attackController.SetAttackableState(false);
-
+        // 포기 버튼 비활성화
+        UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(false);
         // 활성화 된 모든 곤충 모두 제거
         globalData.insectManager.DisableAllAvtiveInsects();
         // 하프 라인 위 곤충 모두 제거
@@ -1308,16 +1400,12 @@ public class EventController : MonoBehaviour
         // 재화 획득 TODO: 재화 획득 연출
         RewardGoods(goodsType, totalCurrencyAmount);
 
-
         // 화면전환 이펙트
         yield return StartCoroutine(globalData.effectManager.EffTransitioEvolutionUpgrade(() =>
         {
 
             // 배경 이미지 변경
             globalData.stageManager.SetBgImage();
-
-            // 금광보스 카운트 UI 활성화
-            globalData.uiController.SetEnablePhaseCountUI(true);
 
             // 보스 몬스터 OUT
             StartCoroutine(globalData.monsterManager.GetMonsterDungeon().inOutAnimator.AnimPositionOut());
@@ -1334,20 +1422,16 @@ public class EventController : MonoBehaviour
             SideUIMenuHide(false);
 
             // 스테이지 텍스트 변경
-            GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.normal);
 
         }));
 
         // BGM CHANGE
         GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
+        GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.normal);
 
         // 메인 메뉴 활성화
         globalData.uiController.MainMenuShow();
-        globalData.uiController.EnableMainMenuCloseBtn(true);
         yield return new WaitForSeconds(0.5f);
-
-        //던전 메뉴 활성화
-        globalData.uiController.EnableMenuPanel(MenuPanelType.dungeon);
 
         // 공격 가능 상태로 전환
         globalData.attackController.SetAttackableState(true);
@@ -1382,87 +1466,11 @@ public class EventController : MonoBehaviour
         // 황금돼지 활성화
         globalData.goldPigController.ExitOtherView();
     }
-    public IEnumerator GiveUpDungeonMonster()
-    {
-        // 공격 불가능 상태로 전환
-        globalData.attackController.SetAttackableState(false);
-
-        // 포기 버튼 비활성화
-        UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(false);
-
-        // 화면전환 이펙트
-        yield return StartCoroutine(globalData.effectManager.EffTransitioEvolutionUpgrade(() =>
-        {
-
-            // 금광보스 카운트 UI 활성화
-            globalData.uiController.SetEnablePhaseCountUI(true);
-
-            // 보스 몬스터 OUT
-            StartCoroutine(globalData.monsterManager.GetMonsterDungeon().inOutAnimator.AnimPositionOut());
-
-            globalData.monsterManager.GetMonsterDungeon().DungeonMonsterOut();
-
-            // 보스 도전 타이머 비활성화
-            globalData.uiController.imgBossMonTimerParent.gameObject.SetActive(false);
-
-            // 배경 이미지 변경
-            globalData.stageManager.SetBgImage();
-
-            // 스테이지 텍스트 변경
-            GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.normal);
-
-            //하단 메인 메뉴 활성화
-            globalData.uiController.MainMenuShow();
-
-            // 활성화 된 모든 곤충 모두 제거
-            globalData.insectManager.DisableAllAvtiveInsects();
-
-            // BG Color Change
-            globalData.stageManager.bgAnimController.spriteColorAnim.ColorNormalAnim();
-
-        }));
-
-        //        yield return new WaitUntil(() => dungeonMonsterPopupClose);
-
-        // BGM CHANGE
-        GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
-
-        // 메인 메뉴 활성화
-        globalData.uiController.MainMenuAllUnSelect();
-
-        yield return new WaitForSeconds(0.5f);// 메인메뉴 등장 애니메이션 연출이 끝날때까지 대기
-
-        // 공격 가능 상태로 전환
-        globalData.attackController.SetAttackableState(true);
-
-        // camera zoom In
-        globalData.stageManager.bgAnimController.CameraZoomIn();
-
-        // 기존 몬스터 등장
-        StartCoroutine(AppearMonster(globalData.player.prevMonsterType));
-        if (globalData.player.isBossMonsterChllengeEnable)
-        {
-            // 보스 도전 버튼 활성화
-            globalData.uiController.btnBossChallenge.gameObject.SetActive(true);
-        }
-
-
-        // 진화 몬스터 도전 버튼 활성화
-        globalData.evolutionManager.EnableBtnEvolutionMonsterChange(true);
-
-        // side menu show
-        SideUIMenuHide(false);
-    }
+    
     #endregion
     //===================================================================================================================================================================================
 
 
-
-    IEnumerator GainDungeonMonsterGoods(MonsterType monsterType)
-    {
-        yield return null;
-
-    }
     //몬스터가 죽었는지 체크
     public bool CheckMonsterDie()
     {

@@ -38,8 +38,8 @@ public class BossMonsterChallengeTimer : MonoBehaviour
         {
             if (isStop)
             {
-                //isStop가 true가 될때까지 대기하기
-                yield return new WaitUntil(() => isStop == false);
+                isStop = false;
+                yield break;
             }
 
             if (GlobalData.instance.eventController.CheckMonsterDie())

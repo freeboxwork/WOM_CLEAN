@@ -1,6 +1,17 @@
 
 public class EnumDefinition
 {
+
+    public enum TransitionTYPE
+    {
+        Boss,
+        Evolution,
+        Dungeon,
+        Castle,
+        ClearBoss
+
+    }
+
     public enum NotifyType
     {
         None,

@@ -153,23 +153,24 @@ public class GlobalController : MonoBehaviour
 
         // 골드 피그 등장( 지정된 시간 지난뒤 등장 )
         yield return StartCoroutine(goldPigController.Init());
-
-        // 트랜지션 아웃 ( black screen )
-        yield return StartCoroutine(GlobalData.instance.effectManager.TransitionOut());
-
+        yield return StartCoroutine(inAppPurchaseManager.Init());
         // 퀘스트 매니저 세팅
         yield return StartCoroutine(questManager.Init());
-
-        // 한 프레임 대기
-        yield return new WaitForEndOfFrame();
 
         // 오프라인 보상 팝업 등장
         yield return StartCoroutine(offlineRewardPopupContoller.Init());
 
+        // 트랜지션 아웃 ( black screen )
+        yield return StartCoroutine(GlobalData.instance.effectManager.TransitionOut());
+
+        // 버튼 가능 상태로 전환
+        UtilityMethod.EnableUIEventSystem(true);
+        
+        // 한 프레임 대기
+        yield return new WaitForEndOfFrame();
         // Monster In Animation
         yield return StartCoroutine(player.currentMonster.inOutAnimator.AnimPositionIn());
 
-        yield return StartCoroutine(inAppPurchaseManager.Init());
 
         // 곤충 스폰 활성화 -> tutorial pattenr 10 에서 활성화
         if (tutorialManager.isTutorial == false)
@@ -183,8 +184,7 @@ public class GlobalController : MonoBehaviour
         // 공격 가능 상태로 전환
         attackController.SetAttackableState(true);
 
-        // 버튼 가능 상태로 전환
-        UtilityMethod.EnableUIEventSystem(true);
+
 
         if (tutorialManager.isTutorial && tutorialManager.newUserEventPopupObj.activeSelf == false)
         {

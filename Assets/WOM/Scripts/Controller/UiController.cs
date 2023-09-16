@@ -474,53 +474,39 @@ public class UiController : MonoBehaviour
         isCastleOpen = true;
         // 공격 불가능 상태 전환
         GlobalData.instance.attackController.SetAttackableState(false);
-
+        // 황금돼지 비활성화
+        GlobalData.instance.goldPigController.EnterOtherView();
         // 버튼 클릭 안되게 수정
         UtilityMethod.EnableUIEventSystem(false);
-
-
+        
+        GlobalData.instance.eventController.StopAllCoroutine();
         // 트렌지션 효과
-        GlobalData.instance.effectManager.EnableTransitionEffCastle();
-
-     
+        GlobalData.instance.effectManager.EnableTransition(EnumDefinition.TransitionTYPE.Castle);
 
         // 화면전환 효과
         yield return StartCoroutine(GlobalData.instance.effectManager.EffTransitioEvolutionUpgrade(() =>
         {
             // BGM CHANGE
             GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Castle);
-
             // 현재 몬스터 OUT
             // StartCoroutine(GlobalData.instance.player.currentMonster.inOutAnimator.MonsterKillMatAnim());
             var monster = GlobalData.instance.player.currentMonster;
             monster.gameObject.SetActive(false);
-
             // 활성화된 곤충 모두 비활성화
             GlobalData.instance.insectManager.DisableAllAvtiveInsects();
+            mainPanels[(int)MenuPanelType.castle].SetActive(true);
 
             // UI 비활성화
             UtilityMethod.GetCustomTypeGMById(6).gameObject.SetActive(false);
 
-           
-
         }));
-    
-       StartCoroutine(EnableCastle());
+
+
+       //StartCoroutine(EnableCastle());
 
 
         UtilityMethod.EnableUIEventSystem(true);
 
-    }
-
-    //TODO : 캐슬 활성화 타이밍 수정 ( 제대로 활성화 안된느 문제 해결)
-    IEnumerator EnableCastle()
-    {
-        yield return new WaitForSeconds(1f);
-        while (mainPanels[(int)MenuPanelType.castle].activeSelf == false)
-        {
-            mainPanels[(int)MenuPanelType.castle].SetActive(true);
-            yield return null;
-        }
     }
 
     IEnumerator ExitCastlePanel()
@@ -539,7 +525,6 @@ public class UiController : MonoBehaviour
         {
             // BGM CHANGE
             GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
-
 
             // 캐슬창 비활성화
             mainPanels[(int)MenuPanelType.castle].gameObject.SetActive(false);
@@ -680,30 +665,17 @@ public class UiController : MonoBehaviour
 
     public RectTransform menuRectTrans;
     bool isMenuHide = false;
-    [Sirenix.OdinInspector.Button]
-    public void MoveMenu()
-    {
-        //Debug.Log(menuRectTrans.sizeDelta);
-        if (!isMenuHide)
-        {
-            menuRectTrans.DOAnchorPos(new Vector2(0f, -150f), 0.5f).SetEase(Ease.InOutExpo);
-
-        }
-        else
-        {
-            menuRectTrans.DOAnchorPos(new Vector2(0f, 0f), 0.5f).SetEase(Ease.InOutExpo);
-        }
-
-        isMenuHide = !isMenuHide;
-    }
 
     public void MainMenuHide()
     {
+        menuRectTrans.DOKill();
         menuRectTrans.DOAnchorPos(new Vector2(0f, -150f), 0.5f).SetEase(Ease.InOutExpo);
     }
 
     public void MainMenuShow()
     {
+        menuRectTrans.DOKill();
+
         menuRectTrans.DOAnchorPos(new Vector2(0f, 0f), 0.5f).SetEase(Ease.InOutExpo);
     }
 

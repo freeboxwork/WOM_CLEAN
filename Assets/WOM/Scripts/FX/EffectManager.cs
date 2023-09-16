@@ -51,35 +51,25 @@ public class EffectManager : MonoBehaviour
 
     [Header("=====================================================================================================================")]
     [Header("È­¸éÀüÈ¯ ÀÌÆåÆ®")]
-    public GameObject transitionAnimEffBossAttack;
     public GameObject transitionAnimEffSkillOn;
     public Image transitionAnimEffSkillOnImage;
     public SerializableDictionary<EnumDefinition.SkillType, Sprite> skillTypeToIconMap;
 
 
     // Dungeon tranition effectg
-    public GameObject transitionAnimEffDungeonIn;
     public Image imgDungeonKey;
     public Image imgDungeonKeyShadow;
     public SerializableDictionary<EnumDefinition.MonsterType, Sprite> dungeonTypeToIconMap;
 
     // evolution tranition effect
-    public GameObject transitionAnimEffEvolutionIn;
-
-    public GameObject transitionAnimEffStageClear;
-
     public DamageNumber numberPrefab;
-
-
-    // castle tranition effect
-    public GameObject transitionAnimEffCastleIn;
-
     // king monster effect
     public GameObject[] effectKingMonsterHits;
 
     public GameObject monsterDieBeforeEffect;
 
     public GameObject levelUpEffect;
+    public GameObject[] transitionGameObject;
 
 
     public IEnumerator Init()
@@ -281,13 +271,10 @@ public class EffectManager : MonoBehaviour
         var colorAlpha = new Color(1, 1, 1, 0);
         animContTransition.animData = animDataTranIn;
         yield return StartCoroutine(animContTransition.UI_ImageColorAnim(image, colorAlpha, colorAlpha_None));
-
+        GlobalData.instance.uiController.AllDisableMenuPanels();
         transitionEvent.Invoke();
         // UI PANEL ¼û±è
-        GlobalData.instance.uiController.AllDisableMenuPanels();
-
-        yield return new WaitForSeconds(0.5f);
-
+        yield return new WaitForSeconds(1f);
         // Æ®·£Áö¼Ç ¾Æ¿ô
         animContTransition.animData = animDataTranOut;
         yield return StartCoroutine(animContTransition.UI_ImageColorAnim(image, colorAlpha_None, colorAlpha));
@@ -308,11 +295,6 @@ public class EffectManager : MonoBehaviour
         yield return StartCoroutine(animContTransition.UI_ImageColorAnim(image, colorAlpha_None, colorAlpha));
     }
 
-    public void EnableTransitionEffBossAttack()
-    {
-        transitionAnimEffBossAttack.gameObject.SetActive(true);
-    }
-
     public void EnableTransitionEffSkillOnByType(EnumDefinition.SkillType skillType)
     {
         StopCoroutine("EnableTransitionEffSkillOnByType_Cor");
@@ -325,36 +307,17 @@ public class EffectManager : MonoBehaviour
         transitionAnimEffSkillOnImage.sprite = skillTypeToIconMap[skillType];
         transitionAnimEffSkillOn.gameObject.SetActive(true);
     }
-
-    public void EnableTransitionEffDungeonInByType(EnumDefinition.MonsterType monsterType)
+    public void SetDungeonKeyImage(EnumDefinition.MonsterType monsterType)
     {
-        StopCoroutine("EnableTransitionEffEffDungeonInByType_Cor");
-        StartCoroutine(EnableTransitionEffEffDungeonInByType_Cor(monsterType));
-    }
-    IEnumerator EnableTransitionEffEffDungeonInByType_Cor(EnumDefinition.MonsterType monsterType)
-    {
-        transitionAnimEffDungeonIn.gameObject.SetActive(false);
-        yield return new WaitForEndOfFrame();
         imgDungeonKey.sprite = dungeonTypeToIconMap[monsterType];
         imgDungeonKeyShadow.sprite = dungeonTypeToIconMap[monsterType];
-        transitionAnimEffDungeonIn.gameObject.SetActive(true);
     }
 
-    public void EnableTransitionEffEvolution()
+    public void EnableTransition(EnumDefinition.TransitionTYPE type)
     {
-        transitionAnimEffEvolutionIn.gameObject.SetActive(true);
+        transitionGameObject[(int)type].SetActive(true);
     }
 
-    public void EnableTransitionEffStageClear()
-    {
-        transitionAnimEffStageClear.gameObject.SetActive(true);
-    }
-
-
-    public void EnableTransitionEffCastle()
-    {
-        transitionAnimEffCastleIn.gameObject.SetActive(true);
-    }
 
     public void EnableKingMonsterHitEffect(Transform tr, int hitIndex)
     {

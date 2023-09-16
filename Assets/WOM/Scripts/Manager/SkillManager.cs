@@ -38,8 +38,6 @@ public class SkillManager : MonoBehaviour
     {
         foreach (SkillType type in System.Enum.GetValues(typeof(SkillType)))
         {
-
-
             Skill_InGameData inGameData = new Skill_InGameData();
             inGameData.skillType = type;
 
@@ -121,7 +119,7 @@ public class SkillManager : MonoBehaviour
                     break;
 
                 case SkillType.allUnitSpeedUp:
-                    SetUI(ref slot, data, inGameData);
+                    SetUIMoveSpeed(ref slot, data, inGameData);
                     break;
 
                 case SkillType.glodBonusUp:

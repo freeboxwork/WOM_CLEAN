@@ -12,24 +12,11 @@ public class MonsterKingController : MonoBehaviour
 
     public Transform trHitPoint;
 
-    public float hitTimingMin = 0.01f;
-    public float hitTimingMax = 0.05f;
+    public float hitTimingMin = 0.05f;
+    public float hitTimingMax = 0.2f;
     private int totalHitCount = 10;
 
-    void Start()
-    {
 
-    }
-
-
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
     public void MonsterKingMove()
     {

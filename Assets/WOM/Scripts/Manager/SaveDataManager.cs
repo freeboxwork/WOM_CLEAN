@@ -54,10 +54,7 @@ public class SaveDataManager : MonoBehaviour
     {
         // 종료 시간 저장
         saveDataTotal.saveDataSystem.quitTime = DateTime.Now.ToString();
-        // 데이터 저장                
-        var jsonData = JsonUtility.ToJson(saveDataTotal);
-        var path = GetSaveDataFilePaht();
-        File.WriteAllText(path, jsonData);
+        SaveDataToFile();
     }
 
     void OnApplicationPause(bool pauseStatus)
@@ -70,9 +67,7 @@ public class SaveDataManager : MonoBehaviour
             // 종료 시간 저장
             saveDataTotal.saveDataSystem.quitTime = DateTime.Now.ToString();
             // 데이터 저장                
-            var jsonData = JsonUtility.ToJson(saveDataTotal);
-            var path = GetSaveDataFilePaht();
-            File.WriteAllText(path, jsonData);
+            SaveDataToFile();
 
         }
         else
@@ -592,6 +587,14 @@ public class SaveDataManager : MonoBehaviour
     {
         saveDataTotal.saveDataCastle.factoryLevel = level;
     }
+    public void SaveDataCastleSaveGold(long gold)
+    {
+        saveDataTotal.saveDataCastle.savedGold = gold;
+    }
+    public void SaveDataCastleSaveBone(long bone)
+    {
+        saveDataTotal.saveDataCastle.savedBone = bone;
+    }
 
 
     // 투토리얼 스텝 데이터 세팅
@@ -859,7 +862,15 @@ public class SaveDataDungeonLevel
 [System.Serializable]
 public class SaveDataShop
 {
-
+    public bool isBuyVip1;
+    public bool isBuyVip2;
+    public bool isBuyVip3;
+    public bool isBuyVip4;
+    public bool isBuyStaterPack;
+    public bool isBuyAdRemove;
+    public bool isBuyDungeonPack;
+    public bool isBuyBattlePass;
+    public bool isBuyFastestPack;
 }
 
 [System.Serializable]
@@ -921,6 +932,8 @@ public class SaveDataCastle
 {
     public int mineLevel;
     public int factoryLevel;
+    public long savedGold;
+    public long savedBone;
 }
 
 

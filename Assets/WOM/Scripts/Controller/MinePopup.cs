@@ -20,45 +20,63 @@ public class MinePopup : CastlePopupBase
     public Button btnGetGold;
     public Button btnUpgrade;
 
+    public CanvasGroup canvasGroup;
+
     //현재 클래스 TextMeshProUGUI 타입의 맴버변수의 개별 text 값을 각각 설정하는 개별 함수
-    public void SetTextTotalMiningValue(string text)
-    {
-        totlaMiningValue.text = UtilityMethod.ChangeSymbolNumber(text);
-    }
+    
+
+    //실시간 채굴 시간
     public void SetTextDigUpTimeValue(float max, float current)
     {
         digUpTimeText.text = string.Format("{0}/{1}", Math.Floor(current),Math.Floor(max));
         SetDigUpStateFillAmount(max, current);
     }
+    //채굴 현황(채굴중...)
     public void SetTextDigUpFullText(string text)
     {
         digUpStateText.text = text;
     }
+    //생산량
     public void SetTextProductionCount(string text)
     {
         productionCountText.text = text;
     }
+    //최대 저장량
     public void SetTextMaxSupply(string text)
     {
         maxSupplyText.text =  text;
     }
+    //생산 시간
     public void SetTextProductionTime(string text)
     {
         productionTimeText.text = text;
     }
+    //레벨
     public void SetTextLevel(string text)
     {
         levelText.text = text;
     }
+    //업그레이드 석탄 비용
     public void SetTextPrice(string text)
     {
         priceText.text =  UtilityMethod.ChangeSymbolNumber(text);
     }
+    //채굴 상태 FillAmount
     void SetDigUpStateFillAmount(float max, float currnt)
     {
         digUpFillImage.fillAmount = (float)currnt/max;
     }
-    
+    //실시간으로 생산된 총 량
+    public void SetTextTotalMiningValue(string text)
+    {
+        totlaMiningValue.text = UtilityMethod.ChangeSymbolNumber(text);
+    }
+    public void SetShowCanvasGroup(bool isShow)
+    {
+        canvasGroup.alpha = isShow ? 1 : 0;
+        canvasGroup.blocksRaycasts = isShow;
+    }
+
 
     private void Start()
     {
@@ -136,7 +154,7 @@ public class MinePopup : CastlePopupBase
     */
 
     //CastleBuildingData 객체를 인자로 받아서 각각의 맴버변수의 text 값을 설정하는 함수
-    public void SetUpGradeText(CastleBuildingData data, CastleBuildingData nextLevelData = null)
+    public void SetTextLevelData(CastleBuildingData data, CastleBuildingData nextLevelData = null)
     {
         // 생산량, 최대 저장량, 생산 시간 계산
         // var productionCount = (nextLevelData != null) ? data.productionCount - nextLevelData.productionCount : 0;

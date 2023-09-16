@@ -341,6 +341,7 @@ public class TraningInGameData
     public double value;
     public string unitName;
     public string trainingName;
+    public string description;
 }
 
 
@@ -466,7 +467,7 @@ public class TrainingElementData
     public string trainingName;
     public string trainingType;
     public string goodsType;
-
+    public string description;
 }
 
 [Serializable]

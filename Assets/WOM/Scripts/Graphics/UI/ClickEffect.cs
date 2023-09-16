@@ -53,11 +53,17 @@ namespace ProjectGraphics
             isLongClick = bLong;
         }
 
+        public void ResetClickEffect()
+        {
+            StopCoroutine("ClickEffectProcess");
+
+            slotBack.SetActive(false);
+        }
+
         IEnumerator ClickEffectProcess()
         {
             if (!trainingSlot.GetBuyButtonInteracTable())
             {
-
                 slotBack.SetActive(false);
                 yield break;
             }
@@ -70,8 +76,6 @@ namespace ProjectGraphics
 
             while (clampValue <= 1)
             {
-
-
                 t += Time.deltaTime;
                 clampValue = t / duration;
 

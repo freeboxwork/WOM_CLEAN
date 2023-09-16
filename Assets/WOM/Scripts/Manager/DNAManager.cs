@@ -15,6 +15,8 @@ public class DNAManager : MonoBehaviour
     const int btnLottery10 = 28;
     const int btnLottery01 = 27;
     bool isGambling = false;
+    // 연출을 위한 DNA TYPES ( 중복 포함 )
+    List<EnumDefinition.DNAType> dnaEffectTypes = new List<EnumDefinition.DNAType>();
     void Start()
     {
         SetBtnEvent();
@@ -132,6 +134,7 @@ public class DNAManager : MonoBehaviour
             yield return new WaitForSeconds(0.5f);
         }
     }
+
     // DNA 뽑기
     IEnumerator LotteryStart(int gameCount, int payValue, EnumDefinition.RewardType rewardType)
     {
@@ -150,15 +153,17 @@ public class DNAManager : MonoBehaviour
                 GlobalData.instance.player.PayGem(payValue);
             }
 
+            // 닫기 버튼 비활성화
+            UtilityMethod.GetCustomTypeBtnByID(44).interactable = false;
+            // 다시 뽑기 버튼 비활성화
+            UtilityMethod.SetBtnsInteractableEnable(new List<int> { 27, 28, 29}, false);
+
+
             // 랜덤하게 뽑은 DNA TYPES ( UI 리셋할때 활용, 중복제외 ) 
             List<EnumDefinition.DNAType> dnaTypes = new List<EnumDefinition.DNAType>();
 
             // 연출을 위한 DNA TYPES ( 중복 포함 )
-            List<EnumDefinition.DNAType> dnaEffectTypes = new List<EnumDefinition.DNAType>();
-
-            // 다시 뽑기 버튼 비활성화
-            UtilityMethod.SetBtnsInteractableEnable(new List<int> { 27, 28, 29, 44 }, false);
-
+            dnaEffectTypes = new List<EnumDefinition.DNAType>();
 
             for (int i = 0; i < gameCount; i++)
             {
@@ -183,8 +188,8 @@ public class DNAManager : MonoBehaviour
                     dnaTypes.Add(randomType);
 
                 // 연출 이펙트 등장
-                var result = $"뽑은 유전자 : {slot.inGameData.name} 유전자 레벨 : {slot.inGameData.level}";
-                Debug.Log("[ 연출이펙트 ] " + result);
+                // var result = $"뽑은 유전자 : {slot.inGameData.name} 유전자 레벨 : {slot.inGameData.level}";
+                // Debug.Log("[ 연출이펙트 ] " + result);
                 yield return null;
             }
 
@@ -192,21 +197,19 @@ public class DNAManager : MonoBehaviour
             foreach (var type in dnaTypes)
                 ResetUI(type);
 
-            // 연출 등장
-            lotteryAnimCont.gameObject.SetActive(true);
-            EnableLotteryBtnsSet(EnumDefinition.LotteryPageType.DNA);
+            yield return StartCoroutine(CardOpenEffect());
+            yield return new WaitForSeconds(0.6f);
 
-            yield return new WaitForEndOfFrame();
-
-            yield return StartCoroutine(lotteryAnimCont.ShowDNAIconSlotCardOpenProcess(GetTypeListToInt(dnaEffectTypes)));
-
-            // 다시 뽑기 버튼 활성화
-            UtilityMethod.SetBtnsInteractableEnable(new List<int> { 27, 28, 29, 44 }, true);
-
-
+            //연속 뽑기중이 아닐때만 버튼 활성화
+            if (!lotteryAnimCont.toggleRepeatGame.isOn)
+            {
+                // 뽑기 버튼 활성화
+                UtilityMethod.SetBtnsInteractableEnable(new List<int> { 27, 28, 29 }, true);
+            }
+            // 닫기 버튼 활성화
+            UtilityMethod.GetCustomTypeBtnByID(44).interactable = true;
             // 뽑기버튼 비활성화
             EnableValidButtons();
-            yield return new WaitForSeconds(0.2f);
 
         }
         else
@@ -221,6 +224,15 @@ public class DNAManager : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         isGambling = false;
+    }
+    IEnumerator CardOpenEffect()
+    {
+        // 연출 등장
+        lotteryAnimCont.gameObject.SetActive(true);
+        EnableLotteryBtnsSet(EnumDefinition.LotteryPageType.DNA);
+
+        yield return StartCoroutine(lotteryAnimCont.ShowDNAIconSlotCardOpenProcess(GetTypeListToInt(dnaEffectTypes)));
+
     }
 
     void EnableLotteryBtnsSet(EnumDefinition.LotteryPageType lotteryPageType)

@@ -11,7 +11,7 @@
    "insectSpawnTime": 0.4,
    "insectBossDamage": 3,
    "unLockCount": 5,
-   "gradeProbability": 5
+   "gradeProbability": 2
  },
  {
    "grade": 2,
@@ -39,7 +39,7 @@
    "insectSpawnTime": 0.3,
    "insectBossDamage": 2,
    "unLockCount": 3,
-   "gradeProbability": 30
+   "gradeProbability": 33
  },
  {
    "grade": 4,

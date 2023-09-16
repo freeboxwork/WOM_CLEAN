@@ -271,6 +271,19 @@ public class Player : MonoBehaviour
         pahseCountOriginalValue = stageData.phaseCount;
     }
 
+    long GetCalcGold(long gold)
+    {
+        var bonus = (long)(gold * (1 + (GlobalData.instance.statManager.GetTalentGoldBonus() * 0.01f)));
+        
+        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffGold);
+
+        if(buffValue.isUsingBuff)
+        {
+            bonus = (long)(bonus * buffValue.addValue);
+        }
+
+        return bonus;
+    }
     public void AddGold(long value)
     {
 
@@ -293,6 +306,12 @@ public class Player : MonoBehaviour
         GlobalData.instance.skillManager.EnableBuyButtons();// RELOAD BTN UI
         GlobalData.instance.uiController.SetTxtGold(gold, (long)result); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsGold(gold); // set save data
+    }
+    long GetCalcBone(long bone)
+    {
+        var bonus = (long)(bone * (1 + (GlobalData.instance.statManager.BoneBonus() * 0.01f)));
+
+       return bonus;
     }
 
     public void AddBone(long value)

@@ -25,6 +25,7 @@ public class TraningSlot : MonoBehaviour
     public GameObject infoCommon;
     public GameObject infoMax;
 
+    public ProjectGraphics.ClickEffect clickEffect;
 
     public void Start()
     {
@@ -41,6 +42,10 @@ public class TraningSlot : MonoBehaviour
         txtPower.text = value;
 
         //Debug.Log(value);
+    }
+    public void SetDescription(string value)
+    {
+        txtInfo.text = value;
     }
 
     public void SetTxtCost(string value)
@@ -79,6 +84,7 @@ public class TraningSlot : MonoBehaviour
     {
         infoCommon.SetActive(false);
         infoMax.SetActive(true);
+        clickEffect.ResetClickEffect();
     }
 
     public bool GetBuyButtonInteracTable()

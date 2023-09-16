@@ -44,47 +44,44 @@ public class ShopManager : MonoBehaviour
 
     private void SetButtonEvents()
     {
-        // UNION 1 ( 34 ) -> gem 사용
+        #region  유니온 뽑기
+        // UNION 1개 뽑기
         UtilityMethod.SetBtnEventCustomTypeByID(34, () =>
         {
             if (GlobalData.instance.player.IsEnoughRewardGoods(RewardType.gem, lotteryCost1) == false) return;
-            //보석 차감
-            //GlobalData.instance.player.PayGem(lotteryCost1);
-            // 뽑기 1회 시작
+
             GlobalData.instance.evolutionManager.UnionLotteryGameStart(lotteryCount1, lotteryCost1, EnumDefinition.RewardType.gem);
 
         });
 
-        // UNION 11 -> gem 사용
+        // UNION 11개 뽑기
         UtilityMethod.SetBtnEventCustomTypeByID(35, () =>
         {
             if (GlobalData.instance.player.IsEnoughRewardGoods(RewardType.gem, lotteryCost11) == false) return;
-            //보석 차감
-            //GlobalData.instance.player.PayGem(lotteryCost11);
+
             GlobalData.instance.evolutionManager.UnionLotteryGameStart(lotteryCount10, lotteryCost11, EnumDefinition.RewardType.gem);
         });
 
 
-        // // UNION 1 -> unionTicket 사용
+        // UNION 1개 티켓을 사용하여 뽑기
         UtilityMethod.SetBtnEventCustomTypeByID(70, () =>
         {
             if (GlobalData.instance.player.IsEnoughRewardGoods(RewardType.unionTicket, lotteryCostTicket1) == false) return;
-            //GlobalData.instance.player.PayUnionTicket(lotteryCostTicket1);
 
             GlobalData.instance.evolutionManager.UnionLotteryGameStart(lotteryCount1, lotteryCostTicket1, EnumDefinition.RewardType.unionTicket);
         });
 
-        // UNION 11 -> unionTicket 사용
+        // UNION 11개 티켓을 사용하여 뽑기
         UtilityMethod.SetBtnEventCustomTypeByID(71, () =>
         {
             if (GlobalData.instance.player.IsEnoughRewardGoods(RewardType.unionTicket, lotteryCostTicket10) == false) return;
-            //GlobalData.instance.player.PayUnionTicket(lotteryCostTicket10);
 
             GlobalData.instance.evolutionManager.UnionLotteryGameStart(lotteryCount10, lotteryCostTicket10, EnumDefinition.RewardType.unionTicket);
         });
+#endregion
 
-
-        // DNA 1
+        #region DNA 뽑기
+        // DNA 1개 뽑기
         UtilityMethod.SetBtnEventCustomTypeByID(36, () =>
         {
             if (GlobalData.instance.player.IsEnoughRewardGoods(RewardType.gem, lotteryCost1) == false) return;
@@ -93,7 +90,7 @@ public class ShopManager : MonoBehaviour
             GlobalData.instance.dnaManger.DNALotteryGameStart(lotteryCount1, lotteryCost1, EnumDefinition.RewardType.gem);
         });
 
-        // DNA 11
+        // DNA 11개 뽑기
         UtilityMethod.SetBtnEventCustomTypeByID(37, () =>
         {
             if (GlobalData.instance.player.IsEnoughRewardGoods(RewardType.gem, lotteryCost11) == false) return;
@@ -102,7 +99,7 @@ public class ShopManager : MonoBehaviour
             GlobalData.instance.dnaManger.DNALotteryGameStart(lotteryCount10, lotteryCost11, EnumDefinition.RewardType.gem);
         });
 
-        // DNA 1 -> dnaTicket 사용
+        // DNA 1개 티켓을 사용하여 뽑기
         UtilityMethod.SetBtnEventCustomTypeByID(72, () =>
         {
             if (GlobalData.instance.player.IsEnoughRewardGoods(RewardType.dnaTicket, lotteryCostTicket1) == false) return;
@@ -111,7 +108,7 @@ public class ShopManager : MonoBehaviour
             GlobalData.instance.dnaManger.DNALotteryGameStart(lotteryCount1, lotteryCostTicket1, EnumDefinition.RewardType.dnaTicket);
         });
 
-        // DNA 11 -> dnaTicket 사용
+        // DNA 11개 티켓을 사용하여 뽑기
         UtilityMethod.SetBtnEventCustomTypeByID(73, () =>
         {
             if (GlobalData.instance.player.IsEnoughRewardGoods(RewardType.dnaTicket, lotteryCostTicket10) == false) return;
@@ -119,7 +116,8 @@ public class ShopManager : MonoBehaviour
 
             GlobalData.instance.dnaManger.DNALotteryGameStart(lotteryCount10, lotteryCostTicket10, EnumDefinition.RewardType.dnaTicket);
         });
-
+        #endregion
+        
         // FREE GEM 1
         UtilityMethod.SetBtnEventCustomTypeByID(38, () => { });
 

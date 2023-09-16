@@ -62,6 +62,7 @@ public class TraningManager : MonoBehaviour
             slot.traningInGameData.value = data.value;
             slot.traningInGameData.unitName = data.unitName;
             slot.traningInGameData.trainingName = elementData.trainingName;
+            slot.traningInGameData.description = elementData.description;
 
             id++;
         }
@@ -186,6 +187,7 @@ public class TraningManager : MonoBehaviour
 
         // POWER TEXT
         var txtPower = "";
+
         if (statType == SaleStatType.talentGoldBonus || statType == SaleStatType.trainingDamage)
         {
             // 정수
@@ -195,10 +197,18 @@ public class TraningManager : MonoBehaviour
         {
             // 소수점 둘째자리
             txtPower = UtilityMethod.FormatDoubleToOneDecimal(inGameData.value);
-
         }
-        var txtPowerValue = $"{txtPower} {inGameData.unitName}";
-        slot.SetTxtPower(txtPowerValue);
+
+        var txtPowerValue = string.Format("{0}{1}",txtPower,inGameData.unitName);
+
+        var de = inGameData.description.Replace("<Power>", $"<#40ff80>{txtPowerValue}</color>");
+
+        slot.SetTxtPower(de);
+
+
+        //slot.SetDescription("");
+
+
 
         // max stat
         var lastData = GlobalData.instance.dataManager.GetSaleStatDataByType(statType).data.Last();

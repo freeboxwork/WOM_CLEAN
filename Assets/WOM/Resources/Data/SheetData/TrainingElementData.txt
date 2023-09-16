@@ -3,9 +3,10 @@
    "id": 0,
    "buttonSprite": "BaseButton",
    "currencySprite": "Gold",
-   "trainingName": "곤충 기본 공격력",
+   "trainingName": "곤충 공격력",
    "trainingType": "trainingDamage",
-   "goodsType": "gold"
+   "goodsType": "gold",
+   "description": "공격력이 <Power> 증가"
  },
  {
    "id": 1,
@@ -13,7 +14,8 @@
    "currencySprite": "Gold",
    "trainingName": "곤충 치명타 확률",
    "trainingType": "trainingCriticalChance",
-   "goodsType": "gold"
+   "goodsType": "gold",
+   "description": "치명타 확률이 <Power> 증가"
  },
  {
    "id": 2,
@@ -21,7 +23,8 @@
    "currencySprite": "Gold",
    "trainingName": "곤충 치명타 공격률",
    "trainingType": "trainingCriticalDamage",
-   "goodsType": "gold"
+   "goodsType": "gold",
+   "description": "치명타 공격률이 <Power> 증가"
  },
  {
    "id": 3,
@@ -29,7 +32,8 @@
    "currencySprite": "Bone",
    "trainingName": "곤충 공격력 증가율",
    "trainingType": "talentDamage",
-   "goodsType": "bone"
+   "goodsType": "bone",
+   "description": "공격률이 <Power> 증가"
  },
  {
    "id": 4,
@@ -37,7 +41,8 @@
    "currencySprite": "Bone",
    "trainingName": "곤충 추가 치명타 확률",
    "trainingType": "talentCriticalChance",
-   "goodsType": "bone"
+   "goodsType": "bone",
+   "description": "치명타 확률이 추가로  <Power> 증가"
  },
  {
    "id": 5,
@@ -45,7 +50,8 @@
    "currencySprite": "Bone",
    "trainingName": "곤충 추가 치명타 공격률",
    "trainingType": "talentCriticalDamage",
-   "goodsType": "bone"
+   "goodsType": "bone",
+   "description": "치명타 공격률이 추가로 <Power> 증가"
  },
  {
    "id": 6,
@@ -53,23 +59,26 @@
    "currencySprite": "Bone",
    "trainingName": "곤충 이동 속도",
    "trainingType": "talentMoveSpeed",
-   "goodsType": "bone"
+   "goodsType": "bone",
+   "description": "이동 속도가 <Power> 증가"
  },
  {
    "id": 7,
    "buttonSprite": "BaseButton",
    "currencySprite": "Bone",
-   "trainingName": "곤충 생성 속도",
+   "trainingName": "곤충 생성 시간",
    "trainingType": "talentSpawnSpeed",
-   "goodsType": "bone"
+   "goodsType": "bone",
+   "description": "생성 시간이 <Power> 감소"
  },
  {
    "id": 8,
    "buttonSprite": "BaseButton",
    "currencySprite": "Bone",
-   "trainingName": "골드 보너스",
+   "trainingName": "곤충 골드 보너스",
    "trainingType": "talentGoldBonus",
-   "goodsType": "bone"
+   "goodsType": "bone",
+   "description": "골드 획득량이 <Power> 증가"
  }
 ]
 }

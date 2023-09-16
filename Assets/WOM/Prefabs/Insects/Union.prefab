@@ -198,6 +198,7 @@ GameObject:
   - component: {fileID: -2628233927021942681}
   - component: {fileID: 8077675036516449967}
   - component: {fileID: 7988044497271703859}
+  - component: {fileID: -7699482792143443642}
   m_Layer: 0
   m_Name: Union
   m_TagString: Untagged
@@ -214,7 +215,7 @@ Transform:
   m_GameObject: {fileID: 1348948941708790424}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1348948940318569242}
@@ -246,7 +247,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 42e3c55354b88184c94685cf9c7a6599, type: 2}
+  - {fileID: 2100000, guid: 4776acfeac2c2384eaa74f49667c2675, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -422,6 +423,22 @@ MonoBehaviour:
   - {fileID: 388907516, guid: ffc0ef827447068449cf048a20fe04a6, type: 3}
   - {fileID: 724707979, guid: ffc0ef827447068449cf048a20fe04a6, type: 3}
   samplelate: 24
+--- !u!114 &-7699482792143443642
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348948941708790424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee158225ee1e59f4791627785501d950, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shaderTypes: 0
+  normalStrength: 5
+  normalSmoothing: 1
+  computingNormal: 0
 --- !u!1 &1628228706359443775
 GameObject:
   m_ObjectHideFlags: 0

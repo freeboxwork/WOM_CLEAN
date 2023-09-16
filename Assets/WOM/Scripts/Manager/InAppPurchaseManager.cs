@@ -61,7 +61,10 @@ public class InAppPurchaseManager : MonoBehaviour
         {
             IAPManager.Instance.InitializeIAPManager(InitializeResult);
         }
-        IAPManager.Instance.RestorePurchases(ProductBought, RestoreDone);
+        //IOS만 해당가능
+        //IAPManager.Instance.RestorePurchases(ProductBought, RestoreDone);
+
+
         yield return new WaitForSeconds(1f);
         CheckBuyNonConsuableProduct();
 
@@ -151,6 +154,7 @@ public class InAppPurchaseManager : MonoBehaviour
                     {
                         nonConsumableProducts.First(cond => cond.productName.ToString() == product.productName).isBuy = true;
                     }
+                    GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyVip1 = true;
                 }
                 else if (product.productName == "vipgem2")
                 {
@@ -162,6 +166,7 @@ public class InAppPurchaseManager : MonoBehaviour
                     {
                         nonConsumableProducts.First(cond => cond.productName.ToString() == product.productName).isBuy = true;
                     }
+                    GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyVip2 = true;
                 }
                 else if (product.productName == "vipgem3")
                 {
@@ -173,6 +178,7 @@ public class InAppPurchaseManager : MonoBehaviour
                     {
                         nonConsumableProducts.First(cond => cond.productName.ToString() == product.productName).isBuy = true;
                     }
+                    GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyVip3 = true;
                 }
                 else if (product.productName == "vipgem4")
                 {
@@ -183,6 +189,7 @@ public class InAppPurchaseManager : MonoBehaviour
                     {
                         nonConsumableProducts.First(cond => cond.productName.ToString() == product.productName).isBuy = true;
                     }
+                    GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyVip4 = true;
                 }
                 else if (product.productName == "starterrpackage")
                 {
@@ -195,6 +202,8 @@ public class InAppPurchaseManager : MonoBehaviour
                     {
                         nonConsumableProducts.First(cond => cond.productName.ToString() == product.productName).isBuy = true;
                     }
+                    GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyStaterPack = true;
+
                 }
                 else if (product.productName == "adbuffpass")
                 {
@@ -213,6 +222,7 @@ public class InAppPurchaseManager : MonoBehaviour
                     {
                         nonConsumableProducts.First(cond => cond.productName.ToString() == product.productName).isBuy = true;
                     }
+                    GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyAdRemove = true;
                 }
                 else if (product.productName == "dungeonpackage")
                 {
@@ -225,6 +235,7 @@ public class InAppPurchaseManager : MonoBehaviour
                     {
                         nonConsumableProducts.First(cond => cond.productName.ToString() == product.productName).isBuy = true;
                     }
+                    GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyDungeonPack = true;
                 }
                 else if (product.productName == "battlepass")
                 {
@@ -242,6 +253,7 @@ public class InAppPurchaseManager : MonoBehaviour
                     {
                         nonConsumableProducts.First(cond => cond.productName.ToString() == product.productName).isBuy = true;
                     }
+                    GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyBattlePass = true;
                 }
                 else if (product.productName == "fastestpackage")
                 {
@@ -253,6 +265,7 @@ public class InAppPurchaseManager : MonoBehaviour
                     {
                         nonConsumableProducts.First(cond => cond.productName.ToString() == product.productName).isBuy = true;
                     }
+                    GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyFastestPack = true;
                 }
 
 
@@ -266,7 +279,7 @@ public class InAppPurchaseManager : MonoBehaviour
             Debug.Log("Buy product failed: " + message);
 
         }
-
+        GlobalData.instance.saveDataManager.SaveDataToFile();
 
     }
 
@@ -289,13 +302,127 @@ public class InAppPurchaseManager : MonoBehaviour
                         break;
 
                     case ProductType.NonConsumable:
-                        nonConsumableProducts.Add(new MyStoreProducts(IAPManager.Instance.ConvertNameToShopProduct(shopProducts[i].productName), shopProducts[i].active));
+
+                        var type = IAPManager.Instance.ConvertNameToShopProduct(shopProducts[i].productName);
+                        nonConsumableProducts.Add(new MyStoreProducts(type, shopProducts[i].active));
+
+                        if(shopProducts[i].active)
+                        {
+                            RewardBuyProduct(type);    
+                            ProductDisableGameObject((ProductTYPE)Enum.Parse(typeof(ProductTYPE), shopProducts[i].productName.ToString()));
+                        }
 
                         break;
                 }
             }
+
+            GlobalData.instance.saveDataManager.SaveDataToFile();
+
+
         }
+
     }
+
+    void RewardBuyProduct(ShopProductNames type)
+    {
+        switch (type)
+        {
+            case ShopProductNames.vipgem1:
+                if(!GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyVip1)
+                {
+                GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.gem, vipGem1);
+                GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyVip1 = true;
+                }
+                break;
+            case ShopProductNames.vipgem2:
+                if (!GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyVip2)
+                {
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.gem, vipGem2);
+                    GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyVip2 = true;
+                }
+
+                break;
+            case ShopProductNames.vipgem3:
+                if (!GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyVip3)
+                {
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.gem, vipGem3);
+                    GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyVip3 = true;
+                }
+                break;
+            case ShopProductNames.vipgem4:
+                if (!GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyVip4)
+                {
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.gem, vipGem4);
+                    GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyVip4 = true;
+                }
+                break;
+            case ShopProductNames.starterrpackage:
+                if (!GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyStaterPack)
+                {
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.gem, 3000);
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.unionTicket, 10);
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.dnaTicket, 5);
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.clearTicket, 3);
+                    GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyStaterPack = true;
+                }
+
+                break;
+            case ShopProductNames.adbuffpass:
+                if(!GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyAdRemove)
+                {
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.gem, 10000);
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.clearTicket, 10);
+                    var adKey = GlobalData.instance.adManager.adPassKey;
+                    var buffKey = GlobalData.instance.adManager.buffPassKey;
+                    PlayerPrefs.SetInt(adKey, 1);
+                    PlayerPrefs.SetInt(buffKey, 1);
+                    // 버프 패스 실행
+                    GlobalData.instance.adManager.BuyBuffPass();
+                    GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyAdRemove = true;
+                }
+
+                break;
+            case ShopProductNames.dungeonpackage:
+                if(!GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyDungeonPack)
+                {
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.goldKey, 10);
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.boneKey, 10);
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.diceKey, 10);
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.coalKey, 10);
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.clearTicket, 2);
+                    GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyDungeonPack = true;
+                }
+                break;
+            case ShopProductNames.battlepass:
+                if(!GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyBattlePass)
+                {
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.gem, 1000);
+                    // UNLOCK BATTLE PASS SLOT
+                    var saveKey = GlobalData.instance.questManager.keyBuyBattlePass;
+                    PlayerPrefs.SetInt(saveKey, 1);
+                    GlobalData.instance.questManager.questPopup.AllUnlockBattlePassSlotItem();
+                    GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyBattlePass = true;
+                }
+                break;
+            case ShopProductNames.fastestpackage:
+                if(!GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyFastestPack)
+                {
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.gem, 50000);
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.unionTicket, 50);
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.dnaTicket, 30);
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.clearTicket, 50);
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.union, 40);
+                    GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyFastestPack = true;
+                }
+                break;
+            default: break;
+
+        }
+            GlobalData.instance.saveDataManager.SaveDataToFile();
+
+    }
+
+
 
     private void RestoreDone()
     {

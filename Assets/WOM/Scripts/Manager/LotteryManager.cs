@@ -161,7 +161,7 @@ public class LotteryManager : MonoBehaviour
             UtilityMethod.SetBtnsInteractableEnable(new List<int> { 17, 18, 19 }, false);
 
             // 스킵 버튼 활성화
-            UtilityMethod.SetBtnInteractableEnable(33, true);
+            //UtilityMethod.SetBtnInteractableEnable(33, true);
 
             yield return StartCoroutine(MakeCardOption(roundCount));
 
@@ -173,6 +173,7 @@ public class LotteryManager : MonoBehaviour
             //var data = GlobalData.instance.dataManager.GetSummonGradeDataByLevel(summonGradeLevel);
 
             var maxData = GlobalData.instance.dataManager.summonGradeDatas.data.Last();
+
             if (summonGradeLevel < maxData.level)
             {
                 totalGambleCount += roundCount;
@@ -210,7 +211,7 @@ public class LotteryManager : MonoBehaviour
             }
 
             // 스킵 버튼 비활성화
-            UtilityMethod.SetBtnInteractableEnable(33, false);
+            //UtilityMethod.SetBtnInteractableEnable(33, false);
 
             // 닫기 버튼 활성화
             UtilityMethod.GetCustomTypeBtnByID(44).interactable = true;

@@ -221,7 +221,7 @@ public class EvolutionDiceLotteryManager : MonoBehaviour
         // 주사위 개수 충분한지 판단
         if (IsReadyDiceCount(usingDice))
         {
-
+            GlobalData.instance.soundManager.PlaySfxUI(EnumDefinition.SFX_TYPE.Dice);
 
             // 주사위 사용
             GlobalData.instance.player.PayDice(usingDice);

@@ -118,11 +118,7 @@ public class UnionManager : MonoBehaviour
                 EquipSlot(unionEquipSlots[saveData.equipSlotId]);
             }
 
-            // set BtnAction
-            slot.btn.onClick.AddListener(() =>
-            {
-                GlobalData.instance.unionInfoPopupController.EnablePopup(slot, data, slot.inGameData);
-            });
+
 
             // TODO: 저장된 데이터에서 불러와야 함
             // SET IN GAME DATA (  ) 
@@ -136,6 +132,12 @@ public class UnionManager : MonoBehaviour
             //Debug.Log(slot.inGameData.passiveDamage);
 
             slot.SetStarUI();
+
+            // set BtnAction
+            slot.btn.onClick.AddListener(() =>
+            {
+                GlobalData.instance.unionInfoPopupController.EnablePopup(slot, data, slot.inGameData);
+            });
 
             yield return null;
         }
@@ -278,10 +280,9 @@ public class UnionManager : MonoBehaviour
 
     public double GetUnionDamage(UnionSlot slot)
     {
-        var square = 2^slot.inGameData.level;
-
+        var square = Mathf.Pow(2, slot.inGameData.level);
         var damage = slot.unionData.damage * square;
-
+        //Debug.Log($"unionIndex:{slot.inGameData.unionIndex} / level:{slot.inGameData.level} / slot.unionData.damage:{slot.unionData.damage} / damage : {damage}");
         //var damage = slot.unionData.damage + (slot.inGameData.level * slot.unionData.addDamage);
         return damage;
     }
@@ -293,8 +294,8 @@ public class UnionManager : MonoBehaviour
         if (nextLevel > maxLevel)
             return 0;
 
-        var beforeDamage = slot.unionData.damage + (slot.inGameData.level * slot.unionData.addDamage);
-        var nextDamage = slot.unionData.damage + ((nextLevel) * slot.unionData.addDamage);
+        var beforeDamage = slot.unionData.damage * Mathf.Pow(2, slot.inGameData.level);
+        var nextDamage = slot.unionData.damage * Mathf.Pow(2, nextLevel);
 
         return nextDamage - beforeDamage;
     }
@@ -351,7 +352,7 @@ public class UnionManager : MonoBehaviour
         }
         else
         {
-            Debug.Log($"레벨업에 필요한 유니온이 부족합니다. {slot.unionData.name} _ {slot.inGameData.unionCount}");
+            //Debug.Log($"레벨업에 필요한 유니온이 부족합니다. {slot.unionData.name} _ {slot.inGameData.unionCount}");
             // 유니온 부족 팝업
             GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("", 20);
         }

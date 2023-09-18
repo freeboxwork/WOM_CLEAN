@@ -71,8 +71,6 @@ public class QuestPopup : MonoBehaviour
         passScrollLect.content = passPanels[index].GetComponent<RectTransform>();
     }
 
-
-
     void ShowQuestListOneDay()
     {
         questListOneDay.SetActive(true);
@@ -93,21 +91,6 @@ public class QuestPopup : MonoBehaviour
         attandPanel.SetActive(false);
         battlePassPanel.SetActive(true);
     }
-
-
-    // void InitOneDayQuestUI(List<QuestData> questDatas)
-    // {
-
-    //     for (int i = 0; i < questDatas.Count; i++)
-    //     {
-
-    //         var data = questDatas[i];
-    //         var slot = questSlotsOneDay[i];
-    //         SetUIQusetSlot(slot, data);
-
-    //     }
-
-    // }
 
     public void SetUIQusetSlot(QuestSlot slot, QuestData data)
     {

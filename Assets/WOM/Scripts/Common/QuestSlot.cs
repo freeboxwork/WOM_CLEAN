@@ -52,41 +52,57 @@ public class QuestSlot : MonoBehaviour
         imgRewardIcon.sprite = sprite;
     }
 
-    public void ActiveNotifyIcon(QuestData questData) // 전달된 값에 따라 알림 아이콘의 활성화/비활성화 여부를 설정합니다.
+    /// <summary>
+    /// 전달된 값에 따라 알림 아이콘의 활성화/비활성화 여부를 설정합니다.
+    /// </summary>
+    public void ActiveNotifyIcon(QuestData questData)
     {
         bool isActive = questData.qusetComplete && !questData.usingReward;
         imgNotifyIcon.gameObject.SetActive(isActive);
     }
-
-    public void SetQuestName(string name) // 퀘스트 이름의 텍스트를 설정합니다.
+    /// <summary>
+    /// 퀘스트 이름의 텍스트를 설정합니다.
+    /// </summary>
+    /// <param name="name"></param>
+    public void SetQuestName(string name)
     {
         txtQuestName.text = name;
     }
-
-    public void SetTxtRewardValue(string value) // 보상 가치의 텍스트를 설정합니다.
+    /// <summary>
+    /// 보상 가치의 텍스트를 설정합니다.
+    /// </summary>
+    public void SetTxtRewardValue(string value)
     {
         txtRewardValue.text = value;
     }
-
-    public void SetQuestProgress(QuestData questData) // 전달된 퀘스트 데이터의 현재와 목표 값을 기반으로 프로그래스 바의 채우기 정도를 설정합니다.
+    /// <summary>
+    /// 전달된 퀘스트 데이터의 현재와 목표 값을 기반으로 프로그래스 바의 채우기 정도를 설정합니다.
+    /// </summary>
+    public void SetQuestProgress(QuestData questData)
     {
         float value = (float)questData.curCountValue / (float)questData.targetValue;
         imgQuestProgress.fillAmount = value;
     }
-
-    public void SetQuestProgressCount(QuestData questData) // 퀘스트 진행 상황 카운트의 텍스트를 설정합니다.
+    /// <summary>
+    /// 퀘스트 진행 상황 카운트의 텍스트를 설정합니다.
+    /// </summary>
+    public void SetQuestProgressCount(QuestData questData)
     {
         string count = questData.curCountValue.ToString() + " / " + questData.targetValue.ToString();
         txtQuestProgressCount.text = count;
     }
-
-    public void ActiveRewardButton(QuestData questData) // 전달된 값에 따라 보상 버튼을 활성화/비활성화 여부를 설정합니다.
+    /// <summary>
+    /// 전달된 값에 따라 보상 버튼을 활성화/비활성화 여부를 설정합니다.
+    /// </summary>
+    public void ActiveRewardButton(QuestData questData)
     {
         bool isActive = questData.qusetComplete && !questData.usingReward;
         btnReward.gameObject.SetActive(isActive);
     }
-
-    public void SetDoingText(QuestData questData) // 사용자가 수행 중인 퀘스트의 현재 동작에 대한 텍스트를 설정합니다.
+    /// <summary>
+    /// 사용자가 수행 중인 퀘스트의 현재 동작에 대한 텍스트를 설정합니다.
+    /// </summary>
+    public void SetDoingText(QuestData questData)
     {
         var txtValue = questData.qusetComplete && questData.usingReward ? "보상완료" : "진행중";
         txtDoing.text = txtValue;
@@ -97,8 +113,10 @@ public class QuestSlot : MonoBehaviour
         bool isActive = questData.qusetComplete && questData.usingReward && !questData.usingRewardAD;
         btnAD.gameObject.SetActive(isActive);
     }
-
-    public void SetQuestTypeOneDay(EnumDefinition.QuestTypeOneDay type) // 사용자 지정 열거형을 사용하여 하루짜리 퀘스트 유형을 설정합니다.
+    /// <summary>
+    /// 사용자 지정 열거형을 사용하여 하루짜리 퀘스트 유형을 설정합니다.
+    /// </summary>
+    public void SetQuestTypeOneDay(EnumDefinition.QuestTypeOneDay type) // 
     {
         questTypeOneDay = type;
     }

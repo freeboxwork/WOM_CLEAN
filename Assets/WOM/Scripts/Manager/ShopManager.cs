@@ -32,13 +32,21 @@ public class ShopManager : MonoBehaviour
         {
             var slot = shopKeyProductSlots[i];
 
-            // 자정이 지날경우 리셋
-            if (GlobalData.instance.questManager.questResetTimer.HasCrossedMidnight())
-                slot.ResetKeyCount();
-
             // load data
             slot.LoadData();
         }
+    }
+
+    public void ResetBuyKeyCount()
+    {
+        for (int i = 0; i < shopKeyProductSlots.Count; i++)
+        {
+            var slot = shopKeyProductSlots[i];
+
+            slot.ResetKeyCount();
+
+        }
+
     }
 
 

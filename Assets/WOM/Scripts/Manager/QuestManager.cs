@@ -79,6 +79,7 @@ public class QuestManager : MonoBehaviour
 
         AddAttendData();
         AddNewUserEventData();
+
         yield return null;
     }
 
@@ -97,36 +98,54 @@ public class QuestManager : MonoBehaviour
     }
 
 
+    bool isOverOneDay = false;
 
     void AddOneDayQuestData()
     {
         var oneDayData = GlobalData.instance.dataManager.questDatasOneDay.data;
+
+        //해시키가 있다면 자정시간이 세팅되었음
+        if (questResetTimer.HasMidnightTime())
+        {
+            // 만약 퀘스트 재설정 타이머가 자정을 지난 경우 타이머를 재설정한다.
+            if (questResetTimer.HasCrossedMidnight())
+            {
+                isOverOneDay = true;
+                // 자정이 지난경우 던전 입장키 2개씩 보상.
+                //Debug.Log("자정이 지났으므로 던전 입장 키를 2개씩 지급한다");
+                GlobalData.instance.player.AddAllDungeonKeys();
+                // 자정이 지난경우 일일 광고 보기 회 수 초기화
+                GlobalData.instance.adManager.AllResetBuffAdLeftCount();
+                //상점 열쇠 구매 카운트 초기화
+                GlobalData.instance.shopManager.ResetBuyKeyCount();
+                //자정시간 재설정
+                questResetTimer.ResetTimer();
+            }
+        }
+
         for (int i = 0; i < oneDayData.Count; i++)
         {
             var clonData = oneDayData[i].ClonInstance();
             var slot = questPopup.questSlotsOneDay[i];
+            //Debug.Log(clonData.curCountValue + " / " + clonData.targetValue + "111111");
 
-            if (questResetTimer.HasMidnightTime())
+            if(isOverOneDay == false)
             {
-                // 만약 퀘스트 재설정 타이머가 자정을 지난 경우 타이머를 재설정한다.
-                if (questResetTimer.HasCrossedMidnight())
-                {
-                    // 자정이 지난경우 던전 입장키 2개씩 보상.
-                    Debug.Log("자정이 지났으므로 던전 입장 키를 2개씩 지급한다");
-                    GlobalData.instance.player.AddAllDungeonKeys();
-                    // 자정이 지난경우 일일 광고 보기 회 수 초기화
-                    GlobalData.instance.adManager.AllResetBuffAdLeftCount();
-                    questResetTimer.ResetTimer();
-                }
-                else
-                {
-                    //자정을 지나지 않은 경우 유저 메모리에서 저장된 데이터를 로드한다.
-                    LoadQuestDataFromUserMemory(ref clonData);
-                }
+                                //자정을 지나지 않은 경우 유저 메모리에서 저장된 데이터를 로드한다.
+                LoadQuestDataFromUserMemory(ref clonData);
+                //Debug.Log("자정이 지나지 않음");
+
             }
+
             questsOneDay.Add(GetQuestTypeOneDayByTypeName(clonData.questType), clonData);
+            
             questPopup.SetUIQusetSlot(slot, clonData);
+
+            //Debug.Log(clonData.curCountValue + " / " + clonData.targetValue + "222222");
+
         }
+
+        isOverOneDay = false;
     }
 
     void AddBattlePassData()

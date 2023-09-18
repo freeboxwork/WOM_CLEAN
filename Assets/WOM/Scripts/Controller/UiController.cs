@@ -413,6 +413,7 @@ public class UiController : MonoBehaviour
             {
                 btn.btnMain.onClick.AddListener(() =>
                 {
+                    if(isCastleOpen) return;
                     StartCoroutine(EnableCastlePanel());
                 });
             }
@@ -454,22 +455,13 @@ public class UiController : MonoBehaviour
         EnableMainMenuCloseBtn(false);
     }
 
-    public void EnableMainMenuCloseBtn(bool value)
-    {
-        btnMainMenuClose.image.raycastTarget = value;
-        btnMainMenuClose.image.enabled = value;
-
-    }
-
-    bool isActiveBossChallengeBtn = false;
+    //bool isActiveBossChallengeBtn = false;
 
     IEnumerator EnableCastlePanel()
     {
-
-        // 보스 도전 버튼 활성화 되어 있을경우 비활성화 처리
-        isActiveBossChallengeBtn = GlobalData.instance.uiController.btnBossChallenge.gameObject.activeSelf;
-        if (isActiveBossChallengeBtn)
-            GlobalData.instance.uiController.btnBossChallenge.gameObject.SetActive(false);
+        // isActiveBossChallengeBtn = GlobalData.instance.uiController.btnBossChallenge.gameObject.activeSelf;
+        // if (isActiveBossChallengeBtn)
+        //     ToggleChallengeBossButton(false);
 
         isCastleOpen = true;
         // 공격 불가능 상태 전환
@@ -478,10 +470,14 @@ public class UiController : MonoBehaviour
         GlobalData.instance.goldPigController.EnterOtherView();
         // 버튼 클릭 안되게 수정
         UtilityMethod.EnableUIEventSystem(false);
-        
+
+        GlobalData.instance.eventController.IsMonsterDead = true;    
+
         GlobalData.instance.eventController.StopAllCoroutine();
         // 트렌지션 효과
         GlobalData.instance.effectManager.EnableTransition(EnumDefinition.TransitionTYPE.Castle);
+        //캐슬 전 활성화 되어있던 몬스터 타입 저장
+        GlobalData.instance.player.SetPervMonsterType(GlobalData.instance.player.curMonsterType);
 
         // 화면전환 효과
         yield return StartCoroutine(GlobalData.instance.effectManager.EffTransitioEvolutionUpgrade(() =>
@@ -504,6 +500,7 @@ public class UiController : MonoBehaviour
 
        //StartCoroutine(EnableCastle());
 
+        isCastleOpen = false;
 
         UtilityMethod.EnableUIEventSystem(true);
 
@@ -511,15 +508,15 @@ public class UiController : MonoBehaviour
 
     IEnumerator ExitCastlePanel()
     {
-        if (isActiveBossChallengeBtn)
-        {
-            isActiveBossChallengeBtn = false;
-            GlobalData.instance.uiController.btnBossChallenge.gameObject.SetActive(true);
-        }
-
+        // if (isActiveBossChallengeBtn)
+        // {
+        //     isActiveBossChallengeBtn = false;
+        //     GlobalData.instance.uiController.btnBossChallenge.gameObject.SetActive(true);
+        // }
+        if(isCastleOpen) yield break;
 
         UtilityMethod.EnableUIEventSystem(false);
-        isCastleOpen = false;
+        isCastleOpen = true;
         // 화면전환 효과
         yield return StartCoroutine(GlobalData.instance.effectManager.EffTransitioEvolutionUpgrade(() =>
         {
@@ -535,7 +532,7 @@ public class UiController : MonoBehaviour
             var monster = GlobalData.instance.player.currentMonster;
             monster.gameObject.SetActive(true);
             // Monster IN
-            var curMonsterType = GlobalData.instance.player.curMonsterType;
+            var curMonsterType = GlobalData.instance.player.prevMonsterType;
             StartCoroutine(GlobalData.instance.eventController.AppearMonster(curMonsterType));
 
             // EnableMenuPanel(MenuPanelType.castle);
@@ -543,7 +540,7 @@ public class UiController : MonoBehaviour
 
         }));
 
-
+        isCastleOpen = false;
 
         // 황금 돼지 출현 타이머 활성
         GlobalData.instance.goldPigController.ExitOtherView();
@@ -551,7 +548,6 @@ public class UiController : MonoBehaviour
         // 공격 가능 상태 전환
         GlobalData.instance.attackController.SetAttackableState(true);
 
-        yield return new WaitForSeconds(0.2f);
         UtilityMethod.EnableUIEventSystem(true);
     }
 
@@ -674,6 +670,7 @@ public class UiController : MonoBehaviour
 
     public void MainMenuShow()
     {
+        MainMenuAllUnSelect();
         menuRectTrans.DOKill();
 
         menuRectTrans.DOAnchorPos(new Vector2(0f, 0f), 0.5f).SetEase(Ease.InOutExpo);
@@ -686,5 +683,57 @@ public class UiController : MonoBehaviour
     }
 
 
+    public void ToggleChallengeBossButton(bool isActive)
+    {
+        btnBossChallenge.gameObject.SetActive(isActive);
+    }
 
+    public void ToggleBossTimer(bool isActive)
+    {
+        imgBossMonTimerParent.gameObject.SetActive(isActive);
+    }
+
+    public void ToggleEscapeBossButton(bool isActive)
+    {
+        UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(isActive);
+    }
+    void ToggleSideButtons(bool isActive)
+    {
+        UtilityMethod.GetCustomTypeGMById(15).SetActive(isActive);
+        UtilityMethod.GetCustomTypeGMById(16).SetActive(isActive);
+
+        if (isActive)
+        {
+            MainMenuShow();
+        }
+        else
+        {
+            MainMenuHide();
+            EnableMainMenuCloseBtn(false);
+        }
+    }
+    void EnableMainMenuCloseBtn(bool isActive)
+    {
+        UtilityMethod.GetCustomTypeImageById(47).raycastTarget = isActive;
+        UtilityMethod.GetCustomTypeImageById(47).enabled = isActive;
+    }
+
+
+    public void ShowUI(bool isActive)
+    {
+        if(isActive)
+        {
+            MainMenuShow();
+        }
+        else
+        {
+            MainMenuHide();;
+            EnableMainMenuCloseBtn(false);
+        }
+        //이벤트,광고
+        UtilityMethod.GetCustomTypeGMById(15).SetActive(isActive);
+        //캐슬
+        UtilityMethod.GetCustomTypeGMById(16).SetActive(isActive);
+        MainMenuAllUnSelect();
+    }
 }

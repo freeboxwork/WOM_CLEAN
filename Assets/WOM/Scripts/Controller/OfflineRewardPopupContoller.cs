@@ -45,7 +45,7 @@ public class OfflineRewardPopupContoller : MonoBehaviour
                 // 최대 보상 8시간 제한
                 if (hour > 8) hour = 8;
 
-                Debug.Log("오프라인 보상 시간 : " + hour);
+                //Debug.Log("오프라인 보상 시간 : " + hour);
 
                 // get current boss monster data
                 var monData = GlobalData.instance.monsterManager.GetMonsterData(EnumDefinition.MonsterType.boss);

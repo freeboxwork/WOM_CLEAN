@@ -137,9 +137,6 @@ public class GlobalController : MonoBehaviour
         // 랩 초기화
         yield return StartCoroutine(labBuildingManager.Init());
 
-        // 상점 데이터및 UI 세팅
-        yield return StartCoroutine(shopManager.Init());
-
         // 투토리얼 초기화
         yield return StartCoroutine(tutorialManager.Init());
 
@@ -157,6 +154,8 @@ public class GlobalController : MonoBehaviour
         // 퀘스트 매니저 세팅
         yield return StartCoroutine(questManager.Init());
 
+        // 상점 데이터및 UI 세팅 자정 체크 때문에 무조건 퀘스트 매니저보다 나중에 Init해야함
+        yield return StartCoroutine(shopManager.Init());
         // 오프라인 보상 팝업 등장
         yield return StartCoroutine(offlineRewardPopupContoller.Init());
 

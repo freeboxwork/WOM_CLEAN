@@ -129,7 +129,7 @@ public class RewardManager : MonoBehaviour
         //TODO: 획득 연출 추가
 
         // 획득 이벤트 타입과 획득량을 로그로 출력함
-        Debug.Log($"획득 이벤트 타입 : {rewardType}, 획득량 : {rewardValye}");
+        //Debug.Log($"획득 이벤트 타입 : {rewardType}, 획득량 : {rewardValye}");
     }
 
 
@@ -140,7 +140,7 @@ public class RewardManager : MonoBehaviour
         // 획득
         GlobalData.instance.unionManager.AddUnion(unionIndex);
         // 획득한 유니온을 로그로 출력함
-        Debug.Log($"획득한 유니온 번호 : {unionIndex}");
+        //Debug.Log($"획득한 유니온 번호 : {unionIndex}");
     }
 
 

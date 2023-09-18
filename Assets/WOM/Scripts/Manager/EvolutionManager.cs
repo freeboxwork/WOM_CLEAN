@@ -210,10 +210,10 @@ public class EvolutionManager : MonoBehaviour
             switch (globalData.player.curMonsterType)
             {
                 case MonsterType.evolution:
-                    StartCoroutine(this.eventController.GiveUpEvolutionMonster());
+                    StartCoroutine(this.eventController.FailedChallengEvolution());
                     break;
                 case MonsterType.boss:
-                    StartCoroutine(this.eventController.GiveUpBossMonster());
+                    StartCoroutine(this.eventController.FailedChallengBoss());
                     break;  
 
                 case MonsterType.dungeon:

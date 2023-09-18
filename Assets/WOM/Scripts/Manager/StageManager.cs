@@ -82,6 +82,7 @@ public class StageManager : MonoBehaviour
 
     public void SetBgImage()
     {
+        bgAnimController.ResetBg();
         bgAnimController.SetBgTex_Back(GetCurrentBgImg().texture);
     }
 

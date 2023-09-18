@@ -5,23 +5,12 @@ public class BossMonsterChallengeTimer : MonoBehaviour
 {
     public AnimData animData;
     bool isStop = false;
-    public void SetTimeValue(float value)
-    {
-        animData.animDuration = value;
-    }
 
     public void StartTimer()
     {
-        StopAllCoroutines();
-        StartCoroutine(CalcTimer());
-        //StartCoroutine(StartTimerCor());
-    }
 
-    IEnumerator StartTimerCor()
-    {
+        animData.animDuration = StaticDefine.BOSS_TIMER;
         StopAllCoroutines();
-        isStop = false;
-        yield return new WaitForEndOfFrame();
         StartCoroutine(CalcTimer());
     }
 
@@ -33,20 +22,16 @@ public class BossMonsterChallengeTimer : MonoBehaviour
     public IEnumerator CalcTimer()
     {
         animData.ResetAnimData();
+        isStop = false;
 
         while (animData.animTime < 0.999f)
         {
+            //Debug.Log(isStop);
+
             if (isStop)
             {
-                isStop = false;
-                yield break;
+                yield return new WaitUntil(() => !isStop);
             }
-
-            if (GlobalData.instance.eventController.CheckMonsterDie())
-            {
-                yield break;
-            }
-
             int timeSecond = (int)animData.animDuration - (int)(Time.time - animData.animStartTime);
             animData.animTime = (Time.time - animData.animStartTime) / animData.animDuration;
             //Debug.Log((int)(Time.time - animData.animStartTime));

@@ -27,11 +27,6 @@ public class InsectBullet : MonoBehaviour
 
     public InsectEffectContoller effectContoller;
 
-    void Start()
-    {
-
-    }
-
     public void SetInsectType(EnumDefinition.InsectType insectType)
     {
         this.insectType = insectType;
@@ -134,7 +129,7 @@ public class InsectBullet : MonoBehaviour
 
         float resultSpeed = UtilityMethod.RemapValue(speed, minSpeed,maxSpeed,0.7f,1.5f);
 
-        if (GlobalData.instance.eventController.isBossDie)
+        if (GlobalData.instance.eventController.IsInsectMovementStop)
         {
             resultSpeed = 0.1f;
         }

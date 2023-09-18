@@ -20,6 +20,7 @@ public class EventController : MonoBehaviour
 
     bool isRememberActiveBossButton = false;
 
+    bool isEnterFail = false;
 
     void Start()
     {
@@ -331,13 +332,12 @@ public class EventController : MonoBehaviour
         else if (currentMonster.monsterType == MonsterType.evolution)
         {
             // 진화전 포기 버튼 비활성화
-            UtilityMethod.GetCustomTypeBtnByID(30).gameObject.SetActive(false);
+            globalData.uiController.ToggleEscapeBossButton(false);
             // 타이머 종료
             globalData.bossChallengeTimer.StopBossTimer(true);
             //곤충들 슬로우 모션
             yield return StartCoroutine(BossDefeatSlowMotionEffect());
         }
-        
         // monster kill animation 사망 애니메이션 대기
         yield return StartCoroutine(currentMonster.inOutAnimator.MonsterKillMatAnim());
         //재화획득
@@ -768,10 +768,12 @@ public class EventController : MonoBehaviour
     //시간종료 / 포기
     public IEnumerator FailedChallengBoss()
     {
+        isEnterFail = true;
+
         IsMonsterDead = true;
         //하단 메인 메뉴 활성화
         globalData.uiController.MainMenuShow();
-
+        globalData.bossChallengeTimer.StopBossTimer(true);
         // 공격 불가능 상태로 전환
         globalData.attackController.SetAttackableState(false);
 
@@ -781,6 +783,8 @@ public class EventController : MonoBehaviour
         globalData.effectManager.EnableMonsterDieBeforeEffect();
         // 활성화 된 모든 곤충 모두 제거
         globalData.insectManager.DisableHalfLineInsects();
+
+        isEnterFail = false;
 
         //Change BGM
         GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
@@ -850,6 +854,8 @@ public class EventController : MonoBehaviour
     //시간종료 / 포기
     public IEnumerator FailedChallengEvolution()
     {
+        isEnterFail = true;
+
         IsMonsterDead = true;
         // 타이머 시간 멈춤
         globalData.bossChallengeTimer.StopBossTimer(true);
@@ -863,6 +869,8 @@ public class EventController : MonoBehaviour
         globalData.insectManager.DisableAllAvtiveInsects();
 
         UtilityMethod.EnableUIEventSystem(false);
+
+        isEnterFail = false;
 
         // 보스 몬스터 OUT
         yield return StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionOut());
@@ -913,6 +921,8 @@ public class EventController : MonoBehaviour
     //던전 포기 버튼을 통한 전투 종료
     IEnumerator GiveUpDungeonMonster(EnumDefinition.GoodsType g, long l)
     {
+        isEnterFail = true;
+
         IsMonsterDead = true;
         UtilityMethod.EnableUIEventSystem(false);
         globalData.bossChallengeTimer.StopBossTimer(true);
@@ -926,6 +936,8 @@ public class EventController : MonoBehaviour
         globalData.insectManager.DisableAllAvtiveInsects();
         // sfx dungeon monster out
         globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.End_Batle);
+
+        isEnterFail = false;
 
         RewardGoods(g, l);
         // 타이머 시간 멈춤
@@ -1069,6 +1081,8 @@ public class EventController : MonoBehaviour
     //시간 제한에 따른 전투 종료
     IEnumerator FailedChallengDungeon()
     {
+        isEnterFail = true;
+
         IsMonsterDead = true;
         // 타이머 시간 멈춤
         globalData.bossChallengeTimer.StopBossTimer(true);
@@ -1082,6 +1096,8 @@ public class EventController : MonoBehaviour
         globalData.effectManager.EnableMonsterDieBeforeEffect();
         // sfx dungeon monster out
         globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.End_Batle);
+
+        isEnterFail = false;
 
         //만약 포기 팝업이 떠있는 상태라면
         if(globalData.popUpGiveUpDungeon.isShowPopup)
@@ -1218,12 +1234,19 @@ public class EventController : MonoBehaviour
     //시간내에 보스몬스터를 잡지 못하였을때 콜백 이벤트를 받아 호출됨
     void EvnTimeOut()
     {
+        if(isEnterFail) return;
         // 현재(보스 몬스터 도전 전) phaseCount 몬스터 재등장 ?? -> 노멀 몬스터 등장하면 됨 phase count 는 따로 카운팅 되고 있으며 하나의 스테이지에 노멀 몬스터 데이터는 모두 동일함.
         switch (globalData.player.curMonsterType)
         {
-            case MonsterType.boss: StartCoroutine(FailedChallengBoss()); break;
-            case MonsterType.evolution: StartCoroutine(FailedChallengEvolution()); break;
-            case MonsterType.dungeon: StartCoroutine(FailedChallengDungeon()); break;
+            case MonsterType.boss: 
+            StartCoroutine(FailedChallengBoss()); 
+            break;
+            case MonsterType.evolution: 
+            StartCoroutine(FailedChallengEvolution());
+             break;
+            case MonsterType.dungeon: 
+            StartCoroutine(FailedChallengDungeon());
+             break;
         }
     }
 

@@ -34,7 +34,7 @@ namespace ProjectGraphics
 
             float t = 0;
 
-            while (t <= 1)
+            while (t <= 1.3f)
             {
                 t += Time.deltaTime;
 

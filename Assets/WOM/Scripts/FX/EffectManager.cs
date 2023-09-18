@@ -46,8 +46,6 @@ public class EffectManager : MonoBehaviour
     [Header("=====================================================================================================================")]
     [Header("몬스터 타격시 나타나는 텍스트")]
     int flotingTextPoolCount = 20;
-    public FloatingText prefabFloatingText;
-    public List<FloatingText> floatingTextPool = new List<FloatingText>();
 
     [Header("=====================================================================================================================")]
     [Header("화면전환 이펙트")]
@@ -88,9 +86,6 @@ public class EffectManager : MonoBehaviour
         CreateInstanceAttackEffects(prefabInsectAttackEff[(int)EnumDefinition.InsectType.beetle], insectAttackEffBeetle);
         // attack effect Union
         CreateInstanceAttackEffects(prefabInsectAttackEff[(int)EnumDefinition.InsectType.union], insectAttackEffUnion);
-
-        // 플로팅 텍스트 오브젝트 풀 생성
-        CreateFloatingTextPool();
 
         // 골드 풀링 오브젝트 생성
         goldPoolingCont.Init();
@@ -230,34 +225,6 @@ public class EffectManager : MonoBehaviour
         }
 
     }
-
-    // 플로팅 텍스트 Pool
-    void CreateFloatingTextPool()
-    {
-        for (int i = 0; i < flotingTextPoolCount; i++)
-        {
-            FloatingText floatingText = Instantiate(prefabFloatingText, trEffects);
-            floatingText.gameObject.SetActive(false);
-            floatingTextPool.Add(floatingText);
-        }
-    }
-
-    public FloatingText GetFloatingText()
-    {
-        for (int i = 0; i < floatingTextPool.Count; i++)
-        {
-            if (!floatingTextPool[i].gameObject.activeInHierarchy)
-            {
-                return floatingTextPool[i];
-            }
-        }
-
-        FloatingText floatingText = Instantiate(prefabFloatingText, trEffects);
-        floatingTextPool.Add(floatingText);
-        return floatingText;
-    }
-
-
 
 
     /// <summary> 진화전 트랜지션 이펙트 </summary>

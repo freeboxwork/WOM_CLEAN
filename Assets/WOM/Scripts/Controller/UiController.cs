@@ -242,31 +242,54 @@ public class UiController : MonoBehaviour
         EnableGlodMonsterIconOutlineEffect(sliderValue >= 1);
     }
 
-    public void SetTxtGold(long value, long flotingValue)
+    public void SetTxtGold(long totalValue, long flotingValue, long bonusValue = 0)
     {
-        var changeValue = UtilityMethod.ChangeSymbolNumber(value.ToString());
+        var totalGold = UtilityMethod.ChangeSymbolNumber(totalValue.ToString());
         var flotingValueChange = UtilityMethod.ChangeSymbolNumber(flotingValue.ToString());
+        string totalTxt;
+
+        if(bonusValue > 0)
+        {
+            totalTxt = string.Format("{0}<color=#00FF00> +{1}</color>", flotingValueChange,bonusValue);
+        }
+        else
+        {
+            totalTxt = flotingValueChange;
+        }
+
+
 
         // floting text effect
         if (flotingValue > 0)
         {
             floatingTextGold.gameObject.SetActive(true);
-            floatingTextGold.SetText(flotingValueChange, FloatingTextValues.ValueType.Gold);
-        }
 
-        txtGold.text = changeValue.ToString();
+            floatingTextGold.SetText(totalTxt, FloatingTextValues.ValueType.Gold);
+        }
+        //최종 골드량 표시
+        txtGold.text = totalGold.ToString();
     }
 
-    public void SetTxtBone(long value, long flotingValue)
+    public void SetTxtBone(long value, long flotingValue, long bonusValue = 0)
     {
         var changeValue = UtilityMethod.ChangeSymbolNumber(value.ToString());
         var flotingValueChange = UtilityMethod.ChangeSymbolNumber(flotingValue.ToString());
+        string totalTxt;
+
+        if(bonusValue > 0)
+        {
+            totalTxt = string.Format("{0}<color=#00FF00> +{1}</color>", flotingValueChange,bonusValue);
+        }
+        else
+        {
+            totalTxt = flotingValueChange;
+        }
 
         // floting text effect
         if (flotingValue > 0)
         {
             floatingTextBone.gameObject.SetActive(true);
-            floatingTextBone.SetText(flotingValueChange, FloatingTextValues.ValueType.Bone);
+            floatingTextBone.SetText(totalTxt, FloatingTextValues.ValueType.Bone);
         }
         UtilityMethod.SetTxtCustomTypeByID(60, changeValue.ToString());
     }
@@ -464,6 +487,7 @@ public class UiController : MonoBehaviour
         //     ToggleChallengeBossButton(false);
 
         isCastleOpen = true;
+        GlobalData.instance.insectSpwanManager.AllTimerStop();
         // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
         StartCoroutine(GlobalData.instance.effectManager.goldPoolingCont.DisableGoldEffects());
         //보스의 경우 뼈조각 OUT EFF 추가 ( 뼈조각 화면에 뿌려진 경우에만 )
@@ -516,6 +540,7 @@ public class UiController : MonoBehaviour
         //     GlobalData.instance.uiController.btnBossChallenge.gameObject.SetActive(true);
         // }
         if(isCastleOpen) yield break;
+        GlobalData.instance.insectSpwanManager.AllTimerStart();
 
         UtilityMethod.EnableUIEventSystem(false);
         isCastleOpen = true;

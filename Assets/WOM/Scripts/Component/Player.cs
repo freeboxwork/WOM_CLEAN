@@ -261,56 +261,37 @@ public class Player : MonoBehaviour
         pahseCountOriginalValue = stageData.phaseCount;
     }
 
-    long GetCalcGold(long gold)
-    {
-        var bonus = (long)(gold * (1 + (GlobalData.instance.statManager.GetTalentGoldBonus() * 0.01f)));
-        
-        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffGold);
-
-        if(buffValue.isUsingBuff)
-        {
-            bonus = (long)(bonus * buffValue.addValue);
-        }
-
-        return bonus;
-    }
     public void AddGold(long value)
     {
 
         var result = value * (1 + (GlobalData.instance.statManager.GetTalentGoldBonus() * 0.01f));
-
-        // ad buff 적용
-
         var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffGold);
-
+        
         if(buffValue.isUsingBuff)
         {
             result = result * buffValue.addValue;
         }
-        
+
+        var calc = result - value;
 
         gold += (long)(result);
 
 
         GlobalData.instance.traningManager.EnableBuyButtons(); // RELOAD BTN UI
         GlobalData.instance.skillManager.EnableBuyButtons();// RELOAD BTN UI
-        GlobalData.instance.uiController.SetTxtGold(gold, (long)result); // RELOAD UI
+        GlobalData.instance.uiController.SetTxtGold(gold, (long)value,(long)calc); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsGold(gold); // set save data
-    }
-    long GetCalcBone(long bone)
-    {
-        var bonus = (long)(bone * (1 + (GlobalData.instance.statManager.BoneBonus() * 0.01f)));
-
-       return bonus;
     }
 
     public void AddBone(long value)
     {
         var result = value * (1 + (GlobalData.instance.statManager.BoneBonus() * 0.01f));
 
+        var calc = result - value;
+
         bone += (long)result;
         GlobalData.instance.traningManager.EnableBuyButtons(); // RELOAD BTN UI
-        GlobalData.instance.uiController.SetTxtBone(bone, (long)result); // RELOAD UI
+        GlobalData.instance.uiController.SetTxtBone(bone, (long)value, (long)calc); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsBone(bone); // set save data
     }
     public void AddDice(long value)

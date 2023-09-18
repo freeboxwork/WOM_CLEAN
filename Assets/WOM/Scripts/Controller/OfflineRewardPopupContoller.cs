@@ -15,12 +15,12 @@ public class OfflineRewardPopupContoller : MonoBehaviour
     public Button btnRewardAD;
     public Button btnRewardNormal;
 
-    public long rewardGold;
-    public long rewardBone;
+    public float rewardGold;
+    public float rewardBone;
 
 
-    public long rewardAdGold;
-    public long rewardAdBone;
+    public float rewardAdGold;
+    public float rewardAdBone;
 
     // 광고는 5배 보상
     int adValue = 5;
@@ -54,8 +54,8 @@ public class OfflineRewardPopupContoller : MonoBehaviour
                 var mGold = monData.gold * (1 + (GlobalData.instance.statManager.OfflineBonus() * 0.01f));
                 var mBone = monData.bone * (1 + (GlobalData.instance.statManager.OfflineBonus() * 0.01f));
 
-                rewardGold = (long)mGold * hour;
-                rewardBone = (long)mBone * hour;
+                rewardGold = mGold * hour;
+                rewardBone = mBone * hour;
 
                 // 광고는 5배 보상
                 rewardAdGold = rewardGold * adValue;
@@ -94,14 +94,14 @@ public class OfflineRewardPopupContoller : MonoBehaviour
     public void RewardNormal()
     {
         var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gold, EnumDefinition.RewardType.bone };
-        var rewardValues = new long[] { rewardGold, rewardBone };
+        var rewardValues = new float[] { rewardGold, rewardBone };
         PopupController.instance.InitPopups(rewardTypes, rewardValues);
     }
 
     public void RewardAD()
     {
         var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gold, EnumDefinition.RewardType.bone };
-        var rewardValues = new long[] { rewardAdGold, rewardAdBone };
+        var rewardValues = new float[] { rewardAdGold, rewardAdBone };
         PopupController.instance.InitPopups(rewardTypes, rewardValues);
     }
 
@@ -109,10 +109,10 @@ public class OfflineRewardPopupContoller : MonoBehaviour
     public void updateUI()
     {
         
-        txtNormalGoldCount.text = UtilityMethod.ChangeSymbolNumber(rewardGold.ToString());
-        txtNormalBoneCount.text = UtilityMethod.ChangeSymbolNumber(rewardBone.ToString());
-        txtADGoldCount.text = UtilityMethod.ChangeSymbolNumber(rewardAdGold.ToString());
-        txtADBoneCount.text = UtilityMethod.ChangeSymbolNumber(rewardAdBone.ToString());
+        txtNormalGoldCount.text = UtilityMethod.ChangeSymbolNumber(Mathf.Round(rewardGold).ToString());
+        txtNormalBoneCount.text = UtilityMethod.ChangeSymbolNumber(Mathf.Round(rewardBone).ToString());
+        txtADGoldCount.text = UtilityMethod.ChangeSymbolNumber(Mathf.Round(rewardAdGold).ToString());
+        txtADBoneCount.text = UtilityMethod.ChangeSymbolNumber(Mathf.Round(rewardAdBone).ToString());
     }
 
 }

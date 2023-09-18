@@ -274,26 +274,26 @@ public class SaveData
     public InsectSaveData mentisSaveData;
     public int upgradeLevelIdx;
     public int evolutionLevel;
-    public long gold;
-    public long bone;
-    public long gem;
-    public long dice;
-    public long coal;
-    public long clearTicker;
-    public long unionTicket;
-    public long dnaTicket;
+    public float gold;
+    public float bone;
+    public float gem;
+    public float dice;
+    public float coal;
+    public float clearTicker;
+    public float unionTicket;
+    public float dnaTicket;
 
 
-    public long dungeonKeyGold;
-    public long dungeonKeyGem;
-    public long dungeonKeyDice;
-    public long dungeonKeyCoal;
-    public long dungeonKeyBone;
+    public float dungeonKeyGold;
+    public float dungeonKeyGem;
+    public float dungeonKeyDice;
+    public float dungeonKeyCoal;
+    public float dungeonKeyBone;
 
-    public long dungeonKeyADGold;
-    public long dungeonKeyADDice;
-    public long dungeonKeyADCoal;
-    public long dungeonKeyADBone;
+    public float dungeonKeyADGold;
+    public float dungeonKeyADDice;
+    public float dungeonKeyADCoal;
+    public float dungeonKeyADBone;
 
 
     public int dungeonLvGold;

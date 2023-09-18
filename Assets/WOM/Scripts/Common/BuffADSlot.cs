@@ -13,9 +13,9 @@ public class BuffADSlot : MonoBehaviour
     public int leftCount = 3;
     public int totalCount = 3;
 
-    public double addValue = 1f;
-    public double addValueDefualt = 1.0f;
-    public double addValueBuff = 1.5f;
+    public float addValue = 1f;
+    public float addValueDefualt = 1.0f;
+    public float addValueBuff = 1.5f;
 
 
     void Start()

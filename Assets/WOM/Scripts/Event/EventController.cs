@@ -372,7 +372,7 @@ public class EventController : MonoBehaviour
         GlobalData.instance.effectManager.EnableTransition(EnumDefinition.TransitionTYPE.ClearBoss);
     }
 
-    long CalculateGoldFromGoldMonster(long gold)
+    float CalculateGoldFromGoldMonster(float gold)
     {
         float dropGold = gold;
         //금광 몬스터 2배 받을 확률 가져오기
@@ -909,12 +909,12 @@ public class EventController : MonoBehaviour
         dungeonMonsterPopupClose = true;
     }
     //던전 포기를 수락한 경우
-    void AllowGiveUp(EnumDefinition.GoodsType g, long l)
+    void AllowGiveUp(EnumDefinition.GoodsType g, float l)
     {
         StartCoroutine(GiveUpDungeonMonster(g, l));
     }
     //던전 포기 버튼을 통한 전투 종료
-    IEnumerator GiveUpDungeonMonster(EnumDefinition.GoodsType g, long l)
+    IEnumerator GiveUpDungeonMonster(EnumDefinition.GoodsType g, float l)
     {
         isEnterFail = true;
 
@@ -993,7 +993,7 @@ public class EventController : MonoBehaviour
 
         // 캐슬 -> 연구소에 따른 던전 추가보상량
         var addValue = globalData.labBuildingManager.GetInLabBuildGameData(goodsType).value;
-        long totalCurrencyAmount = (long)(dungeonMonsterData.currencyAmount + (dungeonMonsterData.currencyAmount * addValue * 0.01f));
+        var totalCurrencyAmount = dungeonMonsterData.currencyAmount + (dungeonMonsterData.currencyAmount * addValue * 0.01f);
 
         globalData.popUpGiveUpDungeon.ShowGiveUpDungeonPopup(goodsType, totalCurrencyAmount, AllowGiveUp);
 
@@ -1244,7 +1244,7 @@ public class EventController : MonoBehaviour
         }
     }
     //던전 보스 전투시간이 종료되어보상을 받는다
-    void RewardGoods(GoodsType goodsType, long totalCurrencyAmount)
+    void RewardGoods(GoodsType goodsType, float totalCurrencyAmount)
     {
         switch (goodsType)
         {

@@ -12,21 +12,21 @@ public class Player : MonoBehaviour
     // 훈련 레벨
     public int traningLevelIdx;
 
-    public long gold;
-    public long bone;
-    public long gem;
-    public long coal;
+    public float gold;
+    public float bone;
+    public float gem;
+    public float coal;
 
     // 소탕권
-    public long clearTicket;
-    public long unionTicket;
-    public long dnaTicket;
+    public float clearTicket;
+    public float unionTicket;
+    public float dnaTicket;
 
     // Dungeon Key
-    public SerializableDictionary<GoodsType, long> dungeonKeys;
+    public SerializableDictionary<GoodsType, float> dungeonKeys;
 
     // Dungeon AD Key
-    public SerializableDictionary<GoodsType, long> dungeonADKeys;
+    public SerializableDictionary<GoodsType, float> dungeonADKeys;
 
     // Goods Map
     //SerializableDictionary<RewardType, int> rewardToGoodsMap;
@@ -35,7 +35,7 @@ public class Player : MonoBehaviour
     public double currentMonsterHp;
 
     // 주사위 개수
-    public long diceCount;
+    public float diceCount;
 
 
     /// <summary> 현재 진행중인 스테이지 데이터 </summary>
@@ -95,7 +95,7 @@ public class Player : MonoBehaviour
     // }
 
     // 인자로 RewardType 을 받고 switch를 이용하여 해당 재화를 리턴하는 함수
-    public long GetGoodsByRewardType(RewardType rewardType)
+    public float GetGoodsByRewardType(RewardType rewardType)
     {
         switch (rewardType)
         {
@@ -212,15 +212,15 @@ public class Player : MonoBehaviour
 
 
         //TODO: 재화 추가 로직 필요
-        dungeonKeys[GoodsType.gold] = saveData.dungeonKeyGold;
-        dungeonKeys[GoodsType.bone] = saveData.dungeonKeyBone;
-        dungeonKeys[GoodsType.dice] = saveData.dungeonKeyDice;
-        dungeonKeys[GoodsType.coal] = saveData.dungeonKeyCoal;
+        dungeonKeys[GoodsType.gold] = Mathf.Round(saveData.dungeonKeyGold);
+        dungeonKeys[GoodsType.bone] = Mathf.Round(saveData.dungeonKeyBone);
+        dungeonKeys[GoodsType.dice] = Mathf.Round(saveData.dungeonKeyDice);
+        dungeonKeys[GoodsType.coal] = Mathf.Round(saveData.dungeonKeyCoal);
 
-        dungeonADKeys[GoodsType.gold] = saveData.dungeonKeyADGold;
-        dungeonADKeys[GoodsType.bone] = saveData.dungeonKeyADBone;
-        dungeonADKeys[GoodsType.dice] = saveData.dungeonKeyADDice;
-        dungeonADKeys[GoodsType.coal] = saveData.dungeonKeyADCoal;
+        dungeonADKeys[GoodsType.gold] = Mathf.Round(saveData.dungeonKeyADGold);
+        dungeonADKeys[GoodsType.bone] = Mathf.Round(saveData.dungeonKeyADBone);
+        dungeonADKeys[GoodsType.dice] = Mathf.Round(saveData.dungeonKeyADDice);
+        dungeonADKeys[GoodsType.coal] = Mathf.Round(saveData.dungeonKeyADCoal);
 
         SetCurrentStageData(stageIdx);
 
@@ -261,7 +261,7 @@ public class Player : MonoBehaviour
         pahseCountOriginalValue = stageData.phaseCount;
     }
 
-    public void AddGold(long value)
+    public void AddGold(float value)
     {
 
         var result = value * (1 + (GlobalData.instance.statManager.GetTalentGoldBonus() * 0.01f));
@@ -279,11 +279,11 @@ public class Player : MonoBehaviour
 
         GlobalData.instance.traningManager.EnableBuyButtons(); // RELOAD BTN UI
         GlobalData.instance.skillManager.EnableBuyButtons();// RELOAD BTN UI
-        GlobalData.instance.uiController.SetTxtGold(gold, (long)value,(long)calc); // RELOAD UI
+        GlobalData.instance.uiController.SetTxtGold(gold, value, calc); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsGold(gold); // set save data
     }
 
-    public void AddBone(long value)
+    public void AddBone(float value)
     {
         var result = value * (1 + (GlobalData.instance.statManager.BoneBonus() * 0.01f));
 
@@ -294,17 +294,17 @@ public class Player : MonoBehaviour
         GlobalData.instance.uiController.SetTxtBone(bone, (long)value, (long)calc); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsBone(bone); // set save data
     }
-    public void AddDice(long value)
+    public void AddDice(float value)
     {
-        diceCount += value;
+        diceCount += Mathf.Round(value);
         GlobalData.instance.uiController.SetTxtDice(diceCount); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsDice(diceCount); // set save data
     }
 
 
-    public void AddCoal(long value)
+    public void AddCoal(float value)
     {
-        coal += value;
+        coal += Mathf.Round(value);
         // set ui;
         // set save data;
         GlobalData.instance.saveDataManager.SaveDataGoodsCoal(coal);
@@ -312,9 +312,9 @@ public class Player : MonoBehaviour
         GlobalData.instance.uiController.SetTxtCoal(coal);
     }
 
-    public void AddClearTicket(long value)
+    public void AddClearTicket(float value)
     {
-        clearTicket += value;
+        clearTicket += Mathf.Round(value);
 
         // set ui 
         GlobalData.instance.dungeonEnterPopup.SetTxtClierTicket(clearTicket);
@@ -326,30 +326,30 @@ public class Player : MonoBehaviour
 
 
 
-    public void AddGem(long value)
+    public void AddGem(float value)
     {
-        gem += value;
+        gem += Mathf.Round(value);
         GlobalData.instance.uiController.SetTxtGem(gem, value); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsGem(gem); // set save data
     }
 
-    public void AddUnionTicket(long value)
+    public void AddUnionTicket(float value)
     {
-        unionTicket += value;
+        unionTicket += Mathf.Round(value);
         GlobalData.instance.uiController.SetTxtUnionTicket(unionTicket); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsUnionTicket(unionTicket); // set save data
     }
 
-    public void AddDnaTicket(long value)
+    public void AddDnaTicket(float value)
     {
-        dnaTicket += value;
+        dnaTicket += Mathf.Round(value);
         GlobalData.instance.uiController.SetTxtDnaTicket(dnaTicket); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsDnaTicket(dnaTicket); // set save data
     }
 
-    public void PayUnionTicket(long value)
+    public void PayUnionTicket(float value)
     {
-        unionTicket -= value;
+        unionTicket -= Mathf.Round(value);
         if (unionTicket < 0) unionTicket = 0;
         GlobalData.instance.uiController.SetTxtUnionTicket(unionTicket); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsUnionTicket(unionTicket); // set save data
@@ -358,9 +358,9 @@ public class Player : MonoBehaviour
         GlobalData.instance.uiController.ButtonInteractableCheck(EnumDefinition.RewardType.unionTicket);
     }
 
-    public void PayDnaTicket(long value)
+    public void PayDnaTicket(float value)
     {
-        dnaTicket -= value;
+        dnaTicket -= Mathf.Round(value);
         if (dnaTicket < 0) dnaTicket = 0;
         GlobalData.instance.uiController.SetTxtDnaTicket(dnaTicket); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsDnaTicket(dnaTicket); // set save data
@@ -369,9 +369,9 @@ public class Player : MonoBehaviour
         GlobalData.instance.uiController.ButtonInteractableCheck(EnumDefinition.RewardType.dnaTicket);
     }
 
-    public void PayGold(long value)
+    public void PayGold(float value)
     {
-        gold -= value;
+        gold -= Mathf.Round(value);
         if (gold < 0) gold = 0;
         GlobalData.instance.traningManager.EnableBuyButtons(); // RELOAD BTN UI
         GlobalData.instance.skillManager.EnableBuyButtons();// RELOAD BTN UI
@@ -379,24 +379,24 @@ public class Player : MonoBehaviour
         GlobalData.instance.saveDataManager.SaveDataGoodsGold(gold); // set save data
     }
 
-    public void PayBone(long value)
+    public void PayBone(float value)
     {
-        bone -= value;
+        bone -= Mathf.Round(value);
         if (bone < 0) bone = 0;
         GlobalData.instance.traningManager.EnableBuyButtons(); // RELOAD BTN UI
         GlobalData.instance.uiController.SetTxtBone(bone, 0); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsBone(bone); // set save data
     }
-    public void PayDice(long value)
+    public void PayDice(float value)
     {
-        diceCount -= value;
+        diceCount -= Mathf.Round(value);
         if (diceCount < 0) diceCount = 0;
         GlobalData.instance.uiController.SetTxtDice(diceCount); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsDice(diceCount); // set save data
     }
-    public void PayGem(long value)
+    public void PayGem(float value)
     {
-        gem -= value;
+        gem -= Mathf.Round(value);
         if (gem < 0) gem = 0;
         GlobalData.instance.uiController.SetTxtGem(gem, 0); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsGem(gem); // set save data
@@ -405,9 +405,9 @@ public class Player : MonoBehaviour
         GlobalData.instance.uiController.ButtonInteractableCheck(EnumDefinition.RewardType.gem);
     }
 
-    public void PayCoal(long value)
+    public void PayCoal(float value)
     {
-        coal -= value;
+        coal -= Mathf.Round(value);
         if (coal < 0) coal = 0;
 
         // set ui
@@ -417,9 +417,9 @@ public class Player : MonoBehaviour
         GlobalData.instance.saveDataManager.SaveDataGoodsCoal(coal);
     }
 
-    public void PayClearTicekt(long value)
+    public void PayClearTicekt(float value)
     {
-        clearTicket -= value;
+        clearTicket -= Mathf.Round(value);
         if (clearTicket < 0) clearTicket = 0;
 
         // set ui 
@@ -431,9 +431,9 @@ public class Player : MonoBehaviour
         GlobalData.instance.saveDataManager.SaveDataGoodsClearTicket(clearTicket);
     }
 
-    public void AddDungeonKey(GoodsType goodsType, long addKeyCount)
+    public void AddDungeonKey(GoodsType goodsType, float addKeyCount)
     {
-        dungeonKeys[goodsType] += addKeyCount;
+        dungeonKeys[goodsType] += Mathf.Round(addKeyCount);
         //if (dungeonKeys[goodsType] > 2) dungeonKeys[goodsType] = 2; // 던전 키 최대 보유수 2개 제한
 
         // RELOAD UI
@@ -505,7 +505,7 @@ public class Player : MonoBehaviour
         GlobalData.instance.saveDataManager.SaveDataGoodsDungeonADKey(GoodsType.coal, 1);
     }
 
-    public long GetCurrentDungeonKeyCount(MonsterType monsterType)
+    public float GetCurrentDungeonKeyCount(MonsterType monsterType)
     {
         switch (monsterType)
         {
@@ -529,7 +529,7 @@ public class Player : MonoBehaviour
     }
 
     // get dungeon ad key count by monster type
-    public long GetDungeonADKeyCountByMonsterType(MonsterType monsterType)
+    public float GetDungeonADKeyCountByMonsterType(MonsterType monsterType)
     {
         switch (monsterType)
         {

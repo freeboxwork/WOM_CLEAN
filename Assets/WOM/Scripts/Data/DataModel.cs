@@ -64,14 +64,14 @@ public class EvolutionData
     public int depthId;
     public string name;
     public EnumDefinition.InsectType insectType;
-    public double damage;
-    public double damageRate;
-    public double criticalChance;
-    public double criticalDamage;
-    public double speed;
-    public double goldBonus;
-    public double bossDamage;
-    public double spawnTime;
+    public float damage;
+    public float damageRate;
+    public float criticalChance;
+    public float criticalDamage;
+    public float speed;
+    public float goldBonus;
+    public float bossDamage;
+    public float spawnTime;
 
     public EvolutionData CopyInstance()
     {
@@ -146,10 +146,10 @@ public class NewData
 public class MonsterData
 {
     public int id;
-    public double hp;
-    public double exp;
-    public long bone;
-    public long gold;
+    public float hp;
+    public float exp;
+    public float bone;
+    public float gold;
     public int boneCount;
     public int goldCount;
     public int imageId;
@@ -182,7 +182,7 @@ public class UnionData
     public string name;
     public string textColor;
     public string gradeName;
-    public double damage;
+    public float damage;
     public float passiveDamage;
     public float spawnTime;
     public float moveSpeed;
@@ -190,7 +190,7 @@ public class UnionData
     public int reqirementCount;
     public int addReqirementCount;
     public float addPassiveDamage;
-    public double addDamage;
+    public float addDamage;
     public int maxLevel;
 }
 
@@ -205,8 +205,8 @@ public class UnionInGameData
     public EnumDefinition.UnionGradeType unionGradeType;
 
     // stat
-    public double damage;
-    public double damageNextLevel;
+    public float damage;
+    public float damageNextLevel;
     public float spawnTime;
     public float moveSpeed;
     public float passiveDamage;
@@ -280,8 +280,8 @@ public class DNAInGameData
 {
     public int level;
     public int maxLevel;
-    public double power;
-    public double dataPower;
+    public float power;
+    public float dataPower;
     public string name;
 
     public void LevelUp()
@@ -323,7 +323,7 @@ public class SummonGradeData
 public class StatSaleData
 {
     public int level;
-    public long salePrice;
+    public float salePrice;
 
     // gold 로 획득
     public float value;
@@ -337,8 +337,8 @@ public class StatSaleData
 public class TraningInGameData
 {
     public int level;
-    public long salePrice;
-    public double value;
+    public float salePrice;
+    public float value;
     public string unitName;
     public string trainingName;
     public string description;
@@ -437,10 +437,10 @@ public class SkillData
     public float addPowerRate;
     public int maxLevel;
     public string desctiption;
-    public long defaultCost;
-    public long addCostAmount;
+    public float defaultCost;
+    public float addCostAmount;
     public int unLockLevel;
-    public long salePrice;
+    public float salePrice;
 }
 
 [Serializable]
@@ -449,8 +449,8 @@ public class Skill_InGameData
     public EnumDefinition.SkillType skillType;
     public int level;
     public float duaration;
-    public double power;
-    public double damage;
+    public float power;
+    public float damage;
     public float coolTime;
     public string skilName;
     public bool isSkilUsing = false;

@@ -194,7 +194,7 @@ public class InAppPurchaseManager : MonoBehaviour
                 else if (product.productName == "starterrpackage")
                 {
                     var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem, EnumDefinition.RewardType.unionTicket, EnumDefinition.RewardType.dnaTicket, EnumDefinition.RewardType.clearTicket };
-                    var rewardValues = new long[] { 3000, 10, 5, 3 };
+                    var rewardValues = new float[] { 3000, 10, 5, 3 };
                     PopupController.instance.InitPopups(rewardTypes, rewardValues);
                     ProductDisableGameObject(ProductTYPE.starterrpackage);
 
@@ -214,7 +214,7 @@ public class InAppPurchaseManager : MonoBehaviour
                     // 버프 패스 실행
                     GlobalData.instance.adManager.BuyBuffPass();
                     var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem, EnumDefinition.RewardType.clearTicket };
-                    var rewardValues = new long[] { 10000, 10 };
+                    var rewardValues = new float[] { 10000, 10 };
                     PopupController.instance.InitPopups(rewardTypes, rewardValues);
                     ProductDisableGameObject(ProductTYPE.adbuffpass);
 
@@ -227,7 +227,7 @@ public class InAppPurchaseManager : MonoBehaviour
                 else if (product.productName == "dungeonpackage")
                 {
                     var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.goldKey, EnumDefinition.RewardType.boneKey, EnumDefinition.RewardType.diceKey, EnumDefinition.RewardType.coalKey, EnumDefinition.RewardType.clearTicket };
-                    var rewardValues = new long[] { 10, 10, 10, 10, 2 };
+                    var rewardValues = new float[] { 10, 10, 10, 10, 2 };
                     PopupController.instance.InitPopups(rewardTypes, rewardValues);
                     ProductDisableGameObject(ProductTYPE.dungeonpackage);
 
@@ -241,7 +241,7 @@ public class InAppPurchaseManager : MonoBehaviour
                 {
 
                     var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem };
-                    var rewardValues = new long[] { 1000 };
+                    var rewardValues = new float[] { 1000 };
                     PopupController.instance.InitPopups(rewardTypes, rewardValues);
                     // UNLOCK BATTLE PASS SLOT
                     var saveKey = GlobalData.instance.questManager.keyBuyBattlePass;
@@ -258,7 +258,7 @@ public class InAppPurchaseManager : MonoBehaviour
                 else if (product.productName == "fastestpackage")
                 {
                     var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem, EnumDefinition.RewardType.unionTicket, EnumDefinition.RewardType.dnaTicket, EnumDefinition.RewardType.clearTicket, EnumDefinition.RewardType.union };
-                    var rewardValues = new long[] { 50000, 50, 30, 50, 40 };
+                    var rewardValues = new float[] { 50000, 50, 30, 50, 40 };
                     PopupController.instance.InitPopups(rewardTypes, rewardValues);
                     ProductDisableGameObject(ProductTYPE.fastestpackage);
                     if (product.active)

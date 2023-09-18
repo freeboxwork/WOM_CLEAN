@@ -7,12 +7,12 @@ using System;
 
 public class RewardInfoData
 {
-    public long amount;
+    public float amount;
     public EnumDefinition.RewardType type;
 
     public Sprite icon;
 
-    public RewardInfoData(EnumDefinition.RewardType type, long amount, Sprite sp)
+    public RewardInfoData(EnumDefinition.RewardType type, float amount, Sprite sp)
     {
         this.type = type;
         this.amount = amount;
@@ -139,7 +139,7 @@ public class PopupController : MonoBehaviour
         //Player Data Save
     }
 
-    public void InitPopup(EnumDefinition.RewardType rewardType, int amount)
+    public void InitPopup(EnumDefinition.RewardType rewardType, float amount)
     {
         PopupRewardInfoData data = new PopupRewardInfoData();
         List<RewardInfoData> rewards = new List<RewardInfoData>();
@@ -184,7 +184,7 @@ public class PopupController : MonoBehaviour
         SetupPopupInfo(data);
     }
 
-    public void InitPopups(EnumDefinition.RewardType[] rewardTypes, long[] amounts)
+    public void InitPopups(EnumDefinition.RewardType[] rewardTypes, float[] amounts)
     {
         PopupRewardInfoData data = new PopupRewardInfoData();
         List<RewardInfoData> rewards = new List<RewardInfoData>();
@@ -192,7 +192,7 @@ public class PopupController : MonoBehaviour
         for (int i = 0; i < rewardTypes.Length; i++)
         {
             //var sprite = GlobalData.instance.spriteDataManager.GetRewardIcon(rewardTypes[i]);
-            var sprite = GetRewardIcon(rewardTypes[i], (int)amounts[i]);
+            var sprite = GetRewardIcon(rewardTypes[i], amounts[i]);
             rewards.Add(new RewardInfoData(rewardTypes[i], amounts[i], sprite));
         }
         data.SetPopupData("REWARD", rewards);
@@ -201,7 +201,7 @@ public class PopupController : MonoBehaviour
     }
 
 
-    Sprite GetRewardIcon(EnumDefinition.RewardType rewardType, int value)
+    Sprite GetRewardIcon(EnumDefinition.RewardType rewardType, float value)
     {
         if (rewardType == EnumDefinition.RewardType.union)
         {

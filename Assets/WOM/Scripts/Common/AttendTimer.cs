@@ -58,8 +58,8 @@ public class AttendTimer : MonoBehaviour
         var nowDate = DateTime.Parse(now);
         var lastDate = DateTime.Parse(PlayerPrefs.GetString(LAST_ATTEND_DATE_KEY));
 
-        Debug.Log("nowDate : " + nowDate);
-        Debug.Log("lastDate : " + lastDate);
+//        Debug.Log("nowDate : " + nowDate);
+//        Debug.Log("lastDate : " + lastDate);
 
         TimeSpan timeSpan = nowDate.Subtract(lastDate);
         var totalDays = timeSpan.TotalDays;
@@ -95,11 +95,11 @@ public class AttendTimer : MonoBehaviour
         }
         else if (totalDays == 0)
         {
-            Debug.Log("동일한 날");
+//            Debug.Log("동일한 날");
         }
 
         unLockCount = PlayerPrefs.GetInt(UNLOCKED_ATTEND_COUNT_KEY);
-        Debug.Log("count : " + unLockCount);
+//        Debug.Log("count : " + unLockCount);
     }
 
     bool HasLastAttendanceDate()

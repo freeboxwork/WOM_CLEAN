@@ -32,12 +32,12 @@ public class DungeonEnterPopup : MonoBehaviour
     int curLevel;
     int clearTicketCount = 1;
     DungeonMonsterData curDungeonMonData;
-    Dictionary<MonsterType, UnityAction<long>> addRewardMap;
+    Dictionary<MonsterType, UnityAction<float>> addRewardMap;
 
     private void Start()
     {
         SetBtnEvents();
-        addRewardMap = new Dictionary<MonsterType, UnityAction<long>>() {
+        addRewardMap = new Dictionary<MonsterType, UnityAction<float>>() {
         { MonsterType.dungeonGold, GlobalData.instance.player.AddGold },
         { MonsterType.dungeonBone, GlobalData.instance.player.AddBone },
         { MonsterType.dungeonDice, GlobalData.instance.player.AddDice },
@@ -135,7 +135,7 @@ public class DungeonEnterPopup : MonoBehaviour
     }
 
 
-    public void SetTxtClierTicket(long ticketCount)
+    public void SetTxtClierTicket(float ticketCount)
     {
         textClearTicket.text = ticketCount.ToString();
     }
@@ -191,7 +191,7 @@ public class DungeonEnterPopup : MonoBehaviour
     {
         var usingKeyCount = GlobalData.instance.monsterManager.GetMonsterDungeon().monsterToDataMap[monsterType].usingKeyCount;
 
-        long curKeyCount = 0;
+        float curKeyCount = 0;
         if (GlobalData.instance.player.GetCurrentDungeonKeyCount(monsterType) > 0)
         {
             curKeyCount = GlobalData.instance.player.GetCurrentDungeonKeyCount(monsterType);

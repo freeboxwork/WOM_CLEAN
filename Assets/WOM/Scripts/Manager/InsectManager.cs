@@ -30,13 +30,13 @@ public class InsectManager : MonoBehaviour
     public Transform trHalfPoint;
 
     public bool damageDebug = false;
-    public double debugDamage = 20;
+    public float debugDamage = 20;
     Player player;
     TraningManager traningManager;
     StatManager statManager;
     public InsectSpriteFileData insectSpriteFileData;
 
-    public double dps;
+    public float dps;
 
     public Transform insectTargetPoint;
 
@@ -198,9 +198,9 @@ public class InsectManager : MonoBehaviour
     //     }
     // }
 
-    public double GetInsectDamage(EnumDefinition.InsectType insectType, int unionIndex, out bool isCritical)
+    public float GetInsectDamage(EnumDefinition.InsectType insectType, int unionIndex, out bool isCritical)
     {
-        double damage = 0;
+        float damage = 0;
         //double talentDamage = 0;
         isCritical = false;
 
@@ -236,24 +236,6 @@ public class InsectManager : MonoBehaviour
     }
 
 
-
-    // ---------- 훈련 업그레이드 시작
-    double GetInsectDamage(InsectBase insect)
-    {
-        // 공격력 공식 : (damage+ (damage* damageRate))
-        //return insect.damage + (insect.damage * insect.damageRate);
-        return (insect.damage + traningManager.GetStatPower(SaleStatType.trainingDamage)) * (insect.damageRate + traningManager.GetStatPower(SaleStatType.talentDamage));
-        //return ((insect.damage + player.GetStatValue(SaleStatType.trainingDamage)) * (insect.damageRate + player.GetStatValue(SaleStatType.talentDamage) + RewardDiceEvolutionData insectDamage))  * RewardEvolutionGradeData damageRate ;
-    }
-
-    // 치명타 데미지 계산
-    double GetInsectCriticalDamage(InsectBase insect)
-    {
-        //return 2 + insect.criticalDamage;
-        return 2 + insect.criticalDamage + traningManager.GetStatPower(SaleStatType.trainingCriticalChance) + traningManager.GetStatPower(SaleStatType.talentCriticalChance);
-        //return 2 + insect.criticalDamage + player.GetStatValue(SaleStatType.trainingCriticalChance) + player.GetStatValue(SaleStatType.talentCriticalChance) + RewardPolishEvolutionData insectCriticalDamage;
-
-    }
     // 크리티컬 데미지를 가지고 있는지? ( 크리티컬 데미지카 터졌는지 )
     bool HasCriticalDamage(InsectType insectType)
     {
@@ -458,7 +440,7 @@ public class InsectManager : MonoBehaviour
     }
 
     /// <summary> 곤충 기본 공격력 DPS </summary>
-    public double GetInsectsDps()
+    public float GetInsectsDps()
     {
         //TODO: DPS 계산식 추가 필요함.
         return dps;

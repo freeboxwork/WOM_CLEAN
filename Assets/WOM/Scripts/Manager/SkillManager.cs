@@ -344,7 +344,7 @@ public class SkillManager : MonoBehaviour
 
 
 
-    double GetInitPowerValue(SkillData skillData, Skill_InGameData skill_InGameData)
+    float GetInitPowerValue(SkillData skillData, Skill_InGameData skill_InGameData)
     {
         // double power = 0;
         // for (int i = 0; i < skill_InGameData.level; i++)
@@ -368,7 +368,7 @@ public class SkillManager : MonoBehaviour
 
 
 
-    double GetPowerValue(SkillData skillData, Skill_InGameData skill_InGameData)
+    float GetPowerValue(SkillData skillData, Skill_InGameData skill_InGameData)
     {
         //return skillData.power + (skill_InGameData.level * skillData.addPowerRate);
         return skillData.power;
@@ -379,7 +379,7 @@ public class SkillManager : MonoBehaviour
         return skillData.duration;
     }
 
-    double GetDamangeValue(double power)
+    float GetDamangeValue(float power)
     {
         return GlobalData.instance.insectManager.GetInsectsDps() * power;
     }
@@ -390,7 +390,7 @@ public class SkillManager : MonoBehaviour
         return GlobalData.instance.player.gold >= price;
     }
 
-    long GetSkillPrice(SkillData data, Skill_InGameData skill_InGameData)
+    float GetSkillPrice(SkillData data, Skill_InGameData skill_InGameData)
     {
         return data.salePrice;
         // return data.defaultCost + (data.addCostAmount * skill_InGameData.level);

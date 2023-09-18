@@ -20,9 +20,9 @@ public class PopUpGiveUpDungeon : MonoBehaviour
 
     public GameObject content;
 
-    Action<EnumDefinition.GoodsType, long> callBack;
+    Action<EnumDefinition.GoodsType, float> callBack;
     EnumDefinition.GoodsType goodsType;
-    long reward;
+    float reward;
 
     public bool isShowPopup = false;
     private void Awake()
@@ -31,14 +31,14 @@ public class PopUpGiveUpDungeon : MonoBehaviour
         btnRefuse.onClick.AddListener(ButtonRefuse);
     }
 
-    public void ShowGiveUpDungeonPopup(EnumDefinition.GoodsType goodsType, long reward, Action<EnumDefinition.GoodsType, long> callBack)
+    public void ShowGiveUpDungeonPopup(EnumDefinition.GoodsType goodsType, float reward, Action<EnumDefinition.GoodsType, float> callBack)
     {
         isShowPopup = true;
         this.callBack = callBack;
         this.goodsType = goodsType;
         this.reward = reward;
         content.SetActive(true);
-        txtRewardAmount.text = UtilityMethod.ChangeSymbolNumber(this.reward.ToString());
+        txtRewardAmount.text = UtilityMethod.ChangeSymbolNumber(Mathf.Round(this.reward).ToString());
         imageCurrencyIcon.sprite = goodsToIconMap[this.goodsType];
     }
 
@@ -46,7 +46,7 @@ public class PopUpGiveUpDungeon : MonoBehaviour
     void ButtonAccept()
     {
         isShowPopup = false;
-        this.callBack.Invoke(this.goodsType, this.reward);
+        this.callBack.Invoke(this.goodsType, Mathf.Round(this.reward));
         this.callBack = null;
         content.SetActive(false);
     }

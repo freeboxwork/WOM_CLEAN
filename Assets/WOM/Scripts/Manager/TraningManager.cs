@@ -145,7 +145,7 @@ public class TraningManager : MonoBehaviour
         EnableSubMenuPanel(EnumDefinition.TrainingSubPanelType.training);
     }
 
-    long GetCostIntValue(SaleStatType statType, TraningInGameData inGameData)
+    float GetCostIntValue(SaleStatType statType, TraningInGameData inGameData)
     {
         var data = GlobalData.instance.dataManager.GetSaleStatDataByType(statType).data;
         if (data.Last().level > inGameData.level)
@@ -283,7 +283,7 @@ public class TraningManager : MonoBehaviour
     }
 
     // 구매 가능한지 확인
-    bool IsValidPayItem(long price, GoodsType goodsType)
+    bool IsValidPayItem(float price, GoodsType goodsType)
     {
         switch (goodsType)
         {

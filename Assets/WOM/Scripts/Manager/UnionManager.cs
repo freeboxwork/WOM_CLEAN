@@ -240,7 +240,7 @@ public class UnionManager : MonoBehaviour
         return unionSlots.FirstOrDefault(f => f.inGameData.unionIndex == id).inGameData;
     }
 
-    public void AddUnion(long unionId)
+    public void AddUnion(float unionId)
     {
         //var data = GlobalData.instance.dataManager.GetUnionDataByIdx(unionId);
         var slot = GetUnionSlotByID((int)unionId);
@@ -278,7 +278,7 @@ public class UnionManager : MonoBehaviour
         EnableBtnTotalLevelUp();
     }
 
-    public double GetUnionDamage(UnionSlot slot)
+    public float GetUnionDamage(UnionSlot slot)
     {
         var square = Mathf.Pow(2, slot.inGameData.level);
         var damage = slot.unionData.damage * square;
@@ -286,7 +286,7 @@ public class UnionManager : MonoBehaviour
         //var damage = slot.unionData.damage + (slot.inGameData.level * slot.unionData.addDamage);
         return damage;
     }
-    public double GetUnionDamageNextLevel(UnionSlot slot)
+    public float GetUnionDamageNextLevel(UnionSlot slot)
     {
         var nextLevel = slot.inGameData.level + 1;
         var maxLevel = slot.unionData.maxLevel;

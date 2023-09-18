@@ -415,36 +415,36 @@ public class SaveDataManager : MonoBehaviour
 
 
     // 재화 데이터 세팅
-    public void SaveDataGoodsGold(long gold)
+    public void SaveDataGoodsGold(float gold)
     {
         saveDataTotal.saveDataGoods.gold = gold;
     }
-    public void SaveDataGoodsGem(long gem)
+    public void SaveDataGoodsGem(float gem)
     {
         saveDataTotal.saveDataGoods.gem = gem;
     }
-    public void SaveDataGoodsBone(long bone)
+    public void SaveDataGoodsBone(float bone)
     {
         saveDataTotal.saveDataGoods.bone = bone;
     }
-    public void SaveDataGoodsDice(long dice)
+    public void SaveDataGoodsDice(float dice)
     {
         saveDataTotal.saveDataGoods.dice = dice;
     }
-    public void SaveDataGoodsCoal(long coal)
+    public void SaveDataGoodsCoal(float coal)
     {
         saveDataTotal.saveDataGoods.coal = coal;
     }
-    public void SaveDataGoodsClearTicket(long clearTicket)
+    public void SaveDataGoodsClearTicket(float clearTicket)
     {
         saveDataTotal.saveDataGoods.clearTicket = clearTicket;
     }
-    public void SaveDataGoodsUnionTicket(long unionTicket)
+    public void SaveDataGoodsUnionTicket(float unionTicket)
     {
         saveDataTotal.saveDataGoods.unionTicket = unionTicket;
     }
 
-    public void SaveDataGoodsDnaTicket(long dnaTicket)
+    public void SaveDataGoodsDnaTicket(float dnaTicket)
     {
         saveDataTotal.saveDataGoods.dnaTicket = dnaTicket;
     }
@@ -471,7 +471,7 @@ public class SaveDataManager : MonoBehaviour
     }
 
     // 던전 키 데이터 저장
-    public void SaveDataGoodsDungeonKey(GoodsType goodsType, long dungeonKey)
+    public void SaveDataGoodsDungeonKey(GoodsType goodsType, float dungeonKey)
     {
         switch (goodsType)
         {
@@ -487,7 +487,7 @@ public class SaveDataManager : MonoBehaviour
     }
 
     // 던전 광고 키 데이터 저장
-    public void SaveDataGoodsDungeonADKey(GoodsType goodsType, long dungeonADKey)
+    public void SaveDataGoodsDungeonADKey(GoodsType goodsType, float dungeonADKey)
     {
         switch (goodsType)
         {
@@ -884,22 +884,22 @@ public class SaveDataStage
 [System.Serializable]
 public class SaveDataGoods
 {
-    public long gold;
-    public long gem;
-    public long bone;
-    public long dice;
-    public long coal;
-    public long clearTicket;
-    public long unionTicket;
-    public long dnaTicket;
-    public long dungeonKeyGold;
-    public long dungeonKeyBone;
-    public long dungeonKeyCoal;
-    public long dungeonKeyDice;
-    public long dungeonKeyADGold;
-    public long dungeonKeyADBone;
-    public long dungeonKeyADCoal;
-    public long dungeonKeyADDice;
+    public float gold;
+    public float gem;
+    public float bone;
+    public float dice;
+    public float coal;
+    public float clearTicket;
+    public float unionTicket;
+    public float dnaTicket;
+    public float dungeonKeyGold;
+    public float dungeonKeyBone;
+    public float dungeonKeyCoal;
+    public float dungeonKeyDice;
+    public float dungeonKeyADGold;
+    public float dungeonKeyADBone;
+    public float dungeonKeyADCoal;
+    public float dungeonKeyADDice;
 }
 
 

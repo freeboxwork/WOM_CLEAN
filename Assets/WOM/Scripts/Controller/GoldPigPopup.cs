@@ -70,7 +70,7 @@ public class GoldPigPopup : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    long GetRewardValue(int rewardValue)
+    float GetRewardValue(int rewardValue)
     {
         var normalMonsterData = GlobalData.instance.monsterManager.GetMonsterData(EnumDefinition.MonsterType.normal);
         return normalMonsterData.gold * rewardValue;

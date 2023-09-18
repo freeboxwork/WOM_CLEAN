@@ -15,12 +15,12 @@ public class StatManager : MonoBehaviour
     SkillManager skillManager;
 
     //SKILL VALUES
-    double skill_InsectDamageUp = 0;
-    double skill_UnionSpwnSpeedUp = 0;
-    double skill_AllUnitSpeedUp = 0;
-    double skill_GoldBounsUp = 0;
-    double skill_MonsterKing = 0;
-    double skill_AllUnitCriticalChanceUp = 0;
+    float skill_InsectDamageUp = 0;
+    float skill_UnionSpwnSpeedUp = 0;
+    float skill_AllUnitSpeedUp = 0;
+    float skill_GoldBounsUp = 0;
+    float skill_MonsterKing = 0;
+    float skill_AllUnitCriticalChanceUp = 0;
 
     //전환 효과로 스킬 UI 가 꺼질때 사용
     public bool transitionUI = false;
@@ -57,7 +57,7 @@ public class StatManager : MonoBehaviour
     #region INSECT 
 
     /// <summary> 곤충 공격력 damage(한글) </summary>
-    public double GetInsectDamage(InsectType insectType)
+    public float GetInsectDamage(InsectType insectType)
     {
         //진화 공격력
         var itd = GetEvolutionData(insectType).damage;
@@ -84,7 +84,7 @@ public class StatManager : MonoBehaviour
         return value;
     }
     /// <summary> 곤충 공격력 증가율 damageRate</summary>
-    double GetInsectTalentDamage(InsectType insectType)
+    float GetInsectTalentDamage(InsectType insectType)
     {
         var idr = GetEvolutionData(insectType).damageRate;
         var ttd = GetTraningData(SaleStatType.talentDamage).value;
@@ -99,7 +99,7 @@ public class StatManager : MonoBehaviour
         return value;
     }
     /// <summary> 곤충 치명타 확율 Critical Chance</summary>
-    public double GetInsectCriticalChance(InsectType insectType)
+    public float GetInsectCriticalChance(InsectType insectType)
     {
         var trcc = GetTraningData(SaleStatType.trainingCriticalChance).value;//소숫점
         var idr = GetEvolutionData(insectType).criticalChance;
@@ -113,7 +113,7 @@ public class StatManager : MonoBehaviour
     }
 
     /// <summary> 곤충 치명타 공격력 Critical Damage</summary>
-    public double GetInsectCriticalDamage(InsectType insectType)
+    public float GetInsectCriticalDamage(InsectType insectType)
     {
         var trcd = GetTraningData(SaleStatType.trainingCriticalDamage).value;//정수
         var tacd = GetTraningData(SaleStatType.talentCriticalDamage).value;//정수
@@ -127,7 +127,7 @@ public class StatManager : MonoBehaviour
 
     /// <summary> 곤충 이동 속도 버프,스킬 포함 최대값450이며 200내에서 조정이 필요</summary>
     /// 주사위로 최대 1.5초 훈련으로 최대 5초 감소
-    public double GetInsectMoveSpeed(InsectType insectType)
+    public float GetInsectMoveSpeed(InsectType insectType)
     {
         var ies = GetEvolutionData(insectType).speed;//정수
         var tms = GetTraningData(SaleStatType.talentMoveSpeed).value;//정수
@@ -168,7 +168,7 @@ public class StatManager : MonoBehaviour
     #region UNION
 
     /// <summary> 유니온 공격력 </summary>
-    public double GetUnionDamage(int unionIndex)
+    public float GetUnionDamage(int unionIndex)
     {
 
         //var ud = GetUnionData(unionIndex).damage + skill_UnionDamageUp;
@@ -209,7 +209,7 @@ public class StatManager : MonoBehaviour
     }
 
     /// <summary> 유니온 생성속도 </summary>
-    public double GetUnionSpwanSpeed(int unionIndex)
+    public float GetUnionSpwanSpeed(int unionIndex)
     {
 
         var ums = GetUnionData(unionIndex).spawnTime;
@@ -238,7 +238,7 @@ public class StatManager : MonoBehaviour
     #region GOODS
 
     /// <summary> 골드 획득량 </summary>
-    public double GetTalentGoldBonus()
+    public float GetTalentGoldBonus()
     {
         var dgb = GetDnaData(DNAType.glodBonus).power;
         var tgb = GetTraningData(SaleStatType.talentGoldBonus).value;
@@ -545,28 +545,28 @@ public class StatManager : MonoBehaviour
     }
 
     //보스,던전,진화 몬스터 추가 데미지
-    public double BossDamage()
+    public float BossDamage()
     {
         return GetDnaData(DNAType.bossDamage).power;
     }
 
     //모든 타입의 적 체력 감소
-    public double MonsterHpLess()
+    public float MonsterHpLess()
     {
         return GetDnaData(DNAType.monsterHpLess).power;
     }
 
-    public double BoneBonus()
+    public float BoneBonus()
     {
         return GetDnaData(DNAType.boneBonus).power;
     }
 
-    public double GoldMonsterBonus()
+    public float GoldMonsterBonus()
     {
         return GetDnaData(DNAType.goldMonsterBonus).power;
     }
 
-    public double OfflineBonus()
+    public float OfflineBonus()
     {
         return GetDnaData(DNAType.offlineBonus).power;
     }

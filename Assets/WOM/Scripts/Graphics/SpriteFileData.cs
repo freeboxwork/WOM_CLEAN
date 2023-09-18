@@ -10,7 +10,7 @@ public class SpriteFileData : ScriptableObject
     SpriteDataInfo[] data;
 
     public Sprite[] GetSpriteData(int num) => data[num].sprites;
-    public Sprite GetIconData(int num) => data[num].icon;
+    public Sprite GetIconData(float num) => data[Mathf.RoundToInt(num)].icon;
     public EnumDefinition.UnionGradeType GetGradeData(int num) => data[num].type;
     public int GetDataSize() => data.Length;
 

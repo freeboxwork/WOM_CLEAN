@@ -242,7 +242,7 @@ public class UiController : MonoBehaviour
         EnableGlodMonsterIconOutlineEffect(sliderValue >= 1);
     }
 
-    public void SetTxtGold(long totalValue, long flotingValue, long bonusValue = 0)
+    public void SetTxtGold(float totalValue, float flotingValue, float bonusValue = 0)
     {
         var totalGold = UtilityMethod.ChangeSymbolNumber(totalValue.ToString());
         var flotingValueChange = UtilityMethod.ChangeSymbolNumber(flotingValue.ToString());
@@ -270,7 +270,7 @@ public class UiController : MonoBehaviour
         txtGold.text = totalGold.ToString();
     }
 
-    public void SetTxtBone(long value, long flotingValue, long bonusValue = 0)
+    public void SetTxtBone(float value, float flotingValue, float bonusValue = 0)
     {
         var changeValue = UtilityMethod.ChangeSymbolNumber(value.ToString());
         var flotingValueChange = UtilityMethod.ChangeSymbolNumber(flotingValue.ToString());
@@ -294,7 +294,7 @@ public class UiController : MonoBehaviour
         UtilityMethod.SetTxtCustomTypeByID(60, changeValue.ToString());
     }
 
-    public void SetTxtGem(long value, long flotingValue)
+    public void SetTxtGem(float value, float flotingValue)
     {
         // GEM TEXT 는 단위 변환 없음
         // var changeValue = UtilityMethod.ChangeSymbolNumber(value);
@@ -311,42 +311,42 @@ public class UiController : MonoBehaviour
         UtilityMethod.SetTxtCustomTypeByID(79, value.ToString());
     }
 
-    public void SetTxtDice(long value)
+    public void SetTxtDice(float value)
     {
         var changeValue = UtilityMethod.ChangeSymbolNumber(value.ToString());
         UtilityMethod.SetTxtCustomTypeByID(65, changeValue);
     }
 
-    public void SetTxtUnionTicket(long value)
+    public void SetTxtUnionTicket(float value)
     {
         txtUnionTicketCount.text = value.ToString();
     }
-    public void SetTxtDnaTicket(long value)
+    public void SetTxtDnaTicket(float value)
     {
         txtDnaTicketCount.text = value.ToString();
     }
-    public void SetTxtCoal(long value)
+    public void SetTxtCoal(float value)
     {
         txtCoalCount.text = value.ToString();
     }
 
-    public void SetTxtDungeonGoldKeyCount(long value)
+    public void SetTxtDungeonGoldKeyCount(float value)
     {
         txtDungeonGoldKeyCount.text = value.ToString();
     }
-    public void SetTxtDungeonBoneKeyCount(long value)
+    public void SetTxtDungeonBoneKeyCount(float value)
     {
         txtDungeonBoneKeyCount.text = value.ToString();
     }
-    public void SetTxtDungeonDiceKeyCount(long value)
+    public void SetTxtDungeonDiceKeyCount(float value)
     {
         txtDungeonDiceKeyCount.text = value.ToString();
     }
-    public void SetTxtDungeonCoalKeyCount(long value)
+    public void SetTxtDungeonCoalKeyCount(float value)
     {
         txtDungeonCoalKeyCount.text = value.ToString();
     }
-    public void SetTxtDungeonClearTicketCount(long value)
+    public void SetTxtDungeonClearTicketCount(float value)
     {
         txtDungeonClearTicketCount.text = value.ToString();
     }

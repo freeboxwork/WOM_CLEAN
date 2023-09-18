@@ -48,10 +48,6 @@ public class Player : MonoBehaviour
     /// <summary> 현재 전투중인 몬스터 타입 </summary>
     public MonsterType curMonsterType;
 
-    /// <summary> 직전에 전투한 몬스터 타입 </summary>
-    public MonsterType prevMonsterType;
-
-
     /// <summary> 현재 플레이어의 스탯 데이터 </summary>
 
 
@@ -192,12 +188,6 @@ public class Player : MonoBehaviour
     {
         curMonsterType = monsterType;
     }
-
-    public void SetPervMonsterType(MonsterType monsterType)
-    {
-        prevMonsterType = monsterType;
-    }
-
 
     public void SetCurrentMonsterHP(double hpValue)
     {

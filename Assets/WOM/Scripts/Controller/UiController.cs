@@ -464,6 +464,10 @@ public class UiController : MonoBehaviour
         //     ToggleChallengeBossButton(false);
 
         isCastleOpen = true;
+        // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
+        StartCoroutine(GlobalData.instance.effectManager.goldPoolingCont.DisableGoldEffects());
+        //보스의 경우 뼈조각 OUT EFF 추가 ( 뼈조각 화면에 뿌려진 경우에만 )
+        StartCoroutine(GlobalData.instance.effectManager.bonePoolingCont.DisableGoldEffects());
         // 공격 불가능 상태 전환
         GlobalData.instance.attackController.SetAttackableState(false);
         // 황금돼지 비활성화
@@ -476,8 +480,6 @@ public class UiController : MonoBehaviour
         GlobalData.instance.eventController.StopAllCoroutine();
         // 트렌지션 효과
         GlobalData.instance.effectManager.EnableTransition(EnumDefinition.TransitionTYPE.Castle);
-        //캐슬 전 활성화 되어있던 몬스터 타입 저장
-        GlobalData.instance.player.SetPervMonsterType(GlobalData.instance.player.curMonsterType);
 
         // 화면전환 효과
         yield return StartCoroutine(GlobalData.instance.effectManager.EffTransitioEvolutionUpgrade(() =>
@@ -532,11 +534,7 @@ public class UiController : MonoBehaviour
             var monster = GlobalData.instance.player.currentMonster;
             monster.gameObject.SetActive(true);
             // Monster IN
-            var curMonsterType = GlobalData.instance.player.prevMonsterType;
-            StartCoroutine(GlobalData.instance.eventController.AppearMonster(curMonsterType));
-
-            // EnableMenuPanel(MenuPanelType.castle);
-
+            StartCoroutine(GlobalData.instance.eventController.AppearMonster(MonsterType.normal));
 
         }));
 

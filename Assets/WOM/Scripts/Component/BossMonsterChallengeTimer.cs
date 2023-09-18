@@ -26,8 +26,6 @@ public class BossMonsterChallengeTimer : MonoBehaviour
 
         while (animData.animTime < 0.999f)
         {
-            //Debug.Log(isStop);
-
             if (isStop)
             {
                 yield return new WaitUntil(() => !isStop);

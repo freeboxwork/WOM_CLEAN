@@ -59,8 +59,6 @@ public class EventController : MonoBehaviour
 
     public void StopAllCoroutine()
     {
-        globalData.bossChallengeTimer.StopBossTimer(true);
-
         StopAllCoroutines();
     }
 
@@ -730,9 +728,6 @@ public class EventController : MonoBehaviour
         // 보스 도전 버튼 숨김
         globalData.uiController.ToggleChallengeBossButton(false);
         
-        //도전 버튼 누르기 전 활성화 되어있던 몬스터 타입 저장
-        globalData.player.SetPervMonsterType(globalData.player.curMonsterType);
-
         GlobalData.instance.effectManager.EnableTransition(EnumDefinition.TransitionTYPE.Boss);
         //몬스터 죽음 해골 이펙트
         globalData.effectManager.EnableMonsterDieBeforeEffect();
@@ -799,7 +794,7 @@ public class EventController : MonoBehaviour
         globalData.stageManager.bgAnimController.CameraZoomIn();
 
         // 기존 몬스터 등장
-        yield return StartCoroutine(AppearMonster(globalData.player.prevMonsterType));
+        yield return StartCoroutine(AppearMonster(MonsterType.normal));
         // 도전 버튼 활성화
         globalData.uiController.ToggleChallengeBossButton(true);
         // tutorial event ( 보스 몬스터 도전 실패 )
@@ -816,7 +811,7 @@ public class EventController : MonoBehaviour
     //도전
     IEnumerator ChallengeEvolution()
     {
-
+        PhaseCountReset();
         SetBeforeChallengeTransition();
 
         // 트랜지션 효과
@@ -892,7 +887,7 @@ public class EventController : MonoBehaviour
         // camera zoom In
         globalData.stageManager.bgAnimController.CameraZoomIn();
         // 미리 저장된 몬스터 등장
-        yield return StartCoroutine(AppearMonster(globalData.player.prevMonsterType));
+        yield return StartCoroutine(AppearMonster(MonsterType.normal));
         //만약 진화전 시작전에 보스전 버튼이 활성화 되어 있었다면
         if(isRememberActiveBossButton) globalData.uiController.ToggleChallengeBossButton(true);
         // 진화 몬스터 도전 버튼 활성화
@@ -967,7 +962,7 @@ public class EventController : MonoBehaviour
         // BGM CHANGE
         GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
         // 기존 몬스터 등장
-        yield return StartCoroutine(AppearMonster(globalData.player.prevMonsterType));
+        yield return StartCoroutine(AppearMonster(MonsterType.normal));
         //만약 진화전 시작전에 보스전 버튼이 활성화 되어 있었다면
         if(isRememberActiveBossButton) globalData.uiController.ToggleChallengeBossButton(true);
         // UI 비활성화 
@@ -1027,6 +1022,7 @@ public class EventController : MonoBehaviour
    //도전
    IEnumerator ChallengeDungeonMonster(MonsterType monsterType)
     {
+        PhaseCountReset();
 
         SetBeforeChallengeTransition();
 
@@ -1155,7 +1151,7 @@ public class EventController : MonoBehaviour
         // BGM CHANGE
         GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
         // 기존 몬스터 등장
-        yield return StartCoroutine(AppearMonster(globalData.player.prevMonsterType));
+        yield return StartCoroutine(AppearMonster(MonsterType.normal));
 
         //만약 진화전 시작전에 보스전 버튼이 활성화 되어 있었다면
         if(isRememberActiveBossButton) globalData.uiController.ToggleChallengeBossButton(true);
@@ -1200,8 +1196,6 @@ public class EventController : MonoBehaviour
         StartCoroutine(globalData.effectManager.goldPoolingCont.DisableGoldEffects());
         //보스의 경우 뼈조각 OUT EFF 추가 ( 뼈조각 화면에 뿌려진 경우에만 )
         StartCoroutine(globalData.effectManager.bonePoolingCont.DisableGoldEffects());
-        //도전 버튼 누르기 전 활성화 되어있던 몬스터 타입 저장
-        globalData.player.SetPervMonsterType(globalData.player.curMonsterType);
         // 전체 UI 비활성 
         UtilityMethod.EnableUIEventSystem(false);
         // 버튼 패널 및 캐슬화면 숨김

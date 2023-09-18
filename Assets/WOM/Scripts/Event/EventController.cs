@@ -1243,7 +1243,6 @@ public class EventController : MonoBehaviour
              break;
         }
     }
-
     //던전 보스 전투시간이 종료되어보상을 받는다
     void RewardGoods(GoodsType goodsType, long totalCurrencyAmount)
     {

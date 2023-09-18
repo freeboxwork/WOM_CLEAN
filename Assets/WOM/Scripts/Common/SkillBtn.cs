@@ -255,7 +255,8 @@ public class SkillBtn : MonoBehaviour
             skillLeftTime = calcSkillTime - (Time.time - skillStartTime);
             yield return null;
         }
-
+        // skill effect off!
+        SkillEffectBySkillType(false);
         txtTimeAnim.enabled = false;
         skillAddValue = false;
         txtTime.enabled = true;
@@ -357,6 +358,8 @@ public class SkillBtn : MonoBehaviour
 
             if (second <= 0)
             {
+                SetEndCoolTime();
+
                 // 쿨타임이 끝난경우
                 //saveData.isCooltime = false;
                 //saveData.leftCoolTime = 0;
@@ -411,6 +414,7 @@ public class SkillBtn : MonoBehaviour
                     coolTimeWait = calcCooltime;
                     //backLightImage.DOColor의 Loop를 종료
                     backLightImage.DOKill();
+
                     while (coolTimeWait > 0)
                     {
                         coolTimeWait = calcCooltime - (Time.time - startTime);
@@ -419,9 +423,10 @@ public class SkillBtn : MonoBehaviour
                         yield return null;
                     }
 
+                    SetEndCoolTime();
+
                 }
 
-                SetEndCoolTime();
             }
         }
 

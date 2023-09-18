@@ -581,7 +581,7 @@ public class UiController : MonoBehaviour
                     GlobalData.instance.traningManager.EnableFirstSubMenuPanel();
                 }
 
-                Debug.Log("EnableMenuPanel : " + type + " / " + enableValue);
+                //Debug.Log("EnableMenuPanel : " + type + " / " + enableValue);
                 if (enableValue == false)
                 {
                     curMenuPanelType = MenuPanelType.none;

@@ -58,7 +58,7 @@ public class UnionInfoPopupController : MonoBehaviour
         // SET UI
         SetImgFace(slot.imgUnionFace.sprite);
         SetTxtUnionName(data.name);
-        Debug.Log(data.textColor + $"{data.gradeName}</color>");
+        //Debug.Log(data.textColor + $"{data.gradeName}</color>");
         SetTxtUinonGrade($"<#{data.textColor}>{data.gradeName}</color>");
 
 

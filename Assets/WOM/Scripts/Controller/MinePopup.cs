@@ -207,7 +207,7 @@ public class MinePopup : CastlePopupBase
             }
             if (!CheckEqualZeroByCalculation(nextTime))
             {
-                _productionTimeText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextTime.ToString()));
+                _productionTimeText += string.Format("<color=#00FF00> - {0}</color>", UtilityMethod.ChangeSymbolNumber(nextTime.ToString()));
             }
 
 
@@ -283,7 +283,7 @@ public class MinePopup : CastlePopupBase
             }
             if (!CheckEqualZeroByCalculation(nextTime))
             {
-                _productionTimeText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextTime.ToString()));
+                _productionTimeText += string.Format("<color=#00FF00> - {0}</color>", UtilityMethod.ChangeSymbolNumber(nextTime.ToString()));
             }
 
         }

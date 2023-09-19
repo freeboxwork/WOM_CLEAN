@@ -30,11 +30,11 @@ public class AttackController : MonoBehaviour
     {
         if (isAttackableState == true)
         {
-            if (Input.GetMouseButtonDown(0))
+            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 if (EventSystem.current != null && EventSystem.current.enabled)
                 {
-                    if (EventSystem.current.IsPointerOverGameObject() == false) // 포인터 UI 위에 있지 않을때만 실행
+                    if (EventSystem.current.IsPointerOverGameObject(Input.GetTouch(0).fingerId) == false) // 포인터 UI 위에 있지 않을때만 실행
                     {
                         // 메뉴 패널이 열려있으면 닫는다.
                         if(GlobalData.instance.uiController.CheckOpenMenuPanel() == true) 

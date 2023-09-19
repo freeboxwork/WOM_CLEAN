@@ -195,11 +195,11 @@ public class EffectManager : MonoBehaviour
         return goldSFX_RandomPoints[(int)pointType];
     }
 
-    public void EnableFloatingText(double damage, bool isCritical, Transform tr, EnumDefinition.InsectType insectType)
+    public void EnableFloatingText(float damage, bool isCritical, Transform tr, EnumDefinition.InsectType insectType)
     {
-        float dmg = (float)Mathf.Floor((float)damage);//소수점 버림
-        string strDmg = UtilityMethod.ChangeSymbolNumber(dmg.ToString("#,##0"));//3자리마다 콤마 << 이렇게 해야 Infinite 변환 에서 에러가 안남
-        DamageNumber damageNumber = numberPrefab.Spawn(tr.position,  strDmg, 0);//3번째 파라미터는 의미없는 값
+        float dmg = Mathf.Floor(damage);//소수점 버림
+        string strDmg = UtilityMethod.ChangeSymbolNumber(damage);//3자리마다 콤마 << 이렇게 해야 Infinite 변환 에서 에러가 안남
+        DamageNumber damageNumber = numberPrefab.Spawn(tr.position,  strDmg, 0);//3번째 값은 의미 없음
 
         //곤충이 치명타
         if (isCritical)

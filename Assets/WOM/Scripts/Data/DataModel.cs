@@ -531,8 +531,8 @@ public class DungeonMonsterBase : MonoBehaviour
 public class DungeonMonsterData
 {
     public int level;
-    public long currencyAmount;
-    public double monsterHP;
+    public float currencyAmount;
+    public float monsterHP;
     public string stageName;
 
     public DungeonMonsterData CloneInstance()
@@ -558,9 +558,9 @@ public class DungeonMonsterDatas
 public class MineAndFactoryBuildingData
 {
     public int level;
-    public long productionCount;
-    public long maxSupplyAmount;
-    public long price;
+    public float productionCount;
+    public float maxSupplyAmount;
+    public float price;
     public int productionTime;
     public string currencyType;
     EnumDefinition.GoodsType goodsType;
@@ -580,11 +580,11 @@ public class LabBuildingData
 {
     public int id;
     public int level;
-    public long price;
-    public long gold;
-    public long bone;
-    public long dice;
-    public long coal;
+    public float price;
+    public float gold;
+    public float bone;
+    public float dice;
+    public float coal;
 }
 
 [Serializable]
@@ -592,8 +592,8 @@ public class LabBuildIngameData
 {
     public EnumDefinition.GoodsType goodsType;
     public int level;
-    public long value;
-    public long price;
+    public float value;
+    public float price;
 
     public LabBuildIngameData CloneInstance()
     {
@@ -613,7 +613,7 @@ public class RewardAdGemData
 {
     public int level;
     public string rewardType;
-    public long rewardValue;
+    public float rewardValue;
     public int probability;
 }
 

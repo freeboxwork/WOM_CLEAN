@@ -186,10 +186,10 @@ public class GlobalController : MonoBehaviour
 
 
 
-        if (tutorialManager.isTutorial && tutorialManager.newUserEventPopupObj.activeSelf == false)
-        {
-            tutorialManager.TutorialStart();
-        }
+        // if (tutorialManager.isTutorial && tutorialManager.newUserEventPopupObj.activeSelf == false)
+        // {
+        //     tutorialManager.TutorialStart();
+        // }
 
         firebaseManager.LogEvent("UserData","Stage",stageManager.stageData.stageId);
 

@@ -1117,7 +1117,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  sizeFilter: 0.5
+  sizeFilter: 0.2
   actionTexts:
   - {fileID: 1879935269263286958}
   duration: 0.3

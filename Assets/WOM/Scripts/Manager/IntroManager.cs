@@ -26,7 +26,7 @@ public class IntroManager : MonoBehaviour
     private bool isLoad = false;
     public Color endColor;
     private AsyncOperation async; // 로딩
-
+    public WOMAppUpdateManager wOMAppUpdateManager;
 
     void Awake()
     {
@@ -38,12 +38,17 @@ public class IntroManager : MonoBehaviour
 
     void Start()
     {
+
         FirstConectCheck();
+
         if (isSecondConnect)
         {
             // SKIP INTRO
             introTimeLineController.SkipIntro();
             ShowMainCanvas(true);
+#if UNITY_ANDROID && !UNITY_EDITOR
+            StartCoroutine(wOMAppUpdateManager.AppUpdateCheck());
+#endif
             //씬 프리로딩
             StartCoroutine(SceneLoad());
         }

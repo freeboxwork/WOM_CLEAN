@@ -461,6 +461,8 @@ namespace DamageNumbersPro
             //Position:
             newDN.SetPosition(newPosition);
 
+
+
             //Number:
             newDN.number = newNumber;
 

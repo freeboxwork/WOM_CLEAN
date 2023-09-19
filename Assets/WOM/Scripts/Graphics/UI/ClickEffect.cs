@@ -15,7 +15,7 @@ namespace ProjectGraphics
         [Header("AdditiveColor")]
         public Gradient gradientColor;
         public AnimationCurve curve;
-        [SerializeField, Range(0.5f, 2.0f)] float sizeFilter = 0.5f;
+        [SerializeField, Range(0.2f, 2.0f)] float sizeFilter = 0.2f;
         [Header("ActionText")]
         public TextMeshProUGUI[] actionTexts;
         private float[] baseFontSizes;

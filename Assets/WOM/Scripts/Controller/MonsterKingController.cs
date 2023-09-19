@@ -40,9 +40,9 @@ public class MonsterKingController : MonoBehaviour
             AttackMonster(i);
             var waitTime = RaddomHitTiming();
             yield return new WaitForSeconds(waitTime);
-            Debug.Log("HitCount : " + i);
+            //Debug.Log("HitCount : " + i);
             // SFX PLAY
-            GlobalData.instance.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.MonsterHit);
+            GlobalData.instance.soundManager.PlayMonsterHitSound();
             if (GlobalData.instance.attackController.GetAttackableState() == false)
                 yield break;
             if (IsMonsterDead() == true)

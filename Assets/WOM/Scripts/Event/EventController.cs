@@ -12,7 +12,7 @@ public class EventController : MonoBehaviour
 
     GlobalData globalData;
     public bool evalGradeEffectShow = false;
-    double dungeonMonsterLeftDamage = 0;
+    float dungeonMonsterLeftDamage = 0;
     bool isInsectMovementStop = false;
     bool isMonsterDead = false;
     bool isDungeonMonsterNextLevel = false;
@@ -306,7 +306,7 @@ public class EventController : MonoBehaviour
 
         // sfx monster die
         globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.BossDie);
-
+        
         //골드 뿌리는 이펙트
         yield return StartCoroutine(globalData.effectManager.goldPoolingCont.EnableGoldEffects(currentMonster.goldCount));
 
@@ -321,6 +321,9 @@ public class EventController : MonoBehaviour
         // 보스일경우 뼈조각 추가 획득
         else if (currentMonster.monsterType == MonsterType.boss)
         {
+            // tutorial event ( 보스 몬스터 사망 )
+            if (currentMonster.monsterType == MonsterType.boss)
+                EventManager.instance.RunEvent(CallBackEventType.TYPES.OnMonsterKillBossMonster);
             // 타이머 종료
             globalData.bossChallengeTimer.StopBossTimer(true);
             yield return StartCoroutine(globalData.effectManager.bonePoolingCont.EnableGoldEffects(currentMonster.boneCount));
@@ -351,9 +354,7 @@ public class EventController : MonoBehaviour
         if (currentMonster.monsterType == MonsterType.gold)
             EventManager.instance.RunEvent(CallBackEventType.TYPES.OnMonsterKillGoldMonster);
 
-        // tutorial event ( 보스 몬스터 사망 )
-        if (currentMonster.monsterType == MonsterType.boss)
-            EventManager.instance.RunEvent(CallBackEventType.TYPES.OnMonsterKillBossMonster);
+
 
 
         IsInsectMovementStop = false;
@@ -382,9 +383,9 @@ public class EventController : MonoBehaviour
 
             if (ran <= pbb)
             {
-                return (long)(dropGold = dropGold * 2);
+                return dropGold = dropGold * 2;
             }
-        return (long)dropGold;
+        return dropGold;
     }
 
     //===================================================================================================================================================================================
@@ -1111,7 +1112,7 @@ public class EventController : MonoBehaviour
 
         // 캐슬 -> 연구소에 따른 던전 추가보상량
         var addValue = globalData.labBuildingManager.GetInLabBuildGameData(goodsType).value;
-        long totalCurrencyAmount = (long)(dungeonMonsterData.currencyAmount + (dungeonMonsterData.currencyAmount * addValue * 0.01f));
+        var totalCurrencyAmount = dungeonMonsterData.currencyAmount + (dungeonMonsterData.currencyAmount * addValue * 0.01f);
 
         // sfx dungeon monster out
         globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.End_Batle);

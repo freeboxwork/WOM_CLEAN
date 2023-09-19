@@ -9,18 +9,18 @@ private AudioSource audioSource;
     private void Awake()
     {
         audioSource = GetComponent<AudioSource>();
+
     }
 
     private void OnEnable()
     {
-        StartCoroutine(DeactivateAfterSoundEnds());
+        audioSource.Play(); // AudioSource를 재생합니다.
+        Invoke("DeactivateGameObject", audioSource.clip.length);
     }
 
-    private IEnumerator DeactivateAfterSoundEnds()
+    private void DeactivateGameObject()
     {
-        // AudioClip의 길이를 기다렸다가 게임 오브젝트를 비활성화
-        yield return new WaitForSeconds(audioSource.clip.length);
-
-        gameObject.SetActive(false);
+        // 재생이 완료되면 호출되는 이벤트 핸들러
+        gameObject.SetActive(false); // 현재 게임 오브젝트를 비활성화합니다.
     }
 }

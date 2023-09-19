@@ -9,63 +9,53 @@ public class WOMAppUpdateManager : MonoBehaviour
 {
 
     public TextMeshProUGUI versionText;
-
-    void Start()
-    {
-
-#if UNITY_ANDROID&&!UNITY_EDITOR
-        StartCoroutine(AppUpdateCheck());
-#endif
-    }
-
-
     public IEnumerator AppUpdateCheck()
     {
-        // ë§¤ë‹ˆì € ì •ì˜
+        // ¸Å´ÏÀú Á¤ÀÇ
         AppUpdateManager appUpdateManager = new AppUpdateManager();
-        // ì—…ë°ì´íŠ¸ ì²´í¬
+        // ¾÷µ¥ÀÌÆ® Ã¼Å©
         PlayAsyncOperation<AppUpdateInfo, AppUpdateErrorCode> appUpdateInfoTask = appUpdateManager.GetAppUpdateInfo();
-        // ì—…ë°ì´íŠ¸ ì²´í¬ ì™„ë£Œê¹Œì§€ ê¸°ë‹¤ë¦¼
+        // ¾÷µ¥ÀÌÆ® Ã¼Å© ¿Ï·á±îÁö ±â´Ù¸²
         yield return appUpdateInfoTask;
-        // ì—…ë°ì´íŠ¸ ì •ë³´ë¥¼ ì„±ê³µì ìœ¼ë¡œ ë°›ì•„ì˜´
+        // ¾÷µ¥ÀÌÆ® Á¤º¸¸¦ ¼º°øÀûÀ¸·Î ¹Ş¾Æ¿È
         if (appUpdateInfoTask.IsSuccessful)
         {
             AppUpdateInfo appUpdateResult = appUpdateInfoTask.GetResult();
-            //ë²„ì „ì½”ë“œ ê°€ì ¸ì˜¤ê¸°
+            //¹öÀüÄÚµå °¡Á®¿À±â
             var code = appUpdateResult.AvailableVersionCode;
             versionText.text = $"version : {code}";
-            // ì—…ë°ì´íŠ¸ê°€ í•„ìš”í•œ ê²½ìš°
+            // ¾÷µ¥ÀÌÆ®°¡ ÇÊ¿äÇÑ °æ¿ì
             if (appUpdateResult.UpdateAvailability == UpdateAvailability.UpdateAvailable)
             {
-                // ì—…ë°ì´íŠ¸ë¥¼ ì‹œì‘
+                // ¾÷µ¥ÀÌÆ®¸¦ ½ÃÀÛ
                 var appUpdateOption = AppUpdateOptions.ImmediateAppUpdateOptions();
                 var startUpdateReq = appUpdateManager.StartUpdate(appUpdateResult, appUpdateOption);
-                // ì—…ë°ì´íŠ¸ ì™„ë£Œê¹Œì§€ ê¸°ë‹¤ë¦¼
+                // ¾÷µ¥ÀÌÆ® ¿Ï·á±îÁö ±â´Ù¸²
                 yield return startUpdateReq;
-                // ì—…ë°ì´íŠ¸ê°€ ì„±ê³µì ìœ¼ë¡œ ì™„ë£Œë¨
+                // ¾÷µ¥ÀÌÆ®°¡ ¼º°øÀûÀ¸·Î ¿Ï·áµÊ
                 if (startUpdateReq.IsDone)
                 {
-                    // ì—…ë°ì´íŠ¸ ì™„ë£Œ
-                    Debug.Log("APP ì—…ë°ì´íŠ¸ ì™„ë£Œ");
+                    // ¾÷µ¥ÀÌÆ® ¿Ï·á
+                    Debug.Log("APP ¾÷µ¥ÀÌÆ® ¿Ï·á");
 
                 }
-                // ì—…ë°ì´íŠ¸ê°€ ì‹¤íŒ¨í•œ ê²½ìš°
+                // ¾÷µ¥ÀÌÆ®°¡ ½ÇÆĞÇÑ °æ¿ì
                 else
                 {
-                    // ì—…ë°ì´íŠ¸ ì‹¤íŒ¨
-                    Debug.Log("APP ì—…ë°ì´íŠ¸ ì‹¤íŒ¨");
+                    // ¾÷µ¥ÀÌÆ® ½ÇÆĞ
+                    Debug.Log("APP ¾÷µ¥ÀÌÆ® ½ÇÆĞ");
                 }
             }
-            // ì—…ë°ì´íŠ¸ê°€ í•„ìš”í•˜ì§€ ì•Šì€ ê²½ìš°
+            // ¾÷µ¥ÀÌÆ®°¡ ÇÊ¿äÇÏÁö ¾ÊÀº °æ¿ì
             else
             {
-                // ì—…ë°ì´íŠ¸ í•„ìš” ì—†ìŒ
-                Debug.Log("APP ì—…ë°ì´íŠ¸ í•„ìš”í•˜ì§€ ì•ŠìŒ");
+                // ¾÷µ¥ÀÌÆ® ÇÊ¿ä ¾øÀ½
+                Debug.Log("APP ¾÷µ¥ÀÌÆ® ÇÊ¿äÇÏÁö ¾ÊÀ½");
             }
         }
         else
         {
-            Debug.Log("APP ì—…ë°ì´íŠ¸ ì •ë³´ ë°›ê¸° ì‹¤íŒ¨");
+            Debug.Log("APP ¾÷µ¥ÀÌÆ® Á¤º¸ ¹Ş±â ½ÇÆĞ");
         }
 
     }

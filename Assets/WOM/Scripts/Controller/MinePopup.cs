@@ -57,8 +57,13 @@ public class MinePopup : CastlePopupBase
         levelText.text = text;
     }
     //업그레이드 석탄 비용
-    public void SetTextPrice(string text)
+    public void SetTextPrice(float text)
     {
+        if(text < 0) 
+        {
+            priceText.text =  "MAX";
+            return;
+        }
         priceText.text =  UtilityMethod.ChangeSymbolNumber(text);
     }
     //채굴 상태 FillAmount
@@ -67,7 +72,7 @@ public class MinePopup : CastlePopupBase
         digUpFillImage.fillAmount = (float)currnt/max;
     }
     //실시간으로 생산된 총 량
-    public void SetTextTotalMiningValue(string text)
+    public void SetTextTotalMiningValue(float text)
     {
         totlaMiningValue.text = UtilityMethod.ChangeSymbolNumber(text);
     }
@@ -107,7 +112,7 @@ public class MinePopup : CastlePopupBase
     public void SetMaxUI()
     {
         btnUpgrade.interactable = false;
-        SetTextPrice("MAX");
+        SetTextPrice(-1);
     }
     //CastleBuildingData 객체를 인자로 받아서 각각의 맴버변수의 text 값을 설정하는 함수
     /*
@@ -171,12 +176,11 @@ public class MinePopup : CastlePopupBase
         // string _maxSupplyText = $"{data.maxSupplyAmount}";
         // string _productionTimeText = $"{data.productionTime}";
 
-        string _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount.ToString());
-        string _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount.ToString());
-        string _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime.ToString());
+        string _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount);
+        string _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount);
+        string _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime);
 
         string _levelText = $"Lv {data.level}";
-        string _priceText = data.price.ToString();
 
 
 
@@ -191,23 +195,23 @@ public class MinePopup : CastlePopupBase
             // _maxSupplyText = string.Format("{0}", data.maxSupplyAmount);
             // _productionTimeText = string.Format("{0}", data.productionTime);
 
-            _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount.ToString());
-            _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount.ToString());
-            _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime.ToString());
+            _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount);
+            _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount);
+            _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime);
 
 
 
             if (!CheckEqualZeroByCalculation(nextProduct))
             {
-                _productionCountText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextProduct.ToString()));
+                _productionCountText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextProduct));
             }
             if (!CheckEqualZeroByCalculation(nextSupply))
             {
-                _maxSupplyText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextSupply.ToString()));
+                _maxSupplyText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextSupply));
             }
             if (!CheckEqualZeroByCalculation(nextTime))
             {
-                _productionTimeText += string.Format("<color=#00FF00> - {0}</color>", UtilityMethod.ChangeSymbolNumber(nextTime.ToString()));
+                _productionTimeText += string.Format("<color=#00FF00> - {0}</color>", UtilityMethod.ChangeSymbolNumber(nextTime));
             }
 
 
@@ -220,11 +224,11 @@ public class MinePopup : CastlePopupBase
         SetTextMaxSupply(_maxSupplyText);
         SetTextProductionTime(_productionTimeText);
         SetTextLevel(_levelText);
-        SetTextPrice(_priceText);
+        SetTextPrice(data.price);
 
     }
 
-    bool CheckEqualZeroByCalculation(long calc)
+    bool CheckEqualZeroByCalculation(float calc)
     {
         if (calc > 0) return false;
         return true;
@@ -245,12 +249,11 @@ public class MinePopup : CastlePopupBase
         // string _productionCountText = $"{data.productionCount}";
         // string _maxSupplyText = $"{data.maxSupplyAmount}";
         // string _productionTimeText = $"{data.productionTime}";
-        string _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount.ToString());
+        string _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount);
         //UnityEngine.Debug.Log(data.maxSupplyAmount);
-        string _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount.ToString());
-        string _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime.ToString());
+        string _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount);
+        string _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime);
         string _levelText = $"Lv {data.level}";
-        string _priceText = data.price.ToString();
 
 
         var nextLevelData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(data.level + 1);
@@ -267,23 +270,23 @@ public class MinePopup : CastlePopupBase
             // _maxSupplyText = string.Format("{0}", data.maxSupplyAmount);
             // _productionTimeText = string.Format("{0}", data.productionTime);
 
-            _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount.ToString());
-            _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount.ToString());
-            _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime.ToString());
+            _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount);
+            _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount);
+            _productionTimeText = UtilityMethod.ChangeSymbolNumber(data.productionTime);
 
 
 
             if (!CheckEqualZeroByCalculation(nextProduct))
             {
-                _productionCountText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextProduct.ToString()));
+                _productionCountText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextProduct));
             }
             if (!CheckEqualZeroByCalculation(nextSupply))
             {
-                _maxSupplyText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextSupply.ToString()));
+                _maxSupplyText += string.Format("<color=#00FF00> + {0}</color>", UtilityMethod.ChangeSymbolNumber(nextSupply));
             }
             if (!CheckEqualZeroByCalculation(nextTime))
             {
-                _productionTimeText += string.Format("<color=#00FF00> - {0}</color>", UtilityMethod.ChangeSymbolNumber(nextTime.ToString()));
+                _productionTimeText += string.Format("<color=#00FF00> - {0}</color>", UtilityMethod.ChangeSymbolNumber(nextTime));
             }
 
         }
@@ -293,7 +296,7 @@ public class MinePopup : CastlePopupBase
         SetTextMaxSupply(_maxSupplyText);
         SetTextProductionTime(_productionTimeText);
         SetTextLevel(_levelText);
-        SetTextPrice(_priceText);
+        SetTextPrice(data.price);
 
         //TOD0: 저장된 데이터에서 불러 와야 함
         // data.TotlaMiningValue = 0;

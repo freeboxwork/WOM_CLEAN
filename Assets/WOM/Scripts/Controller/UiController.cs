@@ -43,7 +43,7 @@ public class UiController : MonoBehaviour
     public FloatingTextValues floatingTextBone;
     public FloatingTextValues floatingTextGem;
 
-    public Button btnMainMenuClose;
+    //public Button btnMainMenuClose;
     MenuPanelType curMenuPanelType = MenuPanelType.none;
 
     public bool isCastleOpen = false;
@@ -67,6 +67,8 @@ public class UiController : MonoBehaviour
     public GameObject castleButtonObj;
 
 
+    public GameObject menuGameObject;
+    bool isMenuHide = false;
     void Start()
     {
     }
@@ -108,12 +110,12 @@ public class UiController : MonoBehaviour
     // 투토리얼 진행시 UI 초기화
     public void AllDisableUI()
     {
-        // Disable main menu
-        if (curMenuPanelType != MenuPanelType.none)
-        {
-            EnableMenuPanel(curMenuPanelType);
-            EnableMainMenuCloseBtn(false);
-        }
+        CloseAllMenuPanel();
+        // // Disable main menu
+        // if (curMenuPanelType != MenuPanelType.none)
+        // {
+        //     EnableMenuPanel(curMenuPanelType);
+        // }
         // disable popup object
         foreach (var popup in disablePopups)
         {
@@ -166,13 +168,12 @@ public class UiController : MonoBehaviour
 
 
     /* SET MONSTER UI */
-    public void SetTxtMonsterHp(double value)
+    public void SetTxtMonsterHp(float value)
     {
         if(value < 0) value = 0;
 
-        var txtHP = UtilityMethod.ConvertDoubleToLong(value);
         //txtMonsterHp.text = txtHP.ToString();
-        txtMonsterHp.text = UtilityMethod.ChangeSymbolNumber(txtHP.ToString());
+        txtMonsterHp.text = UtilityMethod.ChangeSymbolNumber(value);
     }
 
     public void SetTxtPhaseCount(int value)
@@ -183,25 +184,25 @@ public class UiController : MonoBehaviour
 
     }
 
-    public void SetSliderMonsterHp(double value)
+    public void SetSliderMonsterHp(float value)
     {
         if(value < 0) value = 0;
 
         var currentFillAmountValue = UtilityMethod.GetCustomTypeImageById(41).fillAmount;
-        var sliderValue = (float)value / GlobalData.instance.player.currentMonsterHp;
-        UtilityMethod.GetCustomTypeImageById(41).fillAmount = (float)sliderValue;
+        var sliderValue = value / GlobalData.instance.player.currentMonsterHp;
+        UtilityMethod.GetCustomTypeImageById(41).fillAmount = sliderValue;
 
         // 0.1초 뒤에 실행
         StartCoroutine(SetSliderBgWithDelay(UtilityMethod.GetCustomTypeImageById(41).fillAmount, currentFillAmountValue));
     }
 
-    public void SetSliderDungeonMonsterHP(double value)
+    public void SetSliderDungeonMonsterHP(float value)
     {
         if(value < 0) value = 0;
         
         var currentFillAmountValue = UtilityMethod.GetCustomTypeImageById(41).fillAmount;
-        var sliderValue = (float)value / GlobalData.instance.monsterManager.GetMonsterDungeon().curMonsterHP;
-        UtilityMethod.GetCustomTypeImageById(41).fillAmount = (float)sliderValue;
+        var sliderValue = value / GlobalData.instance.monsterManager.GetMonsterDungeon().curMonsterHP;
+        UtilityMethod.GetCustomTypeImageById(41).fillAmount = sliderValue;
 
         // 0.1초 뒤에 실행
         StartCoroutine(SetSliderBgWithDelay(UtilityMethod.GetCustomTypeImageById(41).fillAmount, currentFillAmountValue));
@@ -244,20 +245,17 @@ public class UiController : MonoBehaviour
 
     public void SetTxtGold(float totalValue, float flotingValue, float bonusValue = 0)
     {
-        var totalGold = UtilityMethod.ChangeSymbolNumber(totalValue.ToString());
-        var flotingValueChange = UtilityMethod.ChangeSymbolNumber(flotingValue.ToString());
+        var totalGold = UtilityMethod.ChangeSymbolNumber(totalValue);
         string totalTxt;
 
         if(bonusValue > 0)
         {
-            totalTxt = string.Format("{0}<color=#00FF00> +{1}</color>", flotingValueChange,bonusValue);
+            totalTxt = string.Format("{0}<color=#00FF00> +{1}</color>", UtilityMethod.ChangeSymbolNumber(flotingValue), UtilityMethod.ChangeSymbolNumber(bonusValue));
         }
         else
         {
-            totalTxt = flotingValueChange;
+            totalTxt = UtilityMethod.ChangeSymbolNumber(flotingValue);
         }
-
-
 
         // floting text effect
         if (flotingValue > 0)
@@ -267,22 +265,21 @@ public class UiController : MonoBehaviour
             floatingTextGold.SetText(totalTxt, FloatingTextValues.ValueType.Gold);
         }
         //최종 골드량 표시
-        txtGold.text = totalGold.ToString();
+        txtGold.text = totalGold;
     }
 
     public void SetTxtBone(float value, float flotingValue, float bonusValue = 0)
     {
-        var changeValue = UtilityMethod.ChangeSymbolNumber(value.ToString());
-        var flotingValueChange = UtilityMethod.ChangeSymbolNumber(flotingValue.ToString());
+        var changeValue = UtilityMethod.ChangeSymbolNumber(value);
         string totalTxt;
 
         if(bonusValue > 0)
         {
-            totalTxt = string.Format("{0}<color=#00FF00> +{1}</color>", flotingValueChange,bonusValue);
+            totalTxt = string.Format("{0}<color=#00FF00> +{1}</color>", UtilityMethod.ChangeSymbolNumber(flotingValue), UtilityMethod.ChangeSymbolNumber(bonusValue));
         }
         else
         {
-            totalTxt = flotingValueChange;
+            totalTxt = UtilityMethod.ChangeSymbolNumber(flotingValue);
         }
 
         // floting text effect
@@ -291,7 +288,7 @@ public class UiController : MonoBehaviour
             floatingTextBone.gameObject.SetActive(true);
             floatingTextBone.SetText(totalTxt, FloatingTextValues.ValueType.Bone);
         }
-        UtilityMethod.SetTxtCustomTypeByID(60, changeValue.ToString());
+        UtilityMethod.SetTxtCustomTypeByID(60, changeValue);
     }
 
     public void SetTxtGem(float value, float flotingValue)
@@ -304,16 +301,16 @@ public class UiController : MonoBehaviour
         if (flotingValue > 0)
         {
             floatingTextGem.gameObject.SetActive(true);
-            floatingTextGem.SetText(flotingValue.ToString(), FloatingTextValues.ValueType.jewel);
+            floatingTextGem.SetText(Mathf.Round(flotingValue).ToString(), FloatingTextValues.ValueType.jewel);
         }
 
 
-        UtilityMethod.SetTxtCustomTypeByID(79, value.ToString());
+        UtilityMethod.SetTxtCustomTypeByID(79, Mathf.Round(value).ToString());
     }
 
     public void SetTxtDice(float value)
     {
-        var changeValue = UtilityMethod.ChangeSymbolNumber(value.ToString());
+        var changeValue = UtilityMethod.ChangeSymbolNumber(value);
         UtilityMethod.SetTxtCustomTypeByID(65, changeValue);
     }
 
@@ -350,25 +347,19 @@ public class UiController : MonoBehaviour
     {
         txtDungeonClearTicketCount.text = value.ToString();
     }
-
-
     public void SetTxtBossChallengeTimer(int value)
     {
         txtBossMonChallengeTimer.text = value.ToString();
     }
-
     public void SetImgTimerFilledRaidal(float value)
     {
         var sliderValue = 1 - value;
         imgBossMonTimer.fillAmount = sliderValue;
     }
-
     public void EnableGlodMonsterIconOutlineEffect(bool value)
     {
         UtilityMethod.GetCustomTypeImageById(43).enabled = value;
     }
-
-
     void SetUiData()
     {
         txtMonsterHp = customTypeDataManager.GetCustomTypeData_Text(1);
@@ -380,8 +371,6 @@ public class UiController : MonoBehaviour
         imgBossMonTimerParent = customTypeDataManager.GetCustomTypeData_Image(1);
         //trLotteryGameSet         = customTypeDataManager.GetCustomTypeData_Transform(0);
     }
-
-
     void SetBtnEvent()
     {
         // 보스 몬스터 도전 버튼
@@ -421,11 +410,11 @@ public class UiController : MonoBehaviour
         //}
 
         // 메인메뉴 판넬 닫기 버튼
-        btnMainMenuClose.onClick.AddListener(() =>
-        {
-            EnableMenuPanel(curMenuPanelType);
-            EnableMainMenuCloseBtn(false);
-        });
+        // btnMainMenuClose.onClick.AddListener(() =>
+        // {
+        //     EnableMenuPanel(curMenuPanelType);
+        //     EnableMainMenuCloseBtn(false);
+        // });
 
 
         for (int i = 0; i < mainButtons.Count; i++)
@@ -472,14 +461,25 @@ public class UiController : MonoBehaviour
 
     }
 
-    public void CloseMainMenuPanel()
+    public bool CheckOpenMenuPanel()
     {
-        EnableMenuPanel(curMenuPanelType);
-        EnableMainMenuCloseBtn(false);
+        foreach (var panel in mainPanels)
+        {
+            if (panel.activeSelf)
+                return true;
+        }
+        return false;
     }
 
-    //bool isActiveBossChallengeBtn = false;
-
+    public void CloseAllMenuPanel()
+    {
+        for (int i = 0; i < mainPanels.Count; i++)
+        {
+            mainPanels[i].SetActive(false);
+            mainButtons[i].Select(false);
+        }
+        //EnableMainMenuCloseBtn(false);
+    }
     IEnumerator EnableCastlePanel()
     {
         // isActiveBossChallengeBtn = GlobalData.instance.uiController.btnBossChallenge.gameObject.activeSelf;
@@ -582,8 +582,6 @@ public class UiController : MonoBehaviour
         GlobalData.instance.dungeonEnterPopup.EnablePopup(monsterType);
     }
 
-
-
     public void EnableMenuPanel(MenuPanelType type)
     {
         for (int i = 0; i < mainPanels.Count; i++)
@@ -594,7 +592,6 @@ public class UiController : MonoBehaviour
                 //Debug.Log(type);
                 var enableValue = !mainPanels[i].activeSelf;
 
-                EnableMainMenuCloseBtn(enableValue);
                 //btnMainMenuClose.interactable = enableValue;
 
                 mainPanels[i].SetActive(enableValue);
@@ -619,7 +616,6 @@ public class UiController : MonoBehaviour
             }
         }
     }
-
     void ResetMainPannelScrollViewPosY(MenuPanelType type)
     {
         switch (type)
@@ -682,21 +678,23 @@ public class UiController : MonoBehaviour
         UtilityMethod.GetCustomTypeGMById(7).SetActive(value);
     }
 
-    public RectTransform menuRectTrans;
-    bool isMenuHide = false;
 
     public void MainMenuHide()
     {
-        menuRectTrans.DOKill();
-        menuRectTrans.DOAnchorPos(new Vector2(0f, -150f), 0.5f).SetEase(Ease.InOutExpo);
+        AllDisableUI();
+        MainMenuAllUnSelect();
+        menuGameObject.SetActive(false);
+        //menuRectTrans.DOKill();
+        //menuRectTrans.DOAnchorPos(new Vector2(0f, -150f), 0.5f).SetEase(Ease.InOutExpo);
     }
 
     public void MainMenuShow()
     {
         MainMenuAllUnSelect();
-        menuRectTrans.DOKill();
+        menuGameObject.SetActive(true);
 
-        menuRectTrans.DOAnchorPos(new Vector2(0f, 0f), 0.5f).SetEase(Ease.InOutExpo);
+        //menuRectTrans.DOKill();
+        //menuRectTrans.DOAnchorPos(new Vector2(0f, 0f), 0.5f).SetEase(Ease.InOutExpo);
     }
 
     public void MainMenuAllUnSelect()
@@ -732,15 +730,8 @@ public class UiController : MonoBehaviour
         else
         {
             MainMenuHide();
-            EnableMainMenuCloseBtn(false);
         }
     }
-    void EnableMainMenuCloseBtn(bool isActive)
-    {
-        UtilityMethod.GetCustomTypeImageById(47).raycastTarget = isActive;
-        UtilityMethod.GetCustomTypeImageById(47).enabled = isActive;
-    }
-
 
     public void ShowUI(bool isActive)
     {
@@ -750,8 +741,7 @@ public class UiController : MonoBehaviour
         }
         else
         {
-            MainMenuHide();;
-            EnableMainMenuCloseBtn(false);
+            MainMenuHide();
         }
         //이벤트,광고
         UtilityMethod.GetCustomTypeGMById(15).SetActive(isActive);

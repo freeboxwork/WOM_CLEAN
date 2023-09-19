@@ -10,7 +10,7 @@ public class AttackController : MonoBehaviour
     public bool isAttackableState = false;
     float lastSpawnTime;
 
-    RaycastHit2D hit;
+    //RaycastHit2D hit;
 
     public Transform testInsectEnablePos;
     bool insectAutoEnable = false;
@@ -32,72 +32,72 @@ public class AttackController : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-
-                if (Time.time - lastSpawnTime >= StaticDefine.TOUCH_INTERVAL)
+                if (EventSystem.current != null && EventSystem.current.enabled)
                 {
-                    lastSpawnTime = Time.time;
-
-                    var pos = Input.mousePosition;
-                    // 포인터 위치가 UI 위에 있는지 판단
-                    if (EventSystem.current != null && EventSystem.current.enabled)
+                    if (EventSystem.current.IsPointerOverGameObject() == false) // 포인터 UI 위에 있지 않을때만 실행
                     {
-                        //   var isPointerOnUI = EventSystem.current.IsPointerOverGameObject();
-                        // if (isPointerOnUI == false)
-                        if (!IsPointerOverUIObject())
+                        // 메뉴 패널이 열려있으면 닫는다.
+                        if(GlobalData.instance.uiController.CheckOpenMenuPanel() == true) 
                         {
-                            // 투토리얼 곤충 생성 이벤트
+                            GlobalData.instance.uiController.CloseAllMenuPanel();
+                            return;
+                        } 
+                       
+                        // gold pig 
+                        //hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+                        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.forward);
+
+                        if (hit)
+                        {
+                            if (hit.collider.tag == "goldPig")
+                            {
+                                // gold pig event
+                                //Debug.Log("get gold pig !!!!");
+                                EventManager.instance.RunEvent(CallBackEventType.TYPES.OnGoldPigEvent);
+                                // 일일 퀘스트 완료 : 골드피그
+                                EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.takeGoldPig);
+                                return;
+                            }
+                        }
+
+                        if (Time.time - lastSpawnTime >= StaticDefine.TOUCH_INTERVAL)
+                        {
+                            lastSpawnTime = Time.time;
+
+                            var pos = Input.mousePosition;
+
+                            // ?????? ???? ???? ????
                             EventManager.instance.RunEvent(CallBackEventType.TYPES.OnTutoInsectCreate);
-                            // 곤충 생성
+                            // ???? ????
                             EnableInsectBullet(pos);
                             GlobalData.instance.soundManager.PlayAttackSound();
-
-                        }
-
-                    }
-                }
-
-                if (!IsPointerOverUIObject()) // 포인터 UI 위에 있지 않을때만 실행
-                {
-                    // gold pig 
-                    hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
-                    if (hit.collider != null)
-                    {
-                        if (hit.collider.CompareTag("goldPig"))
-                        {
-                            // gold pig event
-                            Debug.Log("get gold pig !!!!");
-                            EventManager.instance.RunEvent(CallBackEventType.TYPES.OnGoldPigEvent);
-                            // 일일 퀘스트 완료 : 골드피그
-                            EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.takeGoldPig);
                         }
                     }
-                }
 
+
+                }
             }
 
-
-
         }
     }
+    // ?????? ????? UI ???? ????? ???
+    // private bool IsPointerOverUIObject()
+    // {
+    //     if (EventSystem.current == null || Input.mousePosition == null)
+    //     {
+    //         return true;
+    //     }
 
-    // 포인터 위치가 UI 위에 있는지 판단
-    private bool IsPointerOverUIObject()
-    {
-        if (EventSystem.current == null || Input.mousePosition == null)
-        {
-            return true;
-        }
-
-        PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
-        eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        List<RaycastResult> results = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
-        return results.Count > 0;
-    }
+    //     PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+    //     eventDataCurrentPosition.position = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+    //     List<RaycastResult> results = new List<RaycastResult>();
+    //     EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+    //     return results.Count > 0;
+    // }
 
 
     /// <summary>
-    ///  테스터를 위한 곤충 생성
+    ///  ?????? ???? ???? ????
     /// </summary>
     public void TestInsectAotoEnable(float insectAutoEnableTime)
     {
@@ -143,7 +143,7 @@ public class AttackController : MonoBehaviour
         return pos > 20f;
     }
 
-    /// <summary> 공격 가능 상태 제어 </summary>
+    /// <summary> ???? ???? ???? ???? </summary>
     public void SetAttackableState(bool value)
     {
         isAttackableState = value;
@@ -161,7 +161,7 @@ public class AttackController : MonoBehaviour
     }
 
 
-    /* 확률에 따른 곤충 생성 */
+    /* ????? ???? ???? ???? */
     // mentis : 35% , bee : 35% , beelte : 30 %
     EnumDefinition.InsectType GetProbabilityInsectType()
     {
@@ -174,8 +174,7 @@ public class AttackController : MonoBehaviour
         return EnumDefinition.InsectType.none;
     }
 
-
-
 }
+
 
 

@@ -14,7 +14,7 @@ public class PopupRewardIcon : MonoBehaviour
         icon.sprite = reward.icon;
         if(!reward.type.Equals(EnumDefinition.RewardType.gem) && !reward.type.Equals(EnumDefinition.RewardType.union))
         {
-             amount.text = UtilityMethod.ChangeSymbolNumber(reward.amount.ToString());
+             amount.text = UtilityMethod.ChangeSymbolNumber(reward.amount);
              return;
         }
 

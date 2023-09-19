@@ -33,9 +33,11 @@ public class SoundManager : MonoBehaviour
 
     public GameObject spawnPrefab; // 사운드를 재생할 프리팹
     public GameObject upgradePrefab; // 사운드를 재생할 프리팹
+    public GameObject hitPrefab; // 히트 사운드를 재생할 프리팹
 
     private List<GameObject> spawnPool = new List<GameObject>();
     private List<GameObject> upgradePool = new List<GameObject>();
+    private List<GameObject> hitPool = new List<GameObject>();
     
 
     public IEnumerator Init()
@@ -86,7 +88,17 @@ public class SoundManager : MonoBehaviour
             //풀링에 사용할 리스트에 삽입
             upgradePool.Add(ob);
         }
+        for (int i = 0; i < poolSize; i++)
+        {
 
+            GameObject ob = Instantiate(hitPrefab);
+            //실제 사용할 오디오 객체의 위치 부모로 세팅
+            ob.transform.SetParent(poolParent);
+            //비활성화 초기화
+            ob.SetActive(false);
+            //풀링에 사용할 리스트에 삽입
+            hitPool.Add(ob);
+        }
     }
 
 
@@ -115,6 +127,18 @@ public class SoundManager : MonoBehaviour
 
     }
 
+    GameObject GetHitAudioTypePool()
+    {
+        foreach (GameObject sound in hitPool)
+        {
+            if (!sound.activeInHierarchy)
+            {
+                return sound;
+            }
+        }
+        return null;
+
+    }
     public void PlayUpgradeSound()
     {
         GameObject sound = GetUpgradeAudioTypePool();
@@ -141,7 +165,18 @@ public class SoundManager : MonoBehaviour
             source.volume = sfxVolume * 0.3f;
             source.Play();
         }
-
+    }
+    //몬스터 히트 사운드
+    public void PlayMonsterHitSound()
+    {
+        GameObject sound = GetHitAudioTypePool();
+        if (sound != null)
+        {
+            sound.SetActive(true);
+            var source = sound.GetComponent<AudioSource>();
+            source.volume = sfxVolume;
+            source.Play();
+        }
     }
 
     public void BGM_OnOff()

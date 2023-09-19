@@ -194,86 +194,15 @@ public static class UtilityMethod
         string _fillZeroFormat = string.Format(FillZeroFormat, _fillZero);
         return _value.ToString(_fillZeroFormat);
     }
-    static readonly string[] symbol = new string[] { "", "K", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", };
-    // 1000 1k
-    // 10000 10k 
-    // 100000 100k
-    // 1000000 1a
-    // 1000000000 1b
     
-    
-    public static string ChangeSymbolNumber(string number)
+    public static string ChangeSymbolNumber(float number)
     {
-
-        //Infinite value = number.ToString().ToInfinite();
-        Infinite value = number.ToInfinite();
+        var n =  Mathf.Round(number);
+        var s = n.ToString("#,##0");
+        Infinite value = s.ToInfinite();
         //return value.ToStringLong ();//10억이후 Symbol
         return value.ToString();
-
-        // #region  NOT USED
-        // string zero = "0";
-
-        // if (-1d < number && number < 1d)
-        // {
-        //     return zero;
-        // }
-        // if (double.IsInfinity(number))
-        // {
-        //     return "Max";
-        // }
-
-        // //  ??? ??? ?????
-        // string significant = (number < 0) ? "-" : string.Empty;
-
-        // //  ?????? ????
-        // string showNumber = string.Empty;
-
-        // //  ???? ?????
-        // string unityString = string.Empty;
-
-        // //  ?????? ???? ????? ???? ?????? ???? ????????? ?????? ?? ???
-        // string[] partsSplit = number.ToString("E").Split('+');
-
-        // //  ????
-        // if (partsSplit.Length < 2)
-        // {
-        //     return zero;
-        // }
-
-        // //  ???? (????? ???)
-        // if (!int.TryParse(partsSplit[1], out int exponent))
-        // {
-        //     Debug.LogWarningFormat("Failed - ToCurrentString({0}) : partSplit[1] = {1}", number, partsSplit[1]);
-        //     return zero;
-        // }
-
-        // //  ???? ????? ??????
-        // int quotient = exponent / 3;
-
-        // //  ???????? ?????? ????? ??¡?Z ???(10?? ????????? ???)
-        // int remainder = exponent % 3;
-
-        // //  1A ????? ??? ???
-        // if (exponent < 3)
-        // {
-        //     showNumber = System.Math.Truncate((double)number).ToString();
-        // }
-        // else
-        // {
-        //     //  10?? ????????? ????? ????? ??????? ????? ???.
-        //     var temp = double.Parse(partsSplit[0].Replace("E", "")) * System.Math.Pow(10, remainder);
-
-        //     //  ??? ???®¨¡????????? ??????.
-        //     //showNumber = temp.ToString("F").Replace(".0", "");
-        //     showNumber = temp.ToString("F");
-        // }
-
-        // unityString = symbol[quotient];
-
-        // return string.Format("{0}{1}{2}", significant, showNumber, unityString);
-        // #endregion
     }
-
 
 
     public static EnumDefinition.RewardType GetRewardTypeByTypeName(string typeName)
@@ -285,16 +214,16 @@ public static class UtilityMethod
     }
 
 
-    public static string FormatDoubleToOneDecimal(double value)
+    public static string FormatDoubleToOneDecimal(float value)
     {
         //return string.Format("{0:F1}", value);
         return string.Format("{0:0.##}", value);
     }
 
-    public static long ConvertDoubleToLong(double number)
-    {
-        return (long)System.Math.Round(number);
-    }
+    // public static long ConvertDoubleToLong(double number)
+    // {
+    //     return (long)System.Math.Round(number);
+    // }
 
     /// <summary>
     /// 값을 한 범위에서 다른 범위로 재매핑합니다.

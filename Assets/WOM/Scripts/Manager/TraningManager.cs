@@ -157,16 +157,16 @@ public class TraningManager : MonoBehaviour
             return 0;
         }
     }
-    string GetCostStrValue(SaleStatType statType, TraningInGameData inGameData)
+    float GetCostStrValue(SaleStatType statType, TraningInGameData inGameData)
     {
         var data = GlobalData.instance.dataManager.GetSaleStatDataByType(statType).data;
         if (data.Last().level > inGameData.level)
         {
-            return "" + GlobalData.instance.dataManager.GetSaleStatDataByTypeId(statType, inGameData.level + 1).salePrice;
+            return GlobalData.instance.dataManager.GetSaleStatDataByTypeId(statType, inGameData.level + 1).salePrice;
         }
         else
         {
-            return "Max";
+            return -1;
         }
     }
 
@@ -191,7 +191,7 @@ public class TraningManager : MonoBehaviour
         if (statType == SaleStatType.talentGoldBonus || statType == SaleStatType.trainingDamage)
         {
             // 정수
-            txtPower = UtilityMethod.ConvertDoubleToLong(inGameData.value).ToString();
+            txtPower = Mathf.Round(inGameData.value).ToString();
         }
         else
         {

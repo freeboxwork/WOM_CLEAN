@@ -108,7 +108,7 @@ public class DungeonEnterPopup : MonoBehaviour
 
             // 캐슬 -> 연구소에 따른 던전 추가보상량
             var addValue = GetAddValue(curMonsterType);
-            long totalCurrencyAmount = (long)(curDungeonMonData.currencyAmount + (curDungeonMonData.currencyAmount * addValue * 0.01f));
+            float totalCurrencyAmount = curDungeonMonData.currencyAmount + (curDungeonMonData.currencyAmount * addValue * 0.01f);
             Debug.Log("추가 보상량:"+addValue);
             PopupController.instance.InitPopup(type, totalCurrencyAmount);
             // addRewardMap[curMonsterType].Invoke(curDungeonMonData.currencyAmount);
@@ -162,14 +162,14 @@ public class DungeonEnterPopup : MonoBehaviour
     {
          // 캐슬 -> 연구소에 따른 던전 추가보상량
         var addValue = GetAddValue(monsterType);
-        long totalCurrencyAmount = (long)(data.currencyAmount + (data.currencyAmount * addValue * 0.01f));
+        float totalCurrencyAmount = data.currencyAmount + (data.currencyAmount * addValue * 0.01f);
 
         textPervClearLevel.text = $"{level} 단계";
-        textRewardValue.text =  UtilityMethod.ChangeSymbolNumber(totalCurrencyAmount.ToString());
+        textRewardValue.text =  UtilityMethod.ChangeSymbolNumber(totalCurrencyAmount);
     }
 
     // 추가 보상 값
-    long GetAddValue(EnumDefinition.MonsterType monsterType)
+    float GetAddValue(EnumDefinition.MonsterType monsterType)
     {
 
         switch (monsterType)

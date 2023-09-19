@@ -48,15 +48,15 @@ public class TraningSlot : MonoBehaviour
         txtInfo.text = value;
     }
 
-    public void SetTxtCost(string value)
+    public void SetTxtCost(float value)
     {
-        if (value != "Max")
+        if (value > 0)
         {
             var txtSymbolValue = UtilityMethod.ChangeSymbolNumber(value);
             txtCost.text = txtSymbolValue;
         }
         else
-            txtCost.text = value;
+            txtCost.text = "MAX";
     }
 
     public void BuyEvent()

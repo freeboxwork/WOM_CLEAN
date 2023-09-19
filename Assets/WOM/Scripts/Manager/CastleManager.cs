@@ -262,7 +262,7 @@ public class CastleManager : MonoBehaviour
     void Mining(MinePopup minePopup, float digUpTime, float maxDigUpTime, CastleBuildingData buildData)
     {
         minePopup.SetTextDigUpTimeValue(maxDigUpTime, digUpTime);
-        minePopup.SetTextTotalMiningValue(buildData.TotlaMiningValue.ToString());
+        minePopup.SetTextTotalMiningValue(buildData.TotlaMiningValue);
     }
     // 건설하기 버튼 UI Enable/Disable
     void SetUnLockButton(int n1, int n2, bool active)
@@ -282,7 +282,7 @@ public class CastleManager : MonoBehaviour
     public void WithdrawGold()
     {
         // BuildDataMine이 가지고 있는 총 채굴량을 withdrawnGold 변수에 저장합니다.
-        long withdrawnGold = buildDataMine.TotlaMiningValue;
+        float withdrawnGold = buildDataMine.TotlaMiningValue;
 
         var minePopup = (MinePopup)GetCastlePopupByType(CastlePopupType.mine);
 
@@ -307,7 +307,7 @@ public class CastleManager : MonoBehaviour
     /// <summary> 뼈조각 인출 </summary>
     public void WithdrawBone()
     {
-        long withdrawnBone = buildDataFactory.TotlaMiningValue;
+        float withdrawnBone = buildDataFactory.TotlaMiningValue;
         var minePopup = (MinePopup)GetCastlePopupByType(CastlePopupType.factory);
 
         if (withdrawnBone > 0)
@@ -513,19 +513,19 @@ public class CastleBuildingData
     // 레벨
     public int level;
     // 골드 생산량
-    public long productionCount;
+    public float productionCount;
     // 골드 최대 저장량 
-    public long maxSupplyAmount;
+    public float maxSupplyAmount;
     // 생산 시간
     public int productionTime;
     // 석탄 필요량
-    public long price;
+    public float price;
     public string currencyType;
     // 생산되는 재화 타입    
     public EnumDefinition.GoodsType goodsType;
     // 총 생산량
-    long totlaMiningValue;
-    public long TotlaMiningValue
+    float totlaMiningValue;
+    public float TotlaMiningValue
     {
 
         get => totlaMiningValue;
@@ -534,7 +534,7 @@ public class CastleBuildingData
             totlaMiningValue = value;
             var type = goodsType == EnumDefinition.GoodsType.gold ? CastlePopupType.mine : CastlePopupType.factory;
             var popup = (MinePopup)GlobalData.instance.castleManager.GetCastlePopupByType(type);
-            popup.SetTextTotalMiningValue(totlaMiningValue.ToString());
+            popup.SetTextTotalMiningValue(totlaMiningValue);
 
         }
 

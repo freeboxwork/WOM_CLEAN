@@ -587,11 +587,11 @@ public class SaveDataManager : MonoBehaviour
     {
         saveDataTotal.saveDataCastle.factoryLevel = level;
     }
-    public void SaveDataCastleSaveGold(long gold)
+    public void SaveDataCastleSaveGold(float gold)
     {
         saveDataTotal.saveDataCastle.savedGold = gold;
     }
-    public void SaveDataCastleSaveBone(long bone)
+    public void SaveDataCastleSaveBone(float bone)
     {
         saveDataTotal.saveDataCastle.savedBone = bone;
     }
@@ -932,8 +932,8 @@ public class SaveDataCastle
 {
     public int mineLevel;
     public int factoryLevel;
-    public long savedGold;
-    public long savedBone;
+    public float savedGold;
+    public float savedBone;
 }
 
 

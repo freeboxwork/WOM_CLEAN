@@ -32,7 +32,7 @@ public class Player : MonoBehaviour
     //SerializableDictionary<RewardType, int> rewardToGoodsMap;
 
     public DateTime playTime;
-    public double currentMonsterHp;
+    public float currentMonsterHp;
 
     // 주사위 개수
     public float diceCount;
@@ -60,17 +60,6 @@ public class Player : MonoBehaviour
     // 던전 몬스터 최종 클리어 레벨
     public DungeonMonsterClearLevel dungeonMonsterClearLevel;
 
-
-    void Start()
-    {
-
-    }
-
-    private void Awake()
-    {
-
-    }
-
     public IEnumerator Init(SaveData saveData)
     {
 
@@ -78,21 +67,6 @@ public class Player : MonoBehaviour
         //SetRewardToGoodsMap();
         yield return null;
     }
-
-    // void SetRewardToGoodsMap()
-    // {
-    //     rewardToGoodsMap = new SerializableDictionary<RewardType, int>{
-
-    //         {RewardType.gold, GetGold() },
-    //         {RewardType.bone, GetBone() },
-    //         {RewardType.gem,  GetGem() },
-    //         {RewardType.dice, GetDice() },
-    //         {RewardType.coal, GetCoal() },
-    //         {RewardType.clearTicket, GetClearTicket() },
-    //         {RewardType.unionTicket, GetUnionTicket() },
-    //         {RewardType.dnaTicket, GetDnaTicket() }
-    //     };
-    // }
 
     // 인자로 RewardType 을 받고 switch를 이용하여 해당 재화를 리턴하는 함수
     public float GetGoodsByRewardType(RewardType rewardType)
@@ -129,50 +103,6 @@ public class Player : MonoBehaviour
     }
 
 
-
-    // int GetGold()
-    // {
-    //     return gold;
-    // }
-    // int GetBone()
-    // {
-    //     return bone;
-    // }
-    // int GetGem()
-    // {
-    //     return gem;
-    // }
-    // int GetDice()
-    // {
-    //     return diceCount;
-    // }
-
-    // int GetCoal()
-    // {
-    //     return coal;
-    // }
-    // int GetClearTicket()
-    // {
-    //     return clearTicket;
-    // }
-    // int GetUnionTicket()
-    // {
-    //     return unionTicket;
-    // }
-    // int GetDnaTicket()
-    // {
-    //     return dnaTicket;
-    // }
-
-
-
-
-    // public int GetGoodsByRewardType(RewardType rewardType)
-    // {
-    //     return rewardToGoodsMap[rewardType];
-    // }
-
-
     public void SetCurrentMonster(MonsterBase monsterBase)
     {
         currentMonster = monsterBase;
@@ -189,7 +119,7 @@ public class Player : MonoBehaviour
         curMonsterType = monsterType;
     }
 
-    public void SetCurrentMonsterHP(double hpValue)
+    public void SetCurrentMonsterHP(float hpValue)
     {
         currentMonsterHp = hpValue;
 
@@ -274,7 +204,7 @@ public class Player : MonoBehaviour
 
         var calc = result - value;
 
-        gold += (long)(result);
+        gold += result;
 
 
         GlobalData.instance.traningManager.EnableBuyButtons(); // RELOAD BTN UI
@@ -289,9 +219,9 @@ public class Player : MonoBehaviour
 
         var calc = result - value;
 
-        bone += (long)result;
+        bone += result;
         GlobalData.instance.traningManager.EnableBuyButtons(); // RELOAD BTN UI
-        GlobalData.instance.uiController.SetTxtBone(bone, (long)value, (long)calc); // RELOAD UI
+        GlobalData.instance.uiController.SetTxtBone(bone, value, calc); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsBone(bone); // set save data
     }
     public void AddDice(float value)
@@ -371,7 +301,7 @@ public class Player : MonoBehaviour
 
     public void PayGold(float value)
     {
-        gold -= Mathf.Round(value);
+        gold -= value;
         if (gold < 0) gold = 0;
         GlobalData.instance.traningManager.EnableBuyButtons(); // RELOAD BTN UI
         GlobalData.instance.skillManager.EnableBuyButtons();// RELOAD BTN UI
@@ -381,7 +311,7 @@ public class Player : MonoBehaviour
 
     public void PayBone(float value)
     {
-        bone -= Mathf.Round(value);
+        bone -= value;
         if (bone < 0) bone = 0;
         GlobalData.instance.traningManager.EnableBuyButtons(); // RELOAD BTN UI
         GlobalData.instance.uiController.SetTxtBone(bone, 0); // RELOAD UI

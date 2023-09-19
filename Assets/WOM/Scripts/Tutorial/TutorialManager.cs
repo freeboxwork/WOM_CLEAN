@@ -43,6 +43,9 @@ public class TutorialManager : MonoBehaviour
 
     public GameObject newUserEventPopupObj;
 
+    TutorialStep currentTutorialStep;
+
+
     void Start()
     {
         SetBtnEvent();
@@ -175,26 +178,27 @@ public class TutorialManager : MonoBehaviour
 
             Debug.LogError($"{curTutorialSetID}에 해당하는 투토리얼 세트가 없습니다.");
 
-            // ?닾?넗由ъ뼹 醫낅즺
+            
             isTutorial = false;
             return;
         }
         var step = tutorialSet.steps[curTutorialStepID];
-        EnableTutorialStep(step);
+        currentTutorialStep = step;
+        EnableTutorialStep();
     }
 
     public TextMeshProUGUI tutorialProgressText;
-    void EnableTutorialStep(TutorialStep stepData)
+    void EnableTutorialStep()
     {
         var lastSetID = tutorialStepData.data.Max(m => m.setId);
         tutorialPlayingTextBox.gameObject.SetActive(true);
 
-        tutorialProgressText.text = $"튜토리얼 진행중... {stepData.setId + 1}/{lastSetID + 1}";
+        tutorialProgressText.text = $"튜토리얼 진행중... {currentTutorialStep.setId + 1}/{lastSetID + 1}";
         // set id , step id log
-        Debug.Log($"Tutorial Set ID : {stepData.setId} , Step ID : {stepData.step}");
+        Debug.Log($"Tutorial Set ID : {currentTutorialStep.setId} , Step ID : {currentTutorialStep.step}");
 
-        var partern = GetPatternByType(stepData.patternType);
-        partern.EventStart(stepData);
+        var partern = GetPatternByType(currentTutorialStep.patternType);
+        partern.EventStart(currentTutorialStep);
     }
 
     PatternBase GetPatternByType(string type)
@@ -220,7 +224,8 @@ public class TutorialManager : MonoBehaviour
             // 다음 스텝 실행
             ++curTutorialStepID;
             var stepData = tutorialSet.steps[curTutorialStepID];
-            EnableTutorialStep(stepData);
+            currentTutorialStep = stepData;
+            EnableTutorialStep();
             // var tutoBtn = GetTutorialButtonById(step.tutorialBtnId);
             // tutorialUiCont.EnableTutorial(step.description, tutoBtn.image, tutoBtn.button);
         }

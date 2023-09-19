@@ -109,10 +109,10 @@ public class OfflineRewardPopupContoller : MonoBehaviour
     public void updateUI()
     {
         
-        txtNormalGoldCount.text = UtilityMethod.ChangeSymbolNumber(Mathf.Round(rewardGold).ToString());
-        txtNormalBoneCount.text = UtilityMethod.ChangeSymbolNumber(Mathf.Round(rewardBone).ToString());
-        txtADGoldCount.text = UtilityMethod.ChangeSymbolNumber(Mathf.Round(rewardAdGold).ToString());
-        txtADBoneCount.text = UtilityMethod.ChangeSymbolNumber(Mathf.Round(rewardAdBone).ToString());
+        txtNormalGoldCount.text = UtilityMethod.ChangeSymbolNumber(rewardGold);
+        txtNormalBoneCount.text = UtilityMethod.ChangeSymbolNumber(rewardBone);
+        txtADGoldCount.text = UtilityMethod.ChangeSymbolNumber(rewardAdGold);
+        txtADBoneCount.text = UtilityMethod.ChangeSymbolNumber(rewardAdBone);
     }
 
 }

@@ -12,21 +12,24 @@ public class Admob : MonoBehaviour
 
     public static Admob instance;
 
+    bool isInitialized = false;
 
 
     void Start()
     {
+        SetInstance();
+
         MobileAds.RaiseAdEventsOnUnityMainThread = true;
         // Initialize the Google Mobile Ads SDK.
         MobileAds.Initialize((InitializationStatus initStatus) =>
         {
-            // This callback is called once the MobileAds SDK is initialized.
-//            Debug.Log("Admob 초기화 완료");
+            isInitialized = true;
+            LoadRewardedAd();
+            Debug.Log("Admob 초기화 완료");
         });
-        LoadRewardedAd();
 
-        SetInstance();
     }
+
 
     // set instance
     void SetInstance()
@@ -41,12 +44,27 @@ public class Admob : MonoBehaviour
 
     }
 
+    void Init()
+    {
+        MobileAds.Initialize((InitializationStatus initStatus) =>
+        {
+            isInitialized = true;
+        });
+    }
+
+
 
     /// <summary>
     /// Loads the rewarded ad.
     /// </summary>
     public void LoadRewardedAd()
     {
+        if(!isInitialized) 
+        {
+            Debug.Log("Admob 초기화 안됨");
+            Init();
+            return; 
+        }
         // Clean up the old ad before loading a new one.
         if (rewardedAd != null)
         {

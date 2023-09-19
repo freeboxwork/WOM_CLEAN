@@ -476,7 +476,7 @@ public class DataManager : MonoBehaviour
         }
     }
 
-    public long GetDungeonMonsterKillRewardByLevel(MonsterType monsterType, int targetLevel)
+    public float GetDungeonMonsterKillRewardByLevel(MonsterType monsterType, int targetLevel)
     {
         var dataList = GetBuGetDungeonMonsterDatasByType(monsterType);
 
@@ -624,7 +624,7 @@ public class DataManager : MonoBehaviour
         return convertTextDatas.data.FirstOrDefault(f => f.type == type.ToString());
     }
 
-    public long GetLabBuindingDataValueByGoodsType(int level, GoodsType goodsType)
+    public float GetLabBuindingDataValueByGoodsType(int level, GoodsType goodsType)
     {
         var data = GetLabBuildingDataByLevel(level);
         switch (goodsType)

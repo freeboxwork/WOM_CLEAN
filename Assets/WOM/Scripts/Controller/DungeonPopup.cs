@@ -24,10 +24,10 @@ public class DungeonPopup : MonoBehaviour
 
     }
 
-    public void SetDungeonPopup(EnumDefinition.GoodsType goodsType, long reward)
+    public void SetDungeonPopup(EnumDefinition.GoodsType goodsType, float reward)
     {
         
-        txtRewardAmount.text = UtilityMethod.ChangeSymbolNumber(reward.ToString());
+        txtRewardAmount.text = UtilityMethod.ChangeSymbolNumber(reward);
         imageCurrencyIcon.sprite = goodsToIconMap[goodsType];//???? ????? ?????? ????
     }
 

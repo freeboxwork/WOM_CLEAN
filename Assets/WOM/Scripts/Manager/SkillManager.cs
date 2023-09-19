@@ -93,7 +93,7 @@ public class SkillManager : MonoBehaviour
             // slot.SetTxt_Name(data.name);
 
             slot.SetTxt_MaxLevel(data.maxLevel.ToString());
-            slot.SetTxt_Cost(GetSkillPrice(data, inGameData).ToString());
+            slot.SetTxt_Cost(GetSkillPrice(data, inGameData));
 
 
 
@@ -284,7 +284,7 @@ public class SkillManager : MonoBehaviour
     void SetUI(ref SkilSlot skillSlot, SkillData skillData, Skill_InGameData inGameData)
     {
         var description = GetDesicriptionDP(skillSlot.skillType, skillData, inGameData);
-        skillSlot.SetTxt_Cost(GetSkillPrice(skillData, inGameData).ToString());
+        skillSlot.SetTxt_Cost(GetSkillPrice(skillData, inGameData));
         var levelName = $"Lv{inGameData.level} {inGameData.skilName}";
         skillSlot.SetTxt_Level(levelName);
         skillSlot.SetTxt_Description(description);
@@ -299,7 +299,7 @@ public class SkillManager : MonoBehaviour
     void SetUIMoveSpeed(ref SkilSlot skillSlot, SkillData skillData, Skill_InGameData inGameData)
     {
         var description = GetDesicriptionDNoneP(skillSlot.skillType, skillData, inGameData);
-        skillSlot.SetTxt_Cost(GetSkillPrice(skillData, inGameData).ToString());
+        skillSlot.SetTxt_Cost(GetSkillPrice(skillData, inGameData));
         var levelName = $"Lv{inGameData.level} {inGameData.skilName}";
         skillSlot.SetTxt_Level(levelName);
         skillSlot.SetTxt_Description(description);
@@ -309,14 +309,14 @@ public class SkillManager : MonoBehaviour
     void SetUIAllUnitCDU(ref SkilSlot skillSlot, SkillData skillData, Skill_InGameData inGameData)
     {
         var description = GetDesicriptionD(skillSlot.skillType, skillData, inGameData);
-        skillSlot.SetTxt_Cost(GetSkillPrice(skillData, inGameData).ToString());
+        skillSlot.SetTxt_Cost(GetSkillPrice(skillData, inGameData));
         var levelName = $"Lv{inGameData.level} {inGameData.skilName}";
         skillSlot.SetTxt_Level(levelName);
         skillSlot.SetTxt_Description(description);
     }
     void SetUI_MonsterKing(ref SkilSlot skillSlot, SkillData skillData, Skill_InGameData inGameData)
     {
-        skillSlot.SetTxt_Cost(GetSkillPrice(skillData, inGameData).ToString());
+        skillSlot.SetTxt_Cost(GetSkillPrice(skillData, inGameData));
         var levelName = $"Lv{inGameData.level} {inGameData.skilName}";
         skillSlot.SetTxt_Level(levelName);
 

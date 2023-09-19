@@ -38,7 +38,7 @@ public class PopUpGiveUpDungeon : MonoBehaviour
         this.goodsType = goodsType;
         this.reward = reward;
         content.SetActive(true);
-        txtRewardAmount.text = UtilityMethod.ChangeSymbolNumber(Mathf.Round(this.reward).ToString());
+        txtRewardAmount.text = UtilityMethod.ChangeSymbolNumber(this.reward);
         imageCurrencyIcon.sprite = goodsToIconMap[this.goodsType];
     }
 

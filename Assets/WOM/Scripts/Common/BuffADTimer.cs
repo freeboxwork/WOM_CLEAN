@@ -42,6 +42,7 @@ public class BuffADTimer : MonoBehaviour
             countdownTime -= 1.0f;
 
         }
+        timerUI.SetActive(false);
 
         buffADSlot.isUsingBuff = false;
         canvasGroup.alpha = 0f;
@@ -52,7 +53,6 @@ public class BuffADTimer : MonoBehaviour
         ResetAllwaysCountDownText();
         buffADSlot.addValue = buffADSlot.addValueDefualt;
         ResetCountdownTime();
-        timerUI.SetActive(false);
     }
 
     // 게임 종료후 재 접속시 남은 시간에 따라 타이머 시작

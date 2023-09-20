@@ -74,7 +74,7 @@ public class BuffADSlot : MonoBehaviour
     {
         --leftCount;
         PlayerPrefs.SetInt(buffADType.ToString(), leftCount);
-        buffTimer.StartCoroutine(buffTimer.StartTimer());
+        StartCoroutine(buffTimer.StartTimer());
         UpdateUI();
         if (leftCount <= 0)
         {

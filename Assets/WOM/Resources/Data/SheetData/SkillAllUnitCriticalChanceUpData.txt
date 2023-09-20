@@ -1,215 +1,215 @@
 {
   "data": [
-    {
-      "level": 0,
-      "salePrice": 1550500,
-      "duration": 10,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    },
-    {
-      "level": 1,
-      "salePrice": 2604250,
-      "duration": 10,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    },
-    {
-      "level": 2,
-      "salePrice": 5955500,
-      "duration": 10.5,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    },
-    {
-      "level": 3,
-      "salePrice": 30058500,
-      "duration": 11,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    },
-    {
-      "level": 4,
-      "salePrice": 90221000,
-      "duration": 11.5,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    },
-    {
-      "level": 5,
-      "salePrice": 395285250,
-      "duration": 12,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    },
-    {
-      "level": 6,
-      "salePrice": 1538572000,
-      "duration": 12.5,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    },
-    {
-      "level": 7,
-      "salePrice": 5169396250,
-      "duration": 13,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    },
-    {
-      "level": 8,
-      "salePrice": 18494257250,
-      "duration": 13.5,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    },
-    {
-      "level": 9,
-      "salePrice": 56163402000,
-      "duration": 14,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    },
-    {
-      "level": 10,
-      "salePrice": 149617220500,
-      "duration": 14.5,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    },
-    {
-      "level": 11,
-      "salePrice": 394193929500,
-      "duration": 15,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    },
-    {
-      "level": 12,
-      "salePrice": 992872066500,
-      "duration": 15.5,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    },
-    {
-      "level": 13,
-      "salePrice": 2460404022000,
-      "duration": 16,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    },
-    {
-      "level": 14,
-      "salePrice": 6246404792000,
-      "duration": 16.5,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    },
-    {
-      "level": 15,
-      "salePrice": 13960383602000,
-      "duration": 17,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    },
-    {
-      "level": 16,
-      "salePrice": 29619511978000,
-      "duration": 17.5,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    },
-    {
-      "level": 17,
-      "salePrice": 61862467986000,
-      "duration": 18,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    },
-    {
-      "level": 18,
-      "salePrice": 126475465250250,
-      "duration": 18.5,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    },
-    {
-      "level": 19,
-      "salePrice": 246884951342250,
-      "duration": 19,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    },
-    {
-      "level": 20,
-      "salePrice": null,
-      "duration": 19.5,
-      "power": 100,
-      "name": "광란",
-      "coolTime": 480,
-      "maxLevel": 20,
-      "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
-    }
-   ]
+ {
+   "level": 0,
+   "salePrice": "1550500",
+   "duration": 10,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ },
+ {
+   "level": 1,
+   "salePrice": "13021250",
+   "duration": 10,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ },
+ {
+   "level": 2,
+   "salePrice": "29777500",
+   "duration": 10.3,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ },
+ {
+   "level": 3,
+   "salePrice": "150292500",
+   "duration": 10.6,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ },
+ {
+   "level": 4,
+   "salePrice": "451105000",
+   "duration": 10.9,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ },
+ {
+   "level": 5,
+   "salePrice": "1976426250",
+   "duration": 11.2,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ },
+ {
+   "level": 6,
+   "salePrice": "7692860000",
+   "duration": 11.5,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ },
+ {
+   "level": 7,
+   "salePrice": "25846981250",
+   "duration": 11.8,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ },
+ {
+   "level": 8,
+   "salePrice": "92471286250",
+   "duration": 12.1,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ },
+ {
+   "level": 9,
+   "salePrice": "280817010000",
+   "duration": 12.4,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ },
+ {
+   "level": 10,
+   "salePrice": "748086102500",
+   "duration": 12.7,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ },
+ {
+   "level": 11,
+   "salePrice": "1970969647500",
+   "duration": 13,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ },
+ {
+   "level": 12,
+   "salePrice": "4964360332500",
+   "duration": 13.3,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ },
+ {
+   "level": 13,
+   "salePrice": "12302020110000",
+   "duration": 13.6,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ },
+ {
+   "level": 14,
+   "salePrice": "31232023960000",
+   "duration": 13.9,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ },
+ {
+   "level": 15,
+   "salePrice": "69801918010000",
+   "duration": 14.2,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ },
+ {
+   "level": 16,
+   "salePrice": "148097559890000",
+   "duration": 14.5,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ },
+ {
+   "level": 17,
+   "salePrice": "309312339930000",
+   "duration": 14.8,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ },
+ {
+   "level": 18,
+   "salePrice": "632377326251250",
+   "duration": 15.1,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ },
+ {
+   "level": 19,
+   "salePrice": "1234424756711250",
+   "duration": 15.4,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ },
+ {
+   "level": 20,
+   "salePrice": "",
+   "duration": 15.7,
+   "power": 100,
+   "name": "광란",
+   "coolTime": 330,
+   "maxLevel": 20,
+   "desctiption": "모든 아군들의 공격이 <Duration>초간 항상 치명타공격"
+ }
+]
 
 }

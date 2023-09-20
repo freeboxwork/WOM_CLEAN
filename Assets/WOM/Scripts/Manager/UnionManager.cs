@@ -115,6 +115,7 @@ public class UnionManager : MonoBehaviour
             if (saveData.isEquip)
             {
                 selectedSlot = slot;
+                unionEquipSlots[saveData.equipSlotId].isFirstEquip = true;
                 EquipSlot(unionEquipSlots[saveData.equipSlotId]);
             }
 
@@ -187,12 +188,23 @@ public class UnionManager : MonoBehaviour
         // 장착후 버튼 활성화 해제
         unionEquipSlots.ForEach(f => f.SetBtnEnableState(false));
 
-        // Union Spwan
-        GlobalData.instance.unionSpwanManager.UnionSpwan(selectedSlot, equipSlot.slotIndex);
+        if(equipSlot.isFirstEquip)
+        {
+            //만약 장착이 처음인 경우(초기 세팅)
+            // Union Spwan StartTime = 0;
+            GlobalData.instance.unionSpwanManager.UnionSpwan(selectedSlot, equipSlot.slotIndex, 0);
+        }
+        else
+        {
+            //장착 된 유니온을 교체한 경우
+            // Union Spwan StartTime = selectedSlot.unionData.spawnTime;
+            GlobalData.instance.unionSpwanManager.UnionSpwan(selectedSlot, equipSlot.slotIndex, selectedSlot.unionData.spawnTime);
+        }
+
+
 
         // // 일일 퀘스트 완료 : 유니온 소환
         // // EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.summonUnion);
-
     }
 
 

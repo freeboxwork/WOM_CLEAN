@@ -12,7 +12,7 @@
    "bossDamage": 0,
    "name": "Bee00",
    "grade": "D",
-   "spawnTime": 3
+   "spawnTime": 4
  },
  {
    "dataId": 1,
@@ -27,7 +27,7 @@
    "bossDamage": 0,
    "name": "Bee01",
    "grade": "C",
-   "spawnTime": 3
+   "spawnTime": 4
  },
  {
    "dataId": 2,
@@ -42,7 +42,7 @@
    "bossDamage": 0,
    "name": "Bee02",
    "grade": "B",
-   "spawnTime": 3
+   "spawnTime": 4
  },
  {
    "dataId": 3,
@@ -57,7 +57,7 @@
    "bossDamage": 0,
    "name": "Bee03",
    "grade": "A",
-   "spawnTime": 3
+   "spawnTime": 4
  },
  {
    "dataId": 4,
@@ -72,7 +72,7 @@
    "bossDamage": 0,
    "name": "Bee04",
    "grade": "S",
-   "spawnTime": 3
+   "spawnTime": 4
  }
 ]
 }

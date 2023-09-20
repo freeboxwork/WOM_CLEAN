@@ -1,4 +1,104 @@
 ﻿{
-   "data":[{"id":0,"level":0,"price":500,"gold":0,"bone":0,"dice":0,"coal":0},{"id":1,"level":1,"price":1500,"gold":5,"bone":5,"dice":5,"coal":5},{"id":2,"level":2,"price":4500,"gold":10,"bone":10,"dice":10,"coal":10},{"id":3,"level":3,"price":13500,"gold":15,"bone":15,"dice":15,"coal":15},{"id":4,"level":4,"price":40500,"gold":20,"bone":20,"dice":20,"coal":20},{"id":5,"level":5,"price":121500,"gold":25,"bone":25,"dice":25,"coal":25},{"id":6,"level":6,"price":364500,"gold":30,"bone":30,"dice":30,"coal":30},{"id":7,"level":7,"price":1093500,"gold":35,"bone":35,"dice":35,"coal":35},{"id":8,"level":8,"price":3280500,"gold":40,"bone":40,"dice":40,"coal":40},{"id":9,"level":9,"price":9841500,"gold":45,"bone":45,"dice":45,"coal":45},{"id":10,"level":10,"price":29524500,"gold":50,"bone":50,"dice":50,"coal":50}]
+   "data":[
+ {
+   "id": 0,
+   "level": 0,
+   "price": 5000,
+   "gold": 0,
+   "bone": 0,
+   "dice": 0,
+   "coal": 0
+ },
+ {
+   "id": 1,
+   "level": 1,
+   "price": 15000,
+   "gold": 5,
+   "bone": 5,
+   "dice": 5,
+   "coal": 5
+ },
+ {
+   "id": 2,
+   "level": 2,
+   "price": 45000,
+   "gold": 10,
+   "bone": 10,
+   "dice": 10,
+   "coal": 10
+ },
+ {
+   "id": 3,
+   "level": 3,
+   "price": 135000,
+   "gold": 15,
+   "bone": 15,
+   "dice": 15,
+   "coal": 15
+ },
+ {
+   "id": 4,
+   "level": 4,
+   "price": 405000,
+   "gold": 20,
+   "bone": 20,
+   "dice": 20,
+   "coal": 20
+ },
+ {
+   "id": 5,
+   "level": 5,
+   "price": 1215000,
+   "gold": 25,
+   "bone": 25,
+   "dice": 25,
+   "coal": 25
+ },
+ {
+   "id": 6,
+   "level": 6,
+   "price": 3645000,
+   "gold": 30,
+   "bone": 30,
+   "dice": 30,
+   "coal": 30
+ },
+ {
+   "id": 7,
+   "level": 7,
+   "price": 10935000,
+   "gold": 35,
+   "bone": 35,
+   "dice": 35,
+   "coal": 35
+ },
+ {
+   "id": 8,
+   "level": 8,
+   "price": 32805000,
+   "gold": 40,
+   "bone": 40,
+   "dice": 40,
+   "coal": 40
+ },
+ {
+   "id": 9,
+   "level": 9,
+   "price": 98415000,
+   "gold": 45,
+   "bone": 45,
+   "dice": 45,
+   "coal": 45
+ },
+ {
+   "id": 10,
+   "level": 10,
+   "price": 295245000,
+   "gold": 50,
+   "bone": 50,
+   "dice": 50,
+   "coal": 50
+ }
+]
 
 }

@@ -147,7 +147,6 @@ public class StatManager : MonoBehaviour
         var tst = GetTraningData(SaleStatType.talentSpawnSpeed).value;//소수
         var diceIst = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectSpawnTime);//소수
         var value = ist - (tst + diceIst);
-        //Debug.Log($"곤충 소환시간 : 기본{ist} - 특성{tst}주사위{diceIst} 최종{value}");
 
         // ad buff 적용 ( speed )
         var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffSpeed);
@@ -156,6 +155,9 @@ public class StatManager : MonoBehaviour
         {
             value = value * 0.5f;
         }
+
+        //Debug.Log($"곤충 소환시간 : 기본{ist} - 특성{tst}주사위{diceIst} 버프{buffValue.isUsingBuff}<<<최종>>>{value}");
+
         return (float)value;
     }
 

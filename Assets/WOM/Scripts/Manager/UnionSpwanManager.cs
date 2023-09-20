@@ -37,18 +37,19 @@ public class UnionSpwanManager : MonoBehaviour
         }
     }
 
-    public void UnionSpwan(UnionSlot unionSlot, int equipSlotIndex)
+    public void UnionSpwan(UnionSlot unionSlot, int equipSlotIndex,float startTime)
     {
-        StartCoroutine(StartUnionSpwan(unionSlot, equipSlotIndex));
+
+        StartCoroutine(StartUnionSpwan(unionSlot, equipSlotIndex,startTime));
     }
 
-    public IEnumerator StartUnionSpwan(UnionSlot unionSlot, int equipSlotIndex)
+    public IEnumerator StartUnionSpwan(UnionSlot unionSlot, int equipSlotIndex,float startTime)
     {
         GetSpwanTimer(equipSlotIndex).TimerStop();
 
         yield return new WaitForEndOfFrame();
         // start spawn
-        GetSpwanTimer(equipSlotIndex).TimerStart(unionSlot);
+        GetSpwanTimer(equipSlotIndex).TimerStart(unionSlot,startTime);
     }
 
     

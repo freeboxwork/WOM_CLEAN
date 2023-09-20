@@ -19,12 +19,6 @@ public class PlayerDataManager : MonoBehaviour
     const string playingTimeKey = "playingTime";
 
 
-    void Start()
-    {
-
-    }
-
-
     //TODO: 코드 정리
 
     private void OnApplicationQuit()
@@ -52,13 +46,13 @@ public class PlayerDataManager : MonoBehaviour
         var endTime = System.DateTime.Now;
         var timeSpan = endTime - startOfflineTime;
         this.offlineTime = timeSpan;
-//        Debug.Log("offlineTime : " + timeSpan.Duration().ToString());
-        return timeSpan.Duration().ToString();
+        //Debug.Log("offlineTime : " + this.offlineTime.Hours.ToString());
+        return  this.offlineTime.Hours.ToString();
     }
 
-    public TimeSpan GetOfflineTimeValue()
+    public string GetOfflineTimeValue()
     {
-        return offlineTime;
+        return offlineTime.Hours.ToString();
     }
 
     public IEnumerator InitPlayerData()
@@ -80,17 +74,6 @@ public class PlayerDataManager : MonoBehaviour
     {
         startDataTime = System.DateTime.Now;
     }
-
-
-
-
-
-
-    void Update()
-    {
-
-    }
-
 
 
     IEnumerator LoadPlayerData()

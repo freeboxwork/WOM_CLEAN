@@ -20,6 +20,7 @@ public class SkillManager : MonoBehaviour
         var skillData = GetSkillData(skillType, level);
         var btn = skillBtns[(int)skillType];
         btn.SetTxtCoolTime((int)skillData.coolTime);
+        btn.SetTxtLevel(level);
         btn.gameObject.SetActive(true);
         btn.skillReady = true;
     }
@@ -69,6 +70,9 @@ public class SkillManager : MonoBehaviour
                 if (saveData.isCooltime)
                     skillBtns[(int)type].ReloadCoolTime();
             }
+
+            skillBtns[(int)type].SetTxtLevel(inGameData.level);
+
 
         }
     }
@@ -186,6 +190,7 @@ public class SkillManager : MonoBehaviour
             skillData = GetSkillData(skillType, inGameData.level);
 
             var slot = GetSkillSlotByType(skillType);
+            skillBtns[(int)skillType].SetTxtLevel(inGameData.level);
 
             switch (skillType)
             {

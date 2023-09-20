@@ -1,63 +1,63 @@
 {"data":[
  {
    "depthId": 0,
-   "damage": 150,
-   "damageRate": 110,
+   "damage": 100,
+   "damageRate": 100,
    "criticalChance": 1,
    "criticalDamage": 0,
-   "speed": 20,
+   "speed": 40,
    "goldBonus": 0,
    "bossDamage": 0,
-   "name": "Beetle00",
-   "spawnTime": 4
+   "name": "Mantis00",
+   "spawnTime": 4.5
  },
  {
    "depthId": 1,
-   "damage": 150,
-   "damageRate": 220,
+   "damage": 100,
+   "damageRate": 200,
    "criticalChance": 1,
    "criticalDamage": 0,
-   "speed": 20,
+   "speed": 40,
    "goldBonus": 0,
    "bossDamage": 0,
-   "name": "Beetle01",
-   "spawnTime": 4
+   "name": "Mantis01",
+   "spawnTime": 4.5
  },
  {
    "depthId": 2,
-   "damage": 150,
-   "damageRate": 440,
+   "damage": 100,
+   "damageRate": 400,
    "criticalChance": 1,
    "criticalDamage": 0,
-   "speed": 20,
+   "speed": 40,
    "goldBonus": 0,
    "bossDamage": 0,
-   "name": "Beetle02",
-   "spawnTime": 4
+   "name": "Mantis02",
+   "spawnTime": 4.5
  },
  {
    "depthId": 3,
-   "damage": 150,
-   "damageRate": 880,
+   "damage": 100,
+   "damageRate": 800,
    "criticalChance": 1,
    "criticalDamage": 0,
-   "speed": 20,
+   "speed": 40,
    "goldBonus": 0,
    "bossDamage": 0,
-   "name": "Beetle03",
-   "spawnTime": 4
+   "name": "Mantis03",
+   "spawnTime": 4.5
  },
  {
    "depthId": 4,
-   "damage": 150,
-   "damageRate": 1760,
+   "damage": 100,
+   "damageRate": 1600,
    "criticalChance": 1,
    "criticalDamage": 0,
-   "speed": 20,
+   "speed": 40,
    "goldBonus": 0,
    "bossDamage": 0,
-   "name": "Beetle04",
-   "spawnTime": 4
+   "name": "Mantis04",
+   "spawnTime": 4.5
  }
 ]
 }

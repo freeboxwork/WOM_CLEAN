@@ -12,12 +12,12 @@ public class UnionSpwanTimer : MonoBehaviour
 
     UnionSlot unionSlot;
 
-    public void TimerStart(UnionSlot unionSlot)
+    public void TimerStart(UnionSlot unionSlot, float startTime)
     {
         this.unionSlot = unionSlot;
         isTimerReady = true;
         spwanTime = (float)GlobalData.instance.statManager.GetUnionSpwanSpeed(unionSlot.inGameData.unionIndex);
-        currentTime = spwanTime * 0.5f;
+        currentTime = startTime;
         StartCoroutine(SpwanTimer());
     }
 

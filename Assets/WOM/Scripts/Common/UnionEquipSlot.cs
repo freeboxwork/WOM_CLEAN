@@ -13,6 +13,8 @@ public class UnionEquipSlot : MonoBehaviour
     public UnionSlot unionSlot;
     public GameObject objEquipHighlight;
 
+    public bool isFirstEquip = false;
+
     [SerializeField] CanvasGroup canvasGroup;
 
     // union spwan timer ??? 1:1 Îß§Ïπ≠
@@ -27,6 +29,7 @@ public class UnionEquipSlot : MonoBehaviour
     {
         btnSlot.onClick.AddListener(() =>
         {
+            isFirstEquip = false;
             GlobalData.instance.unionManager.EquipSlot(this);
             // ?†ÑÏ≤? ?û•Ï∞? ?ä¨Î°??ùò ?ïò?ù¥?ùº?ù¥?ä∏ ?ÅÑÍ∏?
             GlobalData.instance.unionManager.AllDisableEquipSlotHighlightEff();

@@ -288,6 +288,7 @@ public class CastleManager : MonoBehaviour
 
         if (withdrawnGold > 0)
         {
+            GlobalData.instance.soundManager.PlaySfxUI(SFX_TYPE.Reward);
             // Debug.Log를 사용하여 인출된 골드 양을 디버그 창에 출력합니다.
             //Debug.Log("인출된 골드: " + withdrawnGold);
 
@@ -312,6 +313,8 @@ public class CastleManager : MonoBehaviour
 
         if (withdrawnBone > 0)
         {
+            GlobalData.instance.soundManager.PlaySfxUI(SFX_TYPE.Reward);
+
             Debug.Log("인출된 뼈조각: " + withdrawnBone);
             GlobalData.instance.player.AddBone(withdrawnBone);
             buildDataFactory.TotlaMiningValue = 0;

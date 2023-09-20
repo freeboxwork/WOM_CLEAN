@@ -36,10 +36,22 @@ public class OfflineRewardPopupContoller : MonoBehaviour
     {
         // 첫 실행이 아닐때만
         var key = GlobalData.instance.playerDataManager.offlineTimeKey;
+
         if (PlayerPrefs.HasKey(key))
         {
             var offlineTime = GlobalData.instance.playerDataManager.GetOfflineTimeValue();
-            var hour = (int)offlineTime.TotalHours;
+            bool success  = int.TryParse(offlineTime, out int hour);
+            
+            if (success)
+            {
+
+            }
+            else
+            {
+                hour = 0;
+            }  
+            //Debug.Log("오프라인 보상 시간 : " + hour);
+
             if (hour >= 1)
             {
                 // 최대 보상 8시간 제한

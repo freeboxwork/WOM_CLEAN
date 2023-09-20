@@ -24,7 +24,7 @@
    "power": 5,
    "maxLevel": 50,
    "spriteName": "DNA_insectCriticalDamage",
-   "infoFront": "곤충 치명타 데미지가",
+   "infoFront": "곤충 치명타 공격력이",
    "infoBack": "% 증가",
    "dnaName": "곤충 치명타 공격력",
    "dnaType": "insectCriticalDamage"
@@ -91,7 +91,7 @@
  },
  {
    "dnaIndex": 9,
-   "power": 0.1,
+   "power": 0.05,
    "maxLevel": 50,
    "spriteName": "DNA_skillDuration",
    "infoFront": "스킬 지속시간이",
@@ -101,7 +101,7 @@
  },
  {
    "dnaIndex": 10,
-   "power": 2,
+   "power": 1,
    "maxLevel": 50,
    "spriteName": "DNA_skillCoolTime",
    "infoFront": "스킬 재사용시간이",

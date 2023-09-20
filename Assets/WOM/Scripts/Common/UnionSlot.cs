@@ -19,7 +19,7 @@ public class UnionSlot : MonoBehaviour
     public UnionInGameData inGameData;
     public UnionData unionData;
     public UnionEquipSlot unionEquipSlot;
-
+    
     public GameObject[] stars;
 
     void Start()

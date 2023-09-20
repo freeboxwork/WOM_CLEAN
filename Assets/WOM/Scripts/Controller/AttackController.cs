@@ -16,20 +16,66 @@ public class AttackController : MonoBehaviour
     bool insectAutoEnable = false;
 
 
-
-
-    void Start()
+   void Start()
     {
         insectManager = GlobalData.instance.insectManager;
     }
-
-
 
     // Update is called once per frame
     void Update()
     {
         if (isAttackableState == true)
         {
+#if UNITY_EDITOR
+            if (Input.GetMouseButtonDown(0))
+            {
+                if (EventSystem.current != null && EventSystem.current.enabled)
+                {
+                    if (EventSystem.current.IsPointerOverGameObject() == false) // 포인터 UI 위에 있지 않을때만 실행
+                    {
+                        // 메뉴 패널이 열려있으면 닫는다.
+                        if (GlobalData.instance.uiController.CheckOpenMenuPanel() == true)
+                        {
+                            GlobalData.instance.uiController.CloseAllMenuPanel();
+                            return;
+                        }
+
+                        // gold pig 
+                        //hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+                        RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), transform.forward);
+
+                        if (hit)
+                        {
+                            if (hit.collider.tag == "goldPig")
+                            {
+                                // gold pig event
+                                //Debug.Log("get gold pig !!!!");
+                                EventManager.instance.RunEvent(CallBackEventType.TYPES.OnGoldPigEvent);
+                                // 일일 퀘스트 완료 : 골드피그
+                                EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.takeGoldPig);
+                                return;
+                            }
+                        }
+
+                        if (Time.time - lastSpawnTime >= StaticDefine.TOUCH_INTERVAL)
+                        {
+                            lastSpawnTime = Time.time;
+
+                            var pos = Input.mousePosition;
+
+                            // ?????? ???? ???? ????
+                            EventManager.instance.RunEvent(CallBackEventType.TYPES.OnTutoInsectCreate);
+                            // ???? ????
+                            EnableInsectBullet(pos);
+                            GlobalData.instance.soundManager.PlayAttackSound();
+                        }
+                    }
+
+
+                }
+            }
+#endif          
+#if UNITY_ANDROID && !UNITY_EDITOR
             if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
             {
                 if (EventSystem.current != null && EventSystem.current.enabled)
@@ -77,6 +123,7 @@ public class AttackController : MonoBehaviour
 
                 }
             }
+#endif            
 
         }
     }

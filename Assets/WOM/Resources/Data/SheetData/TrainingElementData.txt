@@ -21,7 +21,7 @@
    "id": 2,
    "buttonSprite": "BaseButton",
    "currencySprite": "Gold",
-   "trainingName": "곤충 치명타 공격률",
+   "trainingName": "곤충 치명타 공격력",
    "trainingType": "trainingCriticalDamage",
    "goodsType": "gold",
    "description": "치명타 공격률이 <Power> 증가"
@@ -30,7 +30,7 @@
    "id": 3,
    "buttonSprite": "BaseButton",
    "currencySprite": "Bone",
-   "trainingName": "곤충 공격력 증가율",
+   "trainingName": "곤충 공격률",
    "trainingType": "talentDamage",
    "goodsType": "bone",
    "description": "공격률이 <Power> 증가"
@@ -48,7 +48,7 @@
    "id": 5,
    "buttonSprite": "BaseButton",
    "currencySprite": "Bone",
-   "trainingName": "곤충 추가 치명타 공격률",
+   "trainingName": "곤충 추가 치명타 공격력",
    "trainingType": "talentCriticalDamage",
    "goodsType": "bone",
    "description": "치명타 공격률이 추가로 <Power> 증가"

@@ -12,6 +12,8 @@ public class SkillBtn : MonoBehaviour
     public Image imgSkillFront;
     public TextMeshProUGUI txtTime; // -> cool time
     public TextMeshProUGUI txtTimeAnim;
+    public TextMeshProUGUI txtLevel;
+
     public Button btnSkill;
 
     public Color colorDeem;
@@ -201,6 +203,10 @@ public class SkillBtn : MonoBehaviour
         TimeSpan t = TimeSpan.FromSeconds(time);
         string answer = string.Format("{0:D0}:{1:D0}", t.Minutes, t.Seconds);
         txtTime.text = answer;
+    }
+    public void SetTxtLevel(int lv)
+    {
+        txtLevel.text = string.Format("Lv{0}",lv);
     }
 
     void SkillEffectBySkillType(bool enableValue)

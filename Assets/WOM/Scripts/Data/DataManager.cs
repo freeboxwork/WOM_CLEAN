@@ -62,7 +62,6 @@ public class DataManager : MonoBehaviour
 
     public StageDatas stageDatas;
     public List<EvolutionDatas> evolutionDatas;
-    public List<EvolutionOptionDatas> evolutionOptionDatas;
     public List<MonsterDatas> monsterDatas;
     public UnionGambleDatas unionGambleDatas;
     public SummonGradeDatas summonGradeDatas;
@@ -162,9 +161,6 @@ public class DataManager : MonoBehaviour
 
         // EVOLUTION
         SetEvolutionData();
-
-        // EVOLUTION OPTION
-        SetEvolutionOptionData();
 
         // GLOBAL MSEEAGE
         SetGlobalMessageData();
@@ -343,17 +339,6 @@ public class DataManager : MonoBehaviour
         evolutionDatas.Add(bee);
         evolutionDatas.Add(beetle);
     }
-    void SetEvolutionOptionData()
-    {
-        // 0 : mentins , 1 : bee , 2 : beetle
-        var mentis = GetData<EvolutionOptionDatas>(SheetDataType.evolutionOptionData_mentis);
-        var bee = GetData<EvolutionOptionDatas>(SheetDataType.evolutionOptionData_bee);
-        var beetle = GetData<EvolutionOptionDatas>(SheetDataType.evolutionOptionData_beetle);
-
-        evolutionOptionDatas.Add(mentis);
-        evolutionOptionDatas.Add(bee);
-        evolutionOptionDatas.Add(beetle);
-    }
 
     void SetRewardData()
     {
@@ -440,11 +425,6 @@ public class DataManager : MonoBehaviour
     public EvolutionData GetEvolutionDataById(InsectType insectType, int id)
     {
         return evolutionDatas[TypeIdx(insectType)].data.FirstOrDefault(f => f.depthId == id);
-    }
-
-    public EvolutionOptionData GetEvolutionOptionDataById(InsectType insectType, int id)
-    {
-        return evolutionOptionDatas[TypeIdx(insectType)].data.FirstOrDefault(f => f.optionId == id);
     }
 
     public MonsterData GetMonsterDataById(MonsterType monsterType, int id)

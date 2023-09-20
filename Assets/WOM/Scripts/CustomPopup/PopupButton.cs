@@ -21,6 +21,11 @@ public class PopupButton : MonoBehaviour
         btn = GetComponent<Button>();
     }
 
+    void OnDestroy()
+    {
+        btn.onClick.RemoveAllListeners();
+    }
+
     public void Init(string _text, List<Action> _callback, GameObject _target)
     {
         this.buttonString.text = _text;
@@ -39,19 +44,19 @@ public class PopupButton : MonoBehaviour
     {
         float time = 5f;
 
-        while(time > 0)
+        while (time > 0)
         {
             time -= Time.deltaTime;
             var t = Math.Floor(time);
-            if(t < 0)
+            if (t < 0)
             {
                 t = 0;
             }
-            closeCountText.text = string.Format("{0}s",t);
+            closeCountText.text = string.Format("{0}s", t);
             yield return null;
         }
 
-       OnButton();
+        OnButton();
     }
 
     public void OnButton()

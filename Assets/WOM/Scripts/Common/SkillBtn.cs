@@ -60,58 +60,63 @@ public class SkillBtn : MonoBehaviour
     {
         SetBtnEvent();
     }
-
-    void OnEnable()
-    {
-        if (skillAddValue)
-        {
-            StartCoroutine(ReloadStillUseingSkill_Cor());
-            return;
-        }
-        if (skillAddValue == false && isCoolTime)
-        {
-            StartCoroutine(ReloadStillWaitCoolTime());
-            return;
-        }
-
-        backLightImage.color = white;
-        backLightImage.DOColor(new Color(1, 1, 1, 0), 0.5f).SetLoops(-1, LoopType.Yoyo);
-
-    }
-
     void SetBtnEvent()
     {
         btnSkill.onClick.AddListener(() => { UsingSkillByButton(); });
     }
 
+    public void Init(bool coolTime, float leftCoolTime)
+    {
+        isCoolTime = coolTime;
+
+        if (isCoolTime)
+        {
+            backLightImage.DOKill();
+            backLightImage.DOColor(Color.red, 0.2f);
+            skillReady = false;
+            skillAddValue = false;
+            coolTimeWait = leftCoolTime;
+            StartCoroutine(UsingSkillByButton_Cor());
+        }
+        else
+        {
+            backLightImage.color = white;
+            backLightImage.DOColor(new Color(1, 1, 1, 0), 0.5f).SetLoops(-1, LoopType.Yoyo);
+        }
+        
+    }
+
+
     public void UsingSkillByButton()
     {
+        if(isCoolTime) return;
         StartCoroutine(UsingSkillByButton_Cor());
     }
     //버튼이 눌렸을때 진입
     IEnumerator UsingSkillByButton_Cor()
     {
-        //스킬 사용 연출
-        GlobalData.instance.effectManager.EnableTransitionEffSkillOnByType(skillType);
-        //스킬 데이터 가져오기
-        var data = GlobalData.instance.skillManager.GetSkillInGameDataByType(skillType);
-        //기본 스킬 [재사용 대기 시간] - DNA [재사용 대기 시간] 감소 적용
-        float totalCoolTime = data.coolTime - GlobalData.instance.statManager.SkillCoolTime();
-        //기본 스킬 [지속시간] - DNA [지속시간] 감소 적용
-        var skillDuration = data.duaration + GlobalData.instance.statManager.SkillDuration();
-
-        //Debug.Log("재사용 시간 : "+data.coolTime);
-        //Debug.Log("재지속시간 : "+data.duaration);
-
-        //animDataUsingSkill.animDuration = data.duaration;
-        //스킬 지속시간 타이머
-        animDataUsingSkill.animDuration = skillDuration;
-        //스킬 재사용 시간 타이머
-        animDataReloadSkill.animDuration = totalCoolTime;
-
-        //Debug.Log("스킬 애니메이션 시간 :  " + skillDuration);
         if (skillReady == true)
         {
+            GlobalData.instance.soundManager.PlaySfxInGame((EnumDefinition.SFX_TYPE)((int)skillType + 12));
+            //스킬 사용 연출
+            GlobalData.instance.effectManager.EnableTransitionEffSkillOnByType(skillType);
+            //스킬 데이터 가져오기
+            var data = GlobalData.instance.skillManager.GetSkillInGameDataByType(skillType);
+            //기본 스킬 [재사용 대기 시간] - DNA [재사용 대기 시간] 감소 적용
+            float totalCoolTime = data.coolTime - GlobalData.instance.statManager.SkillCoolTime();
+            //기본 스킬 [지속시간] - DNA [지속시간] 감소 적용
+            var skillDuration = data.duaration + GlobalData.instance.statManager.SkillDuration();
+
+            //Debug.Log("재사용 시간 : "+data.coolTime);
+            //Debug.Log("재지속시간 : "+data.duaration);
+
+            //animDataUsingSkill.animDuration = data.duaration;
+            //스킬 지속시간 타이머
+            animDataUsingSkill.animDuration = skillDuration;
+            //스킬 재사용 시간 타이머
+            animDataReloadSkill.animDuration = totalCoolTime;
+            //Debug.Log("스킬 애니메이션 시간 :  " + skillDuration);
+
             btnSkill.enabled = false;
             skillReady = false;
 
@@ -148,6 +153,7 @@ public class SkillBtn : MonoBehaviour
 
             //backLightImage.DOColor의 Loop를 종료
             backLightImage.DOKill();
+            backLightImage.DOColor(Color.red, 0.2f);
 
             while (skillLeftTime > 0)
             {
@@ -155,20 +161,18 @@ public class SkillBtn : MonoBehaviour
                 skillLeftTime = calcSkillTime - (Time.time - skillStartTime);
                 yield return null;
             }
+            // skill effect off!
+            SkillEffectBySkillType(false);
 
             txtTimeAnim.enabled = false;
             skillAddValue = false;
+            
+            //쿨타임 Text
             txtTime.enabled = true;
-
             imgSkillBack.color = colorWhite;
             imgSkillFront.color = colorDeem;
             imgSkillFront.fillClockwise = false;
             animCont.animData = animDataReloadSkill;
-
-            yield return new WaitForEndOfFrame();
-
-            // skill effect off!
-            SkillEffectBySkillType(false);
 
             // [재사용 대기 시간] 데이터 저장
             GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, true);
@@ -193,8 +197,40 @@ public class SkillBtn : MonoBehaviour
             //Debug.Log("스킬 재사용 대기 시간 종료");
             SetEndCoolTime();
 
+        }
+        else
+        {
+            var data = GlobalData.instance.skillManager.GetSkillInGameDataByType(skillType);
+
+            //쿨타임 Text
+            txtTime.enabled = true;
+            imgSkillBack.color = colorWhite;
+            imgSkillFront.color = colorDeem;
+            imgSkillFront.fillClockwise = false;
+            animDataReloadSkill.animDuration = data.coolTime;
+
+            animCont.animData = animDataReloadSkill;
+
+            //스킬 [재사용 대기 시간] UI Update
+            StartCoroutine(animCont.UI_TextAnim(txtTime, animDataReloadSkill.animDuration, 0, () => coolTimeWait = 0));
+            StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 1, 0));
+
+            float calcCooltime = coolTimeWait;
+
+            var startTime = Time.time;
+
+            while (coolTimeWait > 0)
+            {
+                coolTimeWait = calcCooltime - (Time.time - startTime);
+                GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, coolTimeWait);
+                //Debug.Log("skill coolTimeWait : " + coolTimeWait);
+                yield return null;
+            }
+
+            SetEndCoolTime();
 
         }
+
         yield return null;
     }
 
@@ -208,7 +244,6 @@ public class SkillBtn : MonoBehaviour
     {
         txtLevel.text = string.Format("Lv{0}",lv);
     }
-
     void SkillEffectBySkillType(bool enableValue)
     {
         var insects = GlobalData.instance.insectManager.enableInsects;
@@ -241,205 +276,6 @@ public class SkillBtn : MonoBehaviour
 
 
     }
-
-    //캐슬을 갔다온 후 스킬의 지속시간(Duration)이 아직 남아 있다면
-    IEnumerator ReloadStillUseingSkill_Cor()
-    {
-        Debug.Log("캐슬에서 빠져나와 스킬 지속시간이 남아 있음");
-
-        //StartCoroutine(animCont.UI_TextAnim(txtTimeAnim, skillLeftTime, 0));
-        StartCoroutine(animCont.UI_TextAnim_Reload(txtTimeAnim, skillLeftTime, 0, skillLeftTime));
-        StartCoroutine(animCont.UI_ImageFillAnim(imgSkillFront, skillLeftTime / animDataUsingSkill.animDuration, 1, skillLeftTime));
-
-        // 스킬 사용 대기
-        float calcSkillTime = skillLeftTime;
-        var skillStartTime = Time.time;
-        //backLightImage.DOColor의 Loop를 종료
-        backLightImage.DOKill();
-        while (skillLeftTime > 0)
-        {
-            skillLeftTime = calcSkillTime - (Time.time - skillStartTime);
-            yield return null;
-        }
-        // skill effect off!
-        SkillEffectBySkillType(false);
-        txtTimeAnim.enabled = false;
-        skillAddValue = false;
-        txtTime.enabled = true;
-
-        imgSkillBack.color = colorWhite;
-        imgSkillFront.color = colorDeem;
-        imgSkillFront.fillClockwise = false;
-        animCont.animData = animDataReloadSkill;
-
-        // 쿨타임
-        GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, true);
-        StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 1, 0));
-        StartCoroutine(animCont.UI_TextAnim(txtTime, animDataReloadSkill.animDuration, 0, () => coolTimeWait = 0));
-
-        // 쿨타임 대기 및 데이터 저장 
-        isCoolTime = true;
-        float calcCooltime = animDataReloadSkill.animDuration;
-        var startTime = Time.time;
-        coolTimeWait = calcCooltime;
-        while (coolTimeWait > 0)
-        {
-            coolTimeWait = calcCooltime - (Time.time - startTime);
-            GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, coolTimeWait);
-            //Debug.Log("skill coolTimeWait : " + coolTimeWait);
-            yield return null;
-        }
-
-        SetEndCoolTime();
-
-    }
-
-    //캐슬을 갔다온 후 스킬이 Duration이 끝났지만 쿨타임이 남아 있다면
-    IEnumerator ReloadStillWaitCoolTime()
-    {
-        yield return null;
-
-        var data = GlobalData.instance.skillManager.GetSkillInGameDataByType(skillType);
-        //기본 스킬 [재사용 대기 시간] - DNA [재사용 대기 시간] 감소 적용
-        float totalCoolTime = data.coolTime - GlobalData.instance.statManager.SkillCoolTime();
-
-        //Debug.Log("재사용 시간 : "+data.coolTime);
-
-        //Debug.Log("재지속시간 : "+data.duaration);
-
-        //스킬 재사용 시간 타이머
-        animDataReloadSkill.animDuration = totalCoolTime;
-
-        //Debug.Log("캐슬에서 빠져나와 아직 재사용 대기시간입니다. coolTimeWait:" + coolTimeWait);
-        // [재사용 대기 시간]  UI Update
-        txtTime.enabled = true;
-        StartCoroutine(animCont.UI_TextAnim_Reload(txtTime, coolTimeWait, 0, coolTimeWait));
-        StartCoroutine(animCont.UI_ImageFillAnim(imgSkillFront, coolTimeWait / animDataReloadSkill.animDuration, 0, coolTimeWait));
-
-        // 쿨타임 대기 및 데이터 저장 
-
-        float calcCooltime = coolTimeWait;
-        var startTime = Time.time;
-        //backLightImage.DOColor의 Loop를 종료
-        backLightImage.DOKill();
-        while (coolTimeWait > 0)
-        {
-            coolTimeWait = calcCooltime - (Time.time - startTime);
-            GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, coolTimeWait);
-            //Debug.Log("skill coolTimeWait : " + coolTimeWait);
-            yield return null;
-        }
-
-        SetEndCoolTime();
-
-    }
-
-    public void ReloadCoolTime()
-    {
-        StartCoroutine(ReloadCoolTimeCor());
-    }
-    // 게임 재 접속시 [재사용 대기 시간]일 남아 있는 경우
-    IEnumerator ReloadCoolTimeCor()
-    {
-        var sheetData = GlobalData.instance.skillManager.GetSkillInGameDataByType(skillType);
-        var saveData = GlobalData.instance.saveDataManager.GetSaveDataSkill(skillType);
-        //Debug.Log("저장된 데이터 LEFT TIME 불러오기 : " + saveData.leftCoolTime);
-
-        //무조건 이곳에 들어옴
-        if (saveData.isCooltime)
-        {
-            isCoolTime = true;
-
-            //var pervTime = "2023-08-16 오후 9:13:23";
-            //var calcTime = System.DateTime.Parse(pervTime);
-            var currentTime = System.DateTime.Now;
-            //게임을 종료한시간 불러오기
-            var lastTime = GlobalData.instance.saveDataManager.saveDataTotal.saveDataSystem.quitTime;
-
-            TimeSpan timeSpan = currentTime - System.DateTime.Parse(lastTime);
-
-            //Debug.Log("Skill curretn time " + currentTime + " last time " + lastTime + " time span " + timeSpan + " seconds " + timeSpan.Seconds);
-
-            var second = timeSpan.Seconds;
-
-            if (second <= 0)
-            {
-                SetEndCoolTime();
-
-                // 쿨타임이 끝난경우
-                //saveData.isCooltime = false;
-                //saveData.leftCoolTime = 0;
-                //Debug.Log("게임을 종료한지 몇초 안되었음");
-            }
-            else
-            {
-                // 쿨타임이 필요한 경우
-                btnSkill.enabled = false;
-                skillReady = false;
-
-                //TODO: 계산식 맞는지 확인 필요
-                //Debug.Log("저장되어 있는 쿨타임 시간 : "+ saveData.leftCoolTime);
-                //Debug.Log("감소한 시간 : "+ second);
-
-                var loadCooltimeToSaveData = saveData.leftCoolTime - second;
-                //Debug.Log("쿨타임 시간 결과 : "+ loadCooltimeToSaveData);
-
-                if (loadCooltimeToSaveData < 1f)
-                {
-                    loadCooltimeToSaveData = 0;
-                    //Debug.Log("미접속 시간동안 쿨타임 종료");
-                }
-                else
-                {
-                    float animDuration = loadCooltimeToSaveData;
-                    imgSkillBack.color = colorWhite;
-                    imgSkillFront.color = colorDeem;
-                    imgSkillFront.fillClockwise = false;
-
-                    //스킬을 버튼을 눌러 사용할때만 animData세팅이 되므로 게임을 재접속하였을때 다시 세팅해줘야함
-                    var skillData = GlobalData.instance.skillManager.GetSkillInGameDataByType(skillType);
-                    //기본 스킬 [재사용 대기 시간] - DNA [재사용 대기 시간] 감소 적용
-                    //float totalCoolTime = skillData.coolTime - GlobalData.instance.statManager.SkillCoolTime();//데이터 불러올때 타이밍 문제로 버그남 DNA 연산은 뺌
-                    float defaultCoolTimeValue = skillData.coolTime;
-                    //기본 스킬 [지속시간] - DNA [지속시간] 감소 적용
-                    //var skillDuration = data.duaration + GlobalData.instance.statManager.SkillDuration();//데이터 불러올때 타이밍 문제로 버그남 DNA 연산은 뺌
-                    //var skillDuration = sheetData.duaration;
-                    //animDataUsingSkill.animDuration = data.duaration;
-                    //스킬 지속시간 타이머
-                    //animDataUsingSkill.animDuration = skillDuration;
-                    //스킬 재사용 시간 타이머
-                    animDataReloadSkill.animDuration = loadCooltimeToSaveData;
-                    // 쿨타임
-                    StartCoroutine(animCont.UI_ImageFillAnim(imgSkillFront, animDuration / defaultCoolTimeValue, 0, animDuration));
-                    txtTime.enabled = true;
-                    StartCoroutine(animCont.UI_TextAnim_Reload(txtTime, animDuration, 0, animDuration));
-
-                    // 쿨타임 대기
-                    float calcCooltime = animDataReloadSkill.animDuration;
-                    var startTime = Time.time;
-                    coolTimeWait = calcCooltime;
-                    //backLightImage.DOColor의 Loop를 종료
-                    backLightImage.DOKill();
-
-                    while (coolTimeWait > 0)
-                    {
-                        coolTimeWait = calcCooltime - (Time.time - startTime);
-                        GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, coolTimeWait);
-                        //Debug.Log("LEFT TIME에 저장되고 있음 : " + coolTimeWait);
-                        yield return null;
-                    }
-
-                    SetEndCoolTime();
-
-                }
-
-            }
-        }
-
-        yield return null;
-
-    }
-
     void SetEndCoolTime()
     {
         coolTimeWait = 0;

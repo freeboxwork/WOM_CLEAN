@@ -24,7 +24,7 @@ public class MonsterKingController : MonoBehaviour
         StartCoroutine(animController.AnimPositionEndEvent(startPoint.position, endPoint.position, () =>
         {
             trMonsterKing.gameObject.SetActive(false);
-            Debug.Log("MonsterKingMove End");
+            //Debug.Log("MonsterKingMove End");
         }));
     }
 

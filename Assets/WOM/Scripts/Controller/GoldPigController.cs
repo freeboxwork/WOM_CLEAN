@@ -57,9 +57,10 @@ public class GoldPigController : MonoBehaviour
 
     void AddEvents()
     {
+        //캐슬 버튼 클릭
         UtilityMethod.SetBtnEventCustomTypeByID(49, () =>
         {
-            EnterOtherView();
+            //EnterOtherView();
         });
 
         EventManager.instance.AddCallBackEvent(CallBackEventType.TYPES.OnGoldPigEvent, GetGoldPig);

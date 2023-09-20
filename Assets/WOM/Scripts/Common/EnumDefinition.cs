@@ -1,7 +1,11 @@
 
 public class EnumDefinition
 {
-
+    public enum CanvasTYPE
+    {
+        Castle,
+        Main,
+    }
     public enum TransitionTYPE
     {
         Boss,

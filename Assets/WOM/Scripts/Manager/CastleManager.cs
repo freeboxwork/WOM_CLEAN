@@ -33,43 +33,43 @@ public class CastleManager : MonoBehaviour
     }
     void SetBtnEvents()
     {
-        // ê¸ˆê´‘ ê±´ì„¤í•˜ê¸° ë²„íŠ¼
+        // ±İ±¤ °Ç¼³ÇÏ±â ¹öÆ°
         UtilityMethod.SetBtnEventCustomTypeByID(64, () =>
         {
             UpGradeCastle(CastlePopupType.mine);
         });
-        //ê°€ê³µì†Œ ê±´ì„¤í•˜ê¸° ë²„íŠ¼
+        //°¡°ø¼Ò °Ç¼³ÇÏ±â ¹öÆ°
         UtilityMethod.SetBtnEventCustomTypeByID(65, () =>
         {
             UpGradeCastle(CastlePopupType.factory);
         });
-        //ê¸ˆê´‘ íŒì—… ì—´ê¸°
+        //±İ±¤ ÆË¾÷ ¿­±â
         UtilityMethod.SetBtnEventCustomTypeByID(51, () =>
         {
             OpenCastlePopup(EnumDefinition.CastlePopupType.mine);
         });
 
-        //ê°€ê³µì†Œ íŒì—… ì—´ê¸°
+        //°¡°ø¼Ò ÆË¾÷ ¿­±â
         UtilityMethod.SetBtnEventCustomTypeByID(52, () =>
         {
             OpenCastlePopup(EnumDefinition.CastlePopupType.factory);
         });
 
-        //ìº í”„ íŒì—… ì—´ê¸°
+        //Ä·ÇÁ ÆË¾÷ ¿­±â
         UtilityMethod.SetBtnEventCustomTypeByID(53, () =>
         {
             OpenCastlePopup(EnumDefinition.CastlePopupType.camp);
         });
 
-        //ì—°êµ¬ì†Œ íŒì—… ì—´ê¸°
+        //¿¬±¸¼Ò ÆË¾÷ ¿­±â
         UtilityMethod.SetBtnEventCustomTypeByID(54, () =>
         {
             OpenCastlePopup(EnumDefinition.CastlePopupType.lab);
         });
 
-        // 64 ê¸ˆê´‘ ê±´ì„¤í•˜ê¸° ë²„íŠ¼
+        // 64 ±İ±¤ °Ç¼³ÇÏ±â ¹öÆ°
 
-        // 103 ê¸ˆê´‘ ê±´ì„¤ì— í•„ìš”í•œ ê³¨ë“œ í…ìŠ¤íŠ¸
+        // 103 ±İ±¤ °Ç¼³¿¡ ÇÊ¿äÇÑ °ñµå ÅØ½ºÆ®
     }
 
     public IEnumerator Init()
@@ -80,14 +80,14 @@ public class CastleManager : MonoBehaviour
         if (buildDataMine.level > 0)
         {
             digUpGoldTime = buildDataMine.productionTime;
-            // ê³¨ë“œ ì±„êµ´ ì‹œì‘
+            // °ñµå Ã¤±¼ ½ÃÀÛ
             StartCoroutine("MiningGold");
         }
 
         if (buildDataFactory.level > 0)
         {
             digUpBoneTime = buildDataMine.productionTime;
-            // ë¼ˆì¡°ê° ì±„êµ´ ì‹œì‘
+            // »ÀÁ¶°¢ Ã¤±¼ ½ÃÀÛ
             StartCoroutine("MiningBone");
         }
 
@@ -96,11 +96,11 @@ public class CastleManager : MonoBehaviour
 
     void SetCastleData()
     {
-        //ìµœì´ˆ ì„¸íŒ…ì€ 0ë ˆë²¨ ì‹œì‘
+        //ÃÖÃÊ ¼¼ÆÃÀº 0·¹º§ ½ÃÀÛ
         mineLevel = GlobalData.instance.saveDataManager.saveDataTotal.saveDataCastle.mineLevel;
         factoryLevel = GlobalData.instance.saveDataManager.saveDataTotal.saveDataCastle.factoryLevel;
 
-        //Levelì— í•´ë‹¹í•˜ëŠ” ë°ì´í„° ê°€ì ¸ì˜¤ê¸°
+        //Level¿¡ ÇØ´çÇÏ´Â µ¥ÀÌÅÍ °¡Á®¿À±â
         var refBuildDataMine = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel);
         var refBuildDataFactory = GlobalData.instance.dataManager.GetBuildDataFactoryByLevel(factoryLevel);
 
@@ -109,19 +109,19 @@ public class CastleManager : MonoBehaviour
 
         buildDataMine.TotlaMiningValue = GlobalData.instance.saveDataManager.saveDataTotal.saveDataCastle.savedGold;
         buildDataFactory.TotlaMiningValue = GlobalData.instance.saveDataManager.saveDataTotal.saveDataCastle.savedBone;
-        //TODO : ì¼ë‹¨ ì˜¤í”„ë¼ì¸ ì‹œê°„í•˜ëŠ” ë¶€ë¶„ ë¹„í™œì„±í™” / í˜„ì¬ê¹Œì§€ ëª¨ì•„ë…¼ ê³¨ë“œëŠ” ì €ì¥ë˜ì§€ ì•Šê³  ë‹¨ìˆœíˆ ì ‘ì†ì‹œê°„ì— ë”°ë¥¸ ìƒì‚°ëŸ‰ë§Œ ê³„ì‚°í•˜ê¸°ë•Œë¬¸ì—
-        #region  ì˜¤í”„ë¼ì¸ ì‹œê°„ì— ë”°ë¥¸ ê¸ˆê´‘ ê°€ê³µì†Œ ì„¸íŒ…
-        // // offline time ë³´ìƒ
+        //TODO : ÀÏ´Ü ¿ÀÇÁ¶óÀÎ ½Ã°£ÇÏ´Â ºÎºĞ ºñÈ°¼ºÈ­ / ÇöÀç±îÁö ¸ğ¾Æ³í °ñµå´Â ÀúÀåµÇÁö ¾Ê°í ´Ü¼øÈ÷ Á¢¼Ó½Ã°£¿¡ µû¸¥ »ı»ê·®¸¸ °è»êÇÏ±â¶§¹®¿¡
+        #region  ¿ÀÇÁ¶óÀÎ ½Ã°£¿¡ µû¸¥ ±İ±¤ °¡°ø¼Ò ¼¼ÆÃ
+        // // offline time º¸»ó
         // var offlineTime = GlobalData.instance.playerDataManager.GetOfflineTimeValue();
         // var second = (int)offlineTime.TotalSeconds;
 
-        // //ë¹Œë”© ë ˆë²¨ì´ 0ë ˆë²¨ ì´ìƒì¼ ë•Œë§Œ ì˜¤í”„ë¼ì¸ ì‹œê°„ ê³„ì‚°
+        // //ºôµù ·¹º§ÀÌ 0·¹º§ ÀÌ»óÀÏ ¶§¸¸ ¿ÀÇÁ¶óÀÎ ½Ã°£ °è»ê
         // if (buildDataMine.level > 0)
         // {
-        //     //        Debug.Log("ì˜¤í”„ë¼ì¸ íƒ€ì„! : " + second + " ì´ˆ ");
+        //     //        Debug.Log("¿ÀÇÁ¶óÀÎ Å¸ÀÓ! : " + second + " ÃÊ ");
         //     if (buildDataMine.productionTime > 0)
         //     {
-        //         //ê´‘ì‚° -> ê³¨ë“œ
+        //         //±¤»ê -> °ñµå
         //         int mineCount = (second / buildDataMine.productionTime);
         //         offLineSubGoldTime = second - buildDataMine.productionTime;
 
@@ -134,14 +134,14 @@ public class CastleManager : MonoBehaviour
         //         var mineAddValue = buildDataMine.productionCount * mineCount;
         //         var mineResulValue = (long)Mathf.Min(buildDataMine.TotlaMiningValue + mineAddValue, buildDataMine.maxSupplyAmount);
         //         buildDataMine.TotlaMiningValue = mineResulValue;
-        //         //            Debug.Log("ìºìŠ¬ -> ê´‘ì‚° ì˜¤í”„ë¼ì¸ íšë“ ê¸ˆì•¡ : " + mineAddValue + " ì‹¤ì œ ì ìš©ëœ ê°’ : " + mineResulValue + " count " + mineCount);
+        //         //            Debug.Log("Ä³½½ -> ±¤»ê ¿ÀÇÁ¶óÀÎ È¹µæ ±İ¾× : " + mineAddValue + " ½ÇÁ¦ Àû¿ëµÈ °ª : " + mineResulValue + " count " + mineCount);
         //     }
         // }
         // if (buildDataFactory.level > 0)
         // {
         //     if (buildDataFactory.productionTime > 0)
         //     {
-        //         //ê°€ê³µì†Œ -> ë¼ˆì¡°ê°
+        //         //°¡°ø¼Ò -> »ÀÁ¶°¢
         //         int factoryCount = (second / buildDataFactory.productionTime);
 
         //         offLineSubBoneTime = second - buildDataFactory.productionTime;
@@ -155,13 +155,13 @@ public class CastleManager : MonoBehaviour
         //         var factoryAddValue = buildDataFactory.productionCount * factoryCount;
         //         var factoryResulValue = (long)Mathf.Min(buildDataFactory.TotlaMiningValue + factoryAddValue, buildDataFactory.maxSupplyAmount);
         //         buildDataFactory.TotlaMiningValue = factoryResulValue;
-        //         //            Debug.Log("ìºìŠ¬ -> ê°€ê³µì†Œ ì˜¤í”„ë¼ì¸ íšë“ ê¸ˆì•¡ : " + factoryAddValue + " ì‹¤ì œ ì ìš©ëœ ê°’ : " + factoryResulValue + " count " + factoryCount);
+        //         //            Debug.Log("Ä³½½ -> °¡°ø¼Ò ¿ÀÇÁ¶óÀÎ È¹µæ ±İ¾× : " + factoryAddValue + " ½ÇÁ¦ Àû¿ëµÈ °ª : " + factoryResulValue + " count " + factoryCount);
         //     }
 
         // }
         #endregion
 
-        // ì´ˆê¸° UI ì„¤ì • ( POPUP )
+        // ÃÊ±â UI ¼³Á¤ ( POPUP )
         var minePopup = (MinePopup)GetCastlePopupByType(CastlePopupType.mine);
         buildDataMine.goodsType = GoodsType.gold;
         minePopup.InitUIText(buildDataMine);
@@ -170,24 +170,24 @@ public class CastleManager : MonoBehaviour
         buildDataFactory.goodsType = GoodsType.bone;
         factoryPopup.InitUIText(buildDataFactory);
 
-        // ì´ˆê¸° UI ì„¤ì • ( CASTLE )
+        // ÃÊ±â UI ¼³Á¤ ( CASTLE )
         castleController.SetMineBuild(mineLevel);
         castleController.SetFactoryBuild(factoryLevel);
 
-        // ê±´ì„¤í•˜ê¸° ë²„íŠ¼ UI Disable
+        // °Ç¼³ÇÏ±â ¹öÆ° UI Disable
         if (mineLevel > 0) SetUnLockButton(64, 51, true);
         if (factoryLevel > 0) SetUnLockButton(65, 52, true);
 
     }
-    // ê³¨ë“œ ì±„êµ´
-    // CastleBuildingData í´ë˜ìŠ¤ë¥¼ ê¸°ì¤€ìœ¼ë¡œ ì½”ë£¨í‹´ì„ ì‚¬ìš©í•˜ì—¬ productionTime í•œë²ˆì”© productionCountì„ totlaValueì— ë”í•´ì£¼ê³  maxSupplyAmountì„ ë„˜ì–´ê°€ë©´ ë”ì´ìƒ totlaValueì— ë”í•˜ì§€ ì•ŠëŠ”ë‹¤
-    // ì´ í•¨ìˆ˜ëŠ” CastleBuildingDataë¥¼ ì¸ìë¡œ ë°›ì•„ ê³¨ë“œ ì±„êµ´ì„ í•˜ëŠ” IEnumeratorì…ë‹ˆë‹¤.
+    // °ñµå Ã¤±¼
+    // CastleBuildingData Å¬·¡½º¸¦ ±âÁØÀ¸·Î ÄÚ·çÆ¾À» »ç¿ëÇÏ¿© productionTime ÇÑ¹ø¾¿ productionCountÀ» totlaValue¿¡ ´õÇØÁÖ°í maxSupplyAmountÀ» ³Ñ¾î°¡¸é ´õÀÌ»ó totlaValue¿¡ ´õÇÏÁö ¾Ê´Â´Ù
+    // ÀÌ ÇÔ¼ö´Â CastleBuildingData¸¦ ÀÎÀÚ·Î ¹Ş¾Æ °ñµå Ã¤±¼À» ÇÏ´Â IEnumeratorÀÔ´Ï´Ù.
     IEnumerator MiningGold()
     {
 
         var popup = (MinePopup)GetCastlePopupByType(CastlePopupType.mine);
         digUpGoldTime = buildDataMine.productionTime;
-        popup.SetTextDigUpFullText("ì±„êµ´ì¤‘");
+        popup.SetTextDigUpFullText("Ã¤±¼Áß");
 
         while (true)
         {
@@ -195,21 +195,21 @@ public class CastleManager : MonoBehaviour
 
             if (digUpGoldTime <= 0)
             {
-                //ìµœëŒ€ ì €ì¥ëŸ‰ì— ë„ë‹¬í•˜ì§€ ì•Šì•˜ë‹¤ë©´
+                //ÃÖ´ë ÀúÀå·®¿¡ µµ´ŞÇÏÁö ¾Ê¾Ò´Ù¸é
                 if (buildDataMine.TotlaMiningValue < buildDataMine.maxSupplyAmount)
                 {
-                    //ë‹¤ì‹œ íƒ€ì´ë¨¸ ì´ˆê¸°í™”
+                    //´Ù½Ã Å¸ÀÌ¸Ó ÃÊ±âÈ­
                     digUpGoldTime = buildDataMine.productionTime;
                     buildDataMine.TotlaMiningValue = System.Math.Min(buildDataMine.TotlaMiningValue + buildDataMine.productionCount, buildDataMine.maxSupplyAmount);
                     GlobalData.instance.saveDataManager.SaveDataCastleSaveGold(buildDataMine.TotlaMiningValue);
-                    popup.SetTextDigUpFullText("ì±„êµ´ì¤‘");
+                    popup.SetTextDigUpFullText("Ã¤±¼Áß");
 
                 }
                 else
                 {
-                    //ìµœëŒ€ ì €ì¥ëŸ‰ì— ë„ë‹¬í–ˆë‹¤ë©´
+                    //ÃÖ´ë ÀúÀå·®¿¡ µµ´ŞÇß´Ù¸é
                     digUpGoldTime = 0;
-                    popup.SetTextDigUpFullText("ì €ì¥ì†Œê°€ ê½‰ ì°¾ìŠµë‹ˆë‹¤");
+                    popup.SetTextDigUpFullText("ÀúÀå¼Ò°¡ ²Ë Ã£½À´Ï´Ù");
                 }
 
             }
@@ -220,12 +220,12 @@ public class CastleManager : MonoBehaviour
         }
 
     }
-    // ë¼ˆì¡°ê° ì±„êµ´
+    // »ÀÁ¶°¢ Ã¤±¼
     IEnumerator MiningBone()
     {
         var popup = (MinePopup)GetCastlePopupByType(CastlePopupType.factory);
         digUpBoneTime = buildDataFactory.productionTime;
-        popup.SetTextDigUpFullText("ì±„êµ´ì¤‘");
+        popup.SetTextDigUpFullText("Ã¤±¼Áß");
 
         while (true)
         {
@@ -233,21 +233,21 @@ public class CastleManager : MonoBehaviour
             yield return null;
             if (digUpBoneTime <= 0)
             {
-                //ìµœëŒ€ ì €ì¥ëŸ‰ì— ë„ë‹¬í•˜ì§€ ì•Šì•˜ë‹¤ë©´
+                //ÃÖ´ë ÀúÀå·®¿¡ µµ´ŞÇÏÁö ¾Ê¾Ò´Ù¸é
                 if (buildDataFactory.TotlaMiningValue < buildDataFactory.maxSupplyAmount)
                 {
-                    //ë‹¤ì‹œ íƒ€ì´ë¨¸ ì´ˆê¸°í™”
+                    //´Ù½Ã Å¸ÀÌ¸Ó ÃÊ±âÈ­
                     digUpBoneTime = buildDataFactory.productionTime;
                     buildDataFactory.TotlaMiningValue = System.Math.Min(buildDataFactory.TotlaMiningValue + buildDataFactory.productionCount, buildDataFactory.maxSupplyAmount);
                     GlobalData.instance.saveDataManager.SaveDataCastleSaveBone(buildDataFactory.TotlaMiningValue);
-                    popup.SetTextDigUpFullText("ì±„êµ´ì¤‘");
+                    popup.SetTextDigUpFullText("Ã¤±¼Áß");
 
                 }
                 else
                 {
-                    //ìµœëŒ€ ì €ì¥ëŸ‰ì— ë„ë‹¬í–ˆë‹¤ë©´
+                    //ÃÖ´ë ÀúÀå·®¿¡ µµ´ŞÇß´Ù¸é
                     digUpBoneTime = 0;
-                    popup.SetTextDigUpFullText("ì €ì¥ì†Œê°€ ê½‰ ì°¾ìŠµë‹ˆë‹¤");
+                    popup.SetTextDigUpFullText("ÀúÀå¼Ò°¡ ²Ë Ã£½À´Ï´Ù");
 
                 }
             }
@@ -264,7 +264,7 @@ public class CastleManager : MonoBehaviour
         minePopup.SetTextDigUpTimeValue(maxDigUpTime, digUpTime);
         minePopup.SetTextTotalMiningValue(buildData.TotlaMiningValue);
     }
-    // ê±´ì„¤í•˜ê¸° ë²„íŠ¼ UI Enable/Disable
+    // °Ç¼³ÇÏ±â ¹öÆ° UI Enable/Disable
     void SetUnLockButton(int n1, int n2, bool active)
     {
         UtilityMethod.GetCustomTypeBtnByID(n1).gameObject.SetActive(!active);
@@ -277,11 +277,11 @@ public class CastleManager : MonoBehaviour
         return castlePopupList.FirstOrDefault(x => x.popupType == popupType);
     }
 
-    /// <summary> ê³¨ë“œ ì¸ì¶œ </summary>
-    // ì´ í•¨ìˆ˜ëŠ” ê³¨ë“œ ì¸ì¶œ ë²„íŠ¼ì„ ëˆŒë €ì„ ë•Œ í˜¸ì¶œë©ë‹ˆë‹¤.
+    /// <summary> °ñµå ÀÎÃâ </summary>
+    // ÀÌ ÇÔ¼ö´Â °ñµå ÀÎÃâ ¹öÆ°À» ´­·¶À» ¶§ È£ÃâµË´Ï´Ù.
     public void WithdrawGold()
     {
-        // BuildDataMineì´ ê°€ì§€ê³  ìˆëŠ” ì´ ì±„êµ´ëŸ‰ì„ withdrawnGold ë³€ìˆ˜ì— ì €ì¥í•©ë‹ˆë‹¤.
+        // BuildDataMineÀÌ °¡Áö°í ÀÖ´Â ÃÑ Ã¤±¼·®À» withdrawnGold º¯¼ö¿¡ ÀúÀåÇÕ´Ï´Ù.
         float withdrawnGold = buildDataMine.TotlaMiningValue;
 
         var minePopup = (MinePopup)GetCastlePopupByType(CastlePopupType.mine);
@@ -289,23 +289,23 @@ public class CastleManager : MonoBehaviour
         if (withdrawnGold > 0)
         {
             GlobalData.instance.soundManager.PlaySfxUI(SFX_TYPE.Reward);
-            // Debug.Logë¥¼ ì‚¬ìš©í•˜ì—¬ ì¸ì¶œëœ ê³¨ë“œ ì–‘ì„ ë””ë²„ê·¸ ì°½ì— ì¶œë ¥í•©ë‹ˆë‹¤.
-            //Debug.Log("ì¸ì¶œëœ ê³¨ë“œ: " + withdrawnGold);
+            // Debug.Log¸¦ »ç¿ëÇÏ¿© ÀÎÃâµÈ °ñµå ¾çÀ» µğ¹ö±× Ã¢¿¡ Ãâ·ÂÇÕ´Ï´Ù.
+            //Debug.Log("ÀÎÃâµÈ °ñµå: " + withdrawnGold);
 
-            // GlobalDataì˜ instanceì—ì„œ playerë¥¼ ê°€ì ¸ì™€, AddGold() í•¨ìˆ˜ë¥¼ ì‚¬ìš©í•˜ì—¬ playerì˜ ì†Œì§€ê¸ˆì— withdrawnGoldë§Œí¼ ì¶”ê°€í•©ë‹ˆë‹¤.
+            // GlobalDataÀÇ instance¿¡¼­ player¸¦ °¡Á®¿Í, AddGold() ÇÔ¼ö¸¦ »ç¿ëÇÏ¿© playerÀÇ ¼ÒÁö±İ¿¡ withdrawnGold¸¸Å­ Ãß°¡ÇÕ´Ï´Ù.
             GlobalData.instance.player.AddGold(withdrawnGold);
 
-            // ëª¨ë“  ê¸ˆ ì±„êµ´ëŸ‰ì„ ì¸ì¶œí–ˆìœ¼ë¯€ë¡œ BuildDataMine ê°ì²´ì˜ totlaMiningValueë¥¼ 0ìœ¼ë¡œ ì„¤ì •í•©ë‹ˆë‹¤. 
+            // ¸ğµç ±İ Ã¤±¼·®À» ÀÎÃâÇßÀ¸¹Ç·Î BuildDataMine °´Ã¼ÀÇ totlaMiningValue¸¦ 0À¸·Î ¼³Á¤ÇÕ´Ï´Ù. 
             buildDataMine.TotlaMiningValue = 0;
             GlobalData.instance.saveDataManager.SaveDataCastleSaveGold(buildDataMine.TotlaMiningValue);
         }
         else
         {
-            Debug.Log("ì¸ì¶œí•  ê³¨ë“œê°€ ì—†ìŠµë‹ˆë‹¤.");
+            Debug.Log("ÀÎÃâÇÒ °ñµå°¡ ¾ø½À´Ï´Ù.");
         }
     }
 
-    /// <summary> ë¼ˆì¡°ê° ì¸ì¶œ </summary>
+    /// <summary> »ÀÁ¶°¢ ÀÎÃâ </summary>
     public void WithdrawBone()
     {
         float withdrawnBone = buildDataFactory.TotlaMiningValue;
@@ -315,17 +315,17 @@ public class CastleManager : MonoBehaviour
         {
             GlobalData.instance.soundManager.PlaySfxUI(SFX_TYPE.Reward);
 
-            Debug.Log("ì¸ì¶œëœ ë¼ˆì¡°ê°: " + withdrawnBone);
+            Debug.Log("ÀÎÃâµÈ »ÀÁ¶°¢: " + withdrawnBone);
             GlobalData.instance.player.AddBone(withdrawnBone);
             buildDataFactory.TotlaMiningValue = 0;
             GlobalData.instance.saveDataManager.SaveDataCastleSaveBone(buildDataFactory.TotlaMiningValue);
         }
         else
         {
-            Debug.Log("ì¸ì¶œí•  ë¼ˆì¡°ê°ì´ ì—†ìŠµë‹ˆë‹¤.");
+            Debug.Log("ÀÎÃâÇÒ »ÀÁ¶°¢ÀÌ ¾ø½À´Ï´Ù.");
         }
     }
-    // TODO : ë¦¬í™í† ë§........
+    // TODO : ¸®ÆåÅä¸µ........
     public void OpenCastlePopup(EnumDefinition.CastlePopupType popupType)
     {
         switch (popupType)
@@ -349,18 +349,18 @@ public class CastleManager : MonoBehaviour
                 //factoryPopup.btnUpgrade.interactable = factoryNextLevelData != null;
                 break;
         }
-        // ì—…ê·¸ë ˆì´íŠ¸ ë²„íŠ¼ í™œì„±/ë¹„í™œì„±
+        // ¾÷±×·¹ÀÌÆ® ¹öÆ° È°¼º/ºñÈ°¼º
         GetCastlePopupByType(popupType).gameObject.SetActive(true);
         GlobalData.instance.uiController.ButtonInteractableCheck(EnumDefinition.RewardType.gem);
 
     }
-    // TODO : ë¦¬í™í† ë§........
+    // TODO : ¸®ÆåÅä¸µ........
     public void UpGradeCastle(CastlePopupType type)
     {
         switch (type)
         {
             case CastlePopupType.mine:
-                //ì—…ê·¸ë ˆì´ë“œ ë¹„ìš© ì²´í¬ ë° ë ˆë²¨ ì¦ê°€
+                //¾÷±×·¹ÀÌµå ºñ¿ë Ã¼Å© ¹× ·¹º§ Áõ°¡
                 CheckEnoughCostMine((isSuccess, upgradeBuildingData) =>
                 {
                     if (isSuccess)
@@ -372,31 +372,31 @@ public class CastleManager : MonoBehaviour
                         {
                             nextBuildData = new CastleBuildingData().Create().SetGoodsType(GoodsType.gold).Clone(nextLevelData);
                         }
-                        //í˜„ì¬ ë ˆë²¨ì— í•´ë‹¹í•˜ëŠ” UI Text ì„¸íŒ…
+                        //ÇöÀç ·¹º§¿¡ ÇØ´çÇÏ´Â UI Text ¼¼ÆÃ
                         popup.SetTextLevelData(upgradeBuildingData, nextBuildData);
-                        //ê±´ë¬¼ ì—…ê·¸ë ˆì´ë“œ ì—°ì¶œ
+                        //°Ç¹° ¾÷±×·¹ÀÌµå ¿¬Ãâ
                         castleController.SetBuildUpgrade(BuildingType.MINE, mineLevel);
-                        //Maxë ˆë²¨ì¼ ê²½ìš° UI ì„¸íŒ…
+                        //Max·¹º§ÀÏ °æ¿ì UI ¼¼ÆÃ
                         if (nextBuildData == null)
                         {
                             popup.SetMaxUI();
                         }
 
-                        // ë‹¤ìŒ ë ˆë²¨ì˜ ê´‘ì‚° ì •ë³´ ê°€ì ¸ì˜¤ê¸°
+                        // ´ÙÀ½ ·¹º§ÀÇ ±¤»ê Á¤º¸ °¡Á®¿À±â
                         var refBuildDataMine = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel);
-                        // Clone ë©”ì†Œë“œë¥¼ ì´ìš©í•˜ì—¬ BuildDataMine ê°ì²´ì˜ ë°ì´í„° ê°±ì‹ 
+                        // Clone ¸Ş¼Òµå¸¦ ÀÌ¿ëÇÏ¿© BuildDataMine °´Ã¼ÀÇ µ¥ÀÌÅÍ °»½Å
                         buildDataMine = new CastleBuildingData().Create().SetGoodsType(GoodsType.gold).Clone(refBuildDataMine);
 
                         //Debug.Log( isUpgrade + " mine level " + 
                         SetUnLockButton(64, 51, true);
-                        // ê³¨ë“œ ì±„êµ´ ì‹œì‘
+                        // °ñµå Ã¤±¼ ½ÃÀÛ
                         StopCoroutine("MiningGold");
                         StartCoroutine("MiningGold");
                         //Debug.Log("Upgrade Success " + type);
                     }
                     else
                     {
-                        // ì„íƒ„ ë¶€ì¡± POPUP
+                        // ¼®Åº ºÎÁ· POPUP
                         GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("Message", 16);
                         //Debug.Log("Upgrade Fail");
                     }
@@ -416,9 +416,9 @@ public class CastleManager : MonoBehaviour
                         {
                             nextBuildData = new CastleBuildingData().Create().SetGoodsType(GoodsType.coal).Clone(nextLevelData);
                         }
-                        //í˜„ì¬ ë ˆë²¨ì— í•´ë‹¹í•˜ëŠ” UI Text ì„¸íŒ…
+                        //ÇöÀç ·¹º§¿¡ ÇØ´çÇÏ´Â UI Text ¼¼ÆÃ
                         popup.SetTextLevelData(upgradeBuildingData, nextBuildData);
-                        //ê±´ë¬¼ ì—…ê·¸ë ˆì´ë“œ ì—°ì¶œ
+                        //°Ç¹° ¾÷±×·¹ÀÌµå ¿¬Ãâ
 
                         castleController.SetBuildUpgrade(BuildingType.FACTORY, factoryLevel);
                         if (nextBuildData == null)
@@ -430,16 +430,16 @@ public class CastleManager : MonoBehaviour
 
                         //Debug.Log(isUpgrade + " factory level " + factoryLevel);
                         SetUnLockButton(65, 52, true);
-                        // ê³¨ë“œ ì±„êµ´ ì‹œì‘
+                        // °ñµå Ã¤±¼ ½ÃÀÛ
                         StopCoroutine("MiningBone");
                         StartCoroutine("MiningBone");
 
-                        // ì„±ê³µ ë¡œê·¸
+                        // ¼º°ø ·Î±×
                         //Debug.Log("Upgrade Success " + type);
                     }
                     else
                     {
-                        // ì„íƒ„ ë¶€ì¡± POPUP
+                        // ¼®Åº ºÎÁ· POPUP
                         GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("Message", 16);
                         //Debug.Log("Upgrade Fail");
                     }
@@ -454,30 +454,30 @@ public class CastleManager : MonoBehaviour
         }
     }
     /*
-     * UpgradeMine - ê´‘ì‚° ì—…ê·¸ë ˆì´ë“œ ë©”ì†Œë“œ
+     * UpgradeMine - ±¤»ê ¾÷±×·¹ÀÌµå ¸Ş¼Òµå
      * 
-     * @param completeCallback: UnityAction<bool, CastleBuildingData> íƒ€ì…ì˜ ì½œë°± í•¨ìˆ˜. ì—…ê·¸ë ˆì´ë“œ ì„±ê³µ ì—¬ë¶€ì™€ ë‹¤ìŒ ë ˆë²¨ ì •ë³´ë¥¼ ì „ë‹¬í•©ë‹ˆë‹¤.
+     * @param completeCallback: UnityAction<bool, CastleBuildingData> Å¸ÀÔÀÇ Äİ¹é ÇÔ¼ö. ¾÷±×·¹ÀÌµå ¼º°ø ¿©ºÎ¿Í ´ÙÀ½ ·¹º§ Á¤º¸¸¦ Àü´ŞÇÕ´Ï´Ù.
      */
     public void CheckEnoughCostMine(UnityAction<bool, CastleBuildingData> completeCallback)
     {
-        // í”Œë ˆì´ì–´ê°€ ê°€ì§„ coal(resource)ì´ ê´‘ì‚°ì˜ ê°€ê²©ë³´ë‹¤ ë§ì„ ë•Œ ì—…ê·¸ë ˆì´ë“œ ì§„í–‰
+        // ÇÃ·¹ÀÌ¾î°¡ °¡Áø coal(resource)ÀÌ ±¤»êÀÇ °¡°İº¸´Ù ¸¹À» ¶§ ¾÷±×·¹ÀÌµå ÁøÇà
         if (GlobalData.instance.player.coal >= buildDataMine.price)
         {
-            // ê°€ê²©ë§Œí¼ resource ì°¨ê° í›„ ë ˆë²¨ ì—…ê·¸ë ˆì´ë“œ ì§„í–‰
+            // °¡°İ¸¸Å­ resource Â÷°¨ ÈÄ ·¹º§ ¾÷±×·¹ÀÌµå ÁøÇà
             GlobalData.instance.player.PayCoal(buildDataMine.price);
             mineLevel++;
             // set save data
             GlobalData.instance.saveDataManager.SaveDataCastMineleLevel(mineLevel);
-            // ë‹¤ìŒ ë ˆë²¨ì˜ ê´‘ì‚° ì •ë³´ ê°€ì ¸ì˜¤ê¸°
+            // ´ÙÀ½ ·¹º§ÀÇ ±¤»ê Á¤º¸ °¡Á®¿À±â
             var refBuildDataMine = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel);
-            // Clone ë©”ì†Œë“œë¥¼ ì´ìš©í•˜ì—¬ BuildDataMine ê°ì²´ì˜ ë°ì´í„° ê°±ì‹ 
+            // Clone ¸Ş¼Òµå¸¦ ÀÌ¿ëÇÏ¿© BuildDataMine °´Ã¼ÀÇ µ¥ÀÌÅÍ °»½Å
             buildDataMine = new CastleBuildingData().Create().SetGoodsType(GoodsType.gold).Clone(refBuildDataMine);
-            // ì—…ê·¸ë ˆì´ë“œ ì„±ê³µ ì²˜ë¦¬ë¥¼ ìœ„í•´ completeCallback í˜¸ì¶œ
+            // ¾÷±×·¹ÀÌµå ¼º°ø Ã³¸®¸¦ À§ÇØ completeCallback È£Ãâ
             completeCallback(true, buildDataMine);
         }
         else
         {
-            // Coal(resource) ë¶€ì¡±ìœ¼ë¡œ ì—…ê·¸ë ˆì´ë“œ ì‹¤íŒ¨ ì‹œ completeCallback í˜¸ì¶œ
+            // Coal(resource) ºÎÁ·À¸·Î ¾÷±×·¹ÀÌµå ½ÇÆĞ ½Ã completeCallback È£Ãâ
             completeCallback(false, null);
         }
     }
@@ -489,16 +489,16 @@ public class CastleManager : MonoBehaviour
             factoryLevel++;
             // set save data
             GlobalData.instance.saveDataManager.SaveDataCastleFactoryLevel(factoryLevel);
-            // ë‹¤ìŒ ë ˆë²¨ì˜ ê´‘ì‚° ì •ë³´ ê°€ì ¸ì˜¤ê¸°
+            // ´ÙÀ½ ·¹º§ÀÇ ±¤»ê Á¤º¸ °¡Á®¿À±â
             var refBuildDataFactory = GlobalData.instance.dataManager.GetBuildDataFactoryByLevel(factoryLevel);
-            // Clone ë©”ì†Œë“œë¥¼ ì´ìš©í•˜ì—¬ BuildDataMine ê°ì²´ì˜ ë°ì´í„° ê°±ì‹ 
+            // Clone ¸Ş¼Òµå¸¦ ÀÌ¿ëÇÏ¿© BuildDataMine °´Ã¼ÀÇ µ¥ÀÌÅÍ °»½Å
             buildDataFactory = new CastleBuildingData().Create().SetGoodsType(GoodsType.bone).Clone(refBuildDataFactory);
-            // ì—…ê·¸ë ˆì´ë“œ ì„±ê³µ ì²˜ë¦¬ë¥¼ ìœ„í•´ completeCallback í˜¸ì¶œ
+            // ¾÷±×·¹ÀÌµå ¼º°ø Ã³¸®¸¦ À§ÇØ completeCallback È£Ãâ
             completeCallback(true, buildDataFactory);
         }
         else
         {
-            // Coal(resource) ë¶€ì¡±ìœ¼ë¡œ ì—…ê·¸ë ˆì´ë“œ ì‹¤íŒ¨ ì‹œ completeCallback í˜¸ì¶œ
+            // Coal(resource) ºÎÁ·À¸·Î ¾÷±×·¹ÀÌµå ½ÇÆĞ ½Ã completeCallback È£Ãâ
             completeCallback(false, null);
         }
     }
@@ -513,20 +513,20 @@ public class CastleManager : MonoBehaviour
 [System.Serializable]
 public class CastleBuildingData
 {
-    // ë ˆë²¨
+    // ·¹º§
     public int level;
-    // ê³¨ë“œ ìƒì‚°ëŸ‰
+    // °ñµå »ı»ê·®
     public float productionCount;
-    // ê³¨ë“œ ìµœëŒ€ ì €ì¥ëŸ‰ 
+    // °ñµå ÃÖ´ë ÀúÀå·® 
     public float maxSupplyAmount;
-    // ìƒì‚° ì‹œê°„
+    // »ı»ê ½Ã°£
     public int productionTime;
-    // ì„íƒ„ í•„ìš”ëŸ‰
+    // ¼®Åº ÇÊ¿ä·®
     public float price;
     public string currencyType;
-    // ìƒì‚°ë˜ëŠ” ì¬í™” íƒ€ì…    
+    // »ı»êµÇ´Â ÀçÈ­ Å¸ÀÔ    
     public EnumDefinition.GoodsType goodsType;
-    // ì´ ìƒì‚°ëŸ‰
+    // ÃÑ »ı»ê·®
     float totlaMiningValue;
     public float TotlaMiningValue
     {

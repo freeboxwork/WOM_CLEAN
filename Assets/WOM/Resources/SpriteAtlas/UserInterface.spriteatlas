@@ -132,6 +132,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 6dabe6d57c9063b40949a33c26fe949d, type: 3}
   - {fileID: 21300000, guid: cf33b4f588e264da0b0d1264f151e2ff, type: 3}
   - {fileID: 21300000, guid: 0ec3abf5d80765b408c67aa4a051b937, type: 3}
+  - {fileID: 21300000, guid: 4d4d92069793ffe4db3aaa71fa9a3ae7, type: 3}
   - {fileID: 21300000, guid: 67b5fe063942b0d499f15abf9e8dcfc6, type: 3}
   - {fileID: 21300000, guid: 00d0ce16d5fbf514fa48095c36b93ca8, type: 3}
   - {fileID: 21300000, guid: 11deb6660c0214411821d7fba3f10104, type: 3}
@@ -202,6 +203,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 9af91e5be2e007d4bac5e184e8455f0a, type: 3}
   - {fileID: 21300000, guid: d1def07b59a70aa4098c3266acbc6f0b, type: 3}
   - {fileID: 21300000, guid: 81afdb7ba375c4392875bf182c0a1975, type: 3}
+  - {fileID: 21300000, guid: 6bdba1bb1983ee44f91a9daa6f0af40a, type: 3}
   - {fileID: 21300000, guid: 77f044bb9753f1945afbb5bebb8a6850, type: 3}
   - {fileID: 21300000, guid: d360b8bbe415d394eb2365aad661fe22, type: 3}
   - {fileID: 21300000, guid: 6703720c6d5b76a47bc50dd799691e1e, type: 3}
@@ -226,6 +228,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: d40c9aad39848394f953bfde1cfa7fa3, type: 3}
   - {fileID: 21300000, guid: e0838dadf4fa764459db5d7e4a20ed3b, type: 3}
   - {fileID: 21300000, guid: 7f289cbdf9a682741aa10bc5b149f244, type: 3}
+  - {fileID: 21300000, guid: a90d1ccd4e362b74ba8026cb3c41dda0, type: 3}
   - {fileID: 21300000, guid: dd4a1dcdc9e9fd345a52392e5436edbf, type: 3}
   - {fileID: 21300000, guid: 6a4431dd713dd3c44b0a76abf5625e0f, type: 3}
   - {fileID: 21300000, guid: ac34c0fdaf0ce564d89e16abb94548bb, type: 3}
@@ -341,6 +344,7 @@ SpriteAtlas:
   - U_Frame_Hero
   - Icon_Stopwatch
   - Icon_GoldBoss
+  - QuestSlot 1
   - DNA_skillDuration__
   - Popup_Panel_1
   - Shop_Package02
@@ -411,6 +415,7 @@ SpriteAtlas:
   - Icon_Gift
   - 256
   - Shop_Package00
+  - Frame_Concave 1
   - Key_Skull
   - btn_Base_RollOver
   - Key_Gold
@@ -435,6 +440,7 @@ SpriteAtlas:
   - Popup_Panel_3
   - Small_Button_Edge
   - DNA_goldPig
+  - QuestSlot_light
   - btn_Base_Select
   - btn_Base_Press
   - Icon_Chest

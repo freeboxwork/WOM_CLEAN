@@ -68,6 +68,8 @@ public class UiController : MonoBehaviour
 
 
     public GameObject menuGameObject;
+    [SerializeField] CanvasGroup[] canvasGroups;
+
     bool isMenuHide = false;
     void Start()
     {
@@ -487,6 +489,7 @@ public class UiController : MonoBehaviour
         //     ToggleChallengeBossButton(false);
 
         isCastleOpen = true;
+        //곤충 생성 타이머 종료
         GlobalData.instance.insectSpwanManager.AllTimerStop();
         // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
         StartCoroutine(GlobalData.instance.effectManager.goldPoolingCont.DisableGoldEffects());
@@ -516,10 +519,13 @@ public class UiController : MonoBehaviour
             monster.gameObject.SetActive(false);
             // 활성화된 곤충 모두 비활성화
             GlobalData.instance.insectManager.DisableAllAvtiveInsects();
+            
             mainPanels[(int)MenuPanelType.castle].SetActive(true);
 
             // UI 비활성화
-            UtilityMethod.GetCustomTypeGMById(6).gameObject.SetActive(false);
+            //UtilityMethod.GetCustomTypeGMById(6).gameObject.SetActive(false);
+            EnableCanvadGroup(EnumDefinition.CanvasTYPE.Castle);
+
 
         }));
 
@@ -531,6 +537,22 @@ public class UiController : MonoBehaviour
         UtilityMethod.EnableUIEventSystem(true);
 
     }
+
+
+    public void EnableCanvadGroup(CanvasTYPE type)
+    {
+        for (int i = 0; i < canvasGroups.Length; i++)
+        {
+            canvasGroups[i].alpha = 0;
+            canvasGroups[i].interactable = false;
+            canvasGroups[i].blocksRaycasts = false;
+        }
+
+        canvasGroups[(int)type].alpha = 1;
+        canvasGroups[(int)type].interactable = true;
+        canvasGroups[(int)type].blocksRaycasts = true;
+    }
+    
 
     IEnumerator ExitCastlePanel()
     {
@@ -554,7 +576,8 @@ public class UiController : MonoBehaviour
             mainPanels[(int)MenuPanelType.castle].gameObject.SetActive(false);
 
             // UI 활성화
-            UtilityMethod.GetCustomTypeGMById(6).gameObject.SetActive(true);
+            //UtilityMethod.GetCustomTypeGMById(6).gameObject.SetActive(true);
+            EnableCanvadGroup(EnumDefinition.CanvasTYPE.Main);
 
             var monster = GlobalData.instance.player.currentMonster;
             monster.gameObject.SetActive(true);

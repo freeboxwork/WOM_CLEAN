@@ -20,7 +20,7 @@ public class MonsterKingBullet : MonoBehaviour
             if (tag.Contains("monster"))
             {
                 monsterKingController.HitMonster();
-                Debug.Log("Hit Monster - by monstreKingBullet");
+                //Debug.Log("Hit Monster - by monstreKingBullet");
             }
         }
     }

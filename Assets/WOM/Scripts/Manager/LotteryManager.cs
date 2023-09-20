@@ -194,6 +194,8 @@ public class LotteryManager : MonoBehaviour
                     //소환레벨 UI세팅
                     SetSummonGradeData(GlobalData.instance.dataManager.GetSummonGradeDataByLevel(summonGradeLevel));
                     SetGambleData(GlobalData.instance.dataManager.GetUnionGambleDataBySummonGrade(summonGradeLevel));
+                    randomGradeValues = GetRandomArrayValue();
+
                 }
 
                 PopupUIUpdate();

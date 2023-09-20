@@ -67,8 +67,8 @@ public class SkillManager : MonoBehaviour
             if (saveData.isUnLock)
             {
                 UnLockSkillButton(type, inGameData.level);
-                if (saveData.isCooltime)
-                    skillBtns[(int)type].ReloadCoolTime();
+
+                skillBtns[(int)type].Init(saveData.isCooltime, saveData.leftCoolTime);
             }
 
             skillBtns[(int)type].SetTxtLevel(inGameData.level);
@@ -183,7 +183,7 @@ public class SkillManager : MonoBehaviour
 
             // 구매
             GlobalData.instance.player.PayGold((int)skillPrice);
-            Debug.Log($" {skillData.name} 스킬을 구매 하였습니다.");
+            //Debug.Log($" {skillData.name} 스킬을 구매 하였습니다.");
             // 레벨업
             inGameData.level++;
 

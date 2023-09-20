@@ -483,7 +483,7 @@ public class StatManager : MonoBehaviour
     {
 
         allUnitCriticalOn = true;
-        Debug.Log("EnableSkill_AllUnitCriticalChanceUP");
+        //Debug.Log("EnableSkill_AllUnitCriticalChanceUP");
 
         var data = GetSkillData(SkillType.allUnitCriticalChanceUp);
         skill_AllUnitCriticalChanceUp = data.power;

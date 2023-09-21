@@ -15,11 +15,7 @@ public class ButtonInteractableCheck : MonoBehaviour
 
     void Start()
     {
-        if (TryGetComponent(out Button button))
-        {
-            btn = button;
-            InteractableCheck();
-        }
+        btn = GetComponent<Button>();
     }
 
     public void InteractableCheck()

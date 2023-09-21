@@ -10,17 +10,13 @@ using Unity.Mathematics;
 /// </summary>
 public class LotteryManager : MonoBehaviour
 {
-    public int curSummonGrade = 0; // 소환 등급 데이터 
-    public int lottreyRoundCount = 0;     // 뽑기 시도 카운트
     public UnionGambleData curGambleData;
     public SummonGradeData curSummonGradeData;
-    public Transform trCardsParent;
     public LotteryCard prefabLotteryCard;
     public List<LotteryCard> lotteryCards = new List<LotteryCard>();
-    public float cardOpenDeayTime = 0.2f;
 
     public LotteryAnimationController lotteryAnimationController;
-    EnumDefinition.LotteryPageType curLotteryPageType;
+    public CampPopup campPopup;
 
     public List<Sprite> unionFaceNormal = new List<Sprite>();
     public List<Sprite> unionFaceHigh = new List<Sprite>();
@@ -68,14 +64,6 @@ public class LotteryManager : MonoBehaviour
         unionFaceDatas.Add(unionFaceUnique);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            //StartCoroutine(CardOpen(10));
-        }
-    }
 
     public void SetGambleData(UnionGambleData unionGambleData)
     {
@@ -121,7 +109,7 @@ public class LotteryManager : MonoBehaviour
 
     public void LotteryStart(int roundCount, int payValue, UnityAction gameEndEvent, EnumDefinition.RewardType rewardType)
     {
-        if (lotteryAnimationController.toggleRepeatGame.isOn)
+        if (campPopup.GetIsOnToggleRepeatUnion())
             StartCoroutine(RepeatGame(roundCount, payValue, gameEndEvent, rewardType));
         else
             StartCoroutine(CardOpen(roundCount, payValue, gameEndEvent, rewardType));
@@ -129,7 +117,7 @@ public class LotteryManager : MonoBehaviour
 
     IEnumerator RepeatGame(int roundCount, int payValue, UnityAction gameEndEvent, EnumDefinition.RewardType rewardType)
     {
-        while (lotteryAnimationController.toggleRepeatGame.isOn)
+        while (campPopup.GetIsOnToggleRepeatUnion())
         {
             yield return StartCoroutine(CardOpen(roundCount, payValue, gameEndEvent, rewardType));
             yield return new WaitForSeconds(0.4f);
@@ -156,9 +144,6 @@ public class LotteryManager : MonoBehaviour
 
             // 닫기 버튼 비활성화
             UtilityMethod.GetCustomTypeBtnByID(44).interactable = false;
-
-            // 다시 뽑기 버튼 비활성화
-            UtilityMethod.SetBtnsInteractableEnable(new List<int> { 17, 18, 19 }, false);
 
             // 스킵 버튼 활성화
             //UtilityMethod.SetBtnInteractableEnable(33, true);
@@ -205,20 +190,8 @@ public class LotteryManager : MonoBehaviour
 
             yield return new WaitForSeconds(0.6f);
 
-            //연속 뽑기중이 아닐때만 버튼 활성화
-            if (!lotteryAnimationController.toggleRepeatGame.isOn)
-            {
-                // 뽑기 버튼 활성화
-                UtilityMethod.SetBtnsInteractableEnable(new List<int> { 17, 18, 19 }, true);
-            }
-
-            // 스킵 버튼 비활성화
-            //UtilityMethod.SetBtnInteractableEnable(33, false);
-
             // 닫기 버튼 활성화
             UtilityMethod.GetCustomTypeBtnByID(44).interactable = true;
-
-
 
             gameEndEvent.Invoke();
 
@@ -277,11 +250,6 @@ public class LotteryManager : MonoBehaviour
         campPopup.SetTxtSummonCount(totalGambleCount, curSummonGradeData.count);
     }
 
-    void LotteryClose()
-    {
-
-    }
-
     public IEnumerator MakeCardOption(int gameCount)
     {
         openedUnionTypeCards = new List<EnumDefinition.UnionGradeType>();
@@ -320,17 +288,9 @@ public class LotteryManager : MonoBehaviour
 
 
         lotteryAnimationController.gameObject.SetActive(true);
-        EnableLotteryBtnsSet(EnumDefinition.LotteryPageType.UNION);
         lotteryAnimationController.StartLotteryAnimation();
         yield return StartCoroutine(lotteryAnimationController.ShowUnionSlotCardOpenProcess(unionIndexList.ToArray()));
         GlobalData.instance.unionManager.AddUnions(unionIndexList);
-    }
-
-    void EnableLotteryBtnsSet(EnumDefinition.LotteryPageType lotteryPageType)
-    {
-        var unionPage = lotteryPageType == EnumDefinition.LotteryPageType.UNION;
-        UtilityMethod.GetCustomTypeGMById(8).SetActive(unionPage);
-        UtilityMethod.GetCustomTypeGMById(9).SetActive(!unionPage);
     }
 
     int GetRandomFaceIndex()
@@ -356,40 +316,5 @@ public class LotteryManager : MonoBehaviour
         array[5] = data.unique;
         return array;
     }
-
-    //float ChooseUnionType(float[] probs)
-    //{
-    //    float total = 0;
-    //    foreach (float elem in probs)
-    //    {
-    //        total += elem;
-    //    }
-    //    float randomPoint = Random.value * total;
-
-    //    for (int i = 0; i < probs.Length; i++)
-    //    {
-    //        if (randomPoint < probs[i])
-    //        {
-    //            return i;
-    //        }
-    //        else
-    //        {
-    //            randomPoint -= probs[i];
-    //        }
-    //    }
-    //    return probs.Length - 1;
-    //}
-
-
-    private void OnDisable()
-    {
-        ResetValues();
-    }
-
-    void ResetValues()
-    {
-
-    }
-
 
 }

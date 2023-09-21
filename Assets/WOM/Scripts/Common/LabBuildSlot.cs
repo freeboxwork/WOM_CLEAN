@@ -17,10 +17,12 @@ public class LabBuildSlot : MonoBehaviour
 
     void SetButtonEvent()
     {
-        btnLevelUp.onClick.AddListener(() =>
-        {
-            GlobalData.instance.labBuildingManager.LevelUpLabBuild(goodsType);
-        });
+        btnLevelUp.onClick.AddListener(ClickButton);
+    }
+    
+    void ClickButton()
+    {
+        GlobalData.instance.labBuildingManager.LevelUpLabBuild(goodsType);
     }
 
     public void SetUI(LabBuildIngameData data, bool isMax)

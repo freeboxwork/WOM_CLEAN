@@ -26,11 +26,52 @@ public class MinePopup : CastlePopupBase
     public Button btnGetGold;
     public Button btnUpgrade;
 
-    public CanvasGroup canvasGroup;
-
     //현재 클래스 TextMeshProUGUI 타입의 맴버변수의 개별 text 값을 각각 설정하는 개별 함수
-    
 
+
+    protected override void Awake() {
+        base.Awake();
+    }
+
+    void Start() 
+    {
+        SetButtonEvents();
+    }
+    void SetButtonEvents()
+    {
+        btnGetGold.onClick.AddListener(() =>
+        {
+            switch (popupType)
+            {
+                case EnumDefinition.CastlePopupType.mine:
+                    GlobalData.instance.castleManager.WithdrawGold();
+                    break;
+                case EnumDefinition.CastlePopupType.factory:
+                    GlobalData.instance.castleManager.WithdrawBone();
+                    break;
+            }
+        });
+
+        btnUpgrade.onClick.AddListener(ClockUpgradeButton);
+
+        closeButton.onClick.AddListener(() =>
+        {
+            HidePopup();
+        });
+    }
+    public override void ShowPopup()
+    {
+        base.ShowPopup();
+    }
+    public override void HidePopup()
+    {
+        base.HidePopup();
+    }
+
+    void ClockUpgradeButton()
+    {
+        GlobalData.instance.castleManager.UpGradeCastle(popupType);
+    }
     //실시간 채굴 시간
     public void SetTextDigUpTimeValue(float max, float current)
     {
@@ -84,38 +125,7 @@ public class MinePopup : CastlePopupBase
     {
         totlaMiningValue.text = UtilityMethod.ChangeSymbolNumber(text);
     }
-    public void SetShowCanvasGroup(bool isShow)
-    {
-        canvasGroup.alpha = isShow ? 1 : 0;
-        canvasGroup.blocksRaycasts = isShow;
-    }
 
-
-    private void Start()
-    {
-        SetButtonEvents();
-    }
-
-    void SetButtonEvents()
-    {
-        btnGetGold.onClick.AddListener(() =>
-        {
-            switch (popupType)
-            {
-                case EnumDefinition.CastlePopupType.mine:
-                    GlobalData.instance.castleManager.WithdrawGold();
-                    break;
-                case EnumDefinition.CastlePopupType.factory:
-                    GlobalData.instance.castleManager.WithdrawBone();
-                    break;
-            }
-        });
-
-        btnUpgrade.onClick.AddListener(() =>
-        {
-            GlobalData.instance.castleManager.UpGradeCastle(popupType);
-        });
-    }
 
     public void SetMaxUI()
     {

@@ -75,10 +75,12 @@ public class GlobalController : MonoBehaviour
 
         // Player data 세팅
         yield return StartCoroutine(player.Init(playerDataManager.saveData));
-
+        // 캐슬 초기화
+        yield return StartCoroutine(GlobalData.instance.castleManager.Init());
+        // 뽑기 매니저 초기화 ( 첫 뽑기 데이터는 모두 0번 )
+        yield return StartCoroutine(lotteryManager.Init());
         // UI Controller 세팅
         yield return StartCoroutine(uiController.Init());
-
         // 몬스터 세팅
         yield return StartCoroutine(monsterManager.Init(stageManager.stageData.stageId));
 
@@ -107,9 +109,6 @@ public class GlobalController : MonoBehaviour
         // 진화매니저 초기 세팅
         yield return StartCoroutine(evolutionManager.Init());
 
-        // 뽑기 매니저 초기화 ( 첫 뽑기 데이터는 모두 0번 )
-        yield return StartCoroutine(lotteryManager.Init());
-
         // 진화 주사위 뽑기 세팅
         yield return StartCoroutine(evolutionDiceLotteryManager.Init());
 
@@ -130,9 +129,6 @@ public class GlobalController : MonoBehaviour
 
         // 광고 매니저 초기화
         yield return StartCoroutine(adManager.Init());
-
-        // 캐슬 초기화
-        yield return StartCoroutine(GlobalData.instance.castleManager.Init());
 
         // 랩 초기화
         yield return StartCoroutine(labBuildingManager.Init());
@@ -157,6 +153,8 @@ public class GlobalController : MonoBehaviour
         var active = GlobalData.instance.tutorialManager.GetTutorialSetId() > 4 ? true : false;
             uiController.castleButtonObj.SetActive(active);
         // 트랜지션 아웃 ( black screen )
+
+
         yield return StartCoroutine(GlobalData.instance.effectManager.TransitionOut());
         // 한 프레임 대기
         yield return new WaitForEndOfFrame();

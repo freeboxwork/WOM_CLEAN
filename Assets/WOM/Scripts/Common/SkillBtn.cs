@@ -126,8 +126,7 @@ public class SkillBtn : MonoBehaviour
 
             animCont.animData = animDataUsingSkill;
 
-            //스킬 사용
-            GlobalData.instance.statManager.UsingSkill(skillType);
+
 
             // 일일 퀘스트 완료 : 스킬 사용
             EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.useSkill);
@@ -147,13 +146,14 @@ public class SkillBtn : MonoBehaviour
             var skillStartTime = Time.time;
             skillLeftTime = calcSkillTime;
 
-            // ui 전환 효과가 발동되면 대기
-            //yield return new WaitUntil(() =>  GlobalData.instance.statManager.transitionUI == false);
-            skillAddValue = true;
-
             //backLightImage.DOColor의 Loop를 종료
             backLightImage.DOKill();
             backLightImage.DOColor(Color.red, 0.2f);
+
+            //버프 이펙트 처리를 위한 변수
+            skillAddValue = true;
+            //스킬 사용 스텟을 적용시키기 위함
+            GlobalData.instance.statManager.UsingSkill(skillType);
 
             while (skillLeftTime > 0)
             {

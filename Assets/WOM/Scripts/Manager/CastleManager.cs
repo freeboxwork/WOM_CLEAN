@@ -43,6 +43,7 @@ public class CastleManager : MonoBehaviour
         {
             UpGradeCastle(CastlePopupType.factory);
         });
+
         //금광 팝업 열기
         UtilityMethod.SetBtnEventCustomTypeByID(51, () =>
         {
@@ -109,57 +110,6 @@ public class CastleManager : MonoBehaviour
 
         buildDataMine.TotlaMiningValue = GlobalData.instance.saveDataManager.saveDataTotal.saveDataCastle.savedGold;
         buildDataFactory.TotlaMiningValue = GlobalData.instance.saveDataManager.saveDataTotal.saveDataCastle.savedBone;
-        //TODO : 일단 오프라인 시간하는 부분 비활성화 / 현재까지 모아논 골드는 저장되지 않고 단순히 접속시간에 따른 생산량만 계산하기때문에
-        #region  오프라인 시간에 따른 금광 가공소 세팅
-        // // offline time 보상
-        // var offlineTime = GlobalData.instance.playerDataManager.GetOfflineTimeValue();
-        // var second = (int)offlineTime.TotalSeconds;
-
-        // //빌딩 레벨이 0레벨 이상일 때만 오프라인 시간 계산
-        // if (buildDataMine.level > 0)
-        // {
-        //     //        Debug.Log("오프라인 타임! : " + second + " 초 ");
-        //     if (buildDataMine.productionTime > 0)
-        //     {
-        //         //광산 -> 골드
-        //         int mineCount = (second / buildDataMine.productionTime);
-        //         offLineSubGoldTime = second - buildDataMine.productionTime;
-
-        //         if (mineCount <= 0)
-        //         {
-        //             offLineSubGoldTime = buildDataMine.productionTime - second;
-        //             offLineSubGoldTime = buildDataMine.productionTime - offLineSubGoldTime;
-        //         }
-
-        //         var mineAddValue = buildDataMine.productionCount * mineCount;
-        //         var mineResulValue = (long)Mathf.Min(buildDataMine.TotlaMiningValue + mineAddValue, buildDataMine.maxSupplyAmount);
-        //         buildDataMine.TotlaMiningValue = mineResulValue;
-        //         //            Debug.Log("캐슬 -> 광산 오프라인 획득 금액 : " + mineAddValue + " 실제 적용된 값 : " + mineResulValue + " count " + mineCount);
-        //     }
-        // }
-        // if (buildDataFactory.level > 0)
-        // {
-        //     if (buildDataFactory.productionTime > 0)
-        //     {
-        //         //가공소 -> 뼈조각
-        //         int factoryCount = (second / buildDataFactory.productionTime);
-
-        //         offLineSubBoneTime = second - buildDataFactory.productionTime;
-
-        //         if (factoryCount <= 0)
-        //         {
-        //             offLineSubBoneTime = buildDataFactory.productionTime - second;
-        //             offLineSubBoneTime = buildDataFactory.productionTime - offLineSubBoneTime;
-        //         }
-
-        //         var factoryAddValue = buildDataFactory.productionCount * factoryCount;
-        //         var factoryResulValue = (long)Mathf.Min(buildDataFactory.TotlaMiningValue + factoryAddValue, buildDataFactory.maxSupplyAmount);
-        //         buildDataFactory.TotlaMiningValue = factoryResulValue;
-        //         //            Debug.Log("캐슬 -> 가공소 오프라인 획득 금액 : " + factoryAddValue + " 실제 적용된 값 : " + factoryResulValue + " count " + factoryCount);
-        //     }
-
-        // }
-        #endregion
 
         // 초기 UI 설정 ( POPUP )
         var minePopup = (MinePopup)GetCastlePopupByType(CastlePopupType.mine);
@@ -328,11 +278,14 @@ public class CastleManager : MonoBehaviour
     // TODO : 리펙토링........
     public void OpenCastlePopup(EnumDefinition.CastlePopupType popupType)
     {
+        //버튼 스프라이트만 변경되는 부분
+        //GlobalData.instance.uiController.ButtonInteractableCheck(EnumDefinition.RewardType.gem);
+
         switch (popupType)
         {
             case CastlePopupType.mine:
                 var minePopup = (MinePopup)GetCastlePopupByType(popupType);
-                minePopup.SetShowCanvasGroup(true);
+                
                 var mineNextLevelData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel + 1);
                 if (mineNextLevelData == null)
                     minePopup.SetMaxUI();
@@ -342,21 +295,25 @@ public class CastleManager : MonoBehaviour
                 break;
             case CastlePopupType.factory:
                 var factoryPopup = (MinePopup)GetCastlePopupByType(popupType);
-                factoryPopup.SetShowCanvasGroup(true);
+                
                 var factoryNextLevelData = GlobalData.instance.dataManager.GetBuildDataFactoryByLevel(factoryLevel + 1);
                 if (factoryNextLevelData == null)
                     factoryPopup.SetMaxUI();
                 //factoryPopup.btnUpgrade.interactable = factoryNextLevelData != null;
                 break;
         }
+
         // 업그레이트 버튼 활성/비활성
-        GetCastlePopupByType(popupType).gameObject.SetActive(true);
-        GlobalData.instance.uiController.ButtonInteractableCheck(EnumDefinition.RewardType.gem);
+        GetCastlePopupByType(popupType).ShowPopup();
+
+        //GetCastlePopupByType(popupType).gameObject.SetActive(true);
 
     }
     // TODO : 리펙토링........
     public void UpGradeCastle(CastlePopupType type)
     {
+        Debug.Log(type);
+
         switch (type)
         {
             case CastlePopupType.mine:
@@ -387,8 +344,13 @@ public class CastleManager : MonoBehaviour
 
                         // 다음 레벨의 광산 정보 가져오기
                         var refBuildDataMine = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel);
+
+                        var tempSaveGold = buildDataMine.TotlaMiningValue;
+
                         // Clone 메소드를 이용하여 BuildDataMine 객체의 데이터 갱신
                         buildDataMine = new CastleBuildingData().Create().SetGoodsType(GoodsType.gold).Clone(refBuildDataMine);
+                        buildDataMine.TotlaMiningValue = tempSaveGold;
+                        
 
                         //Debug.Log( isUpgrade + " mine level " + 
                         SetUnLockButton(64, 51, true);
@@ -429,6 +391,9 @@ public class CastleManager : MonoBehaviour
                             popup.SetMaxUI();
                         }
                         var refBuildDataFactory = GlobalData.instance.dataManager.GetBuildDataFactoryByLevel(factoryLevel);
+                        var tempSaveBone = buildDataMine.TotlaMiningValue;
+                        buildDataFactory.TotlaMiningValue = tempSaveBone;
+
                         buildDataFactory = new CastleBuildingData().Create().SetGoodsType(GoodsType.bone).Clone(refBuildDataFactory);
 
                         //Debug.Log(isUpgrade + " factory level " + factoryLevel);
@@ -466,6 +431,7 @@ public class CastleManager : MonoBehaviour
         // 플레이어가 가진 coal(resource)이 광산의 가격보다 많을 때 업그레이드 진행
         if (GlobalData.instance.player.coal >= buildDataMine.price)
         {
+            GlobalData.instance.soundManager.PlaySfxInGame(SFX_TYPE.Upgrade);
             // 가격만큼 resource 차감 후 레벨 업그레이드 진행
             GlobalData.instance.player.PayCoal(buildDataMine.price);
             mineLevel++;
@@ -477,9 +443,13 @@ public class CastleManager : MonoBehaviour
             buildDataMine = new CastleBuildingData().Create().SetGoodsType(GoodsType.gold).Clone(refBuildDataMine);
             // 업그레이드 성공 처리를 위해 completeCallback 호출
             completeCallback(true, buildDataMine);
+
+            Debug.Log("업그레이드 성공");
         }
         else
         {
+            Debug.Log("업그레이드 실패");
+
             // Coal(resource) 부족으로 업그레이드 실패 시 completeCallback 호출
             completeCallback(false, null);
         }

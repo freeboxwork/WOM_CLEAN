@@ -10,6 +10,7 @@ using DG.Tweening;
 
 public class UiController : MonoBehaviour
 {
+    public List<CanvasGroup> popUpFadeCanvasGroups;
     public CustomTypeDataManager customTypeDataManager;
 
     [Header("Monster 관련 UI 항목")]
@@ -105,9 +106,15 @@ public class UiController : MonoBehaviour
         // 메인 판넬 스크롤뷰 시작 위치 가져오기 ( 리셋을 위해 )
         GetMainPannelsScrollViewPosY();
 
+       
+        ButtonInteractableCheck();
+
+
         yield return null;
 
     }
+
+    
 
     // 투토리얼 진행시 UI 초기화
     public void AllDisableUI()
@@ -126,14 +133,11 @@ public class UiController : MonoBehaviour
 
     }
 
-    public void ButtonInteractableCheck(EnumDefinition.RewardType rewardType)
+    public void ButtonInteractableCheck()
     {
         foreach (var btn in btnInteractableCheckList)
         {
-            if (btn.gameObject.activeSelf == false)
-                continue;
-            if (btn.type == rewardType)
-                btn.InteractableCheck();
+            btn.InteractableCheck();
         }
     }
 
@@ -772,4 +776,23 @@ public class UiController : MonoBehaviour
         UtilityMethod.GetCustomTypeGMById(16).SetActive(isActive);
         MainMenuAllUnSelect();
     }
+
+
+    public void ShowFadeCanvasGroup(EnumDefinition.CanvasGroupTYPE type)
+    {
+        popUpFadeCanvasGroups[(int)type].interactable = true;
+        
+        popUpFadeCanvasGroups[(int)type].DOFade(1, 0.3f).SetEase(Ease.OutQuint).OnComplete(() =>
+        {
+            popUpFadeCanvasGroups[(int)type].blocksRaycasts = true;
+        });
+
+    }
+    public void HideFadeCanvasGroup(EnumDefinition.CanvasGroupTYPE type)
+    {
+        popUpFadeCanvasGroups[(int)type].interactable = false;
+        popUpFadeCanvasGroups[(int)type].blocksRaycasts = false;
+        popUpFadeCanvasGroups[(int)type].DOFade(0, 0.3f).SetEase(Ease.OutQuint);
+    }
+
 }

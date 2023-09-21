@@ -7,66 +7,17 @@ namespace ProjectGraphics
     public class LotteryAnimationController : MonoBehaviour
     {
         public SpriteFileData data;
-        [Header("DNA Icon ?ù¥ÎØ∏Ï??"), SerializeField]
         private Sprite[] dnaIcons;
-        [Header("?ú†?ãà?ò®Î°úÌÑ∞Î¶? ?ù¥ÎØ∏Ï??")]
         public Color[] effectColor;
         public Sprite[] gradeBackImage;
         public Lottery_Slot[] slots;
 
-        [Header("?ä§?Çµ??? ?ëêÏ¢ÖÎ•òÎ°? Î∂ÑÎ•ò ?ïòÍ≥? ?îÑÎ°úÏÑ∏?ä§ ?Åù?Çò?èÑ ?ä§?Çµ Î≥??àò ?ú†Ïß?")]
         private bool isSkip = true;
         private bool isSkipDNA = true;
         public bool isUnion = true;
         public bool isEnd = false;
-
-        [Header("Ï∫†ÌîÑ?åù?óÖ")]
         public CampPopup campPopup;
-
-        public Toggle[] toggles; // 0 : ?ó∞?Üç?Üå?ôò , 1 : ?ó∞Ï∂? ?ä§?Çµ
-        public Toggle toggleEffSkip;
-        public Toggle toggleRepeatGame;
-
-        public GameObject skipEffButton;
-
         [SerializeField] new AudioSource audio;
-
-
-#if UNITY_EDITOR
-        //[SerializeField] int ii;
-#endif
-        private void OnEnable()
-        {
-            // foreach (var toggle in toggles) toggle.isOn = false;
-
-            // //Ï∫†ÌîÑ?åù?óÖ?óê?Ñú ?Ü†Í∏? ?†ïÎ≥¥Î?? Î∂àÎü¨????Ñú ?†Å?ö©
-            // if (isUnion)
-            // {
-            //     for (int s = 0; s < campPopup.togglesUnion.Length; s++)
-            //     {
-            //         toggles[s].isOn = campPopup.togglesUnion[s].isOn;
-            //     }
-            // }
-            // else
-            // {
-            //     for (int s = 0; s < campPopup.togglesDNA.Length; s++)
-            //     {
-            //         toggles[s].isOn = campPopup.togglesDNA[s].isOn;
-            //     }
-            // }
-
-
-
-        }
-
-
-
-
-        void ToggleReset()
-        {
-            toggleEffSkip.isOn = false;
-            toggleRepeatGame.isOn = false;
-        }
 
         void Awake()
         {
@@ -74,13 +25,12 @@ namespace ProjectGraphics
 
         }
 
-        public void StartLotteryAnimation(int[] unionIndex)
+            public void StartLotteryAnimation(int[] unionIndex)
         {
             foreach (var slot in slots) slot.gameObject.SetActive(false);
             StartCoroutine(ShowUnionSlotCardOpenProcess(unionIndex));
         }
 
-        // DOCKO Î≥?Í≤? -> ( Ïπ¥Îìú ?ò§?îà ?ï†?ãà?óêÎØ∏ÏÖò Ï¢ÖÎ£å ???Í∏∞Î?? ?úÑ?ï® )
         public void StartLotteryAnimation()
         {
             foreach (var slot in slots) slot.gameObject.SetActive(false);
@@ -88,15 +38,10 @@ namespace ProjectGraphics
 
         public IEnumerator ShowUnionSlotCardOpenProcess(int[] u)
         {
-            // if (toggles[0].isOn || toggles[1].isOn) isSkip = true;
-            // else isSkip = false;
-
-            skipEffButton.SetActive(true);
 
             isEnd = false;
-            isUnion = true;         //?ú†?ãà?ò®?ù∏Ïß? ?ïÑ?ãåÏß?
+            isUnion = true;         
 
-            //yield return new WaitForSeconds(0.02f);
 
             for (int i = 0; i < u.Length; i++)
             {
@@ -106,47 +51,40 @@ namespace ProjectGraphics
                 slots[i].gameObject.SetActive(true);
                 slots[i].SetActiveAction(typeIndex);
 
-                //?ó¨Í∏? Ï∂úÌòÑ ?Ç¨?ö¥?ìú ?ïÑ?öî?ï®.
                 
                 if (typeIndex > 3)
                 GlobalData.instance.soundManager.PlaySfxUI(EnumDefinition.SFX_TYPE.Unique);
 
                 audio.Play();
 
-                if (toggleEffSkip.isOn) continue;
+                if (campPopup.GetIsOnToggleSkipUnionIsOn()) continue;
                 yield return new WaitForSeconds(0.02f);
             }
 
             isEnd = true;
         }
 
-        //?ä¨Î°? ?òï?Éú ?ôï?ù∏ ?ïòÍ≥?, Î∞? ?ù¥ÎØ∏Ï?? Ïß??ö∞Í≥? ?ïÑ?ù¥ÏΩ? ?ù¥ÎØ∏Ï??Îß? Ï≤òÎ¶¨ ?ù¥?éô?ä∏ Ïª¨Îü¨ ?Üµ?ùº.
         public IEnumerator ShowDNAIconSlotCardOpenProcess(int[] u)
         {
-            // if (toggles[0].isOn || toggles[1].isOn) isSkipDNA = true;
-            // else isSkipDNA = false;
-            skipEffButton.SetActive(false);
 
             isEnd = false;
-            isUnion = false;            //?ú†?ãà?ò®?ù∏Ïß? ?ïÑ?ãåÏß?
+            isUnion = false;            
 
             foreach (var slot in slots) slot.gameObject.SetActive(false);
-            //StartCoroutine(ShowDNAIconSlotCardOpenProcess(u));
 
             yield return new WaitForSeconds(0.02f);
 
             for (int i = 0; i < u.Length; i++)
             {
-                //DNA ?äî ????ûÖ?ù¥ Ï°¥Ïû¨ ?ïà?ï®.
                 slots[i].SetSlotImage(dnaIcons[u[i]]);
                 slots[i].gameObject.SetActive(true);
                 slots[i].SetActiveAction(0);
 
 
-                //?ó¨Í∏? Ï∂úÌòÑ ?Ç¨?ö¥?ìú ?ïÑ?öî?ï®.
+                //????¢¨? ?????? ?????¢•??? ????????°ß.
                 audio.Play();
 
-                if (toggleEffSkip.isOn) continue;
+                if (campPopup.GetIsOnToggleSkipUnionIsOn()) continue;
                 yield return new WaitForSeconds(0.03f);
             }
 
@@ -166,25 +104,9 @@ namespace ProjectGraphics
             }
         }
 
-        public void OnClickSkipButton(Toggle togle)
-        {
-            if (isUnion) isSkip = togle.isOn;
-            else isSkipDNA = togle.isOn;
-        }
 
-        public void OnClickSkipUnion(bool on)
-        {
-            isSkip = on;
-        }
-        public void OnClickSkipDNA(bool on)
-        {
-            isSkipDNA = on;
-        }
-
-        //Î°úÌÑ∞Î¶? ?ï†?ãàÎ©îÏù¥?Öò Ï¢ÖÎ£å
         void OnDisable()
         {
-            ToggleReset();
             campPopup.ToggleReset();
             foreach (var slot in slots) slot.gameObject.SetActive(false);
         }

@@ -261,6 +261,8 @@ public class Player : MonoBehaviour
         gem += Mathf.Round(value);
         GlobalData.instance.uiController.SetTxtGem(gem, value); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsGem(gem); // set save data
+        GlobalData.instance.uiController.ButtonInteractableCheck();
+
     }
 
     public void AddUnionTicket(float value)
@@ -268,6 +270,8 @@ public class Player : MonoBehaviour
         unionTicket += Mathf.Round(value);
         GlobalData.instance.uiController.SetTxtUnionTicket(unionTicket); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsUnionTicket(unionTicket); // set save data
+        GlobalData.instance.uiController.ButtonInteractableCheck();
+
     }
 
     public void AddDnaTicket(float value)
@@ -275,6 +279,7 @@ public class Player : MonoBehaviour
         dnaTicket += Mathf.Round(value);
         GlobalData.instance.uiController.SetTxtDnaTicket(dnaTicket); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsDnaTicket(dnaTicket); // set save data
+        GlobalData.instance.uiController.ButtonInteractableCheck();
     }
 
     public void PayUnionTicket(float value)
@@ -285,7 +290,7 @@ public class Player : MonoBehaviour
         GlobalData.instance.saveDataManager.SaveDataGoodsUnionTicket(unionTicket); // set save data
 
         // button interactable check    
-        GlobalData.instance.uiController.ButtonInteractableCheck(EnumDefinition.RewardType.unionTicket);
+        GlobalData.instance.uiController.ButtonInteractableCheck();
     }
 
     public void PayDnaTicket(float value)
@@ -296,7 +301,7 @@ public class Player : MonoBehaviour
         GlobalData.instance.saveDataManager.SaveDataGoodsDnaTicket(dnaTicket); // set save data
 
         // button interactable check    
-        GlobalData.instance.uiController.ButtonInteractableCheck(EnumDefinition.RewardType.dnaTicket);
+        GlobalData.instance.uiController.ButtonInteractableCheck();
     }
 
     public void PayGold(float value)
@@ -332,7 +337,7 @@ public class Player : MonoBehaviour
         GlobalData.instance.saveDataManager.SaveDataGoodsGem(gem); // set save data
 
         // button interactable check    
-        GlobalData.instance.uiController.ButtonInteractableCheck(EnumDefinition.RewardType.gem);
+        GlobalData.instance.uiController.ButtonInteractableCheck();
     }
 
     public void PayCoal(float value)

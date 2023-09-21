@@ -13,65 +13,57 @@ public class CampPopup : CastlePopupBase
     public Button btnGetReward;
 
     public Button btnClose;
-    public Toggle[] togglesUnion;
-    public Toggle[] togglesDNA;
-
     public Toggle toggleUnionEffSkip;
     public Toggle toggleUnionRepeatGame;
-
-   // public Toggle toggleDnaEffSkip;
     public Toggle toggleDnaRepeatGame;
 
+    bool isToggleEffSkipUnion;
+    bool isToggleRepeatUnion;
+    bool isToggleRepeatDNA;
     public LotteryAnimationController lotteryAnimationController;
 
+    protected override void Awake() {
+        base.Awake();
+    }
     void Start()
     {
         SetBtnEvent();
-        SetToggleEvent();
-        foreach (var to in togglesDNA) to.isOn = false;
-        foreach (var to in togglesUnion) to.isOn = false;
+        ToggleReset();
     }
 
-    void SetToggleEvent()
+    public override void ShowPopup()
     {
-        // Union
-        toggleUnionEffSkip.onValueChanged.AddListener((isOn) =>
-        {
-            lotteryAnimationController.toggleEffSkip.isOn = isOn;
-        });
-        toggleUnionRepeatGame.onValueChanged.AddListener((isOn) =>
-        {
-            lotteryAnimationController.toggleRepeatGame.isOn = isOn;
-        });
-
-        // DNA
-        // toggleDnaEffSkip.onValueChanged.AddListener((isOn) =>
-        // {
-        //     lotteryAnimationController.toggleEffSkip.isOn = isOn;
-        // });
-        toggleDnaRepeatGame.onValueChanged.AddListener((isOn) =>
-        {
-            lotteryAnimationController.toggleRepeatGame.isOn = isOn;
-        });
-
+        base.ShowPopup();
+    }
+    public override void HidePopup()
+    {
+        base.HidePopup();
+    }
+    public bool GetIsOnToggleSkipUnionIsOn()
+    {
+        return toggleUnionEffSkip.isOn;
+    }
+    public bool GetIsOnToggleRepeatUnion()
+    {
+        return toggleUnionRepeatGame.isOn;
+    }
+    public bool GetIsOnToggleRepeatDNA()
+    {
+        return toggleDnaRepeatGame.isOn;
     }
 
     public void ToggleReset()
     {
         toggleUnionEffSkip.isOn = false;
         toggleUnionRepeatGame.isOn = false;
-        //toggleDnaEffSkip.isOn = false;
         toggleDnaRepeatGame.isOn = false;
     }
 
     public void SetSummonCountProgress(int curValue, int totalValue)
     {
         var value = (float)curValue / (float)totalValue;
-
 //        Debug.Log($"value : {value}" + $"curValue : {curValue}" + $"totalValue : {totalValue}");
-
         imgSummonCountProgress.fillAmount = value;
-
     }
 
     public void SetTxtSummonCount(int curValue, int totalValue)
@@ -94,7 +86,7 @@ public class CampPopup : CastlePopupBase
 
         btnClose.onClick.AddListener(() =>
         {
-            gameObject.SetActive(false);
+            HidePopup();
         });
     }
 }

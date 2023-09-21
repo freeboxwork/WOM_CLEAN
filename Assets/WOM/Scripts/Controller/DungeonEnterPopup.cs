@@ -27,7 +27,6 @@ public class DungeonEnterPopup : MonoBehaviour
     public Button btn_KeyDungeon;
     public Button btn_Ticket_Dungeon;
 
-
     // ¼ÒÅÁ±Ç °ü·Ã
     int curLevel;
     int clearTicketCount = 1;
@@ -76,6 +75,7 @@ public class DungeonEnterPopup : MonoBehaviour
             var ticketCount = GlobalData.instance.player.clearTicket;
             btn_Ticket_Dungeon.interactable = ticketCount > 0;
         });
+
     }
 
     public void AD_DungeonIn()

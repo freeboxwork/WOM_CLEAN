@@ -1,6 +1,14 @@
 
 public class EnumDefinition
 {
+    public enum CanvasGroupTYPE
+    {
+        MINE,
+        FACTORY,
+        CAMP,
+        LAB
+
+    }
     public enum CanvasTYPE
     {
         Castle,

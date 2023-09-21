@@ -8,6 +8,7 @@ using static UtilityMethod;
 
 public class DNAManager : MonoBehaviour
 {
+    public CampPopup campPopup;
     public LotteryAnimationController lotteryAnimCont;
     public List<DNASlot> dnaSlots = new List<DNASlot>();
     public List<Sprite> dnaIconImages = new List<Sprite>();
@@ -17,30 +18,6 @@ public class DNAManager : MonoBehaviour
     bool isGambling = false;
     // 연출을 위한 DNA TYPES ( 중복 포함 )
     List<EnumDefinition.DNAType> dnaEffectTypes = new List<EnumDefinition.DNAType>();
-    void Start()
-    {
-        SetBtnEvent();
-    }
-    void SetBtnEvent()
-    {
-        // 뽑기버튼 3종
-        // 27 : 1회 , 28: 11회 , 29 : 33회
-
-        SetBtnEventCustomTypeByID(27, () =>
-        {
-            DNALotteryGameStart(1, 100, EnumDefinition.RewardType.gem);
-        });
-
-        SetBtnEventCustomTypeByID(28, () =>
-        {
-            DNALotteryGameStart(11, 1000, EnumDefinition.RewardType.gem);
-        });
-
-        SetBtnEventCustomTypeByID(29, () =>
-        {
-            DNALotteryGameStart(33, 3000, EnumDefinition.RewardType.gem);
-        });
-    }
 
     public void DNALotteryGameStart(int gameCount, int payValue, EnumDefinition.RewardType rewardType)
     {
@@ -114,7 +91,7 @@ public class DNAManager : MonoBehaviour
 
     public void Lottery_Start(int roundCount, int payValue, EnumDefinition.RewardType rewardType)
     {
-        if (lotteryAnimCont.toggleRepeatGame.isOn)
+        if (campPopup.GetIsOnToggleRepeatDNA())
             StartCoroutine(RepeatGame(roundCount, payValue, rewardType));
         else
             StartCoroutine(LotteryStart(roundCount, payValue, rewardType));
@@ -122,7 +99,7 @@ public class DNAManager : MonoBehaviour
 
     IEnumerator RepeatGame(int roundCount, int payValue, EnumDefinition.RewardType rewardType)
     {
-        while (lotteryAnimCont.toggleRepeatGame.isOn)
+        while (campPopup.GetIsOnToggleRepeatDNA())
         {
             if (GetLotteryDNATypes().Count <= 0)
             {
@@ -201,7 +178,7 @@ public class DNAManager : MonoBehaviour
             yield return new WaitForSeconds(0.6f);
 
             //연속 뽑기중이 아닐때만 버튼 활성화
-            if (!lotteryAnimCont.toggleRepeatGame.isOn)
+            if (!campPopup.GetIsOnToggleRepeatDNA())
             {
                 // 뽑기 버튼 활성화
                 UtilityMethod.SetBtnsInteractableEnable(new List<int> { 27, 28, 29 }, true);
@@ -229,17 +206,8 @@ public class DNAManager : MonoBehaviour
     {
         // 연출 등장
         lotteryAnimCont.gameObject.SetActive(true);
-        EnableLotteryBtnsSet(EnumDefinition.LotteryPageType.DNA);
-
         yield return StartCoroutine(lotteryAnimCont.ShowDNAIconSlotCardOpenProcess(GetTypeListToInt(dnaEffectTypes)));
 
-    }
-
-    void EnableLotteryBtnsSet(EnumDefinition.LotteryPageType lotteryPageType)
-    {
-        var unionPage = lotteryPageType == EnumDefinition.LotteryPageType.UNION;
-        UtilityMethod.GetCustomTypeGMById(8).SetActive(unionPage);
-        UtilityMethod.GetCustomTypeGMById(9).SetActive(!unionPage);
     }
     public void SetCustomLevel(EnumDefinition.DNAType type, int level)
     {

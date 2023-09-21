@@ -326,7 +326,7 @@ public class UiController : MonoBehaviour
     }
     public void SetTxtCoal(float value)
     {
-        txtCoalCount.text = value.ToString();
+        txtCoalCount.text = UtilityMethod.ChangeSymbolNumber(value);
     }
 
     public void SetTxtDungeonGoldKeyCount(float value)

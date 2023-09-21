@@ -60,7 +60,7 @@ public class BuffADSlot : MonoBehaviour
 
     bool IsTutorial()
     {
-        var isTuto = GlobalData.instance.tutorialManager.isTutorial;
+        var isTuto = GlobalData.instance.tutorialManager.isEndTutorial;
         var isSameSet = GlobalData.instance.tutorialManager.curTutorialSetID == 6;
         return isTuto && isSameSet;
     }

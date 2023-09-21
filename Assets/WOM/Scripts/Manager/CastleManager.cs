@@ -164,11 +164,11 @@ public class CastleManager : MonoBehaviour
         // 초기 UI 설정 ( POPUP )
         var minePopup = (MinePopup)GetCastlePopupByType(CastlePopupType.mine);
         buildDataMine.goodsType = GoodsType.gold;
-        minePopup.InitUIText(buildDataMine);
+        minePopup.SetBuildingUI(buildDataMine);
 
         var factoryPopup = (MinePopup)GetCastlePopupByType(CastlePopupType.factory);
         buildDataFactory.goodsType = GoodsType.bone;
-        factoryPopup.InitUIText(buildDataFactory);
+        factoryPopup.SetBuildingUI(buildDataFactory);
 
         // 초기 UI 설정 ( CASTLE )
         castleController.SetMineBuild(mineLevel);
@@ -366,14 +366,17 @@ public class CastleManager : MonoBehaviour
                     if (isSuccess)
                     {
                         var popup = (MinePopup)GetCastlePopupByType(type);
+                        
                         var nextLevelData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel + 1);
+
                         CastleBuildingData nextBuildData = null;
+
                         if (nextLevelData != null)
                         {
                             nextBuildData = new CastleBuildingData().Create().SetGoodsType(GoodsType.gold).Clone(nextLevelData);
                         }
                         //현재 레벨에 해당하는 UI Text 세팅
-                        popup.SetTextLevelData(upgradeBuildingData, nextBuildData);
+                        popup.SetBuildingUI(upgradeBuildingData);
                         //건물 업그레이드 연출
                         castleController.SetBuildUpgrade(BuildingType.MINE, mineLevel);
                         //Max레벨일 경우 UI 세팅
@@ -417,7 +420,7 @@ public class CastleManager : MonoBehaviour
                             nextBuildData = new CastleBuildingData().Create().SetGoodsType(GoodsType.coal).Clone(nextLevelData);
                         }
                         //현재 레벨에 해당하는 UI Text 세팅
-                        popup.SetTextLevelData(upgradeBuildingData, nextBuildData);
+                        popup.SetBuildingUI(upgradeBuildingData);
                         //건물 업그레이드 연출
 
                         castleController.SetBuildUpgrade(BuildingType.FACTORY, factoryLevel);

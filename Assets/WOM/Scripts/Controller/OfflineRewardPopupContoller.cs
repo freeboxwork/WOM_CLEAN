@@ -40,22 +40,14 @@ public class OfflineRewardPopupContoller : MonoBehaviour
         if (PlayerPrefs.HasKey(key))
         {
             var offlineTime = GlobalData.instance.playerDataManager.GetOfflineTimeValue();
-            bool success  = int.TryParse(offlineTime, out int hour);
-            
-            if (success)
-            {
 
-            }
-            else
-            {
-                hour = 0;
-            }  
-            //Debug.Log("오프라인 보상 시간 : " + hour);
 
-            if (hour >= 1)
+            //Debug.Log("오프라인 보상 시간 : " + offlineTime);
+
+            if (offlineTime >= 1)
             {
                 // 최대 보상 8시간 제한
-                if (hour > 8) hour = 8;
+                if (offlineTime > 8) offlineTime = 8;
 
                 //Debug.Log("오프라인 보상 시간 : " + hour);
 
@@ -66,8 +58,8 @@ public class OfflineRewardPopupContoller : MonoBehaviour
                 var mGold = monData.gold * (1 + (GlobalData.instance.statManager.OfflineBonus() * 0.01f));
                 var mBone = monData.bone * (1 + (GlobalData.instance.statManager.OfflineBonus() * 0.01f));
 
-                rewardGold = mGold * hour;
-                rewardBone = mBone * hour;
+                rewardGold = mGold * offlineTime;
+                rewardBone = mBone * offlineTime;
 
                 // 광고는 5배 보상
                 rewardAdGold = rewardGold * adValue;
@@ -79,6 +71,7 @@ public class OfflineRewardPopupContoller : MonoBehaviour
             }
             else
             {
+
 //                Debug.Log("1시간 미만 으로 획득할 오프라인 보상이 없음");
             }
         }

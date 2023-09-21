@@ -27,12 +27,9 @@ public class TutorialManager : MonoBehaviour
 
     public List<PatternBase> patterns = new List<PatternBase>();
 
-    public bool isTutorial = false;
+    public bool isEndTutorial = false;
 
     public bool isUnionGamblingTutorial = false;
-
-    // 신규 유저 선물 닫기 버튼
-    public List<Button> tutoStartBtns = new List<Button>();
 
     public bool isAdPass = false;
 
@@ -45,36 +42,19 @@ public class TutorialManager : MonoBehaviour
 
     TutorialStep currentTutorialStep;
 
-
-    void Start()
-    {
-        SetBtnEvent();
-    }
-
-    void SetBtnEvent()
-    {
-        foreach (var btn in tutoStartBtns)
-        {
-            btn.onClick.AddListener(() =>
-            {
-                TutorialStart();
-            });
-        }
-    }
-
     public void TutorialStart()
     {
         // max check
         if (IsTutorialAllComplete() == false)
         {
-            isTutorial = true;
+            isEndTutorial = false;
             EnableTutorialSet();
             //tutorialPlayingTextBox.gameObject.SetActive(true);
             
         }
         else
         {
-            isTutorial = false;
+            isEndTutorial = true;
             //tutorialPlayingTextBox.gameObject.SetActive(false);
             //Debug.Log("모든 투토리얼 완료");
         }
@@ -100,7 +80,7 @@ public class TutorialManager : MonoBehaviour
             var max = tutorialStepSetDatas.Last().setId;
             if (curTutorialSetID > max)
             {
-
+                Debug.Log("튜토리얼 끝남");
             }
             else
             {
@@ -114,11 +94,11 @@ public class TutorialManager : MonoBehaviour
         // max check
         if (IsTutorialAllComplete() == false)
         {
-            isTutorial = true;
+            isEndTutorial = false;
         }
         else
         {
-            isTutorial = false;
+            isEndTutorial = true;
         }
 
         yield return null;
@@ -179,7 +159,7 @@ public class TutorialManager : MonoBehaviour
             Debug.LogError($"{curTutorialSetID}에 해당하는 투토리얼 세트가 없습니다.");
 
             
-            isTutorial = false;
+            isEndTutorial = true;
             return;
         }
         var step = tutorialSet.steps[curTutorialStepID];
@@ -258,7 +238,7 @@ public class TutorialManager : MonoBehaviour
             }
             else
             {
-                isTutorial = false;
+                isEndTutorial = true;
 
                 // 골드피그 등장
                 GlobalData.instance.goldPigController.EnableGoldPig();

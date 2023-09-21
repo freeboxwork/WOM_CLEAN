@@ -66,9 +66,11 @@ public class AD_Manager : MonoBehaviour
         // buff pass
         if (isPassBuff)
         {
-            btnBuffOpen.SetActive(false);
+            //btnBuffOpen.SetActive(false);
+
             foreach (var data in datas)
             {
+                //좌측 상단 버프 상태 아이콘 관련 세팅
                 var slot = GetBuffAdSlotByType(data.buffADType);
                 slot.addValue = slot.addValueBuff;
                 slot.buffTimer.SetTxtBuffPass();
@@ -93,7 +95,8 @@ public class AD_Manager : MonoBehaviour
 
         isPassBuff = true;
         PlayerPrefs.SetInt(buffPassKey, 1);
-        btnBuffOpen.SetActive(false);
+        //btnBuffOpen.SetActive(false);
+
         foreach (var slot in buffADSlots)
         {
             // 타이머 종료

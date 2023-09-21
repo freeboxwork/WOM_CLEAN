@@ -80,11 +80,20 @@ public class BuffADTimer : MonoBehaviour
     public void SetTxtBuffPass()
     {
         canvasGroup.alpha = 1;
+        SetBuffPassUI();
     }
 
     public void TimerEnd()
     {
         StopAllCoroutines();
+    }
+
+    void SetBuffPassUI()
+    {
+        //버프중임을 알리는 화면 활성화
+        timerUI.SetActive(true);
+        countdownText.text = "무제한";
+
     }
 
 }

@@ -35,7 +35,7 @@ public class GoldPigController : MonoBehaviour
     {
         SetPointSides();
         AddEvents();
-        if (GlobalData.instance.tutorialManager.isTutorial == false)
+        if (GlobalData.instance.tutorialManager.isEndTutorial)
             EnableGoldPig();
         yield return null;
     }

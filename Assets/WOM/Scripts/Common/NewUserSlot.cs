@@ -97,7 +97,14 @@ public class NewUserSlot : MonoBehaviour
     {
         for (int i = 0; i < txtRewardValues.Length; i++)
         {
-            txtRewardValues[i].text = values[i].ToString();
+            if(newUserData.rewardType_2 == "union" && i == 1)
+            {
+                txtRewardValues[i].text = "영웅";
+            }
+            else
+            {
+                txtRewardValues[i].text = values[i].ToString();
+            }
         }
     }
 

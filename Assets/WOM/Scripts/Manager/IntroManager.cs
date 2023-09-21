@@ -74,6 +74,8 @@ public class IntroManager : MonoBehaviour
         {
             yield return null;
         }
+
+        yield return new WaitForSeconds(1f);
         ShowStartButton(true);
 
         startButtonText.DOColor(endColor, 1f).SetLoops(-1, LoopType.Yoyo);

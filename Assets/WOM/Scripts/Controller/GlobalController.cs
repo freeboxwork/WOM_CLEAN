@@ -141,56 +141,45 @@ public class GlobalController : MonoBehaviour
         yield return StartCoroutine(tutorialManager.Init());
 
         // 투토리얼 실행 상황에 따라 상점버튼 활성 / 비활성화
-        var isShopBtnActive = tutorialManager.isTutorial == false;
-        UtilityMethod.GetCustomTypeBtnByID(6).gameObject.SetActive(isShopBtnActive);
-
-        //만약 튜토리얼 SetId가 8번(유니온뽑기) 보다 크다면 캐슬버튼 비활성화
-        var active = GlobalData.instance.tutorialManager.GetTutorialSetId() > 4 ? true : false;
-            uiController.castleButtonObj.SetActive(active);
+        UtilityMethod.GetCustomTypeBtnByID(6).gameObject.SetActive(tutorialManager.isEndTutorial);
 
         // 골드 피그 등장( 지정된 시간 지난뒤 등장 )
         yield return StartCoroutine(goldPigController.Init());
+        //인앱 결제 초기화
         yield return StartCoroutine(inAppPurchaseManager.Init());
         // 퀘스트 매니저 세팅
         yield return StartCoroutine(questManager.Init());
-
         // 상점 데이터및 UI 세팅 자정 체크 때문에 무조건 퀘스트 매니저보다 나중에 Init해야함
         yield return StartCoroutine(shopManager.Init());
         // 오프라인 보상 팝업 등장
         yield return StartCoroutine(offlineRewardPopupContoller.Init());
-
+        //만약 튜토리얼 SetId가 8번(유니온뽑기) 보다 크다면 캐슬버튼 비활성화
+        var active = GlobalData.instance.tutorialManager.GetTutorialSetId() > 4 ? true : false;
+            uiController.castleButtonObj.SetActive(active);
         // 트랜지션 아웃 ( black screen )
         yield return StartCoroutine(GlobalData.instance.effectManager.TransitionOut());
-
-        // 버튼 가능 상태로 전환
-        UtilityMethod.EnableUIEventSystem(true);
-        
         // 한 프레임 대기
         yield return new WaitForEndOfFrame();
         // Monster In Animation
         yield return StartCoroutine(player.currentMonster.inOutAnimator.AnimPositionIn());
-
-
         // 곤충 스폰 활성화 -> tutorial pattenr 10 에서 활성화
-        if (tutorialManager.isTutorial == false)
+        if (tutorialManager.isEndTutorial)
             insectSpwanManager.AllTimerStart();
-            
         else if (tutorialManager.GetTutorialSetById(3).isSetComplete)
         {
             // 투토리얼 5번 세트 완료시 곤충 스폰 활성화
             insectSpwanManager.AllTimerStart();
         }
-
         // 공격 가능 상태로 전환
         attackController.SetAttackableState(true);
-
-
 
         // if (tutorialManager.isTutorial && tutorialManager.newUserEventPopupObj.activeSelf == false)
         // {
         //     tutorialManager.TutorialStart();
         // }
-
+        // 버튼 가능 상태로 전환
+        UtilityMethod.EnableUIEventSystem(true);
+        tutorialManager.TutorialStart();
         firebaseManager.LogEvent("UserData","Stage",stageManager.stageData.stageId);
 
 

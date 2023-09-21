@@ -29,25 +29,6 @@ public class GoldAnimController : MonoBehaviour
     public EnumDefinition.GoodsType goodsType;
 
 
-    void Start()
-    {
-
-    }
-
-    private void OnEnable()
-    {
-        
-    }
-
-    private void Update()
-    {
-        //if (Input.GetKeyDown(KeyCode.K))
-        //{
-        //    StartCoroutine(GoldOutAnim());
-        //}
-    }
-
-
     public void GoldInAnimStart()
     {
         SetRandomRandomPositions();

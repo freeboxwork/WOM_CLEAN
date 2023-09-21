@@ -356,7 +356,8 @@ public class EnumDefinition
         Upgrade,
         UnionLevelUp,
         Unique,
-        BossIn
+        BossIn,
+        CoinPickUp
     }
 
     public enum CastlePopupType

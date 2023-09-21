@@ -174,17 +174,17 @@ public class SkillBtn : MonoBehaviour
             imgSkillFront.fillClockwise = false;
             animCont.animData = animDataReloadSkill;
 
-            // [재사용 대기 시간] 데이터 저장
-            GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, true);
-            //스킬 [재사용 대기 시간] UI Update
-            StartCoroutine(animCont.UI_TextAnim(txtTime, animDataReloadSkill.animDuration, 0, () => coolTimeWait = 0));
-            StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 1, 0));
-
             // 쿨타임 대기 및 데이터 저장 
             isCoolTime = true;
             float calcCooltime = animDataReloadSkill.animDuration;
             var startTime = Time.time;
             coolTimeWait = calcCooltime;
+
+            // [재사용 대기 시간] 데이터 저장
+            GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, true);
+            //스킬 [재사용 대기 시간] UI Update
+            StartCoroutine(animCont.UI_TextAnim(txtTime, animDataReloadSkill.animDuration, 0, () => coolTimeWait = 0));
+            StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 1, 0));
 
             while (coolTimeWait > 0)
             {
@@ -208,16 +208,13 @@ public class SkillBtn : MonoBehaviour
             imgSkillFront.color = colorDeem;
             imgSkillFront.fillClockwise = false;
             animDataReloadSkill.animDuration = data.coolTime;
-
             animCont.animData = animDataReloadSkill;
+            float calcCooltime = coolTimeWait;
+            var startTime = Time.time;
 
             //스킬 [재사용 대기 시간] UI Update
             StartCoroutine(animCont.UI_TextAnim(txtTime, animDataReloadSkill.animDuration, 0, () => coolTimeWait = 0));
             StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 1, 0));
-
-            float calcCooltime = coolTimeWait;
-
-            var startTime = Time.time;
 
             while (coolTimeWait > 0)
             {

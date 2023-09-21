@@ -287,7 +287,10 @@ public class EventController : MonoBehaviour
 
     }
     #endregion
-    IEnumerator MonsterKill(MonsterBase currentMonster)
+    
+    //===================================================================================================================================================================================
+    #region Monster DEAD
+IEnumerator MonsterKill(MonsterBase currentMonster)
     {
         IsMonsterDead = true;
 
@@ -388,8 +391,7 @@ public class EventController : MonoBehaviour
         return dropGold;
     }
 
-    //===================================================================================================================================================================================
-    #region Monster DEAD
+
     void DieMonster(MonsterType type)
     {
         switch (type)
@@ -626,6 +628,7 @@ public class EventController : MonoBehaviour
 
         // 보스의 경우 뼈조각 OUT EFF 추가 ( 뼈조각 화면에 뿌려진 경우에만 )
         StartCoroutine(globalData.effectManager.bonePoolingCont.DisableGoldEffects());
+        GlobalData.instance.soundManager.PlaySfxUI(EnumDefinition.SFX_TYPE.CoinPickUp);
 
         // 몬스터 타입에 따른 데이터 불러오기
         var monsterData = globalData.monsterManager.GetMonsterData(monsterType);

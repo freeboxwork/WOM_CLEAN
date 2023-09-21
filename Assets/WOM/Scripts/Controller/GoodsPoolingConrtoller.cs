@@ -67,6 +67,7 @@ public class GoodsPoolingConrtoller : MonoBehaviour
 
     }
 
+    //강제로 골드 수거
     public IEnumerator DisableGoldEffects()
     {
         for (int i = 0; i < enableGoldAnimConts.Count; i++)
@@ -84,6 +85,7 @@ public class GoodsPoolingConrtoller : MonoBehaviour
             }
 
         }
+
         enableGoldAnimConts.Clear();
     }
 

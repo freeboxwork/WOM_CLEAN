@@ -1,6 +1,11 @@
 
 public class EnumDefinition
 {
+    public enum GoldBonusTYPE
+    {
+        MONSTER,
+        REWARD
+    }
     public enum CanvasGroupTYPE
     {
         MINE,

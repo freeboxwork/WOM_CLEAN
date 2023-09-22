@@ -69,7 +69,7 @@ public class InsectBullet : MonoBehaviour
         else
         {
 
-            return (float)GlobalData.instance.statManager.GetInsectMoveSpeed(insectType);
+            return GlobalData.instance.statManager.GetInsectMoveSpeed(insectType);
             // return GlobalData.instance.insectManager.GetInsect(insectType).speed;
         }
     }

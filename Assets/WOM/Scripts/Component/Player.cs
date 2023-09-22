@@ -37,7 +37,9 @@ public class Player : MonoBehaviour
     // 주사위 개수
     public float diceCount;
 
-
+    //데이터 저장을 위해 필요한 획득 보석량
+    int forSaveGemCount;
+    int resetForSaveGemCount = 3000;
     /// <summary> 현재 진행중인 스테이지 데이터 </summary>
     public StageData currentStageData;
     public int pahseCountOriginalValue;
@@ -62,7 +64,7 @@ public class Player : MonoBehaviour
 
     public IEnumerator Init(SaveData saveData)
     {
-
+        forSaveGemCount = resetForSaveGemCount;
         SetPlayerDataFromSaveData(saveData);
         //SetRewardToGoodsMap();
         yield return null;
@@ -194,7 +196,9 @@ public class Player : MonoBehaviour
     public void AddGold(float value)
     {
 
-        var result = value * (1 + (GlobalData.instance.statManager.GetTalentGoldBonus() * 0.01f));
+        var result = value * GlobalData.instance.statManager.GetTalentGoldBonus();
+
+
         var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffGold);
         
         if(buffValue.isUsingBuff)
@@ -259,6 +263,15 @@ public class Player : MonoBehaviour
     public void AddGem(float value)
     {
         gem += Mathf.Round(value);
+
+        forSaveGemCount -= (int)value;
+
+        if(forSaveGemCount <= 0)
+        {
+            forSaveGemCount = resetForSaveGemCount;
+            GlobalData.instance.saveDataManager.SaveDataToFile();
+        }
+
         GlobalData.instance.uiController.SetTxtGem(gem, value); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsGem(gem); // set save data
         GlobalData.instance.uiController.ButtonInteractableCheck();
@@ -333,6 +346,15 @@ public class Player : MonoBehaviour
     {
         gem -= Mathf.Round(value);
         if (gem < 0) gem = 0;
+
+        forSaveGemCount -= (int)value;
+
+        if(forSaveGemCount <= 0)
+        {
+            forSaveGemCount = resetForSaveGemCount;
+            GlobalData.instance.saveDataManager.SaveDataToFile();
+        }
+
         GlobalData.instance.uiController.SetTxtGem(gem, 0); // RELOAD UI
         GlobalData.instance.saveDataManager.SaveDataGoodsGem(gem); // set save data
 

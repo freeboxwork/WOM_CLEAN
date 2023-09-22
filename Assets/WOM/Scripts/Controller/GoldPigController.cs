@@ -158,7 +158,7 @@ public class GoldPigController : MonoBehaviour
     IEnumerator EnableGoldPigCor()
     {
 
-        var spawnGoldPigDelayTime = (float)Random.Range(StaticDefine.SPAWN_GOLDPIG_MIN_TIME, StaticDefine.SPAWN_GOLDPIG_MAX_TIME);
+        var spawnGoldPigDelayTime = Random.Range(StaticDefine.SPAWN_GOLDPIG_MIN_TIME, StaticDefine.SPAWN_GOLDPIG_MAX_TIME);
         
         var startTime = Time.time;
         float waitTime = spawnGoldPigDelayTime;

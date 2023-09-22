@@ -16,7 +16,7 @@ public class UnionSpwanTimer : MonoBehaviour
     {
         this.unionSlot = unionSlot;
         isTimerReady = true;
-        spwanTime = (float)GlobalData.instance.statManager.GetUnionSpwanSpeed(unionSlot.inGameData.unionIndex);
+        spwanTime = GlobalData.instance.statManager.GetUnionSpwanSpeed(unionSlot.inGameData.unionIndex);
         currentTime = startTime;
         StartCoroutine(SpwanTimer());
     }
@@ -42,7 +42,7 @@ public class UnionSpwanTimer : MonoBehaviour
 
             if(currentTime <= 0)
             {
-                spwanTime = (float)GlobalData.instance.statManager.GetUnionSpwanSpeed(unionSlot.inGameData.unionIndex);
+                spwanTime = GlobalData.instance.statManager.GetUnionSpwanSpeed(unionSlot.inGameData.unionIndex);
 
                 currentTime = spwanTime;
 

@@ -380,7 +380,7 @@ IEnumerator MonsterKill(MonsterBase currentMonster)
     {
         float dropGold = gold;
         //금광 몬스터 2배 받을 확률 가져오기
-            float pbb = (float)globalData.statManager.GoldMonsterBonus();
+            float pbb = globalData.statManager.GoldMonsterBonus();
             //확률 계산
             float ran = UnityEngine.Random.Range(0f, 100f);
 
@@ -518,6 +518,7 @@ IEnumerator MonsterKill(MonsterBase currentMonster)
 
         // set save data
         globalData.saveDataManager.SetEvolutionLevel(evalutionLeveld);
+        globalData.saveDataManager.SaveDataToFile();
 
         // 진화 보상 지급 및 UI 세팅
         globalData.evolutionManager.SetUI_Pannel_Evolution(evalutionLeveld);

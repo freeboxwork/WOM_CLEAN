@@ -171,12 +171,12 @@ public class PopupController : MonoBehaviour
     }
 
 
-    public void InitPopup(EnumDefinition.RewardType rewardType, long amount)
+    public void InitPopup(EnumDefinition.RewardType rewardType, int amount)
     {
         PopupRewardInfoData data = new PopupRewardInfoData();
         List<RewardInfoData> rewards = new List<RewardInfoData>();
         //var sprite = GlobalData.instance.spriteDataManager.GetRewardIcon(rewardType);
-        var sprite = GetRewardIcon(rewardType, (int)amount);
+        var sprite = GetRewardIcon(rewardType, amount);
         rewards.Add(new RewardInfoData(rewardType, amount, sprite));
 
         data.SetPopupData("REWARD", rewards);

@@ -20,8 +20,8 @@ public class PopupRewardIcon : MonoBehaviour
 
         if(reward.type.Equals(EnumDefinition.RewardType.union))
         {
-                    amount.text = GetGradeName((int)reward.amount);
-return;
+            amount.text = GetGradeName((int)reward.amount);
+            return;
 
         }
 

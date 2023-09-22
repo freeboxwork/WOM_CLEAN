@@ -12,6 +12,9 @@ public class SaveDataManager : MonoBehaviour
     const string dataFileName = "saveData.json";
     public GlobalData globalData;
 
+    //saveTime마다 저장 
+    float saveTime = 60f;
+
     /* 맥스 레벨 제한값 추가 되어야 함 */
     // 데이터 로드 했을때 현재 레벨이 맥스 레벨임에도 그 이상의 레벨을 요구할 경우 문제가 생기기 때문에 필히 예외 처리 해야함
     void Start()
@@ -20,13 +23,14 @@ public class SaveDataManager : MonoBehaviour
         
     }
 
-
+    
 
 
     public IEnumerator Init()
     {
         yield return StartCoroutine(LoadDataFromFile());
         yield return new WaitForEndOfFrame();
+        InvokeRepeating("SaveDataToFile", saveTime, saveTime);
     }
 
 

@@ -94,23 +94,8 @@ public class SkillManager : MonoBehaviour
             var data = GetSkillData(slot.skillType, inGameData.level);
 
             slot.SetTxt_Level(levelName);
-            // slot.SetTxt_Name(data.name);
-
             slot.SetTxt_MaxLevel(data.maxLevel.ToString());
             slot.SetTxt_Cost(GetSkillPrice(data, inGameData));
-
-
-
-            // set description 
-
-
-            // if (IsDP_Type(slot.skillType))
-            //     slot.SetTxt_Description(GetDesicriptionDP(slot.skillType, data, inGameData));
-            // else if (IsD_Type(slot.skillType))
-            //     slot.SetTxt_Description(GetDesicriptionDP(slot.skillType, data, inGameData));
-            // else
-            //     slot.SetTxt_Description(data.desctiption);
-
 
             switch (slot.skillType)
             {
@@ -139,8 +124,6 @@ public class SkillManager : MonoBehaviour
                     break;
             }
 
-
-
             // set max 
             if (data.maxLevel <= inGameData.level)
             {
@@ -152,9 +135,7 @@ public class SkillManager : MonoBehaviour
 
     bool IsDP_Type(SkillType skillType)
     {
-
         return skillType == SkillType.insectDamageUp || skillType == SkillType.unionDamageUp || skillType == SkillType.allUnitSpeedUp || skillType == SkillType.glodBonusUp;
-
     }
     bool IsD_Type(SkillType skillType)
     {
@@ -170,8 +151,6 @@ public class SkillManager : MonoBehaviour
         // 최대 레벨 판단
         var isMaximumLevel = IsMaximumLevel(skillData, inGameData);
 
-
-
         // 현재 가격
         var skillPrice = GetSkillPrice(skillData, inGameData);
 
@@ -182,7 +161,7 @@ public class SkillManager : MonoBehaviour
         {
 
             // 구매
-            GlobalData.instance.player.PayGold((int)skillPrice);
+            GlobalData.instance.player.PayGold(skillPrice);
             //Debug.Log($" {skillData.name} 스킬을 구매 하였습니다.");
             // 레벨업
             inGameData.level++;

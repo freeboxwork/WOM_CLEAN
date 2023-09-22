@@ -256,6 +256,12 @@ public class LotteryManager : MonoBehaviour
         for (int i = 0; i < gameCount; i++)
         {
             var union = (EnumDefinition.UnionGradeType)UtilityMethod.GetWeightRandomValue(randomGradeValues);
+
+            if(union >= EnumDefinition.UnionGradeType.legend)
+            {
+                GlobalData.instance.saveDataManager.SaveDataToFile();
+            }
+
             //Debug.Log("유니온뽑기확률:"+randomGradeValues[5]);
             openedUnionTypeCards.Add(union);
             //일일 퀘스트 완료 : 유니온 소환

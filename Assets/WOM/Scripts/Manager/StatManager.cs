@@ -18,7 +18,7 @@ public class StatManager : MonoBehaviour
     float skill_InsectDamageUp = 0;
     float skill_UnionSpwnSpeedUp = 0;
     float skill_AllUnitSpeedUp = 0;
-    float skill_GoldBounsUp = 0;
+    [SerializeField] float skill_GoldBounsUp = 0;
     float skill_MonsterKing = 0;
     float skill_AllUnitCriticalChanceUp = 0;
 
@@ -26,17 +26,6 @@ public class StatManager : MonoBehaviour
     public bool transitionUI = false;
 
     public bool allUnitCriticalOn = false;
-
-    #region STAT INFOMATION
-
-
-    #endregion
-
-    void Start()
-    {
-
-
-    }
 
     public IEnumerator Init()
     {
@@ -158,14 +147,12 @@ public class StatManager : MonoBehaviour
 
         //Debug.Log($"곤충 소환시간 : 기본{ist} - 특성{tst}주사위{diceIst} 버프{buffValue.isUsingBuff}<<<최종>>>{value}");
 
-        return (float)value;
+        return value;
     }
 
     #endregion
 
-
     /*---------------------------------------------------------------------------------------------------------------*/
-
 
     #region UNION
 
@@ -207,7 +194,7 @@ public class StatManager : MonoBehaviour
         }
         //Debug.Log($"유니온 이동속도 : 기본:{ums}//DNA:{dms}  = 합계 : {value} BUFF:{(float)(value * buffValue)}");
 
-        return (float)(value);
+        return value;
     }
 
     /// <summary> 유니온 생성속도 </summary>
@@ -222,14 +209,6 @@ public class StatManager : MonoBehaviour
 
         return value;
     }
-
-
-    // /// <summary> 유니온 공격력 증가율 </summary>
-    // public double GetUnionTalentDamage(int unionIndex)
-    // {
-    //     var dud = GetDnaData(DNAType.unionDamage).power;
-    //     return dud;
-    // }
 
     #endregion
 
@@ -246,6 +225,7 @@ public class StatManager : MonoBehaviour
         var tgb = GetTraningData(SaleStatType.talentGoldBonus).value;
         var diceGb = GetEvolutionDiceValueByType(EvolutionDiceStatType.goldBonus);
         var value = dgb + tgb + diceGb + skill_GoldBounsUp;
+        value = 1 + (value * 0.01f);
         return value;
     }
 
@@ -283,22 +263,16 @@ public class StatManager : MonoBehaviour
         }
     }
 
-    // public void SetTransitionUI(bool value)
-    // {
-    //     transitionUI = value;
-    // }
-
-
     void SetUsingSkillSaveData(SkillType skillType, bool isUsing)
     {
         GlobalData.instance.saveDataManager.SetSkillUsingValue(skillType, isUsing);
     }
 
-    void SetLeftSkillTimeSaveData(SkillType skillType, float leftTime)
-    {
-        // 추 후 필요하면 추가 할 것
-        //GlobalData.instance.saveDataManager.SetSkillLeftTime(skillType, leftTime);
-    }
+    // void SetLeftSkillTimeSaveData(SkillType skillType, float leftTime)
+    // {
+    //     // 추 후 필요하면 추가 할 것
+    //     //GlobalData.instance.saveDataManager.SetSkillLeftTime(skillType, leftTime);
+    // }
 
     public IEnumerator EnableSkill_InsectDamageUP()
     {
@@ -370,8 +344,6 @@ public class StatManager : MonoBehaviour
         // SetLeftSkillTimeSaveData(skilType, data.skillLeftTime);
         SetUsingSkillSaveData(skilType, false);
     }
-
-
 
     public IEnumerator EnableSkill_AllUnitSpeedUP()
     {
@@ -527,23 +499,22 @@ public class StatManager : MonoBehaviour
 
     /*---------------------------------------------------------------------------------------------------------------*/
 
-
     #region 개별 DATA
 
     //황금 돼지는 90초마다 40%확률로 등장하며 DNA를 적용하여 최대 90%확률로 등장합니다
     public float GoldPig()
     {
-        return (float)GetDnaData(DNAType.goldPig).power;
+        return GetDnaData(DNAType.goldPig).power;
     }
 
     public float SkillDuration()
     {
-        return (float)GetDnaData(DNAType.skillDuration).power;
+        return GetDnaData(DNAType.skillDuration).power;
     }
 
     public float SkillCoolTime()
     {
-        return (float)GetDnaData(DNAType.skillCoolTime).power;
+        return GetDnaData(DNAType.skillCoolTime).power;
     }
 
     //보스,던전,진화 몬스터 추가 데미지

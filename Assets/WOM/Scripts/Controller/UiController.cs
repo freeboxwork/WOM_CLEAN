@@ -242,7 +242,7 @@ public class UiController : MonoBehaviour
 
     public void SetSliderPhaseValue(float value)
     {
-        var calcValue = (float)value / GlobalData.instance.player.pahseCountOriginalValue;
+        var calcValue = value / GlobalData.instance.player.pahseCountOriginalValue;
         var sliderValue = 1 - calcValue;
         UtilityMethod.GetCustomTypeImageById(42).fillAmount = sliderValue;
 
@@ -408,20 +408,6 @@ public class UiController : MonoBehaviour
         {
             StartCoroutine(ExitCastlePanel());
         });
-
-        // 메인 판넬 열기
-        //foreach (MenuPanelType type in Enum.GetValues(typeof(MenuPanelType)))
-        //{
-        //    UtilityMethod.SetBtnEventCustomTypeByID(((int)type + 1), () => { EnableMenuPanel(type); });
-        //}
-
-        // 메인메뉴 판넬 닫기 버튼
-        // btnMainMenuClose.onClick.AddListener(() =>
-        // {
-        //     EnableMenuPanel(curMenuPanelType);
-        //     EnableMainMenuCloseBtn(false);
-        // });
-
 
         for (int i = 0; i < mainButtons.Count; i++)
         {

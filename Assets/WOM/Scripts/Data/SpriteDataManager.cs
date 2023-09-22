@@ -9,21 +9,6 @@ public class SpriteDataManager : MonoBehaviour
 
     public SerializableDictionary<UiIconType, Sprite> uiIconDic = new SerializableDictionary<UiIconType, Sprite>();
 
-
-    void Start()
-    {
-        // SetRewardIconDic();
-    }
-
-    // void SetRewardIconDic()
-    // {
-    //     foreach (var item in System.Enum.GetValues(typeof(RewardType)))
-    //     {
-    //         rewardIconDic.Add((RewardType)item, iconSpriteFileData.GetIconData((int)item));
-    //         // Debug.Log(rewardIconDic[(RewardType)item].name);
-    //     }
-    // }
-
     public Sprite GetRewardIcon(RewardType type)
     {
         return rewardIconDic[type];

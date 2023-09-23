@@ -7,7 +7,7 @@ namespace ProjectGraphics
     public class LotteryAnimationController : MonoBehaviour
     {
         public SpriteFileData data;
-        private Sprite[] dnaIcons;
+        [SerializeField] private Sprite[] dnaIcons;
         public Color[] effectColor;
         public Sprite[] gradeBackImage;
         public Lottery_Slot[] slots;
@@ -64,6 +64,7 @@ namespace ProjectGraphics
             isEnd = true;
         }
 
+
         public IEnumerator ShowDNAIconSlotCardOpenProcess(int[] u)
         {
 
@@ -74,10 +75,11 @@ namespace ProjectGraphics
 
             yield return new WaitForSeconds(0.02f);
 
+
             for (int i = 0; i < u.Length; i++)
             {
-                slots[i].SetSlotImage(dnaIcons[u[i]]);
                 slots[i].gameObject.SetActive(true);
+                slots[i].SetSlotImage(dnaIcons[u[i]]);
                 slots[i].SetActiveAction(0);
 
 

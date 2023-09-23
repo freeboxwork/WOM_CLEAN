@@ -38,8 +38,6 @@ public class DNAManager : MonoBehaviour
 
     public IEnumerator Init()
     {
-
-
         // SET SLOT
         for (int i = 0; i < dnaSlots.Count; i++)
         {
@@ -58,7 +56,7 @@ public class DNAManager : MonoBehaviour
 
             slot.inGameData.level = saveData.level;
             slot.inGameData.power = (saveData.level * data.power);
-
+            slot.inGameData.haveCount = saveData.haveCount;
 
             slot.inGameData.maxLevel = data.maxLevel;
             slot.inGameData.name = data.dnaName;
@@ -66,16 +64,78 @@ public class DNAManager : MonoBehaviour
 
             // set ui
             slot.SetTxtName(data.dnaName);
+
             slot.SetTxtMaxLevel(data.maxLevel);
+
             slot.SetTxtInfo(data.infoFront, StaticDefine.COLOR_GREEN, slot.inGameData.power, data.infoBack);
-            slot.SetTxtHasCount(slot.inGameData.level, slot.inGameData.maxLevel);
+
+            slot.SetTxtHasCount(slot.inGameData.haveCount);
+            
+            slot.SetTxtLevel(slot.inGameData.level);
+
+            slot.SetTxtProbability(CalcProbabilityUpgrade(slot.inGameData.level));
+
             slot.SetFace(GetDnaIconImage(data.spriteName));
+            slot.Init(this);
+
 
         }
         yield return null;
         // 뽑기버튼 비활성화
-        EnableValidButtons();
+        //EnableValidButtons();
     }
+
+
+    public void UpgradeDNA(EnumDefinition.DNAType slotType)
+    {
+
+        //Dna의 HaveCount가 0이면 업그레이드 불가
+        if (GetDNAInGameData(slotType).haveCount <= 0)
+        {
+            // message popup (보유량이 부족합니다)
+            GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("Message", 25);
+            return;
+        }
+
+
+        var slot = GetSlotByDNAType(slotType);
+
+        var lv =  slot.inGameData.level;
+        var maxLv = slot.inGameData.maxLevel;
+
+
+        if (lv < maxLv)
+        {
+            slot.inGameData.MinusHaveCount();
+
+            int probability = CalcProbabilityUpgrade(lv);
+            //Debug.Log("강화확률 : " + probability);
+            int random = Random.Range(0, 100);
+            //Debug.Log("랜덤값 : " + random);
+
+            if (random < probability)
+            {
+                //업그레이드 성공
+                slot.inGameData.LevelUp();
+                GlobalData.instance.soundManager.PlaySfxUI(EnumDefinition.SFX_TYPE.Upgrade);
+                //Debug.Log("업그레이드 성공");
+                // set save data
+                slot.PlayEffect();
+            }
+            else
+            {
+                //업그레이드 실패
+                GlobalData.instance.soundManager.PlaySfxUI(EnumDefinition.SFX_TYPE.FailDNAUpgrade);
+                //Debug.Log("업그레이드 실패");
+            }
+            GlobalData.instance.saveDataManager.SetLevelDNAByType(slotType, slot.inGameData);
+
+            ResetUI(slotType);
+        }
+
+    }
+
+
 
 
     DNASlot GetSlotByDNAType(EnumDefinition.DNAType type)
@@ -132,9 +192,6 @@ public class DNAManager : MonoBehaviour
 
             // 닫기 버튼 비활성화
             UtilityMethod.GetCustomTypeBtnByID(44).interactable = false;
-            // 다시 뽑기 버튼 비활성화
-            UtilityMethod.SetBtnsInteractableEnable(new List<int> { 27, 28, 29}, false);
-
 
             // 랜덤하게 뽑은 DNA TYPES ( UI 리셋할때 활용, 중복제외 ) 
             List<EnumDefinition.DNAType> dnaTypes = new List<EnumDefinition.DNAType>();
@@ -153,7 +210,7 @@ public class DNAManager : MonoBehaviour
                 }
                 var randomType = GetRandomType(lotteryTypes);
                 var slot = GetSlotByDNAType(randomType);
-                slot.inGameData.LevelUp();
+                slot.inGameData.AddHaveCount();
 
                 // set save data
                 GlobalData.instance.saveDataManager.SetLevelDNAByType(randomType, slot.inGameData);
@@ -177,16 +234,10 @@ public class DNAManager : MonoBehaviour
             yield return StartCoroutine(CardOpenEffect());
             yield return new WaitForSeconds(0.3f);
 
-            //연속 뽑기중이 아닐때만 버튼 활성화
-            if (!campPopup.GetIsOnToggleRepeatDNA())
-            {
-                // 뽑기 버튼 활성화
-                UtilityMethod.SetBtnsInteractableEnable(new List<int> { 27, 28, 29 }, true);
-            }
             // 닫기 버튼 활성화
             UtilityMethod.GetCustomTypeBtnByID(44).interactable = true;
             // 뽑기버튼 비활성화
-            EnableValidButtons();
+            //EnableValidButtons();
 
         }
         else
@@ -228,13 +279,11 @@ public class DNAManager : MonoBehaviour
             values[i] = (int)types[i];
         }
 
-        foreach (var t in values)
-            Debug.Log(t);
+        //foreach (var t in values)
+        //Debug.Log(t);
 
         return values;
     }
-
-
 
     void ResetUI(EnumDefinition.DNAType type)
     {
@@ -242,7 +291,11 @@ public class DNAManager : MonoBehaviour
         var slot = GetSlotByDNAType(type);
 
         slot.SetTxtInfo(data.infoFront, StaticDefine.COLOR_GREEN, slot.inGameData.power, data.infoBack);
-        slot.SetTxtHasCount(slot.inGameData.level, slot.inGameData.maxLevel);
+        slot.SetTxtHasCount(slot.inGameData.haveCount);
+        slot.SetTxtLevel(slot.inGameData.level);
+        slot.SetTxtProbability(CalcProbabilityUpgrade(slot.inGameData.level));
+
+
     }
 
     /// <summary> DNA LEVEL이 MAX LEVEL에 도달한 DNA 타입을 제외하고 반환한다 </summary>
@@ -251,8 +304,8 @@ public class DNAManager : MonoBehaviour
         List<EnumDefinition.DNAType> types = new List<EnumDefinition.DNAType>();
         foreach (var slot in dnaSlots)
         {
-            if (slot.inGameData.level < slot.inGameData.maxLevel)
-                types.Add(slot.DNAType);
+            //if (slot.inGameData.level < slot.inGameData.maxLevel)
+            types.Add(slot.DNAType);
         }
         return types;
     }
@@ -260,24 +313,24 @@ public class DNAManager : MonoBehaviour
     EnumDefinition.DNAType GetRandomType(List<EnumDefinition.DNAType> types)
     {
 
-        Debug.Log("count!!! " + types.Count);
+        //Debug.Log("count!!! " + types.Count);
         var randomIndex = Random.Range(0, types.Count);
         return types[randomIndex];
     }
 
 
 
-    void EnableValidButtons()
-    {
-        // 보유 dns의 총 합을 계산 하여 남은 개수가 버튼이 요구하는 개수 보다 많을때 버튼 활성화    
-        var dnaLeftCount = LeftDnaCount();
-        if (dnaLeftCount < 30)
-            DisableLotteryBtn(btnLottery30);
-        if (dnaLeftCount < 10)
-            DisableLotteryBtn(btnLottery10);
-        if (dnaLeftCount <= 0)
-            DisableLotteryBtn(btnLottery01);
-    }
+    // void EnableValidButtons()
+    // {
+    //     // 보유 dns의 총 합을 계산 하여 남은 개수가 버튼이 요구하는 개수 보다 많을때 버튼 활성화    
+    //     var dnaLeftCount = LeftDnaCount();
+    //     if (dnaLeftCount < 30)
+    //         DisableLotteryBtn(btnLottery30);
+    //     if (dnaLeftCount < 10)
+    //         DisableLotteryBtn(btnLottery10);
+    //     if (dnaLeftCount <= 0)
+    //         DisableLotteryBtn(btnLottery01);
+    // }
 
     void DisableLotteryBtn(int btnId)
     {
@@ -326,4 +379,14 @@ public class DNAManager : MonoBehaviour
     {
         return dnaIconImages.FirstOrDefault(f => f.name == spriteName);
     }
+
+    int CalcProbabilityUpgrade(int lv)
+    {
+        var currentProbability = 100 - (lv * 2);
+        return currentProbability;
+    }
+
+
+        
+    
 }

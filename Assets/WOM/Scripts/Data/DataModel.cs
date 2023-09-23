@@ -283,7 +283,16 @@ public class DNAInGameData
     public float power;
     public float dataPower;
     public string name;
+    public int haveCount;
 
+    public void AddHaveCount()
+    {
+        haveCount++;
+    }
+    public void MinusHaveCount()
+    {
+        haveCount--;
+    }
     public void LevelUp()
     {
         ++level;

@@ -4,7 +4,7 @@ using TMPro;
 
 public class DNASlot : MonoBehaviour
 {
-
+    public ParticleSystem effLevelUp;
     public EnumDefinition.DNAType DNAType;
 
     public Image imgDnaFace;
@@ -12,12 +12,17 @@ public class DNASlot : MonoBehaviour
     public TextMeshProUGUI txtMaxLevel;
     public TextMeshProUGUI txtInfo;
     public TextMeshProUGUI txtHasCount;
+    public TextMeshProUGUI txtProbability;
+    public TextMeshProUGUI txtLevel;
 
     public DNAInGameData inGameData;
+    public Button upgradeBtn;
+
+    DNAManager dnaManager;
 
     void Start()
     {
-
+        upgradeBtn.onClick.AddListener(OnClickUpgradeBtn);
     }
 
     public void SetTxtName(string value)
@@ -37,20 +42,47 @@ public class DNASlot : MonoBehaviour
         txtInfo.text = $"{front} <{color}> {(power % 1 == 0 ? power.ToString("0") : power.ToString("0.0"))} </color> {back}";
         
     }
-
-    public void SetTxtHasCount(int level, int maxCount)
+    public void SetTxtLevel(int lv)
     {
-        txtHasCount.text = $"{level}/{maxCount}";
+        txtLevel.text = $"레벨 {lv}";
     }
+    public void SetTxtHasCount(int level)
+    {
+        txtHasCount.text = $"보유량 {level}개";
+    }
+    public void SetTxtProbability(int value)
+    {
+        if(value == 0)
+        {
+            txtProbability.text = $"MAX";
+            return;
+        }
 
+        txtProbability.text = $"{value}%";
+    }
     public void SetFace(Sprite sprite)
     {
         imgDnaFace.sprite = sprite;
     }
+    public void PlayEffect()
+    {
+        GlobalData.instance.effectManager.PlayEffect();
 
+        effLevelUp.Play();
+    }
     public void SetDnaType(EnumDefinition.DNAType type)
     {
         DNAType = type;
+    }
+
+    public void OnClickUpgradeBtn()
+    {
+        dnaManager.UpgradeDNA(DNAType);
+    }
+
+    public void Init(DNAManager manager)
+    {
+        dnaManager = manager;
     }
 
 }

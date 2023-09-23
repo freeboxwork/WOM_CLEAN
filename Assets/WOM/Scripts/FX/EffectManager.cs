@@ -96,10 +96,10 @@ public class EffectManager : MonoBehaviour
 
     public void PlayEffect()
     {
-        if (levelUpEffect.activeInHierarchy)
-        {
-            return;
-        }
+        // if (levelUpEffect.activeInHierarchy)
+        // {
+        //     return;
+        // }
         levelUpEffect.GetComponent<Animator>().Rebind();
         levelUpEffect.SetActive(true);
     }

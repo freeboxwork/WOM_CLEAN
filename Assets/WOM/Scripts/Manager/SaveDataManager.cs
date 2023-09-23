@@ -257,6 +257,7 @@ public class SaveDataManager : MonoBehaviour
         SaveDataDNA dnaData = GetSaveDataByType(saveDataTotal.saveDataDNAs.saveDatas,
             f => f.dnaType == dnaType, dnaType.ToString());
         dnaData.level = inGameData.level;
+        dnaData.haveCount = inGameData.haveCount;
         //dnaData.power = inGameData.power;
     }
 
@@ -820,6 +821,7 @@ public class SaveDataDNA
     public int level;
     //public double power;
     public int dnaIndex;
+    public int haveCount;
     public DNAType dnaType;
 }
 

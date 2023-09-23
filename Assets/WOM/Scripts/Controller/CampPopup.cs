@@ -2,6 +2,8 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine;
 using ProjectGraphics;
+using System.Collections;
+using System.Collections.Generic;
 
 public class CampPopup : CastlePopupBase
 {
@@ -22,6 +24,8 @@ public class CampPopup : CastlePopupBase
     bool isToggleRepeatDNA;
     public LotteryAnimationController lotteryAnimationController;
 
+    public List<GameObject> particle;
+
     protected override void Awake() {
         base.Awake();
     }
@@ -34,10 +38,22 @@ public class CampPopup : CastlePopupBase
     public override void ShowPopup()
     {
         base.ShowPopup();
+
+        foreach (var item in particle)
+        {
+            item.SetActive(true);
+        }
+
     }
     public override void HidePopup()
     {
         base.HidePopup();
+
+        foreach (var item in particle)
+        {
+            item.SetActive(false);
+        }
+
     }
     public bool GetIsOnToggleSkipUnionIsOn()
     {

@@ -14,6 +14,8 @@ public class DungeonPopup : MonoBehaviour
 
     public Action OnButtonClick;
 
+    public GameObject particle;
+
     private void Awake()
     {
         btnApply.onClick.AddListener(ButtonClickEvent);
@@ -51,10 +53,12 @@ public class DungeonPopup : MonoBehaviour
     public void ShowPopup()
     {
         GlobalData.instance.uiController.ShowFadeCanvasGroup(canvasGroupType, true);
+        particle.SetActive(true);
     }
     public void HidePopup()
     {
         GlobalData.instance.uiController.ShowFadeCanvasGroup(canvasGroupType, false);
+        particle.SetActive(false);
     }
 
 

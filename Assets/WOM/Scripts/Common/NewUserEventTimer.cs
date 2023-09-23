@@ -51,11 +51,6 @@ public class NewUserEventTimer : MonoBehaviour
     void CalcCount()
     {
         var now = DateTime.Now.ToString("yyyy-MM-dd");
-
-        // test code
-        // var nowDate = DateTime.Parse(testCurDateValue);
-        // var lastDate = DateTime.Parse(testPrevDateValue);
-
         var nowDate = DateTime.Parse(now);
         var lastDate = DateTime.Parse(PlayerPrefs.GetString(LAST_DATE_KEY));
 

@@ -279,7 +279,8 @@ public class CastleManager : MonoBehaviour
     {
         //버튼 스프라이트만 변경되는 부분
         //GlobalData.instance.uiController.ButtonInteractableCheck(EnumDefinition.RewardType.gem);
-
+        // 업그레이트 버튼 활성/비활성
+        
         switch (popupType)
         {
             case CastlePopupType.mine:
@@ -302,7 +303,7 @@ public class CastleManager : MonoBehaviour
                 break;
         }
 
-        // 업그레이트 버튼 활성/비활성
+
         GetCastlePopupByType(popupType).ShowPopup();
 
         //GetCastlePopupByType(popupType).gameObject.SetActive(true);
@@ -434,8 +435,12 @@ public class CastleManager : MonoBehaviour
     }
     public void CheckEnoughCostFactory(UnityAction<bool, CastleBuildingData> completeCallback)
     {
-        if (GlobalData.instance.player.coal >= buildDataFactory.price)
+        var targetBuildingData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(factoryLevel + 1);
+
+        if (GlobalData.instance.player.coal >= targetBuildingData.price)
         {
+            GlobalData.instance.soundManager.PlaySfxInGame(SFX_TYPE.Upgrade);
+
             GlobalData.instance.player.PayCoal(buildDataFactory.price);
             factoryLevel++;
             // set save data

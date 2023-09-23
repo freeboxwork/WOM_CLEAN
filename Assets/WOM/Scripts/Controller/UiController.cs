@@ -739,25 +739,28 @@ public class UiController : MonoBehaviour
 
     public void ShowFadeCanvasGroup(EnumDefinition.CanvasGroupTYPE type, bool isShow)
     {
-
         if (isShow)
         {
-            popUpFadeCanvasGroups[(int)type].interactable = true;
-
+            
+            popUpFadeCanvasGroups[(int)type].blocksRaycasts = true;
             popUpFadeCanvasGroups[(int)type].DOFade(1, 0.4f).SetEase(Ease.OutQuint).OnComplete(() =>
             {
-                popUpFadeCanvasGroups[(int)type].blocksRaycasts = true;
+                //popUpFadeCanvasGroups[(int)type].interactable = true;       
             });
         }
         else
         {
-            popUpFadeCanvasGroups[(int)type].interactable = false;
+            //popUpFadeCanvasGroups[(int)type].interactable = false;
             popUpFadeCanvasGroups[(int)type].blocksRaycasts = false;
             popUpFadeCanvasGroups[(int)type].DOFade(0, 0.4f).SetEase(Ease.OutQuint);
         }
 
-
-
     }
+
+    public void BlockCanvasGroup(EnumDefinition.CanvasGroupTYPE type, bool isBlock)
+    {
+        popUpFadeCanvasGroups[(int)type].blocksRaycasts = isBlock;
+    }
+
 
 }

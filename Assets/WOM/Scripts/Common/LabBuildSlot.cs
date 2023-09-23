@@ -29,7 +29,7 @@ public class LabBuildSlot : MonoBehaviour
     {
         txtLevel.text = "Lv" + data.level.ToString();
         txtValue.text = data.value.ToString() + "%";
-        txtPrice.text = isMax ? "MAX" : data.price.ToString();
+        txtPrice.text = isMax ? "MAX" : UtilityMethod.ChangeSymbolNumber(data.price);
         btnLevelUp.interactable = !isMax;
     }
 

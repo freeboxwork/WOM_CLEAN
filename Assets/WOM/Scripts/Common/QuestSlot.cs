@@ -40,6 +40,8 @@ public class QuestSlot : MonoBehaviour
         {
             // 광고 시청
             EventManager.instance.RunEvent<QuestData>(CallBackEventType.TYPES.OnQusetUsingRewardOneDayAD, questData);
+            EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.showAd);
+
         });
     }
     public void SetNotifyIcon(Sprite sprite) // 알림 아이콘의 스프라이트를 설정합니다.

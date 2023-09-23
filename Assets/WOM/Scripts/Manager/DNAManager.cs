@@ -21,6 +21,8 @@ public class DNAManager : MonoBehaviour
 
     public void DNALotteryGameStart(int gameCount, int payValue, EnumDefinition.RewardType rewardType)
     {
+        GlobalData.instance.uiController.BlockCanvasGroup(EnumDefinition.CanvasGroupTYPE.CAMP, false);
+
         if (isGambling == false)
         {
             if (GetLotteryDNATypes().Count <= 0)
@@ -76,8 +78,10 @@ public class DNAManager : MonoBehaviour
             slot.SetTxtProbability(CalcProbabilityUpgrade(slot.inGameData.level));
 
             slot.SetFace(GetDnaIconImage(data.spriteName));
+
             slot.Init(this);
 
+            slot.UpdateHaveDNACount(slot.inGameData.haveCount > 0);
 
         }
         yield return null;
@@ -132,6 +136,9 @@ public class DNAManager : MonoBehaviour
 
             ResetUI(slotType);
         }
+
+        slot.UpdateHaveDNACount(slot.inGameData.haveCount > 0);
+
 
     }
 
@@ -247,6 +254,7 @@ public class DNAManager : MonoBehaviour
             StopAllCoroutines();
             yield break;
         }
+        GlobalData.instance.uiController.BlockCanvasGroup(EnumDefinition.CanvasGroupTYPE.CAMP, true);
 
 
         yield return new WaitForEndOfFrame();

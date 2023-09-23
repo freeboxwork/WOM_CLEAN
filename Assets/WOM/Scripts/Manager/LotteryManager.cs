@@ -122,6 +122,7 @@ public class LotteryManager : MonoBehaviour
             yield return StartCoroutine(CardOpen(roundCount, payValue, gameEndEvent, rewardType));
             yield return new WaitForSeconds(0.6f);
         }
+
     }
 
     public IEnumerator CardOpen(int roundCount, int payValue, UnityAction gameEndEvent, EnumDefinition.RewardType rewardType)
@@ -206,6 +207,9 @@ public class LotteryManager : MonoBehaviour
             StopAllCoroutines();
             yield break;
         }
+
+        GlobalData.instance.uiController.BlockCanvasGroup(EnumDefinition.CanvasGroupTYPE.CAMP, true);
+
 
     }
 

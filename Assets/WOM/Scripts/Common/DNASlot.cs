@@ -18,6 +18,10 @@ public class DNASlot : MonoBehaviour
     public DNAInGameData inGameData;
     public Button upgradeBtn;
 
+
+    public Sprite noHave;
+    public Sprite have;
+
     DNAManager dnaManager;
 
     void Start()
@@ -55,6 +59,8 @@ public class DNASlot : MonoBehaviour
         if(value == 0)
         {
             txtProbability.text = $"MAX";
+            upgradeBtn.GetComponent<Image>().sprite = noHave;
+
             return;
         }
 
@@ -78,6 +84,17 @@ public class DNASlot : MonoBehaviour
     public void OnClickUpgradeBtn()
     {
         dnaManager.UpgradeDNA(DNAType);
+    }
+    public void UpdateHaveDNACount(bool isHave)
+    {
+        if (isHave)
+        {
+            upgradeBtn.GetComponent<Image>().sprite = have;
+        }
+        else
+        {
+            upgradeBtn.GetComponent<Image>().sprite = noHave;
+        }
     }
 
     public void Init(DNAManager manager)

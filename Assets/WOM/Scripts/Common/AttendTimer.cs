@@ -49,17 +49,8 @@ public class AttendTimer : MonoBehaviour
     void CalcAttendCount()
     {
         var now = DateTime.Now.ToString("yyyy-MM-dd");
-
-        // test code
-        // var nowDate = DateTime.Parse(attendTestCurDateValue);
-        // var lastDate = DateTime.Parse(attendTestPrevDateValue);
-
-
         var nowDate = DateTime.Parse(now);
         var lastDate = DateTime.Parse(PlayerPrefs.GetString(LAST_ATTEND_DATE_KEY));
-
-//        Debug.Log("nowDate : " + nowDate);
-//        Debug.Log("lastDate : " + lastDate);
 
         TimeSpan timeSpan = nowDate.Subtract(lastDate);
         var totalDays = timeSpan.TotalDays;

@@ -211,7 +211,8 @@ public class QuestManager : MonoBehaviour
             }
         }
 
-        newUserEventPopup.EnablePopup(NotAllUsingReward);
+        if(GlobalData.instance.tutorialManager.isEndTutorial)
+            newUserEventPopup.EnablePopup(NotAllUsingReward);
 
         //더이상 보상받을 것이 없다면 버튼을 비활성화 한다.
         var clearAll = newUserEventPopup.newUserSlots.Any(x => x.HasRewardKey() == false);

@@ -22,7 +22,7 @@ public class TutorialUiController : MonoBehaviour
 
     public RectTransform rectUnMask;
 
-    float typingSpeed = 0.01f;
+    float typingSpeed = 0.005f;
     private string fullText;
     private string currentText = "";
 
@@ -77,7 +77,7 @@ public class TutorialUiController : MonoBehaviour
 
         }
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         isTypeAnim = false;
     }
 

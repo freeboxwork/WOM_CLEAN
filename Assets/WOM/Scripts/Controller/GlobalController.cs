@@ -153,8 +153,6 @@ public class GlobalController : MonoBehaviour
         var active = GlobalData.instance.tutorialManager.GetTutorialSetId() > 4 ? true : false;
             uiController.castleButtonObj.SetActive(active);
         // 트랜지션 아웃 ( black screen )
-
-
         yield return StartCoroutine(GlobalData.instance.effectManager.TransitionOut());
         // 한 프레임 대기
         yield return new WaitForEndOfFrame();

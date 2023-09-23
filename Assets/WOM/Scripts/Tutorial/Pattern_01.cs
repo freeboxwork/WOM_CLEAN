@@ -9,7 +9,6 @@ public class Pattern_01 : PatternBase
 
 
 
-
     void Start()
     {
         AddEvent();
@@ -35,6 +34,7 @@ public class Pattern_01 : PatternBase
             if (Input.GetMouseButtonDown(0) && IsTypeTextAnimEnd())
             {
                 touchCount++;
+                
                 if (touchCount >= targetTouchCount)
                 {
                     StepClear();

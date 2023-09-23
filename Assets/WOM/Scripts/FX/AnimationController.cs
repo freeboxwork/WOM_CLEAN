@@ -220,10 +220,11 @@ public class AnimationController : MonoBehaviour
 
 
     // UI TEXT ANIMATION
-    public IEnumerator UI_TextAnim(TextMeshProUGUI text, float start, float end, UnityAction callBackEvent = null)
+    public IEnumerator UI_TextAnim(TextMeshProUGUI text, float end, UnityAction callBackEvent = null)
     {
         isAnimPlay = true;
         animData.ResetAnimData();
+        var start = animData.animDuration;
         while (animData.animTime < 0.999f)
         {
             animData.animTime = (Time.time - animData.animStartTime) / animData.animDuration;

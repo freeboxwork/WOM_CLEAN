@@ -83,13 +83,13 @@ public class SkillBtn : MonoBehaviour
             backLightImage.color = white;
             backLightImage.DOColor(new Color(1, 1, 1, 0), 0.5f).SetLoops(-1, LoopType.Yoyo);
         }
-        
+
     }
 
 
     public void UsingSkillByButton()
     {
-        if(isCoolTime) return;
+        if (isCoolTime) return;
         StartCoroutine(UsingSkillByButton_Cor());
     }
     //버튼이 눌렸을때 진입
@@ -135,7 +135,7 @@ public class SkillBtn : MonoBehaviour
             txtTimeAnim.enabled = true;
 
             //스킬 [지속시간] UI Update
-            StartCoroutine(animCont.UI_TextAnim(txtTimeAnim, skillDuration, 0));
+            StartCoroutine(animCont.UI_TextAnim(txtTimeAnim, 0));
             StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 0, 1));
 
             // skill effect on!
@@ -166,7 +166,7 @@ public class SkillBtn : MonoBehaviour
 
             txtTimeAnim.enabled = false;
             skillAddValue = false;
-            
+
             //쿨타임 Text
             txtTime.enabled = true;
             imgSkillBack.color = colorWhite;
@@ -183,7 +183,7 @@ public class SkillBtn : MonoBehaviour
             // [재사용 대기 시간] 데이터 저장
             GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, true);
             //스킬 [재사용 대기 시간] UI Update
-            StartCoroutine(animCont.UI_TextAnim(txtTime, animDataReloadSkill.animDuration, 0, () => coolTimeWait = 0));
+            StartCoroutine(animCont.UI_TextAnim(txtTime, 0, () => coolTimeWait = 0));
             StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 1, 0));
 
             while (coolTimeWait > 0)
@@ -197,6 +197,8 @@ public class SkillBtn : MonoBehaviour
             //Debug.Log("스킬 재사용 대기 시간 종료");
             SetEndCoolTime();
 
+
+
         }
         else
         {
@@ -207,13 +209,15 @@ public class SkillBtn : MonoBehaviour
             imgSkillBack.color = colorWhite;
             imgSkillFront.color = colorDeem;
             imgSkillFront.fillClockwise = false;
-            animDataReloadSkill.animDuration = data.coolTime;
+            animDataReloadSkill.animDuration = coolTimeWait;
             animCont.animData = animDataReloadSkill;
             float calcCooltime = coolTimeWait;
             var startTime = Time.time;
 
+            Debug.Log("ssssssssssssssssss");
+
             //스킬 [재사용 대기 시간] UI Update
-            StartCoroutine(animCont.UI_TextAnim(txtTime, animDataReloadSkill.animDuration, 0, () => coolTimeWait = 0));
+            StartCoroutine(animCont.UI_TextAnim(txtTime, 0, () => coolTimeWait = 0));
             StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 1, 0));
 
             while (coolTimeWait > 0)
@@ -225,6 +229,8 @@ public class SkillBtn : MonoBehaviour
             }
 
             SetEndCoolTime();
+
+
 
         }
 
@@ -239,7 +245,7 @@ public class SkillBtn : MonoBehaviour
     }
     public void SetTxtLevel(int lv)
     {
-        txtLevel.text = string.Format("Lv{0}",lv);
+        txtLevel.text = string.Format("Lv{0}", lv);
     }
     void SkillEffectBySkillType(bool enableValue)
     {

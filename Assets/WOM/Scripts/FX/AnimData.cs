@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AnimData : MonoBehaviour
 {
@@ -18,6 +16,19 @@ public class AnimData : MonoBehaviour
         animTime = 0f;
         animValue = 0f;
         animStartTime = Time.time;
+    }
+
+    public AnimData CopyInstance()
+    {
+        AnimData animData = new AnimData();
+        animData.dataName = dataName;
+        animData.animCurveType = animCurveType;
+        animData.animDuration = animDuration;
+        animData.value = value;
+        animData.animTime = animTime;
+        animData.animValue = animValue;
+        animData.animStartTime = animStartTime;
+        return animData;
     }
 
 }

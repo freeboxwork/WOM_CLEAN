@@ -11,13 +11,17 @@ public class EnumDefinition
         MINE,
         FACTORY,
         CAMP,
-        LAB
+        LAB,
+        DUNGEON_REWARD_POPUP,
+        DUNGEON_ENTER_POPUP,
+        UNION_INFO_POPUP,
+        DUNGEON_GIVEUP_POPUP
 
     }
     public enum CanvasTYPE
     {
         Castle,
-        Main,
+        Main
     }
     public enum TransitionTYPE
     {
@@ -35,6 +39,7 @@ public class EnumDefinition
         Button,
         GameObject,
         Image,
+        Notify
     }
 
     public enum PatternType
@@ -128,7 +133,6 @@ public class EnumDefinition
         battlePassData,
         attendData,
         newUserData,
-        labBuildingData,
         rewardAdGemData,
         skillInsectDamageUpData,
         skillUnionDamageUpData,

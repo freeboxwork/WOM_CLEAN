@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
-
+using Firebase;
+using Firebase.Analytics;
 public class GlobalController : MonoBehaviour
 {
 
@@ -64,6 +65,7 @@ public class GlobalController : MonoBehaviour
 
         if(playerDataManager.saveData.stageIdx >= StaticDefine.MAX_STAGE) playerDataManager.saveData.stageIdx = StaticDefine.MAX_STAGE;
 
+        yield return StartCoroutine(firebaseManager.Init());
         // 스테이지 세팅
         yield return StartCoroutine(stageManager.Init(playerDataManager.saveData.stageIdx));
 
@@ -176,7 +178,12 @@ public class GlobalController : MonoBehaviour
         // 버튼 가능 상태로 전환
         UtilityMethod.EnableUIEventSystem(true);
         tutorialManager.TutorialStart();
-        firebaseManager.LogEvent("UserData","Stage",stageManager.stageData.stageId);
+        //firebaseManager.LogEvent("UserData","Stage",stageManager.stageData.stageId);
+
+        firebaseManager.LogEvent("Stage",
+        new Parameter(FirebaseAnalytics.ParameterValue, stageManager.stageData.stageId));
+        firebaseManager.LogEvent("EvolutionLevel",
+        new Parameter(FirebaseAnalytics.ParameterValue, saveDataManager.saveDataTotal.saveDataEvolution.level_evolution));
 
 
     }

@@ -108,7 +108,7 @@ public class DNAManager : MonoBehaviour
                 yield break;
             }
             yield return StartCoroutine(LotteryStart(roundCount, payValue, rewardType));
-            yield return new WaitForSeconds(0.5f);
+            yield return new WaitForSeconds(0.6f);
         }
     }
 
@@ -175,7 +175,7 @@ public class DNAManager : MonoBehaviour
                 ResetUI(type);
 
             yield return StartCoroutine(CardOpenEffect());
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(0.3f);
 
             //연속 뽑기중이 아닐때만 버튼 활성화
             if (!campPopup.GetIsOnToggleRepeatDNA())

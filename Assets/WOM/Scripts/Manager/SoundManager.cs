@@ -28,7 +28,7 @@ public class SoundManager : MonoBehaviour
     const string bgmOnOffKey = "bgmOnOff";
     const string sfxOnOffKey = "sfxOnOff";
 
-    int poolSize = 20; // 오브젝트 풀 크기
+    int poolSize = 50; // 오브젝트 풀 크기
     public Transform poolParent;
 
     public GameObject spawnPrefab; // 사운드를 재생할 프리팹

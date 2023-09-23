@@ -17,7 +17,6 @@ namespace ProjectGraphics
         [SerializeField] RectTransform rect;
         [SerializeField] GlobalPopupAnimationController popupAnimationController;
 
-        Color titleTextColor;
         Color messageTextColor;
         Color backImageColor;
 

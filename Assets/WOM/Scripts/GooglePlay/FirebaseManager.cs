@@ -9,8 +9,10 @@ public class FirebaseManager : MonoBehaviour
     FirebaseApp app;
     bool isInitComplete = false;
 
-    private void Start()
+    public IEnumerator Init()
     {
+        yield return null;
+
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         {
             if(task.Result == DependencyStatus.Available)
@@ -30,6 +32,11 @@ public class FirebaseManager : MonoBehaviour
 
 
 
+    public void LogEvent(string eventName, params Parameter[] parameters)
+    {
+        if(isInitComplete)
+        FirebaseAnalytics.LogEvent(eventName,parameters);
+    }
 
 
 

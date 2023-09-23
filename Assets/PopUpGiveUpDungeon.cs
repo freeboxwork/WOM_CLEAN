@@ -9,7 +9,8 @@ public class PopUpGiveUpDungeon : MonoBehaviour
 {
     //받게 될 보상량
     public TextMeshProUGUI txtRewardAmount;
-    
+        public EnumDefinition.CanvasGroupTYPE canvasGroupType;
+
     //수락 버튼
      public Button btnAccept;
     //거절 버튼
@@ -17,8 +18,6 @@ public class PopUpGiveUpDungeon : MonoBehaviour
     //재화 아이콘
     public Image imageCurrencyIcon;
     public SerializableDictionary<EnumDefinition.GoodsType, Sprite> goodsToIconMap;
-
-    public GameObject content;
 
     Action<EnumDefinition.GoodsType, float> callBack;
     EnumDefinition.GoodsType goodsType;
@@ -37,7 +36,7 @@ public class PopUpGiveUpDungeon : MonoBehaviour
         this.callBack = callBack;
         this.goodsType = goodsType;
         this.reward = reward;
-        content.SetActive(true);
+        ShowPopup();
         txtRewardAmount.text = UtilityMethod.ChangeSymbolNumber(this.reward);
         imageCurrencyIcon.sprite = goodsToIconMap[this.goodsType];
     }
@@ -48,13 +47,24 @@ public class PopUpGiveUpDungeon : MonoBehaviour
         isShowPopup = false;
         this.callBack.Invoke(this.goodsType, Mathf.Round(this.reward));
         this.callBack = null;
-        content.SetActive(false);
+        HidePopup();
     }
     public void ButtonRefuse()
     {
         isShowPopup = false;
         this.callBack = null;
-        content.SetActive(false);
+        HidePopup();
+    }
+
+
+
+    public void ShowPopup()
+    {
+        GlobalData.instance.uiController.ShowFadeCanvasGroup(canvasGroupType, true);
+    }
+    public void HidePopup()
+    {
+        GlobalData.instance.uiController.ShowFadeCanvasGroup(canvasGroupType, false);
     }
 
 }

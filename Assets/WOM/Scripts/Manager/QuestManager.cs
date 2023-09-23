@@ -274,7 +274,7 @@ public class QuestManager : MonoBehaviour
                 slot.UpdateUI(quest);
 
                 // quest 의 변동 사항을 로그로 출력
-                Debug.Log("퀘스트 카운트 증가 : " + type.ToString() + " 현재 카운트 : " + quest.curCountValue + " / " + quest.targetValue);
+                //Debug.Log("퀘스트 카운트 증가 : " + type.ToString() + " 현재 카운트 : " + quest.curCountValue + " / " + quest.targetValue);
                 // save data
                 SaveQuestData(quest);
 

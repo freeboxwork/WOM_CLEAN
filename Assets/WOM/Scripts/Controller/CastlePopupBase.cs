@@ -9,7 +9,7 @@ public class CastlePopupBase : MonoBehaviour
 
     protected virtual void Awake()
     {
-               closeButton.onClick.AddListener(() =>
+        closeButton.onClick.AddListener(() =>
         {
             HidePopup();
         });
@@ -18,11 +18,11 @@ public class CastlePopupBase : MonoBehaviour
 
     public virtual void ShowPopup()
     {
-        GlobalData.instance.uiController.ShowFadeCanvasGroup(canvasGroupType);
+        GlobalData.instance.uiController.ShowFadeCanvasGroup(canvasGroupType, true);
     }
     public virtual void HidePopup()
     {
-        GlobalData.instance.uiController.HideFadeCanvasGroup(canvasGroupType);
+        GlobalData.instance.uiController.ShowFadeCanvasGroup(canvasGroupType, false);
     }
 
 }

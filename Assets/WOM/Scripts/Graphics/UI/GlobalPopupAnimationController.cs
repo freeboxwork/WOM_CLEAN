@@ -7,7 +7,7 @@ namespace ProjectGraphics
     public class GlobalPopupAnimationController : MonoBehaviour
     {
         [Header("등장 속도")]
-        public float openDuration = 0.5f;
+        public float openDuration = 0.2f;
         [Header("올라가는 속도")]
         public float climbDuration = 2f;
         [Header("사라지는 속도")]

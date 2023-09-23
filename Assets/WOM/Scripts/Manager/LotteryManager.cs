@@ -120,7 +120,7 @@ public class LotteryManager : MonoBehaviour
         while (campPopup.GetIsOnToggleRepeatUnion())
         {
             yield return StartCoroutine(CardOpen(roundCount, payValue, gameEndEvent, rewardType));
-            yield return new WaitForSeconds(0.4f);
+            yield return new WaitForSeconds(0.6f);
         }
     }
 
@@ -188,7 +188,7 @@ public class LotteryManager : MonoBehaviour
 
             //Debug.Log("뽑기 진행 수 : " + curLotteryCount);
 
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(0.3f);
 
             // 닫기 버튼 활성화
             UtilityMethod.GetCustomTypeBtnByID(44).interactable = true;

@@ -7,7 +7,7 @@ using static EnumDefinition;
 
 public class DungeonEnterPopup : MonoBehaviour
 {
-
+    public CanvasGroupTYPE canvasGroupType;
     public Image keyIcon;
     public Image goodsIcon;
 
@@ -21,8 +21,6 @@ public class DungeonEnterPopup : MonoBehaviour
     public SerializableDictionary<EnumDefinition.MonsterType, Sprite> monsterTypeToGoodsIconMap;
 
     public EnumDefinition.MonsterType curMonsterType;
-    public GameObject contents;
-
     public Button btn_AD_Dungeon;
     public Button btn_KeyDungeon;
     public Button btn_Ticket_Dungeon;
@@ -56,7 +54,8 @@ public class DungeonEnterPopup : MonoBehaviour
                 EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.clearDungeon);
                 EventManager.instance.RunEvent(CallBackEventType.TYPES.OnDungeonMonsterChallenge, curMonsterType);
             }
-            contents.SetActive(false);
+
+            HidePopup();
         });
 
         btn_AD_Dungeon.onClick.AddListener(() =>
@@ -66,7 +65,8 @@ public class DungeonEnterPopup : MonoBehaviour
                 // 광고 시청 후 던전 진입
                 Admob.instance.ShowRewardedAdByType(EnumDefinition.RewardTypeAD.adDungeon);
             }
-            contents.SetActive(false);
+
+            HidePopup();
         });
 
         btn_Ticket_Dungeon.onClick.AddListener(() =>
@@ -155,7 +155,7 @@ public class DungeonEnterPopup : MonoBehaviour
         var ticketActive = (curLevel > 0 && ticketCount > 0);
         btn_Ticket_Dungeon.interactable = ticketActive;
 
-        contents.SetActive(true);
+        ShowPopup();
     }
 
     void SetRewardUI(int level, DungeonMonsterData data, EnumDefinition.MonsterType monsterType)
@@ -260,8 +260,14 @@ public class DungeonEnterPopup : MonoBehaviour
     }
 
 
-
-
+    public void ShowPopup()
+    {
+        GlobalData.instance.uiController.ShowFadeCanvasGroup(canvasGroupType, true);
+    }
+    public void HidePopup()
+    {
+        GlobalData.instance.uiController.ShowFadeCanvasGroup(canvasGroupType, false);
+    }
 
 
 

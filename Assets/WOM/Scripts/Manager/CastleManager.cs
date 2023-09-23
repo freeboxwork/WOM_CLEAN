@@ -68,9 +68,7 @@ public class CastleManager : MonoBehaviour
             OpenCastlePopup(EnumDefinition.CastlePopupType.lab);
         });
 
-        // 64 금광 건설하기 버튼
 
-        // 103 금광 건설에 필요한 골드 텍스트
     }
 
     public IEnumerator Init()
@@ -259,7 +257,7 @@ public class CastleManager : MonoBehaviour
     public void WithdrawBone()
     {
         float withdrawnBone = buildDataFactory.TotlaMiningValue;
-        var minePopup = (MinePopup)GetCastlePopupByType(CastlePopupType.factory);
+        var factoryPopup = (MinePopup)GetCastlePopupByType(CastlePopupType.factory);
 
         if (withdrawnBone > 0)
         {
@@ -269,6 +267,7 @@ public class CastleManager : MonoBehaviour
             GlobalData.instance.player.AddBone(withdrawnBone);
             buildDataFactory.TotlaMiningValue = 0;
             GlobalData.instance.saveDataManager.SaveDataCastleSaveBone(buildDataFactory.TotlaMiningValue);
+
         }
         else
         {
@@ -323,35 +322,19 @@ public class CastleManager : MonoBehaviour
                     if (isSuccess)
                     {
                         var popup = (MinePopup)GetCastlePopupByType(type);
-                        
-                        var nextLevelData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel + 1);
-
-                        CastleBuildingData nextBuildData = null;
-
-                        if (nextLevelData != null)
-                        {
-                            nextBuildData = new CastleBuildingData().Create().SetGoodsType(GoodsType.gold).Clone(nextLevelData);
-                        }
-                        //현재 레벨에 해당하는 UI Text 세팅
-                        popup.SetBuildingUI(upgradeBuildingData);
                         //건물 업그레이드 연출
                         castleController.SetBuildUpgrade(BuildingType.MINE, mineLevel);
-                        //Max레벨일 경우 UI 세팅
-                        if (nextBuildData == null)
-                        {
-                            popup.SetMaxUI();
-                        }
+                        //현재 레벨에 해당하는 UI Text 세팅
+                        popup.SetBuildingUI(upgradeBuildingData);
 
-                        // 다음 레벨의 광산 정보 가져오기
+                        //광산 데이터 갱신
                         var refBuildDataMine = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel);
-
-                        var tempSaveGold = buildDataMine.TotlaMiningValue;
-
                         // Clone 메소드를 이용하여 BuildDataMine 객체의 데이터 갱신
                         buildDataMine = new CastleBuildingData().Create().SetGoodsType(GoodsType.gold).Clone(refBuildDataMine);
+                        //현재까지 저장된 골드를 갱신한 데이터에 저장
+                        var tempSaveGold = buildDataMine.TotlaMiningValue;
                         buildDataMine.TotlaMiningValue = tempSaveGold;
                         
-
                         //Debug.Log( isUpgrade + " mine level " + 
                         SetUnLockButton(64, 51, true);
                         // 골드 채굴 시작
@@ -375,26 +358,17 @@ public class CastleManager : MonoBehaviour
                     {
 
                         var popup = (MinePopup)GetCastlePopupByType(type);
-                        var nextLevelData = GlobalData.instance.dataManager.GetBuildDataFactoryByLevel(factoryLevel + 1);
-                        CastleBuildingData nextBuildData = null;
-                        if (nextLevelData != null)
-                        {
-                            nextBuildData = new CastleBuildingData().Create().SetGoodsType(GoodsType.coal).Clone(nextLevelData);
-                        }
+                        //건물 업그레이드 연출
+                        castleController.SetBuildUpgrade(BuildingType.FACTORY, factoryLevel);
                         //현재 레벨에 해당하는 UI Text 세팅
                         popup.SetBuildingUI(upgradeBuildingData);
-                        //건물 업그레이드 연출
-
-                        castleController.SetBuildUpgrade(BuildingType.FACTORY, factoryLevel);
-                        if (nextBuildData == null)
-                        {
-                            popup.SetMaxUI();
-                        }
+                        //광산 데이터 갱신
                         var refBuildDataFactory = GlobalData.instance.dataManager.GetBuildDataFactoryByLevel(factoryLevel);
+                        // Clone 메소드를 이용하여 BuildData객체의 데이터 갱신
+                        buildDataFactory = new CastleBuildingData().Create().SetGoodsType(GoodsType.bone).Clone(refBuildDataFactory);
+                        //현재까지 저장된 뼛조각를 갱신한 데이터에 저장
                         var tempSaveBone = buildDataMine.TotlaMiningValue;
                         buildDataFactory.TotlaMiningValue = tempSaveBone;
-
-                        buildDataFactory = new CastleBuildingData().Create().SetGoodsType(GoodsType.bone).Clone(refBuildDataFactory);
 
                         //Debug.Log(isUpgrade + " factory level " + factoryLevel);
                         SetUnLockButton(65, 52, true);
@@ -428,12 +402,16 @@ public class CastleManager : MonoBehaviour
      */
     public void CheckEnoughCostMine(UnityAction<bool, CastleBuildingData> completeCallback)
     {
+
+        var targetBuildingData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel + 1);
+
         // 플레이어가 가진 coal(resource)이 광산의 가격보다 많을 때 업그레이드 진행
-        if (GlobalData.instance.player.coal >= buildDataMine.price)
+        if (GlobalData.instance.player.coal >= targetBuildingData.price)
         {
             GlobalData.instance.soundManager.PlaySfxInGame(SFX_TYPE.Upgrade);
             // 가격만큼 resource 차감 후 레벨 업그레이드 진행
             GlobalData.instance.player.PayCoal(buildDataMine.price);
+
             mineLevel++;
             // set save data
             GlobalData.instance.saveDataManager.SaveDataCastMineleLevel(mineLevel);
@@ -511,6 +489,16 @@ public class CastleBuildingData
             var type = goodsType == EnumDefinition.GoodsType.gold ? CastlePopupType.mine : CastlePopupType.factory;
             var popup = (MinePopup)GlobalData.instance.castleManager.GetCastlePopupByType(type);
             popup.SetTextTotalMiningValue(totlaMiningValue);
+
+            if(totlaMiningValue > 0)
+            {
+                popup.SetGoodsButton(true);
+
+            }
+            else
+            {
+                popup.SetGoodsButton(false);
+            }
 
         }
 

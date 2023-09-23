@@ -10,13 +10,9 @@ public class DungeonPopup : MonoBehaviour
     public Button btnApply;
     public Image imageCurrencyIcon;
     public SerializableDictionary<EnumDefinition.GoodsType, Sprite> goodsToIconMap;
+    public EnumDefinition.CanvasGroupTYPE canvasGroupType;
 
     public Action OnButtonClick;
-
-    private void Start()
-    {
-
-    }
 
     private void Awake()
     {
@@ -26,7 +22,7 @@ public class DungeonPopup : MonoBehaviour
 
     public void SetDungeonPopup(EnumDefinition.GoodsType goodsType, float reward)
     {
-        
+        ShowPopup();
         txtRewardAmount.text = UtilityMethod.ChangeSymbolNumber(reward);
         imageCurrencyIcon.sprite = goodsToIconMap[goodsType];//???? ????? ?????? ????
     }
@@ -35,7 +31,7 @@ public class DungeonPopup : MonoBehaviour
     public void ButtonClickEvent()
     {
         OnButtonClick.Invoke();
-        gameObject.SetActive(false);
+        HidePopup();
     }
 
 
@@ -46,8 +42,20 @@ public class DungeonPopup : MonoBehaviour
         btnApply.onClick.AddListener(() =>
         {
             action.Invoke();
-            gameObject.SetActive(false);
+
+            HidePopup();
         });
     }
+
+    
+    public void ShowPopup()
+    {
+        GlobalData.instance.uiController.ShowFadeCanvasGroup(canvasGroupType, true);
+    }
+    public void HidePopup()
+    {
+        GlobalData.instance.uiController.ShowFadeCanvasGroup(canvasGroupType, false);
+    }
+
 
 }

@@ -432,25 +432,6 @@ public class UiController : MonoBehaviour
         }
 
 
-        // foreach (var btn in mainButtons)
-        // {
-        //     btn.btnMain.onClick.AddListener(() =>
-        //     {
-
-        //     EnableMenuPanel(btn.menuPanelType);
-
-        //         // 무빙캐슬 트랜지션
-        //         // if (btn.menuPanelType == MenuPanelType.castle)
-        //         // {
-        //         //     StartCoroutine(EnableCastlePanel());
-        //         // }
-        //         // else
-        //         // {
-        //         //     EnableMenuPanel(btn.menuPanelType);
-        //         // }
-        //     });
-        // }
-
     }
 
     public bool CheckOpenMenuPanel()
@@ -474,9 +455,6 @@ public class UiController : MonoBehaviour
     }
     IEnumerator EnableCastlePanel()
     {
-        // isActiveBossChallengeBtn = GlobalData.instance.uiController.btnBossChallenge.gameObject.activeSelf;
-        // if (isActiveBossChallengeBtn)
-        //     ToggleChallengeBossButton(false);
 
         isCastleOpen = true;
         //곤충 생성 타이머 종료
@@ -546,11 +524,7 @@ public class UiController : MonoBehaviour
 
     IEnumerator ExitCastlePanel()
     {
-        // if (isActiveBossChallengeBtn)
-        // {
-        //     isActiveBossChallengeBtn = false;
-        //     GlobalData.instance.uiController.btnBossChallenge.gameObject.SetActive(true);
-        // }
+
         if(isCastleOpen) yield break;
         GlobalData.instance.insectSpwanManager.AllTimerStart();
 
@@ -566,7 +540,6 @@ public class UiController : MonoBehaviour
             mainPanels[(int)MenuPanelType.castle].gameObject.SetActive(false);
 
             // UI 활성화
-            //UtilityMethod.GetCustomTypeGMById(6).gameObject.SetActive(true);
             EnableCanvadGroup(EnumDefinition.CanvasTYPE.Main);
 
             var monster = GlobalData.instance.player.currentMonster;
@@ -764,21 +737,27 @@ public class UiController : MonoBehaviour
     }
 
 
-    public void ShowFadeCanvasGroup(EnumDefinition.CanvasGroupTYPE type)
+    public void ShowFadeCanvasGroup(EnumDefinition.CanvasGroupTYPE type, bool isShow)
     {
-        popUpFadeCanvasGroups[(int)type].interactable = true;
-        
-        popUpFadeCanvasGroups[(int)type].DOFade(1, 0.3f).SetEase(Ease.OutQuint).OnComplete(() =>
-        {
-            popUpFadeCanvasGroups[(int)type].blocksRaycasts = true;
-        });
 
-    }
-    public void HideFadeCanvasGroup(EnumDefinition.CanvasGroupTYPE type)
-    {
-        popUpFadeCanvasGroups[(int)type].interactable = false;
-        popUpFadeCanvasGroups[(int)type].blocksRaycasts = false;
-        popUpFadeCanvasGroups[(int)type].DOFade(0, 0.3f).SetEase(Ease.OutQuint);
+        if (isShow)
+        {
+            popUpFadeCanvasGroups[(int)type].interactable = true;
+
+            popUpFadeCanvasGroups[(int)type].DOFade(1, 0.4f).SetEase(Ease.OutQuint).OnComplete(() =>
+            {
+                popUpFadeCanvasGroups[(int)type].blocksRaycasts = true;
+            });
+        }
+        else
+        {
+            popUpFadeCanvasGroups[(int)type].interactable = false;
+            popUpFadeCanvasGroups[(int)type].blocksRaycasts = false;
+            popUpFadeCanvasGroups[(int)type].DOFade(0, 0.4f).SetEase(Ease.OutQuint);
+        }
+
+
+
     }
 
 }

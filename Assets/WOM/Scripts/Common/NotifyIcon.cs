@@ -12,8 +12,9 @@ public class NotifyIcon : MonoBehaviour
     public Image iconNotify;
     public GameObject textNotify;
 
+    public List<NotifyIcon> notifyIconList = new List<NotifyIcon>();
 
-    bool isActive = false;
+    public bool isActive = false;
 
     void Start()
     {
@@ -33,6 +34,9 @@ public class NotifyIcon : MonoBehaviour
                 break;
             case EnumDefinition.NotifyType.Image:
                 NotifyCheck_Images();
+                break;
+            case EnumDefinition.NotifyType.Notify:
+                NotifyCheckNotify();
                 break;
             default:
                 break;
@@ -54,4 +58,9 @@ public class NotifyIcon : MonoBehaviour
     {
         isActive = imageList.Any(x => x.enabled == true);
     }
+    void NotifyCheckNotify()
+    {
+        isActive = notifyIconList.Any(x => x.isActive == true);
+    }
+
 }

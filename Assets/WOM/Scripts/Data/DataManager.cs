@@ -249,7 +249,7 @@ public class DataManager : MonoBehaviour
 
     void SetLabBuildingData()
     {
-        labBuildingDatas = GetData<LabBuidingDatas>(SheetDataType.labBuildingData);
+        labBuildingDatas = GetData<LabBuidingDatas>(SheetDataType.buindingDataLab);
     }
 
     void SetSaleStatDatas()

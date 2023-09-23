@@ -4,7 +4,6 @@ using TMPro;
 
 public class UnionInfoPopupController : MonoBehaviour
 {
-    public GameObject popup;
     public Image imgUnionFace;
     public TextMeshProUGUI txtUinonName;
     public TextMeshProUGUI txtUinonGrade;
@@ -21,6 +20,7 @@ public class UnionInfoPopupController : MonoBehaviour
     public Button btnClose;
     public UnionSlot unionSlot;
 
+    public EnumDefinition.CanvasGroupTYPE canvasGroupType;
 
 
 
@@ -36,7 +36,7 @@ public class UnionInfoPopupController : MonoBehaviour
         {
             GlobalData.instance.unionManager.SetSelectedSlot(unionSlot);
             GlobalData.instance.unionManager.EnableEquipSlotBtns();
-            popup.SetActive(false);
+            HidePopup();
         });
 
         btnLevelUp.onClick.AddListener(() =>
@@ -50,7 +50,7 @@ public class UnionInfoPopupController : MonoBehaviour
 
         btnClose.onClick.AddListener(() =>
         {
-            popup.SetActive(false);
+            HidePopup();
         });
     }
     public void EnablePopup(UnionSlot slot, UnionData data, UnionInGameData inGameData)
@@ -75,7 +75,7 @@ public class UnionInfoPopupController : MonoBehaviour
         SetSlider(slot.sliderReqirement.value);
         SetTxtReqirementCount(slot.txtReqirementCount.text);
 
-        popup.SetActive(true);
+        ShowPopup();
     }
 
     void ReloadUiSet()
@@ -142,6 +142,15 @@ public class UnionInfoPopupController : MonoBehaviour
     public void SetSlider(float value)
     {
         slider.value = value;
+    }
+
+    public void ShowPopup()
+    {
+        GlobalData.instance.uiController.ShowFadeCanvasGroup(canvasGroupType, true);
+    }
+    public void HidePopup()
+    {
+        GlobalData.instance.uiController.ShowFadeCanvasGroup(canvasGroupType, false);
     }
 
 

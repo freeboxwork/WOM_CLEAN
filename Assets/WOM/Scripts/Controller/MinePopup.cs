@@ -37,6 +37,12 @@ public class MinePopup : CastlePopupBase
     {
         SetButtonEvents();
     }
+
+    public void SetGoodsButton(bool isGet)
+    {
+        btnGetGold.interactable = isGet;
+    }
+
     void SetButtonEvents()
     {
         btnGetGold.onClick.AddListener(() =>
@@ -136,7 +142,16 @@ public class MinePopup : CastlePopupBase
     //CastleBuildingData 객체를 인자로 받아서 각각의 맴버변수의 text 값을 설정하는 함수
     public void SetBuildingUI(CastleBuildingData data)
     {
-        var nextLevelData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(data.level + 1);
+        MineAndFactoryBuildingData nextLevelData;
+
+        if(data.goodsType == EnumDefinition.GoodsType.gold)
+        {
+            nextLevelData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(data.level + 1);
+        }
+        else
+        {
+            nextLevelData = GlobalData.instance.dataManager.GetBuildDataFactoryByLevel(data.level + 1);
+        }
 
         string _productionCountText = UtilityMethod.ChangeSymbolNumber(data.productionCount);
         string _maxSupplyText = UtilityMethod.ChangeSymbolNumber(data.maxSupplyAmount);
@@ -146,16 +161,42 @@ public class MinePopup : CastlePopupBase
         // 다음 레벨 정보가 존재하는 경우 문자열값 업데이트
         if (nextLevelData != null)
         {
+            
+            if(nextLevelData.productionCount > data.productionCount)
+            {
+                nextProductionCountText.text = string.Format("<color=#00FF00>{0}</color>", UtilityMethod.ChangeSymbolNumber(nextLevelData.productionCount));
+            }
+            else
+            {
+                nextProductionCountText.text = string.Format("{0}", UtilityMethod.ChangeSymbolNumber(nextLevelData.productionCount));    
+            }
 
-            nextProductionCountText.text = string.Format("<color=#00FF00> ->  {0}</color>", UtilityMethod.ChangeSymbolNumber(nextLevelData.productionCount));
-            nextMaxSupplyText.text = string.Format("<color=#00FF00> ->  {0}</color>", UtilityMethod.ChangeSymbolNumber(nextLevelData.maxSupplyAmount));
-            nextProductionTimeText.text = string.Format("<color=#00FF00> ->  {0}</color>", UtilityMethod.ChangeSymbolNumber(nextLevelData.productionTime));
+            if(nextLevelData.maxSupplyAmount > data.maxSupplyAmount)
+            {
+                nextMaxSupplyText.text = string.Format("<color=#00FF00>{0}</color>", UtilityMethod.ChangeSymbolNumber(nextLevelData.maxSupplyAmount));
+            }
+            else
+            {
+                nextMaxSupplyText.text = string.Format("{0}", UtilityMethod.ChangeSymbolNumber(nextLevelData.maxSupplyAmount));    
+            }
+
+            if(nextLevelData.productionTime < data.productionTime)
+            {
+                nextProductionTimeText.text = string.Format("<color=#00FF00>{0}</color>", UtilityMethod.ChangeSymbolNumber(nextLevelData.productionTime));
+            }
+            else
+            {
+                nextProductionTimeText.text = string.Format("{0}", UtilityMethod.ChangeSymbolNumber(nextLevelData.productionTime));    
+            }
+
+            SetTextPrice(nextLevelData.price);
         }
         else
         {
             nextProductionCountText.text = "최대 레벨입니다";
             nextMaxSupplyText.text = "최대 레벨입니다";
             nextProductionTimeText.text = "최대 레벨입니다";
+            SetMaxUI();
         }
 
         // UI에 값을 설정
@@ -163,7 +204,6 @@ public class MinePopup : CastlePopupBase
         SetTextMaxSupply(_maxSupplyText);
         SetTextProductionTime(_productionTimeText);
         SetTextLevel(_levelText);
-        SetTextPrice(data.price);
 
     }
 

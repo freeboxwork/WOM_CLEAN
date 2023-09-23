@@ -9,7 +9,7 @@ public class GoodsPoolingConrtoller : MonoBehaviour
     // 프리팹 생성될 부모 모드젝트
     public Transform trEffects;
 
-    public int goldPoolCount = 25;
+    int goldPoolCount = 50;
     // 골드 프리팹
     public GoldAnimController prefabGoldAnimCont;
 
@@ -77,6 +77,8 @@ public class GoodsPoolingConrtoller : MonoBehaviour
             {
                 gold.GoldOutAnimStart(() =>
                 {
+                    //GlobalData.instance.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.CoinPickUp);
+
                     // 골드가 UI 쪽으로 이동후 개별 이벤트 실행
                     //Debug.Log("gold goal event!!");
                 });

@@ -4,7 +4,7 @@
    "level": 0,
    "productionCount": 0,
    "maxSupplyAmount": 0,
-   "price": 1000,
+   "price": 6000,
    "productionTime": 330,
    "currencyType": "Bone"
  },
@@ -12,7 +12,7 @@
    "level": 1,
    "productionCount": 10000,
    "maxSupplyAmount": 50000,
-   "price": 10000,
+   "price": 6000,
    "productionTime": 330,
    "currencyType": "Bone"
  },

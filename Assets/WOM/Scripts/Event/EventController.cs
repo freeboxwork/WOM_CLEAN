@@ -60,6 +60,11 @@ public class EventController : MonoBehaviour
     public void StopAllCoroutine()
     {
         StopAllCoroutines();
+                // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
+        StartCoroutine(globalData.effectManager.goldPoolingCont.DisableGoldEffects());
+
+        // 보스의 경우 뼈조각 OUT EFF 추가 ( 뼈조각 화면에 뿌려진 경우에만 )
+        StartCoroutine(globalData.effectManager.bonePoolingCont.DisableGoldEffects());
     }
 
     //===================================================================================================================================================================================
@@ -290,7 +295,7 @@ public class EventController : MonoBehaviour
     
     //===================================================================================================================================================================================
     #region Monster DEAD
-IEnumerator MonsterKill(MonsterBase currentMonster)
+    IEnumerator MonsterKill(MonsterBase currentMonster)
     {
         IsMonsterDead = true;
 
@@ -309,7 +314,9 @@ IEnumerator MonsterKill(MonsterBase currentMonster)
 
         // sfx monster die
         globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.BossDie);
-        
+        // monster kill animation 사망 애니메이션 대기
+        yield return StartCoroutine(currentMonster.inOutAnimator.MonsterKillMatAnim());
+
         //골드 뿌리는 이펙트
         yield return StartCoroutine(globalData.effectManager.goldPoolingCont.EnableGoldEffects(currentMonster.goldCount));
 
@@ -342,8 +349,9 @@ IEnumerator MonsterKill(MonsterBase currentMonster)
             //곤충들 슬로우 모션
             yield return StartCoroutine(BossDefeatSlowMotionEffect());
         }
-        // monster kill animation 사망 애니메이션 대기
-        yield return StartCoroutine(currentMonster.inOutAnimator.MonsterKillMatAnim());
+
+        globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.CoinPickUp);
+
         //재화획득
         GainGold(currentMonster);
         if (currentMonster.monsterType == MonsterType.boss) GainBone(currentMonster);
@@ -438,13 +446,13 @@ IEnumerator MonsterKill(MonsterBase currentMonster)
         // 일일 퀘스트 완료 : 금광보스
         EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.killGoldBoss);
 
-        // 보스 도전 버튼 활성화 
-        globalData.uiController.ToggleChallengeBossButton(true);
+
         isRememberActiveBossButton = true;
+        globalData.uiController.ToggleChallengeBossButton(true);
 
         // 일반 몬스터 등장
         yield return StartCoroutine(AppearMonster(MonsterType.normal));
-
+        // 보스 도전 버튼 활성화 
         // 보스 도전 가능 상태 설정
         globalData.player.isBossMonsterChllengeEnable = true;
     }
@@ -624,12 +632,7 @@ IEnumerator MonsterKill(MonsterBase currentMonster)
             //일반, 골드 몬스터 등장시 사이드 메뉴 활성화
             globalData.uiController.ShowUI(true);
         }
-        // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
-        StartCoroutine(globalData.effectManager.goldPoolingCont.DisableGoldEffects());
 
-        // 보스의 경우 뼈조각 OUT EFF 추가 ( 뼈조각 화면에 뿌려진 경우에만 )
-        StartCoroutine(globalData.effectManager.bonePoolingCont.DisableGoldEffects());
-        GlobalData.instance.soundManager.PlaySfxUI(EnumDefinition.SFX_TYPE.CoinPickUp);
 
         // 몬스터 타입에 따른 데이터 불러오기
         var monsterData = globalData.monsterManager.GetMonsterData(monsterType);
@@ -676,6 +679,11 @@ IEnumerator MonsterKill(MonsterBase currentMonster)
         // Monster In Animation
         yield return StartCoroutine(globalData.player.currentMonster.inOutAnimator.AnimPositionIn());
 
+        // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
+        StartCoroutine(globalData.effectManager.goldPoolingCont.DisableGoldEffects());
+
+        // 보스의 경우 뼈조각 OUT EFF 추가 ( 뼈조각 화면에 뿌려진 경우에만 )
+        StartCoroutine(globalData.effectManager.bonePoolingCont.DisableGoldEffects());
         // 공격 가능 상태 변경
         if (globalData.uiController.isCastleOpen == false)
             globalData.attackController.SetAttackableState(true);
@@ -1122,8 +1130,6 @@ IEnumerator MonsterKill(MonsterBase currentMonster)
         globalData.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.End_Batle);
 
         // 던전 몬스터 팝업 
-        globalData.dungeonPopup.gameObject.SetActive(true);
-
         globalData.dungeonPopup.SetDungeonPopup(goodsType, totalCurrencyAmount);
 
         //팝업 닫기 버튼을 누를때까지 대기

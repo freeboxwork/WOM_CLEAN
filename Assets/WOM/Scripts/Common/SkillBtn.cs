@@ -45,7 +45,7 @@ public class SkillBtn : MonoBehaviour
     public bool skillAddValue = false;
     public bool isCoolTime = false;
 
-    float coolTimeWait;
+    public float coolTimeWait;
     float skillLeftTime;
     float skillLeftCoolTime;
 

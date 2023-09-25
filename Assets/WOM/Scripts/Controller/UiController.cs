@@ -588,7 +588,10 @@ public class UiController : MonoBehaviour
                 {
                     GlobalData.instance.traningManager.EnableFirstSubMenuPanel();
                 }
-
+                else if(type == MenuPanelType.dna)
+                {
+                    GlobalData.instance.dnaManger.UpdateHaveCount();
+                }
                 //Debug.Log("EnableMenuPanel : " + type + " / " + enableValue);
                 if (enableValue == false)
                 {

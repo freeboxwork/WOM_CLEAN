@@ -110,17 +110,10 @@ public class SkillBtn : MonoBehaviour
             //기본 스킬 [지속시간] - DNA [지속시간] 감소 적용
             var skillDuration = data.duaration + GlobalData.instance.statManager.SkillDuration();
 
-            //스킬 지속시간 타이머
-            //animDataUsingSkill.animDuration = skillDuration;
-            //스킬 재사용 시간 타이머
-            //animDataReloadSkill.animDuration = totalCoolTime;
-            //Debug.Log("스킬 애니메이션 시간 :  " + skillDuration);
 
             imgSkillBack.color = colorWhite;
             imgSkillFront.color = colorDeem;
             imgSkillFront.fillClockwise = true;
-
-            //animCont.animData = animDataUsingSkill;
 
             // 일일 퀘스트 완료 : 스킬 사용
             EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.useSkill);
@@ -150,34 +143,6 @@ public class SkillBtn : MonoBehaviour
                 txtTimeAnim.text = string.Format("{0:F1} ", textValue) + "s";
                 yield return null;
             }
-
-
-            //스킬 [지속시간] UI Update
-            // StartCoroutine(animCont.UI_TextAnim(txtTimeAnim, 0));
-            // StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 0, 1));
-
-
-
-            // 스킬 사용 대기
-            // float calcSkillTime = skillDuration;
-            // var skillStartTime = Time.time;
-            // skillLeftTime = calcSkillTime;
-
-            // //backLightImage.DOColor의 Loop를 종료
-            // backLightImage.DOKill();
-            // backLightImage.DOColor(Color.red, 0.2f);
-
-            // //버프 이펙트 처리를 위한 변수
-            // skillAddValue = true;
-            // //스킬 사용 스텟을 적용시키기 위함
-            // GlobalData.instance.statManager.UsingSkill(skillType);
-
-            // while (skillLeftTime > 0)
-            // {
-
-            //     skillLeftTime = calcSkillTime - (Time.time - skillStartTime);
-            //     yield return null;
-            // }
 
             // skill effect off!
             SkillEffectBySkillType(false);
@@ -216,32 +181,7 @@ public class SkillBtn : MonoBehaviour
                 yield return null;
             }
 
-            //float calcCooltime = animDataReloadSkill.animDuration;
-            //var startTime = Time.time;
-
-
-
-
-            // // [재사용 대기 시간] 데이터 저장
-            // GlobalData.instance.saveDataManager.SetSkillCooltime(skillType, true);
-
-
-            // //스킬 [재사용 대기 시간] UI Update
-            // StartCoroutine(animCont.UI_TextAnim(txtTime, 0, () => coolTimeWait = 0));
-            // StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 1, 0));
-
-            // while (coolTimeWait > 0)
-            // {
-            //     coolTimeWait = calcCooltime - (Time.time - startTime);
-            //     GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, coolTimeWait);
-            //     //Debug.Log("skill coolTimeWait : " + coolTimeWait);
-            //     yield return null;
-            // }
-
-            //Debug.Log("스킬 재사용 대기 시간 종료");
             SetEndCoolTime();
-
-
 
         }
         else

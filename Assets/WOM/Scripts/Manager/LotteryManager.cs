@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using ProjectGraphics;
 using System.Linq;
-using Unity.Mathematics;
 /// <summary>
 /// 유니온 뽑기 , 진화 주사위 뽑기
 /// </summary>
@@ -46,7 +45,7 @@ public class LotteryManager : MonoBehaviour
     // union gamble 새로 만듦....
     public int totalGambleCount = 0; // 현재 레벨에서 전체 뽑기 수 ( 레벨 올라가면 초기화)
     public int summonGradeLevel = 0; // 뽑기 등급 레벨
-     // public int totalGamblePlayCount = 0; // 게임 전체 뽑기 수 ( 리워드 획득시 해당 레벨 count 만큼 차감 )
+                                     // public int totalGamblePlayCount = 0; // 게임 전체 뽑기 수 ( 리워드 획득시 해당 레벨 count 만큼 차감 )
 
     void Start()
     {
@@ -231,14 +230,14 @@ public class LotteryManager : MonoBehaviour
     void PopupUIUpdate()
     {
         CampPopup popup = (CampPopup)GlobalData.instance.castleManager.GetCastlePopupByType(EnumDefinition.CastlePopupType.camp);
-        
-        if(summonGradeLevel >= 8)
+
+        if (summonGradeLevel >= 8)
         {
             popup.SetSummonCountProgress(1, 1);
             popup.SetTxtSummonCount(9999, 9999);
             return;
         }
-        
+
         //FillAmount 세팅
         popup.SetSummonCountProgress(totalGambleCount, curSummonGradeData.count);
         //뽑기 카운트 UI 세팅
@@ -261,7 +260,7 @@ public class LotteryManager : MonoBehaviour
         {
             var union = (EnumDefinition.UnionGradeType)UtilityMethod.GetWeightRandomValue(randomGradeValues);
 
-            if(union >= EnumDefinition.UnionGradeType.legend)
+            if (union >= EnumDefinition.UnionGradeType.legend)
             {
                 GlobalData.instance.saveDataManager.SaveDataToFile();
             }
@@ -283,6 +282,8 @@ public class LotteryManager : MonoBehaviour
         {
             if (i == 0 && GlobalData.instance.tutorialManager.isUnionGamblingTutorial)
             {
+
+                Debug.Log("튜토리얼 뽑기 - 0번 유니온");
                 // 투토리얼 일때 무조건 0번 뽑기
                 unionIndexList.Add(0);
                 continue;

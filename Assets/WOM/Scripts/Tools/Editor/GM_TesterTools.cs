@@ -147,32 +147,32 @@ public class GM_TesterTools : EditorWindow
         EditorGUILayout.EndFoldoutHeaderGroup();
         GUILayout.EndVertical();
 
-        // kill fold
-        GUILayout.BeginVertical("Box");
-        skillFold = EditorGUILayout.BeginFoldoutHeaderGroup(skillFold, "SKILL");
-        if (skillFold)
-        {
-            GUI_Skill();
-        }
-        EditorGUILayout.EndFoldoutHeaderGroup();
-        GUILayout.EndVertical();
+        // // kill fold
+        // GUILayout.BeginVertical("Box");
+        // skillFold = EditorGUILayout.BeginFoldoutHeaderGroup(skillFold, "SKILL");
+        // if (skillFold)
+        // {
+        //     GUI_Skill();
+        // }
+        // EditorGUILayout.EndFoldoutHeaderGroup();
+        // GUILayout.EndVertical();
 
         EditorGUILayout.EndScrollView();
     }
 
-    void GUI_Skill()
-    {
-        foreach (EnumDefinition.SkillType type in System.Enum.GetValues(typeof(EnumDefinition.SkillType)))
-        {
-            GUILayout.BeginHorizontal();
-            EditorCustomGUI.GUI_Label(levelWidth, type.ToString(), "");
-            if (GUILayout.Button(" 스킬 쿨타임 스킵"))
-            {
-                GlobalData.instance.skillManager.SkillCoolTimeSkipByType(type);
-            }
-            GUILayout.EndHorizontal();
-        }
-    }
+    // void GUI_Skill()
+    // {
+    //     foreach (EnumDefinition.SkillType type in System.Enum.GetValues(typeof(EnumDefinition.SkillType)))
+    //     {
+    //         GUILayout.BeginHorizontal();
+    //         EditorCustomGUI.GUI_Label(levelWidth, type.ToString(), "");
+    //         if (GUILayout.Button(" 스킬 쿨타임 스킵"))
+    //         {
+    //             GlobalData.instance.skillManager.SkillCoolTimeSkipByType(type);
+    //         }
+    //         GUILayout.EndHorizontal();
+    //     }
+    // }
 
     TutorialManager tutorialManager;
 

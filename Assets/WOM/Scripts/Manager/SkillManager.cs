@@ -77,11 +77,11 @@ public class SkillManager : MonoBehaviour
         }
     }
 
-    public void SkillCoolTimeSkipByType(SkillType skillType)
-    {
-        var skillBtn = GetSkillBtnByType(skillType);
-        skillBtn.SkipCoolTime();
-    }
+    // public void SkillCoolTimeSkipByType(SkillType skillType)
+    // {
+    //     var skillBtn = GetSkillBtnByType(skillType);
+    //     skillBtn.SkipCoolTime();
+    // }
 
     // 초기 UI 세팅
     void SetSlotUI()

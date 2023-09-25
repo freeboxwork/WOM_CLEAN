@@ -147,9 +147,6 @@ GameObject:
   - component: {fileID: 2876859116523754017}
   - component: {fileID: 2876859116523754018}
   - component: {fileID: 1245384678}
-  - component: {fileID: 1245384677}
-  - component: {fileID: 1245384676}
-  - component: {fileID: 1245384675}
   - component: {fileID: 1245384679}
   - component: {fileID: 5221671299791889091}
   - component: {fileID: 1245384686}
@@ -244,68 +241,13 @@ MonoBehaviour:
   colorDeem: {r: 0.3301887, g: 0.3301887, b: 0.3301887, a: 1}
   colorWhite: {r: 1, g: 1, b: 1, a: 1}
   backLightImage: {fileID: 2876859116523754018}
-  animDataUsingSkill: {fileID: 1245384677}
-  animDataReloadSkill: {fileID: 1245384676}
-  animCont: {fileID: 1245384675}
+  animDataUsingSkill: {fileID: 0}
+  animDataReloadSkill: {fileID: 0}
+  animCont: {fileID: 0}
   skillType: 0
   skillReady: 0
   skillAddValue: 0
   isCoolTime: 0
---- !u!114 &1245384677
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2876859116523754012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b955aaedd0e64ea49a572dc1a5730e1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dataName: usingSkll
-  animCurveType: 9
-  animDuration: 1
-  value: 0
-  animTime: 0
-  animValue: 0
-  animStartTime: 0
---- !u!114 &1245384676
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2876859116523754012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b955aaedd0e64ea49a572dc1a5730e1e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dataName: reloadSkill
-  animCurveType: 9
-  animDuration: 1
-  value: 0
-  animTime: 0
-  animValue: 0
-  animStartTime: 0
---- !u!114 &1245384675
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2876859116523754012}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e8a690181f60374f8942d162bfeaed5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animData: {fileID: 0}
-  m_transform: {fileID: 0}
-  animSystem_ID: 0
-  isAnimPlay: 0
-  cam: {fileID: 0}
 --- !u!114 &1245384679
 MonoBehaviour:
   m_ObjectHideFlags: 0

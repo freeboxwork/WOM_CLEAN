@@ -359,6 +359,8 @@ public class UnionManager : MonoBehaviour
             slot.inGameData.passiveDamageNextLevel = GetUnionPassiveDamageNextLevel(slot);
             slot.RelodUISet();
             GlobalData.instance.soundManager.PlaySfxUI(EnumDefinition.SFX_TYPE.UnionLevelUp);
+            GlobalData.instance.effectManager.PlayEffect();
+
             EnableBtnTotalLevelUp();
             SetTxtTotalPassiveDamage();
         }

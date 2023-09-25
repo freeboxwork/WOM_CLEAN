@@ -537,7 +537,9 @@ public class EventController : MonoBehaviour
         globalData.unionManager.UnlockEquipSlots(evalutionLeveld);
 
         // 상단의 몬스터 정보([ CANVAS UI SET ])와 재화 정보([ TOP_UI_CANVAS ]) UI 활성화 → 비활성화
-        UtilityMethod.GetCustomTypeGMById(6).SetActive(false);
+        //UtilityMethod.GetCustomTypeGMById(6).SetActive(false);
+        GlobalData.instance.uiController.DisableMainCanvas(false);
+
         UtilityMethod.GetCustomTypeGMById(11).SetActive(false);
 
         // 등급 업그레이드 연출 등장
@@ -581,7 +583,9 @@ public class EventController : MonoBehaviour
         GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
 
         // 상단의 몬스터 정보([ CANVAS UI SET ])와 재화 정보([ TOP_UI_CANVAS ]) 비활성화 → UI 활성화
-        UtilityMethod.GetCustomTypeGMById(6).SetActive(true);
+        //UtilityMethod.GetCustomTypeGMById(6).SetActive(true);
+        GlobalData.instance.uiController.DisableMainCanvas(true);
+
         UtilityMethod.GetCustomTypeGMById(11).SetActive(true);
 
         // 메인 메뉴 활성화
@@ -1048,6 +1052,11 @@ public class EventController : MonoBehaviour
         // 현재 몬스터 OUT
         StartCoroutine(globalData.player.currentMonster.inOutAnimator.MonsterKillMatAnim());
 
+        // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
+        StartCoroutine(globalData.effectManager.goldPoolingCont.DisableGoldEffects());
+
+        // 보스의 경우 뼈조각 OUT EFF 추가 ( 뼈조각 화면에 뿌려진 경우에만 )
+        StartCoroutine(globalData.effectManager.bonePoolingCont.DisableGoldEffects());
         // 화면전환 이펙트
         yield return StartCoroutine(globalData.effectManager.EffTransitioEvolutionUpgrade(() =>
         {

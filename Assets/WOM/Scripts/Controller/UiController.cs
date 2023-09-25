@@ -521,6 +521,21 @@ public class UiController : MonoBehaviour
         canvasGroups[(int)type].blocksRaycasts = true;
     }
     
+    public void DisableMainCanvas(bool show)
+    {
+        if(show)
+        {
+            canvasGroups[(int)EnumDefinition.CanvasTYPE.Main].alpha = 0;
+            canvasGroups[(int)EnumDefinition.CanvasTYPE.Main].interactable = false;
+            canvasGroups[(int)EnumDefinition.CanvasTYPE.Main].blocksRaycasts = false;
+        }
+        else
+        {
+            canvasGroups[(int)EnumDefinition.CanvasTYPE.Main].alpha = 1;
+            canvasGroups[(int)EnumDefinition.CanvasTYPE.Main].interactable = true;
+            canvasGroups[(int)EnumDefinition.CanvasTYPE.Main].blocksRaycasts = true;
+        }
+    }
 
     IEnumerator ExitCastlePanel()
     {

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using System.Linq;
 using TMPro;
 
@@ -42,6 +41,8 @@ public class TutorialManager : MonoBehaviour
 
     TutorialStep currentTutorialStep;
 
+    public GameObject evolutionInfoBox;
+
     public void TutorialStart()
     {
         // max check
@@ -50,11 +51,13 @@ public class TutorialManager : MonoBehaviour
             isEndTutorial = false;
             EnableTutorialSet();
             //tutorialPlayingTextBox.gameObject.SetActive(true);
-            
+
         }
         else
         {
             isEndTutorial = true;
+            // 진화 진입 설명 박스 활성화
+            evolutionInfoBox.SetActive(true);
             //tutorialPlayingTextBox.gameObject.SetActive(false);
             //Debug.Log("모든 투토리얼 완료");
         }
@@ -158,7 +161,7 @@ public class TutorialManager : MonoBehaviour
 
             Debug.LogError($"{curTutorialSetID}에 해당하는 투토리얼 세트가 없습니다.");
 
-            
+
             isEndTutorial = true;
             return;
         }
@@ -246,6 +249,9 @@ public class TutorialManager : MonoBehaviour
                 UtilityMethod.GetCustomTypeBtnByID(6).gameObject.SetActive(true);
                 // 투토리얼 안내 텍스트 비활성화
                 tutorialPlayingTextBox.gameObject.SetActive(false);
+
+                // 진화 진입 설명 박스 활성화
+                evolutionInfoBox.SetActive(true);
 
                 Debug.Log("투토리얼 종료");
             }

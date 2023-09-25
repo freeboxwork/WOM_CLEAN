@@ -9,7 +9,7 @@
    "goldBonus": 0,
    "bossDamage": 0,
    "name": "Mantis00",
-   "spawnTime": 4.5
+   "spawnTime": 5.1
  },
  {
    "depthId": 1,
@@ -21,7 +21,7 @@
    "goldBonus": 0,
    "bossDamage": 0,
    "name": "Mantis01",
-   "spawnTime": 4.5
+   "spawnTime": 5.1
  },
  {
    "depthId": 2,
@@ -33,7 +33,7 @@
    "goldBonus": 0,
    "bossDamage": 0,
    "name": "Mantis02",
-   "spawnTime": 4.5
+   "spawnTime": 5.1
  },
  {
    "depthId": 3,
@@ -45,7 +45,7 @@
    "goldBonus": 0,
    "bossDamage": 0,
    "name": "Mantis03",
-   "spawnTime": 4.5
+   "spawnTime": 5.1
  },
  {
    "depthId": 4,
@@ -57,7 +57,7 @@
    "goldBonus": 0,
    "bossDamage": 0,
    "name": "Mantis04",
-   "spawnTime": 4.5
+   "spawnTime": 5.1
  }
 ]
 }

@@ -51,7 +51,7 @@
  },
  {
    "dnaIndex": 5,
-   "power": 2,
+   "power": 1.5,
    "maxLevel": 50,
    "spriteName": "DNA_insectMoveSpeed",
    "infoFront": "곤충 이동 속도가",
@@ -61,7 +61,7 @@
  },
  {
    "dnaIndex": 6,
-   "power": 2,
+   "power": 1.5,
    "maxLevel": 50,
    "spriteName": "DNA_unionMoveSpeed",
    "infoFront": "유니온 이동 속도가",

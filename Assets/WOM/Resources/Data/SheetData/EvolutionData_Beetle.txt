@@ -9,7 +9,7 @@
    "goldBonus": 0,
    "bossDamage": 0,
    "name": "Beetle00",
-   "spawnTime": 5
+   "spawnTime": 5.6
  },
  {
    "depthId": 1,
@@ -21,7 +21,7 @@
    "goldBonus": 0,
    "bossDamage": 0,
    "name": "Beetle01",
-   "spawnTime": 5
+   "spawnTime": 5.6
  },
  {
    "depthId": 2,
@@ -33,7 +33,7 @@
    "goldBonus": 0,
    "bossDamage": 0,
    "name": "Beetle02",
-   "spawnTime": 5
+   "spawnTime": 5.6
  },
  {
    "depthId": 3,
@@ -45,7 +45,7 @@
    "goldBonus": 0,
    "bossDamage": 0,
    "name": "Beetle03",
-   "spawnTime": 5
+   "spawnTime": 5.6
  },
  {
    "depthId": 4,
@@ -57,7 +57,7 @@
    "goldBonus": 0,
    "bossDamage": 0,
    "name": "Beetle04",
-   "spawnTime": 5
+   "spawnTime": 5.6
  }
 ]
 }

@@ -81,7 +81,7 @@ public class DNAManager : MonoBehaviour
 
             slot.Init(this);
 
-            slot.UpdateHaveDNACount(slot.inGameData.haveCount > 0);
+            slot.UpdateHaveDNACount(slot.inGameData.haveCount > 0 && slot.inGameData.level < slot.inGameData.maxLevel);
 
         }
         yield return null;
@@ -143,6 +143,14 @@ public class DNAManager : MonoBehaviour
     }
 
 
+    public void UpdateHaveCount()
+    {
+        foreach (var slot in dnaSlots)
+        {
+            slot.SetTxtHasCount(slot.inGameData.haveCount);
+            slot.UpdateHaveDNACount(slot.inGameData.haveCount > 0 && slot.inGameData.level < slot.inGameData.maxLevel);
+        }
+    }
 
 
     DNASlot GetSlotByDNAType(EnumDefinition.DNAType type)
@@ -234,9 +242,9 @@ public class DNAManager : MonoBehaviour
                 yield return null;
             }
 
-            // UI RESET
-            foreach (var type in dnaTypes)
-                ResetUI(type);
+            // // UI RESET
+            // foreach (var type in dnaTypes)
+            //     ResetUI(type);
 
             yield return StartCoroutine(CardOpenEffect());
             yield return new WaitForSeconds(0.3f);
@@ -245,6 +253,7 @@ public class DNAManager : MonoBehaviour
             UtilityMethod.GetCustomTypeBtnByID(44).interactable = true;
             // 뽑기버튼 비활성화
             //EnableValidButtons();
+
 
         }
         else

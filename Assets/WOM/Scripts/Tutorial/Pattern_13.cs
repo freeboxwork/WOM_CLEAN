@@ -17,7 +17,8 @@ public class Pattern_13 : PatternBase
     {
         if (enableEvent)
         {
-            closeObjects[(int)closeObjId].SetActive(false);
+            GlobalData.instance.uiController.ShowFadeCanvasGroup(EnumDefinition.CanvasGroupTYPE.CAMP, false);
+            //closeObjects[(int)closeObjId].SetActive(false);
             StepClear();
         }
     }

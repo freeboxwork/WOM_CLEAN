@@ -320,8 +320,6 @@ public class EventController : MonoBehaviour
         //골드 뿌리는 이펙트
         yield return StartCoroutine(globalData.effectManager.goldPoolingCont.EnableGoldEffects(currentMonster.goldCount));
 
-        // tutorial event ( 몬스터 골드 드랍 획득 )
-        EventManager.instance.RunEvent(CallBackEventType.TYPES.OnTutorialAddGold);
         //금광 보스 인지 체크
         if (currentMonster.monsterType == MonsterType.gold)
         {
@@ -331,14 +329,14 @@ public class EventController : MonoBehaviour
         // 보스일경우 뼈조각 추가 획득
         else if (currentMonster.monsterType == MonsterType.boss)
         {
-            // tutorial event ( 보스 몬스터 사망 )
-            if (currentMonster.monsterType == MonsterType.boss)
-                EventManager.instance.RunEvent(CallBackEventType.TYPES.OnMonsterKillBossMonster);
+
             // 타이머 종료
             globalData.bossChallengeTimer.StopBossTimer(true);
             yield return StartCoroutine(globalData.effectManager.bonePoolingCont.EnableGoldEffects(currentMonster.boneCount));
             //곤충들 슬로우 모션
             yield return StartCoroutine(BossDefeatSlowMotionEffect());
+            // tutorial event ( 보스 몬스터 사망 )
+            EventManager.instance.RunEvent(CallBackEventType.TYPES.OnMonsterKillBossMonster);
         }
         else if (currentMonster.monsterType == MonsterType.evolution)
         {
@@ -364,7 +362,8 @@ public class EventController : MonoBehaviour
         // tutorial event ( 골드 몬스터 사망 )
         if (currentMonster.monsterType == MonsterType.gold)
             EventManager.instance.RunEvent(CallBackEventType.TYPES.OnMonsterKillGoldMonster);
-
+        // tutorial event ( 몬스터 골드 드랍 획득 )
+        EventManager.instance.RunEvent(CallBackEventType.TYPES.OnTutorialAddGold);
 
 
 

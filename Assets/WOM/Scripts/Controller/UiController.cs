@@ -491,7 +491,7 @@ public class UiController : MonoBehaviour
             mainPanels[(int)MenuPanelType.castle].SetActive(true);
 
             // UI 비활성화
-            //UtilityMethod.GetCustomTypeGMById(6).gameObject.SetActive(false);
+            
             EnableCanvadGroup(EnumDefinition.CanvasTYPE.Castle);
 
 
@@ -520,20 +520,22 @@ public class UiController : MonoBehaviour
         canvasGroups[(int)type].interactable = true;
         canvasGroups[(int)type].blocksRaycasts = true;
     }
-    
-    public void DisableMainCanvas(bool show)
+
+    public void ShowMainCanvas(bool show)
     {
-        if(show)
-        {
-            canvasGroups[(int)EnumDefinition.CanvasTYPE.Main].alpha = 0;
-            canvasGroups[(int)EnumDefinition.CanvasTYPE.Main].interactable = false;
-            canvasGroups[(int)EnumDefinition.CanvasTYPE.Main].blocksRaycasts = false;
-        }
-        else
+        if (show)
         {
             canvasGroups[(int)EnumDefinition.CanvasTYPE.Main].alpha = 1;
             canvasGroups[(int)EnumDefinition.CanvasTYPE.Main].interactable = true;
             canvasGroups[(int)EnumDefinition.CanvasTYPE.Main].blocksRaycasts = true;
+        }
+        else
+        {
+
+
+            canvasGroups[(int)EnumDefinition.CanvasTYPE.Main].alpha = 0;
+            canvasGroups[(int)EnumDefinition.CanvasTYPE.Main].interactable = false;
+            canvasGroups[(int)EnumDefinition.CanvasTYPE.Main].blocksRaycasts = false;
         }
     }
 

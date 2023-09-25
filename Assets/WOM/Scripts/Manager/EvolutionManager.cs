@@ -185,7 +185,7 @@ public class EvolutionManager : MonoBehaviour
         UtilityMethod.SetBtnEventCustomTypeByID(23, () =>
         {
             // 기존 UI Canvas 활성화
-            UtilityMethod.GetCustomTypeGMById(6).SetActive(true);
+            GlobalData.instance.uiController.ShowMainCanvas(true);
             // 진화 업그레이트 이펙트 비활성화
             globalData.gradeAnimCont.gameObject.SetActive(false);
         });

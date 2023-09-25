@@ -537,8 +537,7 @@ public class EventController : MonoBehaviour
         globalData.unionManager.UnlockEquipSlots(evalutionLeveld);
 
         // 상단의 몬스터 정보([ CANVAS UI SET ])와 재화 정보([ TOP_UI_CANVAS ]) UI 활성화 → 비활성화
-        //UtilityMethod.GetCustomTypeGMById(6).SetActive(false);
-        GlobalData.instance.uiController.DisableMainCanvas(false);
+        GlobalData.instance.uiController.ShowMainCanvas(false);
 
         UtilityMethod.GetCustomTypeGMById(11).SetActive(false);
 
@@ -583,8 +582,7 @@ public class EventController : MonoBehaviour
         GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
 
         // 상단의 몬스터 정보([ CANVAS UI SET ])와 재화 정보([ TOP_UI_CANVAS ]) 비활성화 → UI 활성화
-        //UtilityMethod.GetCustomTypeGMById(6).SetActive(true);
-        GlobalData.instance.uiController.DisableMainCanvas(true);
+        GlobalData.instance.uiController.ShowMainCanvas(true);
 
         UtilityMethod.GetCustomTypeGMById(11).SetActive(true);
 

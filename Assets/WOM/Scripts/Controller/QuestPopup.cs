@@ -28,11 +28,10 @@ public class QuestPopup : MonoBehaviour
     public GameObject[] passPanels;
 
     public Color selectColor;
-    Color deSelectColor;
+    public Color deSelectColor;
 
     void Start()
     {
-        deSelectColor = Color.grey;
         SetBtnEvents();
         ShowPassTabPanel(0);
     }

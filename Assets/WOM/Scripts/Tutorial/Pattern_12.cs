@@ -33,7 +33,7 @@ public class Pattern_12 : PatternBase
 
     public override void ResetGoalData()
     {
-        isGambleing = false;
+        //isGambleing = false;
     }
 
     public override void SetGoalData(TutorialStep stepData)

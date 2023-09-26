@@ -21,10 +21,6 @@ public class AD_Manager : MonoBehaviour
     public GameObject btnBuffOpen;
 
 
-    void Start()
-    {
-        LoadPassValues();
-    }
 
     // 광고,버프 패스 확인
     void LoadPassValues()
@@ -54,6 +50,8 @@ public class AD_Manager : MonoBehaviour
 
     public IEnumerator Init()
     {
+        LoadPassValues();
+
         SetBuffAdSlotData();
         yield return null;
     }
@@ -73,6 +71,7 @@ public class AD_Manager : MonoBehaviour
                 //좌측 상단 버프 상태 아이콘 관련 세팅
                 var slot = GetBuffAdSlotByType(data.buffADType);
                 slot.addValue = slot.addValueBuff;
+                slot.isUsingBuff = true;
                 slot.buffTimer.SetTxtBuffPass();
             }
         }

@@ -193,29 +193,10 @@ public class SkillBtn : MonoBehaviour
             imgSkillBack.color = colorWhite;
             imgSkillFront.color = colorDeem;
             imgSkillFront.fillClockwise = false;
-            //animDataReloadSkill.animDuration = coolTimeWait;
-            //animCont.animData = animDataReloadSkill;
             float totalCoolTime = coolTimeWait;
             float calcCooltime = coolTimeWait;
             var startTime = Time.time;
             float animValue = 0;
-
-            // Debug.Log("ssssssssssssssssss");
-
-            // //스킬 [재사용 대기 시간] UI Update
-            // StartCoroutine(animCont.UI_TextAnim(txtTime, 0, () => coolTimeWait = 0));
-            // StartCoroutine(animCont.UI_ImageFillAmountAnim(imgSkillFront, 1, 0));
-
-            // while (coolTimeWait > 0)
-            // {
-            //     coolTimeWait = calcCooltime - (Time.time - startTime);
-            //     GlobalData.instance.saveDataManager.SetSkillLeftCoolTime(skillType, coolTimeWait);
-            //     //Debug.Log("skill coolTimeWait : " + coolTimeWait);
-            //     yield return null;
-            // }
-
-
-
 
             while (animValue < 0.999f)
             {
@@ -228,11 +209,7 @@ public class SkillBtn : MonoBehaviour
                 yield return null;
             }
 
-
             SetEndCoolTime();
-
-
-
         }
 
         yield return null;
@@ -273,7 +250,8 @@ public class SkillBtn : MonoBehaviour
 
                     break;
                 case EnumDefinition.SkillType.allUnitCriticalChanceUp:
-                    insect.effectContoller.ThunderEffect(enableValue);
+                    if (insect.insectType != EnumDefinition.InsectType.union)
+                        insect.effectContoller.ThunderEffect(enableValue);
                     break;
             }
         }

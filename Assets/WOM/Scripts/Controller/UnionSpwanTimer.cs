@@ -28,7 +28,7 @@ public class UnionSpwanTimer : MonoBehaviour
         StopAllCoroutines();
     }
 
-    public float GetLeftTime()  
+    public float GetLeftTime()
     {
         return currentTime;
     }
@@ -40,7 +40,7 @@ public class UnionSpwanTimer : MonoBehaviour
 
             currentTime -= Time.deltaTime;
 
-            if(currentTime <= 0)
+            if (currentTime <= 0)
             {
                 spwanTime = GlobalData.instance.statManager.GetUnionSpwanSpeed(unionSlot.inGameData.unionIndex);
 
@@ -79,8 +79,8 @@ public class UnionSpwanTimer : MonoBehaviour
                     union.effectContoller.TrailEffect(true);
                 if (GlobalData.instance.skillManager.IsUsingSkillByType(EnumDefinition.SkillType.glodBonusUp))
                     union.effectContoller.GoldEffect(true);
-                if (GlobalData.instance.skillManager.IsUsingSkillByType(EnumDefinition.SkillType.allUnitCriticalChanceUp))
-                    union.effectContoller.ThunderEffect(true);
+                // if (GlobalData.instance.skillManager.IsUsingSkillByType(EnumDefinition.SkillType.allUnitCriticalChanceUp))
+                //     union.effectContoller.ThunderEffect(true);
                 // Debug.Log($"타이머 인덱스 : {timerIndex} _ 스폰 유니온 : {sprite[0].name} _ 스폰 타임 : {spwanTime}");
             }
 

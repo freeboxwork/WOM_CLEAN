@@ -186,12 +186,7 @@ public class StatManager : MonoBehaviour
         //var diceIms = GetEvolutionDiceValueByType(EvolutionDiceStatType.insectMoveSpeed);
         var value = ums + dms + skill_AllUnitSpeedUp;
         // ad buff 적용 ( speed )
-        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffSpeed);
 
-        if(buffValue.isUsingBuff)
-        {
-            value = value * buffValue.addValue;
-        }
         //Debug.Log($"유니온 이동속도 : 기본:{ums}//DNA:{dms}  = 합계 : {value} BUFF:{(float)(value * buffValue)}");
 
         return value;
@@ -205,6 +200,13 @@ public class StatManager : MonoBehaviour
         var dst = GetDnaData(DNAType.unionSpawnTime).power;
 
         var value = (ums - dst) * (1 - (skill_UnionSpwnSpeedUp * 0.01f));
+
+        var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffSpeed);
+
+        if(buffValue.isUsingBuff)
+        {
+            value = value * buffValue.addValue;
+        }
 //        Debug.Log($"유니온 스폰시간 : 기본:{ums}//DNA:{dst}= 합계 : {value}");
 
         return value;

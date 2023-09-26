@@ -212,22 +212,25 @@ public class InsectManager : MonoBehaviour
         {
             damage = statManager.GetInsectDamage(insectType);
 
-            //Debug.Log($"기본데미지{damage}");
-            if (HasCriticalDamage(insectType)) // 크리티컬 데미지 터졌을때
+            // 광란 스킬 사용 했을때 ( 곤충 크리티컬 데미지 적용 )
+            if (GlobalData.instance.statManager.allUnitCriticalOn)
             {
                 damage = damage * (2 + (statManager.GetInsectCriticalDamage(insectType) * 0.01f));
                 isCritical = true;
-                //Debug.Log($"크리데미지{damage}");
-
+            }
+            //Debug.Log($"기본데미지{damage}");
+            else // 크리티컬 데미지 터졌을때
+            {
+                if (HasCriticalDamage(insectType))
+                {
+                    damage = damage * (2 + (statManager.GetInsectCriticalDamage(insectType) * 0.01f));
+                    isCritical = true;
+                    //Debug.Log($"크리데미지{damage}");
+                }
             }
         }
 
-        // 광란 스킬 사용 했을때 ( 모든 유닛 크리티컬 데미지 적용 )
-        if (GlobalData.instance.statManager.allUnitCriticalOn)
-        {
-            damage = damage * (2 + (statManager.GetInsectCriticalDamage(insectType) * 0.01f));
-            isCritical = true;
-        }
+
 
 
         //damage += talentDamage;

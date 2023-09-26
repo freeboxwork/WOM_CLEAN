@@ -42,6 +42,7 @@ public class TutorialManager : MonoBehaviour
     TutorialStep currentTutorialStep;
 
     public GameObject evolutionInfoBox;
+    public GameObject bossToggleBox;
 
     public void TutorialStart()
     {
@@ -58,6 +59,7 @@ public class TutorialManager : MonoBehaviour
             isEndTutorial = true;
             // 진화 진입 설명 박스 활성화
             evolutionInfoBox.SetActive(true);
+            bossToggleBox.SetActive(true);
             //tutorialPlayingTextBox.gameObject.SetActive(false);
             //Debug.Log("모든 투토리얼 완료");
         }
@@ -252,6 +254,7 @@ public class TutorialManager : MonoBehaviour
 
                 // 진화 진입 설명 박스 활성화
                 evolutionInfoBox.SetActive(true);
+                bossToggleBox.SetActive(true);
 
                 Debug.Log("투토리얼 종료");
             }

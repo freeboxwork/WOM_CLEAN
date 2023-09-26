@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 
@@ -32,7 +31,7 @@ public class BuffADTimer : MonoBehaviour
             int minutes = Mathf.FloorToInt(countdownTime / 60F);
             int seconds = Mathf.FloorToInt(countdownTime - minutes * 60);
             //string leftTime = string.Format("{0:0}:{1:00}", minutes, seconds);
-            string leftTime = string.Format("{0:0}m", minutes);
+            string leftTime = $"{minutes}:{seconds}";//string.Format("{0:0}m", minutes);
 
             countdownText.text = leftTime;// Update the UI text
             // save data

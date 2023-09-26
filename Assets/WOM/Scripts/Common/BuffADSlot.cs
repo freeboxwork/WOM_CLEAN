@@ -17,6 +17,8 @@ public class BuffADSlot : MonoBehaviour
     public float addValueDefualt = 1.0f;
     public float addValueBuff = 1.5f;
 
+    public GameObject buffPopup;
+
 
     void Start()
     {
@@ -47,15 +49,17 @@ public class BuffADSlot : MonoBehaviour
     void SetBtnEvent()
     {
         // check tutorial
-        var tutorialAdPass = GlobalData.instance.tutorialManager.isAdPass;
-        if (tutorialAdPass && buffADType == EnumDefinition.RewardTypeAD.adBuffDamage)
-        {
-            bntAD.onClick.AddListener(BuffTimerStart);
-        }
-        else
-        {
-            bntAD.onClick.AddListener(AdCheck);
-        }
+        // var tutorialAdPass = GlobalData.instance.tutorialManager.isAdPass;
+        // if (tutorialAdPass && buffADType == EnumDefinition.RewardTypeAD.adBuffDamage)
+        // {
+        //     bntAD.onClick.AddListener(BuffTimerStart);
+        // }
+        // else
+        // {
+
+        // }
+
+        bntAD.onClick.AddListener(AdCheck);
     }
 
     bool IsTutorial()
@@ -90,7 +94,7 @@ public class BuffADSlot : MonoBehaviour
     void UpdateUI()
     {
         //txtLeftCount.text = leftCount.ToString() + "/" + totalCount.ToString();
-        txtLeftCount.text = string.Format("{0} / {1}",leftCount,totalCount);
+        txtLeftCount.text = string.Format("{0} / {1}", leftCount, totalCount);
     }
 
     // 광고 보기 카운트 초기화

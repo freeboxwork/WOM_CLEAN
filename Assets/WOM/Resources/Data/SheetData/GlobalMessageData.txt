@@ -181,6 +181,13 @@
    "title": "message",
    "message_kor": "강화에 필요한 유전자가 충분하지 않습니다",
    "message_eng": "Need more DNA"
+ },
+ {
+   "id": 26,
+   "popupType": "message",
+   "title": "message",
+   "message_kor": "광고 시청 횟수가 소진되었습니다",
+   "message_eng": "Not Enough Ad Count"
  }
 ]
 }

@@ -9,7 +9,8 @@ using ProjectGraphics;
 using DG.Tweening;
 
 public class UiController : MonoBehaviour
-{
+{   
+    [Header("팝업관련 CanvasGroup")]
     public List<CanvasGroup> popUpFadeCanvasGroups;
     public CustomTypeDataManager customTypeDataManager;
 
@@ -59,6 +60,8 @@ public class UiController : MonoBehaviour
     public TextMeshProUGUI txtCoalCount;
 
     // 던전 추가 재화 표시 항목
+    [Header("던전 키 표시 항목")]
+
     public TextMeshProUGUI txtDungeonGoldKeyCount;
     public TextMeshProUGUI txtDungeonBoneKeyCount;
     public TextMeshProUGUI txtDungeonDiceKeyCount;
@@ -66,16 +69,29 @@ public class UiController : MonoBehaviour
     public TextMeshProUGUI txtDungeonClearTicketCount;
 
     public GameObject castleButtonObj;
-
-
     public GameObject menuGameObject;
+    [Header("Main/Castle CanvasGroup")]
+
     [SerializeField] CanvasGroup[] canvasGroups;
 
-    bool isMenuHide = false;
-    void Start()
-    {
-    }
+    public Toggle toggleAutoBossChallenge;
+    public GameObject toggleAutoBossGameObject;
 
+    bool isMenuHide = false;
+
+
+    public void ShowToggleAutoBossChallenge(bool value)
+    {
+        toggleAutoBossGameObject.SetActive(value);
+    }
+    public bool IsToggleAutoBossChallengeIsOn()
+    {
+        return toggleAutoBossChallenge.isOn;
+    }
+    public void SetToggleAutoBossChallenge(bool value)
+    {
+        toggleAutoBossChallenge.isOn = value;
+    }
     void SetMainPanels()
     {
         foreach (MenuPanelType type in Enum.GetValues(typeof(MenuPanelType)))

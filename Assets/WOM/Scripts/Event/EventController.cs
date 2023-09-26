@@ -505,7 +505,22 @@ public class EventController : MonoBehaviour
         yield return StartCoroutine(globalData.monsterManager.Init(globalData.player.stageIdx));
         // camera zoom In
         globalData.stageManager.bgAnimController.CameraZoomIn();
-        yield return StartCoroutine(AppearMonster(MonsterType.normal));
+
+        //만약 자동 보스 도전 버튼토글이 On이라면
+        if(globalData.uiController.IsToggleAutoBossChallengeIsOn())
+        {
+            // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
+            StartCoroutine(globalData.effectManager.goldPoolingCont.DisableGoldEffects());
+            //보스의 경우 뼈조각 OUT EFF 추가 ( 뼈조각 화면에 뿌려진 경우에만 )
+            StartCoroutine(globalData.effectManager.bonePoolingCont.DisableGoldEffects());
+            EvnOnBossMonsterChalleng();
+
+        }
+        else
+        {
+            yield return StartCoroutine(AppearMonster(MonsterType.normal));
+
+        }
 
         // 퀘스트 - 배틀 패스 스테이지 완료 블록 이미지 해제
         globalData.questManager.questPopup.UnlockBattlePassSlot(globalData.player.stageIdx);
@@ -705,21 +720,30 @@ public class EventController : MonoBehaviour
         {
             case MonsterType.normal:
                 globalData.uiController.SetEnablePhaseCountUI(true);
+                globalData.uiController.ShowToggleAutoBossChallenge(true);
                 break;
 
             case MonsterType.gold:
                 globalData.uiController.SetEnablePhaseCountUI(true);
+                globalData.uiController.ShowToggleAutoBossChallenge(true);
+
                 break;
             case MonsterType.boss:
                 globalData.uiController.SetEnablePhaseCountUI(false);
+                globalData.uiController.ShowToggleAutoBossChallenge(false);
+
                 break;
 
             case MonsterType.evolution:
                 globalData.uiController.SetEnablePhaseCountUI(false);
+                globalData.uiController.ShowToggleAutoBossChallenge(false);
+
             break;
 
             case MonsterType.dungeon:
             globalData.uiController.SetEnablePhaseCountUI(false);
+                globalData.uiController.ShowToggleAutoBossChallenge(false);
+
 
                                 break;
 
@@ -806,7 +830,7 @@ public class EventController : MonoBehaviour
 
         // camera zoom In
         globalData.stageManager.bgAnimController.CameraZoomIn();
-
+        globalData.uiController.SetToggleAutoBossChallenge(false);
         // 기존 몬스터 등장
         yield return StartCoroutine(AppearMonster(MonsterType.normal));
         // 도전 버튼 활성화
@@ -827,6 +851,7 @@ public class EventController : MonoBehaviour
     {
         PhaseCountReset();
         SetBeforeChallengeTransition();
+        globalData.uiController.SetToggleAutoBossChallenge(false);
 
         // 트랜지션 효과
         globalData.effectManager.EnableTransition(EnumDefinition.TransitionTYPE.Evolution);
@@ -1014,6 +1039,7 @@ public class EventController : MonoBehaviour
     }
     void EvnOnDungenMonsterChallenge(MonsterType monsterType)
     {
+        globalData.uiController.SetToggleAutoBossChallenge(false);
 
         var usingKeyCount = GlobalData.instance.monsterManager.GetMonsterDungeon().monsterToDataMap[monsterType].usingKeyCount;
         // 열쇠 사용

@@ -18,6 +18,7 @@ public class DNASlot : MonoBehaviour
     public DNAInGameData inGameData;
     public Button upgradeBtn;
 
+    public Image notifyCheckImage;
 
     public Sprite noHave;
     public Sprite have;
@@ -89,10 +90,12 @@ public class DNASlot : MonoBehaviour
     {
         if (isHave)
         {
+            notifyCheckImage.enabled = true;
             upgradeBtn.GetComponent<Image>().sprite = have;
         }
         else
         {
+            notifyCheckImage.enabled = false;
             upgradeBtn.GetComponent<Image>().sprite = noHave;
         }
     }

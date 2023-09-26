@@ -264,6 +264,7 @@ public class DNAManager : MonoBehaviour
             yield break;
         }
         GlobalData.instance.uiController.BlockCanvasGroup(EnumDefinition.CanvasGroupTYPE.CAMP, true);
+        GlobalData.instance.dnaManger.UpdateHaveCount();
 
 
         yield return new WaitForEndOfFrame();

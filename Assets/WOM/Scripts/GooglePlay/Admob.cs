@@ -5,7 +5,9 @@ using GoogleMobileAds.Api;
 public class Admob : MonoBehaviour
 {
     // These ad units are configured to always serve test ads.
-    private string _adUnitId = "ca-app-pub-3940256099942544/5224354917";
+    // 테스트 보상형 동영상 광고
+    //private string _adUnitId = "ca-app-pub-3940256099942544/5224354917";
+    private string realeseUnitId ="ca-app-pub-5121994233839369/4006951164";
 
 
     private RewardedAd rewardedAd;
@@ -78,7 +80,7 @@ public class Admob : MonoBehaviour
         adRequest.Keywords.Add("unity-admob-sample");
 
         // send the request to load the ad.
-        RewardedAd.Load(_adUnitId, adRequest, (RewardedAd ad, LoadAdError error) =>
+        RewardedAd.Load(realeseUnitId, adRequest, (RewardedAd ad, LoadAdError error) =>
             {
                 // if error is not null, the load request failed.
                 if (error != null)
@@ -186,12 +188,15 @@ public class Admob : MonoBehaviour
                 GlobalData.instance.questManager.RewardAD_OneDayQuest(data);
                 Debug.Log("광고 시청 완료");
                 Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
+
             });
         }
         else
         {
             Debug.Log("광고가 로드되지 않았습니다");
         }
+
+
     }
 
     private void RegisterEventHandlers(RewardedAd ad)

@@ -184,7 +184,8 @@ public class GlobalController : MonoBehaviour
         new Parameter(FirebaseAnalytics.ParameterValue, stageManager.stageData.stageId));
         firebaseManager.LogEvent("EvolutionLevel",
         new Parameter(FirebaseAnalytics.ParameterValue, saveDataManager.saveDataTotal.saveDataEvolution.level_evolution));
-
+        firebaseManager.LogEvent("TutorialStep",
+        new Parameter(FirebaseAnalytics.ParameterValue, saveDataManager.saveDataTotal.saveDataTutorial.tutorialSetId));
 
     }
 

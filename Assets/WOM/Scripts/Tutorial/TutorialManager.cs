@@ -256,6 +256,9 @@ public class TutorialManager : MonoBehaviour
                 evolutionInfoBox.SetActive(true);
                 bossToggleBox.SetActive(true);
 
+                if (GlobalData.instance.insectSpwanManager.isSpwanTimerStart == false)
+                    GlobalData.instance.insectSpwanManager.AllTimerStart();
+
                 Debug.Log("투토리얼 종료");
             }
 

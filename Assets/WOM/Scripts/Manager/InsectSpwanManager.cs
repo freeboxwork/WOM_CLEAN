@@ -8,10 +8,11 @@ public class InsectSpwanManager : MonoBehaviour
     public Transform[] randomPoint;
     public List<InsectSpwanTimer> spwanTimers = new List<InsectSpwanTimer>();
 
+    public bool isSpwanTimerStart = false;
 
     void Start()
     {
-        
+
     }
 
     public IEnumerator Init()
@@ -38,7 +39,8 @@ public class InsectSpwanManager : MonoBehaviour
 
     public void AllTimerStart()
     {
-        foreach(var timer in spwanTimers)
+        isSpwanTimerStart = true;
+        foreach (var timer in spwanTimers)
         {
             timer.TimerStart();
         }

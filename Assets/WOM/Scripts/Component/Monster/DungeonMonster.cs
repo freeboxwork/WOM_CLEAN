@@ -48,7 +48,7 @@ public class DungeonMonster : DungeonMonsterBase
 
         curMonsterHP = curData.monsterHP;
         stageName = curData.stageName;
-
+        
         yield return new WaitForEndOfFrame();
 
         // SET FACE
@@ -82,7 +82,7 @@ public class DungeonMonster : DungeonMonsterBase
         curData = GlobalData.instance.dataManager.GetDungeonMonsterDataByTypeLevel(curMonsterData.monsterType, curLevel).CloneInstance();
         curMonsterHP = curData.monsterHP;
         stageName = curData.stageName;
-
+        curData.level = curLevel;
         var bestLevel = GlobalData.instance.player.dungeonMonsterClearLevel.GetLeveByDungeonMonType(curMonsterData.monsterType);
         
         if(curLevel > bestLevel)

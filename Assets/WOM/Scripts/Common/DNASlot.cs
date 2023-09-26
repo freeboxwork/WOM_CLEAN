@@ -73,7 +73,7 @@ public class DNASlot : MonoBehaviour
     }
     public void PlayEffect()
     {
-        GlobalData.instance.effectManager.PlayEffect();
+        //GlobalData.instance.effectManager.PlayEffect();
 
         effLevelUp.Play();
     }

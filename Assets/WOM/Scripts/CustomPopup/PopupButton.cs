@@ -16,6 +16,7 @@ public class PopupButton : MonoBehaviour
 
     [SerializeField] Button btn;
 
+    bool isReward;
     private void Awake()
     {
         btn = GetComponent<Button>();
@@ -28,6 +29,7 @@ public class PopupButton : MonoBehaviour
 
     public void Init(string _text, List<Action> _callback, GameObject _target)
     {
+
         this.buttonString.text = _text;
         this.callbackEvent = _callback;
         this.target = _target;
@@ -36,6 +38,7 @@ public class PopupButton : MonoBehaviour
 
     void OnEnable()
     {
+        isReward = false;
         StopCoroutine("AutoClose");
         StartCoroutine("AutoClose");
     }
@@ -61,6 +64,13 @@ public class PopupButton : MonoBehaviour
 
     public void OnButton()
     {
+        if(isReward == true)
+        {
+            return;
+        }
+
+        isReward = true;
+        
         StopCoroutine("AutoClose");
 
         foreach (var action in this.callbackEvent)

@@ -214,7 +214,7 @@ public class InAppPurchaseManager : MonoBehaviour
                     // 버프 패스 실행
                     GlobalData.instance.adManager.BuyBuffPass();
                     var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem, EnumDefinition.RewardType.clearTicket };
-                    var rewardValues = new float[] { 10000, 10 };
+                    var rewardValues = new float[] { 2000, 3 };
                     PopupController.instance.InitPopups(rewardTypes, rewardValues);
                     ProductDisableGameObject(ProductTYPE.adbuffpass);
 
@@ -370,8 +370,8 @@ public class InAppPurchaseManager : MonoBehaviour
             case ShopProductNames.adbuffpass:
                 if(!GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyAdRemove)
                 {
-                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.gem, 10000);
-                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.clearTicket, 10);
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.gem, 2000);
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.clearTicket, 3);
                     var adKey = GlobalData.instance.adManager.adPassKey;
                     var buffKey = GlobalData.instance.adManager.buffPassKey;
                     PlayerPrefs.SetInt(adKey, 1);

@@ -66,13 +66,16 @@ public class ADRandomRewardPopupController : MonoBehaviour
         if (leftCount > 0)
         {
             Admob.instance.ShowRewardedAdByType(adRewardType);
+            this.gameObject.SetActive(false);
+
         }
         else
         {
+            GlobalData.instance.globalPopupController.EnableGlobalPopupByMessageId("Message", 26);
+
             Debug.Log("광고 재생 횟수 초과");
         }
 
-        this.gameObject.SetActive(false);
     }
 
 

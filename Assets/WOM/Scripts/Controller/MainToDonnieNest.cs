@@ -18,13 +18,12 @@ public class MainToDonnieNest : MonoBehaviour
     {
         btnEmail.onClick.AddListener(EnableMailWindow);
     }
-
-    public void EnableMailWindow()
+public void EnableMailWindow()
     {
-        string Emailadd = "supportdonnienest@gmail.com";
-        string Emailname = System.Uri.EscapeDataString("ë²„ê·¸ ë¦¬í¬íŠ¸ / ë¬¸ì˜ì‚¬í•­");
+        string Emailadd = "support@donnienest.net";
+        string Emailname = System.Uri.EscapeDataString("¹ö±× ¸®Æ÷Æ® / ¹®ÀÇ»çÇ×");
 
-        string body = $"ë‚´ìš©ì„ ì‘ì„±í•´ì£¼ì„¸ìš” : \n\n\n\nDevice Model : {SystemInfo.deviceModel} \nDevice OS : {SystemInfo.operatingSystem} \n\n";
+        string body = $"³»¿ëÀ» ÀÛ¼ºÇØÁÖ¼¼¿ä : \n\n\n\nDevice Model : {SystemInfo.deviceModel} \nDevice OS : {SystemInfo.operatingSystem} \n\n";
         string Emailbody = System.Uri.EscapeDataString
             (
              body
@@ -35,9 +34,5 @@ public class MainToDonnieNest : MonoBehaviour
         Application.OpenURL(mailtoUrl);
     }
 
-    // [System.Obsolete]
-    // private string EscapeURL(string url)
-    // {
-    //     return WWW.EscapeURL(url).Replace("+", "%20");
-    // }
+
 }

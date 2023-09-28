@@ -258,7 +258,7 @@ public class InAppPurchaseManager : MonoBehaviour
                 else if (product.productName == "fastestpackage")
                 {
                     var rewardTypes = new EnumDefinition.RewardType[] { EnumDefinition.RewardType.gem, EnumDefinition.RewardType.unionTicket, EnumDefinition.RewardType.dnaTicket, EnumDefinition.RewardType.clearTicket, EnumDefinition.RewardType.union };
-                    var rewardValues = new float[] { 50000, 50, 30, 50, 40 };
+                    var rewardValues = new float[] { 50000, 50, 30, 50, 34 };
                     PopupController.instance.InitPopups(rewardTypes, rewardValues);
                     ProductDisableGameObject(ProductTYPE.fastestpackage);
                     if (product.active)
@@ -411,7 +411,7 @@ public class InAppPurchaseManager : MonoBehaviour
                     GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.unionTicket, 50);
                     GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.dnaTicket, 30);
                     GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.clearTicket, 50);
-                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.union, 40);
+                    GlobalData.instance.rewardManager.RewardByType(EnumDefinition.RewardType.union, 34);
                     GlobalData.instance.saveDataManager.saveDataTotal.saveDataShop.isBuyFastestPack = true;
                 }
                 break;

@@ -17,6 +17,12 @@ public class DamageGraphWindow : EditorWindow
     private float b = 0.03f;  // 초기값
     private Vector2 scrollPosition;
 
+    float aValueMin = 0.1f;
+    float aValueMax = 5f;
+
+    float bValueMin = 0.01f;
+    float bValueMax = 0.1f;
+
     [MenuItem("GM_TOOLS/Damage Graph")]
     public static void ShowWindow()
     {
@@ -36,8 +42,18 @@ public class DamageGraphWindow : EditorWindow
         EditorGUILayout.LabelField("Damage Curve Parameters", EditorStyles.boldLabel);
 
         EditorGUI.BeginChangeCheck();
-        a = EditorGUILayout.Slider("a Value", a, 0.1f, 5f);
-        b = EditorGUILayout.Slider("b Value", b, 0.01f, 0.1f);
+        GUILayout.BeginHorizontal();
+        aValueMin = EditorGUILayout.FloatField("a Min", aValueMin);
+        aValueMax = EditorGUILayout.FloatField("a Max", aValueMax);
+        GUILayout.EndHorizontal();
+        GUILayout.BeginHorizontal();
+        bValueMin = EditorGUILayout.FloatField("b Min", bValueMin);
+        bValueMax = EditorGUILayout.FloatField("b Max", bValueMax);
+        GUILayout.EndHorizontal();
+
+
+        a = EditorGUILayout.Slider("a Value", a, aValueMin, aValueMax);
+        b = EditorGUILayout.Slider("b Value", b, bValueMin, bValueMax);
         if (EditorGUI.EndChangeCheck())
         {
             UpdateDamages();

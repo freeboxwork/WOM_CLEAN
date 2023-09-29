@@ -10,7 +10,7 @@
  {
    "level": 1,
    "currencyAmount": 25,
-   "monsterHP": 680409,
+   "monsterHP": 669581,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 2"
@@ -18,7 +18,7 @@
  {
    "level": 2,
    "currencyAmount": 30,
-   "monsterHP": 1204172,
+   "monsterHP": 1186321,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 3"
@@ -26,7 +26,7 @@
  {
    "level": 3,
    "currencyAmount": 35,
-   "monsterHP": 3774701,
+   "monsterHP": 2387883,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 4"
@@ -34,7 +34,7 @@
  {
    "level": 4,
    "currencyAmount": 40,
-   "monsterHP": 4826595,
+   "monsterHP": 3015241,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 5"
@@ -98,7 +98,7 @@
  {
    "level": 12,
    "currencyAmount": 135,
-   "monsterHP": 23382395,
+   "monsterHP": 23249449,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 13"
@@ -106,7 +106,7 @@
  {
    "level": 13,
    "currencyAmount": 150,
-   "monsterHP": 33958263,
+   "monsterHP": 33807163,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 14"
@@ -114,7 +114,7 @@
  {
    "level": 14,
    "currencyAmount": 165,
-   "monsterHP": 47190917,
+   "monsterHP": 47019184,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 15"
@@ -122,7 +122,7 @@
  {
    "level": 15,
    "currencyAmount": 185,
-   "monsterHP": 57922601,
+   "monsterHP": 57727417,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 16"
@@ -130,7 +130,7 @@
  {
    "level": 16,
    "currencyAmount": 205,
-   "monsterHP": 128292703,
+   "monsterHP": 91096312,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 17"
@@ -138,7 +138,7 @@
  {
    "level": 17,
    "currencyAmount": 225,
-   "monsterHP": 169689375,
+   "monsterHP": 169286186,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 18"
@@ -146,7 +146,7 @@
  {
    "level": 18,
    "currencyAmount": 245,
-   "monsterHP": 202983940,
+   "monsterHP": 202510792,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 19"
@@ -154,7 +154,7 @@
  {
    "level": 19,
    "currencyAmount": 265,
-   "monsterHP": 239642924,
+   "monsterHP": 239087681,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 20"
@@ -162,7 +162,7 @@
  {
    "level": 20,
    "currencyAmount": 290,
-   "monsterHP": 289404082,
+   "monsterHP": 288752498,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 21"
@@ -170,7 +170,7 @@
  {
    "level": 21,
    "currencyAmount": 315,
-   "monsterHP": 355812493,
+   "monsterHP": 355022988,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 22"
@@ -178,7 +178,7 @@
  {
    "level": 22,
    "currencyAmount": 340,
-   "monsterHP": 429071103,
+   "monsterHP": 428114482,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 23"
@@ -186,7 +186,7 @@
  {
    "level": 23,
    "currencyAmount": 365,
-   "monsterHP": 509721323,
+   "monsterHP": 508562214,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 24"
@@ -194,7 +194,7 @@
  {
    "level": 24,
    "currencyAmount": 390,
-   "monsterHP": 598344748,
+   "monsterHP": 596940290,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 25"
@@ -202,7 +202,7 @@
  {
    "level": 25,
    "currencyAmount": 420,
-   "monsterHP": 999213750,
+   "monsterHP": 997512009,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 26"
@@ -210,7 +210,7 @@
  {
    "level": 26,
    "currencyAmount": 450,
-   "monsterHP": 1235902338,
+   "monsterHP": 1233773340,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 27"
@@ -226,7 +226,7 @@
  {
    "level": 28,
    "currencyAmount": 510,
-   "monsterHP": 2764079162,
+   "monsterHP": 2054743225,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 29"
@@ -322,7 +322,7 @@
  {
    "level": 40,
    "currencyAmount": 960,
-   "monsterHP": 97526987252,
+   "monsterHP": 72801359828,
    "rewardType": "Dice",
    "bgId": 8,
    "stageName": "STEP 41"

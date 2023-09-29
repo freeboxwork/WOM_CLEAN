@@ -10,11 +10,6 @@ public class UnionManager : MonoBehaviour
     UnionSlot selectedSlot;
     public SpriteFileData spriteFileData;
 
-    void Start()
-    {
-        // UnlockEquipSlots(GlobalData.instance.evolutionManager.evalutionLeveldx);
-    }
-
     public void UnlockEquipSlots(int dataId)
     {
         var data = GlobalData.instance.dataManager.GetRewaedEvolutionGradeDataByID(dataId);
@@ -26,21 +21,6 @@ public class UnionManager : MonoBehaviour
         }
 
     }
-
-    // void Update()
-    // {
-    //     //만약에 키보드 q 키를 누르면
-    //     if (Input.GetKeyDown(KeyCode.O))
-    //     {
-    //         Debug.Log("add union");
-    //         AddUnion(16);
-    //     }
-    //     if (Input.GetKeyDown(KeyCode.P))
-    //     {
-    //         Debug.Log("add union");
-    //         AddUnion(24);
-    //     }
-    // }
 
     // set slot data
     public IEnumerator Init()
@@ -64,22 +44,9 @@ public class UnionManager : MonoBehaviour
             // set data
             slot.unionData = data;
 
-
             // TODO: 저장된 데이터에서 불러와야 함
 
             var saveData = GlobalData.instance.saveDataManager.GetSaveDataUnion(slot);
-
-
-            /*
-            // set level 
-            slot.inGameData.level = 0;
-
-            // set reqirement count
-            slot.inGameData.LevelUpReqirementCount = data.reqirementCount;
-
-            // set equip type
-            slot.unionEquipType = EnumDefinition.UnionEquipType.NotEquipped;
-            */
 
             // set level 
             slot.inGameData.level = saveData.level;
@@ -92,13 +59,7 @@ public class UnionManager : MonoBehaviour
 
             slot.unionEquipType = equipType;
 
-            // set reqirement count
-            //slot.inGameData.LevelUpReqirementCount =   data.reqirementCount;
-
             slot.inGameData.LevelUpReqirementCount = GetUnionReqireCount(slot);
-
-
-
 
             // set slider value
             slot.SetSliderValue();
@@ -119,8 +80,6 @@ public class UnionManager : MonoBehaviour
                 EquipSlot(unionEquipSlots[saveData.equipSlotId]);
             }
 
-
-
             // TODO: 저장된 데이터에서 불러와야 함
             // SET IN GAME DATA (  ) 
             slot.inGameData.damage = GetUnionDamage(slot); // data.damage;
@@ -130,11 +89,10 @@ public class UnionManager : MonoBehaviour
             slot.inGameData.passiveDamage = GetUnionPassiveDamage(slot); //data.passiveDamage;
             slot.inGameData.passiveDamageNextLevel = GetUnionPassiveDamageNextLevel(slot);
             slot.inGameData.unionGradeType = (EnumDefinition.UnionGradeType)System.Enum.Parse(typeof(EnumDefinition.UnionGradeType), data.gradeType);
-            //Debug.Log(slot.inGameData.passiveDamage);
 
             slot.SetStarUI();
 
-            // set BtnAction
+            // 유니온 슬롯 버튼 이벤트
             slot.btn.onClick.AddListener(() =>
             {
                 GlobalData.instance.unionInfoPopupController.EnablePopup(slot, data, slot.inGameData);
@@ -201,10 +159,6 @@ public class UnionManager : MonoBehaviour
             GlobalData.instance.unionSpwanManager.UnionSpwan(selectedSlot, equipSlot.slotIndex, selectedSlot.unionData.spawnTime);
         }
 
-
-
-        // // 일일 퀘스트 완료 : 유니온 소환
-        // // EventManager.instance.RunEvent<EnumDefinition.QuestTypeOneDay>(CallBackEventType.TYPES.OnQusetClearOneDayCounting, EnumDefinition.QuestTypeOneDay.summonUnion);
     }
 
 

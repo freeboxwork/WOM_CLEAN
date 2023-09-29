@@ -761,7 +761,8 @@ public class EventController : MonoBehaviour
     IEnumerator ChallengeBoss()
     {
         IsMonsterDead = false;
-
+        // 황금돼지 비활성화
+        globalData.goldPigController.EnterOtherView();
         globalData.uiController.ShowUI(false);
         // 보스 도전 버튼 숨김
         globalData.uiController.ToggleChallengeBossButton(false);
@@ -1076,11 +1077,6 @@ public class EventController : MonoBehaviour
         // 현재 몬스터 OUT
         StartCoroutine(globalData.player.currentMonster.inOutAnimator.MonsterKillMatAnim());
 
-        // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
-        StartCoroutine(globalData.effectManager.goldPoolingCont.DisableGoldEffects());
-
-        // 보스의 경우 뼈조각 OUT EFF 추가 ( 뼈조각 화면에 뿌려진 경우에만 )
-        StartCoroutine(globalData.effectManager.bonePoolingCont.DisableGoldEffects());
         // 화면전환 이펙트
         yield return StartCoroutine(globalData.effectManager.EffTransitioEvolutionUpgrade(() =>
         {
@@ -1101,10 +1097,15 @@ public class EventController : MonoBehaviour
             //DUNGEON_BOX_ICON_BTN 박스아이콘 활성화
             UtilityMethod.GetCustomTypeGMById(10).gameObject.SetActive(true);
             // 던전 몬스터 레벨 표시
-            UtilityMethod.SetTxtCustomTypeByID(107, $"X{1}");
+            UtilityMethod.SetTxtCustomTypeByID(107, $"X{0}");
             UtilityMethod.GetCustomTypeImageById(46).sprite = iconSpriteFileData.GetBoxIcon(monsterType);
 
         }));
+        // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
+        StartCoroutine(globalData.effectManager.goldPoolingCont.DisableGoldEffects());
+
+        // 보스의 경우 뼈조각 OUT EFF 추가 ( 뼈조각 화면에 뿌려진 경우에만 )
+        StartCoroutine(globalData.effectManager.bonePoolingCont.DisableGoldEffects());
         // BGM CHANGE
         GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_DungeonBoss);
         var monster = globalData.monsterManager.GetMonsterDungeon();

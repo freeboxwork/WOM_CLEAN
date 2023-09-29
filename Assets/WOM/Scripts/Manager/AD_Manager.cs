@@ -100,6 +100,7 @@ public class AD_Manager : MonoBehaviour
         {
             // 타이머 종료
             slot.buffTimer.TimerEnd();
+            slot.isUsingBuff = true;
             slot.addValue = slot.addValueBuff;
             slot.buffTimer.SetTxtBuffPass();
         }

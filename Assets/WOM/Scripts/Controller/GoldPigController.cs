@@ -11,7 +11,6 @@ public class GoldPigController : MonoBehaviour
     public Transform radomPointLeft;
     public Transform radomPointRight;
     public AnimData animData;
-
     public float randomRangeA = 2f;
     public float randomRangeB = 1f;
 

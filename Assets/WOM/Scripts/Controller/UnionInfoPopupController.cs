@@ -22,7 +22,8 @@ public class UnionInfoPopupController : MonoBehaviour
 
     public EnumDefinition.CanvasGroupTYPE canvasGroupType;
 
-
+    public GameObject haveUnionBottomPanel;
+    public GameObject noHaveUnionBottomPanel;
 
 
     void Start()
@@ -53,8 +54,24 @@ public class UnionInfoPopupController : MonoBehaviour
             HidePopup();
         });
     }
+
     public void EnablePopup(UnionSlot slot, UnionData data, UnionInGameData inGameData)
     {
+        
+        //현재 유니온의 레벨도 0이고 보유량도 0 인 경우 (유니온을 보유하고 있지 않은 경우)
+        if(inGameData.unionCount <= 0 && inGameData.level <= 0)
+        {
+            haveUnionBottomPanel.SetActive(false);
+            noHaveUnionBottomPanel.SetActive(true);
+        }
+        else
+        {
+            haveUnionBottomPanel.SetActive(true);
+            noHaveUnionBottomPanel.SetActive(false);
+        }
+
+
+
         // SET UI
         SetImgFace(slot.imgUnionFace.sprite);
         SetTxtUnionName(data.name);

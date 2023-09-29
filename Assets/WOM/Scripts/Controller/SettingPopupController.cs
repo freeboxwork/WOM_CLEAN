@@ -1,13 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using Google.Play.Review;
 
 public class SettingPopupController : MonoBehaviour
 {
 
     public Button btnBgmOnOff;
     public Button btnSfxOnOff;
-    public Button btnCloudSaveOnOff;
+    public Button btnGoToReview;
     public Button btnPowerSaving;
     public Button btnSetting;
     public Button btnClose;
@@ -71,7 +71,17 @@ public class SettingPopupController : MonoBehaviour
         {
             popupSetting.SetActive(true);
         });
+        btnGoToReview.onClick.AddListener(() =>
+        {
+            Review();
+        });
 
+    }
+
+
+    void Review()
+    {
+        Application.OpenURL("market://details?id=com.DonnieNest.WOM");
     }
 
 

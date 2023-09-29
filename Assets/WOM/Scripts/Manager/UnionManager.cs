@@ -268,8 +268,8 @@ public class UnionManager : MonoBehaviour
         if (nextLevel > maxLevel)
             return 0;
 
-        var beforeDamage = slot.unionData.damage * Mathf.Pow(2, slot.inGameData.level);
-        var nextDamage = slot.unionData.damage * Mathf.Pow(2, nextLevel);
+        var beforeDamage = CalculateDamage(slot.inGameData.level, slot.unionData.damage, slot.unionData.addDamage);
+        var nextDamage = CalculateDamage(nextLevel, slot.unionData.damage, slot.unionData.addDamage);
 
         return nextDamage - beforeDamage;
     }

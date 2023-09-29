@@ -63,17 +63,17 @@ public class DamageGraphWindow : EditorWindow
 
         EditorGUILayout.LabelField("Damage Curve", EditorStyles.boldLabel);
 
-        Rect graphRect = GUILayoutUtility.GetRect(0, 400, 0, 200);
+        Rect graphRect = GUILayoutUtility.GetRect(0, 400, 0, this.position.height / 3);
         DrawGrid(graphRect);
         DrawGraph(graphRect);
 
         EditorGUILayout.Space(20);
 
         EditorGUILayout.LabelField("Damage Values", EditorStyles.boldLabel);
-        scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition, GUILayout.Height(200));
+        scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition, GUILayout.Height(this.position.height / 2));
         for (int i = 0; i <= maxLevel; i++)
         {
-            EditorGUILayout.LabelField($"Level {i}: {damages[i]:0.##}");
+            EditorGUILayout.LabelField($"Level {i}: {damages[i]:0}");
         }
         EditorGUILayout.EndScrollView();
     }

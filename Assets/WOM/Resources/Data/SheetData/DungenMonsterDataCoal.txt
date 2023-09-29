@@ -10,7 +10,7 @@
  {
    "level": 1,
    "currencyAmount": 50,
-   "monsterHP": 358805,
+   "monsterHP": 365361,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 2"
@@ -18,7 +18,7 @@
  {
    "level": 2,
    "currencyAmount": 100,
-   "monsterHP": 642668,
+   "monsterHP": 680409,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 3"
@@ -26,7 +26,7 @@
  {
    "level": 3,
    "currencyAmount": 200,
-   "monsterHP": 873668,
+   "monsterHP": 938450,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 4"
@@ -34,7 +34,7 @@
  {
    "level": 4,
    "currencyAmount": 350,
-   "monsterHP": 3431051,
+   "monsterHP": 3250721,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 5"
@@ -42,7 +42,7 @@
  {
    "level": 5,
    "currencyAmount": 550,
-   "monsterHP": 4428711,
+   "monsterHP": 4299970,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 6"
@@ -50,7 +50,7 @@
  {
    "level": 6,
    "currencyAmount": 800,
-   "monsterHP": 5426370,
+   "monsterHP": 5354645,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 7"
@@ -58,7 +58,7 @@
  {
    "level": 7,
    "currencyAmount": 1100,
-   "monsterHP": 8480741,
+   "monsterHP": 8505975,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 8"
@@ -66,7 +66,7 @@
  {
    "level": 8,
    "currencyAmount": 1450,
-   "monsterHP": 10990066,
+   "monsterHP": 11127953,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 9"
@@ -74,7 +74,7 @@
  {
    "level": 9,
    "currencyAmount": 1850,
-   "monsterHP": 12983046,
+   "monsterHP": 13251815,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 10"
@@ -82,7 +82,7 @@
  {
    "level": 10,
    "currencyAmount": 2300,
-   "monsterHP": 17283638,
+   "monsterHP": 17089584,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 11"
@@ -90,7 +90,7 @@
  {
    "level": 11,
    "currencyAmount": 2800,
-   "monsterHP": 21314553,
+   "monsterHP": 21374596,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 12"
@@ -98,7 +98,7 @@
  {
    "level": 12,
    "currencyAmount": 3350,
-   "monsterHP": 25977337,
+   "monsterHP": 21247790,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 13"
@@ -106,7 +106,7 @@
  {
    "level": 13,
    "currencyAmount": 3950,
-   "monsterHP": 35200287,
+   "monsterHP": 30765692,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 14"
@@ -114,7 +114,7 @@
  {
    "level": 14,
    "currencyAmount": 4600,
-   "monsterHP": 49397863,
+   "monsterHP": 45309399,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 15"
@@ -122,7 +122,7 @@
  {
    "level": 15,
    "currencyAmount": 5300,
-   "monsterHP": 61604878,
+   "monsterHP": 57922601,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 16"
@@ -130,7 +130,7 @@
  {
    "level": 16,
    "currencyAmount": 6050,
-   "monsterHP": 133101120,
+   "monsterHP": 128292703,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 17"
@@ -138,7 +138,7 @@
  {
    "level": 17,
    "currencyAmount": 6850,
-   "monsterHP": 173658733,
+   "monsterHP": 169689375,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 18"
@@ -146,7 +146,7 @@
  {
    "level": 18,
    "currencyAmount": 7700,
-   "monsterHP": 200806760,
+   "monsterHP": 207682783,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 19"
@@ -154,7 +154,7 @@
  {
    "level": 19,
    "currencyAmount": 8600,
-   "monsterHP": 243150159,
+   "monsterHP": 251481633,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 20"
@@ -162,7 +162,7 @@
  {
    "level": 20,
    "currencyAmount": 9550,
-   "monsterHP": 302879934,
+   "monsterHP": 312974935,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 21"
@@ -170,7 +170,7 @@
  {
    "level": 21,
    "currencyAmount": 10550,
-   "monsterHP": 368681027,
+   "monsterHP": 380912842,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 22"
@@ -178,7 +178,7 @@
  {
    "level": 22,
    "currencyAmount": 11600,
-   "monsterHP": 466553613,
+   "monsterHP": 481374542,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 23"
@@ -186,7 +186,7 @@
  {
    "level": 23,
    "currencyAmount": 12700,
-   "monsterHP": 550179506,
+   "monsterHP": 568137590,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 24"
@@ -194,7 +194,7 @@
  {
    "level": 24,
    "currencyAmount": 13850,
-   "monsterHP": 641597758,
+   "monsterHP": 663357038,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 25"
@@ -202,7 +202,7 @@
  {
    "level": 25,
    "currencyAmount": 15050,
-   "monsterHP": 1052587061,
+   "monsterHP": 1079809466,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 26"
@@ -210,7 +210,7 @@
  {
    "level": 26,
    "currencyAmount": 16300,
-   "monsterHP": 1399435812,
+   "monsterHP": 1433938695,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 27"
@@ -218,7 +218,7 @@
  {
    "level": 27,
    "currencyAmount": 17600,
-   "monsterHP": 1689667507,
+   "monsterHP": 1729355269,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 28"
@@ -226,7 +226,7 @@
  {
    "level": 28,
    "currencyAmount": 18950,
-   "monsterHP": 3063554772,
+   "monsterHP": 3124423830,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 29"
@@ -234,7 +234,7 @@
  {
    "level": 29,
    "currencyAmount": 20350,
-   "monsterHP": 3584877816,
+   "monsterHP": 3654893898,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 30"
@@ -242,7 +242,7 @@
  {
    "level": 30,
    "currencyAmount": 21800,
-   "monsterHP": 4233244811,
+   "monsterHP": 4313782476,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 31"
@@ -250,7 +250,7 @@
  {
    "level": 31,
    "currencyAmount": 23300,
-   "monsterHP": 5304524089,
+   "monsterHP": 5397164456,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 32"
@@ -258,7 +258,7 @@
  {
    "level": 32,
    "currencyAmount": 24850,
-   "monsterHP": 6678775493,
+   "monsterHP": 6787489970,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 33"
@@ -266,7 +266,7 @@
  {
    "level": 33,
    "currencyAmount": 26450,
-   "monsterHP": 8293890820,
+   "monsterHP": 8421468440,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 34"
@@ -274,7 +274,7 @@
  {
    "level": 34,
    "currencyAmount": 28100,
-   "monsterHP": 10269315430,
+   "monsterHP": 10419029154,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 35"
@@ -282,7 +282,7 @@
  {
    "level": 35,
    "currencyAmount": 29800,
-   "monsterHP": 11928051347,
+   "monsterHP": 12103742030,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 36"
@@ -290,7 +290,7 @@
  {
    "level": 36,
    "currencyAmount": 31550,
-   "monsterHP": 14598528507,
+   "monsterHP": 14804703433,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 37"
@@ -298,7 +298,7 @@
  {
    "level": 37,
    "currencyAmount": 33350,
-   "monsterHP": 18780532358,
+   "monsterHP": 19021616929,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 38"
@@ -306,7 +306,7 @@
  {
    "level": 38,
    "currencyAmount": 35200,
-   "monsterHP": 41370431996,
+   "monsterHP": 41636871654,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 39"
@@ -314,7 +314,7 @@
  {
    "level": 39,
    "currencyAmount": 37100,
-   "monsterHP": 52385755415,
+   "monsterHP": 52680216776,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 40"
@@ -322,7 +322,7 @@
  {
    "level": 40,
    "currencyAmount": 39050,
-   "monsterHP": 60739290299,
+   "monsterHP": 61064720432,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 41"
@@ -330,7 +330,7 @@
  {
    "level": 41,
    "currencyAmount": 41050,
-   "monsterHP": 109319744175,
+   "monsterHP": 109769314073,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 42"
@@ -338,7 +338,7 @@
  {
    "level": 42,
    "currencyAmount": 43100,
-   "monsterHP": 124619559282,
+   "monsterHP": 125116410858,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 43"
@@ -346,7 +346,7 @@
  {
    "level": 43,
    "currencyAmount": 45200,
-   "monsterHP": 160960992490,
+   "monsterHP": 161510098403,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 44"
@@ -354,7 +354,7 @@
  {
    "level": 44,
    "currencyAmount": 47350,
-   "monsterHP": 194576502503,
+   "monsterHP": 195183358389,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 45"
@@ -362,7 +362,7 @@
  {
    "level": 45,
    "currencyAmount": 49550,
-   "monsterHP": 219445946010,
+   "monsterHP": 220116625487,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 46"
@@ -370,7 +370,7 @@
  {
    "level": 46,
    "currencyAmount": 51800,
-   "monsterHP": 276172834666,
+   "monsterHP": 276914050120,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 47"
@@ -378,7 +378,7 @@
  {
    "level": 47,
    "currencyAmount": 54100,
-   "monsterHP": 310450612828,
+   "monsterHP": 311269782591,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 48"
@@ -386,7 +386,7 @@
  {
    "level": 48,
    "currencyAmount": 56450,
-   "monsterHP": 387212334313,
+   "monsterHP": 388117656912,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 49"
@@ -394,7 +394,7 @@
  {
    "level": 49,
    "currencyAmount": 58850,
-   "monsterHP": 455663833792,
+   "monsterHP": 456664370000,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 50"
@@ -402,7 +402,7 @@
  {
    "level": 50,
    "currencyAmount": 61300,
-   "monsterHP": 505087740263,
+   "monsterHP": 506193503782,
    "rewardType": "Coal",
    "bgId": 9,
    "stageName": "STEP 51"

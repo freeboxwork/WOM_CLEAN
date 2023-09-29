@@ -22,10 +22,18 @@ public class EventController : MonoBehaviour
 
     bool isEnterFail = false;
 
+    public bool debugTimeScale = false;
+    public float addTimeScale = 0;
+
     void Start()
     {
         globalData = GlobalData.instance;
         AddEvents();
+
+        if (debugTimeScale)
+        {
+            Time.timeScale = addTimeScale;
+        }
     }
 
     private void OnDestroy()
@@ -60,7 +68,7 @@ public class EventController : MonoBehaviour
     public void StopAllCoroutine()
     {
         StopAllCoroutines();
-                // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
+        // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
         StartCoroutine(globalData.effectManager.goldPoolingCont.DisableGoldEffects());
 
         // 보스의 경우 뼈조각 OUT EFF 추가 ( 뼈조각 화면에 뿌려진 경우에만 )
@@ -89,7 +97,7 @@ public class EventController : MonoBehaviour
         currentMonster.inOutAnimator.MonsterHitAnim();
         // ENABLE Floting Text Effect 
         globalData.effectManager.EnableFloatingText(damage, isCritical, tr, insectType);
-        
+
         // 몬스터 체력이 0보다 작으면 죽음 처리
         if (IsMonseterKill(currentMonster.hp))
         {
@@ -106,7 +114,7 @@ public class EventController : MonoBehaviour
 
         }
     }
-    
+
     void EvnOnMonsterHitMonsterKing(Transform tr = null)
     {
         if (IsMonsterDead) return;
@@ -292,7 +300,7 @@ public class EventController : MonoBehaviour
 
     }
     #endregion
-    
+
     //===================================================================================================================================================================================
     #region Monster DEAD
     IEnumerator MonsterKill(MonsterBase currentMonster)
@@ -369,16 +377,22 @@ public class EventController : MonoBehaviour
 
         IsInsectMovementStop = false;
 
-                //몬스터가 죽은 후 몬스터 타입에 따른 후처리
+        //몬스터가 죽은 후 몬스터 타입에 따른 후처리
         DieMonster(currentMonster.monsterType);
     }
+
+
+
 
     IEnumerator BossDefeatSlowMotionEffect()
     {
         IsInsectMovementStop = true;
-        Time.timeScale = 0.2f;
-        yield return new WaitForSecondsRealtime(0.9f);
-        Time.timeScale = 1f;
+        if (debugTimeScale == false)
+        {
+            Time.timeScale = 0.2f;
+            yield return new WaitForSecondsRealtime(0.9f);
+            Time.timeScale = 1;
+        }
         // 보스 사냥 성공 전환 이펙트FAppr
         GlobalData.instance.effectManager.EnableTransition(EnumDefinition.TransitionTYPE.ClearBoss);
     }
@@ -387,14 +401,14 @@ public class EventController : MonoBehaviour
     {
         float dropGold = gold;
         //금광 몬스터 2배 받을 확률 가져오기
-            float pbb = globalData.statManager.GoldMonsterBonus();
-            //확률 계산
-            float ran = UnityEngine.Random.Range(0f, 100f);
+        float pbb = globalData.statManager.GoldMonsterBonus();
+        //확률 계산
+        float ran = UnityEngine.Random.Range(0f, 100f);
 
-            if (ran <= pbb)
-            {
-                return dropGold = dropGold * 2;
-            }
+        if (ran <= pbb)
+        {
+            return dropGold = dropGold * 2;
+        }
         return dropGold;
     }
 
@@ -420,13 +434,13 @@ public class EventController : MonoBehaviour
 
         if (IsPhaseCountZero(phaseCount))
         {
-            if(IsMonsterDead == false) yield break;
+            if (IsMonsterDead == false) yield break;
 
             yield return StartCoroutine(AppearMonster(MonsterType.gold));
         }
         else
         {
-            if(IsMonsterDead == false) yield break;
+            if (IsMonsterDead == false) yield break;
 
             yield return StartCoroutine(AppearMonster(MonsterType.normal));
         }
@@ -434,7 +448,7 @@ public class EventController : MonoBehaviour
     // 골드 몬스터 사망시
     IEnumerator MonsterDie_Gold()
     {
-        if(IsMonsterDead == false) yield break;
+        if (IsMonsterDead == false) yield break;
 
         // BG Scroll Animation
         globalData.stageManager.PlayAnimBgScroll(0.2f);
@@ -458,7 +472,7 @@ public class EventController : MonoBehaviour
     //보스 몬스터 사망시
     IEnumerator MonsterDie_Boss()
     {
-        if(IsMonsterDead == false) yield break;
+        if (IsMonsterDead == false) yield break;
 
         // BG Scroll Animation
         globalData.stageManager.PlayAnimBgScroll(1f);
@@ -507,7 +521,7 @@ public class EventController : MonoBehaviour
         globalData.stageManager.bgAnimController.CameraZoomIn();
 
         //만약 자동 보스 도전 버튼토글이 On이라면
-        if(globalData.uiController.IsToggleAutoBossChallengeIsOn())
+        if (globalData.uiController.IsToggleAutoBossChallengeIsOn())
         {
             // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
             StartCoroutine(globalData.effectManager.goldPoolingCont.DisableGoldEffects());
@@ -589,7 +603,7 @@ public class EventController : MonoBehaviour
         GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.normal);
 
         yield return new WaitUntil(() => evalGradeEffectShow == false); // 등급업그레이드 연출이 끝날때까지 대기
-                //몬스터 죽음 해골 이펙트
+                                                                        //몬스터 죽음 해골 이펙트
         globalData.effectManager.EnableMonsterDieBeforeEffect();
         // 하프 라인 위 곤충 모두 제거
         globalData.insectManager.DisableAllAvtiveInsects();
@@ -638,7 +652,7 @@ public class EventController : MonoBehaviour
         // 공격 가능 상태로 전환
         globalData.attackController.SetAttackableState(true);
 
-        if(monsterType > EnumDefinition.MonsterType.gold)
+        if (monsterType > EnumDefinition.MonsterType.gold)
         {
             //보스 몬스터 등장시 사이드 메뉴 비활성화
             globalData.uiController.ShowUI(false);
@@ -683,7 +697,7 @@ public class EventController : MonoBehaviour
             globalData.stageManager.bgAnimController.spriteColorAnim.ColorNormalAnim();
             //globalData.uiController.SetEnablePhaseCountUI(true);
         }
-            // 금광보스 카운트 UI 활성
+        // 금광보스 카운트 UI 활성
 
         SetEnablePhaseCountUI(monsterType);
         // set current monster hp
@@ -716,7 +730,7 @@ public class EventController : MonoBehaviour
     //몬스터 타입에 따라 금광 카운트 ui 활성/비활성
     void SetEnablePhaseCountUI(EnumDefinition.MonsterType type)
     {
-        switch(type)
+        switch (type)
         {
             case MonsterType.normal:
                 globalData.uiController.SetEnablePhaseCountUI(true);
@@ -738,14 +752,14 @@ public class EventController : MonoBehaviour
                 globalData.uiController.SetEnablePhaseCountUI(false);
                 globalData.uiController.ShowToggleAutoBossChallenge(false);
 
-            break;
+                break;
 
             case MonsterType.dungeon:
-            globalData.uiController.SetEnablePhaseCountUI(false);
+                globalData.uiController.SetEnablePhaseCountUI(false);
                 globalData.uiController.ShowToggleAutoBossChallenge(false);
 
 
-                                break;
+                break;
 
         }
     }
@@ -766,7 +780,7 @@ public class EventController : MonoBehaviour
         globalData.uiController.ShowUI(false);
         // 보스 도전 버튼 숨김
         globalData.uiController.ToggleChallengeBossButton(false);
-        
+
         GlobalData.instance.effectManager.EnableTransition(EnumDefinition.TransitionTYPE.Boss);
         //몬스터 죽음 해골 이펙트
         globalData.effectManager.EnableMonsterDieBeforeEffect();
@@ -929,7 +943,7 @@ public class EventController : MonoBehaviour
         // 미리 저장된 몬스터 등장
         yield return StartCoroutine(AppearMonster(MonsterType.normal));
         //만약 진화전 시작전에 보스전 버튼이 활성화 되어 있었다면
-        if(isRememberActiveBossButton) globalData.uiController.ToggleChallengeBossButton(true);
+        if (isRememberActiveBossButton) globalData.uiController.ToggleChallengeBossButton(true);
         // 진화 몬스터 도전 버튼 활성화
         globalData.evolutionManager.EnableBtnEvolutionMonsterChange(true);
         // 황금 돼지 활성화
@@ -1004,7 +1018,7 @@ public class EventController : MonoBehaviour
         // 기존 몬스터 등장
         yield return StartCoroutine(AppearMonster(MonsterType.normal));
         //만약 진화전 시작전에 보스전 버튼이 활성화 되어 있었다면
-        if(isRememberActiveBossButton) globalData.uiController.ToggleChallengeBossButton(true);
+        if (isRememberActiveBossButton) globalData.uiController.ToggleChallengeBossButton(true);
         // UI 비활성화 
         globalData.uiController.ShowUI(true);
         // 황금 돼지 활성화
@@ -1019,7 +1033,7 @@ public class EventController : MonoBehaviour
     //던전 포기 버튼을 눌렀을 때
     public void BtnEventDungeonGiveUp()
     {
-        if(globalData.popUpGiveUpDungeon.isShowPopup) return;
+        if (globalData.popUpGiveUpDungeon.isShowPopup) return;
         //보스 타이머 시간을 멈추고
         //globalData.bossChallengeTimer.StopBossTimer(true);
 
@@ -1060,8 +1074,8 @@ public class EventController : MonoBehaviour
 
         StartCoroutine(ChallengeDungeonMonster(monsterType));
     }
-   //도전
-   IEnumerator ChallengeDungeonMonster(MonsterType monsterType)
+    //도전
+    IEnumerator ChallengeDungeonMonster(MonsterType monsterType)
     {
         PhaseCountReset();
 
@@ -1093,7 +1107,7 @@ public class EventController : MonoBehaviour
             var stageName = monsterData.stageName;
             GlobalData.instance.stageNameSetManager.SetTxtStageName(EnumDefinition.StageNameType.dungeon, stageName);
             GlobalData.instance.stageNameSetManager.EnableStageName(EnumDefinition.StageNameType.dungeon);
-            
+
             //DUNGEON_BOX_ICON_BTN 박스아이콘 활성화
             UtilityMethod.GetCustomTypeGMById(10).gameObject.SetActive(true);
             // 던전 몬스터 레벨 표시
@@ -1142,10 +1156,10 @@ public class EventController : MonoBehaviour
         isEnterFail = false;
 
         //만약 포기 팝업이 떠있는 상태라면
-        if(globalData.popUpGiveUpDungeon.isShowPopup)
+        if (globalData.popUpGiveUpDungeon.isShowPopup)
         {
             globalData.popUpGiveUpDungeon.ButtonRefuse();
-        }    
+        }
 
         // 총 보상 재화 가지고 오기
         var monster = globalData.monsterManager.GetMonsterDungeon();
@@ -1198,7 +1212,7 @@ public class EventController : MonoBehaviour
         yield return StartCoroutine(AppearMonster(MonsterType.normal));
 
         //만약 진화전 시작전에 보스전 버튼이 활성화 되어 있었다면
-        if(isRememberActiveBossButton) globalData.uiController.ToggleChallengeBossButton(true);
+        if (isRememberActiveBossButton) globalData.uiController.ToggleChallengeBossButton(true);
         // 황금 돼지 활성화
         globalData.goldPigController.ExitOtherView();
         // 공격 가능 상태로 전환
@@ -1217,7 +1231,7 @@ public class EventController : MonoBehaviour
         get { return isMonsterDead; }
         set { isMonsterDead = value; }
     }
-   //곤충 이동 속도 멈추기 위한 플레그
+    //곤충 이동 속도 멈추기 위한 플레그
     public bool IsInsectMovementStop
     {
         get { return isInsectMovementStop; }
@@ -1272,19 +1286,19 @@ public class EventController : MonoBehaviour
     //시간내에 보스몬스터를 잡지 못하였을때 콜백 이벤트를 받아 호출됨
     void EvnTimeOut()
     {
-        if(isEnterFail) return;
+        if (isEnterFail) return;
         // 현재(보스 몬스터 도전 전) phaseCount 몬스터 재등장 ?? -> 노멀 몬스터 등장하면 됨 phase count 는 따로 카운팅 되고 있으며 하나의 스테이지에 노멀 몬스터 데이터는 모두 동일함.
         switch (globalData.player.curMonsterType)
         {
-            case MonsterType.boss: 
-            StartCoroutine(FailedChallengBoss()); 
-            break;
-            case MonsterType.evolution: 
-            StartCoroutine(FailedChallengEvolution());
-             break;
-            case MonsterType.dungeon: 
-            StartCoroutine(FailedChallengDungeon());
-             break;
+            case MonsterType.boss:
+                StartCoroutine(FailedChallengBoss());
+                break;
+            case MonsterType.evolution:
+                StartCoroutine(FailedChallengEvolution());
+                break;
+            case MonsterType.dungeon:
+                StartCoroutine(FailedChallengDungeon());
+                break;
         }
     }
     //던전 보스 전투시간이 종료되어보상을 받는다

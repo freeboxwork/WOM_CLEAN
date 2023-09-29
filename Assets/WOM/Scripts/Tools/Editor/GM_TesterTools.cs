@@ -28,6 +28,7 @@ public class GM_TesterTools : EditorWindow
     float addClertTicekt;
     float addUnionTicket;
     float addDnaTicket;
+    float addTimeScaleValue;
 
     float insectAutoEnableTime = 0.1f;
 
@@ -56,6 +57,11 @@ public class GM_TesterTools : EditorWindow
         EditorCustomGUI.GUI_Title("게임 테스트를 위한 툴 모음");
         scrollView = EditorGUILayout.BeginScrollView(scrollView);
 
+        addTimeScaleValue = EditorGUILayout.FloatField("타임 스케일", addTimeScaleValue);
+        if (GUILayout.Button("타임 스케일 적용"))
+        {
+            Time.timeScale = addTimeScaleValue;
+        }
 
         GUILayout.BeginVertical("Box");
         goodsFold = EditorGUILayout.BeginFoldoutHeaderGroup(goodsFold, "GOODS AND ITEM");

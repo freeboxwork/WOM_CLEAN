@@ -11,8 +11,8 @@ public class DamageCalculator
 
 public class DamageGraphWindow : EditorWindow
 {
-    private const int maxLevel = 100;
-    private float[] damages = new float[maxLevel + 1];
+    private int maxLevel = 20;  // 초기값
+    private float[] damages;
     private float a = 1f;  // 초기값
     private float b = 0.03f;  // 초기값
     private Vector2 scrollPosition;
@@ -29,8 +29,14 @@ public class DamageGraphWindow : EditorWindow
         GetWindow<DamageGraphWindow>("Damage Graph");
     }
 
+    void OnEnable()
+    {
+        UpdateDamages();
+    }
+
     private void UpdateDamages()
     {
+        damages = new float[maxLevel + 1];
         for (int i = 0; i <= maxLevel; i++)
         {
             damages[i] = DamageCalculator.CalculateDamage(i, a, b);
@@ -54,6 +60,7 @@ public class DamageGraphWindow : EditorWindow
 
         a = EditorGUILayout.Slider("a Value", a, aValueMin, aValueMax);
         b = EditorGUILayout.Slider("b Value", b, bValueMin, bValueMax);
+        maxLevel = EditorGUILayout.IntSlider("Max Level", maxLevel, 0, 200);
         if (EditorGUI.EndChangeCheck())
         {
             UpdateDamages();

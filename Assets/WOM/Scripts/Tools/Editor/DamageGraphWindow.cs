@@ -49,17 +49,17 @@ public class DamageGraphWindow : EditorWindow
 
         EditorGUI.BeginChangeCheck();
         GUILayout.BeginHorizontal();
-        aValueMin = EditorGUILayout.FloatField("a Min", aValueMin);
-        aValueMax = EditorGUILayout.FloatField("a Max", aValueMax);
+        aValueMin = EditorGUILayout.FloatField("데미지 Min", aValueMin);
+        aValueMax = EditorGUILayout.FloatField("데미지 Max", aValueMax);
         GUILayout.EndHorizontal();
         GUILayout.BeginHorizontal();
-        bValueMin = EditorGUILayout.FloatField("b Min", bValueMin);
-        bValueMax = EditorGUILayout.FloatField("b Max", bValueMax);
+        bValueMin = EditorGUILayout.FloatField("증가퍼센트 Min", bValueMin);
+        bValueMax = EditorGUILayout.FloatField("증가퍼센트 Max", bValueMax);
         GUILayout.EndHorizontal();
 
 
-        a = EditorGUILayout.Slider("a Value", a, aValueMin, aValueMax);
-        b = EditorGUILayout.Slider("b Value", b, bValueMin, bValueMax);
+        a = EditorGUILayout.Slider("데미지 Value", a, aValueMin, aValueMax);
+        b = EditorGUILayout.Slider("데미지 Value", b, bValueMin, bValueMax);
         maxLevel = EditorGUILayout.IntSlider("Max Level", maxLevel, 0, 200);
         if (EditorGUI.EndChangeCheck())
         {
@@ -80,7 +80,7 @@ public class DamageGraphWindow : EditorWindow
         scrollPosition = EditorGUILayout.BeginScrollView(scrollPosition, GUILayout.Height(this.position.height / 2));
         for (int i = 0; i <= maxLevel; i++)
         {
-            EditorGUILayout.LabelField($"Level {i}: {damages[i]:0}");
+            EditorGUILayout.LabelField($"Level {i}: {damages[i]:N0}");
         }
         EditorGUILayout.EndScrollView();
     }

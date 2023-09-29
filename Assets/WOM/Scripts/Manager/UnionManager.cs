@@ -244,12 +244,20 @@ public class UnionManager : MonoBehaviour
         EnableBtnTotalLevelUp();
     }
 
+     float CalculateDamage(int level, float dmg, float addRate)
+    {
+        return dmg * Mathf.Exp(addRate * level);
+    }
     public float GetUnionDamage(UnionSlot slot)
     {
-        var square = Mathf.Pow(2, slot.inGameData.level);
-        var damage = slot.unionData.damage * square;
+        //var square = Mathf.Pow(2, slot.inGameData.level);
+        //var damage = slot.unionData.damage * square;
         //Debug.Log($"unionIndex:{slot.inGameData.unionIndex} / level:{slot.inGameData.level} / slot.unionData.damage:{slot.unionData.damage} / damage : {damage}");
         //var damage = slot.unionData.damage + (slot.inGameData.level * slot.unionData.addDamage);
+
+        //유니온 데미지 *  Mathf.Exp(증가량 * 레벨)
+        var damage = CalculateDamage(slot.inGameData.level, slot.unionData.damage, slot.unionData.addDamage);
+
         return damage;
     }
     public float GetUnionDamageNextLevel(UnionSlot slot)

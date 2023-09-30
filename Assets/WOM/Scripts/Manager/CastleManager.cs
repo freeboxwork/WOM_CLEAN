@@ -7,6 +7,7 @@ using static EnumDefinition;
 using ProjectGraphics;
 using static ProjectGraphics.CastleController;
 using UnityEngine.Experimental.AI;
+using TMPro;
 
 public class CastleManager : MonoBehaviour
 {
@@ -19,6 +20,10 @@ public class CastleManager : MonoBehaviour
 
     public int mineLevel = 0;
     public int factoryLevel = 0;
+
+    public TextMeshProUGUI upgradeMinePriceText; //채굴 현황
+    public TextMeshProUGUI upgradeFactoryPriceText; //채굴 현황
+
 
 
     //public int offLineSubGoldTime = 0;
@@ -82,12 +87,25 @@ public class CastleManager : MonoBehaviour
             // 골드 채굴 시작
             StartCoroutine("MiningGold");
         }
+        else
+        {
+            var targetBuildingData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(buildDataMine.level + 1);
+
+            upgradeMinePriceText.text = UtilityMethod.ChangeSymbolNumber(targetBuildingData.price);
+        }
 
         if (buildDataFactory.level > 0)
         {
             digUpBoneTime = buildDataMine.productionTime;
             // 뼈조각 채굴 시작
             StartCoroutine("MiningBone");
+        }
+        else
+        {
+            var targetBuildingData = GlobalData.instance.dataManager.GetBuildDataFactoryByLevel(buildDataFactory.level + 1);
+
+            upgradeFactoryPriceText.text = UtilityMethod.ChangeSymbolNumber(targetBuildingData.price);
+
         }
 
         yield return null;
@@ -406,12 +424,14 @@ public class CastleManager : MonoBehaviour
 
         var targetBuildingData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(mineLevel + 1);
 
+        Debug.Log(targetBuildingData.price);
+
         // 플레이어가 가진 coal(resource)이 광산의 가격보다 많을 때 업그레이드 진행
         if (GlobalData.instance.player.coal >= targetBuildingData.price)
         {
             GlobalData.instance.soundManager.PlaySfxInGame(SFX_TYPE.Upgrade);
             // 가격만큼 resource 차감 후 레벨 업그레이드 진행
-            GlobalData.instance.player.PayCoal(buildDataMine.price);
+            GlobalData.instance.player.PayCoal(targetBuildingData.price);
 
             mineLevel++;
             // set save data
@@ -435,13 +455,15 @@ public class CastleManager : MonoBehaviour
     }
     public void CheckEnoughCostFactory(UnityAction<bool, CastleBuildingData> completeCallback)
     {
-        var targetBuildingData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(factoryLevel + 1);
+        var targetBuildingData = GlobalData.instance.dataManager.GetBuildDataFactoryByLevel(factoryLevel + 1);
+
+        Debug.Log(targetBuildingData.price);
 
         if (GlobalData.instance.player.coal >= targetBuildingData.price)
         {
             GlobalData.instance.soundManager.PlaySfxInGame(SFX_TYPE.Upgrade);
 
-            GlobalData.instance.player.PayCoal(buildDataFactory.price);
+            GlobalData.instance.player.PayCoal(targetBuildingData.price);
             factoryLevel++;
             // set save data
             GlobalData.instance.saveDataManager.SaveDataCastleFactoryLevel(factoryLevel);

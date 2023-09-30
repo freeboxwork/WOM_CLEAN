@@ -21,7 +21,8 @@ public class MinePopup : CastlePopupBase
     public TextMeshProUGUI totlaMiningValue; //총 채굴량
     public TextMeshProUGUI digUpTimeText; //실시간 채굴시간
     public TextMeshProUGUI digUpStateText; //채굴 현황
-    
+
+
     public Image digUpFillImage;//채굴 상태 FillAmount
     public Button btnGetGold;
     public Button btnUpgrade;
@@ -193,9 +194,9 @@ public class MinePopup : CastlePopupBase
         }
         else
         {
-            nextProductionCountText.text = "최대 레벨입니다";
-            nextMaxSupplyText.text = "최대 레벨입니다";
-            nextProductionTimeText.text = "최대 레벨입니다";
+            nextProductionCountText.text = "Max";
+            nextMaxSupplyText.text = "Max";
+            nextProductionTimeText.text = "Max";
             SetMaxUI();
         }
 

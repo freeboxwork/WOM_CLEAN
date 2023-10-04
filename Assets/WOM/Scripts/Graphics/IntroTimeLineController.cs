@@ -62,8 +62,7 @@ public class IntroTimeLineController : MonoBehaviour
             {
                 bEndIntro = true;
                 endTime = true;
-                introManager.ShowMainCanvas(true);
-                StartCoroutine(introManager.SceneLoad());
+                introManager.EndIntro();
             }
         }
 

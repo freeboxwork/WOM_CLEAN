@@ -87,8 +87,8 @@ public class UnionInfoPopupController : MonoBehaviour
         SetTxtSpawnTime(inGameData.spawnTime.ToString());
         SetTxtMoveSpeed(inGameData.moveSpeed.ToString());
         //var passiveDamage = $"{inGameData.passiveDamage}% (+ {inGameData.passiveDamageNextLevel})";
-        SetTxtCurrentPassiveDamage(inGameData.passiveDamage.ToString());
-        SetTxtPassiveDamage(inGameData.passiveDamageNextLevel.ToString());
+        SetTxtCurrentPassiveDamage(Mathf.Round(inGameData.passiveDamage).ToString());
+        SetTxtPassiveDamage(Mathf.Round(inGameData.passiveDamageNextLevel).ToString());
         SetSlider(slot.sliderReqirement.value);
         SetTxtReqirementCount(slot.txtReqirementCount.text);
 
@@ -102,8 +102,8 @@ public class UnionInfoPopupController : MonoBehaviour
         SetTxtSpawnTime(unionSlot.inGameData.spawnTime.ToString());
         SetTxtMoveSpeed(unionSlot.inGameData.moveSpeed.ToString());
         //var passiveDamage = $"{unionSlot.inGameData.passiveDamage}% (+ {unionSlot.inGameData.passiveDamageNextLevel})";
-        SetTxtCurrentPassiveDamage(unionSlot.inGameData.passiveDamage.ToString());
-        SetTxtPassiveDamage(unionSlot.inGameData.passiveDamageNextLevel.ToString());
+        SetTxtCurrentPassiveDamage(Mathf.Round(unionSlot.inGameData.passiveDamage).ToString());
+        SetTxtPassiveDamage(Mathf.Round(unionSlot.inGameData.passiveDamageNextLevel).ToString());
         SetSlider(unionSlot.sliderReqirement.value);
         SetTxtReqirementCount(unionSlot.txtReqirementCount.text);
     }

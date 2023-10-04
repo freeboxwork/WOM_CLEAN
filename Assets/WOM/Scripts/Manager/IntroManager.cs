@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using DG.Tweening;
+using BackEnd;
 
 public class IntroManager : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class IntroManager : MonoBehaviour
     public Color endColor;
     private AsyncOperation async; // 로딩
     public WOMAppUpdateManager wOMAppUpdateManager;
+    public GameObject loadingObj;
 
     void Awake()
     {
@@ -46,27 +48,53 @@ public class IntroManager : MonoBehaviour
             // SKIP INTRO
             introTimeLineController.SkipIntro();
             ShowMainCanvas(true);
-#if UNITY_ANDROID && !UNITY_EDITOR
-            StartCoroutine(wOMAppUpdateManager.AppUpdateCheck());
-#endif
-            //씬 프리로딩
+            //메인씬 미리 로딩
             StartCoroutine(SceneLoad());
+            StartCoroutine(Init());
+
         }
         else
         {
+            loadingObj.SetActive(false);
+
             // PLAY INTRO
             //인트로가 끝난 뒤 캔버스 활성화
         }
 
 
-#if !UNITY_EDITOR && UNITY_ANDROID
-        googleLogin.LogIn();
-#endif
-        //프리로딩이 종료될때까지 대기
-        StartCoroutine(WaitSceneLoad());
 
     }
 
+    IEnumerator Init()
+    {
+        yield return new WaitForSeconds(0.3f);
+        //앱 업데이트 체크
+        yield return StartCoroutine(wOMAppUpdateManager.AppUpdateCheck());
+        //구글 로그인
+        yield return StartCoroutine(googleLogin.LogIn((bool isSuccess) =>
+        {
+            if (isSuccess)
+            {
+
+                StartCoroutine(WaitSceneLoad());
+
+            }
+            else
+            {
+                
+            }
+        }));
+
+        //프리로딩이 종료될때까지 대기
+        //StartCoroutine(WaitSceneLoad());
+    }
+
+    public void EndIntro()
+    {
+        StartCoroutine(SceneLoad());
+        StartCoroutine(Init());
+        ShowMainCanvas(true);
+    }
 
     IEnumerator WaitSceneLoad()
     {
@@ -74,8 +102,8 @@ public class IntroManager : MonoBehaviour
         {
             yield return null;
         }
-
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
+        loadingObj.SetActive(false);
         ShowStartButton(true);
 
         startButtonText.DOColor(endColor, 1f).SetLoops(-1, LoopType.Yoyo);

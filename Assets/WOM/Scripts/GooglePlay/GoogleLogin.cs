@@ -3,6 +3,9 @@ using UnityEngine.UI;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using UnityEngine.SceneManagement;
+using BackEnd;
+using System.Collections;
+using UnityEngine.Events;
 
 public class GoogleLogin : MonoBehaviour
 {
@@ -23,15 +26,28 @@ public class GoogleLogin : MonoBehaviour
 
     void Start()
     {
-        PlayGamesPlatform.InitializeInstance(new PlayGamesClientConfiguration.Builder().Build());
+        // PlayGamesPlatform.InitializeInstance(new PlayGamesClientConfiguration.Builder().Build());
+        // PlayGamesPlatform.DebugLogEnabled = true;
+        // PlayGamesPlatform.Activate();
+
+         // GPGS 플러그인 설정
+        PlayGamesClientConfiguration config = new PlayGamesClientConfiguration
+        .Builder()
+        .RequestServerAuthCode(false)
+        .RequestEmail()
+        .RequestIdToken()
+        .Build();
+        //커스텀 된 정보로 GPGS 초기화
+        PlayGamesPlatform.InitializeInstance(config);
         PlayGamesPlatform.DebugLogEnabled = true;
         PlayGamesPlatform.Activate();
+
     }
 
-    public void LogIn()
+    public IEnumerator LogIn(UnityAction<bool> callback)
     {
-        Debug.Log("Try Login");
-        //?α????? ???? ??????
+        Debug.Log("Try Login GPGS");
+        
         if (!Social.localUser.authenticated)
         {
 
@@ -41,6 +57,9 @@ public class GoogleLogin : MonoBehaviour
                 {
                     Debug.Log("Login Success");
                     //SceneManager.LoadScene("Main");
+                    StartCoroutine(BackEndManager.Instance.BackEndLogin());   
+                    callback.Invoke(true);
+
                 }
                 else
                 {
@@ -50,12 +69,9 @@ public class GoogleLogin : MonoBehaviour
             });
 
         }
+        
+        yield return null;
 
     }
 
-    void LogOut()
-    {
-        ((PlayGamesPlatform)Social.Active).SignOut();
-        Debug.Log("LogOut");
-    }
 }

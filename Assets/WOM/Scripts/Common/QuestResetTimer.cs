@@ -5,37 +5,20 @@ using BackEnd;
 public class QuestResetTimer : MonoBehaviour
 {
     // Start is called before the first frame update
+    void Awake()
+    {
+        Backend.Initialize(true);
+    }
+
     void Start()
     {
         // PlayerPrefs 에 CURRENT_TIME_KEY 가 저장되어 있지 않다면 SaveCurrentTime() 함수를 실행한다.
         if (!HasMidnightTime())
         {
-            //SaveCurrentTime();
             SaveMidnightTime();
         }
-        // else
-        // {
-        //     if (HasCrossedMidnight())
-        //     {
-        //         Debug.Log("자정이 지났습니다.");
-
-        //         // reset timer
-        //         // SaveCurrentTime();
-        //         // SaveMidnightTime();
-
-        //         // reset one day quest
-        //     }
-        // }
     }
 
-    // void Update()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.A))
-    //     {
-    //         // SaveCurrentTime();
-    //         SaveMidnightTime();
-    //     }
-    // }
 
     private const string CURRENT_TIME_KEY = "current_time";
     private const string MIDNIGHT_TIME_KEY = "midnight_time";
@@ -45,52 +28,30 @@ public class QuestResetTimer : MonoBehaviour
         return PlayerPrefs.HasKey(MIDNIGHT_TIME_KEY);
     }
 
-    void SaveCurrentTime()
-    {
-        // 현재 시간을 가져온다.
-        var now = DateTime.Now.ToString("yyyy-MM-dd");
-
-        // PlayerPrefs에 현재 시간을 문자열로 저장한다.
-        PlayerPrefs.SetString(CURRENT_TIME_KEY, now);
-
-        Debug.Log(now.ToString());
-
-        //PlayerPrefs.Save();.
-    }
 
     void SaveMidnightTime()
     {
         // 오늘 자정 시간을 계산한다.
-        // DateTime midnight = DateTime.Today.AddDays(1);
-        var midnight = DateTime.Now.ToString("yyyy-MM-dd");
+        BackendReturnObject servertime = Backend.Utils.GetServerTime();
+        string time = servertime.GetReturnValuetoJSON()["utcTime"].ToString();
+        var timeData = DateTime.Parse(time);
+        var midnight = timeData.ToString("yyyy-MM-dd");
 
         // PlayerPrefs에 오늘 자정 시간을 문자열로 저장한다.
         PlayerPrefs.SetString(MIDNIGHT_TIME_KEY, midnight);
 
         //Debug.Log(midnight.ToString());
-
-        //PlayerPrefs.Save();
     }
 
-    DateTime LoadCurrentTime()
-    {
-        // PlayerPrefs에서 저장된 시간 정보를 불러온다.
-        string currentTimeStr = PlayerPrefs.GetString(CURRENT_TIME_KEY);
-        //string currentTimeStr = "2023-06-19";
-
-        // 불러온 문자열 시간 정보를 DateTime 형식으로 변환한다.
-        DateTime currentTime = DateTime.Parse(currentTimeStr);
-
-        return currentTime;
-    }
-
-    public string testCurDateValue;
-    public string testPrevDateValue;
-    DateTime midnight;
     public bool HasCrossedMidnight()
     {
 
-        var now = DateTime.Now.ToString("yyyy-MM-dd");
+        BackendReturnObject servertime = Backend.Utils.GetServerTime();
+        string time = servertime.GetReturnValuetoJSON()["utcTime"].ToString();
+        var timeData = DateTime.Parse(time);
+        var now = timeData.ToString("yyyy-MM-dd");
+
+        Debug.Log("backend : " + now);
 
         // test code
         // DateTime currentTime = DateTime.Parse(testCurDateValue);
@@ -98,21 +59,11 @@ public class QuestResetTimer : MonoBehaviour
 
         // 현재 시간과 저장된 오늘 자정 시간을 비교한다.
         DateTime currentTime = DateTime.Parse(now);
-
-#if !UNITY_EDITOR && UNITY_ANDROID
-        BackendReturnObject servertime = Backend.Utils.GetServerTime();
-
-        string time = servertime.GetReturnValuetoJSON()["utcTime"].ToString();
-        midnight = DateTime.Parse(time);
-        Debug.Log(midnight.ToString());
-#endif
-#if UNITY_EDITOR
         DateTime midnight = DateTime.Parse(PlayerPrefs.GetString(MIDNIGHT_TIME_KEY));
-#endif
+
         var timeSpan = currentTime.Subtract(midnight);
         //Debug.Log("지나간 날 : " + timeSpan.TotalDays.ToString());
         var totalDays = timeSpan.TotalDays;
-
 
         if (totalDays > 0)
         {
@@ -128,21 +79,8 @@ public class QuestResetTimer : MonoBehaviour
 
     public void ResetTimer()
     {
-        //SaveCurrentTime();
         SaveMidnightTime();
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 }

@@ -88,11 +88,11 @@ public class Player : MonoBehaviour
     }
 
 
-    
+
     //재화가 충분한지 체크
     public bool IsEnoughRewardGoods(EnumDefinition.RewardType type, int payCount)
     {
-        if(GetGoodsByRewardType(type) >= payCount)
+        if (GetGoodsByRewardType(type) >= payCount)
         {
             return true;
         }
@@ -167,23 +167,35 @@ public class Player : MonoBehaviour
     // 던전 입장 키 초기화 ( 2개씩 지급 )
     public void AddAllDungeonKeys()
     {
-        if (dungeonKeys[GoodsType.gold] < 2)
-            AddDungeonKey(GoodsType.gold, 2);
+        var curGoldKey = dungeonKeys[GoodsType.gold];
+        var curBoneKey = dungeonKeys[GoodsType.bone];
+        var curDiceKey = dungeonKeys[GoodsType.dice];
+        var curCoalKey = dungeonKeys[GoodsType.coal];
 
-        if (dungeonKeys[GoodsType.bone] < 2)
-            AddDungeonKey(GoodsType.bone, 2);
+        if (curGoldKey < 2)
+        {
+            AddDungeonKey(GoodsType.gold, GetAddKey(curGoldKey));
+        }
 
-        if (dungeonKeys[GoodsType.dice] < 2)
-            AddDungeonKey(GoodsType.dice, 2);
+        if (curBoneKey < 2)
+        {
+            AddDungeonKey(GoodsType.bone, GetAddKey(curBoneKey));
+        }
 
-        if (dungeonKeys[GoodsType.coal] < 2)
-            AddDungeonKey(GoodsType.coal, 2);
+        if (curDiceKey < 2)
+        {
+            AddDungeonKey(GoodsType.dice, GetAddKey(curDiceKey));
+        }
 
+        if (curCoalKey < 2)
+        {
+            AddDungeonKey(GoodsType.coal, GetAddKey(curCoalKey));
+        }
+    }
 
-        AddDungeonADKey(GoodsType.gold, 1);
-        AddDungeonADKey(GoodsType.bone, 1);
-        AddDungeonADKey(GoodsType.dice, 1);
-        AddDungeonADKey(GoodsType.coal, 1);
+    float GetAddKey(float currentKey)
+    {
+        return currentKey == 1 ? 1 : 2;
     }
 
     public void SetCurrentStageData(int stageIdx)
@@ -200,8 +212,8 @@ public class Player : MonoBehaviour
 
 
         var buffValue = GlobalData.instance.adManager.GetBuffAdSlotByType(EnumDefinition.RewardTypeAD.adBuffGold);
-        
-        if(buffValue.isUsingBuff)
+
+        if (buffValue.isUsingBuff)
         {
             result = result * buffValue.addValue;
         }
@@ -266,7 +278,7 @@ public class Player : MonoBehaviour
 
         forSaveGemCount -= (int)value;
 
-        if(forSaveGemCount <= 0)
+        if (forSaveGemCount <= 0)
         {
             forSaveGemCount = resetForSaveGemCount;
             GlobalData.instance.saveDataManager.SaveDataToFile();
@@ -349,7 +361,7 @@ public class Player : MonoBehaviour
 
         forSaveGemCount -= (int)value;
 
-        if(forSaveGemCount <= 0)
+        if (forSaveGemCount <= 0)
         {
             forSaveGemCount = resetForSaveGemCount;
             GlobalData.instance.saveDataManager.SaveDataToFile();
@@ -391,7 +403,7 @@ public class Player : MonoBehaviour
     public void AddDungeonKey(GoodsType goodsType, float addKeyCount)
     {
         dungeonKeys[goodsType] += Mathf.Round(addKeyCount);
-        //if (dungeonKeys[goodsType] > 2) dungeonKeys[goodsType] = 2; // 던전 키 최대 보유수 2개 제한
+        // if (dungeonKeys[goodsType] > 2) dungeonKeys[goodsType] = 2; // 던전 키 최대 보유수 2개 제한
 
         // RELOAD UI
         switch (goodsType)

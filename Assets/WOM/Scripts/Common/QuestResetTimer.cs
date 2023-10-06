@@ -1,12 +1,13 @@
 using UnityEngine;
 using System;
+using BackEnd;
 
 public class QuestResetTimer : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
     {
-        // PlayerPrefs ì— CURRENT_TIME_KEY ê°€ ì €ì¥ë˜ì–´ ìˆì§€ ì•Šë‹¤ë©´ SaveCurrentTime() í•¨ìˆ˜ë¥¼ ì‹¤í–‰í•œë‹¤.
+        // PlayerPrefs ¿¡ CURRENT_TIME_KEY °¡ ÀúÀåµÇ¾î ÀÖÁö ¾Ê´Ù¸é SaveCurrentTime() ÇÔ¼ö¸¦ ½ÇÇàÇÑ´Ù.
         if (!HasMidnightTime())
         {
             //SaveCurrentTime();
@@ -16,7 +17,7 @@ public class QuestResetTimer : MonoBehaviour
         // {
         //     if (HasCrossedMidnight())
         //     {
-        //         Debug.Log("ìì •ì´ ì§€ë‚¬ìŠµë‹ˆë‹¤.");
+        //         Debug.Log("ÀÚÁ¤ÀÌ Áö³µ½À´Ï´Ù.");
 
         //         // reset timer
         //         // SaveCurrentTime();
@@ -46,24 +47,24 @@ public class QuestResetTimer : MonoBehaviour
 
     void SaveCurrentTime()
     {
-        // í˜„ì¬ ì‹œê°„ì„ ê°€ì ¸ì˜¨ë‹¤.
+        // ÇöÀç ½Ã°£À» °¡Á®¿Â´Ù.
         var now = DateTime.Now.ToString("yyyy-MM-dd");
 
-        // PlayerPrefsì— í˜„ì¬ ì‹œê°„ì„ ë¬¸ìì—´ë¡œ ì €ì¥í•œë‹¤.
+        // PlayerPrefs¿¡ ÇöÀç ½Ã°£À» ¹®ÀÚ¿­·Î ÀúÀåÇÑ´Ù.
         PlayerPrefs.SetString(CURRENT_TIME_KEY, now);
 
         Debug.Log(now.ToString());
 
-        //PlayerPrefs.Save();
+        //PlayerPrefs.Save();.
     }
 
     void SaveMidnightTime()
     {
-        // ì˜¤ëŠ˜ ìì • ì‹œê°„ì„ ê³„ì‚°í•œë‹¤.
+        // ¿À´Ã ÀÚÁ¤ ½Ã°£À» °è»êÇÑ´Ù.
         // DateTime midnight = DateTime.Today.AddDays(1);
         var midnight = DateTime.Now.ToString("yyyy-MM-dd");
 
-        // PlayerPrefsì— ì˜¤ëŠ˜ ìì • ì‹œê°„ì„ ë¬¸ìì—´ë¡œ ì €ì¥í•œë‹¤.
+        // PlayerPrefs¿¡ ¿À´Ã ÀÚÁ¤ ½Ã°£À» ¹®ÀÚ¿­·Î ÀúÀåÇÑ´Ù.
         PlayerPrefs.SetString(MIDNIGHT_TIME_KEY, midnight);
 
         //Debug.Log(midnight.ToString());
@@ -73,11 +74,11 @@ public class QuestResetTimer : MonoBehaviour
 
     DateTime LoadCurrentTime()
     {
-        // PlayerPrefsì—ì„œ ì €ì¥ëœ ì‹œê°„ ì •ë³´ë¥¼ ë¶ˆëŸ¬ì˜¨ë‹¤.
+        // PlayerPrefs¿¡¼­ ÀúÀåµÈ ½Ã°£ Á¤º¸¸¦ ºÒ·¯¿Â´Ù.
         string currentTimeStr = PlayerPrefs.GetString(CURRENT_TIME_KEY);
         //string currentTimeStr = "2023-06-19";
 
-        // ë¶ˆëŸ¬ì˜¨ ë¬¸ìì—´ ì‹œê°„ ì •ë³´ë¥¼ DateTime í˜•ì‹ìœ¼ë¡œ ë³€í™˜í•œë‹¤.
+        // ºÒ·¯¿Â ¹®ÀÚ¿­ ½Ã°£ Á¤º¸¸¦ DateTime Çü½ÄÀ¸·Î º¯È¯ÇÑ´Ù.
         DateTime currentTime = DateTime.Parse(currentTimeStr);
 
         return currentTime;
@@ -85,7 +86,7 @@ public class QuestResetTimer : MonoBehaviour
 
     public string testCurDateValue;
     public string testPrevDateValue;
-
+    DateTime midnight;
     public bool HasCrossedMidnight()
     {
 
@@ -95,23 +96,32 @@ public class QuestResetTimer : MonoBehaviour
         // DateTime currentTime = DateTime.Parse(testCurDateValue);
         // DateTime midnight = DateTime.Parse(testPrevDateValue);
 
-        // í˜„ì¬ ì‹œê°„ê³¼ ì €ì¥ëœ ì˜¤ëŠ˜ ìì • ì‹œê°„ì„ ë¹„êµí•œë‹¤.
+        // ÇöÀç ½Ã°£°ú ÀúÀåµÈ ¿À´Ã ÀÚÁ¤ ½Ã°£À» ºñ±³ÇÑ´Ù.
         DateTime currentTime = DateTime.Parse(now);
-        DateTime midnight = DateTime.Parse(PlayerPrefs.GetString(MIDNIGHT_TIME_KEY));
 
+#if !UNITY_EDITOR && UNITY_ANDROID
+        BackendReturnObject servertime = Backend.Utils.GetServerTime();
+
+        string time = servertime.GetReturnValuetoJSON()["utcTime"].ToString();
+        midnight = DateTime.Parse(time);
+        Debug.Log(midnight.ToString());
+#endif
+#if UNITY_EDITOR
+        DateTime midnight = DateTime.Parse(PlayerPrefs.GetString(MIDNIGHT_TIME_KEY));
+#endif
         var timeSpan = currentTime.Subtract(midnight);
-        //Debug.Log("ì§€ë‚˜ê°„ ë‚  : " + timeSpan.TotalDays.ToString());
+        //Debug.Log("Áö³ª°£ ³¯ : " + timeSpan.TotalDays.ToString());
         var totalDays = timeSpan.TotalDays;
 
 
         if (totalDays > 0)
         {
-            // ì €ì¥ëœ ì˜¤ëŠ˜ ìì • ì‹œê°„ ì´í›„ë¼ë©´ trueë¥¼ ë°˜í™˜í•œë‹¤.
+            // ÀúÀåµÈ ¿À´Ã ÀÚÁ¤ ½Ã°£ ÀÌÈÄ¶ó¸é true¸¦ ¹İÈ¯ÇÑ´Ù.
             return true;
         }
         else
         {
-            // ì €ì¥ëœ ì˜¤ëŠ˜ ìì • ì‹œê°„ ì´ì „ì´ë¼ë©´ falseë¥¼ ë°˜í™˜í•œë‹¤.
+            // ÀúÀåµÈ ¿À´Ã ÀÚÁ¤ ½Ã°£ ÀÌÀüÀÌ¶ó¸é false¸¦ ¹İÈ¯ÇÑ´Ù.
             return false;
         }
     }
@@ -121,5 +131,18 @@ public class QuestResetTimer : MonoBehaviour
         //SaveCurrentTime();
         SaveMidnightTime();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

@@ -150,7 +150,7 @@ public class UnionManager : MonoBehaviour
         {
             //만약 장착이 처음인 경우(초기 세팅)
             // Union Spwan StartTime = 0;
-            GlobalData.instance.unionSpwanManager.UnionSpwan(selectedSlot, equipSlot.slotIndex, 0);
+            GlobalData.instance.unionSpwanManager.UnionSpwan(selectedSlot, equipSlot.slotIndex, 1);
         }
         else
         {

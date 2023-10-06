@@ -535,7 +535,8 @@ public class EventController : MonoBehaviour
             yield return StartCoroutine(AppearMonster(MonsterType.normal));
 
         }
-
+        // 황금돼지 활성화
+        globalData.goldPigController.ExitOtherView();
         // 퀘스트 - 배틀 패스 스테이지 완료 블록 이미지 해제
         globalData.questManager.questPopup.UnlockBattlePassSlot(globalData.player.stageIdx);
 
@@ -777,6 +778,7 @@ public class EventController : MonoBehaviour
         IsMonsterDead = false;
         // 황금돼지 비활성화
         globalData.goldPigController.EnterOtherView();
+
         globalData.uiController.ShowUI(false);
         // 보스 도전 버튼 숨김
         globalData.uiController.ToggleChallengeBossButton(false);
@@ -850,6 +852,8 @@ public class EventController : MonoBehaviour
         yield return StartCoroutine(AppearMonster(MonsterType.normal));
         // 도전 버튼 활성화
         globalData.uiController.ToggleChallengeBossButton(true);
+        // 황금돼지 활성화
+        globalData.goldPigController.ExitOtherView();
         // tutorial event ( 보스 몬스터 도전 실패 )
         EventManager.instance.RunEvent(CallBackEventType.TYPES.OnMonsterKillFailedBossMonster);
     }
@@ -1048,7 +1052,7 @@ public class EventController : MonoBehaviour
         // 캐슬 -> 연구소에 따른 던전 추가보상량
         var addValue = globalData.labBuildingManager.GetInLabBuildGameData(goodsType).value;
         var totalCurrencyAmount = dungeonMonsterData.currencyAmount + (dungeonMonsterData.currencyAmount * addValue * 0.01f);
-
+        Debug.Log($"totalCurrencyAmount:{totalCurrencyAmount}");
         globalData.popUpGiveUpDungeon.ShowGiveUpDungeonPopup(goodsType, totalCurrencyAmount, AllowGiveUp);
 
     }

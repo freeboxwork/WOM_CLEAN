@@ -1,8 +1,8 @@
 {
   "project_info": {
     "project_number": "881093488580",
+    "firebase_url": "https://api-project-76124717-default-rtdb.firebaseio.com",
     "project_id": "api-project-76124717",
-    "firebase_url":"https://api-project-76124717-default-rtdb.firebaseio.com/",
     "storage_bucket": "api-project-76124717.appspot.com"
   },
   "client": [
@@ -41,7 +41,8 @@
             }
           ]
         }
-      }
+      },
+      "admob_app_id": "ca-app-pub-5121994233839369~6146593997"
     }
   ],
   "configuration_version": "1"

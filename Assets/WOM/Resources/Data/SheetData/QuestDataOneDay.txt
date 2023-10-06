@@ -45,14 +45,14 @@
  {
    "questType": "killGoldBoss",
    "questName": "금광 보스 처치",
-   "targetValue": 20,
+   "targetValue": 10,
    "rewardType": "gem",
    "rewardValue": 200
  },
  {
    "questType": "takeGoldPig",
    "questName": "황금 돼지 잡기",
-   "targetValue": 2,
+   "targetValue": 1,
    "rewardType": "gem",
    "rewardValue": 200
  }

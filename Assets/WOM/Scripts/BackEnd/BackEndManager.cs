@@ -9,7 +9,7 @@ using GooglePlayGames.BasicApi;
 public class BackEndManager : MonoBehaviour
 {
         private static BackEndManager _instance = null;
-
+    bool isInitSuccess = false;
     public static BackEndManager Instance {
         get {
             if (_instance == null) {
@@ -35,10 +35,12 @@ public class BackEndManager : MonoBehaviour
         // 뒤끝 초기화에 대한 응답값
         if (bro.IsSuccess())
         {
+            isInitSuccess = true;
             Debug.Log("초기화 성공 : " + bro); // 성공일 경우 statusCode 204 Success
         }
         else
         {
+            isInitSuccess = false;
             Debug.LogError("초기화 실패 : " + bro); // 실패일 경우 statusCode 400대 에러 발생 
         }
 
@@ -62,6 +64,11 @@ public class BackEndManager : MonoBehaviour
 
     public IEnumerator BackEndLogin()
     {
+        // 뒤끝 초기화가 성공한 경우에만 로그인 시도
+        if(!isInitSuccess)
+        {
+            yield break;
+        }
         // 이미 구글 로그인 된 경우
         if (Social.localUser.authenticated == true)
         {

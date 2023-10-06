@@ -20,6 +20,7 @@
 relative/path/*.txt text eol-lf
 
 *.so filter=lfs diff=lfs merge=lfs -text
+*.bundle filter=lfs diff=lfs merge=lfs -text
 *.dylib filter=lfs diff=lfs merge=lfs -text
 *.apk filter=lfs diff=lfs merge=lfs -text
 *.abb filter=lfs diff=lfs merge=lfs -text

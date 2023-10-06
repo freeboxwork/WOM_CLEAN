@@ -180,12 +180,12 @@ public class GlobalController : MonoBehaviour
         tutorialManager.TutorialStart();
         //firebaseManager.LogEvent("UserData","Stage",stageManager.stageData.stageId);
 
-        firebaseManager.LogEvent("Stage",
-        new Parameter(FirebaseAnalytics.ParameterValue, stageManager.stageData.stageId));
-        firebaseManager.LogEvent("EvolutionLevel",
-        new Parameter(FirebaseAnalytics.ParameterValue, saveDataManager.saveDataTotal.saveDataEvolution.level_evolution));
-        firebaseManager.LogEvent("TutorialStep",
-        new Parameter(FirebaseAnalytics.ParameterValue, saveDataManager.saveDataTotal.saveDataTutorial.tutorialSetId));
+        // firebaseManager.LogEvent("Stage",
+        // new Parameter(FirebaseAnalytics.ParameterValue, stageManager.stageData.stageId));
+        // firebaseManager.LogEvent("EvolutionLevel",
+        // new Parameter(FirebaseAnalytics.ParameterValue, saveDataManager.saveDataTotal.saveDataEvolution.level_evolution));
+        // firebaseManager.LogEvent("TutorialStep",
+        // new Parameter(FirebaseAnalytics.ParameterValue, saveDataManager.saveDataTotal.saveDataTutorial.tutorialSetId));
 
     }
 

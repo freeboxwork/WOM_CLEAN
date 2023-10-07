@@ -136,9 +136,14 @@ public class QuestManager : MonoBehaviour
                 //Debug.Log("자정이 지나지 않음");
 
             }
+            else
+            {
+                //자정이 지난경우 유저 메모리 데이터를 초기화 한다.
+                ResetQuestDataFromUserMemory(ref clonData);
+            }
+
 
             questsOneDay.Add(GetQuestTypeOneDayByTypeName(clonData.questType), clonData);
-
             questPopup.SetUIQusetSlot(slot, clonData);
 
             //Debug.Log(clonData.curCountValue + " / " + clonData.targetValue + "222222");
@@ -223,8 +228,6 @@ public class QuestManager : MonoBehaviour
 
     void LoadQuestDataFromUserMemory(ref QuestData data)
     {
-
-
         if (PlayerPrefs.HasKey(data.questType))
         {
             data.curCountValue = PlayerPrefs.GetInt(data.questType);
@@ -244,8 +247,18 @@ public class QuestManager : MonoBehaviour
         {
             data.usingRewardAD = PlayerPrefs.GetInt(data.questType + keyUsingRewardAd) == 1 ? true : false;
         }
-
     }
+
+    void ResetQuestDataFromUserMemory(ref QuestData data)
+    {
+        PlayerPrefs.SetInt(data.questType, 0);
+        PlayerPrefs.SetInt(data.questType + keyQuestComplete, 0);
+        PlayerPrefs.SetInt(data.questType + keyUsingReward, 0);
+        PlayerPrefs.SetInt(data.questType + keyUsingRewardAd, 0);
+    }
+
+
+
 
     QuestTypeOneDay GetQuestTypeOneDayByTypeName(string typeName)
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using static EnumDefinition;
 using System.Linq;
-
+using BackEnd;
 public class QuestManager : MonoBehaviour
 {
 
@@ -29,7 +29,10 @@ public class QuestManager : MonoBehaviour
     public string keyBattlePassUsedReward = "_battlePassUsedReward";
     public string keyBuyBattlePass = "_buyBattlePass";
 
-
+    void Awake()
+    {
+        Backend.Initialize(true);
+    }
 
     void Start()
     {

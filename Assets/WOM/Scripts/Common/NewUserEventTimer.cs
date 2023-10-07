@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 using System.Linq;
-
+using BackEnd;
 public class NewUserEventTimer : MonoBehaviour
 {
     public string testCurDateValue = "2023-06-12";
@@ -20,6 +20,14 @@ public class NewUserEventTimer : MonoBehaviour
 
     }
 
+    string GetNowDate()
+    {
+        BackendReturnObject servertime = Backend.Utils.GetServerTime();
+        string time = servertime.GetReturnValuetoJSON()["utcTime"].ToString();
+        var timeData = DateTime.Parse(time);
+        var now = timeData.ToString("yyyy-MM-dd");
+        return now;
+    }
 
 
     public void CalcTimer()
@@ -28,7 +36,7 @@ public class NewUserEventTimer : MonoBehaviour
         if (HasLastCount() == false)
         {
             PlayerPrefs.SetInt(UNLOCKED_COUNT_KEY, 0);
-            PlayerPrefs.SetString(LAST_DATE_KEY, DateTime.Now.ToString("yyyy-MM-dd"));
+            PlayerPrefs.SetString(LAST_DATE_KEY, GetNowDate());
         }
         else
         {
@@ -50,7 +58,7 @@ public class NewUserEventTimer : MonoBehaviour
 
     void CalcCount()
     {
-        var now = DateTime.Now.ToString("yyyy-MM-dd");
+        var now = GetNowDate();
         var nowDate = DateTime.Parse(now);
         var lastDate = DateTime.Parse(PlayerPrefs.GetString(LAST_DATE_KEY));
 

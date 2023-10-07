@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Linq;
+using BackEnd;
 
 public class AttendTimer : MonoBehaviour
 {
@@ -18,7 +19,14 @@ public class AttendTimer : MonoBehaviour
 
     }
 
-
+    string GetNowDate()
+    {
+        BackendReturnObject servertime = Backend.Utils.GetServerTime();
+        string time = servertime.GetReturnValuetoJSON()["utcTime"].ToString();
+        var timeData = DateTime.Parse(time);
+        var now = timeData.ToString("yyyy-MM-dd");
+        return now;
+    }
 
     public void CalcAttendTimer()
     {
@@ -26,7 +34,8 @@ public class AttendTimer : MonoBehaviour
         if (HasLastAttendanceCount() == false)
         {
             PlayerPrefs.SetInt(UNLOCKED_ATTEND_COUNT_KEY, 0);
-            PlayerPrefs.SetString(LAST_ATTEND_DATE_KEY, DateTime.Now.ToString("yyyy-MM-dd"));
+            // 현재 날짜 저장
+            PlayerPrefs.SetString(LAST_ATTEND_DATE_KEY, GetNowDate());
         }
         else
         {
@@ -48,7 +57,7 @@ public class AttendTimer : MonoBehaviour
 
     void CalcAttendCount()
     {
-        var now = DateTime.Now.ToString("yyyy-MM-dd");
+        var now = GetNowDate();
         var nowDate = DateTime.Parse(now);
         var lastDate = DateTime.Parse(PlayerPrefs.GetString(LAST_ATTEND_DATE_KEY));
 
@@ -86,11 +95,11 @@ public class AttendTimer : MonoBehaviour
         }
         else if (totalDays == 0)
         {
-//            Debug.Log("동일한 날");
+            //            Debug.Log("동일한 날");
         }
 
         unLockCount = PlayerPrefs.GetInt(UNLOCKED_ATTEND_COUNT_KEY);
-//        Debug.Log("count : " + unLockCount);
+        //        Debug.Log("count : " + unLockCount);
     }
 
     bool HasLastAttendanceDate()

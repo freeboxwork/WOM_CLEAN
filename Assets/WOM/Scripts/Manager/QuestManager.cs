@@ -115,7 +115,7 @@ public class QuestManager : MonoBehaviour
                 //Debug.Log("자정이 지났으므로 던전 입장 키를 2개씩 지급한다");
                 GlobalData.instance.player.AddAllDungeonKeys();
                 // 자정이 지난경우 일일 광고 보기 회 수 초기화
-                GlobalData.instance.adManager.AllResetBuffAdLeftCount();
+                GlobalData.instance.adManager.AllResetADLeftCount();
                 //상점 열쇠 구매 카운트 초기화
                 GlobalData.instance.shopManager.ResetBuyKeyCount();
                 //자정시간 재설정
@@ -129,16 +129,16 @@ public class QuestManager : MonoBehaviour
             var slot = questPopup.questSlotsOneDay[i];
             //Debug.Log(clonData.curCountValue + " / " + clonData.targetValue + "111111");
 
-            if(isOverOneDay == false)
+            if (isOverOneDay == false)
             {
-                                //자정을 지나지 않은 경우 유저 메모리에서 저장된 데이터를 로드한다.
+                //자정을 지나지 않은 경우 유저 메모리에서 저장된 데이터를 로드한다.
                 LoadQuestDataFromUserMemory(ref clonData);
                 //Debug.Log("자정이 지나지 않음");
 
             }
 
             questsOneDay.Add(GetQuestTypeOneDayByTypeName(clonData.questType), clonData);
-            
+
             questPopup.SetUIQusetSlot(slot, clonData);
 
             //Debug.Log(clonData.curCountValue + " / " + clonData.targetValue + "222222");
@@ -211,7 +211,7 @@ public class QuestManager : MonoBehaviour
             }
         }
 
-        if(GlobalData.instance.tutorialManager.isEndTutorial)
+        if (GlobalData.instance.tutorialManager.isEndTutorial)
             newUserEventPopup.EnablePopup(NotAllUsingReward);
 
         //더이상 보상받을 것이 없다면 버튼을 비활성화 한다.

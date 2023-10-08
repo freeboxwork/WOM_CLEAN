@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class StageManager : MonoBehaviour
 {
     public StageData stageData;
@@ -11,6 +12,9 @@ public class StageManager : MonoBehaviour
 
     public BackgroundSpriteFileData bgSpriteFileData;
 
+    int dbSaveCount = 0;
+
+    const string dbStageTableName = "stageInfo";
     void Start()
     {
 
@@ -36,7 +40,7 @@ public class StageManager : MonoBehaviour
         // set data
         SetStageData(stageIdx, out bool isBgImgChange);
 
-        // 배경 변경    
+        // 배경 변경  
         if (isBgImgChange)
         {
             var nextBgImg = GetCurrentBgImg();
@@ -49,6 +53,14 @@ public class StageManager : MonoBehaviour
         }
 
 
+        // dbSaveCount 0  초기에 한번 저장하고 ,  10을 넘을때 마다 스테이지 정보 서버 저장 한 뒤 dbSaveCount 초기화
+
+        if (dbSaveCount >= 11 || dbSaveCount == 0)
+        {
+            dbSaveCount = 1;
+            GlobalData.instance.backEndDataManager.SaveUserStageInfoData();
+        }
+        dbSaveCount++;
 
         yield return null;
     }

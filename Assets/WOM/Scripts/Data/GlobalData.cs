@@ -53,6 +53,7 @@ public class GlobalData : MonoBehaviour
     public TutorialManager tutorialManager;
     public InAppPurchaseManager inAppPurchaseManager;
     public PopUpGiveUpDungeon popUpGiveUpDungeon;
+    public BackEndDataManager backEndDataManager;
 
     private void Awake()
     {

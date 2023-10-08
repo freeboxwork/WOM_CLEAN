@@ -1,7 +1,6 @@
 using System.Collections;
 using UnityEngine;
-using Firebase;
-using Firebase.Analytics;
+using BackEnd;
 public class GlobalController : MonoBehaviour
 {
 
@@ -39,7 +38,20 @@ public class GlobalController : MonoBehaviour
 
     public FirebaseManager firebaseManager;
 
+    public BackEndDataManager backEndDataManager;
 
+    void Awake()
+    {
+        var bk = Backend.Initialize(true);
+        if (bk.IsSuccess())
+        {
+            Debug.Log("Backend Initialize Success");
+        }
+        else
+        {
+            Debug.Log("Backend Initialize Fail");
+        }
+    }
     void Start()
     {
         if (dataManager == null) dataManager = FindObjectOfType<DataManager>();
@@ -63,7 +75,7 @@ public class GlobalController : MonoBehaviour
         // get player data ( 게임 종료전 저장 되어있는 데이터 로드 )
         yield return StartCoroutine(playerDataManager.InitPlayerData());
 
-        if(playerDataManager.saveData.stageIdx >= StaticDefine.MAX_STAGE) playerDataManager.saveData.stageIdx = StaticDefine.MAX_STAGE;
+        if (playerDataManager.saveData.stageIdx >= StaticDefine.MAX_STAGE) playerDataManager.saveData.stageIdx = StaticDefine.MAX_STAGE;
 
         yield return StartCoroutine(firebaseManager.Init());
         // 스테이지 세팅
@@ -153,9 +165,13 @@ public class GlobalController : MonoBehaviour
         yield return StartCoroutine(offlineRewardPopupContoller.Init());
         //만약 튜토리얼 SetId가 8번(유니온뽑기) 보다 크다면 캐슬버튼 비활성화
         var active = GlobalData.instance.tutorialManager.GetTutorialSetId() > 4 ? true : false;
-            uiController.castleButtonObj.SetActive(active);
+        uiController.castleButtonObj.SetActive(active);
         // 트랜지션 아웃 ( black screen )
         yield return StartCoroutine(GlobalData.instance.effectManager.TransitionOut());
+
+        // 백엔드 데이터 매니저 초기화
+        StartCoroutine(backEndDataManager.Init());
+
         // 한 프레임 대기
         yield return new WaitForEndOfFrame();
         // Monster In Animation

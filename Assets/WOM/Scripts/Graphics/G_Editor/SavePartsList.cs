@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 using System.IO;
@@ -14,7 +13,7 @@ namespace ProjectGraphics
     {
         PartsChangeTest partsChange;
 
-        [SerializeField]List<PartNumbesrs> partList = new List<PartNumbesrs>();
+        [SerializeField] List<PartNumbesrs> partList = new List<PartNumbesrs>();
         public string csvFile;
         string path;
 
@@ -39,7 +38,7 @@ namespace ProjectGraphics
                 (item.body == num.body) && (item.leg0 == num.leg0) &&
                 (item.leg1 == num.leg1) && (item.leg2 == num.leg2);
             }
-
+            /*
             if (samePart == false)
             {
                 partList.Add(num);
@@ -48,6 +47,11 @@ namespace ProjectGraphics
                 partsChange.CaptureImage(count);
             }
             else Debug.Log("리스트에 같은 몬스터가 존재합니다.!");
+            */
+            s
+
+            int count = (partList.Count == 0) ? 33 : partList.Count + 33;
+            partsChange.CaptureImage(count);
         }
 
         public void SaveCSV()
@@ -61,8 +65,8 @@ namespace ProjectGraphics
 
             for (int i = 0; i < partList.Count; i++)
             {
-                int[] app = { partList[i].tail,     partList[i].hand, 
-                              partList[i].finger,   partList[i].foreArm, 
+                int[] app = { partList[i].tail,     partList[i].hand,
+                              partList[i].finger,   partList[i].foreArm,
                               partList[i].upperArm, partList[i].head,
                               partList[i].body,     partList[i].leg0,
                               partList[i].leg1,     partList[i].leg2        };
@@ -103,7 +107,7 @@ namespace ProjectGraphics
 
             var result = multipleQuery.ToList();
 
-            for(int r = 1; r < result.Count; r++)
+            for (int r = 1; r < result.Count; r++)
             {
                 var line = result[r].ToList();
 

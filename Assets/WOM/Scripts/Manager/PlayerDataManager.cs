@@ -2,6 +2,7 @@ using System.Collections;
 using UnityEngine;
 using System.IO;
 using System;
+using BackEnd;
 
 public class PlayerDataManager : MonoBehaviour
 {
@@ -26,15 +27,22 @@ public class PlayerDataManager : MonoBehaviour
         SavePlayingTime();
         SaveOfflineTime();
     }
+    DateTime GetNowDate()
+    {
+        BackendReturnObject servertime = Backend.Utils.GetServerTime();
+        string time = servertime.GetReturnValuetoJSON()["utcTime"].ToString();
+        var timeData = DateTime.Parse(time);
 
+        return timeData;
+    }
     void SaveOfflineTime()
     {
-        var startOfflineTime = System.DateTime.Now;
+        var startOfflineTime = GetNowDate();//System.DateTime.Now;
         PlayerPrefs.SetString(offlineTimeKey, startOfflineTime.ToString());
     }
     void SavePlayingTime()
     {
-        var endTime = System.DateTime.Now;
+        var endTime = GetNowDate();
         var timeSpan = endTime - startDataTime;
         PlayerPrefs.SetString(playingTimeKey, timeSpan.Duration().ToString());
     }
@@ -43,11 +51,11 @@ public class PlayerDataManager : MonoBehaviour
     {
         var offlineTime = PlayerPrefs.GetString(offlineTimeKey);
         var startOfflineTime = System.DateTime.Parse(offlineTime);
-        var endTime = System.DateTime.Now;
+        var endTime = GetNowDate();
         var timeSpan = endTime - startOfflineTime;
         this.offlineTime = (int)timeSpan.TotalHours;
         //Debug.Log("offlineTime : " + this.offlineTime.ToString());
-        return  this.offlineTime.ToString();
+        return this.offlineTime.ToString();
     }
 
     public int GetOfflineTimeValue()
@@ -150,7 +158,7 @@ public class PlayerDataManager : MonoBehaviour
             if (PlayerPrefs.HasKey(playingTimeKey))
             {
                 saveData.playingTime = PlayerPrefs.GetString(playingTimeKey);
-//                Debug.Log("playingTimeKey : " + saveData.playingTime);
+                //                Debug.Log("playingTimeKey : " + saveData.playingTime);
             }
             if (PlayerPrefs.HasKey(offlineTimeKey))
             {

@@ -55,7 +55,7 @@ public class StageManager : MonoBehaviour
 
         // dbSaveCount 0  초기에 한번 저장하고 ,  10을 넘을때 마다 스테이지 정보 서버 저장 한 뒤 dbSaveCount 초기화
 
-        if (dbSaveCount >= 11 || dbSaveCount == 0)
+        if (dbSaveCount >= 6 || dbSaveCount == 0)
         {
             dbSaveCount = 1;
             GlobalData.instance.backEndDataManager.SaveUserStageInfoData();

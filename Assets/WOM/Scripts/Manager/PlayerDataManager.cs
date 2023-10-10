@@ -20,9 +20,8 @@ public class PlayerDataManager : MonoBehaviour
     const string playingTimeKey = "playingTime";
 
 
-    //TODO: 코드 정리
 
-    private void OnApplicationQuit()
+    public void SaveTimeData()
     {
         SavePlayingTime();
         SaveOfflineTime();

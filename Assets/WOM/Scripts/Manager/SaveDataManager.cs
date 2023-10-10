@@ -49,6 +49,9 @@ public class SaveDataManager : MonoBehaviour
 
     public void SaveDataToFile()
     {
+       
+        globalData.playerDataManager.SaveTimeData();
+
         var jsonData = JsonUtility.ToJson(saveDataTotal);
         var path = GetSaveDataFilePaht();
         File.WriteAllText(path, jsonData);
@@ -57,7 +60,6 @@ public class SaveDataManager : MonoBehaviour
     void OnApplicationQuit()
     {
         // 종료 시간 저장
-        saveDataTotal.saveDataSystem.quitTime = DateTime.Now.ToString();
         SaveDataToFile();
     }
 

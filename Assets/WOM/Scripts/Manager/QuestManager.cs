@@ -123,6 +123,8 @@ public class QuestManager : MonoBehaviour
                 GlobalData.instance.shopManager.ResetBuyKeyCount();
                 //자정시간 재설정
                 questResetTimer.ResetTimer();
+                // 일일 광고 보기 서버 데이터 초기화
+                GlobalData.instance.backEndDataManager.ResetAdViewCount();
             }
         }
 

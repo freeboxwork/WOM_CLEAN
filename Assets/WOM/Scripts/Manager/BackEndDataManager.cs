@@ -11,9 +11,10 @@ public class BackEndDataManager : MonoBehaviour
     const string columeName = "stageId";
     int stageId;
 
+    /* counting ad view one day */
+    int adViewCount;
 
-    /* user ad view count info */
-    int adViewCount = 0;
+
 
     void Start()
     {
@@ -25,7 +26,35 @@ public class BackEndDataManager : MonoBehaviour
         {
             GetUserInDate();
         }
+
+        LoadOneDayADViewCountTableData();
         yield return null;
+    }
+
+    void LoadOneDayADViewCountTableData()
+    {
+        Where where = new Where();
+        var value = Backend.UserInDate;
+        where.Equal("key", value);
+
+        var bro = Backend.GameData.GetMyData("adViewInfoOneDay", where);
+        if (bro.IsSuccess())
+        {
+            if (bro.GetReturnValuetoJSON()["rows"].Count == 0)
+            {
+                adViewCount = -1;
+                UpdateAdViewCount();
+            }
+            else
+            {
+                adViewCount = int.Parse(bro.FlattenRows()[0]["adViewCount"].ToString());
+                Debug.Log("adViewCount : " + adViewCount);
+            }
+        }
+        else
+        {
+            adViewCount = 0;
+        }
     }
 
     bool HasFirestCreateKey()
@@ -101,52 +130,48 @@ public class BackEndDataManager : MonoBehaviour
         }
     }
 
+    //TODO: 초기 한번만 게임 데이터 불러 오도록 수정
+
+
+    public void ResetAdViewCount()
+    {
+        adViewCount = -1;
+        UpdateAdViewCount();
+    }
+
+
     public void UpdateAdViewCount()
     {
-        var bro = Backend.GameData.GetMyData("adViewInfo", new Where(), 0);
+        ++adViewCount;
+
+        Where where = new Where();
+        var value = Backend.UserInDate;
+        where.Equal("key", value);
+
+        Param param = new Param();
+        param.Add("adViewCount", adViewCount);
+
+
+        var bro = Backend.GameData.Update("adViewInfoOneDay", where, param);
         if (bro.IsSuccess())
         {
-            Debug.Log("get my table data - adViewInfo  Success");
-            if (bro.GetReturnValuetoJSON()["rows"].Count == 0)
-            {
-                adViewCount = 1;
-                // insert
-                Param param = new Param();
-                param.Add("adViewCount", adViewCount);
-                var bro2 = Backend.GameData.Insert("adViewInfo", param);
-                if (bro2.IsSuccess())
-                {
-                    Debug.Log("insert Success");
-                }
-                else
-                {
-                    Debug.Log("insert false " + bro2.GetErrorCode());
-                }
-
-            }
-            else
-            {
-                // update
-                var indate = bro.FlattenRows()[0]["inDate"].ToString();
-                adViewCount = int.Parse(bro.FlattenRows()[0]["adViewCount"].ToString());
-                ++adViewCount;
-
-                Param param = new Param();
-                param.Add("adViewCount", adViewCount);
-                var bro2 = Backend.GameData.UpdateV2("adViewInfo", indate, Backend.UserInDate, param);
-                if (bro2.IsSuccess())
-                {
-                    Debug.Log("counting Success");
-                }
-                else
-                {
-                    Debug.Log("counting False " + bro2.GetErrorCode());
-                }
-            }
+            Debug.Log("update Success");
         }
         else
         {
-            Debug.Log(" get my table data - adViewInfo false " + bro.GetErrorCode());
+            Param param2 = new Param();
+            param2.Add("key", value);
+            param2.Add("adViewCount", adViewCount);
+            var insert = Backend.GameData.Insert("adViewInfoOneDay", param2);
+            if (insert.IsSuccess())
+            {
+                Debug.Log("insert Success");
+            }
+            else
+            {
+
+                Debug.Log("insert Fail : " + bro.GetMessage());
+            }
         }
     }
 }

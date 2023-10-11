@@ -143,6 +143,10 @@ public class Admob : MonoBehaviour
         {
             // 리워드 지급
             GlobalData.instance.adManager.RewardAd(adRewardType);
+
+            // 광고 보기 카운팅 - 프로덕션 버전에서는 뺴야 함. 현재 테스트용
+            GlobalData.instance.backEndDataManager.UpdateAdViewCount();
+
             return;
         }
 

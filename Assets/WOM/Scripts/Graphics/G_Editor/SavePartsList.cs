@@ -48,7 +48,7 @@ namespace ProjectGraphics
             }
             else Debug.Log("리스트에 같은 몬스터가 존재합니다.!");
             */
-            s
+
 
             int count = (partList.Count == 0) ? 33 : partList.Count + 33;
             partsChange.CaptureImage(count);

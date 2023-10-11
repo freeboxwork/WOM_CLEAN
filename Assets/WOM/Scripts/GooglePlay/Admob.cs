@@ -7,7 +7,7 @@ public class Admob : MonoBehaviour
     // These ad units are configured to always serve test ads.
     // 테스트 보상형 동영상 광고
     //private string _adUnitId = "ca-app-pub-3940256099942544/5224354917";
-    private string realeseUnitId ="ca-app-pub-5121994233839369/4006951164";
+    private string realeseUnitId = "ca-app-pub-5121994233839369/4006951164";
 
 
     private RewardedAd rewardedAd;
@@ -61,11 +61,11 @@ public class Admob : MonoBehaviour
     /// </summary>
     public void LoadRewardedAd()
     {
-        if(!isInitialized) 
+        if (!isInitialized)
         {
             Debug.Log("Admob 초기화 안됨");
             Init();
-            return; 
+            return;
         }
         // Clean up the old ad before loading a new one.
         if (rewardedAd != null)
@@ -73,7 +73,7 @@ public class Admob : MonoBehaviour
             DestroyAd();
         }
 
-//        Debug.Log("Loading the rewarded ad.");
+        //        Debug.Log("Loading the rewarded ad.");
 
         // create our request used to load the ad.
         var adRequest = new AdRequest();
@@ -155,6 +155,9 @@ public class Admob : MonoBehaviour
             {
                 // 리워드 지급
                 GlobalData.instance.adManager.RewardAd(adRewardType);
+
+                // 광고 보기 카운팅
+                GlobalData.instance.backEndDataManager.UpdateAdViewCount();
                 Debug.Log("광고 시청 완료");
                 Debug.Log(String.Format(rewardMsg, reward.Type, reward.Amount));
             });

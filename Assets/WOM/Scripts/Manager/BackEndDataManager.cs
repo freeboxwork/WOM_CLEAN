@@ -4,12 +4,16 @@ using BackEnd;
 
 public class BackEndDataManager : MonoBehaviour
 {
+    /* user stage info */
     string inData = "none";
-
     const string dbFirstCreateKey = "stageInfoDbCreateKey";
     const string tableName = "stageInfo";
     const string columeName = "stageId";
     int stageId;
+
+
+    /* user ad view count info */
+    int adViewCount = 0;
 
     void Start()
     {
@@ -97,5 +101,52 @@ public class BackEndDataManager : MonoBehaviour
         }
     }
 
+    public void UpdateAdViewCount()
+    {
+        var bro = Backend.GameData.GetMyData("adViewInfo", new Where(), 0);
+        if (bro.IsSuccess())
+        {
+            Debug.Log("get my table data - adViewInfo  Success");
+            if (bro.GetReturnValuetoJSON()["rows"].Count == 0)
+            {
+                adViewCount = 1;
+                // insert
+                Param param = new Param();
+                param.Add("adViewCount", adViewCount);
+                var bro2 = Backend.GameData.Insert("adViewInfo", param);
+                if (bro2.IsSuccess())
+                {
+                    Debug.Log("insert Success");
+                }
+                else
+                {
+                    Debug.Log("insert false " + bro2.GetErrorCode());
+                }
 
+            }
+            else
+            {
+                // update
+                var indate = bro.FlattenRows()[0]["inDate"].ToString();
+                adViewCount = int.Parse(bro.FlattenRows()[0]["adViewCount"].ToString());
+                ++adViewCount;
+
+                Param param = new Param();
+                param.Add("adViewCount", adViewCount);
+                var bro2 = Backend.GameData.UpdateV2("adViewInfo", indate, Backend.UserInDate, param);
+                if (bro2.IsSuccess())
+                {
+                    Debug.Log("counting Success");
+                }
+                else
+                {
+                    Debug.Log("counting False " + bro2.GetErrorCode());
+                }
+            }
+        }
+        else
+        {
+            Debug.Log(" get my table data - adViewInfo false " + bro.GetErrorCode());
+        }
+    }
 }

@@ -34,7 +34,8 @@ public class Tools_BackEndDataViewer : EditorWindow
         {
             //GetServerData();
             //UpdateAdViewCount();
-            UpDateOneDay();
+            //UpDateOneDay();
+            UpdateStageInfo();
         }
     }
 
@@ -219,4 +220,34 @@ public class Tools_BackEndDataViewer : EditorWindow
 
     }
 
+    void UpdateStageInfo()
+    {
+        int stageId = 1;//GlobalData.instance.player.stageIdx;
+        string key = Backend.UserInDate;
+
+        Param param = new Param();
+        param.Add("key", key);
+        param.Add("stageId", stageId);
+
+        Where where = new Where();
+        where.Equal("key", key);
+
+        var bro = Backend.GameData.Update("stageInfoV2", where, param);
+        if (bro.IsSuccess())
+        {
+            Debug.Log("update Success");
+            return;
+        }
+
+        var insert = Backend.GameData.Insert("stageInfoV2", param);
+        if (insert.IsSuccess())
+        {
+            Debug.Log("insert Success");
+        }
+        else
+        {
+            Debug.Log("insert Fail : " + bro.GetMessage());
+        }
+
+    }
 }

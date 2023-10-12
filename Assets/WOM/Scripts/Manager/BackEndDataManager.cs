@@ -5,15 +5,10 @@ using BackEnd;
 public class BackEndDataManager : MonoBehaviour
 {
     /* user stage info */
-    string inData = "none";
-    const string dbFirstCreateKey = "stageInfoDbCreateKey";
-    const string tableName = "stageInfo";
-    const string columeName = "stageId";
     int stageId;
 
     /* counting ad view one day */
     int adViewCount;
-
 
 
     void Start()
@@ -22,11 +17,6 @@ public class BackEndDataManager : MonoBehaviour
     }
     public IEnumerator Init()
     {
-        if (HasFirestCreateKey())
-        {
-            GetUserInDate();
-        }
-
         LoadOneDayADViewCountTableData();
         yield return null;
     }
@@ -57,81 +47,37 @@ public class BackEndDataManager : MonoBehaviour
         }
     }
 
-    bool HasFirestCreateKey()
-    {
-        return PlayerPrefs.HasKey(dbFirstCreateKey);
-    }
 
     public void SaveUserStageInfoData()
     {
         stageId = GlobalData.instance.player.stageIdx;
-        if (HasFirestCreateKey() == false)
-        {
-            PlayerPrefs.SetInt(dbFirstCreateKey, 1);
-            InsertStageData();
-        }
-        else
-        {
-            UpdateStageData();
-        }
-    }
-    void GetUserInDate()
-    {
-        var bro = Backend.GameData.GetMyData("stageInfo", new Where(), 0);
-        if (bro.IsSuccess())
-        {
-            inData = bro.FlattenRows()[0]["inDate"].ToString();
-            Debug.Log("inDate : " + inData);
-        }
-        else
-        {
-            Debug.Log(bro.GetErrorCode());
-            Debug.Log("inDate 정보 가져오기 실패");
-        }
-    }
-
-    void InsertStageData()
-    {
+        string key = Backend.UserInDate;
 
         Param param = new Param();
-        param.Add(columeName, GlobalData.instance.player.stageIdx);
+        param.Add("key", key);
+        param.Add("stageId", stageId);
 
-        var bro = Backend.GameData.Insert(tableName, param);
+        Where where = new Where();
+        where.Equal("key", key);
+
+        var bro = Backend.GameData.Update("stageInfoV2", where, param);
         if (bro.IsSuccess())
         {
-            Debug.Log("스테이지 정보 저장 성공");
-        }
-        else
-        {
-            Debug.Log(bro.GetErrorCode());
-            Debug.Log("스테이지 정보 저장 실패");
-        }
-    }
-
-    void UpdateStageData()
-    {
-        if (inData == "none")
-        {
+            Debug.Log("update Success");
             return;
         }
 
-        Param param = new Param();
-        param.Add(columeName, stageId);
-
-        var bro = Backend.GameData.UpdateV2(tableName, inData, Backend.UserInDate, param);
-        if (bro.IsSuccess())
+        var insert = Backend.GameData.Insert("stageInfoV2", param);
+        if (insert.IsSuccess())
         {
-            Debug.Log("스테이지 정보 업데이트 성공");
+            Debug.Log("insert Success");
         }
         else
         {
-            Debug.Log(bro.GetErrorCode());
-            Debug.Log("스테이지 정보 업데이트 실패");
+            Debug.Log("insert Fail : " + bro.GetMessage());
         }
+
     }
-
-    //TODO: 초기 한번만 게임 데이터 불러 오도록 수정
-
 
     public void ResetAdViewCount()
     {

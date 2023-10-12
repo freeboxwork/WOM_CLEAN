@@ -22,6 +22,20 @@ public class InsectBullet : MonoBehaviour
     float currentSpeed;
     Vector3 lookDir;
 
+    /* WIGGLE */
+    float wiggleRotationAmount = 0.02f;     // 회전 움직임의 크기
+    float wigglePositionAmount = 0.02f;   // 위치 움직임의 크기
+    float wiggleDuration = 1f;         // 한 번 움직이는 데 걸리는 시간
+    private Quaternion originalRotation;        // 원래의 회전값
+    private Vector3 originalPosition;           // 원래의 위치값
+
+
+    void GetDefaultWiggleValue()
+    {
+        originalRotation = transform.localRotation;  // 원래의 회전값 저장
+        originalPosition = transform.localPosition;  // 원래의 위치값 저장
+    }
+
     // UNION
     public UnionInGameData inGameData;
 
@@ -103,6 +117,14 @@ public class InsectBullet : MonoBehaviour
         speed = GetSpeed();
         currentSpeed = speed;
 
+        // WIGGLE POSITION AIMATION
+        // if (insectType != EnumDefinition.InsectType.union)
+        // {
+        //     GetDefaultWiggleValue();
+        //     yield return StartCoroutine(WiggleCoroutine());
+        // }
+
+
         while (!IsGoalTargetPoint(targetPoint))
         {
 
@@ -123,11 +145,47 @@ public class InsectBullet : MonoBehaviour
 
         gameObject.SetActive(false);
     }
+
+    IEnumerator WiggleCoroutine()
+    {
+        float elapsed = 0f;
+
+        while (elapsed < wiggleDuration)
+        {
+            elapsed += Time.deltaTime;
+
+            float percentageCompleted = elapsed / wiggleDuration;
+
+            // lerp를 사용하여 움직임의 크기를 점진적으로 줄여나갑니다.
+            float currentWiggleRotation = Mathf.Lerp(wiggleRotationAmount, 0, percentageCompleted);
+            float currentWigglePosition = Mathf.Lerp(wigglePositionAmount, 0, percentageCompleted);
+
+            // 랜덤한 회전 및 위치값 계산
+            float randomRotation = Random.Range(-currentWiggleRotation, currentWiggleRotation);
+            Vector3 randomPositionOffset = new Vector3(
+                Random.Range(-currentWigglePosition, currentWigglePosition),
+                Random.Range(-currentWigglePosition, currentWigglePosition),
+                Random.Range(-currentWigglePosition, currentWigglePosition)
+            );
+
+            // 실제 회전 및 위치 적용
+            transform.localRotation = originalRotation * Quaternion.Euler(0f, 0f, randomRotation);
+            transform.localPosition = originalPosition + randomPositionOffset;
+
+            yield return null;
+        }
+
+        // 원래의 회전 및 위치값으로 복구
+        transform.localRotation = originalRotation;
+        transform.localPosition = originalPosition;
+    }
+
+
     Vector3 GetMovePosition(Vector3 direction, float speed)
     {
         speed = Mathf.Clamp(speed, minSpeed, maxSpeed);
 
-        float resultSpeed = UtilityMethod.RemapValue(speed, minSpeed,maxSpeed,0.7f,1.5f);
+        float resultSpeed = UtilityMethod.RemapValue(speed, minSpeed, maxSpeed, 0.7f, 1.5f);
 
         if (GlobalData.instance.eventController.IsInsectMovementStop)
         {

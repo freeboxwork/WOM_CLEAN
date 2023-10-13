@@ -25,7 +25,7 @@ public class InsectBullet : MonoBehaviour
     /* WIGGLE */
     float wiggleRotationAmount = 0.02f;     // 회전 움직임의 크기
     float wigglePositionAmount = 0.02f;   // 위치 움직임의 크기
-    float wiggleDuration = 1f;         // 한 번 움직이는 데 걸리는 시간
+    float wiggleDuration = 0.3f;         // 한 번 움직이는 데 걸리는 시간
     private Quaternion originalRotation;        // 원래의 회전값
     private Vector3 originalPosition;           // 원래의 위치값
 
@@ -117,6 +117,9 @@ public class InsectBullet : MonoBehaviour
         speed = GetSpeed();
         currentSpeed = speed;
 
+        var startLegnth = (transform.position - targetPoint).sqrMagnitude;
+        //Debug.Log("legnth : " + legnth);
+
         // WIGGLE POSITION AIMATION
         // if (insectType != EnumDefinition.InsectType.union)
         // {
@@ -128,6 +131,12 @@ public class InsectBullet : MonoBehaviour
         while (!IsGoalTargetPoint(targetPoint))
         {
 
+            var currentLength = (transform.position - targetPoint).sqrMagnitude;
+
+            var resultLength = UtilityMethod.RemapValue(currentLength, startLegnth, 28f, 0f, 1f);
+            //Debug.Log("currentLength " + currentLength);
+            //Debug.Log("resultLength : " + resultLength);
+
             // 이동 방향
             var direction = transform.position - targetPoint;
 
@@ -135,7 +144,7 @@ public class InsectBullet : MonoBehaviour
             direction.Normalize();
 
             // 직선 이동
-            transform.position = GetMovePosition(direction, currentSpeed);
+            transform.position = GetMovePosition(direction, currentSpeed, resultLength);
 
             // 회전
             lookDir = (targetPoint - transform.position);
@@ -145,6 +154,33 @@ public class InsectBullet : MonoBehaviour
 
         gameObject.SetActive(false);
     }
+
+
+    public AnimationCurve animCurve;
+
+    Vector3 GetMovePosition(Vector3 direction, float speed, float curveTime)
+    {
+        speed = Mathf.Clamp(speed, minSpeed, maxSpeed);
+
+        float resultSpeed = UtilityMethod.RemapValue(speed, minSpeed, maxSpeed, 0.7f, 1.5f);
+
+        var animCurveValue = animCurve.Evaluate(curveTime);
+
+        if (GlobalData.instance.eventController.IsInsectMovementStop)
+        {
+            resultSpeed = 0.1f;
+        }
+        return transform.position - (direction * Time.deltaTime * resultSpeed) * animCurveValue;
+
+    }
+
+    bool IsGoalTargetPoint(Vector3 targetPoint)
+    {
+        var offset = transform.position - targetPoint;
+        int length = (int)offset.sqrMagnitude;
+        return length <= 0;
+    }
+
 
     IEnumerator WiggleCoroutine()
     {
@@ -181,26 +217,6 @@ public class InsectBullet : MonoBehaviour
     }
 
 
-    Vector3 GetMovePosition(Vector3 direction, float speed)
-    {
-        speed = Mathf.Clamp(speed, minSpeed, maxSpeed);
-
-        float resultSpeed = UtilityMethod.RemapValue(speed, minSpeed, maxSpeed, 0.7f, 1.5f);
-
-        if (GlobalData.instance.eventController.IsInsectMovementStop)
-        {
-            resultSpeed = 0.1f;
-        }
-        return transform.position - direction * Time.deltaTime * resultSpeed;
-
-    }
-
-    bool IsGoalTargetPoint(Vector3 targetPoint)
-    {
-        var offset = transform.position - targetPoint;
-        int length = (int)offset.sqrMagnitude;
-        return length <= 0;
-    }
 
     (Vector3 startPoint, Vector3 targetPoint) GetAnimPoints()
     {

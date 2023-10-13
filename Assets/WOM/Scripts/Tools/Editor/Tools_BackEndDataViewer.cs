@@ -66,6 +66,29 @@ public class Tools_BackEndDataViewer : EditorWindow
         {
             SetRankingData();
         }
+
+        if (GUILayout.Button("AddLog"))
+        {
+            AddLog();
+        }
+    }
+
+    void AddLog()
+    {
+        string logContent = "Tutorial #" + 3;
+
+        Param param = new Param();
+        param.Add("tutorialComplete", logContent);
+        var bro = Backend.GameLog.InsertLogV2("tutorial", param, 1);
+        if (bro.IsSuccess())
+        {
+            Debug.Log(bro.GetMessage());
+            Debug.Log(" insert log Success");
+        }
+        else
+        {
+            Debug.Log(bro.GetStatusCode() + " " + bro.GetMessage());
+        }
     }
 
     void SignUp()

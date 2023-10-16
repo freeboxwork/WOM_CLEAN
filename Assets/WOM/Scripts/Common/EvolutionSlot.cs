@@ -10,14 +10,16 @@ public class EvolutionSlot : MonoBehaviour
     public TextMeshProUGUI txtStatName;
     public Button btnLock;
     public Image imgLock;
-    public Sprite sprUnLock;
-    public Sprite sprLock;
+    public Color lockColor;
+    public Color unLockColor;
+    
+
     public bool isUnlock = false;
 
     public Image imgSymbol;
     public EnumDefinition.EvolutionRewardGrade evolutionRewardGrade;
 
-    // ëŠ¥ë ¥ì¹˜ ì˜¤í”ˆ ë˜ì–´ ìˆëŠ”ì§€ íŒë‹¨
+    // ?Š¥? ¥ì¹? ?˜¤?”ˆ ?˜?–´ ?ˆ?Š”ì§? ?Œ?‹¨
     public bool statOpend = false;
 
     public Image imgLightSweepAnim;
@@ -36,20 +38,20 @@ public class EvolutionSlot : MonoBehaviour
     public void LockEvent()
     {
         isUnlock = !isUnlock;
-        var sprit = isUnlock ? sprUnLock : sprLock;
-        imgLock.sprite = sprit;
+        var color = isUnlock ? unLockColor : lockColor;
+        imgLock.color = color;
 
-        // ì£¼ì‚¬ìœ„ êµ´ë¦¬ê¸° ë²„íŠ¼ í™œì„±í™”
+        // ì£¼ì‚¬?œ„ êµ´ë¦¬ê¸? ë²„íŠ¼ ?™œ?„±?™”
         // GlobalData.instance.uiController.EanbleBtnEvolutionRollDice();
 
-        // ì‚¬ìš©ì— í•„ìš”í•œ ì£¼ì‚¬ìœ„ ê°œìˆ˜ ë³€ê²½
+        // ?‚¬?š©?— ?•„?š”?•œ ì£¼ì‚¬?œ„ ê°œìˆ˜ ë³?ê²?
         GlobalData.instance.evolutionManager.SetTxtUsingDiceCount();
     }
 
     public void UnLock()
     {
         isUnlock = true;
-        imgLock.sprite = sprUnLock;
+        imgLock.color = unLockColor;
     }
 
 

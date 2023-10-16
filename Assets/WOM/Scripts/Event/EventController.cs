@@ -245,7 +245,7 @@ public class EventController : MonoBehaviour
             }
 
 
-            UtilityMethod.GetCustomTypeImageById(41).fillAmount = 1;
+            GlobalData.instance.uiController.monsterHPSlider.value = 1f;
 
             UtilityMethod.SetTxtCustomTypeByID(107, $"X {currentMonster.curData.level}");
             UtilityMethod.GetTxtCustomTypeByID(107).transform.DOScale(Vector3.one * 1.3f, 0.3f)

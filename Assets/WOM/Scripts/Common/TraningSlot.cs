@@ -77,6 +77,16 @@ public class TraningSlot : MonoBehaviour
 
     public void BtnEnable(bool value)
     {
+        if(value == false)
+        {
+            btnBuy.GetComponent<Image>().sprite = GlobalData.instance.eventController.iconSpriteFileData.GetButtonOFFSprite();
+        }
+        else
+        {
+            btnBuy.GetComponent<Image>().sprite = GlobalData.instance.eventController.iconSpriteFileData.GetButtonOnSprite();
+        }
+
+
         btnBuy.interactable = value;
     }
 

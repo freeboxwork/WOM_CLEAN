@@ -22,8 +22,14 @@ public class UiController : MonoBehaviour
 
     [Header("보스몬스터 도전 관련 UI 항목")]
     public TextMeshProUGUI txtBossMonChallengeTimer;
-    public Image imgBossMonTimer;
+    //public Image imgBossMonTimer;
     public Image imgBossMonTimerParent;
+
+    public Slider monsterHPSlider;
+    public Slider monsterFollowHPSlider;
+
+    public Slider pahseCountSlider;
+    public Slider bossTimerSlider;
 
     //[Header("뽑기 관련 UI 항목")]
     //public Transform trLotteryGameSet;
@@ -210,30 +216,35 @@ public class UiController : MonoBehaviour
     {
         if(value < 0) value = 0;
 
-        var currentFillAmountValue = UtilityMethod.GetCustomTypeImageById(41).fillAmount;
+        //var currentFillAmountValue = UtilityMethod.GetCustomTypeImageById(41).fillAmount;
         var sliderValue = value / GlobalData.instance.player.currentMonsterHp;
-        UtilityMethod.GetCustomTypeImageById(41).fillAmount = sliderValue;
+        monsterHPSlider.value = sliderValue;
+        //UtilityMethod.GetCustomTypeImageById(41).fillAmount = sliderValue;
 
         // 0.1초 뒤에 실행
-        StartCoroutine(SetSliderBgWithDelay(UtilityMethod.GetCustomTypeImageById(41).fillAmount, currentFillAmountValue));
+        StartCoroutine(SetSliderBgWithDelay(sliderValue, monsterFollowHPSlider.value));
     }
 
     public void SetSliderDungeonMonsterHP(float value)
     {
         if(value < 0) value = 0;
         
-        var currentFillAmountValue = UtilityMethod.GetCustomTypeImageById(41).fillAmount;
+        //var currentFillAmountValue = UtilityMethod.GetCustomTypeImageById(41).fillAmount;
+        
         var sliderValue = value / GlobalData.instance.monsterManager.GetMonsterDungeon().curMonsterHP;
-        UtilityMethod.GetCustomTypeImageById(41).fillAmount = sliderValue;
+        monsterHPSlider.value = sliderValue;
+        //UtilityMethod.GetCustomTypeImageById(41).fillAmount = sliderValue;
 
         // 0.1초 뒤에 실행
-        StartCoroutine(SetSliderBgWithDelay(UtilityMethod.GetCustomTypeImageById(41).fillAmount, currentFillAmountValue));
+        StartCoroutine(SetSliderBgWithDelay(sliderValue, monsterFollowHPSlider.value));
     }
 
     public void SetSliderBg(float value)
     {
-        UtilityMethod.GetCustomTypeImageById(44).fillAmount = value;
+        //UtilityMethod.GetCustomTypeImageById(44).fillAmount = value;
+        monsterFollowHPSlider.value = value;
     }
+
 
     private IEnumerator SetSliderBgWithDelay(float target, float current)
     {
@@ -255,12 +266,13 @@ public class UiController : MonoBehaviour
 
     }
 
-
     public void SetSliderPhaseValue(float value)
     {
         var calcValue = value / GlobalData.instance.player.pahseCountOriginalValue;
         var sliderValue = 1 - calcValue;
-        UtilityMethod.GetCustomTypeImageById(42).fillAmount = sliderValue;
+        pahseCountSlider.value = sliderValue;
+
+        //UtilityMethod.GetCustomTypeImageById(42).fillAmount = sliderValue;
 
         EnableGlodMonsterIconOutlineEffect(sliderValue >= 1);
     }
@@ -376,7 +388,9 @@ public class UiController : MonoBehaviour
     public void SetImgTimerFilledRaidal(float value)
     {
         var sliderValue = 1 - value;
-        imgBossMonTimer.fillAmount = sliderValue;
+        bossTimerSlider.value = sliderValue;
+        //imgBossMonTimer.fillAmount = sliderValue;
+
     }
     public void EnableGlodMonsterIconOutlineEffect(bool value)
     {
@@ -389,7 +403,7 @@ public class UiController : MonoBehaviour
         txtGold = customTypeDataManager.GetCustomTypeData_Text(4);
         btnBossChallenge = customTypeDataManager.GetCustomTypeData_Button(0);
         txtBossMonChallengeTimer = customTypeDataManager.GetCustomTypeData_Text(3);
-        imgBossMonTimer = customTypeDataManager.GetCustomTypeData_Image(0);
+        //imgBossMonTimer = customTypeDataManager.GetCustomTypeData_Image(0);
         imgBossMonTimerParent = customTypeDataManager.GetCustomTypeData_Image(1);
         //trLotteryGameSet         = customTypeDataManager.GetCustomTypeData_Transform(0);
     }

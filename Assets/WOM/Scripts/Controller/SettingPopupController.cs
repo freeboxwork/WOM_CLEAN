@@ -10,6 +10,11 @@ public class SettingPopupController : MonoBehaviour
     public Button btnGoToReview;
     public Button btnPowerSaving;
     public Button btnSetting;
+    public Button btnPush;
+    public Button btnRestore;
+    public Button btnMail;
+
+
     public Button btnClose;
 
     public WomSystemMnager womSystemMnager;
@@ -75,6 +80,10 @@ public class SettingPopupController : MonoBehaviour
         {
             Review();
         });
+        btnMail.onClick.AddListener(() =>
+        {
+            EnableMailWindow();
+        });
 
     }
 
@@ -84,7 +93,21 @@ public class SettingPopupController : MonoBehaviour
         Application.OpenURL("market://details?id=com.DonnieNest.WOM");
     }
 
+    void EnableMailWindow()
+    {
+        string Emailadd = "support@donnienest.net";
+        string Emailname = System.Uri.EscapeDataString("버그 리포트 / 문의사항");
 
+        string body = $"내용을 작성해주세요 : \n\n\n\nDevice Model : {SystemInfo.deviceModel} \nDevice OS : {SystemInfo.operatingSystem} \n\n";
+        string Emailbody = System.Uri.EscapeDataString
+            (
+             body
+            );
+
+        string mailtoUrl = string.Format("mailto:{0}?subject={1}&body={2}", Emailadd, Emailname, Emailbody);
+        //Application.OpenURL("mailto:" + Emailadd + "?subject=" + Emailname + "&body=" + Emailbody);
+        Application.OpenURL(mailtoUrl);
+    }
 
 }
 

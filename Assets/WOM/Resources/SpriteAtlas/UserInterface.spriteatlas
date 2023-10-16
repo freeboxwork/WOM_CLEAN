@@ -64,6 +64,7 @@ SpriteAtlas:
   - {fileID: 21300000, guid: a325e290e584e0e4faccc5b618596a4b, type: 3}
   - {fileID: 21300000, guid: 0e3ae5a00a4e70442b64c599a36de93a, type: 3}
   - {fileID: 21300000, guid: 7633baa0c2ce3164392a87f1237404c1, type: 3}
+  - {fileID: 21300000, guid: 2e72d5b0f35b8b5488d6cb8accdf32d8, type: 3}
   - {fileID: 21300000, guid: 193898b0a03784b7287a3612fd349d6c, type: 3}
   - {fileID: 21300000, guid: ebb973d0e7ca21c48929b511b0e4d7c2, type: 3}
   - {fileID: 21300000, guid: 15a327d0138524b6c88e4c298832cade, type: 3}
@@ -308,6 +309,7 @@ SpriteAtlas:
   - btn_Base
   - Bar_MenuTitle_Dark
   - U_Frame_High
+  - Title_one_Line
   - LotteryClose
   - Icon_ShopIcon_Gem2
   - Inside_Paper

@@ -22,8 +22,8 @@ public class MinePopup : CastlePopupBase
     public TextMeshProUGUI digUpTimeText; //실시간 채굴시간
     public TextMeshProUGUI digUpStateText; //채굴 현황
 
-
-    public Image digUpFillImage;//채굴 상태 FillAmount
+    public Slider digUpSlider;
+    //public Image digUpFillImage;//채굴 상태 FillAmount
     public Button btnGetGold;
     public Button btnUpgrade;
 
@@ -125,7 +125,8 @@ public class MinePopup : CastlePopupBase
     //채굴 상태 FillAmount
     void SetDigUpStateFillAmount(float max, float currnt)
     {
-        digUpFillImage.fillAmount = (float)currnt/max;
+        digUpSlider.maxValue = (float)currnt/max;;
+        //digUpFillImage.fillAmount = (float)currnt/max;
     }
     //실시간으로 생산된 총 량
     public void SetTextTotalMiningValue(float text)

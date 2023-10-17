@@ -110,7 +110,7 @@ public class UnionSlot : MonoBehaviour
 
     public void SetUITxtLevel()
     {
-        txtLevel.text = "Lv" + inGameData.level.ToString();
+        txtLevel.text = "Level " + (inGameData.level + 1).ToString();
     }
     public void SetUITxtGrade()
     {

@@ -375,7 +375,8 @@ public class EnumDefinition
         Unique,
         BossIn,
         CoinPickUp,
-        FailDNAUpgrade
+        FailDNAUpgrade,
+        BossAttack
     }
 
     public enum CastlePopupType

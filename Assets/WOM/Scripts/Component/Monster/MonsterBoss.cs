@@ -10,6 +10,8 @@ public class MonsterBoss : MonsterBase
     }
     public void AnimPlayAttack()
     {
+        GlobalData.instance.soundManager.PlaySfxInGame(EnumDefinition.SFX_TYPE.BossAttack);
+
         animator.Play("Attack");
     }
 

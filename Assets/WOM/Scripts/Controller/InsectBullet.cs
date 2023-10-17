@@ -120,14 +120,6 @@ public class InsectBullet : MonoBehaviour
         var startLegnth = (transform.position - targetPoint).sqrMagnitude;
         //Debug.Log("legnth : " + legnth);
 
-        // WIGGLE POSITION AIMATION
-        // if (insectType != EnumDefinition.InsectType.union)
-        // {
-        //     GetDefaultWiggleValue();
-        //     yield return StartCoroutine(WiggleCoroutine());
-        // }
-
-
         while (!IsGoalTargetPoint(targetPoint))
         {
 
@@ -181,40 +173,6 @@ public class InsectBullet : MonoBehaviour
         return length <= 0;
     }
 
-
-    IEnumerator WiggleCoroutine()
-    {
-        float elapsed = 0f;
-
-        while (elapsed < wiggleDuration)
-        {
-            elapsed += Time.deltaTime;
-
-            float percentageCompleted = elapsed / wiggleDuration;
-
-            // lerp를 사용하여 움직임의 크기를 점진적으로 줄여나갑니다.
-            float currentWiggleRotation = Mathf.Lerp(wiggleRotationAmount, 0, percentageCompleted);
-            float currentWigglePosition = Mathf.Lerp(wigglePositionAmount, 0, percentageCompleted);
-
-            // 랜덤한 회전 및 위치값 계산
-            float randomRotation = Random.Range(-currentWiggleRotation, currentWiggleRotation);
-            Vector3 randomPositionOffset = new Vector3(
-                Random.Range(-currentWigglePosition, currentWigglePosition),
-                Random.Range(-currentWigglePosition, currentWigglePosition),
-                Random.Range(-currentWigglePosition, currentWigglePosition)
-            );
-
-            // 실제 회전 및 위치 적용
-            transform.localRotation = originalRotation * Quaternion.Euler(0f, 0f, randomRotation);
-            transform.localPosition = originalPosition + randomPositionOffset;
-
-            yield return null;
-        }
-
-        // 원래의 회전 및 위치값으로 복구
-        transform.localRotation = originalRotation;
-        transform.localPosition = originalPosition;
-    }
 
 
 
@@ -300,6 +258,13 @@ public class InsectBullet : MonoBehaviour
     public void SetInsectFace(Sprite[] sprites)
     {
         spriteAnim.SetSprite(sprites);
+    }
+
+    public void DieInsect()
+    {
+        // 파티클 이펙트 추가
+        GlobalData.instance.effectManager.EnableInsectDisableEffect(this.transform);
+        gameObject.SetActive(false);
     }
 }
 

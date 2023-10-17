@@ -200,7 +200,7 @@ GameObject:
   - component: {fileID: -2628233927021942681}
   m_Layer: 0
   m_Name: Mantis00
-  m_TagString: Untagged
+  m_TagString: insectBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

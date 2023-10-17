@@ -11,6 +11,7 @@ TagManager:
   - monster_evolution
   - monsterDungeon
   - goldPig
+  - insectBullet
   layers:
   - Default
   - TransparentFX

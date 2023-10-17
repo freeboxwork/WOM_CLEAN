@@ -1,18 +1,52 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MonsterAttackManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+    int attackPercent = 10;
+    public MonsterBoss monsterBoss;
+    float insectKillRadius = 2f;
+
     void Start()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public void AttackMotion()
     {
-        
+        // attackPercent 의 확률로 공격
+        //if (Random.Range(0, 100) < attackPercent)
+        if (true)
+        {
+            // 곤충들 공격 불가능 상태로 전환
+            //GlobalData.instance.attackController.SetAttackableState(false);
+            monsterBoss.AnimPlayAttack();
+        }
     }
+
+
+    public void KillInsects(Transform tr)
+    {
+        // tr 반경 insectKillRadius 안에 있는 모든 곤충을 죽인다.
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(tr.position, insectKillRadius);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.CompareTag("insectBullet"))
+            {
+                // try getcomponent
+                if (collider.TryGetComponent<InsectBullet>(out var insectBullet))
+                {
+                    insectBullet.DieInsect();
+                }
+            }
+        }
+    }
+
+    public void AttackMotionEnd()
+    {
+        // 곤충들 공격 가능 상태로 전환
+        // GlobalData.instance.attackController.SetAttackableState(true);
+    }
+
+
 }

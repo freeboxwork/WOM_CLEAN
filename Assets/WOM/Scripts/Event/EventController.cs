@@ -25,6 +25,8 @@ public class EventController : MonoBehaviour
     public bool debugTimeScale = false;
     public float addTimeScale = 0;
 
+    bool bossMonsterAttack = false;
+
     void Start()
     {
         globalData = GlobalData.instance;
@@ -101,6 +103,7 @@ public class EventController : MonoBehaviour
         // 몬스터 체력이 0보다 작으면 죽음 처리
         if (IsMonseterKill(currentMonster.hp))
         {
+            bossMonsterAttack = false;
             StartCoroutine(MonsterKill(currentMonster));
         }
         // 몬스터 단순 피격시
@@ -112,7 +115,29 @@ public class EventController : MonoBehaviour
             // 몬스터 hp slider
             globalData.uiController.SetSliderMonsterHp(currentMonster.hp);
 
+            // 보스 몬스터 hp 50% 이하일때 단 한번 공격 발동
+            if (IsMonsterHpHalfLess(currentMonster.hp) && bossMonsterAttack == false && IsBossMonster())
+            {
+                bossMonsterAttack = true;
+                globalData.monsterAttackManager.AttackMotion();
+            }
         }
+    }
+
+    bool IsBossMonster()
+    {
+        return GlobalData.instance.player.currentMonster.monsterType == EnumDefinition.MonsterType.boss;
+    }
+
+    // monster hp 50% less
+    bool IsMonsterHpHalfLess(float hp)
+    {
+        var origionalHp = GlobalData.instance.player.currentMonsterHp;
+        var curHp = hp;
+        //if monster hp is less than 50%
+        var returnValue = curHp <= (origionalHp * 0.5f);
+        //Debug.Log($"IsMonsterHpHalfLess : {returnValue}  " + $"curHp : {curHp}  " + $"origionalHp : {origionalHp}");
+        return returnValue;
     }
 
     void EvnOnMonsterHitMonsterKing(Transform tr = null)

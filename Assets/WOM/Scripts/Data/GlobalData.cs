@@ -55,6 +55,8 @@ public class GlobalData : MonoBehaviour
     public PopUpGiveUpDungeon popUpGiveUpDungeon;
     public BackEndDataManager backEndDataManager;
 
+    public MonsterAttackManager monsterAttackManager;
+
     private void Awake()
     {
         SetInstance();

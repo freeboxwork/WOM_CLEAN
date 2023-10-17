@@ -94,7 +94,7 @@ public class BuffADSlot : MonoBehaviour
     void UpdateUI()
     {
         //txtLeftCount.text = leftCount.ToString() + "/" + totalCount.ToString();
-        txtLeftCount.text = string.Format("{0} / {1}", leftCount, totalCount);
+        txtLeftCount.text = string.Format("{0}/{1}", leftCount, totalCount);
     }
 
     // 광고 보기 카운트 초기화

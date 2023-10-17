@@ -41,28 +41,32 @@ public class TutorialManager : MonoBehaviour
 
     TutorialStep currentTutorialStep;
 
-    public GameObject evolutionInfoBox;
+    //public GameObject evolutionInfoBox;
     public GameObject bossToggleBox;
 
     public void TutorialStart()
     {
-        // max check
-        if (IsTutorialAllComplete() == false)
-        {
-            isEndTutorial = false;
-            EnableTutorialSet();
-            //tutorialPlayingTextBox.gameObject.SetActive(true);
-
-        }
-        else
-        {
-            isEndTutorial = true;
+                    isEndTutorial = true;
             // 진화 진입 설명 박스 활성화
-            evolutionInfoBox.SetActive(true);
+            //evolutionInfoBox.SetActive(true);
             bossToggleBox.SetActive(true);
-            //tutorialPlayingTextBox.gameObject.SetActive(false);
-            //Debug.Log("모든 투토리얼 완료");
-        }
+        // max check
+        // if (IsTutorialAllComplete() == false)
+        // {
+        //     isEndTutorial = false;
+        //     EnableTutorialSet();
+        //     //tutorialPlayingTextBox.gameObject.SetActive(true);
+
+        // }
+        // else
+        // {
+        //     isEndTutorial = true;
+        //     // 진화 진입 설명 박스 활성화
+        //     evolutionInfoBox.SetActive(true);
+        //     bossToggleBox.SetActive(true);
+        //     //tutorialPlayingTextBox.gameObject.SetActive(false);
+        //     //Debug.Log("모든 투토리얼 완료");
+        // }
     }
     public int GetTutorialSetId()
     {
@@ -253,7 +257,7 @@ public class TutorialManager : MonoBehaviour
                 tutorialPlayingTextBox.gameObject.SetActive(false);
 
                 // 진화 진입 설명 박스 활성화
-                evolutionInfoBox.SetActive(true);
+                //evolutionInfoBox.SetActive(true);
                 bossToggleBox.SetActive(true);
 
                 if (GlobalData.instance.insectSpwanManager.isSpwanTimerStart == false)

@@ -13,30 +13,8 @@ public class TraningManager : MonoBehaviour
     [SerializeField]
     List<GameObject> subPanels = new List<GameObject>();
     TrainingSubPanelType curSubPanelType = TrainingSubPanelType.none;
-    public List<TrainingSubBtnSlot> subButtons = new List<TrainingSubBtnSlot>();
 
-    void Start()
-    {
-
-    }
-
-    // void Update()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.T))
-    //     {
-    //         subButtons[0].btnMain.onClick.Invoke();
-    //     }
-    //     if (Input.GetKeyDown(KeyCode.Y))
-    //     {
-    //         subButtons[1].btnMain.onClick.Invoke();
-    //     }
-    //     if (Input.GetKeyDown(KeyCode.U))
-    //     {
-    //         subButtons[2].btnMain.onClick.Invoke();
-    //     }
-    // }
-
-    // 저장된 게임 데이터 로드 및 세팅
+     // 저장된 게임 데이터 로드 및 세팅
     IEnumerator LoadInGameData()
     {
 
@@ -89,25 +67,6 @@ public class TraningManager : MonoBehaviour
 
             SetUI_TraningSlot(statType);
 
-            // var slot = GetTraningInSlotByType(statType);
-            // var inGameData = GetTraningInGameData(statType);
-
-            // // SET UI
-            // var txtInfoValue = $"Lv {inGameData.level} {inGameData.trainingName}";
-            // var txtPowerValue = $"{inGameData.value} {inGameData.unitName}";
-            // var txtCostValue = GetCostStrValue(statType, inGameData);
-
-            // slot.SetTxtInfo(txtInfoValue);
-            // slot.SetTxtPower(txtPowerValue);
-            // slot.SetTxtCost(txtCostValue);
-
-            // // max stat
-            // var lastData = GlobalData.instance.dataManager.GetSaleStatDataByType(statType).data.Last();
-            // if (inGameData.level == lastData.level)
-            // {
-            //     SetUI_Max(statType);
-            // }
-
             yield return null;
 
         }
@@ -128,21 +87,7 @@ public class TraningManager : MonoBehaviour
             });
         }
 
-        for (int i = 0; i < subButtons.Count; i++)
-        {
-            var index = i;
-            var btn = subButtons[index];
-            btn.btnMain.onClick.AddListener(() =>
-            {
-                EnableSubMenuPanel(btn.subPanelType);
-            });
-        }
         yield return null;
-    }
-
-    public void EnableFirstSubMenuPanel()
-    {
-        EnableSubMenuPanel(EnumDefinition.TrainingSubPanelType.training);
     }
 
     float GetCostIntValue(SaleStatType statType, TraningInGameData inGameData)
@@ -293,23 +238,5 @@ public class TraningManager : MonoBehaviour
         return false;
     }
 
-    public void EnableSubMenuPanel(EnumDefinition.TrainingSubPanelType type)
-    {
-        for (int i = 0; i < subPanels.Count; i++)
-        {
-            if (i == (int)type)
-            {
-                curSubPanelType = type;
-                subButtons[i].Select(true);
-
-                subPanels[i].SetActive(true);
-            }
-            else
-            {
-                subButtons[i].Select(false);
-                subPanels[i].SetActive(false);
-            }
-        }
-    }
 
 }

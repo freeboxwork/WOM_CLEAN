@@ -151,7 +151,7 @@ public class GlobalController : MonoBehaviour
         yield return StartCoroutine(tutorialManager.Init());
 
         // 투토리얼 실행 상황에 따라 상점버튼 활성 / 비활성화
-        UtilityMethod.GetCustomTypeBtnByID(6).gameObject.SetActive(tutorialManager.isEndTutorial);
+        //UtilityMethod.GetCustomTypeBtnByID(6).gameObject.SetActive(tutorialManager.isEndTutorial);
 
         // 골드 피그 등장( 지정된 시간 지난뒤 등장 )
         yield return StartCoroutine(goldPigController.Init());
@@ -177,13 +177,15 @@ public class GlobalController : MonoBehaviour
         // Monster In Animation
         yield return StartCoroutine(player.currentMonster.inOutAnimator.AnimPositionIn());
         // 곤충 스폰 활성화 -> tutorial pattenr 10 에서 활성화
-        if (tutorialManager.isEndTutorial)
-            insectSpwanManager.AllTimerStart();
-        else if (tutorialManager.GetTutorialSetById(3).isSetComplete)
-        {
-            // 투토리얼 5번 세트 완료시 곤충 스폰 활성화
-            insectSpwanManager.AllTimerStart();
-        }
+        // if (tutorialManager.isEndTutorial)
+        //     insectSpwanManager.AllTimerStart();
+        // else if (tutorialManager.GetTutorialSetById(3).isSetComplete)
+        // {
+        //     // 투토리얼 5번 세트 완료시 곤충 스폰 활성화
+        //     insectSpwanManager.AllTimerStart();
+        // }
+        insectSpwanManager.AllTimerStart();
+
         // 공격 가능 상태로 전환
         attackController.SetAttackableState(true);
 

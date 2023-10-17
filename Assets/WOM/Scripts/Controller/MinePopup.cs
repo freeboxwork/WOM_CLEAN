@@ -125,7 +125,8 @@ public class MinePopup : CastlePopupBase
     //채굴 상태 FillAmount
     void SetDigUpStateFillAmount(float max, float currnt)
     {
-        digUpSlider.maxValue = (float)currnt/max;;
+        digUpSlider.value = currnt/max;
+
         //digUpFillImage.fillAmount = (float)currnt/max;
     }
     //실시간으로 생산된 총 량

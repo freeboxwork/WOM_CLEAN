@@ -486,38 +486,55 @@ public class UiController : MonoBehaviour
     }
     IEnumerator EnableCastlePanel()
     {
-
-        isCastleOpen = true;
+        yield return null;;
+        //isCastleOpen = true;
         //곤충 생성 타이머 종료
-        GlobalData.instance.insectSpwanManager.AllTimerStop();
+        //GlobalData.instance.insectSpwanManager.AllTimerStop();
         // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
-        StartCoroutine(GlobalData.instance.effectManager.goldPoolingCont.DisableGoldEffects());
+        //StartCoroutine(GlobalData.instance.effectManager.goldPoolingCont.DisableGoldEffects());
         //보스의 경우 뼈조각 OUT EFF 추가 ( 뼈조각 화면에 뿌려진 경우에만 )
-        StartCoroutine(GlobalData.instance.effectManager.bonePoolingCont.DisableGoldEffects());
+        //StartCoroutine(GlobalData.instance.effectManager.bonePoolingCont.DisableGoldEffects());
         // 공격 불가능 상태 전환
-        GlobalData.instance.attackController.SetAttackableState(false);
+        //GlobalData.instance.attackController.SetAttackableState(false);
         // 황금돼지 비활성화
-        GlobalData.instance.goldPigController.EnterOtherView();
+        //GlobalData.instance.goldPigController.EnterOtherView();
         // 버튼 클릭 안되게 수정
-        UtilityMethod.EnableUIEventSystem(false);
+        //UtilityMethod.EnableUIEventSystem(false);
 
-        GlobalData.instance.eventController.IsMonsterDead = true;    
+        //GlobalData.instance.eventController.IsMonsterDead = true;    
 
-        GlobalData.instance.eventController.StopAllCoroutine();
+        //GlobalData.instance.eventController.StopAllCoroutine();
         // 트렌지션 효과
-        GlobalData.instance.effectManager.EnableTransition(EnumDefinition.TransitionTYPE.Castle);
+        //GlobalData.instance.effectManager.EnableTransition(EnumDefinition.TransitionTYPE.Castle);
 
-        // 화면전환 효과
-        yield return StartCoroutine(GlobalData.instance.effectManager.EffTransitioEvolutionUpgrade(() =>
-        {
+        // // 화면전환 효과
+        // yield return StartCoroutine(GlobalData.instance.effectManager.EffTransitioEvolutionUpgrade(() =>
+        // {
+        //     // BGM CHANGE
+        //     GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Castle);
+        //     // 현재 몬스터 OUT
+        //     // StartCoroutine(GlobalData.instance.player.currentMonster.inOutAnimator.MonsterKillMatAnim());
+        //     var monster = GlobalData.instance.player.currentMonster;
+        //     monster.gameObject.SetActive(false);
+        //     // 활성화된 곤충 모두 비활성화
+        //     GlobalData.instance.insectManager.DisableAllAvtiveInsects();
+            
+        //     mainPanels[(int)MenuPanelType.castle].SetActive(true);
+
+        //     // UI 비활성화
+            
+        //     EnableCanvadGroup(EnumDefinition.CanvasTYPE.Castle);
+
+
+        // }));
             // BGM CHANGE
-            GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Castle);
+            //GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Castle);
             // 현재 몬스터 OUT
             // StartCoroutine(GlobalData.instance.player.currentMonster.inOutAnimator.MonsterKillMatAnim());
-            var monster = GlobalData.instance.player.currentMonster;
-            monster.gameObject.SetActive(false);
+            //var monster = GlobalData.instance.player.currentMonster;
+            //monster.gameObject.SetActive(false);
             // 활성화된 곤충 모두 비활성화
-            GlobalData.instance.insectManager.DisableAllAvtiveInsects();
+            //GlobalData.instance.insectManager.DisableAllAvtiveInsects();
             
             mainPanels[(int)MenuPanelType.castle].SetActive(true);
 
@@ -525,15 +542,11 @@ public class UiController : MonoBehaviour
             
             EnableCanvadGroup(EnumDefinition.CanvasTYPE.Castle);
 
-
-        }));
-
-
        //StartCoroutine(EnableCastle());
 
-        isCastleOpen = false;
+        //isCastleOpen = false;
 
-        UtilityMethod.EnableUIEventSystem(true);
+        //UtilityMethod.EnableUIEventSystem(true);
 
     }
 
@@ -573,16 +586,34 @@ public class UiController : MonoBehaviour
     IEnumerator ExitCastlePanel()
     {
 
-        if(isCastleOpen) yield break;
-        GlobalData.instance.insectSpwanManager.AllTimerStart();
+        //if(isCastleOpen) yield break;
+        //GlobalData.instance.insectSpwanManager.AllTimerStart();
 
-        UtilityMethod.EnableUIEventSystem(false);
-        isCastleOpen = true;
-        // 화면전환 효과
-        yield return StartCoroutine(GlobalData.instance.effectManager.EffTransitioEvolutionUpgrade(() =>
-        {
+        //UtilityMethod.EnableUIEventSystem(false);
+        //isCastleOpen = true;
+        // // 화면전환 효과
+        // yield return StartCoroutine(GlobalData.instance.effectManager.EffTransitioEvolutionUpgrade(() =>
+        // {
+        //     // BGM CHANGE
+        //     GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
+
+        //     // 캐슬창 비활성화
+        //     mainPanels[(int)MenuPanelType.castle].gameObject.SetActive(false);
+
+        //     // UI 활성화
+        //     EnableCanvadGroup(EnumDefinition.CanvasTYPE.Main);
+
+        //     var monster = GlobalData.instance.player.currentMonster;
+        //     monster.gameObject.SetActive(true);
+        //     // Monster IN
+        //     StartCoroutine(GlobalData.instance.eventController.AppearMonster(MonsterType.normal));
+
+        //     GlobalData.instance.stageManager.SetBgImage();
+
+
+        // }));
             // BGM CHANGE
-            GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
+            //GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
 
             // 캐슬창 비활성화
             mainPanels[(int)MenuPanelType.castle].gameObject.SetActive(false);
@@ -590,25 +621,23 @@ public class UiController : MonoBehaviour
             // UI 활성화
             EnableCanvadGroup(EnumDefinition.CanvasTYPE.Main);
 
-            var monster = GlobalData.instance.player.currentMonster;
-            monster.gameObject.SetActive(true);
+            //var monster = GlobalData.instance.player.currentMonster;
+            //monster.gameObject.SetActive(true);
             // Monster IN
-            StartCoroutine(GlobalData.instance.eventController.AppearMonster(MonsterType.normal));
+           // StartCoroutine(GlobalData.instance.eventController.AppearMonster(MonsterType.normal));
 
-            GlobalData.instance.stageManager.SetBgImage();
-
-
-        }));
-
-        isCastleOpen = false;
+            //GlobalData.instance.stageManager.SetBgImage();
+        //isCastleOpen = false;
 
         // 황금 돼지 출현 타이머 활성
-        GlobalData.instance.goldPigController.ExitOtherView();
+        //GlobalData.instance.goldPigController.ExitOtherView();
 
         // 공격 가능 상태 전환
-        GlobalData.instance.attackController.SetAttackableState(true);
+        //GlobalData.instance.attackController.SetAttackableState(true);
 
-        UtilityMethod.EnableUIEventSystem(true);
+        //UtilityMethod.EnableUIEventSystem(true);
+                yield return null;;
+
     }
 
     void EnableDungeonEnterPopup(MonsterType monsterType)
@@ -636,11 +665,7 @@ public class UiController : MonoBehaviour
                 mainButtons[i].Select(enableValue);
                 ResetMainPannelScrollViewPosY(type);
 
-                if (type == MenuPanelType.training)
-                {
-                    GlobalData.instance.traningManager.EnableFirstSubMenuPanel();
-                }
-                else if(type == MenuPanelType.dna)
+                if(type == MenuPanelType.dna)
                 {
                     GlobalData.instance.dnaManger.UpdateHaveCount();
                 }

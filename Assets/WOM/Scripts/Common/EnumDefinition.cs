@@ -255,6 +255,8 @@ public class EnumDefinition
         shop = 3,
         union = 4,
         dna = 5,
+        skill = 6,
+        evolution = 7,
         none,
     }
 

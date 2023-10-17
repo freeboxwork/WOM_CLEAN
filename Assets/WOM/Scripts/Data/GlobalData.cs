@@ -35,7 +35,7 @@ public class GlobalData : MonoBehaviour
     public SaveDataManager saveDataManager;
     public SettingPopupController settingPopupController;
     public SoundManager soundManager;
-    public DungeonPopup dungeonPopup;
+    public DungeonRewardPopup dungeonRewardPopup;
     public DungeonManager dungeonManager;
     public DungeonEnterPopup dungeonEnterPopup;
     public CastleManager castleManager;

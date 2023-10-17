@@ -85,6 +85,7 @@ public class UiController : MonoBehaviour
 
     bool isMenuHide = false;
 
+    public CampPopup campPopup;
 
     public void ShowToggleAutoBossChallenge(bool value)
     {
@@ -594,6 +595,9 @@ public class UiController : MonoBehaviour
             // Monster IN
             StartCoroutine(GlobalData.instance.eventController.AppearMonster(MonsterType.normal));
 
+            GlobalData.instance.stageManager.SetBgImage();
+
+
         }));
 
         isCastleOpen = false;
@@ -612,6 +616,7 @@ public class UiController : MonoBehaviour
         // AllDisableMenuPanels();
         // AllUnSelectMenuBtns();
         //if (IsValidDungeonKeyCount(monsterType))
+        ShowFadeCanvasGroup(EnumDefinition.CanvasGroupTYPE.DUNGEON_POPUP, false);
         GlobalData.instance.dungeonEnterPopup.EnablePopup(monsterType);
     }
 

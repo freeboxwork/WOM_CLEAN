@@ -286,7 +286,7 @@ public class EvolutionManager : MonoBehaviour
     // 유니온 뽑기
     public void UnionLotteryGameStart(int roundCount, int payValye, EnumDefinition.RewardType rewardType)
     {
-        globalData.uiController.BlockCanvasGroup(CanvasGroupTYPE.CAMP, false);
+        //globalData.uiController.BlockCanvasGroup(CanvasGroupTYPE.CAMP, false);
         //trLotteryGameSet.gameObject.SetActive(true);
         globalData.lotteryManager.LotteryStart(roundCount, payValye, () =>
         {

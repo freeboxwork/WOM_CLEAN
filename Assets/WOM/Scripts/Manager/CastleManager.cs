@@ -64,7 +64,7 @@ public class CastleManager : MonoBehaviour
         //Ä·ÇÁ ÆË¾÷ ¿­±â
         UtilityMethod.SetBtnEventCustomTypeByID(53, () =>
         {
-            OpenCastlePopup(EnumDefinition.CastlePopupType.camp);
+            OpenCastlePopup(EnumDefinition.CastlePopupType.dungeon);
         });
 
         //¿¬±¸¼Ò ÆË¾÷ ¿­±â
@@ -143,6 +143,10 @@ public class CastleManager : MonoBehaviour
         // °Ç¼³ÇÏ±â ¹öÆ° UI Disable
         if (mineLevel > 0) SetUnLockButton(64, 51, true);
         if (factoryLevel > 0) SetUnLockButton(65, 52, true);
+
+        var dungeonPopup = (DungeonPopup)GetCastlePopupByType(CastlePopupType.dungeon);
+
+        dungeonPopup.Init();
 
     }
     // °ñµå Ã¤±¼
@@ -406,7 +410,7 @@ public class CastleManager : MonoBehaviour
                     }
                 });
                 break;
-            case CastlePopupType.camp:
+            case CastlePopupType.dungeon:
                 break;
             case CastlePopupType.lab:
                 break;

@@ -80,8 +80,9 @@ public class LotteryManager : MonoBehaviour
             if (!GlobalData.instance.saveDataManager.saveDataTotal.saveDataUnionSummonGrade.rewaedUnionIds_Remove.Contains(index))
                 GlobalData.instance.rewardManager.AddUnionReward(curSummonGradeData.rewardUnionIndex);
 
-            var campPopup = (CampPopup)GlobalData.instance.castleManager.GetCastlePopupByType(EnumDefinition.CastlePopupType.camp);
-            campPopup.SetTxtGradeLevel(curSummonGradeData.level);
+            GlobalData.instance.uiController.campPopup.SetTxtGradeLevel(curSummonGradeData.level);
+            //var campPopup = (CampPopup)GlobalData.instance.castleManager.GetCastlePopupByType(EnumDefinition.CastlePopupType.camp);
+            //campPopup.SetTxtGradeLevel(curSummonGradeData.level);
         }
 
     }
@@ -207,7 +208,7 @@ public class LotteryManager : MonoBehaviour
             yield break;
         }
 
-        GlobalData.instance.uiController.BlockCanvasGroup(EnumDefinition.CanvasGroupTYPE.CAMP, true);
+        //GlobalData.instance.uiController.BlockCanvasGroup(EnumDefinition.CanvasGroupTYPE.CAMP, true);
 
 
     }
@@ -229,19 +230,23 @@ public class LotteryManager : MonoBehaviour
     // UI 업데이트
     void PopupUIUpdate()
     {
-        CampPopup popup = (CampPopup)GlobalData.instance.castleManager.GetCastlePopupByType(EnumDefinition.CastlePopupType.camp);
+        //CampPopup popup = (CampPopup)GlobalData.instance.castleManager.GetCastlePopupByType(EnumDefinition.CastlePopupType.camp);
 
         if (summonGradeLevel >= 8)
         {
-            popup.SetSummonCountProgress(1, 1);
-            popup.SetTxtSummonCount(9999, 9999);
+            GlobalData.instance.uiController.campPopup.SetSummonCountProgress(1, 1);
+            GlobalData.instance.uiController.campPopup.SetTxtSummonCount(9999, 9999);
             return;
         }
+                //FillAmount 세팅
 
-        //FillAmount 세팅
-        popup.SetSummonCountProgress(totalGambleCount, curSummonGradeData.count);
-        //뽑기 카운트 UI 세팅
-        popup.SetTxtSummonCount(totalGambleCount, curSummonGradeData.count);
+                    GlobalData.instance.uiController.campPopup.SetSummonCountProgress(totalGambleCount, curSummonGradeData.count);
+                            //뽑기 카운트 UI 세팅
+
+                    GlobalData.instance.uiController.campPopup.SetTxtSummonCount(totalGambleCount, curSummonGradeData.count);
+
+        // popup.SetSummonCountProgress(totalGambleCount, curSummonGradeData.count);
+        // popup.SetTxtSummonCount(totalGambleCount, curSummonGradeData.count);
 
     }
 
@@ -249,8 +254,11 @@ public class LotteryManager : MonoBehaviour
     public void TotalDrawCountUiUpdate(int subCount)
     {
         //totalGamblePlayCount -= subCount;
-        var campPopup = (CampPopup)GlobalData.instance.castleManager.GetCastlePopupByType(EnumDefinition.CastlePopupType.camp);
-        campPopup.SetTxtSummonCount(totalGambleCount, curSummonGradeData.count);
+                            GlobalData.instance.uiController.campPopup.SetTxtSummonCount(totalGambleCount, curSummonGradeData.count);
+    
+
+        // var campPopup = (CampPopup)GlobalData.instance.castleManager.GetCastlePopupByType(EnumDefinition.CastlePopupType.camp);
+        // campPopup.SetTxtSummonCount(totalGambleCount, curSummonGradeData.count);
     }
 
     public IEnumerator MakeCardOption(int gameCount)

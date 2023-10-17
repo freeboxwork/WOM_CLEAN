@@ -1,65 +1,31 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.UI;
-using TMPro;
 
-public class DungeonPopup : MonoBehaviour
+public class DungeonPopup : CastlePopupBase
 {
-    public TextMeshProUGUI txtRewardAmount;
-    public Button btnApply;
-    public Image imageCurrencyIcon;
-    public SerializableDictionary<EnumDefinition.GoodsType, Sprite> goodsToIconMap;
-    public EnumDefinition.CanvasGroupTYPE canvasGroupType;
-
-    public Action OnButtonClick;
-
-    public GameObject particle;
-
-    private void Awake()
+    [SerializeField] List<DungeonSlot> dungeonSlots;
+    protected override void Awake()
     {
-        btnApply.onClick.AddListener(ButtonClickEvent);
-
+        base.Awake();
     }
 
-    public void SetDungeonPopup(EnumDefinition.GoodsType goodsType, float reward)
+    public override void ShowPopup()
     {
-        ShowPopup();
-        txtRewardAmount.text = UtilityMethod.ChangeSymbolNumber(reward);
-        imageCurrencyIcon.sprite = goodsToIconMap[goodsType];//???? ????? ?????? ????
+        base.ShowPopup();
+        Init();
+    }
+    public override void HidePopup()
+    {
+        base.HidePopup();
     }
 
-    //??? ??? ???
-    public void ButtonClickEvent()
+    public void Init()
     {
-        OnButtonClick.Invoke();
-        HidePopup();
-    }
-
-
-
-    public void SetBtnApplyEvent(UnityAction action)
-    {
-        btnApply.onClick.RemoveAllListeners();
-        btnApply.onClick.AddListener(() =>
+        foreach (var item in dungeonSlots)
         {
-            action.Invoke();
-
-            HidePopup();
-        });
+            item.UpdateUI();
+        }
     }
-
-    
-    public void ShowPopup()
-    {
-        GlobalData.instance.uiController.ShowFadeCanvasGroup(canvasGroupType, true);
-        particle.SetActive(true);
-    }
-    public void HidePopup()
-    {
-        GlobalData.instance.uiController.ShowFadeCanvasGroup(canvasGroupType, false);
-        particle.SetActive(false);
-    }
-
 
 }

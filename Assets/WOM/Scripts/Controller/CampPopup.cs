@@ -5,7 +5,7 @@ using ProjectGraphics;
 using System.Collections;
 using System.Collections.Generic;
 
-public class CampPopup : CastlePopupBase
+public class CampPopup : MonoBehaviour
 {
 
     public Image imgSummonCountProgress;
@@ -14,7 +14,6 @@ public class CampPopup : CastlePopupBase
 
     public Button btnGetReward;
 
-    public Button btnClose;
     public Toggle toggleUnionEffSkip;
     public Toggle toggleUnionRepeatGame;
     public Toggle toggleDnaRepeatGame;
@@ -26,35 +25,29 @@ public class CampPopup : CastlePopupBase
 
     public List<GameObject> particle;
 
-    protected override void Awake() {
-        base.Awake();
-    }
+
     void Start()
     {
         SetBtnEvent();
         ToggleReset();
     }
 
-    public override void ShowPopup()
+    void OnEnable()
     {
-        base.ShowPopup();
-
         foreach (var item in particle)
         {
             item.SetActive(true);
         }
-
+        GlobalData.instance.uiController.ButtonInteractableCheck();
     }
-    public override void HidePopup()
+    void OnDisable()
     {
-        base.HidePopup();
-
-        foreach (var item in particle)
+       foreach (var item in particle)
         {
             item.SetActive(false);
-        }
-
+        } 
     }
+
     public bool GetIsOnToggleSkipUnionIsOn()
     {
         return toggleUnionEffSkip.isOn;
@@ -100,9 +93,5 @@ public class CampPopup : CastlePopupBase
 
         });
 
-        btnClose.onClick.AddListener(() =>
-        {
-            HidePopup();
-        });
     }
 }

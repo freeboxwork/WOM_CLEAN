@@ -9,7 +9,8 @@ public class DungeonSlot : MonoBehaviour
     //public TextMeshProUGUI txtKeyCount;
     public EnumDefinition.MonsterType monsterType;
 
-    void OnEnable()
+
+    public void UpdateUI()
     {
         UpdateTxtKeyCount();
         SetTextBestScore();

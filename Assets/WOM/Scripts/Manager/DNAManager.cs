@@ -21,7 +21,7 @@ public class DNAManager : MonoBehaviour
 
     public void DNALotteryGameStart(int gameCount, int payValue, EnumDefinition.RewardType rewardType)
     {
-        GlobalData.instance.uiController.BlockCanvasGroup(EnumDefinition.CanvasGroupTYPE.CAMP, false);
+        //GlobalData.instance.uiController.BlockCanvasGroup(EnumDefinition.CanvasGroupTYPE.CAMP, false);
 
         if (isGambling == false)
         {
@@ -263,7 +263,7 @@ public class DNAManager : MonoBehaviour
             StopAllCoroutines();
             yield break;
         }
-        GlobalData.instance.uiController.BlockCanvasGroup(EnumDefinition.CanvasGroupTYPE.CAMP, true);
+        //GlobalData.instance.uiController.BlockCanvasGroup(EnumDefinition.CanvasGroupTYPE.CAMP, true);
         GlobalData.instance.dnaManger.UpdateHaveCount();
 
 

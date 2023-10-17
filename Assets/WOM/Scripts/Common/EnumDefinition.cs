@@ -10,12 +10,12 @@ public class EnumDefinition
     {
         MINE,
         FACTORY,
-        CAMP,
+        DUNGEON_POPUP,
         LAB,
         DUNGEON_REWARD_POPUP,
         DUNGEON_ENTER_POPUP,
         UNION_INFO_POPUP,
-        DUNGEON_GIVEUP_POPUP
+        DUNGEON_GIVEUP_POPUP,
 
     }
     public enum CanvasTYPE
@@ -383,7 +383,7 @@ public class EnumDefinition
     {
         mine,
         factory,
-        camp,
+        dungeon,
         lab
     }
 

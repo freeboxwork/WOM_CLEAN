@@ -20,6 +20,8 @@ public class MonsterAttackManager : MonoBehaviour
         {
             // 곤충들 공격 불가능 상태로 전환
             //GlobalData.instance.attackController.SetAttackableState(false);
+            // 보스 피격 안되게 전환
+            GlobalData.instance.eventController.SetBossMonsterAttackMotion(true);
             monsterBoss.AnimPlayAttack();
         }
     }
@@ -46,6 +48,9 @@ public class MonsterAttackManager : MonoBehaviour
     {
         // 곤충들 공격 가능 상태로 전환
         // GlobalData.instance.attackController.SetAttackableState(true);
+
+        // 보스 피격 가능 상태로 전환
+        GlobalData.instance.eventController.SetBossMonsterAttackMotion(false);
     }
 
 

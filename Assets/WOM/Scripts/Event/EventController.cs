@@ -26,6 +26,7 @@ public class EventController : MonoBehaviour
     public float addTimeScale = 0;
 
     bool bossMonsterAttack = false;
+    bool isBossMonsterAttackMotion = false;
 
     void Start()
     {
@@ -79,9 +80,11 @@ public class EventController : MonoBehaviour
 
     //===================================================================================================================================================================================
     #region MONSTER HIT
+
     void EvnOnMonsterHit(EnumDefinition.InsectType insectType, int unionIndex = 0, Transform tr = null)
     {
         if (IsMonsterDead) return;
+        if (isBossMonsterAttackMotion) return;
 
         var damage = globalData.insectManager.GetInsectDamage(insectType, insectType == InsectType.union ? unionIndex : 0, out bool isCritical);
         // GET MONSTER
@@ -124,6 +127,10 @@ public class EventController : MonoBehaviour
         }
     }
 
+    public void SetBossMonsterAttackMotion(bool value)
+    {
+        isBossMonsterAttackMotion = value;
+    }
     bool IsBossMonster()
     {
         return GlobalData.instance.player.currentMonster.monsterType == EnumDefinition.MonsterType.boss;

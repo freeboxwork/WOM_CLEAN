@@ -3,7 +3,7 @@ using UnityEngine;
 public class MonsterAttackManager : MonoBehaviour
 {
 
-    int attackPercent = 10;
+    //int attackPercent = 10;
     public MonsterBoss monsterBoss;
     float insectKillRadius = 2f;
 

@@ -18,7 +18,7 @@ namespace ProjectGraphics
         public MessageSlot[] slots;
         [SerializeField] int currentIndex;
 
-        bool allSlotHide = true; //예외처리용
+        //bool allSlotHide = true; //예외처리용
 
         void Start()
         {

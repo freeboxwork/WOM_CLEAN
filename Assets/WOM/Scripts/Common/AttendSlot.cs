@@ -13,7 +13,7 @@ public class AttendSlot : MonoBehaviour
     public Button btnReward;
 
 
-    bool isUsingReward = false;
+    //bool isUsingReward = false;
 
 
 

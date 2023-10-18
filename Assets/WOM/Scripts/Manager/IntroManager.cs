@@ -29,7 +29,6 @@ public class IntroManager : MonoBehaviour
     private AsyncOperation async; // 로딩
     public WOMAppUpdateManager wOMAppUpdateManager;
     public GameObject loadingObj;
-
     void Awake()
     {
         startButton.onClick.AddListener(GoMainScene); 
@@ -68,6 +67,7 @@ public class IntroManager : MonoBehaviour
     IEnumerator Init()
     {
         yield return new WaitForSeconds(0.3f);
+
         //앱 업데이트 체크
         yield return StartCoroutine(wOMAppUpdateManager.AppUpdateCheck());
         //구글 로그인

@@ -84,8 +84,6 @@ public class UiController : MonoBehaviour
     public Toggle toggleAutoBossChallenge;
     public GameObject toggleAutoBossGameObject;
 
-    bool isMenuHide = false;
-
     public CampPopup campPopup;
 
     public void ShowToggleAutoBossChallenge(bool value)
@@ -439,6 +437,13 @@ public class UiController : MonoBehaviour
         UtilityMethod.SetBtnEventCustomTypeByID(55, () =>
         {
             StartCoroutine(ExitCastlePanel());
+        });
+
+        // 소환버튼
+        UtilityMethod.SetBtnEventCustomTypeByID(50, () =>
+        {
+            campPopup.gameObject.SetActive(true);
+            campPopup.UpdateUI();
         });
 
         for (int i = 0; i < mainButtons.Count; i++)

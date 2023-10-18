@@ -34,7 +34,7 @@ public class GlobalController : MonoBehaviour
 
     public InAppPurchaseManager inAppPurchaseManager;
 
-    public TutorialManager tutorialManager;
+    //public TutorialManager tutorialManager;
 
     public FirebaseManager firebaseManager;
 
@@ -148,7 +148,7 @@ public class GlobalController : MonoBehaviour
         yield return StartCoroutine(labBuildingManager.Init());
 
         // 투토리얼 초기화
-        yield return StartCoroutine(tutorialManager.Init());
+        //yield return StartCoroutine(tutorialManager.Init());
 
         // 투토리얼 실행 상황에 따라 상점버튼 활성 / 비활성화
         //UtilityMethod.GetCustomTypeBtnByID(6).gameObject.SetActive(tutorialManager.isEndTutorial);
@@ -164,8 +164,14 @@ public class GlobalController : MonoBehaviour
         // 오프라인 보상 팝업 등장
         yield return StartCoroutine(offlineRewardPopupContoller.Init());
         //만약 튜토리얼 SetId가 8번(유니온뽑기) 보다 크다면 캐슬버튼 비활성화
-        var active = GlobalData.instance.tutorialManager.GetTutorialSetId() > 4 ? true : false;
-        uiController.castleButtonObj.SetActive(active);
+        //var active = GlobalData.instance.tutorialManager.GetTutorialSetId() > 4 ? true : false;
+        //uiController.castleButtonObj.SetActive(true);
+
+        //캐슬
+        UtilityMethod.GetCustomTypeGMById(16).SetActive(true);
+        //소환 버튼
+        UtilityMethod.GetCustomTypeGMById(9).SetActive(true);
+
         // 트랜지션 아웃 ( black screen )
         yield return StartCoroutine(GlobalData.instance.effectManager.TransitionOut());
 
@@ -195,7 +201,7 @@ public class GlobalController : MonoBehaviour
         // }
         // 버튼 가능 상태로 전환
         UtilityMethod.EnableUIEventSystem(true);
-        tutorialManager.TutorialStart();
+        //tutorialManager.TutorialStart();
         //firebaseManager.LogEvent("UserData","Stage",stageManager.stageData.stageId);
 
         // firebaseManager.LogEvent("Stage",

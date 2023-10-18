@@ -38,7 +38,6 @@ public class CampPopup : MonoBehaviour
         {
             item.SetActive(true);
         }
-        GlobalData.instance.uiController.ButtonInteractableCheck();
     }
     void OnDisable()
     {
@@ -46,6 +45,11 @@ public class CampPopup : MonoBehaviour
         {
             item.SetActive(false);
         } 
+    }
+
+    public void UpdateUI()
+    {
+        GlobalData.instance.uiController.ButtonInteractableCheck();
     }
 
     public bool GetIsOnToggleSkipUnionIsOn()

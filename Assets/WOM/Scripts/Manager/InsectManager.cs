@@ -41,7 +41,7 @@ public class InsectManager : MonoBehaviour
     public Transform insectTargetPoint;
 
     //UNION 발사체 ( Spwan Timer 활용 )
-    public SpriteFileData spriteFileData;
+    //public SpriteFileData spriteFileData;
     public InsectBullet prefabUnion;
     public List<InsectBullet> insectBullets_Union = new List<InsectBullet>();
     public int unionBirthCount = 30;
@@ -49,7 +49,7 @@ public class InsectManager : MonoBehaviour
     int disableUnionIndex = 0;
 
     //INSECT 발사체 ( Spwan Timer 활용 )
-    int insectStBirthCount = 20;
+    //int insectStBirthCount = 20;
     int disableInsectBeeIndex, disableInsectBeetleIndex, disableInsectMentisIndex = 0;
     public List<InsectBullet> st_insectBullets_Bee;
     public List<InsectBullet> st_insectBullets_Beetle;

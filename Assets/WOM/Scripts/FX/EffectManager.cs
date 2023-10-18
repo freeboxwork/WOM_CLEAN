@@ -44,8 +44,8 @@ public class EffectManager : MonoBehaviour
     public AnimData animDataTranOut;
 
     [Header("=====================================================================================================================")]
-    [Header("몬스터 타격시 나타나는 텍스트")]
-    int flotingTextPoolCount = 20;
+    //[Header("몬스터 타격시 나타나는 텍스트")]
+    //int flotingTextPoolCount = 20;
 
     [Header("=====================================================================================================================")]
     [Header("화면전환 이펙트")]

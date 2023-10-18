@@ -12,7 +12,6 @@ public class TraningManager : MonoBehaviour
 
     [SerializeField]
     List<GameObject> subPanels = new List<GameObject>();
-    TrainingSubPanelType curSubPanelType = TrainingSubPanelType.none;
 
      // 저장된 게임 데이터 로드 및 세팅
     IEnumerator LoadInGameData()

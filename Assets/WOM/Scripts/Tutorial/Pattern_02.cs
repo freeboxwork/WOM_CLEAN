@@ -7,7 +7,7 @@ public class Pattern_02 : PatternBase
     int touchCount = 0;
     int targetTouchCount = 1;
 
-    bool isTextTypeEnd = false;
+    //bool isTextTypeEnd = false;
 
     void Start()
     {

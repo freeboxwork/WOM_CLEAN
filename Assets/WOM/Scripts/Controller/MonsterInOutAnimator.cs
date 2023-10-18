@@ -16,7 +16,7 @@ public class MonsterInOutAnimator : MonoBehaviour
     
 
 
-    bool isAnimPlay;
+    bool isAnimPlay = false;
     void Start()
     {
         

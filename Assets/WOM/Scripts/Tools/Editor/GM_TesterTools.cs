@@ -16,7 +16,7 @@ public class GM_TesterTools : EditorWindow
     bool customLevelingFold = false;
 
     bool tutorialFold = false;
-    bool skillFold = false;
+    //bool skillFold = false;
 
 
     float addGold;

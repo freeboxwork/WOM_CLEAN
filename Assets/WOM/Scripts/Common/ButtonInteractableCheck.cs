@@ -13,7 +13,7 @@ public class ButtonInteractableCheck : MonoBehaviour
     [SerializeField] Sprite enableSprite;
     [SerializeField] Sprite disableSprite;
 
-    void Start()
+    void Awake()
     {
         btn = GetComponent<Button>();
     }

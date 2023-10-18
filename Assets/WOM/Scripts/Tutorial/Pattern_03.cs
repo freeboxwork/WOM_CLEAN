@@ -5,7 +5,7 @@ using UnityEngine;
 public class Pattern_03 : PatternBase
 {
     int? btnIndex = null;
-    bool isMenuClose = false;
+    //bool isMenuClose = false;
 
 
     void Start()

@@ -12,8 +12,8 @@ namespace ProjectGraphics
         public Sprite[] gradeBackImage;
         public Lottery_Slot[] slots;
 
-        private bool isSkip = true;
-        private bool isSkipDNA = true;
+        //private bool isSkip = true;
+        //private bool isSkipDNA = true;
         public bool isUnion = true;
         public bool isEnd = false;
         public CampPopup campPopup;

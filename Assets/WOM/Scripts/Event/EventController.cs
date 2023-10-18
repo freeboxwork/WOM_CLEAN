@@ -1009,7 +1009,6 @@ public class EventController : MonoBehaviour
         isEnterFail = true;
 
         IsMonsterDead = true;
-        UtilityMethod.EnableUIEventSystem(false);
         globalData.bossChallengeTimer.StopBossTimer(true);
         // 공격 불가능 상태로 전환
         globalData.attackController.SetAttackableState(false);
@@ -1037,15 +1036,22 @@ public class EventController : MonoBehaviour
             // 보스 타이머 게임 오브젝트 비활성화
             globalData.uiController.ToggleBossTimer(false);
             globalData.uiController.EnableCanvadGroup(EnumDefinition.CanvasTYPE.Castle);
-            globalData.uiController.EnableMenuPanel(EnumDefinition.MenuPanelType.castle);
+            globalData.uiController.castleButton.gameObject.SetActive(true);
+            globalData.uiController.castlePanel.gameObject.SetActive(true);
+
             //DUNGEON_BOX_ICON_BTN 박스아이콘 비활성화
             UtilityMethod.GetCustomTypeGMById(10).gameObject.SetActive(false);
             // BGM CHANGE
-            GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Castle);
+            GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
+            // 활성화 된 모든 곤충 모두 제거
+            globalData.insectManager.DisableAllAvtiveInsects();
+            // UI 숨김
+            globalData.uiController.ShowUI(true);
+            globalData.stageManager.SetBgImage();
         }));
-
-        UtilityMethod.EnableUIEventSystem(true);
         dungeonMonsterPopupClose = false;
+        // 미리 저장된 몬스터 등장
+        yield return StartCoroutine(AppearMonster(MonsterType.normal));
 
     }
     //던전 포기 버튼을 눌렀을 때
@@ -1121,10 +1127,12 @@ public class EventController : MonoBehaviour
         // 화면전환 이펙트
         yield return StartCoroutine(globalData.effectManager.EffTransitioEvolutionUpgrade(() =>
         {
-
+            // 활성화 된 모든 곤충 모두 제거
+            globalData.insectManager.DisableAllAvtiveInsects();
             globalData.uiController.EnableCanvadGroup(EnumDefinition.CanvasTYPE.Main);
             // 버튼 패널 및 캐슬화면 숨김
-            GlobalData.instance.uiController.AllDisableMenuPanels();
+            globalData.uiController.castleButton.gameObject.SetActive(false);
+            globalData.uiController.castlePanel.gameObject.SetActive(false);
             // UI 숨김
             globalData.uiController.ShowUI(false);
             // 보스 도전 버튼 활성화
@@ -1145,7 +1153,8 @@ public class EventController : MonoBehaviour
             // 던전 몬스터 레벨 표시
             UtilityMethod.SetTxtCustomTypeByID(107, $"X{0}");
             UtilityMethod.GetCustomTypeImageById(46).sprite = iconSpriteFileData.GetBoxIcon(monsterType);
-
+            // Show Dungeon Monster
+            globalData.monsterManager.ShowMonsterByType(MonsterType.dungeon);
         }));
         // 골드 OUT EFFECT ( 골드 화면에 뿌려진 경우에만 )
         //StartCoroutine(globalData.effectManager.goldPoolingCont.DisableGoldEffects());
@@ -1155,8 +1164,7 @@ public class EventController : MonoBehaviour
         // BGM CHANGE
         GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_DungeonBoss);
         var monster = globalData.monsterManager.GetMonsterDungeon();
-        // Show Dungeon Monster
-        globalData.monsterManager.ShowMonsterByType(MonsterType.dungeon);
+
         // 던전 몬스터 데이터 세팅
         yield return StartCoroutine(monster.Init(monsterType));
         // 던전 몬스터 등장
@@ -1232,10 +1240,14 @@ public class EventController : MonoBehaviour
         // 화면전환 이펙트
         yield return StartCoroutine(globalData.effectManager.EffTransitioEvolutionUpgrade(() =>
         {
+            globalData.stageManager.SetBgImage();
 
+            // 활성화 된 모든 곤충 모두 제거
+            globalData.insectManager.DisableAllAvtiveInsects();
             globalData.uiController.EnableCanvadGroup(EnumDefinition.CanvasTYPE.Castle);
-            globalData.uiController.EnableMenuPanel(EnumDefinition.MenuPanelType.castle);
+            globalData.uiController.castlePanel.gameObject.SetActive(true);
 
+            globalData.uiController.castleButton.gameObject.SetActive(true);
             // 보스 타이머 게임 오브젝트 비활성화
             globalData.uiController.ToggleBossTimer(false);
             // UI 활성화
@@ -1243,11 +1255,13 @@ public class EventController : MonoBehaviour
             //DUNGEON_BOX_ICON_BTN 박스아이콘 비활성화
             UtilityMethod.GetCustomTypeGMById(10).gameObject.SetActive(false);
             // BGM CHANGE
-            GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Castle);
-            
-        }));
+            GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
 
+        }));
+        // 미리 저장된 몬스터 등장
+        yield return StartCoroutine(AppearMonster(MonsterType.normal));
         dungeonMonsterPopupClose = false;
+
 
     }
 

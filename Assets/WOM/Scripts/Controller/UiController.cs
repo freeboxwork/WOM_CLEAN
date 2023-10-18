@@ -37,7 +37,8 @@ public class UiController : MonoBehaviour
     [SerializeField]
     List<GameObject> mainPanels = new List<GameObject>();
     public List<MainBtnSlot> mainButtons = new List<MainBtnSlot>();
-
+    public GameObject castlePanel;
+    public Button castleButton;
     //[Header("진화 UI 관련 항목")]
     //public List<Sprite> evolutionGradeBadgeImages = new List<Sprite>();
     //public List<EvolutionSlot> evolutionSlots = new List<EvolutionSlot>();
@@ -444,24 +445,17 @@ public class UiController : MonoBehaviour
         {
             var index = i;
             var btn = mainButtons[index];
-            if (btn.menuPanelType == MenuPanelType.castle)
+            btn.btnMain.onClick.AddListener(() =>
             {
-                btn.btnMain.onClick.AddListener(() =>
-                {
-                    if(isCastleOpen) return;
-                    StartCoroutine(EnableCastlePanel());
-                });
-            }
-            else
-            {
-                btn.btnMain.onClick.AddListener(() =>
-                {
-                    EnableMenuPanel(btn.menuPanelType);
-                });
-            }
+                EnableMenuPanel(btn.menuPanelType);
+            });
 
         }
-
+        castleButton.onClick.AddListener(() =>
+        {
+            if (isCastleOpen) return;
+            StartCoroutine(EnableCastlePanel());
+        });
 
     }
 
@@ -495,7 +489,7 @@ public class UiController : MonoBehaviour
         //보스의 경우 뼈조각 OUT EFF 추가 ( 뼈조각 화면에 뿌려진 경우에만 )
         //StartCoroutine(GlobalData.instance.effectManager.bonePoolingCont.DisableGoldEffects());
         // 공격 불가능 상태 전환
-        //GlobalData.instance.attackController.SetAttackableState(false);
+        GlobalData.instance.attackController.SetAttackableState(false);
         // 황금돼지 비활성화
         //GlobalData.instance.goldPigController.EnterOtherView();
         // 버튼 클릭 안되게 수정
@@ -536,8 +530,8 @@ public class UiController : MonoBehaviour
             // 활성화된 곤충 모두 비활성화
             //GlobalData.instance.insectManager.DisableAllAvtiveInsects();
             
-            mainPanels[(int)MenuPanelType.castle].SetActive(true);
-
+            //mainPanels[(int)MenuPanelType.castle].SetActive(true);
+            castlePanel.SetActive(true);
             // UI 비활성화
             
             EnableCanvadGroup(EnumDefinition.CanvasTYPE.Castle);
@@ -616,11 +610,10 @@ public class UiController : MonoBehaviour
             //GlobalData.instance.soundManager.PlayBGM(EnumDefinition.BGM_TYPE.BGM_Main);
 
             // 캐슬창 비활성화
-            mainPanels[(int)MenuPanelType.castle].gameObject.SetActive(false);
-
+            //mainPanels[(int)MenuPanelType.castle].gameObject.SetActive(false);
+            castlePanel.SetActive(false);
             // UI 활성화
             EnableCanvadGroup(EnumDefinition.CanvasTYPE.Main);
-
             //var monster = GlobalData.instance.player.currentMonster;
             //monster.gameObject.SetActive(true);
             // Monster IN
@@ -633,10 +626,10 @@ public class UiController : MonoBehaviour
         //GlobalData.instance.goldPigController.ExitOtherView();
 
         // 공격 가능 상태 전환
-        //GlobalData.instance.attackController.SetAttackableState(true);
+        GlobalData.instance.attackController.SetAttackableState(true);
 
         //UtilityMethod.EnableUIEventSystem(true);
-                yield return null;;
+        yield return null;;
 
     }
 
@@ -813,6 +806,9 @@ public class UiController : MonoBehaviour
         UtilityMethod.GetCustomTypeGMById(15).SetActive(isActive);
         //캐슬
         UtilityMethod.GetCustomTypeGMById(16).SetActive(isActive);
+        //소환 버튼
+        UtilityMethod.GetCustomTypeGMById(9).SetActive(isActive);
+
         MainMenuAllUnSelect();
     }
 

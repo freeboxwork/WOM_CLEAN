@@ -67,11 +67,11 @@ TagManager:
   - name: Goods
     uniqueID: 4267736641
     locked: 0
-  - name: Castle
-    uniqueID: 1201207303
-    locked: 0
   - name: Effects
     uniqueID: 3951863921
+    locked: 0
+  - name: Castle
+    uniqueID: 1201207303
     locked: 0
   - name: CoverEffects
     uniqueID: 2635661689

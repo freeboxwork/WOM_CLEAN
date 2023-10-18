@@ -250,13 +250,12 @@ public class EnumDefinition
     public enum MenuPanelType
     {
         training = 0,
-        castle = 1,
-        dungeon = 2,
-        shop = 3,
-        union = 4,
-        dna = 5,
-        skill = 6,
-        evolution = 7,
+        dungeon = 1,
+        shop = 2,
+        union = 3,
+        dna = 4,
+        skill = 5,
+        evolution = 6,
         none,
     }
 

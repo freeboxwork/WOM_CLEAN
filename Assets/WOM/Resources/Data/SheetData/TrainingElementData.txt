@@ -3,79 +3,79 @@
    "id": 0,
    "buttonSprite": "BaseButton",
    "currencySprite": "Gold",
-   "trainingName": "곤충 공격력",
+   "trainingName": "공격력",
    "trainingType": "trainingDamage",
    "goodsType": "gold",
-   "description": "공격력이 <Power> 증가"
+   "description": "곤충의 공격력이 <Power> 증가"
  },
  {
    "id": 1,
    "buttonSprite": "BaseButton",
    "currencySprite": "Gold",
-   "trainingName": "곤충 치명타 확률",
+   "trainingName": "치명타 확률",
    "trainingType": "trainingCriticalChance",
    "goodsType": "gold",
-   "description": "치명타 확률이 <Power> 증가"
+   "description": "곤충의 치명타 확률이 <Power> 증가"
  },
  {
    "id": 2,
    "buttonSprite": "BaseButton",
    "currencySprite": "Gold",
-   "trainingName": "곤충 치명타 공격력",
+   "trainingName": "치명타 공격력",
    "trainingType": "trainingCriticalDamage",
    "goodsType": "gold",
-   "description": "치명타 공격률이 <Power> 증가"
+   "description": "곤충의 치명타 공격률이 <Power> 증가"
  },
  {
    "id": 3,
    "buttonSprite": "BaseButton",
    "currencySprite": "Bone",
-   "trainingName": "곤충 공격률",
+   "trainingName": "공격률",
    "trainingType": "talentDamage",
    "goodsType": "bone",
-   "description": "공격률이 <Power> 증가"
+   "description": "곤충의 공격률이 <Power> 증가"
  },
  {
    "id": 4,
    "buttonSprite": "BaseButton",
    "currencySprite": "Bone",
-   "trainingName": "곤충 추가 치명타 확률",
+   "trainingName": "추가 치명타 확률",
    "trainingType": "talentCriticalChance",
    "goodsType": "bone",
-   "description": "치명타 확률이 추가로  <Power> 증가"
+   "description": "곤충의 치명타 확률이 추가로  <Power> 증가"
  },
  {
    "id": 5,
    "buttonSprite": "BaseButton",
    "currencySprite": "Bone",
-   "trainingName": "곤충 추가 치명타 공격력",
+   "trainingName": "추가 치명타 공격력",
    "trainingType": "talentCriticalDamage",
    "goodsType": "bone",
-   "description": "치명타 공격률이 추가로 <Power> 증가"
+   "description": "곤충의 치명타 공격률이 추가로 <Power> 증가"
  },
  {
    "id": 6,
    "buttonSprite": "BaseButton",
    "currencySprite": "Bone",
-   "trainingName": "곤충 이동 속도",
+   "trainingName": "이동 속도",
    "trainingType": "talentMoveSpeed",
    "goodsType": "bone",
-   "description": "이동 속도가 <Power> 증가"
+   "description": "곤충의 이동 속도가 <Power> 증가"
  },
  {
    "id": 7,
    "buttonSprite": "BaseButton",
    "currencySprite": "Bone",
-   "trainingName": "곤충 생성 시간",
+   "trainingName": "생성 시간",
    "trainingType": "talentSpawnSpeed",
    "goodsType": "bone",
-   "description": "자동 생성 시간이 <Power> 감소"
+   "description": "곤충의 자동 생성 시간이 <Power> 감소"
  },
  {
    "id": 8,
    "buttonSprite": "BaseButton",
    "currencySprite": "Bone",
-   "trainingName": "곤충 골드 보너스",
+   "trainingName": "골드 보너스",
    "trainingType": "talentGoldBonus",
    "goodsType": "bone",
    "description": "골드 획득량이 <Power> 증가"

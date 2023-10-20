@@ -156,7 +156,7 @@ public class CastleManager : MonoBehaviour
     {
 
         var popup = (MinePopup)GetCastlePopupByType(CastlePopupType.mine);
-        digUpGoldTime = buildDataMine.productionTime;
+        //digUpGoldTime = buildDataMine.productionTime;
         popup.SetTextDigUpFullText("채굴중");
 
         while (true)
@@ -194,7 +194,7 @@ public class CastleManager : MonoBehaviour
     IEnumerator MiningBone()
     {
         var popup = (MinePopup)GetCastlePopupByType(CastlePopupType.factory);
-        digUpBoneTime = buildDataFactory.productionTime;
+        //digUpBoneTime = buildDataFactory.productionTime;
         popup.SetTextDigUpFullText("채굴중");
 
         while (true)
@@ -358,6 +358,7 @@ public class CastleManager : MonoBehaviour
                         var tempSaveGold = buildDataMine.TotlaMiningValue;
                         buildDataMine.TotlaMiningValue = tempSaveGold;
                         
+                        digUpGoldTime = 0;
                         //Debug.Log( isUpgrade + " mine level " + 
                         SetUnLockButton(64, 51, true);
                         // 골드 채굴 시작
@@ -392,7 +393,7 @@ public class CastleManager : MonoBehaviour
                         //현재까지 저장된 뼛조각를 갱신한 데이터에 저장
                         var tempSaveBone = buildDataMine.TotlaMiningValue;
                         buildDataFactory.TotlaMiningValue = tempSaveBone;
-
+                        digUpBoneTime = 0;
                         //Debug.Log(isUpgrade + " factory level " + factoryLevel);
                         SetUnLockButton(65, 52, true);
                         // 골드 채굴 시작

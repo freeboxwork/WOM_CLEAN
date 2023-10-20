@@ -63,59 +63,59 @@ public class GlobalPopupController : MonoBehaviour
     }
 
 
-    public void EnableGlobalPopupEventByMesageID(string title, int messageId, UnityAction evn)
-    {
-        btnConfirm.onClick.RemoveAllListeners();
-        btnConfirm.onClick.AddListener(()=> {
-            evn.Invoke();
-            ResetBtnEvent();
-        });
+    // public void EnableGlobalPopupEventByMesageID(string title, int messageId, UnityAction evn)
+    // {
+    //     btnConfirm.onClick.RemoveAllListeners();
+    //     btnConfirm.onClick.AddListener(()=> {
+    //         evn.Invoke();
+    //         ResetBtnEvent();
+    //     });
 
-          var messageData = GetMessageById(messageId);
+    //       var messageData = GetMessageById(messageId);
 
-        //SetTxtTitle(messageData.title);
-        SetTxtMessage(messageData.message_kor);
-        popupSet.SetActive(true);
+    //     //SetTxtTitle(messageData.title);
+    //     SetTxtMessage(messageData.message_kor);
+    //     popupSet.SetActive(true);
 
-    }
+    // }
 
-    public void EnableGlobalPopupOutValueByMesageID(string title, int messageId, out bool value)
-    {
-        bool confirmValue = false;
-        btnConfirm.onClick.RemoveAllListeners();
-        btnConfirm.onClick.AddListener(() =>
-        {
-            confirmValue = true;
-            ResetBtnEvent();
-        });
+    // public void EnableGlobalPopupOutValueByMesageID(string title, int messageId, out bool value)
+    // {
+    //     bool confirmValue = false;
+    //     btnConfirm.onClick.RemoveAllListeners();
+    //     btnConfirm.onClick.AddListener(() =>
+    //     {
+    //         confirmValue = true;
+    //         ResetBtnEvent();
+    //     });
 
-        var messageData = GetMessageById(messageId);
+    //     var messageData = GetMessageById(messageId);
 
-        //SetTxtTitle(messageData.title);
-        SetTxtMessage(messageData.message_kor);
-        popupSet.SetActive(true);
+    //     //SetTxtTitle(messageData.title);
+    //     SetTxtMessage(messageData.message_kor);
+    //     popupSet.SetActive(true);
 
 
-        value = confirmValue;
-    }
+    //     value = confirmValue;
+    // }
 
-    public IEnumerator EnableGlobalPopupCor(string title, int messageId)
-    {
-        bool confirmValue = false;
-        btnConfirm.onClick.RemoveAllListeners();
-        btnConfirm.onClick.AddListener(() => {
-            confirmValue = true;
-            ResetBtnEvent();
-        });
+    // public IEnumerator EnableGlobalPopupCor(string title, int messageId)
+    // {
+    //     bool confirmValue = false;
+    //     btnConfirm.onClick.RemoveAllListeners();
+    //     btnConfirm.onClick.AddListener(() => {
+    //         confirmValue = true;
+    //         ResetBtnEvent();
+    //     });
 
-    var messageData = GetMessageById(messageId);
+    // var messageData = GetMessageById(messageId);
 
-        //SetTxtTitle(messageData.title);
-        SetTxtMessage(messageData.message_kor);
-        popupSet.SetActive(true);
+    //     //SetTxtTitle(messageData.title);
+    //     SetTxtMessage(messageData.message_kor);
+    //     popupSet.SetActive(true);
 
-        yield return new WaitUntil(() => confirmValue);
-    }
+    //     yield return new WaitUntil(() => confirmValue);
+    // }
 
     // remove event
     void ResetBtnEvent()
@@ -135,10 +135,10 @@ public class GlobalPopupController : MonoBehaviour
     }
 
 
-    void SetTxtTitle(string value)
-    {
-        txtTtile.text = value;
-    }
+    // void SetTxtTitle(string value)
+    // {
+    //     txtTtile.text = value;
+    // }
     void SetTxtMessage(string value)
     {
         txtMessage.text = value;

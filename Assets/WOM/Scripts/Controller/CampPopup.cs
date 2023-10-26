@@ -22,6 +22,7 @@ public class CampPopup : MonoBehaviour
     bool isToggleRepeatUnion;
     bool isToggleRepeatDNA;
     public LotteryAnimationController lotteryAnimationController;
+        public EnumDefinition.CanvasGroupTYPE canvasGroupType;
 
     public List<GameObject> particle;
 
@@ -45,11 +46,6 @@ public class CampPopup : MonoBehaviour
         {
             item.SetActive(false);
         } 
-    }
-
-    public void UpdateUI()
-    {
-        GlobalData.instance.uiController.ButtonInteractableCheck();
     }
 
     public bool GetIsOnToggleSkipUnionIsOn()
@@ -97,5 +93,17 @@ public class CampPopup : MonoBehaviour
 
         });
 
+    }
+
+
+    
+    public void ShowPopup()
+    {
+        GlobalData.instance.uiController.ShowFadeCanvasGroup(canvasGroupType, true);
+        GlobalData.instance.uiController.ButtonInteractableCheck();
+    }
+    public void HidePopup()
+    {
+        GlobalData.instance.uiController.ShowFadeCanvasGroup(canvasGroupType, false);
     }
 }

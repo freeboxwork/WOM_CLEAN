@@ -752,3 +752,11 @@ public class SkillLevelData
     public int maxLevel;
     public string desctiption;
 }
+[Serializable]
+public class UnLockContentData
+{
+    public int index;
+    public int unLockid;
+    public string guideMessage;
+
+}

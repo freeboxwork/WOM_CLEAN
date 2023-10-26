@@ -39,6 +39,7 @@ public class GlobalController : MonoBehaviour
     public FirebaseManager firebaseManager;
 
     public BackEndDataManager backEndDataManager;
+    public GuideManager guideManager;
 
     void Awake()
     {
@@ -146,7 +147,9 @@ public class GlobalController : MonoBehaviour
 
         // 랩 초기화
         yield return StartCoroutine(labBuildingManager.Init());
-
+        //가이드 초기화
+        yield return StartCoroutine(guideManager.Init());   
+        
         // 투토리얼 초기화
         //yield return StartCoroutine(tutorialManager.Init());
 

@@ -16,6 +16,7 @@ public class EnumDefinition
         DUNGEON_ENTER_POPUP,
         UNION_INFO_POPUP,
         DUNGEON_GIVEUP_POPUP,
+        SUMMON_POPUP
 
     }
     public enum CanvasTYPE
@@ -142,6 +143,7 @@ public class EnumDefinition
         skillgMonsterKingData,
         monsterSpriteDataNormal,
         monsterSpriteDataBoss,
+        unLockContentsData
 
     }
 

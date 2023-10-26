@@ -145,6 +145,7 @@ public class DataManager : MonoBehaviour
 
     // Í¥ëÍ≥† Î≥¥ÏÉÅ ?ç∞?ù¥?Ñ∞ ( Î≥¥ÏÑù )
     public RewardAdGemDats rewardAdGemDats;
+    public UnLockContentDatas unLockContentData;
 
 
 
@@ -212,6 +213,7 @@ public class DataManager : MonoBehaviour
 
         // SET REWARD AD GEM DATA
         SetRewardAdGemData();
+        SetUnLockContentData();
 
         // SET TRANING DATA
         //SetSkillData();
@@ -250,6 +252,10 @@ public class DataManager : MonoBehaviour
     void SetLabBuildingData()
     {
         labBuildingDatas = GetData<LabBuidingDatas>(SheetDataType.buindingDataLab);
+    }
+    void SetUnLockContentData()
+    {
+        unLockContentData = GetData<UnLockContentDatas>(SheetDataType.unLockContentsData);
     }
 
     void SetSaleStatDatas()
@@ -622,6 +628,11 @@ public class DataManager : MonoBehaviour
         return labBuildingDatas.data.FirstOrDefault(f => f.level == level);
     }
 
+    public UnLockContentData GetUnLockContentDataByType(int index)
+    {
+        return unLockContentData.data.FirstOrDefault(f => f.index == index);
+    }
+
 }
 
 
@@ -819,4 +830,9 @@ public class SkillAllUnitCriticalChanceUpDatas
 public class SkillMonsterKingDatas
 {
     public List<SkillLevelData> data = new List<SkillLevelData>();
+}
+[Serializable]
+public class UnLockContentDatas
+{
+    public List<UnLockContentData> data = new List<UnLockContentData>();
 }

@@ -60,7 +60,7 @@ public class DamageGraphWindow : EditorWindow
 
         a = EditorGUILayout.Slider("데미지 Value", a, aValueMin, aValueMax);
         b = EditorGUILayout.Slider("데미지 Value", b, bValueMin, bValueMax);
-        maxLevel = EditorGUILayout.IntSlider("Max Level", maxLevel, 0, 200);
+        maxLevel = EditorGUILayout.IntSlider("Max Level", maxLevel, 0, 1000);
         if (EditorGUI.EndChangeCheck())
         {
             UpdateDamages();

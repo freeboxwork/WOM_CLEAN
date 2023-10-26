@@ -3,72 +3,82 @@
  {
    "index": 0,
    "unLockId": 1,
-   "guideMessage": "가이드 2 완료 시 활성화 됩니다"
+   "guideMessage": "오픈\n가이드 2"
  },
  {
    "index": 1,
    "unLockId": 2,
-   "guideMessage": "가이드 7 완료 시 활성화 됩니다"
+   "guideMessage": "오픈\n가이드 7"
  },
  {
    "index": 2,
    "unLockId": 3,
-   "guideMessage": "가이드 12 완료 시 활성화 됩니다"
+   "guideMessage": "오픈\n가이드 12"
  },
  {
    "index": 3,
    "unLockId": 4,
-   "guideMessage": "가이드 25 완료 시 활성화 됩니다"
+   "guideMessage": "오픈\n가이드 25"
  },
  {
    "index": 4,
    "unLockId": 5,
-   "guideMessage": "가이드 30 완료 시 활성화 됩니다"
+   "guideMessage": "오픈\n가이드 30"
  },
  {
    "index": 5,
    "unLockId": 6,
-   "guideMessage": "가이드 30 완료 시 활성화 됩니다"
+   "guideMessage": "오픈\n가이드 30"
  },
  {
    "index": 6,
    "unLockId": 7,
-   "guideMessage": "가이드 47 완료 시 활성화 됩니다"
+   "guideMessage": "오픈\n가이드 47"
  },
  {
    "index": 7,
    "unLockId": 8,
-   "guideMessage": "가이드 47 완료 시 활성화 됩니다"
+   "guideMessage": "오픈\n가이드 47"
  },
  {
    "index": 8,
    "unLockId": 9,
-   "guideMessage": "가이드 66 완료 시 활성화 됩니다"
+   "guideMessage": "오픈\n가이드 66"
  },
  {
    "index": 9,
    "unLockId": 10,
-   "guideMessage": "가이드 83 완료 시 활성화 됩니다"
+   "guideMessage": "오픈\n가이드 83"
  },
  {
    "index": 10,
    "unLockId": 11,
-   "guideMessage": "가이드 83 완료 시 활성화 됩니다"
+   "guideMessage": "오픈\n가이드 83"
  },
  {
    "index": 11,
    "unLockId": 12,
-   "guideMessage": "가이드 102 완료 시 활성화 됩니다"
+   "guideMessage": "오픈\n가이드 106 "
  },
  {
    "index": 12,
    "unLockId": 13,
-   "guideMessage": "가이드 106 완료 시 활성화 됩니다"
+   "guideMessage": "오픈\n가이드 110"
  },
  {
    "index": 13,
    "unLockId": 14,
-   "guideMessage": "가이드 47 완료 시 활성화 됩니다"
+   "guideMessage": "오픈\n가이드 47"
+ },
+ {
+   "index": 14,
+   "unLockId": 15,
+   "guideMessage": "오픈\n가이드 12"
+ },
+ {
+   "index": 15,
+   "unLockId": 16,
+   "guideMessage": "오픈\n가이드 106"
  }
 ]
 }

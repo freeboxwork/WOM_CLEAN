@@ -3,7 +3,7 @@
  {
    "id": 0,
    "level": 0,
-   "price": 5500,
+   "price": 2400,
    "gold": 0,
    "bone": 0,
    "dice": 0,
@@ -12,7 +12,7 @@
  {
    "id": 1,
    "level": 1,
-   "price": 46000,
+   "price": 20700,
    "gold": 5,
    "bone": 5,
    "dice": 5,
@@ -21,7 +21,7 @@
  {
    "id": 2,
    "level": 2,
-   "price": 159000,
+   "price": 69000,
    "gold": 10,
    "bone": 10,
    "dice": 10,
@@ -30,7 +30,7 @@
  {
    "id": 3,
    "level": 3,
-   "price": 382000,
+   "price": 161700,
    "gold": 15,
    "bone": 15,
    "dice": 15,
@@ -39,7 +39,7 @@
  {
    "id": 4,
    "level": 4,
-   "price": 903000,
+   "price": 381000,
    "gold": 20,
    "bone": 20,
    "dice": 20,
@@ -48,7 +48,7 @@
  {
    "id": 5,
    "level": 5,
-   "price": 1744000,
+   "price": 586800,
    "gold": 25,
    "bone": 25,
    "dice": 25,
@@ -57,7 +57,7 @@
  {
    "id": 6,
    "level": 6,
-   "price": 2980000,
+   "price": 1348800,
    "gold": 30,
    "bone": 30,
    "dice": 30,
@@ -66,7 +66,7 @@
  {
    "id": 7,
    "level": 7,
-   "price": 4686000,
+   "price": 1900800,
    "gold": 35,
    "bone": 35,
    "dice": 35,
@@ -75,7 +75,7 @@
  {
    "id": 8,
    "level": 8,
-   "price": 6937000,
+   "price": 2586000,
    "gold": 40,
    "bone": 40,
    "dice": 40,
@@ -84,7 +84,7 @@
  {
    "id": 9,
    "level": 9,
-   "price": 9537000,
+   "price": 3570600,
    "gold": 45,
    "bone": 45,
    "dice": 45,
@@ -93,7 +93,7 @@
  {
    "id": 10,
    "level": 10,
-   "price": 12537000,
+   "price": 5000000,
    "gold": 50,
    "bone": 50,
    "dice": 50,

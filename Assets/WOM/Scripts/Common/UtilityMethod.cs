@@ -67,11 +67,11 @@ public static class UtilityMethod
         }
     }
 
-    public static void SetTxtsCustomTypeByIDs(int[] ids, float[] values)
-    {
-        for (int i = 0; i < ids.Length; i++)
-            SetTxtCustomTypeByID(ids[i], values[i].ToString());
-    }
+    // public static void SetTxtsCustomTypeByIDs(int[] ids, float[] values)
+    // {
+    //     for (int i = 0; i < ids.Length; i++)
+    //         SetTxtCustomTypeByID(ids[i], values[i].ToString());
+    // }
 
 
     public static void SetImageSpriteCustomTypeByID(int id, Sprite sprite)
@@ -106,21 +106,21 @@ public static class UtilityMethod
         }
     }
 
-    public static void SetBtnsInteractableEnable(List<int> ids, bool value)
-    {
-        foreach (var id in ids)
-        {
-            var btn = GlobalData.instance.customTypeDataManager.GetCustomTypeData_Button(id);
-            if (btn != null)
-            {
-                btn.interactable = value;
-            }
-            else
-            {
-                Debug.LogError($"Custom Type Object - Button - {id} 오브젝트가 없습니다.");
-            }
-        }
-    }
+    // public static void SetBtnsInteractableEnable(List<int> ids, bool value)
+    // {
+    //     foreach (var id in ids)
+    //     {
+    //         var btn = GlobalData.instance.customTypeDataManager.GetCustomTypeData_Button(id);
+    //         if (btn != null)
+    //         {
+    //             btn.interactable = value;
+    //         }
+    //         else
+    //         {
+    //             Debug.LogError($"Custom Type Object - Button - {id} 오브젝트가 없습니다.");
+    //         }
+    //     }
+    // }
 
 
     public static TextMeshProUGUI GetTxtCustomTypeByID(int id)

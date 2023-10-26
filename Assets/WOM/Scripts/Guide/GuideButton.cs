@@ -16,24 +16,8 @@ public class GuideButton : MonoBehaviour
         button = GetComponent<Button>(); 
         guideManager = FindAnyObjectByType<GuideManager>(); 
         guideText = GetComponentInChildren<TextMeshProUGUI>();
+        button.onClick.AddListener(HideButton);
     }   
-
-    public void ClearGuide()
-    {
-        //게임 오브젝트를 비활성화 시킴
-    }
-
-    public void ShowGuideText()
-    {
-        //guideMessage 목표 가이드 텍스트를 보여줌
-        //GlobalData.instance.globalPopupController.
-    }
-    public void ShowGuideIndexText(string dataText)
-    {
-        //아이콘에 표시 될 오픈 조건 Text 표시
-        guideText.text = string.Format("{0}", dataText);
-    }
-
     void OnEnable()
     {
         text.color = disableColor;
@@ -41,6 +25,29 @@ public class GuideButton : MonoBehaviour
     void OnDisable()
     {
         text.color = enableColor;
+    }
+
+    public void GetButton()
+    {
+        button = GetComponent<Button>();
+    }
+
+   //컨텐츠가 해금되어 게임 오브젝트를 비활성화 시킴
+    public void ClearGuide()
+    {
+        gameObject.SetActive(false);   
+    }
+
+    //해금 조건 텍스트 세팅
+    public void ShowGuideIndexText(string dataText)
+    {
+        guideText.text = string.Format("{0}", dataText);
+    }
+    
+    void HideButton()
+    {
+        //TEST
+        //FindAnyObjectByType<GuideManager>().ClearGuide(id);
     }
 
 

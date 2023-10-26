@@ -21,13 +21,6 @@ public class CastleManager : MonoBehaviour
     public int mineLevel = 0;
     public int factoryLevel = 0;
 
-    public TextMeshProUGUI upgradeMinePriceText; //채굴 현황
-    public TextMeshProUGUI upgradeFactoryPriceText; //채굴 현황
-
-
-
-    //public int offLineSubGoldTime = 0;
-    //public int offLineSubBoneTime = 0;
     private float digUpGoldTime;
     private float maxDigUpGoldTime;
     private float digUpBoneTime;
@@ -38,16 +31,6 @@ public class CastleManager : MonoBehaviour
     }
     void SetBtnEvents()
     {
-        // 금광 건설하기 버튼
-        UtilityMethod.SetBtnEventCustomTypeByID(64, () =>
-        {
-            UpGradeCastle(CastlePopupType.mine);
-        });
-        //가공소 건설하기 버튼
-        UtilityMethod.SetBtnEventCustomTypeByID(65, () =>
-        {
-            UpGradeCastle(CastlePopupType.factory);
-        });
 
         //금광 팝업 열기
         UtilityMethod.SetBtnEventCustomTypeByID(51, () =>
@@ -87,25 +70,12 @@ public class CastleManager : MonoBehaviour
             // 골드 채굴 시작
             StartCoroutine("MiningGold");
         }
-        else
-        {
-            var targetBuildingData = GlobalData.instance.dataManager.GetBuildDataMineByLevel(buildDataMine.level + 1);
-
-            upgradeMinePriceText.text = UtilityMethod.ChangeSymbolNumber(targetBuildingData.price);
-        }
 
         if (buildDataFactory.level > 0)
         {
             digUpBoneTime = buildDataMine.productionTime;
             // 뼈조각 채굴 시작
             StartCoroutine("MiningBone");
-        }
-        else
-        {
-            var targetBuildingData = GlobalData.instance.dataManager.GetBuildDataFactoryByLevel(buildDataFactory.level + 1);
-
-            upgradeFactoryPriceText.text = UtilityMethod.ChangeSymbolNumber(targetBuildingData.price);
-
         }
 
         yield return null;
@@ -139,10 +109,6 @@ public class CastleManager : MonoBehaviour
         // 초기 UI 설정 ( CASTLE )
         castleController.SetMineBuild(mineLevel);
         castleController.SetFactoryBuild(factoryLevel);
-
-        // 건설하기 버튼 UI Disable
-        if (mineLevel > 0) SetUnLockButton(64, 51, true);
-        if (factoryLevel > 0) SetUnLockButton(65, 52, true);
 
         var dungeonPopup = (DungeonPopup)GetCastlePopupByType(CastlePopupType.dungeon);
 
@@ -233,13 +199,6 @@ public class CastleManager : MonoBehaviour
     {
         minePopup.SetTextDigUpTimeValue(maxDigUpTime, digUpTime);
         minePopup.SetTextTotalMiningValue(buildData.TotlaMiningValue);
-    }
-    // 건설하기 버튼 UI Enable/Disable
-    void SetUnLockButton(int n1, int n2, bool active)
-    {
-        UtilityMethod.GetCustomTypeBtnByID(n1).gameObject.SetActive(!active);
-
-        UtilityMethod.GetCustomTypeBtnByID(n2).interactable = active;
     }
 
     public CastlePopupBase GetCastlePopupByType(EnumDefinition.CastlePopupType popupType)
@@ -360,7 +319,7 @@ public class CastleManager : MonoBehaviour
                         
                         digUpGoldTime = 0;
                         //Debug.Log( isUpgrade + " mine level " + 
-                        SetUnLockButton(64, 51, true);
+
                         // 골드 채굴 시작
                         StopCoroutine("MiningGold");
                         StartCoroutine("MiningGold");
@@ -395,7 +354,7 @@ public class CastleManager : MonoBehaviour
                         buildDataFactory.TotlaMiningValue = tempSaveBone;
                         digUpBoneTime = 0;
                         //Debug.Log(isUpgrade + " factory level " + factoryLevel);
-                        SetUnLockButton(65, 52, true);
+
                         // 골드 채굴 시작
                         StopCoroutine("MiningBone");
                         StartCoroutine("MiningBone");

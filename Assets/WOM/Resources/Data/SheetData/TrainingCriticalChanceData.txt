@@ -1,2407 +1,2407 @@
 {"data":[
  {
    "level": 0,
-   "salePrice": "0",
+   "salePrice": 1250,
    "value": 0,
    "unitName": "%"
  },
  {
    "level": 1,
-   "salePrice": "502",
+   "salePrice": 1250,
    "value": 0.05,
    "unitName": "%"
  },
  {
    "level": 2,
-   "salePrice": "1509",
+   "salePrice": 1250,
    "value": 0.1,
    "unitName": "%"
  },
  {
    "level": 3,
-   "salePrice": "3780",
+   "salePrice": 2052,
    "value": 0.15,
    "unitName": "%"
  },
  {
    "level": 4,
-   "salePrice": "7828",
+   "salePrice": 2052,
    "value": 0.2,
    "unitName": "%"
  },
  {
    "level": 5,
-   "salePrice": "14168",
+   "salePrice": 2052,
    "value": 0.25,
    "unitName": "%"
  },
  {
    "level": 6,
-   "salePrice": "35814",
+   "salePrice": 3228,
    "value": 0.3,
    "unitName": "%"
  },
  {
    "level": 7,
-   "salePrice": "72930",
+   "salePrice": 3228,
    "value": 0.35,
    "unitName": "%"
  },
  {
    "level": 8,
-   "salePrice": "129792",
+   "salePrice": 5487,
    "value": 0.4,
    "unitName": "%"
  },
  {
    "level": 9,
-   "salePrice": "210740",
+   "salePrice": 9923,
    "value": 0.45,
    "unitName": "%"
  },
  {
    "level": 10,
-   "salePrice": "320178",
+   "salePrice": 18025,
    "value": 0.5,
    "unitName": "%"
  },
  {
    "level": 11,
-   "salePrice": "462574",
+   "salePrice": 18025,
    "value": 0.55,
    "unitName": "%"
  },
  {
    "level": 12,
-   "salePrice": "642460",
+   "salePrice": 31691,
    "value": 0.6,
    "unitName": "%"
  },
  {
    "level": 13,
-   "salePrice": "864432",
+   "salePrice": 53236,
    "value": 0.65,
    "unitName": "%"
  },
  {
    "level": 14,
-   "salePrice": "1286513",
+   "salePrice": 85402,
    "value": 0.7,
    "unitName": "%"
  },
  {
    "level": 15,
-   "salePrice": "1829784",
+   "salePrice": 131371,
    "value": 0.75,
    "unitName": "%"
  },
  {
    "level": 16,
-   "salePrice": "2510568",
+   "salePrice": 194775,
    "value": 0.8,
    "unitName": "%"
  },
  {
    "level": 17,
-   "salePrice": "3345510",
+   "salePrice": 279708,
    "value": 0.85,
    "unitName": "%"
  },
  {
    "level": 18,
-   "salePrice": "4351580",
+   "salePrice": 390733,
    "value": 0.9,
    "unitName": "%"
  },
  {
    "level": 19,
-   "salePrice": "5546070",
+   "salePrice": 532899,
    "value": 0.95,
    "unitName": "%"
  },
  {
    "level": 20,
-   "salePrice": "6946599",
+   "salePrice": 711744,
    "value": 1,
    "unitName": "%"
  },
  {
    "level": 21,
-   "salePrice": "8571108",
+   "salePrice": 933313,
    "value": 1.05,
    "unitName": "%"
  },
  {
    "level": 22,
-   "salePrice": "10437863",
+   "salePrice": 1204164,
    "value": 1.1,
    "unitName": "%"
  },
  {
    "level": 23,
-   "salePrice": "25130904",
+   "salePrice": 1531383,
    "value": 1.15,
    "unitName": "%"
  },
  {
    "level": 24,
-   "salePrice": "31681436",
+   "salePrice": 1922591,
    "value": 1.2,
    "unitName": "%"
  },
  {
    "level": 25,
-   "salePrice": "39318160",
+   "salePrice": 2385954,
    "value": 1.25,
    "unitName": "%"
  },
  {
    "level": 26,
-   "salePrice": "48134580",
+   "salePrice": 2930200,
    "value": 1.3,
    "unitName": "%"
  },
  {
    "level": 27,
-   "salePrice": "58226248",
+   "salePrice": 4299098,
    "value": 1.35,
    "unitName": "%"
  },
  {
    "level": 28,
-   "salePrice": "69690764",
+   "salePrice": 5144090,
    "value": 1.4,
    "unitName": "%"
  },
  {
    "level": 29,
-   "salePrice": "82627776",
+   "salePrice": 6110665,
    "value": 1.45,
    "unitName": "%"
  },
  {
    "level": 30,
-   "salePrice": "97138980",
+   "salePrice": 8455897,
    "value": 1.5,
    "unitName": "%"
  },
  {
    "level": 31,
-   "salePrice": "113328120",
+   "salePrice": 9859791,
    "value": 1.55,
    "unitName": "%"
  },
  {
    "level": 32,
-   "salePrice": "131300988",
+   "salePrice": 11435760,
    "value": 1.6,
    "unitName": "%"
  },
  {
    "level": 33,
-   "salePrice": "151165424",
+   "salePrice": 15161525,
    "value": 1.65,
    "unitName": "%"
  },
  {
    "level": 34,
-   "salePrice": "173031316",
+   "salePrice": 17341799,
    "value": 1.7,
    "unitName": "%"
  },
  {
    "level": 35,
-   "salePrice": "197010600",
+   "salePrice": 19755123,
    "value": 1.75,
    "unitName": "%"
  },
  {
    "level": 36,
-   "salePrice": "345195758",
+   "salePrice": 25349486,
    "value": 1.8,
    "unitName": "%"
  },
  {
    "level": 37,
-   "salePrice": "400436940",
+   "salePrice": 32088890,
    "value": 1.85,
    "unitName": "%"
  },
  {
    "level": 38,
-   "salePrice": "461587635",
+   "salePrice": 35936258,
    "value": 1.9,
    "unitName": "%"
  },
  {
    "level": 39,
-   "salePrice": "529003530",
+   "salePrice": 44689421,
    "value": 1.95,
    "unitName": "%"
  },
  {
    "level": 40,
-   "salePrice": "603047813",
+   "salePrice": 55000234,
    "value": 2,
    "unitName": "%"
  },
  {
    "level": 41,
-   "salePrice": "684091170",
+   "salePrice": 60797608,
    "value": 2.05,
    "unitName": "%"
  },
  {
    "level": 42,
-   "salePrice": "772511790",
+   "salePrice": 73799007,
    "value": 2.1,
    "unitName": "%"
  },
  {
    "level": 43,
-   "salePrice": "868695360",
+   "salePrice": 88849143,
    "value": 2.15,
    "unitName": "%"
  },
  {
    "level": 44,
-   "salePrice": "973035068",
+   "salePrice": 97210586,
    "value": 2.2,
    "unitName": "%"
  },
  {
    "level": 45,
-   "salePrice": "1085931600",
+   "salePrice": 115749905,
    "value": 2.25,
    "unitName": "%"
  },
  {
    "level": 46,
-   "salePrice": "1610390860",
+   "salePrice": 136912930,
    "value": 2.3,
    "unitName": "%"
  },
  {
    "level": 47,
-   "salePrice": "1785380520",
+   "salePrice": 148557353,
    "value": 2.35,
    "unitName": "%"
  },
  {
    "level": 48,
-   "salePrice": "1973442030",
+   "salePrice": 174138028,
    "value": 2.4,
    "unitName": "%"
  },
  {
    "level": 49,
-   "salePrice": "2175149640",
+   "salePrice": 203006656,
    "value": 2.45,
    "unitName": "%"
  },
  {
    "level": 50,
-   "salePrice": "2436034952",
+   "salePrice": 235455147,
    "value": 2.5,
    "unitName": "%"
  },
  {
    "level": 51,
-   "salePrice": "2718441088",
+   "salePrice": 271790900,
    "value": 2.55,
    "unitName": "%"
  },
  {
    "level": 52,
-   "salePrice": "3023417376",
+   "salePrice": 312337158,
    "value": 2.6,
    "unitName": "%"
  },
  {
    "level": 53,
-   "salePrice": "3352033880",
+   "salePrice": 357433349,
    "value": 2.65,
    "unitName": "%"
  },
  {
    "level": 54,
-   "salePrice": "3705381400",
+   "salePrice": 407435429,
    "value": 2.7,
    "unitName": "%"
  },
  {
    "level": 55,
-   "salePrice": "5105714340",
+   "salePrice": 462716236,
    "value": 2.75,
    "unitName": "%"
  },
  {
    "level": 56,
-   "salePrice": "5613420460",
+   "salePrice": 523665825,
    "value": 2.8,
    "unitName": "%"
  },
  {
    "level": 57,
-   "salePrice": "6156286370",
+   "salePrice": 590691823,
    "value": 2.85,
    "unitName": "%"
  },
  {
    "level": 58,
-   "salePrice": "6735779250",
+   "salePrice": 664219770,
    "value": 2.9,
    "unitName": "%"
  },
  {
    "level": 59,
-   "salePrice": "7353392200",
+   "salePrice": 744693462,
    "value": 2.95,
    "unitName": "%"
  },
  {
    "level": 60,
-   "salePrice": "8010644240",
+   "salePrice": 832575305,
    "value": 3,
    "unitName": "%"
  },
  {
    "level": 61,
-   "salePrice": "8709080310",
+   "salePrice": 928346650,
    "value": 3.05,
    "unitName": "%"
  },
  {
    "level": 62,
-   "salePrice": "9450271270",
+   "salePrice": 1032508148,
    "value": 3.1,
    "unitName": "%"
  },
  {
    "level": 63,
-   "salePrice": "12282976680",
+   "salePrice": 1145580091,
    "value": 3.15,
    "unitName": "%"
  },
  {
    "level": 64,
-   "salePrice": "13280797080",
+   "salePrice": 1268102755,
    "value": 3.2,
    "unitName": "%"
  },
  {
    "level": 65,
-   "salePrice": "14335765068",
+   "salePrice": 1400636754,
    "value": 3.25,
    "unitName": "%"
  },
  {
    "level": 66,
-   "salePrice": "15449890092",
+   "salePrice": 1543763375,
    "value": 3.3,
    "unitName": "%"
  },
  {
    "level": 67,
-   "salePrice": "16827194580",
+   "salePrice": 1698084933,
    "value": 3.35,
    "unitName": "%"
  },
  {
    "level": 68,
-   "salePrice": "18291090888",
+   "salePrice": 1864225112,
    "value": 3.4,
    "unitName": "%"
  },
  {
    "level": 69,
-   "salePrice": "19844930469",
+   "salePrice": 2137013123,
    "value": 3.45,
    "unitName": "%"
  },
  {
    "level": 70,
-   "salePrice": "21492122400",
+   "salePrice": 2335571822,
    "value": 3.5,
    "unitName": "%"
  },
  {
    "level": 71,
-   "salePrice": "27108822279",
+   "salePrice": 2548305307,
    "value": 3.55,
    "unitName": "%"
  },
  {
    "level": 72,
-   "salePrice": "29260569030",
+   "salePrice": 2895573633,
    "value": 3.6,
    "unitName": "%"
  },
  {
    "level": 73,
-   "salePrice": "31533561994",
+   "salePrice": 3146963121,
    "value": 3.65,
    "unitName": "%"
  },
  {
    "level": 74,
-   "salePrice": "33932047338",
+   "salePrice": 3415164392,
    "value": 3.7,
    "unitName": "%"
  },
  {
    "level": 75,
-   "salePrice": "36460338460",
+   "salePrice": 3850760563,
    "value": 3.75,
    "unitName": "%"
  },
  {
    "level": 76,
-   "salePrice": "39122815984",
+   "salePrice": 4164575914,
    "value": 3.8,
    "unitName": "%"
  },
  {
    "level": 77,
-   "salePrice": "41923927763",
+   "salePrice": 4498135688,
    "value": 3.85,
    "unitName": "%"
  },
  {
    "level": 78,
-   "salePrice": "51277930144",
+   "salePrice": 5037459381,
    "value": 3.9,
    "unitName": "%"
  },
  {
    "level": 79,
-   "salePrice": "54811636152",
+   "salePrice": 5424348950,
    "value": 3.95,
    "unitName": "%"
  },
  {
    "level": 80,
-   "salePrice": "58519492080",
+   "salePrice": 5834226048,
    "value": 4,
    "unitName": "%"
  },
  {
    "level": 81,
-   "salePrice": "62406888516",
+   "salePrice": 6494306875,
    "value": 4.05,
    "unitName": "%"
  },
  {
    "level": 82,
-   "salePrice": "66479292880",
+   "salePrice": 6966024166,
    "value": 4.1,
    "unitName": "%"
  },
  {
    "level": 83,
-   "salePrice": "70742249424",
+   "salePrice": 7464297373,
    "value": 4.15,
    "unitName": "%"
  },
  {
    "level": 84,
-   "salePrice": "75201379232",
+   "salePrice": 8263872673,
    "value": 4.2,
    "unitName": "%"
  },
  {
    "level": 85,
-   "salePrice": "89845177748",
+   "salePrice": 8833328196,
    "value": 4.25,
    "unitName": "%"
  },
  {
    "level": 86,
-   "salePrice": "95322405528",
+   "salePrice": 9433248120,
    "value": 4.3,
    "unitName": "%"
  },
  {
    "level": 87,
-   "salePrice": "101039818005",
+   "salePrice": 10392840756,
    "value": 4.35,
    "unitName": "%"
  },
  {
    "level": 88,
-   "salePrice": "107004084642",
+   "salePrice": 11074153889,
    "value": 4.4,
    "unitName": "%"
  },
  {
    "level": 89,
-   "salePrice": "113221961339",
+   "salePrice": 11790194828,
    "value": 4.45,
    "unitName": "%"
  },
  {
    "level": 90,
-   "salePrice": "119700290430",
+   "salePrice": 12932190973,
    "value": 4.5,
    "unitName": "%"
  },
  {
    "level": 91,
-   "salePrice": "126446000688",
+   "salePrice": 13740741828,
    "value": 4.55,
    "unitName": "%"
  },
  {
    "level": 92,
-   "salePrice": "148295674800",
+   "salePrice": 14588653625,
    "value": 4.6,
    "unitName": "%"
  },
  {
    "level": 93,
-   "salePrice": "156408568855",
+   "salePrice": 15937380560,
    "value": 4.65,
    "unitName": "%"
  },
  {
    "level": 94,
-   "salePrice": "164842225240",
+   "salePrice": 16889861838,
    "value": 4.7,
    "unitName": "%"
  },
  {
    "level": 95,
-   "salePrice": "173604726750",
+   "salePrice": 18402263137,
    "value": 4.75,
    "unitName": "%"
  },
  {
    "level": 96,
-   "salePrice": "182704252220",
+   "salePrice": 19468525650,
    "value": 4.8,
    "unitName": "%"
  },
  {
    "level": 97,
-   "salePrice": "192149076525",
+   "salePrice": 20582994508,
    "value": 4.85,
    "unitName": "%"
  },
  {
    "level": 98,
-   "salePrice": "201947570580",
+   "salePrice": 22348570625,
    "value": 4.9,
    "unitName": "%"
  },
  {
    "level": 99,
-   "salePrice": "233319021474",
+   "salePrice": 23590582796,
    "value": 4.95,
    "unitName": "%"
  },
  {
    "level": 100,
-   "salePrice": "244903484980",
+   "salePrice": 24886512707,
    "value": 5,
    "unitName": "%"
  },
  {
    "level": 101,
-   "salePrice": "256905243095",
+   "salePrice": 26935251773,
    "value": 5.05,
    "unitName": "%"
  },
  {
    "level": 102,
-   "salePrice": "269333926400",
+   "salePrice": 28373530480,
    "value": 5.1,
    "unitName": "%"
  },
  {
    "level": 103,
-   "salePrice": "282199271123",
+   "salePrice": 29871863092,
    "value": 5.15,
    "unitName": "%"
  },
  {
    "level": 104,
-   "salePrice": "295511119134",
+   "salePrice": 32235983290,
    "value": 5.2,
    "unitName": "%"
  },
  {
    "level": 105,
-   "salePrice": "309279417948",
+   "salePrice": 33892550631,
    "value": 5.25,
    "unitName": "%"
  },
  {
    "level": 106,
-   "salePrice": "352924604424",
+   "salePrice": 35615747634,
    "value": 5.3,
    "unitName": "%"
  },
  {
    "level": 107,
-   "salePrice": "368973475920",
+   "salePrice": 38329774985,
    "value": 5.35,
    "unitName": "%"
  },
  {
    "level": 108,
-   "salePrice": "385553540736",
+   "salePrice": 40228210144,
    "value": 5.4,
    "unitName": "%"
  },
  {
    "level": 109,
-   "salePrice": "402676111698",
+   "salePrice": 42200305125,
    "value": 5.45,
    "unitName": "%"
  },
  {
    "level": 110,
-   "salePrice": "420352616880",
+   "salePrice": 45301151286,
    "value": 5.5,
    "unitName": "%"
  },
  {
    "level": 111,
-   "salePrice": "438594599604",
+   "salePrice": 47466642387,
    "value": 5.55,
    "unitName": "%"
  },
  {
    "level": 112,
-   "salePrice": "457413718440",
+   "salePrice": 49713292698,
    "value": 5.6,
    "unitName": "%"
  },
  {
    "level": 113,
-   "salePrice": "476821747206",
+   "salePrice": 53240332750,
    "value": 5.65,
    "unitName": "%"
  },
  {
    "level": 114,
-   "salePrice": "538233122882",
+   "salePrice": 55699728728,
    "value": 5.7,
    "unitName": "%"
  },
  {
    "level": 115,
-   "salePrice": "560573223210",
+   "salePrice": 58248267343,
    "value": 5.75,
    "unitName": "%"
  },
  {
    "level": 116,
-   "salePrice": "583590323316",
+   "salePrice": 62243417586,
    "value": 5.8,
    "unitName": "%"
  },
  {
    "level": 117,
-   "salePrice": "607297677578",
+   "salePrice": 65025280041,
    "value": 5.85,
    "unitName": "%"
  },
  {
    "level": 118,
-   "salePrice": "631708665224",
+   "salePrice": 67904767418,
    "value": 5.9,
    "unitName": "%"
  },
  {
    "level": 119,
-   "salePrice": "656836790337",
+   "salePrice": 72412563164,
    "value": 5.95,
    "unitName": "%"
  },
  {
    "level": 120,
-   "salePrice": "682695681850",
+   "salePrice": 75547218224,
    "value": 6,
    "unitName": "%"
  },
  {
    "level": 121,
-   "salePrice": "763860562283",
+   "salePrice": 78788494171,
    "value": 6.05,
    "unitName": "%"
  },
  {
    "level": 122,
-   "salePrice": "793327127460",
+   "salePrice": 83856167533,
    "value": 6.1,
    "unitName": "%"
  },
  {
    "level": 123,
-   "salePrice": "823625510512",
+   "salePrice": 87375757720,
    "value": 6.15,
    "unitName": "%"
  },
  {
    "level": 124,
-   "salePrice": "854770926576",
+   "salePrice": 91011493250,
    "value": 6.2,
    "unitName": "%"
  },
  {
    "level": 125,
-   "salePrice": "886778725245",
+   "salePrice": 96689050940,
    "value": 6.25,
    "unitName": "%"
  },
  {
    "level": 126,
-   "salePrice": "919664390568",
+   "salePrice": 100627587025,
    "value": 6.3,
    "unitName": "%"
  },
  {
    "level": 127,
-   "salePrice": "953443541050",
+   "salePrice": 104692336223,
    "value": 6.35,
    "unitName": "%"
  },
  {
    "level": 128,
-   "salePrice": "1058712781770",
+   "salePrice": 111032637337,
    "value": 6.4,
    "unitName": "%"
  },
  {
    "level": 129,
-   "salePrice": "1096870118348",
+   "salePrice": 115426050208,
    "value": 6.45,
    "unitName": "%"
  },
  {
    "level": 130,
-   "salePrice": "1136035827150",
+   "salePrice": 119956302091,
    "value": 6.5,
    "unitName": "%"
  },
  {
    "level": 131,
-   "salePrice": "1176227218530",
+   "salePrice": 127015135908,
    "value": 6.55,
    "unitName": "%"
  },
  {
    "level": 132,
-   "salePrice": "1217461746900",
+   "salePrice": 131901328427,
    "value": 6.6,
    "unitName": "%"
  },
  {
    "level": 133,
-   "salePrice": "1259757010733",
+   "salePrice": 136935558803,
    "value": 6.65,
    "unitName": "%"
  },
  {
    "level": 134,
-   "salePrice": "1303130752560",
+   "salePrice": 144771722575,
    "value": 6.7,
    "unitName": "%"
  },
  {
    "level": 135,
-   "salePrice": "1437440916240",
+   "salePrice": 150190621440,
    "value": 6.75,
    "unitName": "%"
  },
  {
    "level": 136,
-   "salePrice": "1486064384672",
+   "salePrice": 155769344775,
    "value": 6.8,
    "unitName": "%"
  },
  {
    "level": 137,
-   "salePrice": "1535895927720",
+   "salePrice": 164444721516,
    "value": 6.85,
    "unitName": "%"
  },
  {
    "level": 138,
-   "salePrice": "1586955085408",
+   "salePrice": 170438329127,
    "value": 6.9,
    "unitName": "%"
  },
  {
    "level": 139,
-   "salePrice": "1639261551424",
+   "salePrice": 176604150400,
    "value": 6.95,
    "unitName": "%"
  },
  {
    "level": 140,
-   "salePrice": "1692835173120",
+   "salePrice": 186183786686,
    "value": 7,
    "unitName": "%"
  },
  {
    "level": 141,
-   "salePrice": "1747695951512",
+   "salePrice": 192796233000,
    "value": 7.05,
    "unitName": "%"
  },
  {
    "level": 142,
-   "salePrice": "1916605543860",
+   "salePrice": 199593899571,
    "value": 7.1,
    "unitName": "%"
  },
  {
    "level": 143,
-   "salePrice": "1977694735191",
+   "salePrice": 210146083325,
    "value": 7.15,
    "unitName": "%"
  },
  {
    "level": 144,
-   "salePrice": "2040216263358",
+   "salePrice": 217423677723,
    "value": 7.2,
    "unitName": "%"
  },
  {
    "level": 145,
-   "salePrice": "2104192032512",
+   "salePrice": 224900131190,
    "value": 7.25,
    "unitName": "%"
  },
  {
    "level": 146,
-   "salePrice": "2169644110074",
+   "salePrice": 236496469478,
    "value": 7.3,
    "unitName": "%"
  },
  {
    "level": 147,
-   "salePrice": "2236594726730",
+   "salePrice": 244487752625,
    "value": 7.35,
    "unitName": "%"
  },
  {
    "level": 148,
-   "salePrice": "2305066276436",
+   "salePrice": 252692180686,
    "value": 7.4,
    "unitName": "%"
  },
  {
    "level": 149,
-   "salePrice": "2514791982087",
+   "salePrice": 265407677511,
    "value": 7.45,
    "unitName": "%"
  },
  {
    "level": 150,
-   "salePrice": "2590583894640",
+   "salePrice": 274163473215,
    "value": 7.5,
    "unitName": "%"
  },
  {
    "level": 151,
-   "salePrice": "2668058377866",
+   "salePrice": 283147361534,
    "value": 7.55,
    "unitName": "%"
  },
  {
    "level": 152,
-   "salePrice": "2747239834500",
+   "salePrice": 297060495622,
    "value": 7.6,
    "unitName": "%"
  },
  {
    "level": 153,
-   "salePrice": "2828152840149",
+   "salePrice": 306633962701,
    "value": 7.65,
    "unitName": "%"
  },
  {
    "level": 154,
-   "salePrice": "2910822143292",
+   "salePrice": 316451146762,
    "value": 7.7,
    "unitName": "%"
  },
  {
    "level": 155,
-   "salePrice": "2995272665280",
+   "salePrice": 331643949363,
    "value": 7.75,
    "unitName": "%"
  },
  {
    "level": 156,
-   "salePrice": "3252725583688",
+   "salePrice": 342090633500,
    "value": 7.8,
    "unitName": "%"
  },
  {
    "level": 157,
-   "salePrice": "3345707799752",
+   "salePrice": 352797350478,
    "value": 7.85,
    "unitName": "%"
  },
  {
    "level": 158,
-   "salePrice": "3440650203732",
+   "salePrice": 369355483150,
    "value": 7.9,
    "unitName": "%"
  },
  {
    "level": 159,
-   "salePrice": "3537579831401",
+   "salePrice": 380733368761,
    "value": 7.95,
    "unitName": "%"
  },
  {
    "level": 160,
-   "salePrice": "3636523901010",
+   "salePrice": 392388309376,
    "value": 8,
    "unitName": "%"
  },
  {
    "level": 161,
-   "salePrice": "3737509813285",
+   "salePrice": 404325300273,
    "value": 8.05,
    "unitName": "%"
  },
  {
    "level": 162,
-   "salePrice": "3840565151430",
+   "salePrice": 422770703874,
    "value": 8.1,
    "unitName": "%"
  },
  {
    "level": 163,
-   "salePrice": "3945717681122",
+   "salePrice": 435435064254,
    "value": 8.15,
    "unitName": "%"
  },
  {
    "level": 164,
-   "salePrice": "4266310895280",
+   "salePrice": 448399426961,
    "value": 8.2,
    "unitName": "%"
  },
  {
    "level": 165,
-   "salePrice": "4381501358150",
+   "salePrice": 468420007988,
    "value": 8.25,
    "unitName": "%"
  },
  {
    "level": 166,
-   "salePrice": "4498988224640",
+   "salePrice": 482157541535,
    "value": 8.3,
    "unitName": "%"
  },
  {
    "level": 167,
-   "salePrice": "4618801490100",
+   "salePrice": 496213769625,
    "value": 8.35,
    "unitName": "%"
  },
  {
    "level": 168,
-   "salePrice": "4740971341960",
+   "salePrice": 517907665530,
    "value": 8.4,
    "unitName": "%"
  },
  {
    "level": 169,
-   "salePrice": "4865528159730",
+   "salePrice": 532784734775,
    "value": 8.45,
    "unitName": "%"
  },
  {
    "level": 170,
-   "salePrice": "4992502515000",
+   "salePrice": 547999945773,
    "value": 8.5,
    "unitName": "%"
  },
  {
    "level": 171,
-   "salePrice": "5634117688584",
+   "salePrice": 571469257712,
    "value": 8.55,
    "unitName": "%"
  },
  {
    "level": 172,
-   "salePrice": "5779209793280",
+   "salePrice": 587554886183,
    "value": 8.6,
    "unitName": "%"
  },
  {
    "level": 173,
-   "salePrice": "5927063343201",
+   "salePrice": 603998873426,
    "value": 8.65,
    "unitName": "%"
  },
  {
    "level": 174,
-   "salePrice": "6077712812248",
+   "salePrice": 629349744058,
    "value": 8.7,
    "unitName": "%"
  },
  {
    "level": 175,
-   "salePrice": "6231192885610",
+   "salePrice": 646715668137,
    "value": 8.75,
    "unitName": "%"
  },
  {
    "level": 176,
-   "salePrice": "6387538459764",
+   "salePrice": 664460952633,
    "value": 8.8,
    "unitName": "%"
  },
  {
    "level": 177,
-   "salePrice": "6546784642475",
+   "salePrice": 691803643910,
    "value": 8.85,
    "unitName": "%"
  },
  {
    "level": 178,
-   "salePrice": "7318872821232",
+   "salePrice": 710524364695,
    "value": 8.9,
    "unitName": "%"
  },
  {
    "level": 179,
-   "salePrice": "7499040350256",
+   "salePrice": 729646246990,
    "value": 8.95,
    "unitName": "%"
  },
  {
    "level": 180,
-   "salePrice": "7682488460640",
+   "salePrice": 759095217946,
    "value": 9,
    "unitName": "%"
  },
  {
    "level": 181,
-   "salePrice": "7869256373748",
+   "salePrice": 779248053117,
    "value": 9.05,
    "unitName": "%"
  },
  {
    "level": 182,
-   "salePrice": "8059383541440",
+   "salePrice": 799824665150,
    "value": 9.1,
    "unitName": "%"
  },
  {
    "level": 183,
-   "salePrice": "8252909646072",
+   "salePrice": 831498649701,
    "value": 9.15,
    "unitName": "%"
  },
  {
    "level": 184,
-   "salePrice": "8449874600496",
+   "salePrice": 853163785375,
    "value": 9.2,
    "unitName": "%"
  },
  {
    "level": 185,
-   "salePrice": "9371178427065",
+   "salePrice": 875276142346,
    "value": 9.25,
    "unitName": "%"
  },
  {
    "level": 186,
-   "salePrice": "9592138684492",
+   "salePrice": 909298227075,
    "value": 9.3,
    "unitName": "%"
  },
  {
    "level": 187,
-   "salePrice": "9816955577520",
+   "salePrice": 932558769673,
    "value": 9.35,
    "unitName": "%"
  },
  {
    "level": 188,
-   "salePrice": "10045673343888",
+   "salePrice": 956290821900,
    "value": 9.4,
    "unitName": "%"
  },
  {
    "level": 189,
-   "salePrice": "10278336471039",
+   "salePrice": 992788523853,
    "value": 9.45,
    "unitName": "%"
  },
  {
    "level": 190,
-   "salePrice": "10514989696120",
+   "salePrice": 1017730551960,
    "value": 9.5,
    "unitName": "%"
  },
  {
    "level": 191,
-   "salePrice": "10755678005982",
+   "salePrice": 1043169236741,
    "value": 9.55,
    "unitName": "%"
  },
  {
    "level": 192,
-   "salePrice": "11846634840040",
+   "salePrice": 1082274581221,
    "value": 9.6,
    "unitName": "%"
  },
  {
    "level": 193,
-   "salePrice": "12114675004894",
+   "salePrice": 1108987197445,
    "value": 9.65,
    "unitName": "%"
  },
  {
    "level": 194,
-   "salePrice": "12387207601272",
+   "salePrice": 1136222490924,
    "value": 9.7,
    "unitName": "%"
  },
  {
    "level": 195,
-   "salePrice": "12664282152200",
+   "salePrice": 1178072089277,
    "value": 9.75,
    "unitName": "%"
  },
  {
    "level": 196,
-   "salePrice": "12945948449616",
+   "salePrice": 1206647472116,
    "value": 9.8,
    "unitName": "%"
  },
  {
    "level": 197,
-   "salePrice": "13232256554370",
+   "salePrice": 1235772441137,
    "value": 9.85,
    "unitName": "%"
  },
  {
    "level": 198,
-   "salePrice": "13523256796224",
+   "salePrice": 1280507568553,
    "value": 9.9,
    "unitName": "%"
  },
  {
    "level": 199,
-   "salePrice": "14806071186270",
+   "salePrice": 1311041024250,
    "value": 9.95,
    "unitName": "%"
  },
  {
    "level": 200,
-   "salePrice": "15128074665900",
+   "salePrice": 1342151878228,
    "value": 10,
    "unitName": "%"
  },
  {
    "level": 201,
-   "salePrice": "15455268938235",
+   "salePrice": 1389918551525,
    "value": 10.05,
    "unitName": "%"
  },
  {
    "level": 202,
-   "salePrice": "15835631988375",
+   "salePrice": 1422508565936,
    "value": 10.1,
    "unitName": "%"
  },
  {
    "level": 203,
-   "salePrice": "16222929471795",
+   "salePrice": 1472532693775,
    "value": 10.15,
    "unitName": "%"
  },
  {
    "level": 204,
-   "salePrice": "16617244555215",
+   "salePrice": 1523948972959,
    "value": 10.2,
    "unitName": "%"
  },
  {
    "level": 205,
-   "salePrice": "17018660896875",
+   "salePrice": 1559014082812,
    "value": 10.25,
    "unitName": "%"
  },
  {
    "level": 206,
-   "salePrice": "18589080156304",
+   "salePrice": 1612814657751,
    "value": 10.3,
    "unitName": "%"
  },
  {
    "level": 207,
-   "salePrice": "19032676741840",
+   "salePrice": 1668084874443,
    "value": 10.35,
    "unitName": "%"
  },
  {
    "level": 208,
-   "salePrice": "19484118854928",
+   "salePrice": 1705762843350,
    "value": 10.4,
    "unitName": "%"
  },
  {
    "level": 209,
-   "salePrice": "19943497828176",
+   "salePrice": 1763548838417,
    "value": 10.45,
    "unitName": "%"
  },
  {
    "level": 210,
-   "salePrice": "20410905518480",
+   "salePrice": 1822884775378,
    "value": 10.5,
    "unitName": "%"
  },
  {
    "level": 211,
-   "salePrice": "20886434307024",
+   "salePrice": 1863318362019,
    "value": 10.55,
    "unitName": "%"
  },
  {
    "level": 212,
-   "salePrice": "22705813167985",
+   "salePrice": 1925306284326,
    "value": 10.6,
    "unitName": "%"
  },
  {
    "level": 213,
-   "salePrice": "23228616532821",
+   "salePrice": 1988927308158,
    "value": 10.65,
    "unitName": "%"
  },
  {
    "level": 214,
-   "salePrice": "23760346371897",
+   "salePrice": 2032264354761,
    "value": 10.7,
    "unitName": "%"
  },
  {
    "level": 215,
-   "salePrice": "24301103068445",
+   "salePrice": 2098678378208,
    "value": 10.75,
    "unitName": "%"
  },
  {
    "level": 216,
-   "salePrice": "24850987562753",
+   "salePrice": 2166811572075,
    "value": 10.8,
    "unitName": "%"
  },
  {
    "level": 217,
-   "salePrice": "25410101352165",
+   "salePrice": 2213205092886,
    "value": 10.85,
    "unitName": "%"
  },
  {
    "level": 218,
-   "salePrice": "27506696284674",
+   "salePrice": 2284277190875,
    "value": 10.9,
    "unitName": "%"
  },
  {
    "level": 219,
-   "salePrice": "28118568272778",
+   "salePrice": 2357157487205,
    "value": 10.95,
    "unitName": "%"
  },
  {
    "level": 220,
-   "salePrice": "28740538397970",
+   "salePrice": 2406765756962,
    "value": 11,
    "unitName": "%"
  },
  {
    "level": 221,
-   "salePrice": "29372716487322",
+   "salePrice": 2482735835107,
    "value": 11.05,
    "unitName": "%"
  },
  {
    "level": 222,
-   "salePrice": "30015212957729",
+   "salePrice": 2560606148305,
    "value": 11.1,
    "unitName": "%"
  },
  {
    "level": 223,
-   "salePrice": "30668138815913",
+   "salePrice": 2613592790716,
    "value": 11.15,
    "unitName": "%"
  },
  {
    "level": 224,
-   "salePrice": "31331605658417",
+   "salePrice": 2694708819549,
    "value": 11.2,
    "unitName": "%"
  },
  {
    "level": 225,
-   "salePrice": "33783821542254",
+   "salePrice": 2777820178712,
    "value": 11.25,
    "unitName": "%"
  },
  {
    "level": 226,
-   "salePrice": "34506756722330",
+   "salePrice": 2834354254921,
    "value": 11.3,
    "unitName": "%"
  },
  {
    "level": 227,
-   "salePrice": "35241175621574",
+   "salePrice": 2920872402610,
    "value": 11.35,
    "unitName": "%"
  },
  {
    "level": 228,
-   "salePrice": "35987198526706",
+   "salePrice": 3009484084228,
    "value": 11.4,
    "unitName": "%"
  },
  {
    "level": 229,
-   "salePrice": "36744946347038",
+   "salePrice": 3069740181295,
    "value": 11.45,
    "unitName": "%"
  },
  {
    "level": 230,
-   "salePrice": "37514540614474",
+   "salePrice": 3161924946348,
    "value": 11.5,
    "unitName": "%"
  },
  {
    "level": 231,
-   "salePrice": "40311687877379",
+   "salePrice": 3256304607025,
    "value": 11.55,
    "unitName": "%"
  },
  {
    "level": 232,
-   "salePrice": "41147113401299",
+   "salePrice": 3320462926396,
    "value": 11.6,
    "unitName": "%"
  },
  {
    "level": 233,
-   "salePrice": "41995396586659",
+   "salePrice": 3418587270375,
    "value": 11.65,
    "unitName": "%"
  },
  {
    "level": 234,
-   "salePrice": "42856667983219",
+   "salePrice": 3519011079531,
    "value": 11.7,
    "unitName": "%"
  },
  {
    "level": 235,
-   "salePrice": "43731058796099",
+   "salePrice": 3587257525513,
    "value": 11.75,
    "unitName": "%"
  },
  {
    "level": 236,
-   "salePrice": "44618700885779",
+   "salePrice": 3691603005743,
    "value": 11.8,
    "unitName": "%"
  },
  {
    "level": 237,
-   "salePrice": "47795713106504",
+   "salePrice": 3798355778327,
    "value": 11.85,
    "unitName": "%"
  },
  {
    "level": 238,
-   "salePrice": "48755983094972",
+   "salePrice": 3870882046562,
    "value": 11.9,
    "unitName": "%"
  },
  {
    "level": 239,
-   "salePrice": "49730586413360",
+   "salePrice": 3981738948841,
    "value": 11.95,
    "unitName": "%"
  },
  {
    "level": 240,
-   "salePrice": "50719664267684",
+   "salePrice": 4095114278046,
    "value": 12,
    "unitName": "%"
  },
  {
    "level": 241,
-   "salePrice": "51723358552088",
+   "salePrice": 4172117943983,
    "value": 12.05,
    "unitName": "%"
  },
  {
    "level": 242,
-   "salePrice": "52741811848844",
+   "salePrice": 4289785415294,
    "value": 12.1,
    "unitName": "%"
  },
  {
    "level": 243,
-   "salePrice": "56335889686845",
+   "salePrice": 4410085805258,
    "value": 12.15,
    "unitName": "%"
  },
  {
    "level": 244,
-   "salePrice": "57434215403861",
+   "salePrice": 4491770412629,
    "value": 12.2,
    "unitName": "%"
  },
  {
    "level": 245,
-   "salePrice": "58548455384429",
+   "salePrice": 4616556593848,
    "value": 12.25,
    "unitName": "%"
  },
  {
    "level": 246,
-   "salePrice": "59678761884037",
+   "salePrice": 4744093592375,
    "value": 12.3,
    "unitName": "%"
  },
  {
    "level": 247,
-   "salePrice": "60825287879069",
+   "salePrice": 4830668741666,
    "value": 12.35,
    "unitName": "%"
  },
  {
    "level": 248,
-   "salePrice": "61988187066805",
+   "salePrice": 4962890900275,
    "value": 12.4,
    "unitName": "%"
  },
  {
    "level": 249,
-   "salePrice": "63167613865421",
+   "salePrice": 5097985231537,
    "value": 12.45,
    "unitName": "%"
  },
  {
    "level": 250,
-   "salePrice": "67289347205534",
+   "salePrice": 5189666668463,
    "value": 12.5,
    "unitName": "%"
  },
  {
    "level": 251,
-   "salePrice": "68557429371225",
+   "salePrice": 5329651331259,
    "value": 12.55,
    "unitName": "%"
  },
  {
    "level": 252,
-   "salePrice": "69843279236373",
+   "salePrice": 5472633028509,
    "value": 12.6,
    "unitName": "%"
  },
  {
    "level": 253,
-   "salePrice": "71147061252817",
+   "salePrice": 5569642732488,
    "value": 12.65,
    "unitName": "%"
  },
  {
    "level": 254,
-   "salePrice": "72468940626061",
+   "salePrice": 5717725818293,
    "value": 12.7,
    "unitName": "%"
  },
  {
    "level": 255,
-   "salePrice": "73809083315273",
+   "salePrice": 5868934356580,
    "value": 12.75,
    "unitName": "%"
  },
  {
    "level": 256,
-   "salePrice": "78435814991254",
+   "salePrice": 5971500629205,
    "value": 12.8,
    "unitName": "%"
  },
  {
    "level": 257,
-   "salePrice": "79872862170358",
+   "salePrice": 6128027581578,
    "value": 12.85,
    "unitName": "%"
  },
  {
    "level": 258,
-   "salePrice": "81329490965590",
+   "salePrice": 6287812010448,
    "value": 12.9,
    "unitName": "%"
  },
  {
    "level": 259,
-   "salePrice": "82805877697462",
+   "salePrice": 6396169563963,
    "value": 12.95,
    "unitName": "%"
  },
  {
    "level": 260,
-   "salePrice": "84302199472918",
+   "salePrice": 6561495483908,
    "value": 13,
    "unitName": "%"
  },
  {
    "level": 261,
-   "salePrice": "85818634185334",
+   "salePrice": 6730214560125,
    "value": 13.05,
    "unitName": "%"
  },
  {
    "level": 262,
-   "salePrice": "90995167202623",
+   "salePrice": 6844604605896,
    "value": 13.1,
    "unitName": "%"
  },
  {
    "level": 263,
-   "salePrice": "92617247840323",
+   "salePrice": 7019094384575,
    "value": 13.15,
    "unitName": "%"
  },
  {
    "level": 264,
-   "salePrice": "94260840286023",
+   "salePrice": 7197116704823,
    "value": 13.2,
    "unitName": "%"
  },
  {
    "level": 265,
-   "salePrice": "95926133122123",
+   "salePrice": 7317787041813,
    "value": 13.25,
    "unitName": "%"
  },
  {
    "level": 266,
-   "salePrice": "97613315750223",
+   "salePrice": 7501815493255,
    "value": 13.3,
    "unitName": "%"
  },
  {
    "level": 267,
-   "salePrice": "99322578391123",
+   "salePrice": 7689519626851,
    "value": 13.35,
    "unitName": "%"
  },
  {
    "level": 268,
-   "salePrice": "105096276568215",
+   "salePrice": 7816724730094,
    "value": 13.4,
    "unitName": "%"
  },
  {
    "level": 269,
-   "salePrice": "106920433038143",
+   "salePrice": 8010676723905,
    "value": 13.45,
    "unitName": "%"
  },
  {
    "level": 270,
-   "salePrice": "108768151322087",
+   "salePrice": 8208451345514,
    "value": 13.5,
    "unitName": "%"
  },
  {
    "level": 271,
-   "salePrice": "110639632657551",
+   "salePrice": 8342452454587,
    "value": 13.55,
    "unitName": "%"
  },
  {
    "level": 272,
-   "salePrice": "112535079134007",
+   "salePrice": 8546723048662,
    "value": 13.6,
    "unitName": "%"
  },
  {
    "level": 273,
-   "salePrice": "114454693692895",
+   "salePrice": 8754967070998,
    "value": 13.65,
    "unitName": "%"
  },
  {
    "level": 274,
-   "salePrice": "116398680127623",
+   "salePrice": 8896032278497,
    "value": 13.7,
    "unitName": "%"
  },
  {
    "level": 275,
-   "salePrice": "122919829356012",
+   "salePrice": 9111026851728,
    "value": 13.75,
    "unitName": "%"
  },
  {
    "level": 276,
-   "salePrice": "124989841444920",
+   "salePrice": 9330149558275,
    "value": 13.8,
    "unitName": "%"
  },
  {
    "level": 277,
-   "salePrice": "127085802992772",
+   "salePrice": 9478553898286,
    "value": 13.85,
    "unitName": "%"
  },
  {
    "level": 278,
-   "salePrice": "129207929170128",
+   "salePrice": 9704688283275,
    "value": 13.9,
    "unitName": "%"
  },
  {
    "level": 279,
-   "salePrice": "131356436032284",
+   "salePrice": 9935109460989,
    "value": 13.95,
    "unitName": "%"
  },
  {
    "level": 280,
-   "salePrice": "133531540519271",
+   "salePrice": 10091134997563,
    "value": 14,
    "unitName": "%"
  },
  {
    "level": 281,
-   "salePrice": "140760625657928",
+   "salePrice": 10328835613331,
    "value": 14.05,
    "unitName": "%"
  },
  {
    "level": 282,
-   "salePrice": "143072133609016",
+   "salePrice": 10570985685353,
    "value": 14.1,
    "unitName": "%"
  },
  {
    "level": 283,
-   "salePrice": "145411904711720",
+   "salePrice": 10734921600980,
    "value": 14.15,
    "unitName": "%"
  },
  {
    "level": 284,
-   "salePrice": "147780167610904",
+   "salePrice": 10984625585677,
    "value": 14.2,
    "unitName": "%"
  },
  {
    "level": 285,
-   "salePrice": "150177151868936",
+   "salePrice": 11238945744048,
    "value": 14.25,
    "unitName": "%"
  },
  {
    "level": 286,
-   "salePrice": "152603087965688",
+   "salePrice": 11411088428129,
    "value": 14.3,
    "unitName": "%"
  },
  {
    "level": 287,
-   "salePrice": "160596000416341",
+   "salePrice": 11673243771746,
    "value": 14.35,
    "unitName": "%"
  },
  {
    "level": 288,
-   "salePrice": "163169268688873",
+   "salePrice": 11940186110109,
    "value": 14.4,
    "unitName": "%"
  },
  {
    "level": 289,
-   "salePrice": "165773244629884",
+   "salePrice": 12120839247431,
    "value": 14.45,
    "unitName": "%"
  },
  {
    "level": 290,
-   "salePrice": "168408170751760",
+   "salePrice": 12395904924509,
    "value": 14.5,
    "unitName": "%"
  },
  {
    "level": 291,
-   "salePrice": "171074290517156",
+   "salePrice": 12675932570825,
    "value": 14.55,
    "unitName": "%"
  },
  {
    "level": 292,
-   "salePrice": "173771848339000",
+   "salePrice": 12865407230036,
    "value": 14.6,
    "unitName": "%"
  },
  {
    "level": 293,
-   "salePrice": "182587334048785",
+   "salePrice": 13153853332375,
    "value": 14.65,
    "unitName": "%"
  },
  {
    "level": 294,
-   "salePrice": "185443717815625",
+   "salePrice": 13447440581635,
    "value": 14.7,
    "unitName": "%"
  },
  {
    "level": 295,
-   "salePrice": "188333388130945",
+   "salePrice": 13646055303713,
    "value": 14.75,
    "unitName": "%"
  },
  {
    "level": 296,
-   "salePrice": "191256601767865",
+   "salePrice": 13948363173087,
    "value": 14.8,
    "unitName": "%"
  },
  {
    "level": 297,
-   "salePrice": "194213616482545",
+   "salePrice": 14255995620016,
    "value": 14.85,
    "unitName": "%"
  },
  {
    "level": 298,
-   "salePrice": "197204691014184",
+   "salePrice": 14464076506746,
    "value": 14.9,
    "unitName": "%"
  },
  {
    "level": 299,
-   "salePrice": "200230085085024",
+   "salePrice": 14780738867610,
    "value": 14.95,
    "unitName": "%"
  },
  {
    "level": 300,
-   "salePrice": "213454562370361",
+   "salePrice": 15102913539382,
    "value": 15,
    "unitName": "%"
  },
  {
    "level": 301,
-   "salePrice": "216704119430887",
+   "salePrice": 15320794341831,
    "value": 15.05,
    "unitName": "%"
  },
  {
    "level": 302,
-   "salePrice": "220403943921288",
+   "salePrice": 15652315434030,
    "value": 15.1,
    "unitName": "%"
  },
  {
    "level": 303,
-   "salePrice": "224150813428809",
+   "salePrice": 15989540922979,
    "value": 15.15,
    "unitName": "%"
  },
  {
    "level": 304,
-   "salePrice": "227945123867153",
+   "salePrice": 16332543973150,
    "value": 15.2,
    "unitName": "%"
  },
  {
    "level": 305,
-   "salePrice": "242824761984512",
+   "salePrice": 16681398370709,
    "value": 15.25,
    "unitName": "%"
  },
  {
    "level": 306,
-   "salePrice": "246900405146465",
+   "salePrice": 17036178526136,
    "value": 15.3,
    "unitName": "%"
  },
  {
    "level": 307,
-   "salePrice": "251027003024021",
+   "salePrice": 17396959476849,
    "value": 15.35,
    "unitName": "%"
  },
  {
    "level": 308,
-   "salePrice": "255204977312333",
+   "salePrice": 17763816889834,
    "value": 15.4,
    "unitName": "%"
  },
  {
    "level": 309,
-   "salePrice": "259434751438657",
+   "salePrice": 18136827064263,
    "value": 15.45,
    "unitName": "%"
  },
  {
    "level": 310,
-   "salePrice": "263716750562356",
+   "salePrice": 18516066934123,
    "value": 15.5,
    "unitName": "%"
  },
  {
    "level": 311,
-   "salePrice": "280235556191935",
+   "salePrice": 18901614070838,
    "value": 15.55,
    "unitName": "%"
  },
  {
    "level": 312,
-   "salePrice": "284822730058924",
+   "salePrice": 19293546685893,
    "value": 15.6,
    "unitName": "%"
  },
  {
    "level": 313,
-   "salePrice": "289465847106179",
+   "salePrice": 19691943633461,
    "value": 15.65,
    "unitName": "%"
  },
  {
    "level": 314,
-   "salePrice": "294165359061831",
+   "salePrice": 20096884413025,
    "value": 15.7,
    "unitName": "%"
  },
  {
    "level": 315,
-   "salePrice": "298921719464847",
+   "salePrice": 20508449172004,
    "value": 15.75,
    "unitName": "%"
  },
  {
    "level": 316,
-   "salePrice": "316941269911335",
+   "salePrice": 20926718708375,
    "value": 15.8,
    "unitName": "%"
  },
  {
    "level": 317,
-   "salePrice": "322024496163146",
+   "salePrice": 21351774473300,
    "value": 15.85,
    "unitName": "%"
  },
  {
    "level": 318,
-   "salePrice": "327168473645510",
+   "salePrice": 21783698573749,
    "value": 15.9,
    "unitName": "%"
  },
  {
    "level": 319,
-   "salePrice": "332373683174750",
+   "salePrice": 22222573775126,
    "value": 15.95,
    "unitName": "%"
  },
  {
    "level": 320,
-   "salePrice": "337640607456758",
+   "salePrice": 22668483503890,
    "value": 16,
    "unitName": "%"
  },
  {
    "level": 321,
-   "salePrice": "342969731086994",
+   "salePrice": 23121511850184,
    "value": 16.05,
    "unitName": "%"
  },
  {
    "level": 322,
-   "salePrice": "362876604740089",
+   "salePrice": 23581743570456,
    "value": 16.1,
    "unitName": "%"
  },
  {
    "level": 323,
-   "salePrice": "368558879397739",
+   "salePrice": 24049264090084,
    "value": 16.15,
    "unitName": "%"
  },
  {
    "level": 324,
-   "salePrice": "374307471213739",
+   "salePrice": 24524159506001,
    "value": 16.2,
    "unitName": "%"
  },
  {
    "level": 325,
-   "salePrice": "380122892848226",
+   "salePrice": 25006516589319,
    "value": 16.25,
    "unitName": "%"
  },
  {
    "level": 326,
-   "salePrice": "386005658929638",
+   "salePrice": 25496422787954,
    "value": 16.3,
    "unitName": "%"
  },
  {
    "level": 327,
-   "salePrice": "391956286054713",
+   "salePrice": 25993966229250,
    "value": 16.35,
    "unitName": "%"
  },
  {
    "level": 328,
-   "salePrice": "413894304500027",
+   "salePrice": 26499235722604,
    "value": 16.4,
    "unitName": "%"
  },
  {
    "level": 329,
-   "salePrice": "420225727650872",
+   "salePrice": 27012320762088,
    "value": 16.45,
    "unitName": "%"
  },
  {
    "level": 330,
-   "salePrice": "426629350351139",
+   "salePrice": 27533311529077,
    "value": 16.5,
    "unitName": "%"
  },
  {
    "level": 331,
-   "salePrice": "433105718049562",
+   "salePrice": 28062298894871,
    "value": 16.55,
    "unitName": "%"
  },
  {
    "level": 332,
-   "salePrice": "439655378241910",
+   "salePrice": 28599374423319,
    "value": 16.6,
    "unitName": "%"
  },
  {
    "level": 333,
-   "salePrice": "463443452796788",
+   "salePrice": 29144630373447,
    "value": 16.65,
    "unitName": "%"
  },
  {
    "level": 334,
-   "salePrice": "470398960031475",
+   "salePrice": 29698159702076,
    "value": 16.7,
    "unitName": "%"
  },
  {
    "level": 335,
-   "salePrice": "477432297116634",
+   "salePrice": 30260056066453,
    "value": 16.75,
    "unitName": "%"
  },
  {
    "level": 336,
-   "salePrice": "484544041108617",
+   "salePrice": 30830413826873,
    "value": 16.8,
    "unitName": "%"
  },
  {
    "level": 337,
-   "salePrice": "491734771189540",
+   "salePrice": 31409328049301,
    "value": 16.85,
    "unitName": "%"
  },
  {
    "level": 338,
-   "salePrice": "499005068667284",
+   "salePrice": 31996894507999,
    "value": 16.9,
    "unitName": "%"
  },
  {
    "level": 339,
-   "salePrice": "525109425011623",
+   "salePrice": 32593209688151,
    "value": 16.95,
    "unitName": "%"
  },
  {
    "level": 340,
-   "salePrice": "532815838772599",
+   "salePrice": 33198370788484,
    "value": 17,
    "unitName": "%"
  },
  {
    "level": 341,
-   "salePrice": "540606588611401",
+   "salePrice": 33812475723898,
    "value": 17.05,
    "unitName": "%"
  },
  {
    "level": 342,
-   "salePrice": "548482286183814",
+   "salePrice": 34435623128082,
    "value": 17.1,
    "unitName": "%"
  },
  {
    "level": 343,
-   "salePrice": "556443545350122",
+   "salePrice": 35067912356149,
    "value": 17.15,
    "unitName": "%"
  },
  {
    "level": 344,
-   "salePrice": "584651374395641",
+   "salePrice": 35709443487251,
    "value": 17.2,
    "unitName": "%"
  },
  {
    "level": 345,
-   "salePrice": "593076115461171",
+   "salePrice": 36360317327208,
    "value": 17.25,
    "unitName": "%"
  },
  {
    "level": 346,
-   "salePrice": "601591394942765",
+   "salePrice": 37020635411132,
    "value": 17.3,
    "unitName": "%"
  },
  {
    "level": 347,
-   "salePrice": "610197857757196",
+   "salePrice": 37690500006052,
    "value": 17.35,
    "unitName": "%"
  },
  {
    "level": 348,
-   "salePrice": "618896151104470",
+   "salePrice": 38370014113534,
    "value": 17.4,
    "unitName": "%"
  },
  {
    "level": 349,
-   "salePrice": "627686924467817",
+   "salePrice": 39059281472314,
    "value": 17.45,
    "unitName": "%"
  },
  {
    "level": 350,
-   "salePrice": "658521547876239",
+   "salePrice": 39758406560912,
    "value": 17.5,
    "unitName": "%"
  },
  {
    "level": 351,
-   "salePrice": "667808814405308",
+   "salePrice": 40467494600264,
    "value": 17.55,
    "unitName": "%"
  },
  {
    "level": 352,
-   "salePrice": "677193779725898",
+   "salePrice": 41186651556346,
    "value": 17.6,
    "unitName": "%"
  },
  {
    "level": 353,
-   "salePrice": "686677125165052",
+   "salePrice": 41915984142792,
    "value": 17.65,
    "unitName": "%"
  },
  {
    "level": 354,
-   "salePrice": "696259534411777",
+   "salePrice": 42655599823526,
    "value": 17.7,
    "unitName": "%"
  },
  {
    "level": 355,
-   "salePrice": "729473083300938",
+   "salePrice": 43405606815383,
    "value": 17.75,
    "unitName": "%"
  },
  {
    "level": 356,
-   "salePrice": "739581767256882",
+   "salePrice": 44166114090732,
    "value": 17.8,
    "unitName": "%"
  },
  {
    "level": 357,
-   "salePrice": "749794951227382",
+   "salePrice": 44937231380102,
    "value": 17.85,
    "unitName": "%"
  },
  {
    "level": 358,
-   "salePrice": "760113351453845",
+   "salePrice": 45719069174810,
    "value": 17.9,
    "unitName": "%"
  },
  {
    "level": 359,
-   "salePrice": "770537686618369",
+   "salePrice": 46511738729576,
    "value": 17.95,
    "unitName": "%"
  },
  {
    "level": 360,
-   "salePrice": "781068677843746",
+   "salePrice": 47315352065159,
    "value": 18,
    "unitName": "%"
  },
  {
    "level": 361,
-   "salePrice": "817245985748085",
+   "salePrice": 48130021970971,
    "value": 18.05,
    "unitName": "%"
  },
  {
    "level": 362,
-   "salePrice": "828339122757861",
+   "salePrice": 48955862007709,
    "value": 18.1,
    "unitName": "%"
  },
  {
    "level": 363,
-   "salePrice": "839544604617573",
+   "salePrice": 49792986509975,
    "value": 18.15,
    "unitName": "%"
  },
  {
    "level": 364,
-   "salePrice": "850863185789733",
+   "salePrice": 50641510588902,
    "value": 18.2,
    "unitName": "%"
  },
  {
    "level": 365,
-   "salePrice": "862295623256277",
+   "salePrice": 51501550134778,
    "value": 18.25,
    "unitName": "%"
  },
  {
    "level": 366,
-   "salePrice": "901150260159771",
+   "salePrice": 52373221819671,
    "value": 18.3,
    "unitName": "%"
  },
  {
    "level": 367,
-   "salePrice": "913177142209800",
+   "salePrice": 53256643100053,
    "value": 18.35,
    "unitName": "%"
  },
  {
    "level": 368,
-   "salePrice": "925323796065214",
+   "salePrice": 54151932219425,
    "value": 18.4,
    "unitName": "%"
  },
  {
    "level": 369,
-   "salePrice": "937591012756256",
+   "salePrice": 55059208210939,
    "value": 18.45,
    "unitName": "%"
  },
  {
    "level": 370,
-   "salePrice": "949979585911330",
+   "salePrice": 55978590900026,
    "value": 18.5,
    "unitName": "%"
  },
  {
    "level": 371,
-   "salePrice": "962490311756993",
+   "salePrice": 56910200907018,
    "value": 18.55,
    "unitName": "%"
  },
  {
    "level": 372,
-   "salePrice": "1004673200909410",
+   "salePrice": 57854159649772,
    "value": 18.6,
    "unitName": "%"
  },
  {
    "level": 373,
-   "salePrice": "1017817220005490",
+   "salePrice": 58810589346298,
    "value": 18.65,
    "unitName": "%"
  },
  {
    "level": 374,
-   "salePrice": "1031089570514080",
+   "salePrice": 59779613017377,
    "value": 18.7,
    "unitName": "%"
  },
  {
    "level": 375,
-   "salePrice": "1044491083497350",
+   "salePrice": 61091449342793,
    "value": 18.75,
    "unitName": "%"
  },
  {
    "level": 376,
-   "salePrice": "1058022592694400",
+   "salePrice": 62426190934505,
    "value": 18.8,
    "unitName": "%"
  },
  {
    "level": 377,
-   "salePrice": "1071684934521180",
+   "salePrice": 63784136106980,
    "value": 18.85,
    "unitName": "%"
  },
  {
    "level": 378,
-   "salePrice": "1117404799484380",
+   "salePrice": 65165585750563,
    "value": 18.9,
    "unitName": "%"
  },
  {
    "level": 379,
-   "salePrice": "1131740930262580",
+   "salePrice": 66570843342527,
    "value": 18.95,
    "unitName": "%"
  },
  {
    "level": 380,
-   "salePrice": "1146214341272050",
+   "salePrice": 68000214958136,
    "value": 19,
    "unitName": "%"
  },
  {
    "level": 381,
-   "salePrice": "1160825904551700",
+   "salePrice": 69454009281703,
    "value": 19.05,
    "unitName": "%"
  },
  {
    "level": 382,
-   "salePrice": "1175576494896070",
+   "salePrice": 70932537617651,
    "value": 19.1,
    "unitName": "%"
  },
  {
    "level": 383,
-   "salePrice": "1224480332422600",
+   "salePrice": 72436113901570,
    "value": 19.15,
    "unitName": "%"
  },
  {
    "level": 384,
-   "salePrice": "1239941077441900",
+   "salePrice": 73965054711277,
    "value": 19.2,
    "unitName": "%"
  },
  {
    "level": 385,
-   "salePrice": "1255547538099860",
+   "salePrice": 75519679277878,
    "value": 19.25,
    "unitName": "%"
  },
  {
    "level": 386,
-   "salePrice": "1271300625522560",
+   "salePrice": 77100309496821,
    "value": 19.3,
    "unitName": "%"
  },
  {
    "level": 387,
-   "salePrice": "1287201253670400",
+   "salePrice": 78707269938961,
    "value": 19.35,
    "unitName": "%"
  },
  {
    "level": 388,
-   "salePrice": "1303250339338180",
+   "salePrice": 80340887861616,
    "value": 19.4,
    "unitName": "%"
  },
  {
    "level": 389,
-   "salePrice": "1356100157770430",
+   "salePrice": 82001493219628,
    "value": 19.45,
    "unitName": "%"
  },
  {
    "level": 390,
-   "salePrice": "1372903052489500",
+   "salePrice": 83689418676420,
    "value": 19.5,
    "unitName": "%"
  },
  {
    "level": 391,
-   "salePrice": "1389861372810880",
+   "salePrice": 85404999615059,
    "value": 19.55,
    "unitName": "%"
  },
  {
    "level": 392,
-   "salePrice": "1406976072648210",
+   "salePrice": 87148574149311,
    "value": 19.6,
    "unitName": "%"
  },
  {
    "level": 393,
-   "salePrice": "1424248108828210",
+   "salePrice": 88920483134702,
    "value": 19.65,
    "unitName": "%"
  },
  {
    "level": 394,
-   "salePrice": "1480642723282300",
+   "salePrice": 90721070179578,
    "value": 19.7,
    "unitName": "%"
  },
  {
    "level": 395,
-   "salePrice": "1498707708631400",
+   "salePrice": 92550681656163,
    "value": 19.75,
    "unitName": "%"
  },
  {
    "level": 396,
-   "salePrice": "1516937248668330",
+   "salePrice": 94409666711618,
    "value": 19.8,
    "unitName": "%"
  },
  {
    "level": 397,
-   "salePrice": "1535332338047260",
+   "salePrice": 96298377279102,
    "value": 19.85,
    "unitName": "%"
  },
  {
    "level": 398,
-   "salePrice": "1553893974414170",
+   "salePrice": 98217168088829,
    "value": 19.9,
    "unitName": "%"
  },
  {
    "level": 399,
-   "salePrice": "1572623158406840",
+   "salePrice": 100166396679128,
    "value": 19.95,
    "unitName": "%"
  },
  {
    "level": 400,
-   "salePrice": "1633403022435280",
+   "salePrice": 102146423407505,
    "value": 20,
    "unitName": "%"
  }

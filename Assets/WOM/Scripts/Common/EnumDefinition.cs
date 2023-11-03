@@ -65,6 +65,37 @@ public class EnumDefinition
         pattern_18,
     }
 
+    public enum QusetPatternType
+    {
+
+        // Q_001 ~ Q_022
+        Q_001,
+        Q_002,
+        Q_003,
+        Q_004,
+        Q_005,
+        Q_006,
+        Q_007,
+        Q_008,
+        Q_009,
+        Q_010,
+        Q_011,
+        Q_012,
+        Q_013,
+        Q_014,
+        Q_015,
+        Q_016,
+        Q_017,
+        Q_018,
+        Q_019,
+        Q_020,
+        Q_021,
+        Q_022,
+        Q_023,
+        Q_024,
+        Q_025,
+    }
+
     public enum CustomDataType
     {
         button,
@@ -427,6 +458,8 @@ public class EnumDefinition
         adOffline,
         adDungeon,
     }
+
+
 
     public enum StageNameType
     {

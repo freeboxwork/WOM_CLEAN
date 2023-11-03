@@ -1,0 +1,47 @@
+{"data":[
+ {
+   "objectName": "menu_training_panel",
+   "id": 0
+ },
+ {
+   "objectName": "menu_skill_panel",
+   "id": 1
+ },
+ {
+   "objectName": "SUMMON_POPUP",
+   "id": 2
+ },
+ {
+   "objectName": "DUNGEON_POPUP",
+   "id": 3
+ },
+ {
+   "objectName": "BUFF_POPUP",
+   "id": 4
+ },
+ {
+   "objectName": "QUEST_POPUP",
+   "id": 5
+ },
+ {
+   "objectName": "menu_evolution_panel",
+   "id": 6
+ },
+ {
+   "objectName": "menu_union_panel",
+   "id": 7
+ },
+ {
+   "objectName": "MINE_POPUP",
+   "id": 8
+ },
+ {
+   "objectName": "FACTORY_POPUP ",
+   "id": 9
+ },
+ {
+   "objectName": "LAB_POPUP",
+   "id": 10
+ }
+]
+}

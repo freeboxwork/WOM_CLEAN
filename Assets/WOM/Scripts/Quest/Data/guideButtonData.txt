@@ -1,0 +1,79 @@
+{"data":[
+ {
+   "objectName": "goldMonsterIcon",
+   "id": 0
+ },
+ {
+   "objectName": "boss_challange_button",
+   "id": 1
+ },
+ {
+   "objectName": "menu_training_button",
+   "id": 2
+ },
+ {
+   "objectName": "menu_skill_button",
+   "id": 3
+ },
+ {
+   "objectName": "skillBtn_CryOfBattle",
+   "id": 4
+ },
+ {
+   "objectName": "summon_button",
+   "id": 5
+ },
+ {
+   "objectName": "menu_union_button",
+   "id": 6
+ },
+ {
+   "objectName": "castle_button",
+   "id": 7
+ },
+ {
+   "objectName": "buff_button",
+   "id": 8
+ },
+ {
+   "objectName": "skillBtn_OrderToPlay",
+   "id": 9
+ },
+ {
+   "objectName": "skillBtn_Gallop",
+   "id": 10
+ },
+ {
+   "objectName": "TapBtnOneDayMenuText",
+   "id": 11
+ },
+ {
+   "objectName": "TapBtnBattlePassMenuText",
+   "id": 12
+ },
+ {
+   "objectName": "TapBtnAttendMenuText",
+   "id": 13
+ },
+ {
+   "objectName": "skillBtn_BigInsect",
+   "id": 14
+ },
+ {
+   "objectName": "menu_evolution_button",
+   "id": 15
+ },
+ {
+   "objectName": "evolutionDiceButton",
+   "id": 16
+ },
+ {
+   "objectName": "skillBtn_FeastDay",
+   "id": 17
+ },
+ {
+   "objectName": "skillBtn_Frantic",
+   "id": 18
+ }
+]
+}

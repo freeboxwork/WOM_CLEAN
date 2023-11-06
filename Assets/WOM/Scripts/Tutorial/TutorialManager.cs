@@ -46,10 +46,10 @@ public class TutorialManager : MonoBehaviour
 
     public void TutorialStart()
     {
-                    isEndTutorial = true;
-            // 진화 진입 설명 박스 활성화
-            //evolutionInfoBox.SetActive(true);
-            bossToggleBox.SetActive(true);
+        isEndTutorial = true;
+        // 진화 진입 설명 박스 활성화
+        //evolutionInfoBox.SetActive(true);
+        bossToggleBox.SetActive(true);
         // max check
         // if (IsTutorialAllComplete() == false)
         // {

@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
-using System.Collections.Generic;
 
 public class AttackController : MonoBehaviour
 {
@@ -16,7 +15,7 @@ public class AttackController : MonoBehaviour
     bool insectAutoEnable = false;
 
 
-   void Start()
+    void Start()
     {
         insectManager = GlobalData.instance.insectManager;
     }
@@ -183,6 +182,9 @@ public class AttackController : MonoBehaviour
             worldPos = Camera.main.ScreenToWorldPoint(GetDownSideRandomPos());
 
         insectManager.EnableBullet(GetProbabilityInsectType(), worldPos);
+
+        // quest event
+        EventManager.instance.RunEvent(CallBackEventType.TYPES.OnQuestPattern_001);
     }
     bool IsHalfPoint(float pointY)
     {

@@ -346,6 +346,8 @@ public class EventController : MonoBehaviour
             globalData.bossChallengeTimer.StopBossTimer(true);
             //포기 버튼 게임오브젝트 비활성화
             globalData.uiController.ToggleEscapeBossButton(false);
+            //골드 몬스터 제거 퀘스트 이벤트 실행
+            EventManager.instance.RunEvent(CallBackEventType.TYPES.OnQuestPattern_002);
         }
 
         // HP Text 및 Slider 0으로 표시
@@ -524,6 +526,9 @@ public class EventController : MonoBehaviour
 
         // SET STAGE DATA ( 다음 스테이지로 변경 )
         var newStageIdx = globalData.player.stageIdx + 1;
+
+        // QUEST EVENT - 스테이지 완료
+        EventManager.instance.RunEvent(CallBackEventType.TYPES.OnQuestPattern_003);
 
         if (newStageIdx >= StaticDefine.MAX_STAGE)
         {

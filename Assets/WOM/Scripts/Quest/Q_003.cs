@@ -1,10 +1,10 @@
 /// <summary>
-/// 곤충 생성을 optionValue_1(targetCount) 만큼 하고 완료. 완료시 targetCount 리셋
+/// 현재 스테이지가 tagetStage 보다 크면 완료
 /// </summary>
-public class Q_001 : QusetPatternBase
-{
-    int targetCount = 0;
 
+public class Q_003 : QusetPatternBase
+{
+    int targetStage = 0;
 
     void Start()
     {
@@ -13,16 +13,15 @@ public class Q_001 : QusetPatternBase
 
     void AddEvent()
     {
-        EventManager.instance.AddCallBackEvent(CallBackEventType.TYPES.OnQuestPattern_001, BirthInsect);
+        EventManager.instance.AddCallBackEvent(CallBackEventType.TYPES.OnQuestPattern_003, CheckEvent);
     }
 
-    public void BirthInsect()
+    void CheckEvent()
     {
+
         if (enableEvent)
         {
-            targetCount--;
-            //TODO: UI UPDATE
-            if (targetCount <= 0)
+            if (GlobalData.instance.player.stageIdx >= targetStage)
             {
                 StepClear();
             }
@@ -33,11 +32,12 @@ public class Q_001 : QusetPatternBase
     {
         SetGoalData(stepData);
         EnableEvent(true);
+        CheckEvent();
     }
 
     public override void SetGoalData(QusetStepData stepData)
     {
-        targetCount = int.Parse(stepData.optionValue_1);
+        targetStage = int.Parse(stepData.optionValue_1);
     }
 
     public override void StepClear()
@@ -49,8 +49,6 @@ public class Q_001 : QusetPatternBase
 
     public override void ResetGoalData()
     {
-        targetCount = 0;
+        targetStage = 0;
     }
-
-
 }

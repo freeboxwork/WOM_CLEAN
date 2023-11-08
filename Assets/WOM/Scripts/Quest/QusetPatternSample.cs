@@ -1,18 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+/// <summary>
+/// 
+/// </summary>
 
-public class QusetPatternSample : MonoBehaviour
+public class QusetPatternSample : QusetPatternBase
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public override void EventStart(QusetStepData stepData)
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void SetGoalData(QusetStepData stepData)
     {
-        
+
+    }
+
+    public override void StepClear()
+    {
+
+    }
+
+    public override void ResetGoalData()
+    {
+
     }
 }

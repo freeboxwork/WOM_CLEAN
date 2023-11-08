@@ -31,6 +31,14 @@ public class CallBackEventType
         OnMonsterKillBossMonster,       /// <summary> 튜토리얼 - 보스 몬스터를 처치 했을때 </summary>
         OnMonsterKillFailedBossMonster,  /// <summary> 튜토리얼 - 보스 몬스터를 처치 실패 했을때 </summary>   
         OnTutorialUnionGamblingEnd,      /// <summary> 튜토리얼 - 유니온 갬블링 종료 했을때 </summary>
+
+
+        /* QUEST EVENTS */
+        OnQuestPattern_001,             /// <summary> 퀘스트 - 곤충 생성 했을때 </summary>
+        OnQuestPattern_002,             /// <summary> 퀘스트 - 금광 몬스터 처치 했을때 </summary>  
+        OnQuestPattern_003,             /// <summary> 퀘스트 - 스테이지 도달 했을때 </summary>
+
+
         None,
     }
 }

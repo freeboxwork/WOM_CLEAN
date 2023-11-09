@@ -13,7 +13,7 @@ public class TraningManager : MonoBehaviour
     [SerializeField]
     List<GameObject> subPanels = new List<GameObject>();
 
-     // 저장된 게임 데이터 로드 및 세팅
+    // 저장된 게임 데이터 로드 및 세팅
     IEnumerator LoadInGameData()
     {
 
@@ -143,7 +143,7 @@ public class TraningManager : MonoBehaviour
             txtPower = UtilityMethod.FormatDoubleToOneDecimal(inGameData.value);
         }
 
-        var txtPowerValue = string.Format("{0}{1}",txtPower,inGameData.unitName);
+        var txtPowerValue = string.Format("{0}{1}", txtPower, inGameData.unitName);
 
         var de = inGameData.description.Replace("<Power>", $"<#40ff80>{txtPowerValue}</color>");
 
@@ -156,7 +156,7 @@ public class TraningManager : MonoBehaviour
 
         // max stat
         var lastData = GlobalData.instance.dataManager.GetSaleStatDataByType(statType).data.Last();
-        
+
         if (inGameData.level == lastData.level)
         {
             SetUI_Max(statType);
@@ -189,6 +189,9 @@ public class TraningManager : MonoBehaviour
     public void SetInGameStatLevel(SaleStatType statType, int level)
     {
         GetTraningInGameData(statType).level = level;
+
+        // QUEST EVENT
+        EventManager.instance.RunEvent(CallBackEventType.TYPES.OnQuestPattern_004);
     }
 
     public double GetInGameStatValue(SaleStatType statType)

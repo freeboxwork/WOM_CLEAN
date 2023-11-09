@@ -37,6 +37,10 @@ public class CallBackEventType
         OnQuestPattern_001,             /// <summary> 퀘스트 - 곤충 생성 했을때 </summary>
         OnQuestPattern_002,             /// <summary> 퀘스트 - 금광 몬스터 처치 했을때 </summary>  
         OnQuestPattern_003,             /// <summary> 퀘스트 - 스테이지 도달 했을때 </summary>
+        OnQuestPattern_004,             /// <summary> 퀘스트 - 훈련 레벨 도달 했을때 </summary>
+        OnQuestPattern_005,             /// <summary> 퀘스트 - 몬스터 처치 했을때 </summary>
+
+
 
 
         None,

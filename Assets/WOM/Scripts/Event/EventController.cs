@@ -413,6 +413,9 @@ public class EventController : MonoBehaviour
 
         //몬스터가 죽은 후 몬스터 타입에 따른 후처리
         DieMonster(currentMonster.monsterType);
+
+        // QUEST EVENT - 몬스터 사망
+        EventManager.instance.RunEvent(CallBackEventType.TYPES.OnQuestPattern_005);
     }
 
 

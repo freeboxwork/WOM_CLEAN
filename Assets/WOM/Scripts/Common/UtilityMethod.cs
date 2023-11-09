@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -65,6 +64,12 @@ public static class UtilityMethod
         {
             Debug.LogError($"Custom Type Object - Text - {id} 오브젝트가 없습니다.");
         }
+    }
+
+    // string to enum type
+    public static T GetEnumType<T>(string value)
+    {
+        return (T)System.Enum.Parse(typeof(T), value);
     }
 
     // public static void SetTxtsCustomTypeByIDs(int[] ids, float[] values)
@@ -194,10 +199,10 @@ public static class UtilityMethod
         string _fillZeroFormat = string.Format(FillZeroFormat, _fillZero);
         return _value.ToString(_fillZeroFormat);
     }
-    
+
     public static string ChangeSymbolNumber(float number)
     {
-        var n =  Mathf.Round(number);
+        var n = Mathf.Round(number);
         var s = n.ToString("#,##0");
         Infinite value = s.ToInfinite();
         //return value.ToStringLong ();//10억이후 Symbol

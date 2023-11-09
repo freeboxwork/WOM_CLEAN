@@ -39,6 +39,7 @@ public class CallBackEventType
         OnQuestPattern_003,             /// <summary> 퀘스트 - 스테이지 도달 했을때 </summary>
         OnQuestPattern_004,             /// <summary> 퀘스트 - 훈련 레벨 도달 했을때 </summary>
         OnQuestPattern_005,             /// <summary> 퀘스트 - 몬스터 처치 했을때 </summary>
+        OnQuestPattern_006,             /// <summary> 퀘스트 - 스킬 획득 했을때 </summary>
 
 
 

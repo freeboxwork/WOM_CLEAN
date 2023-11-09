@@ -25,6 +25,11 @@ public class SkillManager : MonoBehaviour
         btn.skillReady = true;
     }
 
+    public Skill_InGameData GetSkill_InGameDataByType(SkillType skillType)
+    {
+        return skill_InGameDatas.FirstOrDefault(f => f.skillType == skillType);
+    }
+
     public IEnumerator Init()
     {
         SetSkillInGameData();
@@ -160,6 +165,7 @@ public class SkillManager : MonoBehaviour
         if (isPaySkill)
         {
 
+
             // 구매
             GlobalData.instance.player.PayGold(skillPrice);
             //Debug.Log($" {skillData.name} 스킬을 구매 하였습니다.");
@@ -215,6 +221,9 @@ public class SkillManager : MonoBehaviour
             {
                 slot.MaxStat();
             }
+
+            // QUEST EVENT
+            EventManager.instance.RunEvent(CallBackEventType.TYPES.OnQuestPattern_006);
         }
         else
         {

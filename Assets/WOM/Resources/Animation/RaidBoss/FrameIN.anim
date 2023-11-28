@@ -11541,7 +11541,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Body_1/L_Back0/L_Back1/L_Back2/L_Back3
+    path: Body_1/Head_1/R_Teeth
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -11551,7 +11551,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Body_1/L_Back0/L_Back1/L_Back2/L_Back3
+    path: Body_1/Head_1/R_Teeth
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -11561,7 +11561,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Body_1/L_Back0/L_Back1/L_Back2/L_Back3
+    path: Body_1/Head_1/R_Teeth
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -11661,7 +11661,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Body_1/L_Back0/L_Back1/L_Back2/L_Back3/L_Back4
+    path: Body_1/L_Back0/L_Back1/L_Back2/L_Back3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -11671,7 +11671,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Body_1/L_Back0/L_Back1/L_Back2/L_Back3/L_Back4
+    path: Body_1/L_Back0/L_Back1/L_Back2/L_Back3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -11681,7 +11681,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Body_1/L_Back0/L_Back1/L_Back2/L_Back3/L_Back4
+    path: Body_1/L_Back0/L_Back1/L_Back2/L_Back3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -11751,7 +11751,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Body_1/L_Back0/L_Back1/L_Back2/L_Back3/L_Back4/L_Back_Weapon
+    path: Body_1/L_Back0/L_Back1/L_Back2/L_Back3/L_Back4
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -11761,7 +11761,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Body_1/L_Back0/L_Back1/L_Back2/L_Back3/L_Back4/L_Back_Weapon
+    path: Body_1/L_Back0/L_Back1/L_Back2/L_Back3/L_Back4
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -11771,7 +11771,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Body_1/L_Back0/L_Back1/L_Back2/L_Back3/L_Back4/L_Back_Weapon
+    path: Body_1/L_Back0/L_Back1/L_Back2/L_Back3/L_Back4
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -11841,7 +11841,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Body_1/R_Back0/R_Back1/R_Back2/R_Back3
+    path: Body_1/L_Back0/L_Back1/L_Back2/L_Back3/L_Back4/L_Back_Weapon
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -11851,7 +11851,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Body_1/R_Back0/R_Back1/R_Back2/R_Back3
+    path: Body_1/L_Back0/L_Back1/L_Back2/L_Back3/L_Back4/L_Back_Weapon
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -11861,7 +11861,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Body_1/R_Back0/R_Back1/R_Back2/R_Back3
+    path: Body_1/L_Back0/L_Back1/L_Back2/L_Back3/L_Back4/L_Back_Weapon
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -12141,7 +12141,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Body_1/R_Back0/R_Back1/R_Back2/R_Back3/R_Back4
+    path: Body_1/R_Back0/R_Back1/R_Back2/R_Back3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -12151,7 +12151,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Body_1/R_Back0/R_Back1/R_Back2/R_Back3/R_Back4
+    path: Body_1/R_Back0/R_Back1/R_Back2/R_Back3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -12161,7 +12161,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Body_1/R_Back0/R_Back1/R_Back2/R_Back3/R_Back4
+    path: Body_1/R_Back0/R_Back1/R_Back2/R_Back3
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -12200,8 +12200,8 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.x
-    path: Body_1/R_Back0/R_Back1/R_Back2/R_Back3/R_Back4/R_Back_Weapon
+    attribute: m_LocalEulerAngles.z
+    path: Body_1/R_Back0/R_Back1/R_Back2/R_Back3/R_Back4
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -12211,7 +12211,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Body_1/R_Back0/R_Back1/R_Back2/R_Back3/R_Back4/R_Back_Weapon
+    path: Body_1/R_Back0/R_Back1/R_Back2/R_Back3/R_Back4
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -12220,8 +12220,8 @@ AnimationClip:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    attribute: m_LocalEulerAngles.z
-    path: Body_1/R_Back0/R_Back1/R_Back2/R_Back3/R_Back4/R_Back_Weapon
+    attribute: m_LocalEulerAngles.x
+    path: Body_1/R_Back0/R_Back1/R_Back2/R_Back3/R_Back4
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -12321,7 +12321,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Body_1/Head_1/R_Teeth
+    path: Body_1/R_Back0/R_Back1/R_Back2/R_Back3/R_Back4/R_Back_Weapon
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -12331,7 +12331,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Body_1/Head_1/R_Teeth
+    path: Body_1/R_Back0/R_Back1/R_Back2/R_Back3/R_Back4/R_Back_Weapon
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -12341,9 +12341,44 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Body_1/Head_1/R_Teeth
+    path: Body_1/R_Back0/R_Back1/R_Back2/R_Back3/R_Back4/R_Back_Weapon
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 1.5333333
+    functionName: SetChangeSpriteOrder
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 14
+    messageOptions: 0
+  - time: 2
+    functionName: PlayEffectTails
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 4.5
+    functionName: SetChangeSpriteOrder
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 1
+    messageOptions: 0
+  - time: 5
+    functionName: PlayEffectHands
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 8
+    functionName: PlayEffectHead
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

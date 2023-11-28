@@ -10,6 +10,9 @@ public class SortLayerChange : MonoBehaviour
     //[SerializeField] int finalOrder = 1;
     private int order = 0;
 
+    [Header("0,1 : 꼬리, 2, 3 : 앞다리, 4 : 입")]
+    public GameObject[] particleEffects = new GameObject[5];    
+
     private void Start()
     {
         foreGroundSpriteObject.sortingOrder = startOrder;
@@ -19,5 +22,21 @@ public class SortLayerChange : MonoBehaviour
     {
         foreGroundSpriteObject.sortingOrder = i;
     }
+
+    public void PlayEffectTails()
+    {
+        particleEffects[0].SetActive(true);
+        particleEffects[1].SetActive(true);
+    }
+
+    public void PlayEffectHands()
+    {
+        particleEffects[2].SetActive(true);
+        particleEffects[3].SetActive(true);
+    }
     
+    public void PlayEffectHead()
+    {
+        particleEffects[4].SetActive(true);
+    }
 }
